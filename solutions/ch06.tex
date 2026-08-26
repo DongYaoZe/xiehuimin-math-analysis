@@ -688,15 +688,26 @@ $n=1$ 时直接成立。若对 $n$ 成立，则 $F_{n+1}=xF_n$，由 Leibniz 公
 
 \paragraph{练习题 9}
 \begin{xsolution}
-对极坐标曲线 $\rho=\rho(\theta)$，若切线与径向的夹角为 $\psi$，由参数方程可得
+由上一题的公式，Archimedes 螺线 $\rho=a\theta$ 的切线斜率为
 \[
-  \tan\psi=\frac{\rho}{\rho'}.
+  m_1=\frac{\sin\theta+\theta\cos\theta}{\cos\theta-\theta\sin\theta},
 \]
-对 $\rho=a\theta$ 有 $\tan\psi_1=\theta$；对 $\rho=a\theta^{-1}$ 有 $\tan\psi_2=-\theta$。通常取正半径时，两曲线相交要求 $a\theta=a/\theta$，故 $\theta=1$。于是
+双曲螺线 $\rho=a\theta^{-1}$ 的切线斜率为
 \[
-  \psi_1=\frac\pi4,\qquad \psi_2=-\frac\pi4,
+  m_2=\frac{\sin\theta-\theta\cos\theta}{\cos\theta+\theta\sin\theta}.
 \]
-两切线夹角为 $\pi/2$，故正交。
+两曲线在同一参数值处相交时
+\[
+  a\theta=\frac a\theta,
+\]
+故 $\theta^2=1$，即 $\theta=\pm1$（若约定极径只取正值，则只保留相应的交点）。在任一交点处，若两条切线斜率均有限，则
+\[
+  m_1m_2
+  =\frac{\sin^2\theta-\theta^2\cos^2\theta}
+  {\cos^2\theta-\theta^2\sin^2\theta}
+  =-1.
+\]
+若其中一个分母为零，则一条切线竖直，而由上式的分子、分母关系可知另一条切线水平。因此两曲线在各交点处的切线均正交。
 \end{xsolution}
 
 \paragraph{练习题 10}
@@ -731,26 +742,29 @@ $n=1$ 时直接成立。若对 $n$ 成立，则 $F_{n+1}=xF_n$，由 Leibniz 公
 
 \paragraph{练习题 11}
 \begin{xsolution}
-隐式求导得
+先设 $a\ne0$。在非奇异点隐式求导得
 \[
   y'=\frac{ay-x^2}{y^2-ax}.
 \]
-非奇异点有水平切线时 $ay-x^2=0$，即 $y=x^2/a$。代回原方程，
+有水平切线时 $ay-x^2=0$，即 $y=x^2/a$。代回原方程，
 \[
   x^3\left(\frac{x^3}{a^3}-2\right)=0.
 \]
-非零解为
+其中非零解给出
 \[
-  (x,y)=(a\sqrt[3]{2},a\sqrt[3]{4}).
+  (x,y)=(a\sqrt[3]{2},a\sqrt[3]{4}),
 \]
-原点是奇点；由参数式
+且此点 $y^2-ax=a^2\sqrt[3]{2}\ne0$，确为水平切点。
+
+原点是奇点，不能直接用上述导数公式判断。由参数式
 \[
   x=\frac{3at}{1+t^3},\qquad y=\frac{3at^2}{1+t^3}
 \]
-在 $t=0$ 的分支可见其切线为 $y=0$。因此在通常 $a\ne0$ 的情形，水平切线所在点为
+在 $t=0$ 的分支有 $x'(0)=3a\ne0,y'(0)=0$，故该分支在原点的切线为 $y=0$。因此当 $a\ne0$ 时，水平切线所在点为
 \[
   \boxed{(0,0),\quad(a\sqrt[3]{2},a\sqrt[3]{4})}.
 \]
+若 $a=0$，原方程化为 $x^3+y^3=0$，即直线 $y=-x$，没有水平切线。
 \end{xsolution}
 
 \paragraph{练习题 12}
@@ -1192,6 +1206,8 @@ $n=1$ 时直接成立。若对 $n$ 成立，则 $F_{n+1}=xF_n$，由 Leibniz 公
 \]
 故切线与 $x$ 轴夹角 $\alpha$ 满足 $\tan\alpha=1/t$。
 
+当 $t=0$ 时，$P$ 是抛物线顶点，切线为竖直线 $x=0$；从焦点射向顶点的射线沿对称轴入射，反射后仍沿对称轴，结论成立。以下设 $t\ne0$。
+
 直线 $FP$ 的斜率为
 \[
   \frac{2pt}{pt^2-p}=\frac{2t}{t^2-1}.
@@ -1233,7 +1249,7 @@ $n=1$ 时直接成立。若对 $n$ 成立，则 $F_{n+1}=xF_n$，由 Leibniz 公
 
 \paragraph{第一组参考题 13}
 \begin{xsolution}
-参数方程为
+设 $a\ne0$。参数方程为
 \[
   x=a\left(\ln\tan\frac t2+\cos t\right),
   \qquad y=a\sin t.
@@ -1264,8 +1280,8 @@ $n=1$ 时直接成立。若对 $n$ 成立，则 $F_{n+1}=xF_n$，由 Leibniz 公
 于是
 \[
   PQ=\sqrt{(X-x)^2+y^2}
-  =a\sqrt{\cos^2t+\sin^2t}
-  =\boxed{a}.
+  =\abs{a}\sqrt{\cos^2t+\sin^2t}
+  =\boxed{\abs{a}}.
 \]
 故该长度为常数。
 \end{xsolution}
@@ -1489,9 +1505,42 @@ $n=1$ 时直接成立。若对 $n$ 成立，则 $F_{n+1}=xF_n$，由 Leibniz 公
 \end{xsolution}
 
 \paragraph{第二组参考题 2}
-% CHECK-SOLUTION: 本章题面只引用“例题 5.1.4 中的 Riemann 函数 R(x)”而未给出 R(x) 的定义；按本任务限制不得读取其他章节或猜测定义，因此无法可靠给出逐点不可导证明。
 \begin{xsolution}
-本题所需的 $R(x)$ 定义不在第6章题面中。由于不同教材中“Riemann 函数”可能指不同函数，而不可导性的证明取决于具体定义，本解答不作猜测。
+按所引用的定义，若 $x=p/q$ 是既约分数且 $q>0$，则
+\[
+  R(x)=\frac1q;
+\]
+若 $x$ 为无理数，则 $R(x)=0$。
+
+先设 $x_0=p_0/q_0$ 为有理数。取无理数列 $x_n\to x_0$，则 $R(x_n)=0$，而 $R(x_0)=1/q_0>0$，所以 $R$ 在 $x_0$ 不连续，因而不可能在 $x_0$ 可导。
+
+再设 $\alpha$ 为无理数。此时 $R(\alpha)=0$，且 $R(x)\ge0$，所以若 $R'(\alpha)$ 存在，则 $\alpha$ 是极小值点，必有
+\[
+  R'(\alpha)=0.
+\]
+下面证明这不可能。任取正整数 $N$，考察 $N+1$ 个小数部分
+\[
+  0,\{\alpha\},\{2\alpha\},\ldots,\{N\alpha\}.
+\]
+将 $[0,1)$ 等分为 $N$ 个小区间，由抽屉原理，存在 $0\le i<j\le N$，使得这两个小数部分落在同一小区间。令 $q=j-i$，则 $1\le q\le N$，并存在整数 $p$ 使
+\[
+  \abs{q\alpha-p}<\frac1N,
+  \qquad
+  \abs{\alpha-\frac pq}<\frac1{Nq}.
+\]
+将 $p/q$ 约成既约分数 $p_*/q_*$，则 $q_*\le q$，且
+\[
+  \abs{\frac{p_*}{q_*}-\alpha}<\frac1{Nq}.
+\]
+因此
+\[
+  \abs{\frac{R(p_*/q_*)-R(\alpha)}{p_*/q_*-\alpha}}
+  =\frac{1/q_*}{\abs{p_*/q_*-\alpha}}
+  >N\frac q{q_*}\ge N.
+\]
+另一方面，上述有理数满足 $\abs{p_*/q_*-\alpha}<1/N$；令 $N\to\infty$ 可取到趋于 $\alpha$ 的有理数列，使差商的绝对值无界。这与 $R'(\alpha)=0$ 矛盾。
+
+故 $R$ 在有理点和无理点均不可导，即 $R(x)$ 处处不可导。
 \end{xsolution}
 
 \paragraph{第二组参考题 3}
@@ -1760,6 +1809,27 @@ $n=1$ 时直接成立。若对 $n$ 成立，则 $F_{n+1}=xF_n$，由 Leibniz 公
 \[
   \boxed{y^{(n)}(1)=4(n+1)^2n!}.
 \]
+
+另解\quad 令
+\[
+  Z(x)=(1-\sqrt{x})^{2n+2}.
+\]
+由于
+\[
+  Z(x)=\frac{(1-x)^{2n+2}}{(1+\sqrt{x})^{2n+2}},
+\]
+故 $Z$ 在 $x=1$ 有至少 $2n+2$ 阶零点，从而 $Z^{(n)}(1)=0$。另一方面，二项式展开中奇次幂相消，故
+\[
+  Y(x)+Z(x)
+  =2\sum_{k=0}^{n+1}\binom{2n+2}{2k}x^k.
+\]
+求 $n$ 阶导数后令 $x=1$，只有 $k=n,n+1$ 两项保留：
+\begin{align*}
+  Y^{(n)}(1)
+  &=(Y+Z)^{(n)}(1)\\
+  &=2\left[\binom{2n+2}{2n}n!+(n+1)!\right]\\
+  &=4(n+1)^2n!.
+\end{align*}
 \end{xsolution}
 
 \paragraph{第二组参考题 12}
@@ -1781,7 +1851,7 @@ $n=1$ 时直接成立。若对 $n$ 成立，则 $F_{n+1}=xF_n$，由 Leibniz 公
   \]
   所以 $\boxed{S(f,x)=0}$。
 
-  \item 令 $q=p'$。设 $q$ 的互异实根为 $r_1,\ldots,r_m$。由题设这些根都是简单根，故在 $q(x)\ne0$ 时
+  \item 若 $p$ 为一次多项式，则 $p'$ 为非零常数且 $S(p,x)=0$。以下按题意设 $q=p'$ 的次数为 $m\ge1$，且它的 $m$ 个根 $r_1,\ldots,r_m$ 均为互异实根。于是，在 $q(x)\ne0$ 时
   \[
     \frac{q'}q=\sum_{j=1}^m\frac1{x-r_j}.
   \]
