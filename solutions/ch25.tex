@@ -1,0 +1,1405 @@
+% 第25章 曲面积分：习题、练习与参考题解答
+
+\section*{25.1 第一型曲面积分}
+
+\subsection*{25.1.3 练习题}
+
+\paragraph{练习 1（1）}
+\begin{xsolution}
+在上半锥面上取柱坐标参数
+\[
+  x=r\cos\theta,\qquad y=r\sin\theta,\qquad z=r,
+  \qquad 0\le\theta\le2\pi.
+\]
+由球面条件
+\[
+  x^2+y^2+z^2=2r^2\le R^2
+\]
+知 $0\le r\le R/\sqrt2$。参数曲面的面积元为
+\[
+  \dd S=\sqrt2\,r\,\dd r\,\dd\theta.
+\]
+因此
+\begin{align*}
+\iint_S z^2\,\dd S
+&=\sqrt2\int_0^{2\pi}\int_0^{R/\sqrt2}r^3\,\dd r\,\dd\theta\\
+&=2\pi\sqrt2\cdot\frac14\left(\frac{R}{\sqrt2}\right)^4
+=\frac{\pi\sqrt2}{8}R^4.
+\end{align*}
+\end{xsolution}
+
+\paragraph{练习 1（2）}
+\begin{xsolution}
+令
+\[
+  \vect X(r,\theta)
+  =(r\sin\alpha\cos\theta,r\sin\alpha\sin\theta,r\cos\alpha).
+\]
+则
+\[
+  \left|\vect X_r\times\vect X_\theta\right|=r\sin\alpha
+\]
+（按通常球坐标约定 $0\le\alpha\le\pi$；若不作此约定，应写成 $r|\sin\alpha|$）。于是
+\begin{align*}
+\iint_S z^2\,\dd S
+&=\int_0^{2\pi}\int_0^a r^2\cos^2\alpha\,r\sin\alpha\,\dd r\,\dd\theta\\
+&=\frac{\pi a^4}{2}\sin\alpha\cos^2\alpha.
+\end{align*}
+\end{xsolution}
+
+\paragraph{练习 2}
+\begin{xsolution}
+在上半单位球面上，由关于 $xOz$、$yOz$ 平面的对称性，
+\[
+  \iint_Sx\,\dd S=\iint_Sy\,\dd S=0.
+\]
+取球坐标 $z=\cos\varphi$，$0\le\varphi\le\pi/2$，则
+\[
+  \dd S=\sin\varphi\,\dd\varphi\,\dd\theta.
+\]
+故
+\[
+  \iint_S(x+y+z)\,\dd S
+  =\int_0^{2\pi}\int_0^{\pi/2}\cos\varphi\sin\varphi\,\dd\varphi\,\dd\theta
+  =\pi.
+\]
+\end{xsolution}
+
+\paragraph{练习 3}
+\begin{xsolution}
+展开被积函数：
+\[
+  (x+y+z)^2=x^2+y^2+z^2+2xy+2yz+2zx.
+\]
+在单位球面上，三个交叉项的积分均由对称性为零，而
+\[
+  \iint_S(x^2+y^2+z^2)\,\dd S=\iint_S1\,\dd S=4\pi.
+\]
+所以
+\[
+  \iint_S(x+y+z)^2\,\dd S=4\pi.
+\]
+\end{xsolution}
+
+\paragraph{练习 4}
+\begin{xsolution}
+在锥面 $z^2=x^2+y^2$ 上，
+\begin{align*}
+&x^4-y^4+y^2z^2-z^2x^2+1\\
+&=x^4-y^4+y^2(x^2+y^2)-x^2(x^2+y^2)+1=1.
+\end{align*}
+柱面 $x^2+y^2=2x$ 在 $xOy$ 平面上的投影是圆盘
+\[
+  (x-1)^2+y^2\le1,
+\]
+面积为 $\pi$。锥面的上、下两叶均满足 $\dd S=\sqrt2\,\dd x\,\dd y$，故
+\[
+  \iint_S\dd S=2\sqrt2\,\pi.
+\]
+因此原积分为
+\[
+  \boxed{2\sqrt2\pi}.
+\]
+\end{xsolution}
+
+\paragraph{练习 5（1）}
+\begin{xsolution}
+由对称性，只需计算第一卦限内的三角形面
+\[
+  z=1-x-y,\qquad x\ge0,\ y\ge0,\ x+y\le1,
+\]
+再乘以 $8$。该面上 $\dd S=\sqrt3\,\dd x\,\dd y$，故
+\begin{align*}
+\iint_S|xyz|\,\dd S
+&=8\sqrt3\int_0^1\int_0^{1-x}xy(1-x-y)\,\dd y\,\dd x\\
+&=8\sqrt3\cdot\frac1{120}
+=\frac{\sqrt3}{15}.
+\end{align*}
+\end{xsolution}
+
+\paragraph{练习 5（2）}
+\begin{xsolution}
+令
+\[
+  x=r\cos\theta,\qquad y=r\sin\theta,\qquad z=r^2,
+  \qquad 0\le r\le1,\ 0\le\theta\le2\pi.
+\]
+则
+\[
+  \dd S=r\sqrt{1+4r^2}\,\dd r\,\dd\theta,
+\]
+且
+\[
+  |xyz|=r^4|\cos\theta\sin\theta|.
+\]
+利用
+\[
+  \int_0^{2\pi}|\cos\theta\sin\theta|\,\dd\theta=2,
+\]
+得到
+\[
+  I=2\int_0^1r^5\sqrt{1+4r^2}\,\dd r.
+\]
+令 $u=1+4r^2$，则
+\begin{align*}
+I
+&=\frac1{64}\int_1^5(u-1)^2u^{1/2}\,\dd u\\
+&=\frac1{64}\left[\frac27u^{7/2}-\frac45u^{5/2}+\frac23u^{3/2}\right]_1^5\\
+&=\frac{125\sqrt5-1}{420}.
+\end{align*}
+\end{xsolution}
+
+\paragraph{练习 6}
+\begin{xsolution}
+设 $a>0$。由八面对称性，在第一卦限只需计算
+\[
+  z=a-x-y,\qquad x\ge0,\ y\ge0,\ x+y\le a,
+\]
+其面积元为 $\sqrt3\,\dd x\,\dd y$。由单纯形积分
+\[
+  \int_0^a\int_0^{a-x}x^2\,\dd y\,\dd x
+  =\frac{a^4}{12},
+\]
+而 $x^2,y^2,z^2$ 的积分相同，故第一卦限一个面的积分为
+\[
+  \sqrt3\cdot3\frac{a^4}{12}=\frac{\sqrt3}{4}a^4.
+\]
+乘以 $8$ 得
+\[
+  \boxed{2\sqrt3\,a^4}.
+\]
+\end{xsolution}
+
+\paragraph{练习 7}
+\begin{xsolution}
+球面半径为 $|t|$。被积函数非零的部分满足
+\[
+  z\ge\sqrt{x^2+y^2},
+\]
+即球坐标中的 $0\le\varphi\le\pi/4$。在该球冠上
+\[
+  x^2+y^2=t^2\sin^2\varphi,\qquad
+  \dd S=t^2\sin\varphi\,\dd\varphi\,\dd\theta.
+\]
+所以
+\begin{align*}
+F(t)
+&=2\pi t^4\int_0^{\pi/4}\sin^3\varphi\,\dd\varphi\\
+&=2\pi t^4\left(\frac23-\frac{5\sqrt2}{12}\right)\\
+&=\frac{\pi}{6}(8-5\sqrt2)t^4.
+\end{align*}
+$t=0$ 时右端也为 $0$，故此式对所有实数 $t$ 均成立。
+\end{xsolution}
+
+\paragraph{练习 8}
+\begin{xsolution}
+记
+\[
+  d=\sqrt{x^2+y^2+z^2}>a.
+\]
+所求积分就是以定点 $(x,y,z)$ 为球心、半径为 $t$ 的球面落在球 $\xi^2+\eta^2+\zeta^2<a^2$ 内的面积。
+
+若 $t\le d-a$ 或 $t\ge d+a$，两球面没有形成正面积的相交球冠，故 $F=0$。若
+\[
+  d-a<t<d+a,
+\]
+取球面上从球心指向原点的方向为极轴，记极角为 $\theta$。球面上一点到原点的距离平方为
+\[
+  d^2+t^2-2dt\cos\theta.
+\]
+条件小于 $a^2$ 等价于
+\[
+  \cos\theta>\frac{d^2+t^2-a^2}{2dt}=:c.
+\]
+因此相交部分是球冠，其面积为
+\[
+  2\pi t^2(1-c)
+  =\frac{\pi t}{d}\bigl[a^2-(d-t)^2\bigr].
+\]
+故
+\[
+F(x,y,z,t)=
+\begin{cases}
+\dfrac{\pi t}{d}\bigl[a^2-(d-t)^2\bigr],&d-a<t<d+a,\\[5pt]
+0,&0<t\le d-a\text{ 或 }t\ge d+a.
+\end{cases}
+\]
+在相切情形边界圆面积为零，上式的分段取值一致。
+\end{xsolution}
+
+\paragraph{练习 9}
+\begin{xsolution}
+立体是第一卦限中的四面体，其表面由 $x=0,y=0,z=0$ 与 $x+y+z=1$ 四个面组成。
+
+在 $x=0$ 面上，
+\begin{align*}
+I_x
+&=\int_0^1\int_0^{1-y}\frac{\dd z\,\dd y}{(1+y)^2}
+=\int_0^1\frac{1-y}{(1+y)^2}\,\dd y
+=1-\ln2.
+\end{align*}
+在 $y=0$ 面上同样直接积分：
+\[
+I_y=\int_0^1\int_0^{1-x}\frac{\dd z\,\dd x}{(1+x)^2}
+=\int_0^1\frac{1-x}{(1+x)^2}\,\dd x
+=1-\ln2.
+\]
+
+在 $z=0$ 面上，以 $s=x+y$ 分层可得
+\[
+I_z=\int_0^1\frac{s}{(1+s)^2}\,\dd s
+=\ln2-\frac12.
+\]
+斜面 $z=1-x-y$ 的面积元为 $\sqrt3\,\dd x\,\dd y$，故
+\[
+I_{\text{斜面}}=\sqrt3\left(\ln2-\frac12\right).
+\]
+相加得到
+\[
+  \boxed{\frac{3-\sqrt3}{2}+(\sqrt3-1)\ln2}.
+\]
+\end{xsolution}
+
+\paragraph{练习 10}
+\begin{xsolution}
+柱面的柱线在 $xOy$ 平面上的极坐标方程为
+\[
+  r=2a\sin\theta,\qquad0\le\theta\le\pi.
+\]
+取参数
+\[
+  x=2a\sin\theta\cos\theta,\qquad
+  y=2a\sin^2\theta,\qquad
+  2a\sin\theta\le z\le2a.
+\]
+平面圆周的弧长元为 $2a\,\dd\theta$，所以柱面面积元为
+\[
+  \dd S=2a\,\dd\theta\,\dd z.
+\]
+于是
+\begin{align*}
+I
+&=2a^2\int_0^\pi|\sin2\theta|
+   \int_{2a\sin\theta}^{2a}\frac{\dd z}{z}\,\dd\theta\\
+&=2a^2\int_0^\pi|\sin2\theta|[-\ln(\sin\theta)]\,\dd\theta.
+\end{align*}
+由关于 $\pi/2$ 的对称性，
+\begin{align*}
+\int_0^\pi|\sin2\theta|[-\ln(\sin\theta)]\,\dd\theta
+&=2\int_0^{\pi/2}\sin2\theta[-\ln(\sin\theta)]\,\dd\theta\\
+&=\int_0^1-\ln u\,\dd u=1,
+\end{align*}
+其中令 $u=\sin^2\theta$。故
+\[
+  \boxed{I=2a^2}.
+\]
+\end{xsolution}
+
+\paragraph{练习 11}
+\begin{xsolution}
+在锥面 $z=\sqrt{x^2+y^2}=r$ 上，$0\le r\le1$，且
+\[
+  \dd S=\sqrt2\,r\,\dd r\,\dd\theta.
+\]
+因此
+\[
+  \iint_S(x^2+y^2)\,\dd S
+  =\sqrt2\int_0^{2\pi}\int_0^1r^3\,\dd r\,\dd\theta
+  =\frac{\pi\sqrt2}{2}.
+\]
+\end{xsolution}
+
+\section*{25.2 第二型曲面积分}
+
+\subsection*{25.2.3 练习题}
+
+\paragraph{练习 1}
+\begin{xsolution}
+用 $(x,y)$ 作为参数，
+\[
+  \vect X(x,y)=(x,y,z(x,y)).
+\]
+公式 (25.3) 中三个行列式为
+\[
+A=\frac{\partial(y,z)}{\partial(x,y)}=-z_x,
+\qquad
+B=\frac{\partial(z,x)}{\partial(x,y)}=-z_y,
+\qquad
+C=\frac{\partial(x,y)}{\partial(x,y)}=1.
+\]
+代入 (25.3) 即得
+\[
+  \iint_\Sigma P\,\dd y\,\dd z+Q\,\dd z\,\dd x+R\,\dd x\,\dd y
+  =\pm\iint_D(-Pz_x-Qz_y+R)\big|_{z=z(x,y)}\,\dd x\,\dd y.
+\]
+参数面积向量 $(-z_x,-z_y,1)$ 的第三分量为正，指向曲面的上侧，所以 $\Sigma$ 取上侧时取“$+$”，取下侧时取“$-$”。
+\end{xsolution}
+
+\paragraph{练习 2}
+\begin{xsolution}
+把 $\Sigma$ 分成上、下两部分 $\Sigma_1,\Sigma_2$。映射
+\[
+  T(x,y,z)=(x,y,-z)
+\]
+把 $\Sigma_1$ 等面积地映到 $\Sigma_2$，即 $\dd S$ 不变。又由条件
+\[
+  f(x,y,-z)=-f(x,y,z),
+\]
+故
+\[
+  \iint_{\Sigma_2}f\,\dd S=-\iint_{\Sigma_1}f\,\dd S.
+\]
+因此
+\[
+  \boxed{\iint_\Sigma f\,\dd S=0}.
+\]
+\end{xsolution}
+
+\paragraph{练习 3}
+\begin{xsolution}
+把第二型积分写成第一型积分：
+\[
+  \iint_\Sigma R\,\dd x\,\dd y
+  =\iint_\Sigma R\cos(\vect n,z)\,\dd S.
+\]
+在关于 $xOy$ 平面的反射下，取侧相一致意味着法向量的第三分量变号，因此
+\[
+  \cos(\vect n,z)(x,y,-z)=-\cos(\vect n,z)(x,y,z).
+\]
+同时 $R$ 也是关于 $z$ 的奇函数，所以乘积
+\[
+  R\cos(\vect n,z)
+\]
+在上下两部分取相同的值。故
+\[
+  \boxed{
+  \iint_\Sigma R\,\dd x\,\dd y
+  =2\iint_{\Sigma_1}R\,\dd x\,\dd y}.
+\]
+\end{xsolution}
+
+\paragraph{练习 4}
+\begin{xsolution}
+平面 $\Pi$ 上单位法向量 $\vect n$ 为常向量，且
+\[
+  \cos(\vect n,z)=\mu.
+\]
+平面面积元与其在 $xOy$ 平面的有向投影面积元满足
+\[
+  \dd x\,\dd y=\cos(\vect n,z)\,\dd S=\mu\,\dd S.
+\]
+由于题中取的是上侧，$\mu\ge0$。对 $\Sigma$ 积分即得其投影面积
+\[
+  S_{xy}=\iint_\Sigma\mu\,\dd S=\mu S.
+\]
+
+% CHECK-SOLUTION: 本题还要求“利用这个结果重新计算例题21.4.2”，但任务明确限定只读本章 chapters/ch25.tex；本章没有给出例题21.4.2的题面，无法在不猜测题意的前提下可靠复算。上面的投影面积结论已完整证明。
+\end{xsolution}
+
+\paragraph{练习 5}
+\begin{xsolution}
+球面取外侧。由 Gauss 公式，
+\[
+  I_1=\oiint_\Sigma z\,\dd x\,\dd y
+  =\iiint_{x^2+y^2+z^2\le a^2}1\,\dd x\,\dd y\,\dd z
+  =\frac{4\pi a^3}{3}.
+\]
+对第二个积分再次应用 Gauss 公式：
+\[
+  I_2=\oiint_\Sigma z^2\,\dd x\,\dd y
+  =\iiint_{x^2+y^2+z^2\le a^2}2z\,\dd x\,\dd y\,\dd z=0.
+\]
+最后一步由积分区域关于 $xOy$ 平面对称且被积函数 $2z$ 为奇函数得到。因此
+\[
+  \boxed{I_1=\frac{4\pi a^3}{3},\qquad I_2=0}.
+\]
+\end{xsolution}
+
+\paragraph{练习 6}
+\begin{xsolution}
+取参数
+\[
+  x=\cos\theta,\qquad y=\sin\theta,\qquad
+  -\frac\pi2\le\theta\le\frac\pi2,\quad -1\le z\le1.
+\]
+“前侧”对应 $x$ 分量为正的外法向量
+\[
+  \vect n=(\cos\theta,\sin\theta,0),
+\]
+且 $\dd S=\dd\theta\,\dd z$。令
+\[
+  \vect F=(xz,yz,yz).
+\]
+则原第二型积分为
+\[
+  \iint_S\vect F\cdot\vect n\,\dd S
+  =\int_{-\pi/2}^{\pi/2}\int_{-1}^{1}
+  z(\cos^2\theta+\sin^2\theta)\,\dd z\,\dd\theta=0.
+\]
+\end{xsolution}
+
+\paragraph{练习 7}
+\begin{xsolution}
+圆柱轴为 $x$ 轴。取
+\[
+  y=\sin\theta,\qquad z=\cos\theta,\qquad
+  -\frac\pi4\le\theta\le\frac\pi4,\qquad0\le x\le1,
+\]
+这正对应被 $z+y=0$、$z-y=0$ 截出的上方部分。外法向量为
+\[
+  \vect n=(0,y,z),
+\]
+且 $\dd S=\dd x\,\dd\theta$。令
+\[
+\vect F=\bigl(x(z^2-y^2),\ y(x^2-z^2),\ z(y^2-x^2)\bigr).
+\]
+则
+\[
+  \vect F\cdot\vect n=x^2(y^2-z^2)=-x^2\cos2\theta.
+\]
+因此
+\begin{align*}
+I
+&=-\int_0^1x^2\,\dd x\int_{-\pi/4}^{\pi/4}\cos2\theta\,\dd\theta
+=-\frac13.
+\end{align*}
+\end{xsolution}
+
+\section*{25.3 Gauss 公式与 Stokes 公式}
+
+\subsection*{25.3.2 Gauss 公式练习题}
+
+\paragraph{练习 1（1）}
+\begin{xsolution}
+令
+\[
+P=y(x-z),\qquad Q=z^2,
+\qquad R=y^2+xz.
+\]
+则
+\[
+  \frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z}=x+y.
+\]
+Gauss 公式给出外侧积分
+\[
+  \iiint_{[0,a]^3}(x+y)\,\dd x\,\dd y\,\dd z=a^4.
+\]
+题目取内侧，方向相反，故
+\[
+  \boxed{I=-a^4}.
+\]
+\end{xsolution}
+
+\paragraph{练习 1（2）}
+\begin{xsolution}
+球面可写成
+\[
+  x^2+y^2+(z-1)^2=1.
+\]
+令
+\[
+P=x^3+x,\qquad Q=y^2-xz,\qquad R=z^3+z.
+\]
+则
+\[
+  \operatorname{div}\vect F=3x^2+3z^2+2y+2.
+\]
+记 $w=z-1$。在单位球 $B$ 中，
+\[
+  \iiint_Bx^2\,\dd V=\iiint_Bw^2\,\dd V=\frac{4\pi}{15},
+  \qquad |B|=\frac{4\pi}{3},
+\]
+且奇函数项积分为零。因此
+\[
+  \iiint_Bz^2\,\dd V
+  =\iiint_B(w+1)^2\,\dd V
+  =\frac{4\pi}{15}+\frac{4\pi}{3}=\frac{8\pi}{5}.
+\]
+由 Gauss 公式
+\begin{align*}
+I
+&=3\frac{4\pi}{15}+3\frac{8\pi}{5}+2\frac{4\pi}{3}
+=\frac{124\pi}{15}.
+\end{align*}
+\end{xsolution}
+
+\paragraph{练习 1（3）}
+\begin{xsolution}
+题中被积向量正是
+\[
+  \left(
+  \frac{\partial A_3}{\partial y}-\frac{\partial A_2}{\partial z},
+  \frac{\partial A_1}{\partial z}-\frac{\partial A_3}{\partial x},
+  \frac{\partial A_2}{\partial x}-\frac{\partial A_1}{\partial y}
+  \right)=\nabla\times(A_1,A_2,A_3).
+\]
+由于 $A_1,A_2,A_3$ 是多项式，二阶偏导连续，故
+\[
+  \operatorname{div}(\nabla\times\vect A)=0.
+\]
+$\Sigma$ 为闭曲面且取外侧，由 Gauss 公式
+\[
+  \boxed{I=\iiint_\Omega0\,\dd V=0}.
+\]
+\end{xsolution}
+
+\paragraph{练习 2（1）}
+\begin{xsolution}
+把锥面与顶面圆盘 $D_h:z=h$ 合起来，围成
+\[
+  \Omega=\{0\le z\le h,\ x^2+y^2\le z^2\}.
+\]
+锥面的“下方”法向正是 $\Omega$ 的外法向。令
+\[
+  \vect F=(x^2,y^2,z^2),
+\]
+则
+\[
+  \operatorname{div}\vect F=2(x+y+z).
+\]
+由旋转对称性，$x,y$ 的体积分为零，所以
+\begin{align*}
+\iiint_\Omega\operatorname{div}\vect F\,\dd V
+&=2\int_0^h z\cdot\pi z^2\,\dd z
+=\frac{\pi h^4}{2}.
+\end{align*}
+顶面取上侧，通量为
+\[
+  \iint_{D_h}z^2\,\dd x\,\dd y=h^2\cdot\pi h^2=\pi h^4.
+\]
+故锥面上的所求积分为
+\[
+  \boxed{-\frac{\pi h^4}{2}}.
+\]
+\end{xsolution}
+
+\paragraph{练习 2（2）}
+\begin{xsolution}
+令 $\vect F=(x^3,y^3,z^3)$。在半径为 $a$ 的上半球体中，
+\[
+  \operatorname{div}\vect F=3(x^2+y^2+z^2)=3r^2.
+\]
+补上底面 $z=0$；该底面上 $F_z=z^3=0$，没有通量。因此
+\begin{align*}
+I
+&=\iiint_{B_a^+}3r^2\,\dd V
+=\frac12\int_0^a3r^2\cdot4\pi r^2\,\dd r
+=\frac{6\pi a^5}{5}.
+\end{align*}
+\end{xsolution}
+
+\paragraph{练习 2（3）}
+\begin{xsolution}
+设 $\Omega$ 为椭球内部的 $x\ge0$ 一半。题目取“后侧”，即法向量的 $x$ 分量为负，因而与椭球外法向相反。
+
+令
+\[
+\vect F=\left(\frac{x^3}{a^3}+y^3z^3,
+\frac{y^3}{b^3}+z^3x^3,
+\frac{z^3}{c^3}+x^3y^3\right).
+\]
+则
+\[
+  \operatorname{div}\vect F
+  =3\left(\frac{x^2}{a^3}+\frac{y^2}{b^3}+\frac{z^2}{c^3}\right).
+\]
+补上的平面 $x=0$ 上，外法向为 $(-1,0,0)$，而 $P=y^3z^3$ 的积分由对称性为零。因此椭球半面外侧通量等于上述散度的体积分。
+
+作变换
+\[
+  x=au,\qquad y=bv,\qquad z=cw.
+\]
+在半单位球 $u\ge0$ 中
+\[
+  \iiint u^2\,\dd u\,\dd v\,\dd w
+  =\iiint v^2\,\dd u\,\dd v\,\dd w
+  =\iiint w^2\,\dd u\,\dd v\,\dd w
+  =\frac{2\pi}{15}.
+\]
+所以外侧通量为
+\[
+  \frac{2\pi}{5}(bc+ca+ab).
+\]
+题目方向与此外侧相反，故
+\[
+  \boxed{I=-\frac{2\pi}{5}(ab+bc+ca)}.
+\]
+\end{xsolution}
+
+\paragraph{练习 3}
+\begin{xsolution}
+记锥体为 $\Omega$，锥底为 $G\subset\Pi$，锥侧为 $\Sigma$。对向量场
+\[
+  \vect F=(x,y,z)
+\]
+有 $\operatorname{div}\vect F=3$，故 Gauss 公式给出
+\[
+  3V=\oiint_{\partial\Omega}\vect F\cdot\vect n\,\dd S.
+\]
+由于 $F(x,y,z)=0$ 所定义的是以原点为顶点的锥面，锥侧上的每条母线都是从原点出发的射线，因此位置向量 $(x,y,z)$ 沿锥侧切向，故
+\[
+  \vect F\cdot\vect n=0\qquad\text{在 }\Sigma\text{ 上}.
+\]
+在锥底平面 $G$ 上，外单位法向量为常向量 $\vect n_0$，而原点到平面的距离为 $H$，于是
+\[
+  (x,y,z)\cdot\vect n_0=H
+\]
+（选择外法向后右端取正）。所以
+\[
+  3V=\iint_GH\,\dd S=HS,
+\]
+即
+\[
+  \boxed{V=\frac13SH}.
+\]
+\end{xsolution}
+
+\paragraph{练习 4}
+\begin{xsolution}
+用球坐标
+\[
+  x=\rho\sin\varphi\cos\theta,
+  \quad y=\rho\sin\varphi\sin\theta,
+  \quad z=\rho\cos\varphi.
+\]
+边界方程化为
+\[
+  \rho^2=a^2\sin^2\varphi\cos\theta\sin\theta.
+\]
+只有 $\cos\theta\sin\theta\ge0$ 的方向有非零半径，即第一、第三象限方向。于是径向上界为
+\[
+  \rho_{\max}=a\sin\varphi\sqrt{\cos\theta\sin\theta}.
+\]
+由球坐标体积公式
+\begin{align*}
+V
+&=\frac{a^3}{3}
+\int_0^\pi\sin^4\varphi\,\dd\varphi
+\left(2\int_0^{\pi/2}(\sin\theta\cos\theta)^{3/2}\,\dd\theta\right)\\
+&=\frac{a^3\pi}{8}B\left(\frac54,\frac54\right).
+\end{align*}
+利用
+\[
+  B\left(\frac54,\frac54\right)
+  =\frac{\Gamma(5/4)^2}{\Gamma(5/2)}
+  =\frac{\Gamma(1/4)^2}{12\sqrt\pi},
+\]
+得到
+\[
+  \boxed{V=\frac{a^3\sqrt\pi\,\Gamma(1/4)^2}{96}}.
+\]
+\end{xsolution}
+
+\paragraph{练习 5}
+\begin{xsolution}
+令
+\[
+P=x^3+y^3,\qquad Q=x^3+2x^2y,\qquad R=-x^2z.
+\]
+则
+\[
+  \operatorname{div}\vect F=3x^2+2x^2-x^2=4x^2.
+\]
+用 $z=0$ 与 $z=\sqrt3$ 两圆盘封闭双曲面侧面。区域的水平截面满足
+\[
+  x^2+y^2\le1+z^2.
+\]
+半径为 $R_0$ 的圆盘上
+\[
+  \iint x^2\,\dd x\,\dd y=\frac{\pi R_0^4}{4}.
+\]
+故闭曲面的总外通量为
+\begin{align*}
+\iiint_\Omega4x^2\,\dd V
+&=\pi\int_0^{\sqrt3}(1+z^2)^2\,\dd z\\
+&=\frac{24\pi\sqrt3}{5}.
+\end{align*}
+下底面 $z=0$ 的通量为零；上底面 $z=\sqrt3$ 上
+\[
+  \iint R\,\dd x\,\dd y
+  =-\sqrt3\iint_{x^2+y^2\le4}x^2\,\dd x\,\dd y
+  =-4\pi\sqrt3.
+\]
+所以题目所给双曲面侧面的外侧积分为
+\[
+  \boxed{\frac{24\pi\sqrt3}{5}+4\pi\sqrt3
+  =\frac{44\pi\sqrt3}{5}}.
+\]
+\end{xsolution}
+
+\paragraph{练习 6}
+\begin{xsolution}
+令
+\[
+  P=0,\qquad Q=yz,\qquad R=(x^2+y^2)z.
+\]
+则
+\[
+  \operatorname{div}\vect F=z+x^2+y^2.
+\]
+用柱坐标 $r^2=x^2+y^2$，区域为
+\[
+  0\le r\le1,\qquad r^2<z<1.
+\]
+由 Gauss 公式
+\begin{align*}
+I
+&=2\pi\int_0^1r\,\dd r\int_{r^2}^{1}(z+r^2)\,\dd z\\
+&=2\pi\int_0^1r\left(\frac12+r^2-\frac32r^4\right)\,\dd r
+=\frac\pi2.
+\end{align*}
+\end{xsolution}
+
+\paragraph{练习 7}
+\begin{xsolution}
+令
+\[
+  P=z,\qquad Q=\cos y,\qquad R=1.
+\]
+则
+\[
+  \operatorname{div}\vect F=-\sin y.
+\]
+单位球关于 $y=0$ 平面对称，而 $-\sin y$ 为奇函数，故由 Gauss 公式
+\[
+  \boxed{I=\iiint_{x^2+y^2+z^2\le1}(-\sin y)\,\dd V=0}.
+\]
+\end{xsolution}
+
+\subsection*{25.3.4 Stokes 公式练习题}
+
+\paragraph{练习 1}
+\begin{xsolution}
+记
+\[
+  \vect n=(\cos\alpha,\cos\beta,\cos\gamma),
+  \qquad \vect r=(x,y,z).
+\]
+题中行列式展开后正是
+\[
+  (\vect n\times\vect r)\cdot\dd\vect r.
+\]
+令 $\vect F=\vect n\times\vect r$。由于 $\vect n$ 为常单位向量，
+\[
+  \nabla\times\vect F=2\vect n.
+\]
+以 $C$ 所围的平面区域为 Stokes 曲面，其单位法向量就是 $\vect n$，所以
+\[
+  I=\iint_S(2\vect n)\cdot\vect n\,\dd S=2S.
+\]
+故
+\[
+  \boxed{I=2S}.
+\]
+\end{xsolution}
+
+\paragraph{练习 2}
+\begin{xsolution}
+令
+\[
+  \vect F=(y-z,z-x,x-y).
+\]
+则
+\[
+  \nabla\times\vect F=(-2,-2,-2).
+\]
+取平面
+\[
+  x+y+z=1
+\]
+内由 $C$ 围成的圆盘。由于从 $x$ 轴正向看 $C$ 为逆时针，取与之相容的单位法向量
+\[
+  \vect n=\frac1{\sqrt3}(1,1,1).
+\]
+该平面圆盘在 $xOy$ 平面的投影是单位圆盘，故其面积为 $\sqrt3\pi$。由 Stokes 公式
+\[
+  I=(-2,-2,-2)\cdot\frac{(1,1,1)}{\sqrt3}\cdot\sqrt3\pi
+  =-6\pi.
+\]
+\end{xsolution}
+
+\paragraph{练习 3}
+\begin{xsolution}
+令
+\[
+P=z^3+3x^2y,\qquad Q=x^3+3y^2z,\qquad R=y^3+3z^2x.
+\]
+直接计算有
+\[
+  \nabla\times(P,Q,R)=0.
+\]
+事实上可取势函数
+\[
+  \Phi(x,y,z)=xz^3+x^3y+y^3z,
+\]
+因为 $\dd\Phi=P\,\dd x+Q\,\dd y+R\,\dd z$。所以积分只由端点决定。两端点
+\[
+A=\left(\frac a{\sqrt2},\frac a{\sqrt2},0\right),
+\qquad
+B=\left(-\frac a{\sqrt2},-\frac a{\sqrt2},0\right)
+\]
+均满足
+\[
+  \Phi(A)=\Phi(B)=\frac{a^4}{4}.
+\]
+故
+\[
+  \boxed{\int_C P\,\dd x+Q\,\dd y+R\,\dd z=0}.
+\]
+\end{xsolution}
+
+\paragraph{练习 4}
+\begin{xsolution}
+令
+\[
+\begin{aligned}
+P&=\ee^{x+z}([(x+1)y^2+1]),\\
+Q&=2xy\ee^{x+z},\\
+R&=xy^2\ee^{x+z}.
+\end{aligned}
+\]
+则
+\[
+  \nabla\times\vect F=(0,\ee^{x+z},0).
+\]
+原路径 $C$ 位于平面 $y=z$，从
+\[
+  A=(-a,0,0)
+\]
+经 $(0,a,a)$ 到
+\[
+  B=(a,0,0).
+\]
+补上线段 $L$（从 $B$ 沿 $x$ 轴回到 $A$），得到闭曲线 $C+L$。取三角形
+\[
+  D=\{(x,y,y)\mid y\ge0,\ |x|+y\le a\}
+\]
+作为 Stokes 曲面。边界方向 $A\to(0,a,a)\to B\to A$ 对应单位法向量
+\[
+  \vect n=\frac1{\sqrt2}(0,1,-1).
+\]
+因此
+\begin{align*}
+\int_{C+L}\vect F\cdot\dd\vect r
+&=\iint_D\ee^{x+y}\,\dd x\,\dd y\\
+&=\int_{-a}^{a}\int_0^{a-|x|}\ee^{x+y}\,\dd y\,\dd x\\
+&=\left(a-\frac12\right)\ee^a+\frac12\ee^{-a}.
+\end{align*}
+在线段 $L$ 上，$y=z=0$，且方向为 $x:a\to-a$，所以
+\[
+  \int_L\vect F\cdot\dd\vect r
+  =\int_a^{-a}\ee^x\,\dd x=\ee^{-a}-\ee^a.
+\]
+故
+\[
+  \boxed{
+  \int_C\vect F\cdot\dd\vect r
+  =\left(a+\frac12\right)\ee^a-\frac12\ee^{-a}}.
+\]
+\end{xsolution}
+
+\paragraph{练习 5}
+\begin{xsolution}
+把积分拆成
+\[
+\oint_C f(x)\,\dd x+\oint_C g(y)\,\dd y+\oint_C h(z)\,\dd z
+-\oint_C\bigl(yz\,\dd x+xz\,\dd y+xy\,\dd z\bigr).
+\]
+由于 $f,g,h$ 连续，它们各有一元原函数，因此前三个闭路积分均为零。又
+\[
+  yz\,\dd x+xz\,\dd y+xy\,\dd z=\dd(xyz),
+\]
+所以最后一个闭路积分也为零。于是
+\[
+  \boxed{I=0}.
+\]
+这个证明只用了 $f,g,h$ 的连续性，不需要额外假定它们可微。
+\end{xsolution}
+
+\paragraph{练习 6}
+\begin{xsolution}
+令
+\[
+  \vect F=(x-z,x^3-yz,3xy^2).
+\]
+则
+\[
+  \nabla\times\vect F=(6xy+y,-1-3y^2,3x^2).
+\]
+半球面取下侧，因此单位法向量为
+\[
+  \vect n=-\frac1R(x,y,z).
+\]
+由关于 $y=0$ 及 $x=0$ 的对称性，点积中除 $3x^2z$ 外的各项积分都为零，所以
+\[
+I=-\frac3R\iint_\Sigma x^2z\,\dd S.
+\]
+在半径为 $R$ 的上半球面上取球坐标，
+\[
+  x=R\sin\varphi\cos\theta,\qquad
+  z=R\cos\varphi,\qquad
+  \dd S=R^2\sin\varphi\,\dd\varphi\,\dd\theta.
+\]
+于是
+\begin{align*}
+\iint_\Sigma x^2z\,\dd S
+&=R^5\int_0^{2\pi}\cos^2\theta\,\dd\theta
+\int_0^{\pi/2}\sin^3\varphi\cos\varphi\,\dd\varphi\\
+&=\frac{\pi R^5}{4}.
+\end{align*}
+故
+\[
+  \boxed{I=-\frac{3\pi R^4}{4}}.
+\]
+\end{xsolution}
+
+\paragraph{练习 7}
+\begin{xsolution}
+令 $\vect F=(y,z,x)$，则
+\[
+  \nabla\times\vect F=(-1,-1,-1).
+\]
+交线是过原点的平面 $x+y+z=0$ 与半径为 $a$ 的球面的交圆，故所围平面圆盘面积为 $\pi a^2$。从 $z$ 轴正向看为逆时针，故相容单位法向量取
+\[
+  \vect n=\frac1{\sqrt3}(1,1,1).
+\]
+由 Stokes 公式
+\[
+  \boxed{I=(-1,-1,-1)\cdot\vect n\,\pi a^2=-\sqrt3\pi a^2}.
+\]
+\end{xsolution}
+
+\subsection*{25.3.6 $\RR^3$ 中曲线积分与路径无关的条件：练习题}
+
+\paragraph{练习 1（1）}
+\begin{xsolution}
+令
+\[
+  P=x^2-2yz,\qquad Q=y^2-2xz,\qquad R=z^2-2xy.
+\]
+交叉偏导满足
+\[
+  P_y=Q_x=-2z,\qquad Q_z=R_y=-2x,\qquad R_x=P_z=-2y,
+\]
+故该微分式为全微分。对 $P$ 关于 $x$ 积分，
+\[
+  \varphi=\frac{x^3}{3}-2xyz+\psi(y,z).
+\]
+由 $\varphi_y=Q$ 得 $\psi_y=y^2$，故
+\[
+  \psi=\frac{y^3}{3}+\chi(z).
+\]
+再由 $\varphi_z=R$ 得 $\chi'(z)=z^2$。因此可取
+\[
+  \boxed{\varphi(x,y,z)=\frac{x^3+y^3+z^3}{3}-2xyz+C}.
+\]
+\end{xsolution}
+
+\paragraph{练习 1（2）}
+\begin{xsolution}
+在微分式有定义的每个连通区域
+\[
+  x\ne0,\qquad y\ne0,\qquad x^2\ne y^2
+\]
+内，注意到
+\[
+  \frac{\partial}{\partial x}\left(-\frac1{2(x^2-y^2)}\right)
+  =\frac{x}{(x^2-y^2)^2},
+\]
+\[
+  \frac{\partial}{\partial y}\left(-\frac1{2(x^2-y^2)}\right)
+  =-\frac{y}{(x^2-y^2)^2}.
+\]
+因此直接组合各项可得势函数
+\[
+\boxed{
+\varphi(x,y,z)
+=-\frac1{2(x^2-y^2)}-\ln|x|+\ln|y|
++\frac23x^3+\frac34y^4+\frac54z^4+C}.
+\]
+逐项求偏导即可恢复题给三个系数，故原微分式确为全微分。
+\end{xsolution}
+
+\paragraph{练习 2}
+\begin{xsolution}
+有
+\[
+  yz\,\dd x+xz\,\dd y+xy\,\dd z=\dd(xyz).
+\]
+因此积分只由端点决定：
+\[
+  \int_{(1,2,3)}^{(6,1,1)}yz\,\dd x+xz\,\dd y+xy\,\dd z
+  =6\cdot1\cdot1-1\cdot2\cdot3=0.
+\]
+\end{xsolution}
+
+\paragraph{练习 3}
+\begin{xsolution}
+由
+\[
+  r^2=x^2+y^2+z^2
+\]
+可得
+\[
+  r\,\dd r=x\,\dd x+y\,\dd y+z\,\dd z.
+\]
+所以
+\[
+  r^3(x\,\dd x+y\,\dd y+z\,\dd z)
+  =r^4\,\dd r
+  =\dd\left(\frac{r^5}{5}\right).
+\]
+起点在半径为 $a$ 的球面上，终点在半径为 $b$ 的球面上，故与具体路径及端点在各球面上的位置无关，并且
+\[
+  \boxed{\int_Cr^3(x\,\dd x+y\,\dd y+z\,\dd z)=\frac15(b^5-a^5)}.
+\]
+\end{xsolution}
+
+\section*{25.4 向量的外积、微分形式的外微分与一般 Stokes 公式}
+
+\subsection*{25.4.4 外微分性质的证明（原文“证明作为练习”）}
+
+\paragraph{性质 1}
+\begin{xsolution}
+先对单项形式证明。设
+\[
+  \omega=f\,\dd x_I,
+  \qquad \eta=g\,\dd x_J,
+  \qquad |I|=p,\ |J|=q.
+\]
+则
+\begin{align*}
+\dd(\omega\wedge\eta)
+&=\dd(fg)\wedge\dd x_I\wedge\dd x_J\\
+&=g\,\dd f\wedge\dd x_I\wedge\dd x_J
+ +f\,\dd g\wedge\dd x_I\wedge\dd x_J.
+\end{align*}
+第一项就是 $\dd\omega\wedge\eta$。在第二项中把 1-形式 $\dd g$ 越过 $p$ 个一次微分，得到符号 $(-1)^p$，故
+\[
+  f\,\dd g\wedge\dd x_I\wedge\dd x_J
+  =(-1)^p\omega\wedge\dd\eta.
+\]
+于是
+\[
+  \dd(\omega\wedge\eta)
+  =\dd\omega\wedge\eta+(-1)^p\omega\wedge\dd\eta.
+\]
+对一般有限和形式由线性性逐项相加即得结论。
+\end{xsolution}
+
+\paragraph{性质 2}
+\begin{xsolution}
+仍先设
+\[
+  \omega=f(x)\,\dd x_{i_1}\wedge\cdots\wedge\dd x_{i_p},
+\]
+其中 $f\in C^2$。则
+\[
+  \dd\omega=\sum_j f_{x_j}\,\dd x_j\wedge\dd x_{i_1}\wedge\cdots\wedge\dd x_{i_p},
+\]
+从而
+\[
+  \dd^2\omega
+  =\sum_{j,k}f_{x_kx_j}\,\dd x_k\wedge\dd x_j
+  \wedge\dd x_{i_1}\wedge\cdots\wedge\dd x_{i_p}.
+\]
+$j=k$ 时相应项因 $\dd x_j\wedge\dd x_j=0$ 而为零；$j\ne k$ 时，$(j,k)$ 与 $(k,j)$ 两项的系数因二阶混合偏导连续而相等，而外积满足
+\[
+  \dd x_k\wedge\dd x_j=-\dd x_j\wedge\dd x_k,
+\]
+故两项互相抵消。因此 $\dd^2\omega=0$。再由线性性可知任意 $C^2$ 类微分形式都满足
+\[
+  \boxed{\dd(\dd\omega)=0}.
+\]
+\end{xsolution}
+
+\section*{25.5 对于教学的建议}
+
+\subsection*{25.5.3 参考题}
+
+\paragraph{参考题 1}
+\begin{xsolution}
+平面
+\[
+  x+y+z=t
+\]
+到原点的距离为 $|t|/\sqrt3$。若 $|t|>\sqrt3$，平面与单位球不相交，所以积分为 $0$。
+
+以下设 $|t|\le\sqrt3$。平面内截得圆盘的圆心是
+\[
+  M_0=\left(\frac t3,\frac t3,\frac t3\right),
+\]
+半径为
+\[
+  \rho_0=\sqrt{1-\frac{t^2}{3}}.
+\]
+在平面内以 $M_0$ 为极点取极坐标 $(\rho,\theta)$。因平面内位移与 $M_0$ 垂直，任一点满足
+\[
+  x^2+y^2+z^2=\frac{t^2}{3}+\rho^2.
+\]
+因此
+\[
+  \varphi=1-\frac{t^2}{3}-\rho^2=\rho_0^2-\rho^2.
+\]
+于是
+\begin{align*}
+\iint_S\varphi\,\dd S
+&=\int_0^{2\pi}\int_0^{\rho_0}(\rho_0^2-\rho^2)\rho\,\dd\rho\,\dd\theta\\
+&=\frac\pi2\rho_0^4
+=\frac\pi{18}(3-t^2)^2.
+\end{align*}
+故所给分段公式成立。
+\end{xsolution}
+
+\paragraph{参考题 2}
+\begin{xsolution}
+把积分看成单位球面上的第一型曲面积分。令
+\[
+  X=\sin y\cos x,\qquad Y=\sin y\sin x,\qquad Z=\cos y,
+\]
+则
+\[
+  \dd S=\sin y\,\dd y\,\dd x,
+\]
+且指数为 $X-Y$。因此题中左端为
+\[
+  \iint_{X^2+Y^2+Z^2=1}\ee^{X-Y}\,\dd S.
+\]
+利用本章例题 25.5.1，对向量 $(1,-1,0)$ 有
+\begin{align*}
+I
+&=2\pi\int_{-1}^{1}\ee^{\sqrt2u}\,\dd u\\
+&=\sqrt2\pi(\ee^{\sqrt2}-\ee^{-\sqrt2}).
+\end{align*}
+这正是所需等式。
+\end{xsolution}
+
+\paragraph{参考题 3}
+\begin{xsolution}
+令
+\[
+  \vect F=f(x,y,z)(x,y,z).
+\]
+其散度为
+\[
+  \operatorname{div}\vect F
+  =xf_x+yf_y+zf_z+3f.
+\]
+
+若
+\[
+  \boxed{xf_x+yf_y+zf_z+3f=0\quad\text{在 }\Omega\text{ 中处处成立}},
+\]
+则对任一光滑闭曲面 $S$ 所围区域 $D\Subset\Omega$，Gauss 公式给出
+\[
+  \iint_S f(x,y,z)(x\,\dd y\,\dd z+y\,\dd z\,\dd x+z\,\dd x\,\dd y)
+  =\iiint_D0\,\dd V=0,
+\]
+故条件充分。
+
+反之，若题中积分对 $\Omega$ 内任一光滑闭曲面均为零，而在某点 $M$ 有
+\[
+  g:=xf_x+yf_y+zf_z+3f\ne0,
+\]
+由 $g$ 的连续性，可在 $M$ 的充分小球邻域内使 $g$ 保持同号且绝对值有正下界。取这个小球的边界为 $S$，Gauss 公式便给出
+\[
+  0=\iiint_Dg\,\dd V\ne0,
+\]
+矛盾。因此上述偏微分方程也是必要的。
+\end{xsolution}
+
+\paragraph{参考题 4}
+\begin{xsolution}
+记
+\[
+  \vect r=(x-x_0,y-y_0,z-z_0),
+  \qquad r=|\vect r|,
+\]
+并令
+\[
+  \vect F=\frac{\vect r}{r}.
+\]
+在 $r>0$ 处直接计算得
+\[
+  \operatorname{div}\vect F=\frac2r.
+\]
+由于 $M_0=(x_0,y_0,z_0)$ 在 $\Omega$ 内，$\vect F$ 在该点不定义。取充分小的球 $B_\varepsilon(M_0)\Subset\Omega$，在
+\[
+  \Omega_\varepsilon=\Omega\setminus\overline{B_\varepsilon(M_0)}
+\]
+上应用 Gauss 公式。其内球面边界相对于 $\Omega_\varepsilon$ 的外法向为 $-\vect r/r$，故该内边界通量为
+\[
+  -4\pi\varepsilon^2.
+\]
+于是
+\[
+  \oiint_\Sigma\frac{\vect r}{r}\cdot\vect n\,\dd S-4\pi\varepsilon^2
+  =2\iiint_{\Omega_\varepsilon}\frac{\dd V}{r}.
+\]
+令 $\varepsilon\to0$。左端第二项趋于零，而被挖去小球中的 $2/r$ 积分为
+\[
+  2\int_0^\varepsilon\frac1r4\pi r^2\,\dd r=4\pi\varepsilon^2\to0.
+\]
+又
+\[
+  \frac{\vect r}{r}\cdot\vect n=\cos(\vect n,\vect r),
+\]
+所以
+\[
+  \boxed{\oiint_\Sigma\cos(\vect n,\vect r)\,\dd S
+  =2\iiint_\Omega\frac{\dd V}{|\vect r|}}.
+\]
+\end{xsolution}
+
+\paragraph{参考题 5}
+\begin{xsolution}
+按平面 $\Pi$ 的给定定向取单位法向量
+\[
+  \vect n=(n_1,n_2,n_3),
+  \qquad
+  \vect n=\pm\frac{(A,B,C)}{\sqrt{A^2+B^2+C^2}},
+\]
+其中正负号按题给定向选择。令位置向量 $\vect r=(x,y,z)$，取
+\[
+  \vect F=\frac12\vect n\times\vect r.
+\]
+则
+\[
+  \nabla\times\vect F=\vect n.
+\]
+因此可取
+\[
+\boxed{
+\begin{aligned}
+w={}&\frac12(n_2z-n_3y)\,\dd x
++\frac12(n_3x-n_1z)\,\dd y\\
+&+\frac12(n_1y-n_2x)\,\dd z.
+\end{aligned}}
+\]
+对 $\Gamma$ 在 $\Pi$ 上围成的区域 $G$ 应用 Stokes 公式：
+\[
+  \oint_\Gamma w
+  =\iint_G(\nabla\times\vect F)\cdot\vect n\,\dd S
+  =\iint_G1\,\dd S=S(\Gamma).
+\]
+此外，在上述 $w$ 上加任意全微分 $\dd\phi$ 仍然满足要求。
+\end{xsolution}
+
+\paragraph{参考题 6}
+\begin{xsolution}
+记场点为 $\vect x=(x,y,z)$，积分点为
+\[
+  \vect s=(\xi,\eta,\zeta),
+  \qquad \vect a=\vect s-\vect x,
+  \qquad r=|\vect a|.
+\]
+则题中三个函数可合写为
+\[
+  \vect F(\vect x):=(P,Q,R)
+  =\oint_\Gamma\frac{\dd\vect s\times\vect a}{r^3}.
+\]
+对固定的 $\vect s$ 令
+\[
+  \Phi(\vect x)=\frac1{|\vect s-\vect x|}.
+\]
+则
+\[
+  \nabla_{\vect x}\Phi=\frac{\vect a}{r^3},
+\]
+所以
+\[
+  \vect F=\oint_\Gamma\dd\vect s\times\nabla_{\vect x}\Phi.
+\]
+当 $\vect x\notin\Gamma$ 时，$\vect x$ 到 $\Gamma$ 的距离为正，因而可以在积分号下求导。对常向量元 $\dd\vect s$，向量恒等式给出
+\[
+\nabla\times(\dd\vect s\times\nabla\Phi)
+=\dd\vect s\,\Delta\Phi-(\dd\vect s\cdot\nabla)\nabla\Phi.
+\]
+在 $\vect x\ne\vect s$ 时 $\Delta\Phi=0$。又因核只依赖 $\vect s-\vect x$，
+\[
+  (\dd\vect s\cdot\nabla_{\vect x})\nabla_{\vect x}\Phi
+  =-\dd_{\vect s}(\nabla_{\vect x}\Phi).
+\]
+于是
+\[
+  \nabla\times\vect F
+  =\oint_\Gamma\dd_{\vect s}(\nabla_{\vect x}\Phi)=0,
+\]
+因为 $\Gamma$ 是闭曲线。将旋度三个分量写开，即得
+\[
+  \boxed{
+  \frac{\partial Q}{\partial x}=\frac{\partial P}{\partial y},\qquad
+  \frac{\partial R}{\partial y}=\frac{\partial Q}{\partial z},\qquad
+  \frac{\partial P}{\partial z}=\frac{\partial R}{\partial x}}.
+\]
+\end{xsolution}
+
+\paragraph{参考题 7}
+\begin{xsolution}
+取一个以 $\Gamma$ 为边界、定向与 $\Gamma$ 相容的逐片光滑曲面 $\Sigma$。为得到单值势函数，先把 $\Sigma$ 作为割面；在 $\RR^3\setminus\Sigma$ 的每个连通分支上定义
+\[
+\boxed{
+  u(\vect x)=
+  \iint_\Sigma
+  \frac{(\vect x-\vect s)\cdot\vect n(\vect s)}{|\vect x-\vect s|^3}\,\dd S_{\vect s}+C}.
+\]
+这就是有向曲线 $\Gamma$ 在点 $\vect x$ 所张的有向立体角（差一个加法常数）。
+
+下面验证它的梯度。对每个分量应用二维 Stokes 公式可得标准边界恒等式
+\[
+  \nabla_{\vect x}u
+  =\oint_\Gamma\frac{(\vect x-\vect s)\times\dd\vect s}{|\vect x-\vect s|^3}.
+\]
+而
+\[
+  (\vect x-\vect s)\times\dd\vect s
+  =\dd\vect s\times(\vect s-\vect x),
+\]
+故右端的三个分量恰为题中 $P,Q,R$。因此
+\[
+  \boxed{\dd u=P\,\dd x+Q\,\dd y+R\,\dd z}.
+\]
+
+需要说明的是，$\RR^3\setminus\Gamma$ 一般不是单连通区域，因而通常不存在在整个补集上单值的全局势函数；上述 $u$ 在跨过所选割面 $\Sigma$ 时相差 $4\pi$ 的整数倍。这并不影响其在每个割开后的连通区域内作为题中微分式的势函数。
+\end{xsolution}
+
+\paragraph{参考题 8}
+\begin{xsolution}
+设液体密度为常数 $\rho$，取 $z$ 轴竖直向上，重力加速度大小为 $g$。静止液体中的压强满足
+\[
+  \frac{\partial p}{\partial x}=0,
+  \qquad
+  \frac{\partial p}{\partial y}=0,
+  \qquad
+  \frac{\partial p}{\partial z}=-\rho g.
+\]
+设浸在液体中的物体占区域 $\Omega$，其边界为 $S$，$\vect n$ 是物体的单位外法向量。液体作用在物体表面面积元上的压力为
+\[
+  \dd\vect F=-p\vect n\,\dd S.
+\]
+故总压力的三个分量分别为
+\[
+  F_x=-\oiint_Sp n_x\,\dd S,
+  \qquad
+  F_y=-\oiint_Sp n_y\,\dd S,
+  \qquad
+  F_z=-\oiint_Sp n_z\,\dd S.
+\]
+逐分量应用 Gauss 公式，
+\[
+  F_x=-\iiint_\Omega p_x\,\dd V=0,
+  \qquad
+  F_y=-\iiint_\Omega p_y\,\dd V=0,
+\]
+并且
+\[
+  F_z=-\iiint_\Omega p_z\,\dd V
+  =\iiint_\Omega\rho g\,\dd V
+  =\rho g|\Omega|.
+\]
+因此合力竖直向上，大小为
+\[
+  \rho g|\Omega|,
+\]
+而这正是物体所排开同体积液体的重量。故 Archimedes 浮力定律成立。
+\end{xsolution}
