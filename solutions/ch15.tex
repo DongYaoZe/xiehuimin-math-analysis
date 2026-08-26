@@ -1,0 +1,1639 @@
+% Task C15 solutions
+% Based on chapters/ch15.tex at main b4628dd90903b38fb9c71bf61921e79513bb5295
+% SOLVED-PROBLEM-COUNT: 38
+
+\chapter*{第十五章 Fourier 级数题目解答}
+
+\section*{§15.1 Fourier 系数：练习题}
+
+\paragraph{练习题 1.}
+\begin{xsolution}
+(1) 利用恒等式
+\[
+  \sin^3x=\frac{3\sin x-\sin3x}{4},\qquad
+  \cos^4x=\frac{3+4\cos2x+\cos4x}{8},
+\]
+得到
+\[
+  \sin^3x+\cos^4x
+  =\frac38+\frac12\cos2x+\frac18\cos4x
+   +\frac34\sin x-\frac14\sin3x.
+\]
+右边本身就是有限三角多项式，故即为所求 Fourier 级数。
+
+(2) 在 $(-\pi,\pi)$ 上已有
+\[
+  x\sim2\sum_{n=1}^{\infty}\frac{(-1)^{n-1}}n\sin nx,
+\]
+\[
+  x^2\sim\frac{\pi^2}{3}+4\sum_{n=1}^{\infty}\frac{(-1)^n}{n^2}\cos nx,
+\]
+以及
+\[
+  x^3\sim\sum_{n=1}^{\infty}(-1)^{n-1}
+  \left(\frac{2\pi^2}{n}-\frac{12}{n^3}\right)\sin nx.
+\]
+因此线性组合给出
+\begin{align*}
+  ax^3+bx^2+cx+d
+  &\sim \frac{b\pi^2}{3}+d
+   +4b\sum_{n=1}^{\infty}\frac{(-1)^n}{n^2}\cos nx\\
+  &\quad+
+  \sum_{n=1}^{\infty}(-1)^{n-1}
+  \left(\frac{2a\pi^2+2c}{n}-\frac{12a}{n^3}\right)\sin nx.
+\end{align*}
+该函数在 $(-\pi,\pi)$ 内光滑，所以 Fourier 级数在每个 $x\in(-\pi,\pi)$ 收敛于原函数；在端点处收敛于周期延拓的左右极限平均值。
+\end{xsolution}
+
+\paragraph{练习题 2.}
+\begin{xsolution}
+要使展开式只含奇数阶正弦项，先作奇延拓以消去全部余弦项，再令正弦系数中的偶数项消失。
+
+在 $(0,\pi)$ 上定义
+\[
+  F(x)=
+  \begin{cases}
+    f(x),&0<x<\pi/2,\\
+    f(\pi-x),&\pi/2<x<\pi,
+  \end{cases}
+\]
+并取端点值任意，例如 $F(0)=F(\pi/2)=F(\pi)=0$；再在 $(-\pi,0)$ 上令
+\[
+  F(-x)=-F(x).
+\]
+于是 $F$ 为奇函数，所以 $a_n=0$。又对偶数指标 $2m$，
+\begin{align*}
+  b_{2m}
+  &=\frac2\pi\int_0^\pi F(x)\sin2mx\,\dd x\\
+  &=\frac2\pi\int_0^{\pi/2}
+  \bigl[F(x)\sin2mx+F(\pi-x)\sin(2m(\pi-x))\bigr]\,\dd x=0,
+\end{align*}
+因为 $F(\pi-x)=F(x)$ 而
+$\sin(2m(\pi-x))=-\sin2mx$。故 Fourier 级数只有
+\[
+  \sum_{m=1}^{\infty}b_{2m-1}\sin(2m-1)x
+\]
+中的项。
+\end{xsolution}
+
+\paragraph{练习题 3.}
+% CHECK-SOLUTION: 原题把标准部分和 S_n=a_0/2+\sum_{k=1}^n(...) 与含 \sin(2nt) 的积分公式并列，索引不一致；扫描页 lower/page-0098.jpg 已核对。以下给出按标准部分和定义可直接验证的正确关系。
+\begin{xsolution}
+函数为奇函数，故 $a_n=0$。对 $k\ge1$，
+\[
+  b_k=\frac2\pi\int_0^\pi c\sin kx\,\dd x
+  =\frac{2c}{\pi k}\bigl(1-(-1)^k\bigr).
+\]
+于是
+\[
+  b_{2j}=0,\qquad b_{2j-1}=\frac{4c}{\pi(2j-1)}.
+\]
+因此标准 Fourier 部分和满足
+\[
+  S_{2m-1}(x)=S_{2m}(x)
+  =\frac{4c}{\pi}\sum_{j=1}^{m}\frac{\sin(2j-1)x}{2j-1}.
+\]
+另一方面有恒等式
+\[
+  \frac{\sin2mt}{\sin t}=2\sum_{j=1}^{m}\cos(2j-1)t.
+\]
+从 $0$ 到 $x$ 积分即得
+\[
+  \frac{2c}{\pi}\int_0^x\frac{\sin2mt}{\sin t}\,\dd t
+  =\frac{4c}{\pi}\sum_{j=1}^{m}\frac{\sin(2j-1)x}{2j-1}.
+\]
+故可核验的关系为
+\[
+  \boxed{\displaystyle
+  S_{2m-1}(x)=S_{2m}(x)
+  =\frac{2c}{\pi}\int_0^x\frac{\sin2mt}{\sin t}\,\dd t }.
+\]
+原题若把右端的 $m$ 仍记作 $n$，则左端应相应写成 $S_{2n-1}$ 或 $S_{2n}$。
+\end{xsolution}
+
+\paragraph{练习题 4.}
+\begin{xsolution}
+由分部积分，
+\begin{align*}
+  a_n
+  &=\frac1\pi\int_{-\pi}^{\pi}f(x)\cos nx\,\dd x
+   =-\frac1{n\pi}\int_{-\pi}^{\pi}f'(x)\sin nx\,\dd x.
+\end{align*}
+因为 $f'$ 连续，Riemann 引理给出
+\[
+  \int_{-\pi}^{\pi}f'(x)\sin nx\,\dd x=\littleo(1),
+\]
+故
+\[
+  a_n=\littleo\!\left(\frac1n\right).
+\]
+同理
+\begin{align*}
+  b_n
+  &=\frac1\pi\int_{-\pi}^{\pi}f(x)\sin nx\,\dd x\\
+  &=-\frac{(-1)^n}{n\pi}\bigl[f(\pi)-f(-\pi)\bigr]
+    +\frac1{n\pi}\int_{-\pi}^{\pi}f'(x)\cos nx\,\dd x.
+\end{align*}
+第二项为 $\littleo(1/n)$，第一项为 $\bigO(1/n)$，所以
+\[
+  b_n=\bigO\!\left(\frac1n\right).
+\]
+若再有 $f(\pi)=f(-\pi)$，边界项消失，从而
+\[
+  b_n=\littleo\!\left(\frac1n\right).
+\]
+\end{xsolution}
+
+\paragraph{练习题 5.}
+\begin{xsolution}
+设 $(-\pi,\pi)$ 被有限个点分成若干单调区间 $I_j=[\alpha_j,\beta_j]$，并设
+$\abs{f(x)}\le M$。只需在每个 $I_j$ 上估计振荡积分。
+
+若 $f$ 在 $I_j$ 上单调，由积分第二中值定理，存在 $\xi_j\in I_j$，使
+\[
+  \int_{\alpha_j}^{\beta_j}f(x)\cos nx\,\dd x
+  =f(\alpha_j+)\int_{\alpha_j}^{\xi_j}\cos nx\,\dd x
+   +f(\beta_j-)\int_{\xi_j}^{\beta_j}\cos nx\,\dd x.
+\]
+每个余弦积分的绝对值不超过 $2/n$，故
+\[
+  \left|\int_{\alpha_j}^{\beta_j}f(x)\cos nx\,\dd x\right|
+  \le\frac{4M}{n}.
+\]
+单调区间数有限，求和即得
+\[
+  a_n=\bigO\!\left(\frac1n\right).
+\]
+对正弦积分，在每个 $I_j$ 上再次用积分第二中值定理，可写成两个形如
+\[
+  f(\alpha_j+)\int_{\alpha_j}^{\eta_j}\sin nx\,\dd x,
+  \qquad
+  f(\beta_j-)\int_{\eta_j}^{\beta_j}\sin nx\,\dd x
+\]
+的项；每个正弦积分的绝对值也不超过 $2/n$。因此逐段求和后
+\[
+  b_n=\bigO\!\left(\frac1n\right).
+\]
+\end{xsolution}
+
+\paragraph{练习题 6.}
+\begin{xsolution}
+设
+\[
+  f(x)\sim\frac{a_0}{2}+\sum_{n=1}^{\infty}(a_n\cos nx+b_n\sin nx),
+\]
+并约定 $b_0=0$。令 $g(x)=f(x)\sin x$。利用积化和差公式，对 $m\ge1$ 有
+\begin{align*}
+  A_m
+  &=\frac1\pi\int_{-\pi}^{\pi}g(x)\cos mx\,\dd x\\
+  &=\frac1{2\pi}\int_{-\pi}^{\pi}f(x)
+    \bigl[\sin(m+1)x-\sin(m-1)x\bigr]\,\dd x\\
+  &=\frac{b_{m+1}-b_{m-1}}2,
+\end{align*}
+而
+\begin{align*}
+  B_m
+  &=\frac1\pi\int_{-\pi}^{\pi}g(x)\sin mx\,\dd x\\
+  &=\frac1{2\pi}\int_{-\pi}^{\pi}f(x)
+    \bigl[\cos(m-1)x-\cos(m+1)x\bigr]\,\dd x\\
+  &=\frac{a_{m-1}-a_{m+1}}2,
+\end{align*}
+其中 $m=1$ 时 $a_{m-1}=a_0$。此外
+\[
+  A_0=\frac1\pi\int_{-\pi}^{\pi}f(x)\sin x\,\dd x=b_1.
+\]
+另一方面，形式上逐项乘以 $\sin x$ 后
+\begin{align*}
+  \sin x\left[\frac{a_0}{2}+\sum_{n\ge1}(a_n\cos nx+b_n\sin nx)\right]
+\end{align*}
+用同样的积化和差公式整理，恰好得到常数项 $A_0/2$、余弦系数 $A_m$ 与正弦系数 $B_m$。因此所得三角级数正是 $f(x)\sin x$ 的 Fourier 级数。
+\end{xsolution}
+
+\paragraph{练习题 7.}
+\begin{xsolution}
+令
+\[
+  E_n(a_1,\ldots,a_n)
+  =\int_a^b\left[f(x)-\sum_{k=1}^{n}a_ke_k(x)\right]^2\,\dd x.
+\]
+利用规范正交性，展开得
+\begin{align*}
+  E_n
+  &=\int_a^bf^2(x)\,\dd x
+    -2\sum_{k=1}^{n}a_kc_k+\sum_{k=1}^{n}a_k^2\\
+  &=\int_a^bf^2(x)\,\dd x-\sum_{k=1}^{n}c_k^2
+    +\sum_{k=1}^{n}(a_k-c_k)^2.
+\end{align*}
+因为 $E_n\ge0$，取 $a_k=c_k$ 即得 Bessel 不等式
+\[
+  \sum_{k=1}^{n}c_k^2\le\int_a^bf^2(x)\,\dd x.
+\]
+左端随 $n$ 单调增加且有统一上界，故
+\[
+  \sum_{n=1}^{\infty}c_n^2
+\]
+收敛。
+
+同时上面的配方公式说明，当 $n$ 固定时，$E_n$ 的唯一最小值在
+\[
+  \boxed{a_k=c_k\quad(k=1,\ldots,n)}
+\]
+处取得。
+\end{xsolution}
+
+\paragraph{练习题 8.}
+\begin{xsolution}
+令
+\[
+  G(x)=\int_0^xg(t)\,\dd t.
+\]
+由于 $g$ 的周期为 $1$ 且 $\int_0^1g=0$，有 $G(x+1)=G(x)$，所以 $G$ 连续且有界。又
+\[
+  \frac{\dd}{\dd x}G(nx)=n g(nx).
+\]
+因此分部积分给出
+\begin{align*}
+  a_n
+  &=\frac1n\int_0^1f(x)\,\dd[G(nx)]\\
+  &=\frac1n\bigl[f(x)G(nx)\bigr]_0^1
+    -\frac1n\int_0^1f'(x)G(nx)\,\dd x.
+\end{align*}
+取 $G(0)=0$，则 $G(n)=G(0)=0$，边界项为零。若
+$\norm{G}_\infty=M$，则
+\[
+  \abs{a_n}\le\frac{M}{n}\int_0^1\abs{f'(x)}\,\dd x=\bigO\!\left(\frac1n\right).
+\]
+于是
+\[
+  \sum_{n=1}^{\infty}a_n^2
+\]
+由与 $\sum1/n^2$ 比较而收敛。
+\end{xsolution}
+
+\section*{§15.2 Fourier 级数的收敛性：练习题}
+
+\paragraph{练习题 1.}
+\begin{xsolution}
+作偶延拓，故只需求余弦系数。由直接积分
+\[
+  a_0=\frac2\pi\int_0^\pi f(x)\,\dd x=\frac\pi2,
+\]
+且对 $n\ge1$，
+\begin{align*}
+  a_n
+  &=\frac2\pi\left[
+    \int_0^{\pi/2}x\cos nx\,\dd x
+    +\int_{\pi/2}^{\pi}\left(x-\frac\pi2\right)\cos nx\,\dd x
+    \right]\\
+  &=\frac{\sin(n\pi/2)}n
+    +\frac{2[(-1)^n-1]}{\pi n^2}.
+\end{align*}
+因此偶数项全为零，而
+\[
+  a_{2m-1}
+  =\frac{(-1)^{m-1}}{2m-1}
+   -\frac4{\pi(2m-1)^2}.
+\]
+故余弦展开式为
+\[
+  f(x)\sim\frac\pi4+
+  \sum_{m=1}^{\infty}
+  \left[
+    \frac{(-1)^{m-1}}{2m-1}
+    -\frac4{\pi(2m-1)^2}
+  \right]\cos(2m-1)x.
+\]
+在 $x=0$ 处周期偶延拓连续，故级数和为 $f(0)=0$。于是
+\[
+  0=\frac\pi4+\sum_{m=1}^{\infty}\frac{(-1)^{m-1}}{2m-1}
+  -\frac4\pi\sum_{m=1}^{\infty}\frac1{(2m-1)^2}.
+\]
+由已知 $\sum_{n\ge1}1/n^2=\pi^2/6$，
+\[
+  \sum_{m=1}^{\infty}\frac1{(2m-1)^2}
+  =\frac{\pi^2}{6}-\frac14\frac{\pi^2}{6}=\frac{\pi^2}{8}.
+\]
+代回即得
+\[
+  \boxed{\displaystyle
+  \sum_{m=1}^{\infty}\frac{(-1)^{m-1}}{2m-1}=\frac\pi4 }.
+\]
+\end{xsolution}
+
+\paragraph{练习题 2.}
+\begin{xsolution}
+在 $[0,a]$ 上作半区间展开，基本频率为 $\pi/a$。
+
+(1) 余弦级数的系数为
+\[
+  a_0=\frac2a\int_0^af(x)\,\dd x=\frac a2,
+\]
+以及
+\[
+  a_n=\frac2a\int_0^af(x)\cos\frac{n\pi x}{a}\,\dd x
+  =\frac{2a}{\pi^2n^2}
+  \left[(-1)^{n+1}+2\cos\frac{n\pi}{2}-1\right].
+\]
+只有 $n=4k+2$ 时非零，此时
+\[
+  a_{4k+2}=-\frac{2a}{\pi^2(2k+1)^2}.
+\]
+故
+\[
+  \boxed{\displaystyle
+  f(x)=\frac a4-rac{2a}{\pi^2}
+  \sum_{k=0}^{\infty}
+  \frac{\cos\frac{2(2k+1)\pi x}{a}}{(2k+1)^2}}
+  \qquad(0\le x\le a).
+\]
+
+(2) 正弦级数的系数为
+\[
+  b_n=\frac2a\int_0^af(x)\sin\frac{n\pi x}{a}\,\dd x
+  =\frac{4a}{\pi^2n^2}\sin\frac{n\pi}{2}.
+\]
+故只有奇数项，
+\[
+  \boxed{\displaystyle
+  f(x)=\frac{4a}{\pi^2}
+  \sum_{k=0}^{\infty}
+  \frac{(-1)^k}{(2k+1)^2}
+  \sin\frac{(2k+1)\pi x}{a}}
+  \qquad(0\le x\le a).
+\]
+函数连续且分段光滑，两式在开区间内均收敛于 $f$；这里 $f(0)=f(a)=0$，正弦级数在端点也给出正确值。
+\end{xsolution}
+
+\paragraph{练习题 3.}
+\begin{xsolution}
+设 $\alpha\notin\ZZ$。函数 $\cos\alpha x$ 在 $[-\pi,\pi]$ 上为偶函数，其 Fourier 系数为
+\[
+  a_0=\frac{2\sin\pi\alpha}{\pi\alpha},
+\]
+以及
+\begin{align*}
+  a_n
+  &=\frac2\pi\int_0^\pi\cos\alpha x\cos nx\,\dd x\\
+  &=\frac{2\alpha(-1)^n\sin\pi\alpha}{\pi(\alpha^2-n^2)},\qquad n\ge1.
+\end{align*}
+因此
+\[
+  \cos\alpha x
+  =\frac{\sin\pi\alpha}{\pi\alpha}
+  +\frac{2\alpha\sin\pi\alpha}{\pi}
+  \sum_{n=1}^{\infty}\frac{(-1)^n\cos nx}{\alpha^2-n^2}.
+\]
+令 $x=0$ 并除以 $\sin\pi\alpha$，得到
+\[
+  \csc(\pi\alpha)
+  =\frac1{\pi\alpha}
+  +\frac{2\alpha}{\pi}
+  \sum_{n=1}^{\infty}\frac{(-1)^n}{\alpha^2-n^2}.
+\]
+令 $x=\pi$，得到
+\[
+  \cot(\pi\alpha)
+  =\frac1{\pi\alpha}
+  +\frac{2\alpha}{\pi}
+  \sum_{n=1}^{\infty}\frac1{\alpha^2-n^2}.
+\]
+把 $z=\pi\alpha$ 代入即得
+\[
+  \boxed{\displaystyle
+  \cot z=\frac1z+\sum_{n=1}^{\infty}
+  \left(\frac1{z-n\pi}+\frac1{z+n\pi}\right)
+  =\frac1z+\sum_{n=1}^{\infty}\frac{2z}{z^2-n^2\pi^2}},
+\]
+\[
+  \boxed{\displaystyle
+  \csc z=\frac1z+\sum_{n=1}^{\infty}(-1)^n
+  \left(\frac1{z-n\pi}+\frac1{z+n\pi}\right)
+  =\frac1z+\sum_{n=1}^{\infty}(-1)^n\frac{2z}{z^2-n^2\pi^2}},
+\]
+其中 $z\notin\pi\ZZ$。
+
+最后取 $z=\pi a$，由余切展开式
+\[
+  \cot\pi a=\frac1{\pi a}+\frac{2a}{\pi}
+  \sum_{n=1}^{\infty}\frac1{a^2-n^2},
+\]
+所以对 $a\notin\ZZ$ 且 $a\ne0$，
+\[
+  \boxed{\displaystyle
+  \sum_{n=1}^{\infty}\frac1{n^2-a^2}
+  =\frac1{2a^2}-\frac{\pi}{2a}\cot\pi a }.
+\]
+\end{xsolution}
+
+\paragraph{练习题 4.}
+\begin{xsolution}
+(1) $f(x)=\abs{\sin x}$ 为偶函数。于是 $b_n=0$，
+\[
+  a_0=\frac2\pi\int_0^\pi\sin x\,\dd x=\frac4\pi.
+\]
+对 $n\ge1$，
+\[
+  a_n=\frac2\pi\int_0^\pi\sin x\cos nx\,\dd x.
+\]
+当 $n$ 为奇数时 $a_n=0$；令 $n=2m$ 时，
+\[
+  a_{2m}=-\frac4{\pi(4m^2-1)}.
+\]
+故
+\[
+  \boxed{\displaystyle
+  \abs{\sin x}=\frac2\pi-rac4\pi
+  \sum_{m=1}^{\infty}\frac{\cos2mx}{4m^2-1}}.
+\]
+该级数绝对一致收敛。
+
+(2) 记
+\[
+  f(x)=\begin{cases}ax,&-\pi\le x<0,\\ bx,&0\le x\le\pi.\end{cases}
+\]
+直接计算得
+\[
+  a_0=\frac1\pi\int_{-\pi}^{\pi}f(x)\,\dd x
+  =\frac\pi2(b-a),
+\]
+\[
+  a_n=\frac{b-a}{\pi n^2}\bigl[(-1)^n-1\bigr],
+\qquad
+  b_n=\frac{(a+b)(-1)^{n+1}}n.
+\]
+因此
+\[
+  \boxed{\displaystyle
+  f(x)\sim\frac{\pi(b-a)}4
+  +\sum_{n=1}^{\infty}
+   \frac{(b-a)[(-1)^n-1]}{\pi n^2}\cos nx
+  +(a+b)\sum_{n=1}^{\infty}\frac{(-1)^{n+1}}n\sin nx }.
+\]
+在 $(-\pi,\pi)$ 内级数收敛于 $f(x)$；在端点 $\pm\pi$ 处收敛于周期延拓左右极限的平均值
+$\pi(b-a)/2$。
+\end{xsolution}
+
+\paragraph{练习题 5.}
+\begin{xsolution}
+(1) 在 $[0,\pi]$ 作正弦展开。对 $n\ge1$，
+\begin{align*}
+  b_n
+  &=\frac2\pi\int_0^\pi\ee^{-2x}\sin nx\,\dd x\\
+  &=\frac{2n}{\pi(n^2+4)}
+    \left[1-(-1)^n\ee^{-2\pi}\right].
+\end{align*}
+故
+\[
+  \boxed{\displaystyle
+  \ee^{-2x}\sim
+  \sum_{n=1}^{\infty}
+  \frac{2n[1-(-1)^n\ee^{-2\pi}]}{\pi(n^2+4)}\sin nx,
+  \qquad0<x<\pi }.
+\]
+由于奇延拓在 $x=0$ 有跳跃，正弦级数在 $x=0$ 的和为 $0$；在 $0<x<\pi$ 收敛于原函数。
+
+(2) 区间长度为 $2$，故正弦基为 $\sin(n\pi x/2)$。有
+\[
+  b_n=\int_0^2f(x)\sin\frac{n\pi x}{2}\,\dd x
+  =\int_0^1\cos\frac{\pi x}{2}\sin\frac{n\pi x}{2}\,\dd x.
+\]
+当 $n=1$ 时
+\[
+  b_1=\frac1\pi.
+\]
+当 $n>1$ 时由积化和差公式
+\[
+  b_n=\frac{2[n-\sin(n\pi/2)]}{\pi(n^2-1)}.
+\]
+因此
+\[
+  \boxed{\displaystyle
+  f(x)\sim\frac1\pi\sin\frac{\pi x}{2}
+  +\sum_{n=2}^{\infty}
+  \frac{2[n-\sin(n\pi/2)]}{\pi(n^2-1)}
+  \sin\frac{n\pi x}{2} }.
+\]
+在 $0<x<2$ 的连续点处收敛于 $f$。
+\end{xsolution}
+
+\paragraph{练习题 6.}
+\begin{xsolution}
+(1) 在 $[0,\pi]$ 作余弦展开。直接积分得
+\[
+  a_0=\frac2\pi\int_0^\pi x(\pi-x)\,\dd x=\frac{\pi^2}{3},
+\]
+以及
+\[
+  a_n=\frac2\pi\int_0^\pi x(\pi-x)\cos nx\,\dd x
+  =\frac{2[(-1)^{n+1}-1]}{n^2}.
+\]
+所以只有偶数项，且 $a_{2m}=-1/m^2$。于是
+\[
+  \boxed{\displaystyle
+  x(\pi-x)=\frac{\pi^2}{6}-
+  \sum_{m=1}^{\infty}\frac{\cos2mx}{m^2},
+  \qquad0\le x\le\pi }.
+\]
+
+(2) 这里区间为 $[0,\pi/2]$，余弦基为 $\cos2nx$。有
+\[
+  a_0=\frac4\pi\left(
+  \int_0^{\pi/4}\sin2x\,\dd x+
+  \int_{\pi/4}^{\pi/2}1\,\dd x\right)
+  =\frac{\pi+2}{\pi}.
+\]
+对 $n=1$，
+\[
+  a_1=-\frac1\pi.
+\]
+对 $n>1$，
+\[
+  a_n=\frac4\pi\left(
+  \int_0^{\pi/4}\sin2x\cos2nx\,\dd x+
+  \int_{\pi/4}^{\pi/2}\cos2nx\,\dd x\right)
+  =\frac{2[-n+\sin(n\pi/2)]}{\pi n(n^2-1)}.
+\]
+故
+\[
+  \boxed{\displaystyle
+  f(x)=\frac{\pi+2}{2\pi}-\frac1\pi\cos2x
+  +\sum_{n=2}^{\infty}
+  \frac{2[-n+\sin(n\pi/2)]}{\pi n(n^2-1)}\cos2nx }.
+\]
+原函数连续且分段光滑，故在 $[0,\pi/2]$ 上按偶延拓的 Fourier 余弦级数收敛于相应连续值。
+\end{xsolution}
+
+\paragraph{练习题 7.}
+\begin{xsolution}
+函数为奇函数，故只有正弦项。对 $n\ge1$，
+\begin{align*}
+  b_n
+  &=\frac2\pi\int_0^\pi(\pi-x)\sin nx\,\dd x
+  =\frac2n.
+\end{align*}
+所以
+\[
+  \boxed{\displaystyle
+  f(x)\sim2\sum_{n=1}^{\infty}\frac{\sin nx}{n}}.
+\]
+函数的周期延拓在 $x=0$ 有第一类间断点，左右极限分别为 $-\pi$ 与 $\pi$，而 $f(0)=0$ 正好是平均值；在其余点分段光滑。因此 Fourier 级数在 $(-\pi,\pi]$ 每一点都收敛于题设的 $f$。
+
+但该收敛不可能一致，因为每个部分和都是连续函数，而 $f$ 在 $x=0$ 不连续；连续函数列的一致极限必连续。故级数不一致收敛。
+\end{xsolution}
+
+\paragraph{练习题 8.}
+\begin{xsolution}
+先取连续函数 $g$，使
+\[
+  \int_{-\pi}^{\pi}\abs{f(x)-g(x)}\,\dd x<\frac\varepsilon2.
+\]
+这可由可积且绝对可积函数的连续函数 $L^1$ 逼近得到。再由 Weierstrass 第二逼近定理，存在三角多项式 $P_n$ 使
+\[
+  \max_{[-\pi,\pi]}\abs{g(x)-P_n(x)}
+  <\frac{\varepsilon}{4\pi}.
+\]
+于是
+\begin{align*}
+  \int_{-\pi}^{\pi}\abs{f(x)-P_n(x)}\,\dd x
+  &\le\int_{-\pi}^{\pi}\abs{f-g}\,\dd x
+   +\int_{-\pi}^{\pi}\abs{g-P_n}\,\dd x\\
+  &<\frac\varepsilon2+2\pi\cdot\frac{\varepsilon}{4\pi}
+  =\varepsilon.
+\end{align*}
+故所求三角多项式存在。
+\end{xsolution}
+
+\paragraph{练习题 9.}
+\begin{xsolution}
+设右边三角级数一致收敛于 $g$。由于每个部分和连续，$g$ 连续。又由命题 15.1.1，一致收敛的三角级数必是其和函数 $g$ 的 Fourier 级数，因此 $g$ 与 $f$ 有完全相同的 Fourier 系数。
+
+函数 $f-g$ 连续且全部 Fourier 系数均为 $0$。由 Fourier 级数惟一性定理（命题 15.2.3），
+\[
+  f-g\equiv0.
+\]
+故一致收敛时其和函数必为 $f$。
+\end{xsolution}
+
+\paragraph{练习题 10.}
+\begin{xsolution}
+函数为偶函数，故 $b_n=0$，并有
+\[
+  a_0=\frac2\pi\int_0^af(x)\,\dd x=\frac{2a}{\pi},
+\qquad
+  a_n=\frac2\pi\int_0^a\cos nx\,\dd x
+  =\frac{2\sin na}{\pi n}.
+\]
+Parseval 等式给出
+\[
+  \frac12\left(\frac{2a}{\pi}\right)^2
+  +\sum_{n=1}^{\infty}\left(\frac{2\sin na}{\pi n}\right)^2
+  =\frac1\pi\int_{-\pi}^{\pi}f^2(x)\,\dd x
+  =\frac{2a}{\pi}.
+\]
+整理得
+\[
+  \boxed{\displaystyle
+  \sum_{n=1}^{\infty}\frac{\sin^2na}{n^2}
+  =\frac{a(\pi-a)}2}.
+\]
+再由
+\[
+  \sum_{n=1}^{\infty}\frac1{n^2}=\frac{\pi^2}{6}
+\]
+和 $\cos^2na=1-\sin^2na$，得到
+\[
+  \boxed{\displaystyle
+  \sum_{n=1}^{\infty}\frac{\cos^2na}{n^2}
+  =\frac{\pi^2}{6}-\frac{a(\pi-a)}2}.
+\]
+\end{xsolution}
+
+\section*{§15.3 参考题}
+
+\paragraph{参考题 1.}
+\begin{xsolution}
+(1) 把 $[0,2\pi]$ 分成 $n$ 个长度为 $2\pi/n$ 的周期小区间。对 $j=0,1,\ldots,n-1$，令
+\[
+  I_j=\int_{2j\pi/n}^{2(j+1)\pi/n}f(x)\sin nx\,\dd x.
+\]
+把后一半区间平移 $\pi/n$，得到
+\[
+  I_j=\int_0^{\pi/n}
+  \left[f\left(\frac{2j\pi}{n}+t\right)
+  -f\left(\frac{(2j+1)\pi}{n}+t\right)\right]\sin nt\,\dd t.
+\]
+由于 $f$ 单调减少，方括号内非负；而 $0\le t\le\pi/n$ 时 $\sin nt\ge0$。故 $I_j\ge0$。求和即得
+\[
+  \boxed{\displaystyle
+  \int_0^{2\pi}f(x)\sin nx\,\dd x\ge0}.
+\]
+若端点为广义积分，只需先在内闭区间作上述运算，再令端点趋近即可。
+
+(2) 由 $f'$ 可积和绝对可积，分部积分合法，而且 $\sin0=\sin2n\pi=0$，故
+\[
+  \int_0^{2\pi}f(x)\cos nx\,\dd x
+  =-\frac1n\int_0^{2\pi}f'(x)\sin nx\,\dd x.
+\]
+因为 $f'$ 单调增加，所以 $-f'$ 单调减少。由 (1)，
+\[
+  \int_0^{2\pi}[-f'(x)]\sin nx\,\dd x\ge0.
+\]
+于是
+\[
+  \boxed{\displaystyle
+  \int_0^{2\pi}f(x)\cos nx\,\dd x\ge0}.
+\]
+\end{xsolution}
+
+\paragraph{参考题 2.}
+\begin{xsolution}
+下凸函数在闭区间上连续并绝对连续，其导函数几乎处处存在且单调增加，并且
+\[
+  f(x)=f(0)+\int_0^xf'(t)\,\dd t.
+\]
+因此对 $n\ge1$ 可作分部积分：
+\[
+  \int_0^{2\pi}f(x)\cos nx\,\dd x
+  =-\frac1n\int_0^{2\pi}f'(x)\sin nx\,\dd x.
+\]
+$-f'$ 单调减少。参考题 1(1) 的证明只用到了单调性，故同样适用于这里的几乎处处定义的单调代表，从而
+\[
+  \int_0^{2\pi}[-f'(x)]\sin nx\,\dd x\ge0.
+\]
+故
+\[
+  \boxed{\displaystyle
+  \int_0^{2\pi}f(x)\cos nx\,\dd x\ge0,\qquad n\ge1 }.
+\]
+也可先用分段线性下凸函数一致逼近 $f$，对逼近函数证明后再取极限，避开不可导点。
+\end{xsolution}
+
+\paragraph{参考题 3.}
+\begin{xsolution}
+(1) 由周期性作变量平移可知
+\[
+  F_h(x+2\pi)=F_h(x).
+\]
+又因 $f$ 连续，变上、下限积分求导给出
+\[
+  F_h'(x)=\frac{f(x+h)-f(x-h)}{2h},
+\]
+右边连续，所以 $F_h$ 是周期 $2\pi$ 的连续可微函数。
+
+(2) 周期连续函数 $f$ 在 $\RR$ 上一致连续。给定 $\varepsilon>0$，取 $\delta>0$ 使
+$\abs{u}<\delta$ 时
+\[
+  \abs{f(x+u)-f(x)}<\varepsilon
+\]
+对所有 $x$ 一致成立。若 $0<h<\delta$，则
+\begin{align*}
+  \abs{F_h(x)-f(x)}
+  &=\left|\frac1{2h}\int_{-h}^{h}[f(x+u)-f(x)]\,\dd u\right|\\
+  &\le\frac1{2h}\int_{-h}^{h}\abs{f(x+u)-f(x)}\,\dd u<\varepsilon.
+\end{align*}
+故 $F_h\to f$ 一致。
+
+(3) 给定 $\varepsilon>0$，先由 (2) 取 $h$ 使
+\[
+  \norm{F_h-f}_\infty<\frac\varepsilon2.
+\]
+由 (1)，$F_h\in C^1$，其导函数连续，故满足命题 15.2.8 的条件；于是 $F_h$ 的 Fourier 级数绝对一致收敛于 $F_h$。取其中一个足够高阶的部分和三角多项式 $P_N$，使
+\[
+  \norm{F_h-P_N}_\infty<\frac\varepsilon2.
+\]
+于是
+\[
+  \norm{f-P_N}_\infty<\varepsilon,
+\]
+这就重新证明了周期函数形式的 Weierstrass 第二逼近定理。
+
+(4) 设 $f$ 的 Fourier 系数为 $a_0,a_n,b_n$。对 $n\ge1$，由 Fubini 换序与周期平移，
+\begin{align*}
+  A_n
+  &=\frac1\pi\int_{-\pi}^{\pi}F_h(x)\cos nx\,\dd x\\
+  &=\frac1{2h}\int_{-h}^{h}
+  \frac1\pi\int_{-\pi}^{\pi}f(x+u)\cos nx\,\dd x\,\dd u\\
+  &=\frac1{2h}\int_{-h}^{h}
+  (a_n\cos nu+b_n\sin nu)\,\dd u\\
+  &=a_n\frac{\sin nh}{nh}.
+\end{align*}
+对于正弦系数，同样作 $y=x+u$，内层积分为
+\[
+  \int_{-\pi}^{\pi}f(x+u)\sin nx\,\dd x
+  =\pi(b_n\cos nu-a_n\sin nu).
+\]
+于是对称区间 $[-h,h]$ 上的奇函数项积分为零，从而
+\[
+  B_n=b_n\frac{\sin nh}{nh}.
+\]
+常数项则直接由周期平移得到 $A_0=a_0$。
+因此
+\[
+  \boxed{\displaystyle
+  F_h(x)\sim\frac{a_0}{2}
+  +\sum_{n=1}^{\infty}\frac{\sin nh}{nh}
+  (a_n\cos nx+b_n\sin nx)}.
+\]
+\end{xsolution}
+
+\paragraph{参考题 4.}
+\begin{xsolution}
+(1) 先求 $F$ 的 Fourier 系数。对 $m\ge1$，
+\begin{align*}
+  A_m
+  &=\frac1\pi\int_{-\pi}^{\pi}F(x)\cos mx\,\dd x\\
+  &=\frac1{\pi^2}\int_{-\pi}^{\pi}f(t)
+    \left[\int_{-\pi}^{\pi}f(x+t)\cos mx\,\dd x\right]\dd t.
+\end{align*}
+令 $y=x+t$，利用周期性，内层积分等于
+\[
+  \pi(a_m\cos mt+b_m\sin mt).
+\]
+因此
+\[
+  A_m=a_m^2+b_m^2.
+\]
+对正弦系数，变量代换后内层积分为
+\[
+  \int_{-\pi}^{\pi}f(x+t)\sin mx\,\dd x
+  =\pi(b_m\cos mt-a_m\sin mt).
+\]
+因此
+\begin{align*}
+  B_m
+  &=\frac1\pi\int_{-\pi}^{\pi}
+    f(t)(b_m\cos mt-a_m\sin mt)\,\dd t\\
+  &=b_ma_m-a_mb_m=0.
+\end{align*}
+常数项为
+\[
+  A_0=a_0^2.
+\]
+故
+\[
+  \boxed{\displaystyle
+  F(x)\sim\frac{a_0^2}{2}
+  +\sum_{n=1}^{\infty}(a_n^2+b_n^2)\cos nx }.
+\]
+
+(2) 连续函数 $f$ 平方可积，由 Bessel 不等式
+\[
+  \sum_{n=1}^{\infty}(a_n^2+b_n^2)<\infty.
+\]
+所以由 Weierstrass M-判别法，$F$ 的上述 Fourier 级数绝对一致收敛。
+
+(3) 由定义，$F$ 连续；由 (2) 的一致收敛和命题 15.1.1，右边级数的和就是 $F$。令 $x=0$，得到
+\[
+  \frac1\pi\int_{-\pi}^{\pi}f^2(t)\,\dd t
+  =F(0)=\frac{a_0^2}{2}+\sum_{n=1}^{\infty}(a_n^2+b_n^2),
+\]
+即 Parseval 等式。
+\end{xsolution}
+
+\paragraph{参考题 5.}
+\begin{xsolution}
+(1) 记
+\[
+  S_n(x)=\sum_{k=1}^{n}\frac{\sin kx}{k}.
+\]
+由题给恒等式和 Dirichlet 核公式，
+\begin{align*}
+  S_n(x)
+  &=\int_0^x\sum_{k=1}^{n}\cos kt\,\dd t\\
+  &=\frac12\int_0^x
+  \frac{\sin(n+\frac12)t}{\sin(t/2)}\,\dd t-\frac x2.
+\end{align*}
+当 $0<x<2\pi$ 时，函数
+\[
+  q(t)=\frac{t}{2\sin(t/2)}
+\]
+在 $[0,x]$ 上连续且 $q(0)=1$。故由 Dirichlet 积分极限
+\[
+  \lim_{\lambda\to\infty}\int_0^xq(t)\frac{\sin\lambda t}{t}\,\dd t=\frac\pi2,
+\]
+可得
+\[
+  \boxed{\displaystyle
+  \sum_{k=1}^{\infty}\frac{\sin kx}{k}=\frac{\pi-x}{2},
+  \qquad0<x<2\pi }.
+\]
+在 $x\in2\pi\ZZ$ 时各项均为 $0$，和为 $0$；其余值由 $2\pi$ 周期性确定。
+
+(2) 记上式和函数为 $S(x)$。则
+\[
+  \sum_{k=1}^{\infty}\frac{\sin(2k-1)x}{2k-1}
+  =S(x)-\frac12S(2x).
+\]
+当 $0<x<\pi$ 时，
+\[
+  S(x)=\frac{\pi-x}{2},\qquad
+  S(2x)=\frac{\pi-2x}{2},
+\]
+故
+\[
+  \boxed{\displaystyle
+  \sum_{k=1}^{\infty}\frac{\sin(2k-1)x}{2k-1}=\frac\pi4,
+  \qquad0<x<\pi }.
+\]
+当 $\pi<x<2\pi$ 时，$S(x)=(\pi-x)/2$，而 $2x-2\pi\in(0,2\pi)$，故由周期性
+\[
+  S(2x)=S(2x-2\pi)=\frac{3\pi-2x}{2}.
+\]
+代入 $S(x)-\frac12S(2x)$ 得 $-\pi/4$。在 $x\in\pi\ZZ$ 时每一项均为 $0$，故和为 $0$。
+\end{xsolution}
+
+\paragraph{参考题 6.}
+\begin{xsolution}
+以下均从参考题 5(1) 的
+\[
+  S(x)=\sum_{n=1}^{\infty}\frac{\sin nx}{n}=\frac{\pi-x}{2}
+  \qquad(0<x<2\pi)
+\]
+出发。
+
+(1) 偶数项为
+\[
+  \sum_{k=1}^{\infty}\frac{\sin2kx}{2k}=\frac12S(2x)
+  =\boxed{\frac\pi4-\frac x2},\qquad0<x<\pi.
+\]
+
+(2) 用总和减去偶数项，
+\[
+  \sum_{k=1}^{\infty}\frac{\sin(2k-1)x}{2k-1}
+  =S(x)-\frac12S(2x)=\boxed{\frac\pi4},
+  \qquad0<x<\pi.
+\]
+
+(3) 对 $\abs{x}<\pi$，令 $y=x+\pi\in(0,2\pi)$。由于
+$\sin n(x+\pi)=(-1)^n\sin nx$，
+\[
+  \sum_{n=1}^{\infty}\frac{(-1)^{n-1}}n\sin nx
+  =-S(x+\pi)=\boxed{\frac x2}.
+\]
+
+(4) 对 (3) 从 $0$ 到 $x$ 逐项积分。积分后的级数由 $1/n^2$ 控制，故一致收敛，得到
+\[
+  \frac{x^2}{4}
+  =\sum_{n=1}^{\infty}\frac{(-1)^{n-1}}{n^2}(1-\cos nx).
+\]
+先令 $x=\pi$，得到
+\[
+  2\sum_{m=1}^{\infty}\frac1{(2m-1)^2}=\frac{\pi^2}{4},
+\]
+故奇数平方倒数和为 $\pi^2/8$。若记 $Z=\sum1/n^2$，则
+$Z=\pi^2/8+Z/4$，所以 $Z=\pi^2/6$，进而
+\[
+  \sum_{n=1}^{\infty}\frac{(-1)^{n-1}}{n^2}=\frac{\pi^2}{12}.
+\]
+代回前式即得
+\[
+  \boxed{\displaystyle
+  x^2=\frac{\pi^2}{3}
+  +4\sum_{n=1}^{\infty}\frac{(-1)^n}{n^2}\cos nx,
+  \qquad\abs{x}<\pi }.
+\]
+端点按连续延拓也成立。
+
+(5) 对 (2) 从 $0$ 到 $x$ 积分，利用
+$\sum_{k\ge1}(2k-1)^{-2}=\pi^2/8$，
+\[
+  \frac{\pi x}{4}
+  =\frac{\pi^2}{8}-
+  \sum_{k=1}^{\infty}\frac{\cos(2k-1)x}{(2k-1)^2}.
+\]
+整理得
+\[
+  \boxed{\displaystyle
+  x=\frac\pi2-\frac4\pi
+  \sum_{k=1}^{\infty}\frac{\cos(2k-1)x}{(2k-1)^2},
+  \qquad0\le x\le\pi }.
+\]
+
+(6) 对参考题 5(1) 从 $0$ 到 $x$ 积分：
+\[
+  \sum_{n=1}^{\infty}\frac{1-\cos nx}{n^2}
+  =\frac{\pi x}{2}-\frac{x^2}{4}.
+\]
+再用 $\sum1/n^2=\pi^2/6$，得到
+\[
+  \boxed{\displaystyle
+  \sum_{n=1}^{\infty}\frac{\cos nx}{n^2}
+  =\frac{3x^2-6\pi x+2\pi^2}{12},
+  \qquad0\le x\le2\pi }.
+\]
+题中所列 $0\le x\le\pi$ 是其子区间。
+\end{xsolution}
+
+\paragraph{参考题 7（Steklov（斯捷克洛夫）不等式）.}
+\begin{xsolution}
+先考虑条件 (1)：$\int_0^\pi f=0$。把 $f$ 作半区间余弦展开
+\[
+  f(x)\sim\sum_{n=1}^{\infty}a_n\cos nx,
+\qquad
+  a_n=\frac2\pi\int_0^\pi f(x)\cos nx\,\dd x,
+\]
+其中常数项因均值为零而消失。Parseval 等式给出
+\[
+  \int_0^\pi f^2(x)\,\dd x
+  =\frac\pi2\sum_{n=1}^{\infty}a_n^2.
+\]
+另一方面，对 $f'$ 的正弦系数有
+\[
+  \frac2\pi\int_0^\pi f'(x)\sin nx\,\dd x
+  =-n a_n,
+\]
+因为边界上的 $\sin nx$ 为零。由 Bessel 不等式，
+\[
+  \int_0^\pi f'^2(x)\,\dd x
+  \ge\frac\pi2\sum_{n=1}^{\infty}n^2a_n^2
+  \ge\frac\pi2\sum_{n=1}^{\infty}a_n^2
+  =\int_0^\pi f^2(x)\,\dd x.
+\]
+若等号成立，则 $a_n=0$ 对一切 $n\ge2$，由余弦系完备性与连续性，
+\[
+  f(x)=A\cos x.
+\]
+反之该函数满足均值为零并取得等号。
+
+再考虑条件 (2)：$f(0)=f(\pi)=0$。作半区间正弦展开
+\[
+  f(x)\sim\sum_{n=1}^{\infty}b_n\sin nx,
+\qquad
+  \int_0^\pi f^2(x)\,\dd x=\frac\pi2\sum_{n=1}^{\infty}b_n^2.
+\]
+对 $f'$ 的余弦系数，分部积分并用端点条件得到
+\[
+  \frac2\pi\int_0^\pi f'(x)\cos nx\,\dd x=n b_n,
+\]
+而常数余弦系数为 $0$。故 Bessel 不等式给出
+\[
+  \int_0^\pi f'^2(x)\,\dd x
+  \ge\frac\pi2\sum_{n=1}^{\infty}n^2b_n^2
+  \ge\int_0^\pi f^2(x)\,\dd x.
+\]
+等号当且仅当只有 $b_1$ 可能非零，即
+\[
+  f(x)=B\sin x.
+\]
+这正是题中两种条件各自的等号情形。
+\end{xsolution}
+
+\paragraph{参考题 8（Wirtinger 不等式）.}
+\begin{xsolution}
+设
+\[
+  f(x)\sim\frac{a_0}{2}+\sum_{n=1}^{\infty}(a_n\cos nx+b_n\sin nx).
+\]
+由 $\int_{-\pi}^{\pi}f=0$ 知 $a_0=0$。Parseval 等式给出
+\[
+  \frac1\pi\int_{-\pi}^{\pi}f^2(x)\,\dd x
+  =\sum_{n=1}^{\infty}(a_n^2+b_n^2).
+\]
+因为 $f(-\pi)=f(\pi)$，命题 15.1.2 给出 $f'$ 的 Fourier 系数
+\[
+  a_n'=n b_n,\qquad b_n'=-n a_n.
+\]
+再对 $f'$ 用 Parseval 等式，
+\[
+  \frac1\pi\int_{-\pi}^{\pi}f'^2(x)\,\dd x
+  =\sum_{n=1}^{\infty}n^2(a_n^2+b_n^2)
+  \ge\sum_{n=1}^{\infty}(a_n^2+b_n^2).
+\]
+故
+\[
+  \boxed{\displaystyle
+  \int_{-\pi}^{\pi}f'^2(x)\,\dd x
+  \ge\int_{-\pi}^{\pi}f^2(x)\,\dd x }.
+\]
+等号成立当且仅当 $n\ge2$ 的全部系数均为 $0$，即
+\[
+  \boxed{f(x)=A\cos x+B\sin x}.
+\]
+这类函数确实满足题设条件并取得等号。
+\end{xsolution}
+
+\paragraph{参考题 9.}
+\begin{xsolution}
+设闭区间 $I$ 不含 $f$ 的任何间断点。因为 $f,f'$ 均分段连续，间断点只有有限个，所以可取 $\eta>0$，使每个 $x\in I$ 的 $\eta$ 邻域都不含 $f$ 的间断点。
+
+在各间断点的小邻域内把 $f$ 用线段连接，得到一个周期 $2\pi$ 的连续分段 $C^1$ 函数 $g$，并使 $g=f$ 在 $I$ 的固定邻域上成立。于是 $g'$ 分段连续并平方可积，由命题 15.2.8，$g$ 的 Fourier 级数绝对一致收敛于 $g$。
+
+令 $h=f-g$。则对 $x\in I$ 和 $\abs{t}<\eta$ 有
+\[
+  h(x+t)=h(x-t)=0.
+\]
+由 Dirichlet 积分表示，$h$ 的第 $n$ 个 Fourier 部分和满足
+\[
+  S_n^h(x)=\frac1\pi\int_{\eta}^{\pi}
+  [h(x+t)+h(x-t)]
+  \frac{\sin(n+\frac12)t}{2\sin(t/2)}\,\dd t.
+\]
+对 $x\in I$，积分中的振幅关于 $t$ 分段 $C^1$，且由于 $t\ge\eta$，分母远离 $0$；其总变差可由一个与 $x$ 无关的常数控制。对每个分段作分部积分，得到
+\[
+  \sup_{x\in I}\abs{S_n^h(x)}=\bigO\!\left(\frac1n\right)\to0.
+\]
+因此在 $I$ 上
+\[
+  S_n^f(x)=S_n^g(x)+S_n^h(x)
+\]
+一致收敛于 $g(x)=f(x)$。故 $f$ 的 Fourier 级数在任何不含其间断点的闭区间上一致收敛。
+\end{xsolution}
+
+\paragraph{参考题 10.}
+\begin{xsolution}
+由参考题 5(1)，取 $x=1$，立即有
+\[
+  \boxed{\displaystyle
+  \sum_{n=1}^{\infty}\frac{\sin n}{n}=\frac{\pi-1}{2}}.
+\]
+
+又由 §15.2 练习题 10 的公式
+\[
+  \sum_{n=1}^{\infty}\frac{\sin^2na}{n^2}=\frac{a(\pi-a)}2,
+  \qquad0<a<\pi,
+\]
+取 $a=1$，得到
+\[
+  \boxed{\displaystyle
+  \sum_{n=1}^{\infty}\frac{\sin^2n}{n^2}=\frac{\pi-1}{2}}.
+\]
+
+最后令
+\[
+  H(x)=\sum_{n=1}^{\infty}\frac{1-\cos nx}{n^4}.
+\]
+该级数可逐项求两次导数到
+\[
+  H''(x)=\sum_{n=1}^{\infty}\frac{\cos nx}{n^2}
+  =\frac{3x^2-6\pi x+2\pi^2}{12},
+  \qquad0\le x\le2\pi,
+\]
+并且 $H(0)=H'(0)=0$。所以
+\[
+  H(x)=\int_0^x(x-t)
+  \frac{3t^2-6\pi t+2\pi^2}{12}\,\dd t.
+\]
+取 $x=2$，直接积分得
+\[
+  H(2)=\frac{(\pi-1)^2}{3}.
+\]
+由于 $1-\cos2n=2\sin^2n$，
+\[
+  2\sum_{n=1}^{\infty}\frac{\sin^2n}{n^4}=H(2),
+\]
+故
+\[
+  \boxed{\displaystyle
+  \sum_{n=1}^{\infty}\frac{\sin^2n}{n^4}=\frac{(\pi-1)^2}{6}}.
+\]
+\end{xsolution}
+
+\paragraph{参考题 11.}
+\begin{xsolution}
+只需证明任意一个长度为 $2\pi$ 的周期区间内至少有 $2n+2$ 次变号。反设某一周期内只有 $2m$ 个变号点
+\[
+  x_1,x_2,\ldots,x_{2m},\qquad 2m\le2n.
+\]
+周期函数绕一周后的符号必须回到原符号，所以变号次数为偶数。
+
+考虑
+\[
+  P(x)=C\prod_{j=1}^{2m}\sin\frac{x-x_j}{2},
+\]
+其中常数 $C=\pm1$ 选取成使 $f(x)P(x)\ge0$。每跨过一个 $x_j$，$f$ 和 $P$ 都同时改变符号，因此这样的 $C$ 可以统一选取。又因 $f\not\equiv0$ 且连续，必在某个开区间上 $fP>0$，于是
+\[
+  \int_{-\pi}^{\pi}f(x)P(x)\,\dd x>0.
+\]
+
+另一方面，$P$ 是 $2m$ 个半角正弦因子的乘积。把每个因子写成指数形式可见其频率从 $-m$ 到 $m$，故 $P$ 是次数不超过 $m\le n$ 的三角多项式。题设说明 $f$ 与所有次数不超过 $n$ 的三角多项式正交，所以
+\[
+  \int_{-\pi}^{\pi}f(x)P(x)\,\dd x=0,
+\]
+矛盾。
+
+故每个完整周期内至少有 $2n+2$ 次变号。任意长度大于 $2\pi$ 的区间包含一个完整周期，因此结论成立。
+\end{xsolution}
+
+\paragraph{参考题 12.}
+\begin{xsolution}
+若 $f$ 单调增加且趋于 $0$，则对 $-f$ 作以下论证即可，所以只考虑 $f\ge0$ 单调减少且 $f(x)\to0$ 的情形。
+
+令
+\[
+  A_n(x)=\int_0^x\sin nt\,\dd t=\frac{1-\cos nx}{n},
+\]
+则
+\[
+  0\le A_n(x)\le\frac2n.
+\]
+对任意 $R>0$，按 Stieltjes 分部积分（或积分第二中值定理）有
+\[
+  \int_0^Rf(x)\sin nx\,\dd x
+  =f(R)A_n(R)-\int_0^RA_n(x)\,\dd f(x).
+\]
+因为 $\dd f\le0$，两项均可估计，得到
+\[
+  \left|\int_0^Rf(x)\sin nx\,\dd x\right|
+  \le\frac{2f(0)}n.
+\]
+令 $R\to+\infty$，由 Dirichlet 判别法广义积分存在，并保持同一估计。因此
+\[
+  \left|\int_0^{+\infty}f(x)\sin nx\,\dd x\right|
+  \le\frac{2\abs{f(0)}}n\to0.
+\]
+故
+\[
+  \boxed{\displaystyle
+  \lim_{n\to\infty}\int_0^{+\infty}f(x)\sin nx\,\dd x=0 }.
+\]
+\end{xsolution}
+
+\paragraph{参考题 13.}
+\begin{xsolution}
+因为
+\[
+  \sum_{n=1}^{\infty}n^2\ee^{-n}<\infty,
+\]
+题给三角级数绝对一致收敛，所以其和函数 $f$ 连续，而且由命题 15.1.1，该级数就是 $f$ 的 Fourier 级数。特别地，第一个正弦 Fourier 系数为
+\[
+  b_1=\ee^{-1}.
+\]
+设
+\[
+  M=\max_{0\le x\le2\pi}\abs{f(x)}.
+\]
+由 Fourier 系数公式
+\[
+  \frac1\ee
+  =\frac1\pi\int_0^{2\pi}f(x)\sin x\,\dd x,
+\]
+故
+\[
+  \frac1\ee
+  \le\frac{M}{\pi}\int_0^{2\pi}\abs{\sin x}\,\dd x
+  =\frac{4M}{\pi}.
+\]
+于是
+\[
+  M\ge\frac{\pi}{4\ee}.
+\]
+由于 $\pi/4>2/\pi$，进一步得到题目所要求的较弱估计
+\[
+  \boxed{\displaystyle
+  M\ge\frac2{\pi\ee}}.
+\]
+\end{xsolution}
+
+\paragraph{参考题 14.}
+\begin{xsolution}
+因为 $\varepsilon_n\to0$，可递归选取严格增加的正整数列
+\[
+  n_1<n_2<\cdots
+\]
+使
+\[
+  \varepsilon_{n_k}<2^{-k},\qquad k=1,2,\ldots.
+\]
+定义
+\[
+  f(x)=\sum_{k=1}^{\infty}2^{-k}\cos n_kx.
+\]
+由
+\[
+  \sum_{k=1}^{\infty}2^{-k}<\infty
+\]
+和 M-判别法，该级数在 $\RR$ 上绝对一致收敛，所以 $f$ 是周期 $2\pi$ 的连续函数。又由命题 15.1.1，这个一致收敛的三角级数就是 $f$ 的 Fourier 级数。因此
+\[
+  a_{n_k}=2^{-k},\qquad b_{n_k}=0.
+\]
+于是对所有 $k$，
+\[
+  \abs{a_{n_k}}+\abs{b_{n_k}}
+  =2^{-k}>\varepsilon_{n_k}.
+\]
+这样的指标 $n_k$ 有无限多个，结论得证。
+\end{xsolution}
+
+\paragraph{参考题 15.}
+\begin{xsolution}
+记 $f'$ 的 Fourier 系数为 $a_n',b_n'$。首先
+\[
+  a_0'=\frac1\pi\int_{-\pi}^{\pi}f'(x)\,\dd x
+  =\frac{f(\pi)-f(-\pi)}{\pi}=c.
+\]
+对 $n\ge1$，分部积分得
+\begin{align*}
+  a_n'
+  &=\frac1\pi\int_{-\pi}^{\pi}f'(x)\cos nx\,\dd x\\
+  &=\frac{(-1)^n[f(\pi)-f(-\pi)]}{\pi}
+    +\frac n\pi\int_{-\pi}^{\pi}f(x)\sin nx\,\dd x\\
+  &=(-1)^nc+nb_n,
+\end{align*}
+以及
+\begin{align*}
+  b_n'
+  &=\frac1\pi\int_{-\pi}^{\pi}f'(x)\sin nx\,\dd x\\
+  &=-\frac n\pi\int_{-\pi}^{\pi}f(x)\cos nx\,\dd x
+  =-na_n,
+\end{align*}
+因为边界上的 $\sin n\pi$ 为 $0$。故
+\[
+  \boxed{\displaystyle
+  f'(x)\sim\frac c2+
+  \sum_{n=1}^{\infty}
+  [(nb_n+(-1)^nc)\cos nx-na_n\sin nx]}.
+\]
+
+再由 Riemann 引理，$a_n'\to0$，所以
+\[
+  nb_n+(-1)^nc\to0.
+\]
+乘以 $(-1)^{n-1}$，得到
+\[
+  \boxed{\displaystyle
+  c=\lim_{n\to\infty}(-1)^{n-1}nb_n }.
+\]
+\end{xsolution}
+
+\paragraph{参考题 16.}
+\begin{xsolution}
+记题设函数 $\varphi$ 的 Fourier 系数为
+\[
+  A_0=c,\qquad
+  A_n=nb_n+(-1)^nc,\qquad
+  B_n=-na_n\quad(n\ge1).
+\]
+对 $\varphi$ 应用 Fourier 级数逐项积分定理。令
+\[
+  G(x)=\int_0^x\left(\varphi(t)-\frac c2\right)\,\dd t.
+\]
+则其积分后的 Fourier 级数为
+\begin{align*}
+  G(x)
+  &=\sum_{n=1}^{\infty}\frac{B_n}{n}
+   +\sum_{n=1}^{\infty}
+   \left(-\frac{B_n}{n}\cos nx+\frac{A_n}{n}\sin nx\right)\\
+  &=-\sum_{n=1}^{\infty}a_n
+   +\sum_{n=1}^{\infty}
+   \left[a_n\cos nx+\left(b_n+\frac{(-1)^nc}{n}\right)\sin nx\right].
+\end{align*}
+逐项积分定理还保证右端三角级数一致收敛。因此
+\[
+  H(x):=\sum_{n=1}^{\infty}
+  \left[a_n\cos nx+\left(b_n+\frac{(-1)^nc}{n}\right)\sin nx\right]
+\]
+一致收敛。
+
+另一方面，参考题 6(3) 已给出
+\[
+  \sum_{n=1}^{\infty}\frac{(-1)^{n-1}}n\sin nx
+  =\frac x2,
+  \qquad\abs{x}<\pi,
+\]
+并且该级数在 $x=\pm\pi$ 也收敛（其和为 $0$）。因此原三角级数可写为
+\[
+  \frac{a_0}{2}+H(x)
+  +c\sum_{n=1}^{\infty}\frac{(-1)^{n-1}}n\sin nx,
+\]
+所以处处收敛。记其和为 $f$。
+
+在 $-\pi<x<\pi$ 内，由上面的 $G$ 表示式可知存在常数 $C$ 使
+\[
+  f(x)=C+G(x)+\frac c2x.
+\]
+于是 $f$ 在开区间内绝对连续，并且在 $\varphi$ 的每个连续点，微积分基本定理给出
+\[
+  f'(x)=G'(x)+\frac c2
+  =\varphi(x)-\frac c2+\frac c2
+  =\varphi(x).
+\]
+
+还需验证给定三角级数确为 $f$ 的 Fourier 级数。由于 $H$ 一致收敛，可以逐项积分求其 Fourier 系数；而
+\[
+  \sum_{n=1}^{\infty}\frac{(-1)^{n-1}}n\sin nx
+\]
+本身就是区间 $(-\pi,\pi)$ 上函数 $x/2$ 的 Fourier 级数。因此 $f$ 的非零频率 Fourier 系数正是给定的 $a_n,b_n$。常数项由原级数中的 $a_0/2$ 决定，所以 $f$ 的全部 Fourier 系数就是
+$a_0,a_n,b_n$。故原三角级数确为其和函数 $f$ 的 Fourier 级数，并且在 $\varphi$ 的连续点有 $f'=\varphi$。
+\end{xsolution}
+
+\paragraph{参考题 17.}
+\begin{xsolution}
+对题给三角级数令
+\[
+  a_n=0,
+  \qquad b_1=0,
+  \qquad b_n=\frac{(-1)^n n}{n^2-1}\quad(n\ge2).
+\]
+则
+\[
+  c=\lim_{n\to\infty}(-1)^{n-1}nb_n
+  =-1.
+\]
+按照参考题 16，应考察函数的 Fourier 级数
+\[
+  \frac c2+
+  \sum_{n=1}^{\infty}[nb_n+(-1)^nc]\cos nx.
+\]
+当 $n=1$ 时系数为 $1$；当 $n\ge2$ 时
+\[
+  nb_n+(-1)^nc
+  =\frac{(-1)^n}{n^2-1}.
+\]
+故
+\[
+  \varphi(x)=-\frac12+\cos x+
+  \sum_{n=2}^{\infty}\frac{(-1)^n}{n^2-1}\cos nx.
+\]
+后一个级数绝对一致收敛，所以 $\varphi$ 连续。由参考题 16，原三角级数处处收敛，并且在 $(-\pi,\pi)$ 内其和函数可导，导函数为 $\varphi$；同时该三角级数是这个和函数的 Fourier 级数。端点处的函数值不影响 Fourier 系数，因此求出开区间内的表达式后，可按连续极限重新定义端点，从而得到题目所要求的连续可微函数。
+
+现在直接确定这个连续延拓。令
+\[
+  \boxed{\displaystyle
+  f(x)=\frac{x\cos x}{2}+\frac{\sin x}{4},
+  \qquad -\pi\le x\le\pi }.
+\]
+这是连续可微函数，并且
+\[
+  f''(x)+f(x)=-\sin x.
+\]
+下面核对其 Fourier 系数。$f$ 为奇函数，所以所有余弦系数及常数项均为 $0$。对 $n\ge2$，利用
+\[
+  \sin nx\cos x=\frac12[\sin(n+1)x+\sin(n-1)x]
+\]
+以及
+\[
+  \int_0^\pi x\sin mx\,\dd x=-\frac{\pi(-1)^m}{m},
+\]
+可得
+\[
+  b_n=\frac2\pi\int_0^\pi f(x)\sin nx\,\dd x
+  =\frac{(-1)^n n}{n^2-1}.
+\]
+当 $n=1$ 时，$x\cos x/2$ 对 $b_1$ 的贡献为 $-1/4$，而 $\sin x/4$ 的贡献为 $1/4$，故 $b_1=0$。因此它的 Fourier 级数正是题给级数。
+\end{xsolution}
+
+\paragraph{参考题 18.}
+\begin{xsolution}
+设给定有限正交系为
+\[
+  e_1,e_2,\ldots,e_m.
+\]
+在 $(a,b)$ 内取 $m+1$ 个两两不交的小区间，并在第 $j$ 个小区间内取一个非零连续函数 $\phi_j$，使各 $\phi_j$ 的支集两两不交。
+
+考虑齐次线性方程组
+\[
+  \sum_{j=1}^{m+1}c_j\int_a^b\phi_j(x)e_i(x)\,\dd x=0,
+  \qquad i=1,\ldots,m.
+\]
+这是 $m$ 个方程、$m+1$ 个未知数，因此存在非零解
+$(c_1,\ldots,c_{m+1})$。令
+\[
+  g(x)=\sum_{j=1}^{m+1}c_j\phi_j(x).
+\]
+由于各支集互不相交且系数不全为零，$g\not\equiv0$；同时 $g$ 连续，从而可积且平方可积。由方程组定义，
+\[
+  \int_a^bg(x)e_i(x)\,\dd x=0,
+  \qquad i=1,\ldots,m.
+\]
+所以存在非零平方可积函数与该有限正交系的每个元素正交，故有限正交系不可能完备。
+\end{xsolution}
+
+\paragraph{参考题 19（de la Vallée Poussin 核）.}
+\begin{xsolution}
+记
+\[
+  K_n(u)=\frac{(2n)!!}{2\pi(2n-1)!!}
+  \left(\cos\frac u2\right)^{2n}.
+\]
+则
+\[
+  V_n(x)=\int_{-\pi}^{\pi}f(t)K_n(t-x)\,\dd t.
+\]
+
+(1) 利用二项式展开可得
+\[
+  \left(\cos\frac u2\right)^{2n}
+  =2^{-2n}\binom{2n}{n}
+  +2^{1-2n}\sum_{k=1}^{n}\binom{2n}{n-k}\cos ku.
+\]
+把 $u=t-x$ 代入，并用
+\[
+  \cos k(t-x)=\cos kt\cos kx+\sin kt\sin kx,
+\]
+对 $t$ 积分后，$V_n(x)$ 成为
+\[
+  A_0+\sum_{k=1}^{n}(A_k\cos kx+B_k\sin kx),
+\]
+故 $V_n$ 是 $n$ 次三角多项式。
+
+(2) 先验证归一化。由 Wallis 积分公式
+\[
+  \int_0^{\pi/2}\cos^{2n}v\,\dd v
+  =\frac\pi2\frac{(2n-1)!!}{(2n)!!},
+\]
+所以
+\[
+  \int_{-\pi}^{\pi}K_n(u)\,\dd u=1.
+\]
+而且 $K_n\ge0$。
+
+再证明核的质量集中于 $u=0$。给定 $0<\delta<\pi$，在
+$\delta\le\abs{u}\le\pi$ 上有
+\[
+  \abs{\cos(u/2)}\le q:=\cos(\delta/2)<1.
+\]
+还需控制归一化常数。对 $\abs{u}\le n^{-1/2}$，
+\[
+  \cos\frac u2\ge1-\frac{u^2}{8}\ge1-\frac1{8n},
+\]
+故存在与 $n$ 无关的常数 $c_0>0$，使
+\[
+  \int_{-\pi}^{\pi}\left(\cos\frac u2\right)^{2n}\,\dd u
+  \ge\frac{c_0}{\sqrt n}.
+\]
+由于 $K_n$ 的归一化常数正是上述积分的倒数，故它为 $\bigO(\sqrt n)$。于是
+\[
+  \int_{\delta\le\abs{u}\le\pi}K_n(u)\,\dd u
+  \le C\sqrt n\,q^{2n}\to0.
+\]
+
+最后利用 $f$ 的一致连续性。给定 $\varepsilon>0$，先取 $\delta$ 使
+\[
+  \abs{f(x+u)-f(x)}<\frac\varepsilon2
+  \quad(\abs{u}<\delta)
+\]
+对所有 $x$ 一致成立。设 $M=\norm{f}_\infty$。由周期性和平移变量，
+\begin{align*}
+  \abs{V_n(x)-f(x)}
+  &\le\int_{-\pi}^{\pi}K_n(u)
+  \abs{f(x+u)-f(x)}\,\dd u\\
+  &\le\frac\varepsilon2
+  +2M\int_{\delta\le\abs{u}\le\pi}K_n(u)\,\dd u.
+\end{align*}
+第二项当 $n$ 足够大时小于 $\varepsilon/2$，并且估计与 $x$ 无关。因此
+\[
+  \sup_{x\in\RR}\abs{V_n(x)-f(x)}\to0,
+\]
+即 $V_n$ 在 $(-\infty,+\infty)$ 上一致收敛于 $f$。
+\end{xsolution}
+
+\paragraph{参考题 20.}
+\begin{xsolution}
+记
+\[
+  S_n(x)=\sum_{k=1}^{n}\frac{\cos kx}{k}.
+\]
+先证明 $S_n(x)\ge-1$。
+
+我们使用一个简单的 Fejér 正性引理。设
+$d_0,d_1,\ldots,d_N$ 满足
+$d_{N+1}=d_{N+2}=0$ 且
+\[
+  \Delta^2d_m:=d_m-2d_{m+1}+d_{m+2}\ge0.
+\]
+标准 Fejér 核
+\[
+  K_m(x)=1+2\sum_{k=1}^{m}\left(1-\frac{k}{m+1}\right)\cos kx
+  =\frac1{m+1}\left(\frac{\sin\frac{m+1}{2}x}{\sin\frac x2}\right)^2
+\]
+非负。比较 Fourier 系数可验证恒等式
+\[
+  d_0+2\sum_{k=1}^{N}d_k\cos kx
+  =\sum_{m=0}^{N}(m+1)\Delta^2d_m\,K_m(x),
+\]
+故左边非负。
+
+现在
+\[
+  S_n'(x)=-\sum_{k=1}^{n}\sin kx
+  =-\frac{\sin(nx/2)\sin((n+1)x/2)}{\sin(x/2)}.
+\]
+因此在一个周期内，除端点外的极值点只有两类：
+\[
+  x=\frac{2\pi j}{n}
+  \quad\text{或}\quad
+  x=\frac{2\pi j}{n+1}.
+\]
+
+若 $x=2\pi j/n$ 为非端点，则
+\[
+  \sum_{k=1}^{n-1}\cos kx=-1.
+\]
+令
+\[
+  d_0=1,\qquad
+  d_k=\frac12\left(\frac1k-\frac1n\right)\quad(1\le k\le n-1).
+\]
+数列 $1/k$ 为凸数列，且端点处的二阶差分也非负，所以由上面的 Fejér 正性引理，
+\[
+  1+\sum_{k=1}^{n-1}\left(\frac1k-\frac1n\right)\cos kx\ge0.
+\]
+利用根单位和式，左边恰为 $1+S_n(x)$，故 $S_n(x)\ge-1$。
+
+若 $x=2\pi j/(n+1)$，则
+\[
+  \sum_{k=1}^{n}\cos kx=-1.
+\]
+这次令
+\[
+  d_0=\frac{n}{n+1},\qquad
+  d_k=\frac12\left(\frac1k-\frac1{n+1}\right)\quad(1\le k\le n).
+\]
+其二阶差分同样全部非负，因而
+\[
+  \frac{n}{n+1}+
+  \sum_{k=1}^{n}\left(\frac1k-\frac1{n+1}\right)\cos kx\ge0.
+\]
+利用 $\sum_{k=1}^n\cos kx=-1$，左边仍恰为 $1+S_n(x)$。所以所有内部极值点都有 $S_n\ge-1$；端点 $x=0,2\pi$ 处 $S_n=\sum_{k=1}^n1/k>0$。故
+\[
+  \boxed{S_n(x)\ge-1\quad\text{对一切 }x}.
+\]
+
+下面求最小值的极限。记
+\[
+  m_n=\min_{0\le x\le\pi}S_n(x).
+\]
+在 $x=\pi$，
+\[
+  S_n(\pi)=\sum_{k=1}^{n}\frac{(-1)^k}{k}\longrightarrow-\ln2,
+\]
+所以
+\[
+  \limsup_{n\to\infty}m_n\le-\ln2.
+\]
+
+另一方面，对 $0<x<2\pi$，由 Abel 极限定理
+\[
+  \sum_{k=1}^{\infty}\frac{\cos kx}{k}
+  =-\ln\left(2\sin\frac x2\right)=:L(x).
+\]
+在每个 $[\delta,\pi]$ 上，由 Dirichlet 判别法余项估计，$S_n\to L$ 一致。
+
+只需排除最小点趋向 $0$。若 $x_n\to0$ 且 $nx_n$ 有界，则由
+$1-\cos y\le y^2/2$，
+\begin{align*}
+  S_n(x_n)
+  &=\sum_{k=1}^{n}\frac1k
+    -\sum_{k=1}^{n}\frac{1-\cos(kx_n)}k\\
+  &\ge H_n-\frac{x_n^2}{2}\sum_{k=1}^{n}k
+  =H_n-\bigO(1)\to+\infty.
+\end{align*}
+若 $x_n\to0$ 而 $nx_n\to\infty$，则 Dirichlet 余项估计给出
+\[
+  \left|L(x_n)-S_n(x_n)\right|
+  \le\frac{C}{(n+1)\sin(x_n/2)}
+  \le\frac{C'}{nx_n}\to0,
+\]
+而 $L(x_n)\to+\infty$，故仍有 $S_n(x_n)\to+\infty$。因此取得最小值的点不可能趋向 $0$。
+
+任取实现 $\liminf m_n$ 的子列及其最小点，再取收敛子列 $x_n\to x_*>0$。在包含 $x_*$ 的闭区间上有一致收敛，故
+\[
+  \liminf_{n\to\infty}m_n=L(x_*)
+  \ge\min_{0<x\le\pi}L(x)=-\ln2.
+\]
+结合上面的 $\limsup$，得到
+\[
+  \boxed{\displaystyle
+  \lim_{n\to\infty}\min_{0\le x\le\pi}S_n(x)=-\ln2 }.
+\]
+\end{xsolution}
