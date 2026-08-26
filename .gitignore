@@ -1,0 +1,30 @@
+# Local source scans rendered as page images. Reproducible; do not commit.
+/source-pages/
+
+# Build outputs
+/build/*
+!/build/.gitkeep
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.idx
+*.ilg
+*.ind
+*.lof
+*.log
+*.lot
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+*.xdv
+
+# Local/editor/temp
+*.tmp
+*.bak
+*.swp
+.DS_Store
+Thumbs.db

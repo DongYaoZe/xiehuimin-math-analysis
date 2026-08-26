@@ -1,0 +1,35 @@
+% Source-faithful, explicitly numbered textbook environments.
+% Optional argument is the printed source number, e.g. \begin{xexample}[5.2.1].
+\NewDocumentEnvironment{xdefinition}{o}
+  {\par\medskip\Needspace{3\baselineskip}\noindent\textbf{定义\IfValueT{#1}{~#1}}\quad}
+  {\par\medskip}
+\NewDocumentEnvironment{xtheorem}{o}
+  {\par\medskip\Needspace{3\baselineskip}\noindent\textbf{定理\IfValueT{#1}{~#1}}\quad}
+  {\par\medskip}
+\NewDocumentEnvironment{xlemma}{o}
+  {\par\medskip\Needspace{3\baselineskip}\noindent\textbf{引理\IfValueT{#1}{~#1}}\quad}
+  {\par\medskip}
+\NewDocumentEnvironment{xproposition}{o}
+  {\par\medskip\Needspace{3\baselineskip}\noindent\textbf{命题\IfValueT{#1}{~#1}}\quad}
+  {\par\medskip}
+\NewDocumentEnvironment{xexample}{o}
+  {\par\medskip\Needspace{3\baselineskip}\noindent\textbf{例\IfValueT{#1}{~#1}}\quad}
+  {\par\medskip}
+\NewDocumentEnvironment{xexercise}{o}
+  {\par\medskip\Needspace{3\baselineskip}\noindent\textbf{练习\IfValueT{#1}{~#1}}\quad}
+  {\par\medskip}
+\NewDocumentEnvironment{xthought}{o}
+  {\par\medskip\Needspace{3\baselineskip}\noindent\textbf{思考题\IfValueT{#1}{~#1}}\quad}
+  {\par\medskip}
+\NewDocumentEnvironment{xreferenceproblem}{o}
+  {\par\medskip\Needspace{3\baselineskip}\noindent\textbf{参考题\IfValueT{#1}{~#1}}\quad}
+  {\par\medskip}
+\NewDocumentEnvironment{xsolution}{}
+  {\par\smallskip\noindent\textbf{解}\quad}
+  {\par\smallskip}
+\NewDocumentEnvironment{xproof}{}
+  {\par\smallskip\noindent\textbf{证明}\quad}
+  {\hfill$\square$\par\smallskip}
+\NewDocumentEnvironment{xremark}{}
+  {\par\smallskip\noindent\textbf{注}\quad}
+  {\par\smallskip}

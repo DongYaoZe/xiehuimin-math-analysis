@@ -1,0 +1,52 @@
+% 这是格式示例，不是原书正文；agent 模仿结构和记号，不要把示例文字复制进教材。
+
+\chapter{示例章}
+
+\section{示例节}
+
+\subsection{内容提要}
+设函数 $f\colon [a,b]\to\RR$ 连续。注意微分算子写作正体：
+\[
+  \int_a^b f(x)\,\dd x,
+  \qquad
+  \frac{\dd y}{\dd x},
+  \qquad
+  \frac{\partial u}{\partial x}.
+\]
+Euler 常数底与虚数单位分别写为 $\ee$ 与 $\ii$，例如 $\ee^{\ii x}$。
+
+\begin{xtheorem}[1.2.1]
+若 $f$ 在闭区间 $[a,b]$ 上连续，则 $f$ 在该区间上有界。
+\end{xtheorem}
+
+\begin{xproof}
+按原书证明逐句排入；若中间有显示公式，则正常使用 LaTeX 数学环境。证明末尾不额外增加模型评论。
+\end{xproof}
+
+\begin{xexample}[1.2.2]
+计算
+\[
+  \lim_{x\to0}\frac{\sin x}{x}.
+\]
+\end{xexample}
+\begin{xsolution}
+若原书给出解答，就忠实转录原书的步骤。标准函数名使用 `\sin`，不得写成普通斜体 `sin`。
+\end{xsolution}
+
+原书若印有公式编号，保留原编号：
+\begin{equation}
+  f(x)=f(a)+\int_a^x f'(t)\,\dd t.
+  \tag{1.8}
+  \label{eq:1.8}
+\end{equation}
+
+\begin{xexercise}
+设 $a_n>0$，按原书逐小题转录；列表使用标准 `enumerate`。
+\begin{enumerate}[label=(\arabic*)]
+  \item 第一小题；
+  \item 第二小题。
+\end{enumerate}
+\end{xexercise}
+
+% 原书疑似排印错误的处理示例：
+% SOURCE-ERR: 原书此处分母印作 x^3；由上下文可确定应为 x^2。
