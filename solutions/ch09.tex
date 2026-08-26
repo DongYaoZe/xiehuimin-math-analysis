@@ -299,17 +299,27 @@
     \[
       \int\frac{\dd x}{1+x^2+x^4}.
     \]
-    因
+    令
     \[
-      1+x^2+x^4=(x^2+x+1)(x^2-x+1),
+      I=\int\frac{\dd x}{1+x^2+x^4},
+      \qquad
+      J=\int\frac{x^2\,\dd x}{1+x^2+x^4}.
     \]
-    且
-    \[
-      \frac1{1+x^2+x^4}
-      =\frac12\frac{x+1}{x^2+x+1}
-       +\frac12\frac{1-x}{x^2-x+1},
-    \]
-    积分得
+    对 $x\ne0$，分别配对可得
+    \begin{align*}
+      I+J
+      &=\int\frac{1+x^2}{1+x^2+x^4}\,\dd x
+       =\int\frac{\dd(x-1/x)}{(x-1/x)^2+3}\\
+      &=\frac1{\sqrt3}\arctan\frac{x^2-1}{\sqrt3x}+C_1,
+    \end{align*}
+    以及
+    \begin{align*}
+      J-I
+      &=\int\frac{x^2-1}{1+x^2+x^4}\,\dd x
+       =\int\frac{\dd(x+1/x)}{(x+1/x)^2-1}\\
+      &=\frac12\ln\frac{x^2-x+1}{x^2+x+1}+C_2.
+    \end{align*}
+    解这两个线性关系即可得到 $I$。将反正切的分支常数并入 $C$，并把结果写成在 $x=0$ 处也有定义的形式，得
     \[
       \boxed{
       \frac14\ln\frac{x^2+x+1}{x^2-x+1}
@@ -323,10 +333,22 @@
     \[
       \int\frac{\ee^x\,\dd x}{\ee^x+\ee^{-x}}.
     \]
-    乘以 $\ee^x/\ee^x$，得
+    令
     \[
-      \int\frac{\ee^{2x}}{1+\ee^{2x}}\,\dd x
-      =\boxed{\frac12\ln(1+\ee^{2x})+C}.
+      I=\int\frac{\ee^x\,\dd x}{\ee^x+\ee^{-x}},
+      \qquad
+      J=\int\frac{\ee^{-x}\,\dd x}{\ee^x+\ee^{-x}}.
+    \]
+    则
+    \[
+      I+J=x+C_1,
+      \qquad
+      I-J=\ln(\ee^x+\ee^{-x})+C_2.
+    \]
+    解得
+    \[
+      \boxed{I=\frac12x+\frac12\ln(\ee^x+\ee^{-x})+C}
+      =\frac12\ln(1+\ee^{2x})+C.
     \]
 
     \item
@@ -357,15 +379,28 @@
     \[
       \int\frac{\dd x}{1+x^3}.
     \]
-    分解
+    令
     \[
-      \frac1{1+x^3}
-      =\frac1{3(x+1)}+\frac{-x+2}{3(x^2-x+1)},
+      I=\int\frac{\dd x}{1+x^3},
+      \qquad
+      J=\int\frac{x\,\dd x}{1+x^3},
+      \qquad
+      K=\int\frac{x^2\,\dd x}{1+x^3}
+       =\frac13\ln\abs{1+x^3}+C.
     \]
-    故
+    配对后有
+    \[
+      K-J+I=\int\frac{\dd x}{x+1}=\ln\abs{x+1}+C_1,
+    \]
+    以及
+    \[
+      I+J=\int\frac{\dd x}{x^2-x+1}
+      =\frac2{\sqrt3}\arctan\frac{2x-1}{\sqrt3}+C_2.
+    \]
+    将两式相加并消去 $J$，得到
     \[
       \boxed{
-      \frac13\ln\abs{x+1}
+      I=\frac13\ln\abs{x+1}
       -\frac16\ln(x^2-x+1)
       +\frac1{\sqrt3}\arctan\frac{2x-1}{\sqrt3}+C}.
     \]
@@ -439,6 +474,13 @@
     \[
       \boxed{T_n=\frac{\tan^{n-1}x}{n-1}-T_{n-2}}.
     \]
+    可取
+    \[
+      T_0=x,
+      \qquad
+      T_1=-\ln\abs{\cos x}
+    \]
+    为初始项。
 
     \item 令
     \[
@@ -457,6 +499,13 @@
       \boxed{S_n=\frac{\sec^{n-2}x\tan x}{n-1}
       +\frac{n-2}{n-1}S_{n-2}}.
     \]
+    可取
+    \[
+      S_0=x,
+      \qquad
+      S_1=\ln\abs{\sec x+\tan x}
+    \]
+    为初始项。
 
     \item 令
     \[
@@ -1264,7 +1313,14 @@
   \[
     I_0=\frac2c\sqrt{cx+b}+C.
   \]
-  若 $c=0$ 且根式有定义，则 $\sqrt{cx+b}=\sqrt b$ 为常数，积分退化为多项式积分，可直接计算，无须递推。
+  上述公式在 $c\ne0$ 且 $cx+b>0$ 的任一连通区间上使用。若 $c=0$，实变量下要使被积函数有定义必须有 $b>0$，此时无需递推：当 $a\ne0$ 时
+  \[
+    I_n=\frac{(ax+b)^{n+1}}{a(n+1)\sqrt b}+C,
+  \]
+  而当 $a=0$ 时
+  \[
+    I_n=b^{n-1/2}x+C.
+  \]
 
   \item 对于实数 $a\ne0$ 与正整数 $n>2$，定义
   \[
