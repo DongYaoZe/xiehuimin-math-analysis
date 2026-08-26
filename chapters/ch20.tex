@@ -6,3 +6,1292 @@
 \chapter{隐函数存在定理与隐函数求导}
 
 % BEGIN TRANSCRIPTION
+
+本章在 §20.1 讨论一个方程所确定的隐函数。在 §20.2 讨论方程组所确定的隐函数组，并用压缩映射原理证明了反函数组存在定理。在 §20.3 讨论微分式的变量替换。在 §20.4 讨论隐函数（组）的整体存在性，这可以作为习题课的补充材料。最后一节是学习要点和两组参考题。
+
+\section{一个方程的情形}
+
+\subsection{隐函数存在定理}
+
+\begin{xproposition}[20.1.1（隐函数存在定理）]
+设二元函数 $F(x,y)$ 满足下列条件：
+\begin{enumerate}[label=(\arabic*)]
+  \item 在矩形区域
+  \[
+    D=\{(x,y)\in\RR^2\mid \abs{x-x_0}<a,\ \abs{y-y_0}<b\}
+  \]
+  上有关于 $x,y$ 的连续偏导数；
+  \item $F(x_0,y_0)=0$；
+  \item $F_y(x_0,y_0)\ne0$，
+\end{enumerate}
+则有：
+\begin{enumerate}[label=(\arabic*)]
+  \item 在点 $(x_0,y_0)$ 的某个邻域内，由方程 $F(x,y)=0$ 可以确定唯一的函数 $y=f(x)$，也就是说，存在 $\eta>0$，当 $x\in O_\eta(x_0)$ 时有
+  \[
+    F(x,f(x))=0,\qquad y_0=f(x_0);
+  \]
+  \item $f(x)$ 在 $O_\eta(x_0)$ 上连续；
+  \item $f(x)$ 在 $O_\eta(x_0)$ 上有连续的导数
+  \begin{equation}
+    f'(x)=-\frac{F_x(x,y)}{F_y(x,y)}.
+    \tag{20.1}
+    \label{eq:20.1}
+  \end{equation}
+\end{enumerate}
+称 $y=f(x)$ 为由方程 $F(x,y)=0$ 确定的隐函数。
+\end{xproposition}
+
+\begin{xremark}
+视 $F(x,y)=0$ 为方程，我们知道一个方程只能解出一个未知量，若我们视 $x$ 为已知，$y$ 为未知，隐函数存在定理就是告诉我们在什么条件下可解出 $y=f(x)$。但一般教科书上定理的证明是非构造性的，只是证明了存在性，并没有说明如何由 $F(x,y)$ 的表达式去得到 $f(x)$ 的表达式。事实上，即使 $F(x,y)$ 的表达式很简单，也未必能将隐函数从 $F(x,y)=0$ 中具体解出来。如天体力学中著名的 Kepler 方程（见上册 80，146，172 页）：
+\[
+  F(x,y)=y-x-\varepsilon\sin y=0,\qquad 0<\varepsilon<1.
+\]
+$F(x,y)$ 在 $(0,0)$ 点附近满足定理所述条件，从而隐函数 $y=f(x)$（Kepler 函数）存在、连续、可导，且按上述公式 \eqref{eq:20.1} 可求出隐函数 $y=f(x)$ 的导数
+\begin{equation}
+  \frac{\dd y}{\dd x}=-\frac{F_x}{F_y}=\frac{1}{1-\varepsilon\cos y}.
+  \tag{20.2}
+  \label{eq:20.2}
+\end{equation}
+然而 $F(x,y)=0$ 的隐函数不能解成初等函数。
+
+注意在公式 \eqref{eq:20.1} 的右端的表达式中，隐函数的导数同时含有 $x$ 与 $y$。这一点与显函数的导数是不同的\footnote{参看上册第六章 6.2.2 小节的“隐函数求导法”。}。它应该理解为
+\[
+  f'(x)=-\left.\frac{F_x(x,y)}{F_y(x,y)}\right|_{y=f(x)}.
+\]
+但这并不妨碍我们研究隐函数的性质。如根据 \eqref{eq:20.2} 可知 Kepler 函数是单调增加的。由 $y$ 的可导性还可推知 $y''$ 的存在性等。一般地，若 $F(x,y)$ 二阶连续可微，且满足隐函数存在定理的条件，则对 \eqref{eq:20.1} 两边对 $x$ 求导得
+\[
+  y''(x)=-\frac{1}{F_y^2}\bigl[(F_{xx}+F_{xy}y')F_y-(F_{xy}+F_{yy}y')F_x\bigr].
+\]
+将 \eqref{eq:20.1} 代入得
+\[
+  y''(x)=\frac{1}{F_y^3}\bigl(2F_xF_yF_{xy}-F_x^2F_{yy}-F_y^2F_{xx}\bigr).
+\]
+\end{xremark}
+
+\begin{xremark}
+定理的结论是局部的，即在 $(x_0,y_0)$ 的某个邻域内由方程 $F(x,y)=0$ 可以唯一确定一个可微的满足 $y_0=f(x_0)$ 的隐函数 $y=f(x)$，但定理并没有告诉我们这个邻域有多大。
+\end{xremark}
+
+\begin{xremark}
+对于方程 $F(x_1,x_2,\ldots,x_n,u)=0$ 在某点 $(x_1^{(0)},x_2^{(0)},\ldots,x_n^{(0)},u_0)$ 附近确定一个 $n$ 元的隐函数 $u=f(x_1,x_2,\ldots,x_n)$ 也有类似的结果。
+\end{xremark}
+
+\begin{xremark}
+从一般教科书上给出的隐函数定理的证明中可以看出，如果只要求隐函数连续，则命题 20.1.1 的条件可减弱。对此，我们有下面的结论。
+\end{xremark}
+
+\begin{xproposition}[20.1.2]
+如果
+\begin{enumerate}[label=(\arabic*)]
+  \item $F(x,y)$ 在矩形 $D=\{(x,y)\in\RR^2\mid \abs{x-x_0}<a,\ \abs{y-y_0}<b\}$ 上连续；
+  \item $F(x_0,y_0)=0$；
+  \item $F(x,y)$ 对每一个 $x\in(x_0-a,x_0+a)$ 关于 $y$ 严格单调，
+\end{enumerate}
+则有：
+\begin{enumerate}[label=(\arabic*)]
+  \item 在点 $(x_0,y_0)$ 的某个邻域内，由方程 $F(x,y)=0$ 可以确定唯一的函数 $y=f(x)$，也就是说，存在 $\eta>0$，当 $x\in O_\eta(x_0)$ 时有
+  \[
+    F(x,f(x))=0,\qquad y_0=f(x_0);
+  \]
+  \item $f(x)$ 在 $O_\eta(x_0)$ 上连续。
+\end{enumerate}
+\end{xproposition}
+
+\begin{xexample}[20.1.1]
+证明：在点 $(1,1)$ 的某一邻域内存在唯一的连续可微函数 $y=f(x)$，满足 $f(1)=1$，
+\[
+  xf(x)+2\ln x+3\ln f(x)-1=0,
+\]
+并求 $f'(x)$。
+\end{xexample}
+\begin{xsolution}
+令
+\[
+  F(x,y)=xy+2\ln x+3\ln y-1,
+\]
+则
+\begin{enumerate}[label=(\arabic*)]
+  \item $F(x,y)$ 在点 $(1,1)$ 点的邻域内有关于 $x,y$ 的连续偏导数；
+  \item $F(1,1)=0$；
+  \item
+  \[
+    F_y(1,1)=\left.\left(x+\frac{3}{y}\right)\right|_{(x,y)=(1,1)}\ne0.
+  \]
+\end{enumerate}
+由隐函数存在定理，在点 $(1,1)$ 的某邻域内存在唯一的连续可微函数 $y=f(x)$，满足 $f(1)=1$，$xf(x)+2\ln x+3\ln f(x)-1=0$，且
+\[
+  f'(x)=-\frac{F_x(x,y)}{F_y(x,y)}
+  =-\frac{y+\dfrac{2}{x}}{x+\dfrac{3}{y}}
+  =-\frac{xy^2+2y}{x^2y+3x}.
+\]
+\end{xsolution}
+
+\begin{xexample}[20.1.2]
+设点 $(x_0,y_0,u_0)$ 满足 $u_0=y_0+x_0\varphi(u_0)$，根据隐函数存在定理给函数 $\varphi$ 加上适当条件，使方程
+\[
+  u=y+x\varphi(u)
+\]
+可在点 $(x_0,y_0)$ 的某一个邻域内唯一确定一个连续可微函数 $u=f(x,y)$。
+\end{xexample}
+\begin{xsolution}
+令 $F(x,y,u)=u-y-x\varphi(u)$，则 $F(x_0,y_0,u_0)=0$。由复合函数的性质知，当 $\varphi(u)$ 连续可微时，$F(x,y,u)$ 连续，有关于 $x,y,u$ 的连续偏导数，且
+\[
+  F_u=1-x\varphi'(u).
+\]
+从而当 $\varphi(u)$ 连续可微且
+\[
+  x_0\varphi'(u_0)\ne1
+\]
+时，方程 $u=y+x\varphi(u)$ 可在点 $(x_0,y_0)$ 的某一邻域内唯一确定一个连续可微函数 $u=f(x,y)$。
+\end{xsolution}
+
+\subsection{隐函数求导}
+
+若已知由方程 $F(x,y)=0$ 可唯一确定连续可微的隐函数 $y=f(x)$，或由方程 $F(x,y,z)=0$ 可唯一确定连续可微的隐函数 $z=f(x,y)$，则在求导时既可直接应用公式，也可用复合函数求导法则解出欲求之导数。一般在隐函数求导中，总认为连续可微的隐函数已存在，故若无特殊声明，不必再验证条件。
+
+\begin{xexample}[20.1.3]
+设 $z=f(x,y)$ 是由方程 $F(x-y,y-z)=0$ 确定的隐函数，试求 $z_x,z_y$ 及 $z_{xy}$。
+\end{xexample}
+\begin{xsolution}
+先求 $z_x$。在 $F(x-y,y-z)=0$ 两边对 $x$ 求导，得
+\begin{equation}
+  F_1-z_xF_2=0,
+  \tag{20.3}
+  \label{eq:20.3}
+\end{equation}
+于是得
+\[
+  z_x=\frac{F_1}{F_2}.
+\]
+求 $z_y$，可用公式
+\[
+  z_y=-\frac{F_y}{F_z}
+  =-\frac{-F_1+F_2}{-F_2}
+  =\frac{F_2-F_1}{F_2}.
+\]
+求 $z_{xy}$，在 \eqref{eq:20.3} 两边对 $y$ 求导，得
+\begin{equation}
+  -F_{11}+F_{12}(1-z_y)
+  -\left\{[-F_{21}+F_{22}(1-z_y)]z_x+F_2z_{xy}\right\}=0.
+  \tag{20.4}
+  \label{eq:20.4}
+\end{equation}
+将 $z_x,z_y$ 的表达式代入 \eqref{eq:20.4}，得到
+\[
+  -F_{11}+F_{12}\frac{F_1}{F_2}
+  -\left[\left(-F_{21}+F_{22}\frac{F_1}{F_2}\right)\frac{F_1}{F_2}+F_2z_{xy}\right]=0.
+\]
+解出 $z_{xy}$ 得
+\[
+  z_{xy}=\frac{1}{F_2^3}\left(2F_1F_2F_{12}-F_2^2F_{11}-F_1^2F_{22}\right).
+\]
+也可先在 $F_1-F_2+F_2z_y=0$ 两边对 $x$ 求导，然后解出 $z_{xy}$。
+\end{xsolution}
+
+注意隐函数求导时，涉及一系列的复合的隐函数。必须明辨函数关系，弄清哪些是自变量，哪些是因变量，以免漏项。
+
+\subsection{思考题}
+
+\begin{enumerate}
+  \item 证明：方程 $F(x,y)=(x-y)^2=0$ 在点 $(0,0)$ 处有 $F_y(0,0)=0$，但在 $x=0$ 附近仍存在唯一解 $y=x$ 且是连续可微的。这与隐函数存在定理的结论是否矛盾？
+  \item 设有方程 $x^2+y^2+z^2-3xyz=0$，证明：
+  \begin{enumerate}[label=(\arabic*)]
+    \item 可确定点 $(1,1,1)$ 附近的隐函数 $z=z(x,y)$，并求 $z_x(1,1)$；
+    \item 可确定点 $(1,1,1)$ 附近的隐函数 $y=y(x,z)$，并求 $y_x(1,1)$。
+  \end{enumerate}
+\end{enumerate}
+
+\subsection{练习题}
+
+\begin{enumerate}
+  \item 设 $y=y(x)$ 由下述方程确定，求 $y',y''$：
+  \begin{enumerate}[label=(\arabic*)]
+    \item $\ln(x^2+y^2)=\arctan\dfrac{y}{x}$；
+    \item $x^y=y^x$；
+    \item $xy-2^x\ln2+2^y=0$。
+  \end{enumerate}
+  \item 求在指定点的导数：
+  \begin{enumerate}[label=(\arabic*)]
+    \item $y^3+y-x^2=0$，求 $y'(0)$；
+    \item $x^{2/3}+y^{2/3}-4=0$，求在点 $(1,3\sqrt3)$ 处的导数 $y'$；
+    \item $\sin x+2\cos y-1=0$，求在点 $\left(\dfrac\pi2,\dfrac{3\pi}{2}\right)$ 处的 $y',y''$。
+  \end{enumerate}
+  \item 设 $z=z(x,y)$ 是由下列方程确定的隐函数，求指定的导数或微分：
+  \begin{enumerate}[label=(\arabic*)]
+    \item $x+y+z=\ee^{-(x+y+z)}$，求 $\dfrac{\partial z}{\partial x},\dfrac{\partial z}{\partial y},\dfrac{\partial^2z}{\partial y^2},\dfrac{\partial^2z}{\partial x^2},\dfrac{\partial^2z}{\partial x\partial y}$；
+    \item $x^3+y^3+z^3-3xyz-4=0$，求在点 $(1,1,2)$ 处的偏导数 $\dfrac{\partial z}{\partial x},\dfrac{\partial z}{\partial y}$；
+    \item $z=\sqrt{x^2-y^2}\tan\dfrac{z}{\sqrt{x^2-y^2}}$，求 $\dfrac{\partial z}{\partial x},\dfrac{\partial z}{\partial y}$；
+    \item $\dfrac{x}{z}=\ln\dfrac{z}{y}$，求 $\dd z$；
+    \item $xy+yz+zx=1$，求 $\dfrac{\partial z}{\partial x},\dfrac{\partial z}{\partial y},\dfrac{\partial^2z}{\partial y^2},\dfrac{\partial^2z}{\partial x^2},\dfrac{\partial^2z}{\partial x\partial y}$。
+  \end{enumerate}
+  \item 设 $z=z(x,y)$ 由下列方程确定，求指定的导数或微分：
+  \begin{enumerate}[label=(\arabic*)]
+    \item $f(x+y+z,x^2+y^2+z^2)=0$，求 $\dd z$；
+    \item $f(x,x+y,x+y+z)=0$，求 $\dfrac{\partial z}{\partial x},\dfrac{\partial z}{\partial y}$；
+    \item $f(x+y,y+z,z+x)=0$，求 $\dfrac{\partial^2z}{\partial x^2},\dfrac{\partial^2z}{\partial y^2},\dfrac{\partial^2z}{\partial x\partial y}$。
+  \end{enumerate}
+  \item 验证下列各题中给出的隐函数满足指定的方程：
+  \begin{enumerate}[label=(\arabic*)]
+    \item $xz_x-yz_y=2x$，其中 $z=z(x,y)$ 是由方程 $F(xy,z-2x)=0$ 确定的隐函数；
+    \item $(x^2-y^2-z^2)z_x+2xyz_y=2xz$，其中 $z=z(x,y)$ 是由方程 $x^2+y^2+z^2=yf\!\left(\dfrac{z}{y}\right)$ 确定的隐函数；
+    \item $z_{xx}z_{yy}-z_{xy}^2=0$，其中 $z=z(x,y)$ 是由方程 $\dfrac{x}{z}=\varphi\!\left(\dfrac{y}{z}\right)$ 确定的隐函数，$\varphi$ 二次连续可微，且 $x-y\varphi'\!\left(\dfrac{y}{z}\right)\ne0$；
+    \item $u_x^2+u_y^2+u_z^2=2(xu_x+yu_y+zu_z)$，其中 $u=u(x,y,z)$ 是由方程
+    \[
+      \frac{x^2}{a^2+u}+\frac{y^2}{b^2+u}+\frac{z^2}{c^2+u}=1
+    \]
+    确定的隐函数。
+  \end{enumerate}
+\end{enumerate}
+
+\section{隐函数组}
+
+\subsection{存在定理}
+
+不失一般性，下面仅研究两个方程和四个变量的方程组
+\[
+  \begin{cases}
+    F(x,y,u,v)=0,\\
+    G(x,y,u,v)=0
+  \end{cases}
+\]
+在什么条件下可以确定 $u,v$ 是 $x,y$ 的函数
+\[
+  u=u(x,y),\qquad v=v(x,y),
+\]
+并且 $u,v$ 关于 $x,y$ 有连续偏导数。我们有如下的隐函数组存在定理。
+
+\begin{xproposition}[20.2.1（隐函数组存在定理）]
+设
+\begin{enumerate}[label=(\arabic*)]
+  \item $F(x,y,u,v)$ 和 $G(x,y,u,v)$ 在点 $p_0(x_0,y_0,u_0,v_0)$ 的一个邻域内对各个变元有连续的偏导数；
+  \item $F(x_0,y_0,u_0,v_0)=G(x_0,y_0,u_0,v_0)=0$；
+  \item
+  \[
+    J(p_0)=\left.\frac{\partial(F,G)}{\partial(u,v)}\right|_{p_0}
+    =\begin{vmatrix}
+      F_u(p_0)&F_v(p_0)\\
+      G_u(p_0)&G_v(p_0)
+    \end{vmatrix}\ne0,
+  \]
+  其中 $\dfrac{\partial(F,G)}{\partial(u,v)}$ 称为 Jacobi 行列式，
+\end{enumerate}
+则存在 $p_0$ 点的一个邻域，在此邻域内由方程组
+\[
+  \begin{cases}
+    F(x,y,u,v)=0,\\
+    G(x,y,u,v)=0
+  \end{cases}
+\]
+可以唯一确定一对函数
+\[
+  u=u(x,y),\qquad v=v(x,y),
+\]
+使满足
+\[
+  F(x,y,u(x,y),v(x,y))=G(x,y,u(x,y),v(x,y))=0
+\]
+及 $u_0=u(x_0,y_0),v_0=v(x_0,y_0)$，且 $u,v$ 具有关于 $x,y$ 的连续偏导数
+\[
+  \frac{\partial u}{\partial x}=-J^{-1}\frac{\partial(F,G)}{\partial(x,v)},
+  \qquad
+  \frac{\partial u}{\partial y}=-J^{-1}\frac{\partial(F,G)}{\partial(y,v)},
+\]
+\[
+  \frac{\partial v}{\partial x}=-J^{-1}\frac{\partial(F,G)}{\partial(u,x)},
+  \qquad
+  \frac{\partial v}{\partial y}=-J^{-1}\frac{\partial(F,G)}{\partial(u,y)},
+\]
+其中
+\[
+  J=\frac{\partial(F,G)}{\partial(u,v)}.
+\]
+\end{xproposition}
+
+\begin{xproposition}[20.2.2（反函数组存在定理）]
+若
+\[
+  u=f(x,y),\qquad v=g(x,y)
+\]
+在点 $(x_0,y_0)$ 的某个邻域中连续可微，$u_0=f(x_0,y_0),v_0=g(x_0,y_0)$，且
+\[
+  \left.\frac{\partial(u,v)}{\partial(x,y)}\right|_{(x_0,y_0)}\ne0,
+\]
+则在 $(u_0,v_0)$ 的某一邻域内存在唯一的反函数组
+\[
+  x=x(u,v),\qquad y=y(u,v),
+\]
+满足 $u_0=u(x_0,y_0),v_0=v(x_0,y_0)$，且成立
+\[
+  \frac{\partial(x,y)}{\partial(u,v)}\cdot
+  \frac{\partial(u,v)}{\partial(x,y)}=1.
+\]
+\end{xproposition}
+
+\begin{xexample}[20.2.1]
+给定函数
+\[
+  u=\ee^y\sin x,\qquad v=\ee^y\cos x,\qquad w=2-\cos z,
+\]
+根据反函数组存在定理判断在哪些点 $(x,y,z)$ 所对应的点 $(u,v,w)$ 的邻域内存在反函数
+\[
+  x=x(u,v,w),\quad y=y(u,v,w),\quad z=z(u,v,w)?
+\]
+\end{xexample}
+\begin{xsolution}
+函数 $\ee^y\sin x,\ee^y\cos x,2-\cos z$ 在 $\RR^3$ 中连续可微，且
+\[
+  \frac{\partial(u,v,w)}{\partial(x,y,z)}
+  =\begin{vmatrix}
+    \ee^y\cos x&\ee^y\sin x&0\\
+    -\ee^y\sin x&\ee^y\cos x&0\\
+    0&0&\sin z
+  \end{vmatrix}
+  =\ee^{2y}\sin z.
+\]
+所以在
+\[
+  D=\{(x,y,z)\mid z\ne k\pi,\ k=0,\pm1,\pm2,\ldots\}
+\]
+内任一点所对应的点 $(u,v,w)$ 处，存在一个邻域，在此邻域内存在反函数。
+\end{xsolution}
+
+\subsection{思考题}
+
+\begin{enumerate}
+  \item 若由 $F(x,y,z,u)=0,G(x,y,z,u)=0,H(x,y,z,u)=0$ 可解出 $x=x(u),y=y(u),z=z(u)$，根据隐函数组存在定理应如何对函数 $F,G,H$ 假设条件？
+  \item 对极坐标变换
+  \[
+    x=r\cos\theta,\qquad y=r\sin\theta,
+  \]
+  在哪些点 $(r_0,\theta_0)$ 附近可存在反函数组 $r=r(x,y),\theta=\theta(x,y)$？在 $(0,\theta_0)$ 附近能否存在反函数组？对结论做出直观解释。
+\end{enumerate}
+
+\subsection{求已知函数组所确定的隐函数组的导数}
+
+在这类问题中，一般认为隐函数组、反函数组存在且可微的条件均已满足，因而注重于运算的正确与熟练。此外，在计算导数时，一般不用求导公式，因为这些公式既不便于记忆，也不便于使用。往往是对已知函数组求导数，然后解所得的方程组便可得到所要的导数。
+
+\begin{xexample}[20.2.2]
+设 $u(x,y)$ 是由方程组
+\[
+  u=f(x,y,z,t),\qquad g(y,z,t)=0,\qquad h(z,t)=0
+\]
+确定的函数，其中 $f,g,h$ 均连续可微，且
+\[
+  \frac{\partial(g,h)}{\partial(z,t)}\ne0,
+\]
+求 $\dfrac{\partial u}{\partial y}$。
+\end{xexample}
+\begin{xsolution}
+\textbf{解 1}\quad 首先应该认清函数关系，因为 $\dfrac{\partial(g,h)}{\partial(z,t)}\ne0$，故由
+\begin{equation}
+  g(y,z,t)=0,\qquad h(z,t)=0
+  \tag{20.5}
+  \label{eq:20.5}
+\end{equation}
+可确定 $z,t$ 为 $y$ 的函数，所以 $u=f(x,y,z(y),t(y))$，即 $u$ 是以 $z,t$ 为中间变量的 $x,y$ 的函数，有了这个认识就可以具体地作求导运算。
+
+由于
+\begin{equation}
+  \frac{\partial u}{\partial y}=f_2+f_3z'(y)+f_4t'(y),
+  \tag{20.6}
+  \label{eq:20.6}
+\end{equation}
+为求 $z'(y)$ 和 $t'(y)$，在方程组 \eqref{eq:20.5} 两边对 $y$ 求导，得
+\[
+  g_y+g_zz'+g_tt'=0,
+\]
+\[
+  h_zz'+h_tt'=0.
+\]
+由此得到
+\[
+  z'=-g_yh_t\left(\frac{\partial(g,h)}{\partial(z,t)}\right)^{-1},
+  \qquad
+  t'=g_yh_z\left(\frac{\partial(g,h)}{\partial(z,t)}\right)^{-1},
+\]
+代入 \eqref{eq:20.6} 得
+\begin{equation}
+  \frac{\partial u}{\partial y}
+  =f_y-g_y(f_zh_t-f_th_z)
+  \left(\frac{\partial(g,h)}{\partial(z,t)}\right)^{-1}.
+  \tag{20.7}
+  \label{eq:20.7}
+\end{equation}
+
+\textbf{解 2}\quad 也可以直接考虑如下的方程组
+\begin{align}
+  F(x,y,z,t,u)&=0, \tag{20.8}\label{eq:20.8}\\
+  g(y,z,t)&=0, \tag{20.9}\label{eq:20.9}\\
+  h(z,t)&=0, \tag{20.10}\label{eq:20.10}
+\end{align}
+其中 $F(x,y,z,t,u)=u-f(x,y,z,t)$。由于
+\[
+  \frac{\partial(F,g,h)}{\partial(u,z,t)}
+  =\frac{\partial(g,h)}{\partial(z,t)}\ne0,
+\]
+从而我们可视 $x,y$ 为自变量，$u,z,t$ 为 $x,y$ 的函数，在 \eqref{eq:20.8}--\eqref{eq:20.10} 两边对 $y$ 求导数，则
+\[
+  u_y-f_y-f_zz_y-f_tt_y=0,
+\]
+\[
+  g_y+g_zz_y+g_tt_y=0,
+\]
+\[
+  h_zz_y+h_tt_y=0.
+\]
+解此方程组可得 \eqref{eq:20.7}。
+\end{xsolution}
+
+\begin{xexample}[20.2.3]
+设 $z=z(x,y)$ 由球变换
+\[
+  x=\cos\varphi\cos\psi,\qquad
+  y=\cos\varphi\sin\psi,\qquad
+  z=\sin\varphi
+\]
+确定，求 $\dfrac{\partial^2z}{\partial x^2}$。
+\end{xexample}
+\begin{xsolution}
+\textbf{解 1}\quad 由所给方程组的前两个方程可确定 $\varphi=\varphi(x,y),\psi=\psi(x,y)$，故 $z=\sin\varphi(x,y)$，即 $z$ 是以 $\varphi$ 为中间变量的 $x,y$ 的函数，所以
+\begin{equation}
+  z_x=\cos\varphi\cdot\varphi_x.
+  \tag{20.11}
+  \label{eq:20.11}
+\end{equation}
+在前两个方程两边对 $x$ 求导，得
+\[
+  1=-\sin\varphi\cdot\varphi_x\cos\psi+\cos\varphi(-\sin\psi)\cdot\psi_x,
+\]
+\[
+  0=-\sin\varphi\cdot\varphi_x\sin\psi+\cos\varphi\cos\psi\cdot\psi_x.
+\]
+解出
+\begin{equation}
+  \varphi_x=-\frac{\cos\psi}{\sin\varphi},
+  \qquad
+  \psi_x=-\frac{\sin\psi}{\cos\varphi}.
+  \tag{20.12}
+  \label{eq:20.12}
+\end{equation}
+代入 \eqref{eq:20.11} 得
+\[
+  z_x=-\cot\varphi\cos\psi.
+\]
+在上式两边再对 $x$ 求导得
+\[
+  z_{xx}=\csc^2\varphi\cdot\varphi_x\cos\psi
+  +\cot\varphi\sin\psi\cdot\psi_x.
+\]
+将 \eqref{eq:20.12} 代入，得到
+\[
+  z_{xx}=\frac{\cos^2\varphi\sin^2\psi-1}{\sin^3\varphi}.
+\]
+
+\textbf{解 2}\quad 由已知条件得 $x^2+y^2+z^2=1$，两边对 $x$ 求两次导数，注意到 $y$ 与 $x$ 是各自独立的变量，得
+\[
+  x+zz_x=0,\qquad 1+z_x^2+zz_{xx}=0.
+\]
+于是
+\[
+  z_x=-\frac{x}{z},
+\]
+\[
+  z_{xx}=-\frac{z^2+x^2}{z^3}
+  =\frac{y^2-1}{z^3}
+  =\frac{\cos^2\varphi\sin^2\psi-1}{\sin^3\varphi}.
+\]
+\end{xsolution}
+
+\begin{xexample}[20.2.4]
+设
+\[
+  u=f(x-ut,y-ut,z-ut),\qquad g(x,y,z)=0,
+\]
+试求 $u_x,u_y$。这时 $t$ 是自变量还是因变量？
+\end{xexample}
+\begin{xsolution}
+由两个方程确定两个隐函数。一个是 $u$，另一个由第二个方程看出应为 $z$。因此 $t$ 是自变量。两个方程分别关于 $x$ 求导得
+\[
+  u_x=f_1(1-u_xt)+f_2(-u_xt)+f_3(z_x-u_xt),
+\]
+\[
+  g_1+g_3z_x=0.
+\]
+解此方程组得
+\[
+  u_x=\frac{f_1+f_3\left(-\dfrac{g_1}{g_3}\right)}{1+(f_1+f_2+f_3)t}.
+\]
+同理有
+\[
+  u_y=\frac{f_2+f_3\left(-\dfrac{g_2}{g_3}\right)}{1+(f_1+f_2+f_3)t}.
+\]
+\end{xsolution}
+
+\subsection{存在定理的证明}
+
+本节我们应用压缩映射原理证明反函数组存在定理，把隐函数组存在定理的证明作为参考题。由于定理的叙述与证明较抽象，故这部分内容可作为补充材料。我们先用映射的语言叙述反函数组存在定理，或称为局部逆映射存在定理。
+
+\begin{xproposition}[20.2.3（局部逆映射存在定理）]
+设 $f\colon E\subset\RR^n\to\RR^n$ 是 $C^1$ 映射，点 $a\in E,b=f(a)$，并且 Jacobi 矩阵 $f'(a)$ 可逆，则
+\begin{enumerate}[label=(\arabic*)]
+  \item 存在开集 $U\subset E$ 和 $V$，使得 $a\in U,b\in V$，并且 $f\colon U\to V$ 是 1--1 满映射；
+  \item 设 $g=f^{-1}\colon V\to U$，则 $g$ 是 $C^1$ 映射，并且
+  \[
+    g'(y)=[f'(g(y))]^{-1},\qquad y\in V.
+  \]
+\end{enumerate}
+\end{xproposition}
+\begin{xproof}
+(1) 设 $A=f'(a)$，取 $\lambda>0$，使得 $2\lambda\norm{A^{-1}}=1$，其中 $\norm{\cdot}$ 表示矩阵的模（$\norm{A}=\max_{\abs{x}=1}\abs{Ax}$）。因为 $f'$ 在 $a$ 连续，故可以以 $a$ 为中心的开球 $U$，使得
+\begin{equation}
+  \norm{f'(x)-A}<\lambda,\qquad x\in U.
+  \tag{20.13}
+  \label{eq:20.13}
+\end{equation}
+对 $y\in\RR^n$，定义
+\begin{equation}
+  \varphi(x)=x+A^{-1}(y-f(x)),\qquad x\in U.
+  \tag{20.14}
+  \label{eq:20.14}
+\end{equation}
+则 $f(x)=y$ 当且仅当 $x$ 是 $\varphi$ 的不动点。再记 $V=f(U)$，下面证明由 \eqref{eq:20.14} 定义的映射有唯一不动点 $x$，即存在唯一的 $x$ 满足 $f(x)=y$。这就证明了 $f$ 是 $U$ 到 $V$ 的 1--1 可逆映射。为此，先对 $\varphi$ 作估计，其 Jacobi 矩阵为
+\[
+  \varphi'(x)=I-A^{-1}f'(x)=A^{-1}[A-f'(x)].
+\]
+由 \eqref{eq:20.13} 及 Schwarz 不等式得 $\abs{\varphi'(x)}<\dfrac12$，$x\in U$。再由拟微分中值定理得
+\begin{equation}
+  \abs{\varphi(x_1)-\varphi(x_2)}\le\frac12\abs{x_1-x_2},
+  \qquad x_1,x_2\in U.
+  \tag{20.15}
+  \label{eq:20.15}
+\end{equation}
+因此 $\varphi$ 是一个压缩映射。其次，注意到 $\forall y_0\in V$，存在 $x_0\in U$，使 $f(x_0)=y_0$。取 $r$ 足够小，使以 $x_0$ 为中心、$r$ 为半径的开球 $B$ 的闭包 $\overline B\subset U$，限制 $y$ 满足 $\abs{y-y_0}<\lambda r$，此时对于 $\overline B$ 中的点 $x$ 有
+\begin{align*}
+  \abs{\varphi(x)-x_0}
+  &\le\abs{\varphi(x)-\varphi(x_0)}+\abs{\varphi(x_0)-x_0}\\
+  &\le\frac12\abs{x-x_0}+\abs{A^{-1}(y-y_0)}\\
+  &\le\frac r2+\norm{A^{-1}}\cdot\lambda r\le r,
+\end{align*}
+因此 $\varphi(x)\in\overline B$，从而 $\varphi$ 是 $\overline B$ 上的压缩映射。故存在唯一的 $x\in\overline B$，使 $\varphi(x)=x$。也即只要 $y$ 满足 $\abs{y-y_0}<\lambda r$，就存在唯一的 $x\in\overline B$，使 $f(x)=y$，即 $y\in f(\overline B)\subset f(U)=V$。这一方面证明了以 $y_0$ 为中心 $\lambda r$ 为半径的开球位于 $V$ 中，故 $V$ 是开集。另一方面也证明了 $f$ 是 $U$ 到 $V=f(U)$ 的 1--1 可逆映射。
+
+(2) 因为 $f$ 是 $C^1$ 映射，故 $\det f'(x)$ 是 $x$ 的连续函数。$f'(a)$ 可逆，即 $\det f'(a)\ne0$，故不妨认为在 (1) 中给出的邻域 $U$ 内，都有 $\det f'(x)\ne0$。即 $f'(x)$ 可逆。记其逆为 $T$。设 $g$ 是 $f$ 的逆，即 $x=g(y)$。取 $y\in V,y+k\in V$。于是 $\exists h\in\RR^n$，使 $x\in U,x+h\in U$ 及 $y=f(x),y+k=f(x+h)$。用 \eqref{eq:20.14} 中的估计有
+\[
+  \varphi(x+h)-\varphi(x)=h+A^{-1}[f(x)-f(x+h)]=h-A^{-1}k,
+\]
+由 \eqref{eq:20.15} 得 $\abs{h-A^{-1}k}\le\dfrac12\abs h$，即 $\abs{A^{-1}k}\ge\dfrac12\abs h$，从而
+\begin{equation}
+  \abs k\ge\lambda\abs h.
+  \tag{20.16}
+  \label{eq:20.16}
+\end{equation}
+于是
+\[
+  g(y+k)-g(y)-Tk=-T[f(x+h)-f(x)-f'(x)h].
+\]
+所以
+\[
+  \frac{\abs{g(y+k)-g(y)-Tk}}{\abs k}
+  \le
+  \frac{\norm T\cdot\abs{f(x+h)-f(x)-f'(x)h}}{\lambda\abs h},
+\]
+且当 $\abs k\to0$，由 \eqref{eq:20.16} 也有 $\abs h\to0$，上式右边的极限为 0。这就证明了 $g$ 是可微映射，且
+\[
+  g'(y)=T=[f'(g(y))]^{-1}.
+\]
+关于 $g'(y)$ 为连续的证明留给读者。
+\end{xproof}
+
+\begin{xremark}
+设 $f\colon E\subset\RR^{n+m}\to\RR^n$ 是 $C^1$ 映射，$(a,b)\in E$，使 $f(a,b)=0$，并且 Jacobi 矩阵 $f'(a,y)$ 可逆，其中“$'$”表示固定 $a$ 而把 $y$ 看成自变量而得到的全导数。这时方程 $f(x,y)=0$ 在点 $(a,b)$ 的邻域内存在唯一 $C^1$ 隐映射 $y=y(x)$ 的局部隐映射存在定理可通过定义 $F(x,y)=(f(x,y),y)$ 而转化为 $F$ 的局部逆映射存在定理。其证明作为参考题。
+\end{xremark}
+
+\subsection{练习题}
+
+\begin{enumerate}
+  \item 设 $x=\ee^v+u^3,y=\ee^u-v^3$，求反函数组的一阶偏导数 $\dfrac{\partial u}{\partial x},\dfrac{\partial u}{\partial y}$。
+  \item 对由方程组
+  \[
+    \begin{cases}
+      x+y+z=0,\\
+      x^2+y^2+z^2=1
+    \end{cases}
+  \]
+  确定的函数 $x=x(z),y=y(z)$，求在点 $\left(\dfrac1{\sqrt2},-\dfrac1{\sqrt2},0\right)$ 处的导数 $\dfrac{\dd x}{\dd z},\dfrac{\dd y}{\dd z}$。
+  \item 对方程组
+  \[
+    \begin{cases}
+      x^3+y^3+z^3=3xyz,\\
+      x+y+z=a
+    \end{cases}
+  \]
+  确定的隐函数组 $y=y(x),z=z(x)$，求出导数 $\dfrac{\dd y}{\dd x},\dfrac{\dd z}{\dd x},\dfrac{\dd^2y}{\dd x^2},\dfrac{\dd^2z}{\dd x^2}$。
+  \item 设
+  \[
+    \begin{cases}
+      x=u\cos\dfrac vu,\\
+      y=\sin\dfrac vu,
+    \end{cases}
+  \]
+  求反函数组的偏导数 $u_x,u_y,v_x,v_y$。
+  \item 设 $u=u(x)$ 是由方程组 $u=f(x,y,z),g(x,y,z)=0,h(x,y,z)=0$ 所确定，求 $\dfrac{\dd u}{\dd x},\dfrac{\dd^2u}{\dd x^2}$。
+  \item 求由方程组 $x=u\cos v,y=u\sin v,z=v$ 确定的 $z=z(x,y)$ 的所有二阶偏导数。
+  \item 设 $z=z(x,y)$ 为由方程组 $x=\ee^{u+v},y=\ee^{u-v},z=uv$ 所定义的函数，求当 $(u,v)=(0,0)$ 时的 $\dd z,\dd^2z$。
+  \item 设 $u=f(x,y,z),g(x^2,\ee^y,z)=0,y=\sin x$，且已知 $f$ 与 $g$ 都有一阶连续偏导数，求 $\dfrac{\dd u}{\dd x}$。
+\end{enumerate}
+
+\section{变量代换问题}
+
+今后，例如在偏微分方程的求解过程中，经常需要对自变量或函数作变量代换，以求简化方程形式乃至求出方程的解。变量代换计算的关键是隐函数组或反函数组的求导。
+
+\subsection{仅变换自变量的情形}
+
+\begin{xexample}[20.3.1]
+在方程
+\[
+  \left(\frac{\partial u}{\partial x}\right)^2+
+  \left(\frac{\partial u}{\partial y}\right)^2=u
+\]
+中作极坐标变换 $x=r\cos\theta,y=r\sin\theta$，试求方程在变换后的形式。
+\end{xexample}
+\begin{xsolution}
+\textbf{解 1}\quad 认为 $u(x,y)=u(r\cos\theta,r\sin\theta)$，则
+\[
+  u_r=u_x\cos\theta+u_y\sin\theta,
+\]
+\[
+  u_\theta=r(-u_x\sin\theta+u_y\cos\theta).
+\]
+解此方程组得
+\[
+  u_x=\frac1r(r\cos\theta\,u_r-\sin\theta\,u_\theta),
+\]
+\[
+  u_y=\frac1r(r\sin\theta\,u_r+\cos\theta\,u_\theta).
+\]
+代入原方程中得
+\[
+  u_r^2+\frac1{r^2}u_\theta^2=u.
+\]
+
+\textbf{解 2}\quad 认为 $u(r,\theta)=u\left(\sqrt{x^2+y^2},\arctan\dfrac yx\right)$，则
+\[
+  u_x=u_r\frac xr-u_\theta\frac y{r^2},
+\]
+\[
+  u_y=u_r\frac yr+u_\theta\frac x{r^2}.
+\]
+于是 $u_x^2+u_y^2=u_r^2+\dfrac1{r^2}u_\theta^2$，从而方程化为
+\[
+  u_r^2+\frac1{r^2}u_\theta^2=u.
+\]
+\end{xsolution}
+
+\begin{xremark}
+上述两种方法是自变量变换中通常使用的方法，具体用哪一种方法使运算简单，视具体情况而定。
+\end{xremark}
+
+\begin{xexample}[20.3.2]
+通过代换
+\[
+  x=uv,\qquad y=\frac12(u^2-v^2),
+\]
+变换方程
+\[
+  \left(\frac{\partial z}{\partial x}\right)^2+
+  \left(\frac{\partial z}{\partial y}\right)^2
+  =\frac1{\sqrt{x^2+y^2}}.
+\]
+\end{xexample}
+\begin{xsolution}
+由链式法则
+\[
+  z_u=vz_x+uz_y,\qquad z_v=uz_x-vz_y.
+\]
+两式平方后相加得
+\[
+  z_u^2+z_v^2=(u^2+v^2)(z_x^2+z_y^2).
+\]
+于是
+\[
+  z_x^2+z_y^2=\frac1{u^2+v^2}(z_u^2+z_v^2).
+\]
+另一方面
+\[
+  x^2+y^2=\frac14(u^2+v^2)^2,
+\]
+代入原方程得
+\[
+  z_u^2+z_v^2=2.
+\]
+\end{xsolution}
+
+\subsection{自变量与因变量同时变换的情形}
+
+这种情况比只变换自变量的情况稍复杂些，它要多一个函数关系分析的步骤。
+
+\begin{xexample}[20.3.3]
+通过代换
+\[
+  x=t,\qquad y=\frac{t}{1+tu},\qquad z=\frac{t}{1+tv},
+\]
+试把方程
+\begin{equation}
+  x^2z_x+y^2z_y=z^2
+  \tag{20.17}
+  \label{eq:20.17}
+\end{equation}
+变为以 $v$ 为因变量，$t,u$ 为自变量的形式。
+\end{xexample}
+\begin{xsolution}
+\textbf{分析}\quad 题目的意思是有一个函数 $z=z(x,y)$ 满足方程 \eqref{eq:20.17}，作自变量代换
+\begin{equation}
+  x=t,\qquad y=\frac{t}{1+tu}
+  \tag{20.18}
+  \label{eq:20.18}
+\end{equation}
+以及因变量代换
+\begin{equation}
+  z=\frac{t}{1+tv}
+  \tag{20.19}
+  \label{eq:20.19}
+\end{equation}
+得到函数 $v=v(t,u)$，求 $v=v(t,u)$ 满足的方程。
+
+\textbf{解 1}\quad 直接从关系式 \eqref{eq:20.19} 出发求 $z_x$ 和 $z_y$：
+\begin{equation}
+  z_x=\left(\frac{t}{1+tv}\right)_t t_x
+  +\left(\frac{t}{1+tv}\right)_v(v_tt_x+v_uu_x),
+  \tag{20.20}
+  \label{eq:20.20}
+\end{equation}
+\begin{equation}
+  z_y=\left(\frac{t}{1+tv}\right)_t t_y
+  +\left(\frac{t}{1+tv}\right)_v(v_tt_y+v_uu_y).
+  \tag{20.21}
+  \label{eq:20.21}
+\end{equation}
+由 \eqref{eq:20.18} 得
+\[
+  t=x,\qquad u=\frac1y-\frac1x.
+\]
+于是
+\[
+  t_x=1,\qquad t_y=0,
+\]
+\[
+  u_x=\frac1{x^2},\qquad u_y=-\frac1{y^2}.
+\]
+将它们代入 \eqref{eq:20.20}、\eqref{eq:20.21}，得到
+\[
+  z_x=\left(\frac{t}{1+tv}\right)_t
+  +\left(\frac{t}{1+tv}\right)_v
+  \left(v_t+\frac1{x^2}v_u\right),
+\]
+\[
+  z_y=-\left(\frac{t}{1+tv}\right)_v\frac1{y^2}v_u.
+\]
+将以上式子代入 \eqref{eq:20.17}，得到
+\[
+  x^2\left[\left(\frac{t}{1+tv}\right)_t
+  +\left(\frac{t}{1+tv}\right)_vv_t\right]=z^2.
+\]
+整理得
+\[
+  v_t=0.
+\]
+
+\textbf{解 2}\quad 从 \eqref{eq:20.19} 中解出 $v$ 得
+\[
+  v=\frac1z-\frac1t,
+\]
+于是
+\begin{equation}
+  v_t=-\frac1{z^2}(z_xx_t+z_yy_t)+\frac1{t^2},
+  \tag{20.22}
+  \label{eq:20.22}
+\end{equation}
+\begin{equation}
+  v_u=-\frac1{z^2}(z_xx_u+z_yy_u).
+  \tag{20.23}
+  \label{eq:20.23}
+\end{equation}
+由 \eqref{eq:20.18} 得
+\[
+  x_t=1,\qquad x_u=0,
+\]
+\[
+  y_t=\frac1{(1+tu)^2},\qquad
+  y_u=-\frac{t^2}{(1+tu)^2}.
+\]
+将它们代入 \eqref{eq:20.22}、\eqref{eq:20.23} 得
+\[
+  v_t=-\frac1{z^2}\left[z_x+\frac1{(1+tu)^2}z_y\right]+\frac1{t^2},
+\]
+\[
+  v_u=\frac1{z^2}\frac{t^2}{(1+tu)^2}z_y.
+\]
+由此解出 $z_x,z_y$，得
+\[
+  z_x=z^2\left(\frac1{t^2}-v_t\right)-\frac{z^2}{t^2}v_u,
+\]
+\[
+  z_y=\frac{z^2(1+tu)^2}{t^2}v_u.
+\]
+将它们代入原方程，得
+\[
+  v_t=0.
+\]
+\end{xsolution}
+
+\subsection{练习题}
+
+\begin{enumerate}
+  \item 把方程
+  \[
+    (x-y)\frac{\partial z}{\partial x}+y\frac{\partial z}{\partial y}=0
+  \]
+  变为 $x$ 作因变量，$y,z$ 为自变量的形式。
+  \item 引用新函数 $r=\sqrt{x^2+y^2},\varphi=\arctan\dfrac yx$ 变换微分式
+  \[
+    w=x\frac{\dd^2y}{\dd t^2}-y\frac{\dd^2x}{\dd t^2}.
+  \]
+  \item 以 $\xi=x+y,\eta=x-y$ 为新自变量，变换方程
+  \[
+    \frac{\partial z}{\partial x}=\frac{\partial z}{\partial y}.
+  \]
+  \item 取 $u=y+z\ee^{-x},v=x+z\ee^{-y}$ 为新的自变量，变换微分式
+  \[
+    F=(z+\ee^x)\frac{\partial z}{\partial x}
+    +(z+\ee^y)\frac{\partial z}{\partial y}
+    -(z^2-\ee^{x+y}).
+  \]
+  \item 设 $u=x\ee^z,v=y\ee^z,w=z\ee^z$，试以 $w$ 为新的因变量，$u,v$ 为新的自变量，变换方程
+  \[
+    \frac{\partial z}{\partial x}=\frac{\partial z}{\partial y}.
+  \]
+  \item 以 $w$ 为新的因变量，$\xi,\eta,\zeta$ 为新的自变量，变换方程
+  \[
+    x\frac{\partial u}{\partial x}+y\frac{\partial u}{\partial y}
+    +z\frac{\partial u}{\partial z}=u+\frac{xy}{z},
+  \]
+  其中
+  \[
+    \xi=\frac xz,\qquad \eta=\frac yz,\qquad \zeta=z,\qquad w=\frac uz.
+  \]
+  \item 试求
+  \[
+    \frac{\partial^2u}{\partial x^2}+\frac{\partial^2u}{\partial y^2}+\frac{\partial^2u}{\partial z^2}=0
+  \]
+  在球坐标下的形式。
+  \item 以 $u=x+2y+2,v=x-y-1$ 为新的自变量，变换方程
+  \[
+    2\frac{\partial^2z}{\partial x^2}
+    +\frac{\partial^2z}{\partial x\partial y}
+    -\frac{\partial^2z}{\partial y^2}
+    +\frac{\partial z}{\partial x}
+    +\frac{\partial z}{\partial y}=0.
+  \]
+  \item 以 $w$ 为新的因变量，$u,v$ 为新的自变量，变换方程
+  \[
+    \frac{\partial^2z}{\partial x^2}
+    -2\frac{\partial^2z}{\partial x\partial y}
+    +\left(1+\frac yx\right)\frac{\partial^2z}{\partial y^2}=0,
+  \]
+  其中 $u=x,v=x+y,w=x+y+z$。
+  \item 设 $xu=x^2+y^2,yv=x^2+y^2$，证明：
+  \[
+    \frac{\partial(u,v)}{\partial(x,y)}=-\frac{uv}{xy}.
+  \]
+  \item 若 $u(x,y,z),v(x,y,z)$ 可微，证明：
+  \[
+    \frac{\partial(u,v)}{\partial(y,z)}\frac{\partial u}{\partial x}
+    +\frac{\partial(u,v)}{\partial(z,x)}\frac{\partial u}{\partial y}
+    +\frac{\partial(u,v)}{\partial(x,y)}\frac{\partial u}{\partial z}=0.
+  \]
+  \item 设 $u=xy,v=\dfrac xy$，试求
+  \[
+    \frac{\partial(u,v)}{\partial(x,y)},\qquad
+    \frac{\partial(x,y)}{\partial(u,v)}.
+  \]
+  \item 设
+  \[
+    u=\frac{x}{r^2},\qquad v=\frac{y}{r^2},\qquad w=\frac{z}{r^2},
+  \]
+  其中 $r^2=x^2+y^2+z^2$，试求
+  \[
+    \frac{\partial(u,v,w)}{\partial(x,y,z)}.
+  \]
+\end{enumerate}
+
+\section{隐函数及隐函数组的整体存在性}
+
+隐函数的整体存在性是一个比较复杂的问题。设 $F(x,y)$ 在 $D=(a,b)\times(c,d)$ 上连续，$F_y(x,y)\ne0$，$(x,y)\in D$。于是在 $D$ 中每一点附近方程 $F(x,y)=0$ 可唯一确定一个隐函数 $y=f(x)$。但我们不知道当 $y$ 在 $(c,d)$ 变化时，满足方程的 $x$ 是否会布满 $(a,b)$。所以我们并不清楚隐函数 $y=f(x)$ 是否可定义在 $(a,b)$ 上。在很多时候 $y=f(x)$ 不能定义在 $(a,b)$ 上。读者可考察例子 $F(x,y)=y-2x$，$D=(-1,1)\times(-1,1)$。下面是隐函数整体存在的一个充分性命题。
+
+\begin{xproposition}[20.4.1]
+设 $F(x,y)$ 在
+\[
+  D=\{(x,y)\in\RR^2\mid a<x<b,-\infty<y<+\infty\}
+\]
+中连续，$F_y$ 处处存在且 $F_y\ge m>0$，则 $F(x,y)=0$ 在 $(a,b)$ 中存在唯一连续解 $y=f(x)$。
+\end{xproposition}
+\begin{xproof}
+$\forall x_0\in(a,b)$，对任意 $y_2>y_1$，考虑
+\[
+  F(x_0,y_2)-F(x_0,y_1)=F_y(x_0,\xi)(y_2-y_1)\ge m(y_2-y_1).
+\]
+固定 $y_1$，令 $y_2\to+\infty$，由
+\[
+  F(x_0,y_2)\ge F(x_0,y_1)+m(y_2-y_1),
+\]
+知
+\[
+  \lim_{y\to+\infty}F(x_0,y)=+\infty.
+\]
+固定 $y_2$，令 $y_1\to-\infty$，由
+\[
+  F(x_0,y_1)\le F(x_0,y_2)-m(y_2-y_1),
+\]
+知
+\[
+  \lim_{y\to-\infty}F(x_0,y)=-\infty.
+\]
+由介值定理，存在 $y_0\in\RR$（且是唯一的），使得 $F(x_0,y_0)=0$。由 $x_0$ 的任意性知存在 $y=f(x)$，使得 $F(x,f(x))=0,x\in(a,b)$。
+
+至此已证明了 $y=f(x)$ 的存在唯一性，$y=f(x)$ 的连续性的证明与隐函数存在定理中的证明相同。
+\end{xproof}
+
+注意到以上命题中 $F_y\ge m>0$ 是一个很强的条件，它保证了对每个固定的 $x\in(a,b)$，存在唯一的 $y=f(x)$，使得 $F(x,f(x))=0$。在高维情况就要复杂得多。
+
+下面只讨论映射 $F\colon\RR^n\to\RR^n$ 是否存在定义在 $\RR^n$ 上的整体逆映射 $F^{-1}$ 的问题。如果 $F$ 与 $F^{-1}$ 都是连续映射，则称 $F$ 是 $\RR^n$ 上的同胚。如果 $F$ 与 $F^{-1}$ 都是 $C^k$ 映射（即各个分量函数都是 $k$ 次连续可微函数），则称 $F$ 是 $\RR^n$ 上的 $C^k$ 同胚。反函数组定理告诉我们，如果 $\forall x\in\RR^n,\det JF(x)\ne0$，则对每一个 $x$ 都存在在 $x$ 的邻域 $U$ 和 $F(x)$ 的邻域 $V$，使 $F$ 是 $U$ 到 $V$ 的同胚。但 $F$ 不一定是 $\RR^n$ 上的整体同胚，即使有类似于命题 20.4.1 的条件也不行。例如考虑可微映射
+\begin{equation}
+  u=\sqrt2\ee^{x/2}\cos(y\ee^{-x}),\qquad
+  v=\sqrt2\ee^{x/2}\sin(y\ee^{-x}),
+  \tag{20.24}
+  \label{eq:20.24}
+\end{equation}
+其 Jacobi 行列式 $\dfrac{\partial(u,v)}{\partial(x,y)}=1$。在 $\RR^2$ 的每一点的附近存在逆映射。但映射 \eqref{eq:20.24} 是周期的，故其确定的映射不是单射，因而其逆映射在 $\RR^2$ 中并不是整体存在的。这里单射是关键，事实上我们有如下逆映射定理。
+
+\begin{xproposition}[20.4.2]
+设开集 $D\subset\RR^n$，$f\colon D\to\RR^n$。如果
+\begin{enumerate}[label=(\arabic*)]
+  \item $f$ 是 $D$ 上的连续可微映射；
+  \item 对每一个 $x\in D$，$\det Jf(x)\ne0$，
+\end{enumerate}
+则 $G=f(D)$ 为一开集。又如果 $f$ 是 $D$ 上的单射，那么存在由 $G$ 到 $D$ 上的连续可微映射 $f^{-1}$ 满足：对一切 $y\in G$ 有
+\begin{equation}
+  f\circ f^{-1}(y)=y,\qquad
+  Jf^{-1}(y)=(Jf(x))^{-1},
+  \tag{20.25}
+  \label{eq:20.25}
+\end{equation}
+其中 $x=f^{-1}(y)$。
+\end{xproposition}
+\begin{xproof}
+$\forall y\in f(D)$，$\exists x\in D$，使 $f(x)=y$，$f$ 定义在 $x$ 的某个邻域上，且 $\det Jf(x)\ne0$。由反函数组存在定理，存在 $y$ 的邻域 $V$，使逆映射在 $V$ 上唯一存在，即存在唯一的 $f^{-1}(y)$，使
+\[
+  f\circ f^{-1}(y)=y,\qquad y\in V.
+\]
+所以 $V\subset f(D)$，这就证明了 $y$ 是 $f(D)$ 的内点。由 $y$ 的任意性就证明了 $f(D)$ 是开集。当 $f$ 是 $D$ 到 $G$ 的 1--1 映射时，逆映射是唯一存在的，且整体唯一的逆映射必是局部唯一的逆映射，再结合反函数组存在定理就可证明 \eqref{eq:20.25}。
+\end{xproof}
+
+关于整体同胚有许多漂亮的充分必要条件与充分条件，下面是很经典的两个。
+
+\begin{xproposition}[20.4.3（Hadamard 定理）]
+设 $F\colon\RR^n\to\RR^n$ 是 $C^1$ 映射，并且 $\forall x\in\RR^n$，有 $\det JF(x)\ne0$，即 Jacobi 矩阵 $JF(x)$ 的逆矩阵 $JF^{-1}(x)$ 存在。如果还存在 $M>0$，使得
+\[
+  \norm{JF^{-1}(x)}\le M,\qquad \forall x\in\RR^n,
+\]
+其中 $\norm{\cdot}$ 表示矩阵的模（如 $\norm{A}=\max_{1\le i\le n}\{\sum_j\abs{a_{ij}}\}$），则 $F$ 是 $\RR^n$ 到 $\RR^n$ 的 $C^1$ 同胚。
+\end{xproposition}
+
+\begin{xproposition}[20.4.4]
+设 $F\colon\RR^n\to\RR^n$ 是 $C^1$ 映射，并且 $\forall x\in\RR^n$，有 $\det JF(x)\ne0$。则 $F$ 是 $\RR^n$ 到 $\RR^n$ 的 $C^1$ 同胚的充分必要条件是
+\[
+  \lim_{\abs{x}\to+\infty}\abs{F(x)}=+\infty.
+\]
+\end{xproposition}
+
+尽管这两个命题的表述在数学分析的范围内很好理解，但它们的证明要用到进一步的数学知识。有兴趣的读者可在以后参考 Deimling K 的专著：\textit{Nonlinear Functional Analysis}（Berlin: Springer-Verlag, 1985）的第 152--153，171 页。
+
+我们在参考题中列举了一些可以用多元微积分的知识来讨论的命题。
+
+\section{对于教学的建议}
+
+\subsection{学习要点}
+
+\begin{enumerate}
+  \item 隐函数（组）的概念和存在定理的证明对于初学者来说都不容易掌握。最基本的要求是理解隐函数（组）的概念，能叙述隐函数（组）存在定理并了解隐函数存在定理的证明。
+  \item 求隐函数（组）、反函数（组）的导数和用变量代换去计算微分表达式的一个重要环节是分析哪些变量是自变量，哪些是因变量。很多学生在解题时不重视这个环节，这是他们不会做题或出错的真正原因。关于变量代换的计算方法与大量实例还可以参看 [55] 第三册的 §6.4。
+  \item \textbf{对于习题课的建议}\quad 告诉学生求隐函数的导数以及变量替换时，首先要搞清楚自变量、因变量与它们的相互关系。其次是要有耐心。在求二阶以上导数时，极易漏项。可从学生作业中找出共同性的问题，进行评讲。处理繁琐题目的耐心也是一种基本的数学素养。
+\end{enumerate}
+
+对于计算，也绝非无技巧可言。下面的两个例题用引入简单的微分算子的方法，对我们会有所启发。
+
+\begin{xexample}[20.5.1]
+设 $z=z(x,y)$ 二阶连续可微，在微分方程
+\[
+  \frac1{(x+y)^2}\left(
+    \frac{\partial^2z}{\partial x^2}
+    +2\frac{\partial^2z}{\partial x\partial y}
+    +\frac{\partial^2z}{\partial y^2}
+  \right)
+  -\frac1{(x+y)^3}\left(
+    \frac{\partial z}{\partial x}+\frac{\partial z}{\partial y}
+  \right)=0
+\]
+% SOURCE-ERR: 原书例 20.5.1 上式第二个一阶偏导印作 \partial z/\partial x；紧接的“分析”和后续推导均明确使用 \partial z/\partial y，故据上下文修正。
+中，作变量代换
+\begin{equation}
+  u=xy,\qquad v=x-y.
+  \tag{20.26}
+  \label{eq:20.26}
+\end{equation}
+求变换后的方程。
+\end{xexample}
+\begin{xsolution}
+\textbf{分析}\quad 注意到方程中的导数部分，第一部分是
+\[
+  \left(\frac\partial{\partial x}+\frac\partial{\partial y}\right)^2,
+\]
+第二部分是
+\[
+  \frac\partial{\partial x}+\frac\partial{\partial y}.
+\]
+于是只要求出在变量替换 \eqref{eq:20.26} 下 $\dfrac\partial{\partial x}+\dfrac\partial{\partial y}$ 的表达式即可。
+
+\textbf{解}\quad 利用链式求导法则得到
+\[
+  z_x=z_uu_x+z_vv_x=yz_u+z_v,
+  \qquad
+  z_y=z_uu_y+z_vv_y=xz_u-z_v.
+\]
+两式相加得
+\begin{equation}
+  \left(\frac\partial{\partial x}+\frac\partial{\partial y}\right)z
+  =(x+y)\frac{\partial z}{\partial u}.
+  \tag{20.27}
+  \label{eq:20.27}
+\end{equation}
+于是我们得到在变换 \eqref{eq:20.26} 之下有
+\begin{equation}
+  \frac\partial{\partial x}+\frac\partial{\partial y}
+  =(x+y)\frac\partial{\partial u}.
+  \tag{20.28}
+  \label{eq:20.28}
+\end{equation}
+在 \eqref{eq:20.27} 两边再作用算子 $\dfrac\partial{\partial x}+\dfrac\partial{\partial y}$，并利用 \eqref{eq:20.28}，则
+\begin{align*}
+  \left(\frac\partial{\partial x}+\frac\partial{\partial y}\right)^2z
+  &=\left(\frac\partial{\partial x}+\frac\partial{\partial y}\right)
+    \left[(x+y)\frac{\partial z}{\partial u}\right]\\
+  &=\left[\left(\frac\partial{\partial x}+\frac\partial{\partial y}\right)(x+y)\right]
+    \frac{\partial z}{\partial u}
+    +(x+y)\left(\frac\partial{\partial x}+\frac\partial{\partial y}\right)
+    \frac{\partial z}{\partial u}\\
+  &=2\frac{\partial z}{\partial u}+(x+y)^2\frac{\partial^2z}{\partial u^2}.
+\end{align*}
+即
+\begin{equation}
+  \left(\frac\partial{\partial x}+\frac\partial{\partial y}\right)^2z
+  =2\frac{\partial z}{\partial u}+(x+y)^2\frac{\partial^2z}{\partial u^2}.
+  \tag{20.29}
+  \label{eq:20.29}
+\end{equation}
+将 \eqref{eq:20.27}、\eqref{eq:20.29} 代入原微分方程中，则得到
+\[
+  \frac1{(x+y)^2}\left[2\frac{\partial z}{\partial u}+(x+y)^2\frac{\partial^2z}{\partial u^2}\right]
+  -\frac1{(x+y)^3}(x+y)\frac{\partial z}{\partial u}=0,
+\]
+加以整理并将 \eqref{eq:20.26} 代入得
+\[
+  \frac{\partial^2z}{\partial u^2}
+  +\frac1{v^2+4u}\frac{\partial z}{\partial u}=0,
+\]
+即已将原方程化为 $v$ 作参数的二阶线性常微分方程。
+\end{xsolution}
+
+\begin{xexample}[20.5.2]
+设方程
+\[
+  a\frac{\partial^2z}{\partial x^2}
+  +2b\frac{\partial^2z}{\partial x\partial y}
+  +c\frac{\partial^2z}{\partial y^2}=0,
+\]
+其中 $a,b,c$ 都是常数，$b^2-ac=0,c\ne0$，作代换
+\begin{equation}
+  u=x+\alpha y,\qquad v=x+\beta y.
+  \tag{20.30}
+  \label{eq:20.30}
+\end{equation}
+问如何选择 $\alpha,\beta$，能使代换后的方程有简单的形式？
+\end{xexample}
+\begin{xsolution}
+不妨设 $c=1$，则 $a=b^2$，于是原方程变为
+\[
+  \left(b\frac\partial{\partial x}+\frac\partial{\partial y}\right)^2z=0.
+\]
+若 $b=0$ 则原方程已是最简形式。以下设 $b\ne0$，则我们的任务是在 \eqref{eq:20.30} 中适当选取 $\alpha,\beta$，使得
+\begin{equation}
+  b\frac\partial{\partial x}+\frac\partial{\partial y}=\frac\partial{\partial u}.
+  \tag{20.31}
+  \label{eq:20.31}
+\end{equation}
+由 \eqref{eq:20.30} 得
+\[
+  \frac\partial{\partial x}=\frac\partial{\partial u}+\frac\partial{\partial v},
+\]
+\[
+  \frac\partial{\partial y}=\alpha\frac\partial{\partial u}+\beta\frac\partial{\partial v}.
+\]
+明显地只要取 $\beta=-b,\alpha=1-b$，则 \eqref{eq:20.31} 成立。此时原方程化为
+\begin{equation}
+  \frac{\partial^2z}{\partial u^2}=0.
+  \tag{20.32}
+  \label{eq:20.32}
+\end{equation}
+事实上，只要取 $\beta=-b,\alpha\ne-b$，则 \eqref{eq:20.32} 仍成立。
+\end{xsolution}
+
+\subsection{参考题}
+
+\paragraph{第一组参考题}
+
+\begin{enumerate}
+  \item 设 $f(x,y)$ 在点 $(0,1)$ 附近连续可微，且 $f_y(0,1)\ne0,f(0,1)=0$。证明：
+  \[
+    f\left(x,\int_0^t\sin x\,\dd x\right)=0
+  \]
+  在点 $\left(0,\dfrac\pi2\right)$ 附近确定一个隐函数 $t=\varphi(x)$，并求 $\varphi'(0)$。
+  \item 证明：由方程
+  \[
+    y=x+\frac12\sin y
+  \]
+  可在 $(-\infty,+\infty)$ 中确定隐函数 $y=y(x)$，且 $y(x)\in C^\infty(\RR)$，即 $y(x)$ 是 $\RR$ 上的无穷次可微函数。
+  \item 设 $x=y+\varphi(y)$，$\varphi$ 满足 $\varphi(0)=0$，$\varphi'(y)$ 在 $(-a,a)$ 中连续，且 $\abs{\varphi'(0)}\le k<1$。证明：存在 $\delta>0$，使当 $-\delta<x<\delta$ 时有唯一可微函数 $y=y(x)$ 满足方程 $x=y+\varphi(y)$ 且 $y(0)=0$。
+  \item 证明：方程
+  \[
+    F(x,y)=1-\ee^{-x}+y^3\ee^{-y}=0
+  \]
+  在 $\{x>0,y\in\RR^1\}$ 中存在唯一解 $y=y(x)$（$x>0$），且 $y(x)$ 连续可微。
+  \item 设 $f(x,y)$ 满足：$f_x$ 在 $\RR^2$ 上存在，$f_y$ 在 $\RR^2$ 上存在且连续，且
+  \[
+    \abs{f_x}<M\abs{f_y},\qquad f(x_0,y_0)=0,
+  \]
+  这里 $M$ 是正常数。证明：$f(x,y)=0$ 唯一确定一个定义在 $\RR$ 上的可微解 $y=y(x)$，且满足 $y(x_0)=y_0$。再问条件 $\abs{f_x}<M\abs{f_y}$ 是否是必要的？若去掉 $f(x_0,y_0)=0$ 这个条件，结论是否仍成立？
+  \item 设 $u=f(x,y),v=g(x,y)$ 在区域 $\Omega\subset\RR^2$ 上有连续偏导数。证明：
+  \begin{enumerate}[label=(\arabic*)]
+    \item 如果在 $\Omega$ 上的 Jacobi 矩阵的秩恒等于 1，则对 $\Omega$ 内任一点 $(x_0,y_0)$，存在 $(x_0,y_0)$ 的邻域 $U$ 和连续可微的函数 $F(u,v)$，$(F'_u)^2+(F'_v)^2\ne0$，使 $F(f(x,y),g(x,y))=0$ 在 $U$ 上恒成立；
+    \item 若有连续可微函数 $F(u,v)$，$(F'_u)^2+(F'_v)^2\ne0$，使 $F(f(x,y),g(x,y))=0$ 在 $\Omega$ 上恒成立，则
+    \[
+      \frac{\partial(u,v)}{\partial(x,y)}=0,\qquad (x,y)\in\Omega.
+    \]
+  \end{enumerate}
+  \item 设空间曲线 $C$ 的方程是：
+  \[
+    x=f(t),\qquad y=\varphi(t),\qquad z=\frac{f'(t)}{\varphi'(t)},\qquad -1<t<1,
+  \]
+  其中 $f,\varphi$ 在 $(-1,1)$ 上有二阶连续导数，且一阶导数处处不等于 0。设点集
+  \[
+    E=\left\{(x,y,z)\mathrel{\Big|}
+      x=s^2+\frac{f'(t)}{\varphi'(t)}s+f(t),\quad
+      y=2s+\varphi(t),\quad
+      z=\frac{f'(t)}{\varphi'(t)},\quad s,t\in(-1,1)\right\}.
+  \]
+  证明：$E$ 中与曲线 $C$ 充分接近（即 $\abs s$ 充分小）的一些点，组成一张连续曲面 $z=z(x,y)$。
+  \item 设函数 $f(x,y),g(x,y)$ 是定义在平面开区域 $G$ 上的两个函数，在 $G$ 上均有连续的一阶偏导数，且在 $G$ 内任意点处均有
+  \[
+    \frac{\partial f}{\partial x}\frac{\partial g}{\partial y}
+    -\frac{\partial f}{\partial y}\frac{\partial g}{\partial x}\ne0.
+  \]
+  又设有界闭区域 $D\subset G$。证明：在 $D$ 中满足方程组
+  \[
+    f(x,y)=0,\qquad g(x,y)=0
+  \]
+  的点至多有有限个。
+  \item 设 $f$ 是 $\RR^3$ 上的连续可微函数。若 $f(x,y,z)=0$，则
+  \[
+    \frac{\partial z}{\partial y}\cdot
+    \frac{\partial y}{\partial x}\cdot
+    \frac{\partial x}{\partial z}=-1.
+  \]
+  \begin{enumerate}[label=(\arabic*)]
+    \item 解释上述命题的精确含义；
+    \item 对 Clapeyron（克拉佩隆）公式 $\dfrac{P\cdot V}{T}=\text{常数}$，验证上述命题的正确性；
+    \item 对于 $n$ 元连续可微函数 $f(x_1,x_2,\ldots,x_n)$ 确定的关系式 $f(x_1,x_2,\ldots,x_n)=0$ 是否有上述类似公式？验证你的判断。
+  \end{enumerate}
+  \item 设 $f\colon\RR^2\to\RR^2$ 为 $C^1$ 映射。若只存在有限多个点 $x_1,x_2,\ldots,x_r$，使得
+  \[
+    \det Jf(x_i)=0,\qquad i=1,2,\ldots,r,
+  \]
+  并且对每个正数 $M$，$\{x\in\RR^2\mid \abs{f(x)}\le M\}$ 是有界集，证明：$f$ 把 $\RR^2$ 映满 $\RR^2$。
+  \item 设 $f\colon\RR^n\to\RR^n$ 为 $C^1$ 映射，且 $Jf(x_0)$ 可逆。证明：$\forall x\in\RR^n$，只要 $\abs x$ 充分小，就存在 $z\in\RR^n$，$z=\littleo(\abs x)$，使得
+  \[
+    f(x_0+x+z)-f(x_0)-Jf(x_0)x=0.
+  \]
+\end{enumerate}
+
+\paragraph{第二组参考题}
+
+\begin{enumerate}
+  \item 试用压缩映射原理证明如下局部微分同胚定理：设 $U$ 是 $\RR^n$ 的开集，$f\colon U\to\RR^n$ 是 $C^k$ 映射，$x_0\in U,\det Jf(x_0)\ne0$。则存在 $x_0$ 的邻域 $W\subset U$ 和 $f(x_0)$ 的邻域 $V$，使得 $f\colon W\to V$ 是 $C^k$ 微分同胚。
+  \item 设 $f\colon\RR^n\to\RR^n$ 是 $C^1$ 映射，且存在 $\alpha>0$ 使 $\forall x\in\RR^n$ 有
+  \[
+    u^{\mathsf T}\cdot Jf(x)\cdot u\ge\alpha\abs u^2,\qquad \forall u\in\RR^n,
+  \]
+  其中 $u^{\mathsf T}$ 表示 $u$ 的转置。证明：
+  \[
+    \abs{f(x)-f(y)}\ge\alpha\abs{x-y},\qquad \forall x,y\in\RR^n,
+  \]
+  且 $f$ 是 $\RR^n$ 上的微分同胚。
+  \item 用映射的语言叙述隐函数组存在定理，将它化为逆映射存在定理或直接用压缩映射原理证明。
+  \item 20.2.4 小节的逆映射存在性证明是构造性的，它给出了逆映射的迭代构造格式。设 $y\in V$，取合适的初始点 $x_0\in U$，则
+  \[
+    x_n=x_{n-1}+(f'(a))^{-1}(y-f(x_{n-1}))
+  \]
+  就给出了迭代列 $\{x_n\}$ 的公式。讨论映射
+  \[
+    T:\quad u=\frac12(x^2-y^2),\qquad v=xy
+  \]
+  的逆映射。设 $a=(1,1)^{\mathsf T}$。先求
+  \[
+    T'(a)=\left.\begin{pmatrix}
+      \dfrac{\partial u}{\partial x}&\dfrac{\partial u}{\partial y}\\[4pt]
+      \dfrac{\partial v}{\partial x}&\dfrac{\partial v}{\partial y}
+    \end{pmatrix}\right|_{(x,y)=(1,1)},
+  \]
+  再利用迭代公式
+  \[
+    \binom{x_n}{y_n}=\binom{x_{n-1}}{y_{n-1}}
+    +(T'(a))^{-1}\left[
+      \binom uv-
+      \binom{\dfrac12(x_{n-1}^2-y_{n-1}^2)}{x_{n-1}y_{n-1}}
+    \right]
+  \]
+  在 $a$ 的邻域内求 $T^{-1}$ 的二次迭代解 $(x_2,y_2)^{\mathsf T}$，并用它与逆映射的一次微分近似
+  \[
+    T^{-1}\binom uv\approx
+    \binom11+\begin{pmatrix}1&-1\\1&1\end{pmatrix}^{-1}
+    \binom u{v-1}
+  \]
+  作比较。
+  \item 设 $U$ 是 $\RR^m$ 的开集，$f\colon U\to\RR^n$ 是 $C^k$ 映射，满足条件：
+  \[
+    f(0)=0,\qquad Jf(0)\text{ 的秩为 }m\quad(m\le n).
+  \]
+  证明：存在 $\RR^n$ 中含 0 的两个邻域 $V$ 及 $W$，$C^k$ 微分同胚 $h\colon V\to W$ 使得 $h(0)=0$，并且
+  \[
+    h\circ f(x_1,x_2,\ldots,x_m)
+    =(x_1,x_2,\ldots,x_m,0,0,\ldots,0),
+    \quad \forall(x_1,x_2,\ldots,x_m)\in f^{-1}(V).
+  \]
+  \item 设 $U$ 是 $\RR^m$ 的开集，$f\colon U\to\RR^n$ 是 $C^k$ 映射，满足条件：
+  \[
+    f(0)=0,\qquad Jf(0)\text{ 的秩为 }n\quad(m\ge n).
+  \]
+  证明：存在 $\RR^m$ 中含 0 的两个邻域 $V$ 及 $W$，$C^k$ 微分同胚 $\varphi\colon V\to W$ 使得 $\varphi(0)=0$，并且
+  \[
+    f\circ\varphi(x_1,x_2,\ldots,x_m)=(x_1,x_2,\ldots,x_n),
+    \quad \forall(x_1,x_2,\ldots,x_m)\in V.
+  \]
+  （以上两个命题称为秩定理，如何对它们作一个简单的几何解释？）
+\end{enumerate}
