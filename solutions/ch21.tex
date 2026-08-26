@@ -385,13 +385,13 @@
 \]
 任取固定向量 $(u,v)\ne(0,0)$，并令
 \[
-  (h,k)=t(u,v),\qquad t\to0.
+  (h,k)=t(u,v),\qquad t\to0^+.
 \]
 则
 \[
   P(tu,tv)=\sum_{d=0}^{m}t^dP_d(u,v)=\littleo(t^m).
 \]
-首先令 $t\to0$，得到 $P_0(u,v)=0$。假设已经证明
+首先令 $t\to0^+$，得到 $P_0(u,v)=0$。假设已经证明
 \[
   P_0(u,v)=P_1(u,v)=\cdots=P_{r-1}(u,v)=0,
 \]
@@ -400,7 +400,7 @@
   P_r(u,v)+tP_{r+1}(u,v)+\cdots+t^{m-r}P_m(u,v)
   =\littleo(t^{m-r}).
 \]
-令 $t\to0$，右端趋于 $0$，故
+令 $t\to0^+$，右端趋于 $0$，故
 \[
   P_r(u,v)=0.
 \]
@@ -849,7 +849,7 @@
   \qquad
   u_{\max}=\lambda_+.
 \]
-相应极值点是线性方程组
+相应极值点由线性方程组
 \[
   (D-\lambda_\pm I)\vect{x}=\mu(p,q,r)^{\mathsf T},
   \qquad
@@ -857,7 +857,7 @@
   \qquad
   \norm{\vect{x}}=1
 \]
-的两组相反单位解。该写法也包括某些 $p,q,r$ 为零、$\lambda_\pm$ 恰与 $A,B,C$ 中某个数相等的退化情形。
+确定。若 $\lambda_-<\lambda_+$，则在二维约束平面内两个特征空间均为一维，所以极小值和极大值各在一对相反的单位向量处取得。若 $\lambda_-=\lambda_+$，则 $D$ 限制在该约束平面上的二次型为常数，约束圆上的每一点都同时是最大值点和最小值点。上述方程也包括某些 $p,q,r$ 为零、$\lambda_\pm$ 恰与 $A,B,C$ 中某个数相等的情形。
 \end{xsolution}
 
 \paragraph{第6题}
@@ -1362,32 +1362,32 @@
 \[
   s=\frac{a+b+c+d}{2},
 \]
-并记 $\angle A=A,\angle C=C$，面积为 $K$。沿对角线 $BD$ 分成两个三角形。由余弦定理，
+并记两组相邻边 $a,b$ 与 $c,d$ 所夹的两个对角分别为 $\theta,\varphi$，面积为 $K$。也就是说，若 $AB=a,BC=b,CD=c,DA=d$，则 $\theta=\angle B,\varphi=\angle D$。沿对角线 $AC$ 分成两个三角形。由余弦定理，
 \[
-  BD^2=a^2+b^2-2ab\cos A
-  =c^2+d^2-2cd\cos C,
+  AC^2=a^2+b^2-2ab\cos\theta
+  =c^2+d^2-2cd\cos\varphi,
 \]
 故
 \[
-  ab\cos A-cd\cos C
+  ab\cos\theta-cd\cos\varphi
   =\frac{a^2+b^2-c^2-d^2}{2}.
 \]
 另一方面
 \[
-  2K=ab\sin A+cd\sin C.
+  2K=ab\sin\theta+cd\sin\varphi.
 \]
 于是
 \[
 \begin{aligned}
   4K^2
-  ={}&(ab\sin A+cd\sin C)^2\\
-  ={}&(ab)^2+(cd)^2-2abcd\cos(A+C)\\
+  ={}&(ab\sin\theta+cd\sin\varphi)^2\\
+  ={}&(ab)^2+(cd)^2-2abcd\cos(\theta+\varphi)\\
   &-\left(\frac{a^2+b^2-c^2-d^2}{2}\right)^2.
 \end{aligned}
 \]
 利用
 \[
-  \cos(A+C)=2\cos^2\frac{A+C}{2}-1,
+  \cos(\theta+\varphi)=2\cos^2\frac{\theta+\varphi}{2}-1,
 \]
 上式化为
 \[
@@ -1395,7 +1395,7 @@
   4K^2
   ={}&(ab+cd)^2
   -\left(\frac{a^2+b^2-c^2-d^2}{2}\right)^2
-  -4abcd\cos^2\frac{A+C}{2}.
+  -4abcd\cos^2\frac{\theta+\varphi}{2}.
 \end{aligned}
 \]
 其中前两项的差可完全因式分解：
@@ -1411,7 +1411,7 @@
 故
 \[
   K^2=(s-a)(s-b)(s-c)(s-d)
-  -abcd\cos^2\frac{A+C}{2}.
+  -abcd\cos^2\frac{\theta+\varphi}{2}.
 \]
 
 右端第一项只由四条边长决定，第二项非负，因此
@@ -1420,11 +1420,11 @@
 \]
 等号成立当且仅当
 \[
-  \cos\frac{A+C}{2}=0,
+  \cos\frac{\theta+\varphi}{2}=0,
 \]
 即
 \[
-  A+C=\pi.
+  \theta+\varphi=\pi.
 \]
 这正是四边形为圆内接四边形的条件。因此，在给定四边长能够组成非退化四边形的前提下，面积最大的四边形是圆内接四边形，最大面积为
 \[
@@ -1898,35 +1898,41 @@
   \]
   属于曲面在 $P$ 的切平面。于是切平面经过定点 $(a,b,c)$。
 
-  \item 由 (1)，曲面 $z=z(x,y)$ 在任一点 $(x,y,z)$ 的切平面
+  \item 作平移
   \[
-    Z-z=z_x(X-x)+z_y(Y-y)
+    X=x-a,\qquad Y=y-b,
   \]
-  经过 $(a,b,c)$。代入该定点得
+  并记
   \[
-    c-z=z_x(a-x)+z_y(b-y),
+    g(X,Y)=z(a+X,b+Y)-c.
+  \]
+  由于原方程中的分母为 $z-c$，在所讨论的曲面上有 $g\ne0$。由 (1)，曲面在点
+  \[
+    (a+X,b+Y,c+g(X,Y))
+  \]
+  的切平面经过 $(a,b,c)$。把该点代入图形 $z=c+g(X,Y)$ 的切平面方程，得到
+  \[
+    -g=-Xg_X-Yg_Y,
   \]
   即
   \[
-    z-c=(x-a)z_x+(y-b)z_y.
+    Xg_X+Yg_Y=g.
   \]
-  对 $x$ 求偏导：
+  分别对 $X,Y$ 求偏导，得
   \[
-    z_x=z_x+(x-a)z_{xx}+(y-b)z_{xy},
+    Xg_{XX}+Yg_{XY}=0,
+    \qquad
+    Xg_{XY}+Yg_{YY}=0.
   \]
-  所以
+  并且 $(X,Y)\ne(0,0)$；否则上面的齐次关系将给出 $g=0$，与 $g\ne0$ 矛盾。因此非零向量 $(X,Y)^{\mathsf T}$ 是 Hesse 矩阵
   \[
-    (x-a)z_{xx}+(y-b)z_{xy}=0.
+    \begin{pmatrix}g_{XX}&g_{XY}\\g_{XY}&g_{YY}\end{pmatrix}
   \]
-  对 $y$ 求偏导，同理得
+  的零向量，故
   \[
-    (x-a)z_{xy}+(y-b)z_{yy}=0.
+    g_{XX}g_{YY}-g_{XY}^2=0.
   \]
-  因而非零向量 $(x-a,y-b)^{\mathsf T}$ 是 Hesse 矩阵
-  \[
-    \begin{pmatrix}z_{xx}&z_{xy}\\z_{xy}&z_{yy}\end{pmatrix}
-  \]
-  的零特征向量，于是该矩阵行列式为零：
+  平移不改变二阶偏导，于是
   \[
     z_{xx}z_{yy}-z_{xy}^2=0.
   \]
