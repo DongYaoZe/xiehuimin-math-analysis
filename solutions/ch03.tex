@@ -327,21 +327,44 @@
 用闭区间套定理证明单调有界数列的收敛定理。
 \end{xexercise}
 \begin{xsolution}
-先设 $\{a_n\}$ 单调增加且有上界。由上一题，闭区间套定理推出确界存在定理，因此数集
+只讨论单调增加且有上界的情形。若 $a_1$ 已是数集
 \[
   A=\{a_n\mid n\in\NN_+\}
 \]
-有上确界 $L=\sup A$。任取 $\varepsilon>0$，$L-\varepsilon$ 不是 $A$ 的上界，故存在 $N$ 使
-\[
-  a_N>L-\varepsilon.
-\]
-由单调性，当 $n\geqslant N$ 时
-\[
-  L-\varepsilon<a_N\leqslant a_n\leqslant L,
-\]
-于是 $\abs{a_n-L}<\varepsilon$，即 $a_n\to L$。
+的上界，则由单调性有 $a_n=a_1$，结论成立。以下设 $a_1$ 不是 $A$ 的上界，并取 $A$ 的一个上界 $b_1>a_1$。
 
-若 $\{a_n\}$ 单调减少且有下界，则对 $-a_n$ 应用上面的结论，或用下确界作同样证明，即知其收敛。
+从闭区间 $I_1=[a_1,b_1]$ 开始二分。一般地，设已经得到
+\[
+  I_n=[u_n,v_n],
+\]
+其中 $u_n$ 不是 $A$ 的上界，而 $v_n$ 是 $A$ 的上界。令 $c_n=(u_n+v_n)/2$。若 $c_n$ 是 $A$ 的上界，取
+\[
+  I_{n+1}=[u_n,c_n];
+\]
+若 $c_n$ 不是 $A$ 的上界，取
+\[
+  I_{n+1}=[c_n,v_n].
+\]
+这样得到闭区间套 $\{I_n\}$，并且始终保持左端点不是 $A$ 的上界、右端点是 $A$ 的上界，同时
+\[
+  \abs{I_n}=2^{1-n}\abs{I_1}\to0.
+\]
+由闭区间套定理，存在唯一的 $\xi$ 使
+\[
+  u_n\to\xi,\qquad v_n\to\xi.
+\]
+
+任取 $\varepsilon>0$。取 $k$ 充分大，使
+\[
+  \xi-\varepsilon<u_k\leqslant\xi\leqslant v_k<\xi+\varepsilon.
+\]
+由于 $u_k$ 不是 $A$ 的上界，存在某个 $N$ 使 $a_N>u_k$；而 $v_k$ 是 $A$ 的上界，所以 $a_n\leqslant v_k$ 对所有 $n$ 成立。于是当 $n\geqslant N$ 时，由单调性得到
+\[
+  \xi-\varepsilon<u_k<a_N\leqslant a_n\leqslant v_k<\xi+\varepsilon.
+\]
+故 $a_n\to\xi$。
+
+若 $\{a_n\}$ 单调减少且有下界，则对数列 $\{-a_n\}$ 应用刚才的结论，即得 $\{a_n\}$ 收敛。
 \end{xsolution}
 
 \section{凝聚定理}
@@ -729,25 +752,24 @@ Cauchy 收敛准则为
 \[
   \bigcap_{n=1}^{\infty}I_n=\varnothing.
 \]
-于是对每个 $x\in I_1$，存在 $n$ 使 $x\notin I_n$，即
+于是对每个 $x\in I_1$，存在某个 $n$ 使 $x\notin I_n$，即 $x<a_n$ 或 $x>b_n$。因此开区间族
 \[
-  x<a_n\quad\text{或}\quad x>b_n.
+  \{(a_1-1,a_n),(b_n,b_1+1)\mid n\in\NN_+\}
 \]
-因此开区间族
+覆盖 $I_1$。由覆盖定理，可取其中有限多个开区间覆盖 $I_1$。设这些开区间所涉及的最大下标为 $N$。由于 $\{a_n\}$ 单调不减而 $\{b_n\}$ 单调不增，这个有限子覆盖的并包含于
 \[
-  \{(-\infty,a_n),(b_n,+\infty)\mid n\in\NN_+\}
+  (a_1-1,a_N)\cup(b_N,b_1+1),
 \]
-覆盖 $I_1$。由覆盖定理可取有限子覆盖。设其中出现的最大下标为 $N$。由于 $a_n$ 单调不减、$b_n$ 单调不增，这个有限子覆盖的并包含于
+但右边漏掉了非空闭区间 $I_N=[a_N,b_N]\subset I_1$，矛盾。因此
 \[
-  (-\infty,a_N)\cup(b_N,+\infty),
+  \bigcap_{n=1}^{\infty}I_n\neq\varnothing.
 \]
-从而不可能覆盖非空闭区间 $I_N=[a_N,b_N]\subset I_1$，矛盾。因此交集非空。
 
-若再有 $\abs{I_n}=b_n-a_n\to0$，假设交集中有两个不同点 $x<y$，则对每个 $n$ 都有 $x,y\in I_n$，所以
+若再有 $\abs{I_n}=b_n-a_n\to0$，而交集中存在两个不同点 $x<y$，则对每个 $n$ 都有 $x,y\in I_n$，从而
 \[
   b_n-a_n\geqslant y-x>0,
 \]
-与长度趋于 $0$ 矛盾。故交集只能是单点集。
+与 $\abs{I_n}\to0$ 矛盾。故这时交集只能是单点集。
 \end{xsolution}
 
 \begin{xexercise}[3.5.3 练习题 4]
@@ -872,26 +894,42 @@ Cauchy 收敛准则为
   \qquad
   L=\overline{\lim}_{n\to\infty}x_n.
 \]
-先设 $l,L$ 有限。任取 $\varepsilon>0$。由上下极限的定义，存在 $N$，当 $k\geqslant N$ 时
+先设 $l,L$ 都是有限数。任取 $\varepsilon>0$，存在 $N$，当 $k\geqslant N$ 时
 \[
   l-\varepsilon<x_k<L+\varepsilon.
 \]
-于是对 $n>N$，
+于是对 $n\geqslant N$，
 \[
   \frac1n\sum_{k=1}^{N-1}x_k
   +\frac{n-N+1}{n}(l-\varepsilon)
   <S_n
-  <\frac1n\sum_{k=1}^{N-1}x_k
+\]
+以及
+\[
+  S_n<
+  \frac1n\sum_{k=1}^{N-1}x_k
   +\frac{n-N+1}{n}(L+\varepsilon).
 \]
-令 $n\to\infty$，有限个初始项的平均趋于 $0$，得到
+令 $n\to\infty$，有限个初始项除以 $n$ 后趋于 $0$，得到
 \[
   l-\varepsilon\leqslant\underline{\lim}S_n
   \leqslant\overline{\lim}S_n\leqslant L+\varepsilon.
 \]
-再令 $\varepsilon\downarrow0$，即得所需不等式。
+再令 $\varepsilon\downarrow0$，即得结论。
 
-若 $l=-\infty$ 或 $L=+\infty$，相应外侧不等式自动成立；若只有一侧为有限数，则上述相应的单边估计仍然有效。因此扩展实数情形也成立。
+若 $l$ 有限而 $L=+\infty$，上面的左侧估计仍给出
+\[
+  l\leqslant\underline{\lim}S_n,
+\]
+而最右侧不等式自动成立；若 $l=-\infty$ 而 $L$ 有限，则使用上面的右侧估计即可。若 $l=-\infty,L=+\infty$，两个外侧不等式都自动成立。
+
+还剩两种同号无穷情形。若 $l=+\infty$，则对任意实数 $M$，存在 $N$，使 $k\geqslant N$ 时 $x_k>M$。因此
+\[
+  S_n>
+  \frac1n\sum_{k=1}^{N-1}x_k+rac{n-N+1}{n}M,
+  \qquad n\geqslant N.
+\]
+令 $n\to\infty$ 得 $\underline{\lim}S_n\geqslant M$。因 $M$ 任意，$S_n\to+\infty$。若 $L=-\infty$，对任意实数 $M$ 最终有 $x_k<M$，同样得到 $\overline{\lim}S_n\leqslant M$，故 $S_n\to-\infty$。于是所有扩展实数情形均成立。
 \end{xsolution}
 
 \begin{xexercise}[3.6.4 练习题 4]
@@ -937,45 +975,51 @@ Cauchy 收敛准则为
   \qquad
   R=\overline{\lim}_{n\to\infty}\frac{a_{n+1}}{a_n}.
 \]
-先证右端不等式。若 $R<+\infty$，任取 $q>R$。存在 $N$，当 $n\geqslant N$ 时
+先证右端不等式。若 $R<+\infty$，任取正数 $q>R$。存在 $N$，当 $n\geqslant N$ 时
 \[
   \frac{a_{n+1}}{a_n}<q.
 \]
 故对 $n>N$，
 \[
-  a_n\leqslant a_N q^{n-N}.
+  a_n<a_Nq^{n-N}.
 \]
 开 $n$ 次方得
 \[
-  \sqrt[n]{a_n}\leqslant a_N^{1/n}q^{1-N/n}\to q,
+  \sqrt[n]{a_n}<a_N^{1/n}q^{1-N/n}.
 \]
-所以
+令 $n\to\infty$，得到
 \[
   \overline{\lim}_{n\to\infty}\sqrt[n]{a_n}\leqslant q.
 \]
-令 $q\downarrow R$，得到
+再令 $q\downarrow R$，便有
 \[
-  \overline{\lim}\sqrt[n]{a_n}\leqslant R.
+  \overline{\lim}_{n\to\infty}\sqrt[n]{a_n}\leqslant R.
 \]
-若 $R=+\infty$，此式自动成立。
+若 $R=+\infty$，这一不等式自动成立。
 
-再证左端不等式。若 $r>0$，任取 $0<q<r$。充分大的 $n$ 有
+再证左端不等式。若 $0<r<+\infty$，任取 $0<q<r$。充分大的 $n$ 有
 \[
   \frac{a_{n+1}}{a_n}>q,
 \]
-从而 $a_n\geqslant a_Nq^{n-N}$，于是
+从而 $a_n>a_Nq^{n-N}$，于是
 \[
   \underline{\lim}_{n\to\infty}\sqrt[n]{a_n}\geqslant q.
 \]
 令 $q\uparrow r$ 得
 \[
-  r\leqslant\underline{\lim}\sqrt[n]{a_n}.
+  r\leqslant\underline{\lim}_{n\to\infty}\sqrt[n]{a_n}.
 \]
-若 $r=0$，因根式非负，此式也自动成立。中间
+若 $r=0$，因 $\sqrt[n]{a_n}>0$，该不等式自动成立；若 $r=+\infty$，上述估计对任意有限 $q>0$ 都成立，故
 \[
-  \underline{\lim}\sqrt[n]{a_n}\leqslant\overline{\lim}\sqrt[n]{a_n}
+  \underline{\lim}_{n\to\infty}\sqrt[n]{a_n}=+\infty.
 \]
-由定义成立。合并即得原题全部不等式。
+最后
+\[
+  \underline{\lim}_{n\to\infty}\sqrt[n]{a_n}
+  \leqslant
+  \overline{\lim}_{n\to\infty}\sqrt[n]{a_n}
+\]
+由定义成立。合并即得原题的全部不等式。
 \end{xsolution}
 
 \begin{xexercise}[3.6.4 练习题 6]
@@ -1115,67 +1159,93 @@ Cauchy 收敛准则为
 \]
 \end{xexercise}
 \begin{xsolution}
-设右端有意义。对每个 $n$，记
+记
+\[
+  A=\overline{\lim}_{n\to\infty}x_n,
+  \qquad
+  B=\overline{\lim}_{n\to\infty}y_n,
+\]
+并假设 $A+B$ 有意义。
+
+先设 $A,B$ 都有限。对充分大的 $n$，记
 \[
   A_n=\sup_{k\geqslant n}x_k,
   \qquad
   B_n=\sup_{k\geqslant n}y_k.
 \]
-对所有 $k\geqslant n$ 有 $x_k\leqslant A_n$、$y_k\leqslant B_n$，所以
+对所有 $k\geqslant n$ 有
 \[
-  x_k+y_k\leqslant A_n+B_n.
+  x_k+y_k\leqslant A_n+B_n,
 \]
-因此
+所以
 \[
-  \sup_{k\geqslant n}(x_k+y_k)
-  \leqslant A_n+B_n.
+  \sup_{k\geqslant n}(x_k+y_k)\leqslant A_n+B_n.
 \]
-令 $n\to\infty$，利用公式 (3.2)，得到
+令 $n\to\infty$，由公式 (3.2) 得
 \[
   \overline{\lim}_{n\to\infty}(x_n+y_n)
-  \leqslant
-  \overline{\lim}_{n\to\infty}x_n
-  +\overline{\lim}_{n\to\infty}y_n.
+  \leqslant A+B.
 \]
-若某一上极限为 $+\infty$ 而和式仍有意义，不等式自动成立；其余允许的扩展实数情形按同一约定处理。
+
+若 $A+B=+\infty$，所求不等式自动成立。若 $A+B=-\infty$，由于和式有意义，至少有一个上极限等于 $-\infty$，另一个不为 $+\infty$。例如设 $A=-\infty$。若 $B$ 有限，则任取实数 $M$，最终有
+\[
+  y_n<B+1,
+  \qquad
+  x_n<M-(B+1),
+\]
+因而最终 $x_n+y_n<M$。若 $B=-\infty$，则 $x_n\to-\infty$、$y_n\to-\infty$，同样有 $x_n+y_n\to-\infty$。因此在两种情形中都有
+\[
+  \overline{\lim}_{n\to\infty}(x_n+y_n)=-\infty=A+B.
+\]
+若由 $B=-\infty$ 而 $A$ 有限，则交换 $x_n,y_n$ 的地位即可。故所有使右端有意义的扩展实数情形也都成立。
 \end{xsolution}
 
 \begin{xexercise}[3.6.4 练习题 11]
 证明命题 3.6.5。
 \end{xexercise}
 \begin{xsolution}
-记 $z_n=x_n+y_n$，并假设题中出现的和有意义。先由公式 (3.6) 应用于
+记
 \[
-  x_n=z_n+(-y_n)
+  a=\underline{\lim}_{n\to\infty}x_n,
+  \qquad
+  B=\overline{\lim}_{n\to\infty}y_n,
+  \qquad
+  z_n=x_n+y_n,
 \]
-得到
+并假设 $a+B$ 有意义。需证
 \[
-  \underline{\lim}x_n
-  \geqslant\underline{\lim}z_n+\underline{\lim}(-y_n)
-  =\underline{\lim}z_n-\overline{\lim}y_n.
-\]
-移项得
-\[
-  \underline{\lim}(x_n+y_n)
-  \leqslant\underline{\lim}x_n+\overline{\lim}y_n.
+  \underline{\lim}z_n\leqslant a+B\leqslant\overline{\lim}z_n.
 \]
 
-再由公式 (3.5) 应用于
+先设 $a,B$ 都有限。对充分大的 $n$，记
 \[
-  y_n=z_n+(-x_n)
+  \alpha_n=\inf_{k\geqslant n}x_k,
+  \qquad
+  B_n=\sup_{k\geqslant n}y_k.
 \]
-得到
+任取 $\varepsilon>0$。由下确界定义，可取 $k\geqslant n$ 使 $x_k<\alpha_n+\varepsilon$；又 $y_k\leqslant B_n$，所以
 \[
-  \overline{\lim}y_n
-  \leqslant\overline{\lim}z_n+\overline{\lim}(-x_n)
-  =\overline{\lim}z_n-\underline{\lim}x_n.
+  \inf_{j\geqslant n}z_j
+  \leqslant z_k<\alpha_n+B_n+\varepsilon.
 \]
-移项即
+令 $\varepsilon\downarrow0$，得到
 \[
-  \underline{\lim}x_n+\overline{\lim}y_n
-  \leqslant\overline{\lim}(x_n+y_n).
+  \inf_{j\geqslant n}z_j\leqslant\alpha_n+B_n.
 \]
-合并两式正是命题 3.6.5。
+同样，由上确界定义可取 $k\geqslant n$ 使 $y_k>B_n-\varepsilon$；又 $x_k\geqslant\alpha_n$，故
+\[
+  \sup_{j\geqslant n}z_j
+  \geqslant z_k>\alpha_n+B_n-\varepsilon.
+\]
+令 $\varepsilon\downarrow0$，得
+\[
+  \alpha_n+B_n\leqslant\sup_{j\geqslant n}z_j.
+\]
+再令 $n\to\infty$，即得所需两式。
+
+若 $a+B=+\infty$，左侧不等式自动成立，只需说明 $\overline{\lim}z_n=+\infty$。若 $B=+\infty$ 且 $a>-\infty$，则 $x_n$ 最终有一个有限下界，而 $y_n$ 有趋于 $+\infty$ 的子列，所以相应的 $z_n$ 子列趋于 $+\infty$。剩下的有意义情形是 $a=+\infty$ 而 $B$ 为有限数。由 $B$ 是 $y_n$ 的上极限，可选子列 $y_{n_k}\to B$；同时 $x_{n_k}\to+\infty$，故 $z_{n_k}\to+\infty$。
+
+若 $a+B=-\infty$，右侧不等式自动成立，只需说明 $\underline{\lim}z_n=-\infty$。若 $a=-\infty$ 且 $B<+\infty$，取子列 $x_{n_k}\to-\infty$，而 $y_n$ 最终有有限上界，于是 $z_{n_k}\to-\infty$。剩下的有意义情形是 $B=-\infty$ 而 $a$ 为有限数。可取子列 $x_{n_k}\to a$；同时 $y_{n_k}\to-\infty$，仍有 $z_{n_k}\to-\infty$。因此命题 3.6.5 在所有中间和式有意义的情形下成立。
 \end{xsolution}
 
 \section{对于教学的建议}
@@ -1234,11 +1304,19 @@ Cauchy 收敛准则为
 \[
   f(x)=\frac1x.
 \]
-它在整个 $(0,1)$ 上无界，但对任意固定 $\xi\in(0,1)$，取 $0<\delta<\xi/2$，则在
+它在整个 $(0,1)$ 上无界。但对任意固定 $\xi\in(0,1)$，取
 \[
-  (\xi-\delta,\xi+\delta)\subset(\xi/2,1)
+  0<\delta<\min\left\{\frac\xi2,\frac{1-\xi}{2}\right\},
 \]
-上有 $\abs{f(x)}<2/\xi$。所以它在每个内点的某个邻域上都有界，没有题述的“坏点”。
+则
+\[
+  (\xi-\delta,\xi+\delta)\subset(\xi/2,1),
+\]
+并且在这个邻域上
+\[
+  0<f(x)<\frac2\xi.
+\]
+所以 $f$ 在每个内点的某个邻域上都有界，不存在闭区间情形中的那种点。
 \end{xsolution}
 
 \begin{xreferenceproblem}[第一组参考题 4]
@@ -1351,52 +1429,77 @@ Cauchy 收敛准则为
 设 $\{x_n\},\{y_n\}$ 为非负数列，证明原题所列关于乘积的四重上下极限不等式。
 \end{xreferenceproblem}
 \begin{xsolution}
-先讨论所有有关上下极限均有限的情形。对每个 $n$ 记
+记
 \[
-  \alpha_n=\inf_{k\geqslant n}x_k,
-  \quad A_n=\sup_{k\geqslant n}x_k,
-  \quad
-  \beta_n=\inf_{k\geqslant n}y_k,
-  \quad B_n=\sup_{k\geqslant n}y_k.
+  a=\underline{\lim}x_n,
+  \quad A=\overline{\lim}x_n,
+  \quad b=\underline{\lim}y_n,
+  \quad B=\overline{\lim}y_n.
 \]
-由于数列非负，对每个 $k\geqslant n$ 有
+因两数列非负，这四个量都属于 $[0,+\infty]$。题设假定下列乘积均有意义，也就是排除了 $0\cdot(+\infty)$ 这样的未定式。
+
+先证两端不等式。若 $a=0$ 或 $b=0$，则
 \[
-  \alpha_n\beta_n\leqslant x_ky_k\leqslant A_nB_n.
+  ab=0\leqslant\underline{\lim}(x_ny_n)
+\]
+由非负性立即成立。若 $a,b>0$，任取有限正数 $c<a,d<b$；当 $n$ 充分大时 $x_n>c,y_n>d$，所以
+\[
+  x_ny_n>cd.
+\]
+从而 $\underline{\lim}(x_ny_n)\geqslant cd$。令 $c\uparrow a,d\uparrow b$（若某个量为 $+\infty$，就让相应有限参数任意增大），得到
+\[
+  ab\leqslant\underline{\lim}(x_ny_n).
+\]
+对于最右不等式，若 $AB=+\infty$，结论自动成立。若 $AB<+\infty$，则 $A,B$ 都有限。任取 $\varepsilon>0$，充分大的 $n$ 有
+\[
+  x_n<A+\varepsilon,
+  \qquad
+  y_n<B+\varepsilon,
 \]
 故
 \[
-  \alpha_n\beta_n
-  \leqslant\inf_{k\geqslant n}(x_ky_k),
-  \qquad
-  \sup_{k\geqslant n}(x_ky_k)\leqslant A_nB_n.
+  \overline{\lim}(x_ny_n)
+  \leqslant(A+\varepsilon)(B+\varepsilon).
+\]
+令 $\varepsilon\downarrow0$，得
+\[
+  \overline{\lim}(x_ny_n)\leqslant AB.
 \]
 
-还需证明中间两步。任取 $\varepsilon>0$。由下确界定义，可取 $k\geqslant n$ 使
+再证中间两步。若 $aB=+\infty$，则
 \[
-  x_k<\alpha_n+\varepsilon.
+  \underline{\lim}(x_ny_n)\leqslant aB
 \]
-同时 $y_k\leqslant B_n$，所以
+自动成立；若 $aB<+\infty$，由乘积有意义知 $a,B$ 都有限。对充分大的 $n$ 记
+\[
+  \alpha_n=\inf_{k\geqslant n}x_k,
+  \qquad
+  B_n=\sup_{k\geqslant n}y_k.
+\]
+任取 $\varepsilon>0$，可取 $k\geqslant n$ 使 $x_k<\alpha_n+\varepsilon$，而 $y_k\leqslant B_n$，所以
 \[
   \inf_{j\geqslant n}(x_jy_j)
-  \leqslant x_ky_k
   \leqslant(\alpha_n+\varepsilon)B_n.
 \]
-令 $\varepsilon\downarrow0$，得
+令 $\varepsilon\downarrow0$，再令 $n\to\infty$，得到
 \[
-  \inf_{k\geqslant n}(x_ky_k)\leqslant\alpha_nB_n.
-\]
-另一方面，可取 $k\geqslant n$ 使 $y_k>B_n-\varepsilon$；又 $x_k\geqslant\alpha_n$，故
-\[
-  \sup_{j\geqslant n}(x_jy_j)
-  \geqslant x_ky_k
-  \geqslant\alpha_n(B_n-\varepsilon).
-\]
-令 $\varepsilon\downarrow0$，得
-\[
-  \alpha_nB_n\leqslant\sup_{k\geqslant n}(x_ky_k).
+  \underline{\lim}(x_ny_n)\leqslant aB.
 \]
 
-将这些不等式合并并令 $n\to\infty$，利用尾集表示，即得
+最后证明
+\[
+  aB\leqslant\overline{\lim}(x_ny_n).
+\]
+若 $aB=0$，由非负性立即成立。若 $0<aB<+\infty$，则 $a,B$ 都是有限正数。对上述 $\alpha_n,B_n$，取 $k\geqslant n$ 使 $y_k>B_n-\varepsilon$，又有 $x_k\geqslant\alpha_n$，故
+\[
+  \sup_{j\geqslant n}(x_jy_j)
+  \geqslant\alpha_n(B_n-\varepsilon).
+\]
+先令 $\varepsilon\downarrow0$，再令 $n\to\infty$，即得 $aB\leqslant\overline{\lim}(x_ny_n)$。
+
+若 $aB=+\infty$，由于乘积有意义，只可能是以下情形：$a=+\infty,B>0$，或 $a>0,B=+\infty$。在第一种情形，$x_n\to+\infty$。由 $B>0$，可取某个 $c>0$ 和子列 $\{y_{n_k}\}$，使 $y_{n_k}>c$ 对所有 $k$ 成立，因此 $x_{n_k}y_{n_k}\to+\infty$；第二种情形中 $x_n$ 最终大于某个正数，而 $y_n$ 有趋于 $+\infty$ 的子列，同样得到乘积的上极限为 $+\infty$。
+
+合并以上各式即得
 \[
   \underline{\lim}x_n\,\underline{\lim}y_n
   \leqslant\underline{\lim}(x_ny_n)
@@ -1404,7 +1507,6 @@ Cauchy 收敛准则为
   \leqslant\overline{\lim}(x_ny_n)
   \leqslant\overline{\lim}x_n\,\overline{\lim}y_n.
 \]
-若出现 $+\infty$，只要题设所说的各乘积有意义，可用有限截断或任意大的有限界代替上述 $A_n,B_n$，再令截断值趋于无穷，得到同样结论。
 \end{xsolution}
 
 \begin{xreferenceproblem}[第一组参考题 7]
@@ -1459,15 +1561,14 @@ Cauchy 收敛准则为
 \end{xsolution}
 
 \begin{xreferenceproblem}[第一组参考题 9]
-设 $\{x_n\}$ 为正数列，证明原扫描题中的不等式，并说明常数 $1$ 为最佳值。
-\end{xreferenceproblem}
-% SOURCE-NOTE: 原扫描页（上册物理页 112，印刷页 95）本题为上极限；chapters/ch03.tex 误录为下极限。此处按原扫描题意作答，未修改章节正文。
-\begin{xsolution}
-按原扫描题意，需证明
+设 $\{x_n\}$ 为正数列，证明
 \[
   \overline{\lim}_{n\to\infty}
-  n\left(\frac{1+x_{n+1}}{x_n}-1\right)\geqslant1.
+  n\left(\frac{1+x_{n+1}}{x_n}-1\right)\geqslant1,
 \]
+且右边的 $1$ 为最佳值。
+\end{xreferenceproblem}
+\begin{xsolution}
 记
 \[
   u_n=n\left(\frac{1+x_{n+1}}{x_n}-1\right).
@@ -1489,7 +1590,7 @@ Cauchy 收敛准则为
 \]
 再令
 \[
-  w_n=v_n+\frac1\delta.
+  w_n=v_n+\frac1\delta,
 \]
 则
 \[
@@ -1505,10 +1606,10 @@ Cauchy 收敛准则为
 \]
 但由 $v_n>0$ 有 $w_n>1/\delta$，矛盾。因此
 \[
-  \overline{\lim}u_n\geqslant1.
+  \overline{\lim}_{n\to\infty}u_n\geqslant1.
 \]
 
-下面证明 $1$ 不能增大。取
+为说明常数 $1$ 不能增大，取
 \[
   x_n=n\ln(n+1)>0.
 \]
@@ -1954,27 +2055,28 @@ Cauchy 收敛准则为
 \[
   c\in(l,L).
 \]
+由 $l<c<L$，在任意大的下标以后既有 $x_n<c$ 的项，也有 $x_n>c$ 的项。
 
-由 $l<c<L$ 和上下极限的定义，数列中满足 $x_n<c$ 的项有无穷多个，满足 $x_n>c$ 的项也有无穷多个，而且两类项都在任意大的下标以后出现。因此可以找到下标趋于无穷的一系列“跨越” $c$ 的相邻项，即存在 $n_k\to\infty$，使每个 $k$ 都有
+递归构造彼此不相交的跨越区间。先在充分大的下标中取一项位于 $c$ 的一侧，再向后寻找第一项位于 $c$ 的另一侧；这样得到某个 $n_1$，使
 \[
-  x_{n_k}\leqslant c<x_{n_k+1}
+  x_{n_1}\leqslant c<x_{n_1+1}
   \quad\text{或}\quad
-  x_{n_k}\geqslant c>x_{n_k+1}.
+  x_{n_1}\geqslant c>x_{n_1+1}.
 \]
-具体地，从任意一个位于 $c$ 下方的充分晚项出发，向后寻找下一项位于 $c$ 上方的项，在第一次越过 $c$ 时便出现这样的相邻对；若从位于 $c$ 上方的充分晚项出发并向后寻找下一项位于 $c$ 下方的项，在第一次下降越过 $c$ 时也得到这样的相邻对。由于上下两类项都无限次出现，这一过程可反复进行并使 $n_k$ 严格增加。
+在下标 $n_1+1$ 之后重新开始同样过程，可以取到 $n_2>n_1+1$；归纳地可得
+\[
+  n_{k+1}>n_k+1,
+\]
+并且每一对 $x_{n_k},x_{n_k+1}$ 都跨越 $c$。
 
-在每一对跨越项中，选取离 $c$ 较近的一项，记为 $x_{m_k}$。则
+在每一对中选取离 $c$ 较近的一项，记为 $x_{m_k}$。由于这些相邻对彼此不相交，$\{x_{m_k}\}$ 是原数列的一个子列，并且
 \[
   \abs{x_{m_k}-c}
   \leqslant\abs{x_{n_k+1}-x_{n_k}}.
 \]
-又因 $n_k\to\infty$ 且
-\[
-  x_{n+1}-x_n\to0,
-\]
-右端趋于 $0$，所以
+由 $n_k\to\infty$ 及 $x_{n+1}-x_n\to0$，右端趋于 $0$，故
 \[
   x_{m_k}\to c.
 \]
-故任意 $c\in(l,L)$ 都是数列的极限点。连同端点 $l,L$，得到 $[l,L]$ 中每一个点都是 $\{x_n\}$ 的极限点。
+所以任意 $c\in(l,L)$ 都是极限点。连同端点 $l,L$，可知 $[l,L]$ 中每一个点都是 $\{x_n\}$ 的极限点。
 \end{xsolution}
