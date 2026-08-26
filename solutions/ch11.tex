@@ -1,0 +1,2382 @@
+% 第11章《积分学的应用》习题解答
+% 按 chapters/ch11.tex 中题目出现顺序编排。
+
+\chapter*{第11章　积分学的应用——习题解答}
+
+\section*{11.1.4　练习题}
+
+\paragraph{题1}
+\begin{xsolution}
+由$A>0$及$\Delta=AC-B^2>0$知$C>0$。将二次型配方：
+\[
+ Ax^2+2Bxy+Cy^2
+ =C\left(y+\frac BCx\right)^2+\frac{\Delta}{C}x^2.
+\]
+因此椭圆可参数化为
+\[
+ x=\sqrt{\frac C\Delta}\cos t,\qquad
+ y=\frac1{\sqrt C}\sin t-\frac{B}{\sqrt{C\Delta}}\cos t,\qquad 0\le t\le2\pi.
+\]
+由
+\[
+ x'(t)=-\sqrt{\frac C\Delta}\sin t,
+ \qquad
+ y'(t)=\frac1{\sqrt C}\cos t+
+ \frac{B}{\sqrt{C\Delta}}\sin t,
+\]
+可得
+\begin{align*}
+x(t)y'(t)-y(t)x'(t)
+&=\frac1{\sqrt\Delta}(\cos^2t+\sin^2t)\\
+&=\frac1{\sqrt\Delta}.
+\end{align*}
+由公式(11.1)，
+\[
+ S=\frac12\int_0^{2\pi}\bigl(xy'-yx'\bigr)\,\dd t
+ =\frac12\int_0^{2\pi}\frac{\dd t}{\sqrt\Delta}
+ =\frac\pi{\sqrt\Delta}.
+\]
+\end{xsolution}
+
+\paragraph{题2}
+\begin{xsolution}
+在极坐标中写
+\[
+ x=\rho(\theta)\cos\theta,\qquad
+ y=\rho(\theta)\sin\theta.
+\]
+于是
+\begin{align*}
+\dd x&=(\rho'\cos\theta-\rho\sin\theta)\,\dd\theta,\\
+\dd y&=(\rho'\sin\theta+\rho\cos\theta)\,\dd\theta,
+\end{align*}
+从而
+\[
+ x\,\dd y-y\,\dd x
+ =\rho^2(\theta)\,\dd\theta.
+\]
+将其代入(11.1)，并令$\theta$由$\theta_1$增至$\theta_2$，便得
+\[
+ S=\frac12\int_{\theta_1}^{\theta_2}\rho^2(\theta)\,\dd\theta,
+\]
+即公式(11.2)。
+\end{xsolution}
+
+\paragraph{题3}
+\begin{xsolution}
+三个圆心两两距离均为$r$，故三个圆心组成边长为$r$的正三角形。三个圆的公共部分是Reuleaux三角形。每一个边界圆弧所对的圆心角均为$\pi/3$。
+
+公共部分可看成三个半径为$r$、圆心角为$\pi/3$的扇形之和，再减去两个正三角形的面积。因此
+\[
+ S=3\cdot\frac12r^2\frac\pi3
+ -2\cdot\frac{\sqrt3}{4}r^2
+ =\frac{\pi-\sqrt3}{2}r^2.
+\]
+\end{xsolution}
+
+\paragraph{题4}
+\begin{xsolution}
+设等腰三角形的腰长为$l$，底边长为$b$，周长为$P$，则
+\[
+ 2l+b=P.
+\]
+三角形绕底边旋转所得立体由两个同底圆锥组成。若三角形的高为$h$，则
+\[
+ h^2=l^2-\frac{b^2}{4},
+\]
+总的体积为
+\[
+ V=\frac13\pi h^2b
+ =\frac\pi3b\left(l^2-\frac{b^2}{4}\right).
+\]
+由$l=(P-b)/2$，
+\[
+ V=\frac\pi{12}b(P^2-2Pb),\qquad 0<b<\frac P2.
+\]
+故
+\[
+ V'(b)=\frac\pi{12}(P^2-4Pb).
+\]
+唯一的内点极大值在$b=P/4$处取得，此时$l=3P/8$。因此
+\[
+ \boxed{\frac lb=\frac32}.
+\]
+\end{xsolution}
+
+\paragraph{题5}
+\begin{xsolution}
+曲线$y=c\sin(x/a)$的一个周期在$x$方向的长度为$2\pi a$，其弧长为
+\begin{align*}
+L&=\int_0^{2\pi a}\sqrt{1+\frac{c^2}{a^2}\cos^2\frac xa}\,\dd x\\
+&=\int_0^{2\pi}\sqrt{a^2+c^2\cos^2 t}\,\dd t\\
+&=\int_0^{2\pi}\sqrt{a^2\sin^2 t+(a^2+c^2)\cos^2 t}\,\dd t.
+\end{align*}
+无滑动滚动一周时，接触曲线走过的弧长必须等于椭圆周长。椭圆半轴为$a,b$时周长为
+\[
+ P=\int_0^{2\pi}\sqrt{a^2\sin^2 t+b^2\cos^2 t}\,\dd t.
+\]
+在$b>0$时，该积分关于$b$严格增加，因此$L=P$当且仅当
+\[
+ b^2=a^2+c^2.
+\]
+故所求关系为
+\[
+ \boxed{b^2=a^2+c^2}.
+\]
+\end{xsolution}
+
+\paragraph{题6}
+\begin{xsolution}
+设该弧的两个端点所对应的极角为$\alpha<\beta$。单位圆上弧长等于圆心角，故
+\[
+ s=\beta-\alpha.
+\]
+沿弧取参数$x=\cos\theta,y=\sin\theta$，$\alpha\le\theta\le\beta$。弧下方、$x$轴上方的面积为
+\[
+ A=-\int_{\alpha}^{\beta}y\,\dd x
+ =\int_\alpha^\beta\sin^2\theta\,\dd\theta,
+\]
+弧左侧、$y$轴右侧的面积为
+\[
+ B=\int_{\alpha}^{\beta}x\,\dd y
+ =\int_\alpha^\beta\cos^2\theta\,\dd\theta.
+\]
+因此
+\[
+ A+B=\int_\alpha^\beta(\sin^2\theta+\cos^2\theta)\,\dd\theta
+ =\beta-\alpha=s.
+\]
+所以$A+B$只依赖于弧长$s$，与弧在第一象限中的位置无关。
+\end{xsolution}
+
+\paragraph{题7}
+\begin{xsolution}
+抛物线$y^2=2x$可参数化为
+\[
+ x=\frac{t^2}{2},\qquad y=t.
+\]
+设过焦点$(1/2,0)$的弦的两个端点参数为$t_1<t_2$。两参数点的弦方程为
+\[
+ x=\frac{t_1+t_2}{2}y-\frac{t_1t_2}{2}.
+\]
+该弦通过焦点的充要条件是$t_1t_2=-1$。
+
+用$y$作积分变量，弦与抛物线之间的面积为
+\begin{align*}
+S&=\int_{t_1}^{t_2}\left[
+\frac{t_1+t_2}{2}y-\frac{t_1t_2}{2}-\frac{y^2}{2}
+\right]\,\dd y\\
+&=\frac12\int_{t_1}^{t_2}(y-t_1)(t_2-y)\,\dd y
+=\frac{(t_2-t_1)^3}{12}.
+\end{align*}
+令$t_2=t>0,t_1=-1/t$，则
+\[
+ t_2-t_1=t+\frac1t\ge2.
+\]
+故
+\[
+ S\ge\frac{2^3}{12}=\frac23.
+\]
+等号在$t=1$时取得，即弦为通径$x=1/2$。所以最小面积为
+\[
+ \boxed{\frac23}.
+\]
+\end{xsolution}
+
+\paragraph{题8}
+\begin{xsolution}
+记公共部分为$D$。
+
+\textbf{方法一（极坐标）}\quad 三个圆盘的条件分别为
+\[
+ r\le2,\qquad r\le4\cos\theta,\qquad r\le4\sin\theta,
+\]
+且$0\le\theta\le\pi/2$。因此
+\[
+ r_{\max}(\theta)=
+ \begin{cases}
+ 4\sin\theta,&0\le\theta\le\pi/6,\\
+ 2,&\pi/6\le\theta\le\pi/3,\\
+ 4\cos\theta,&\pi/3\le\theta\le\pi/2.
+ \end{cases}
+\]
+于是
+\begin{align*}
+|D|
+&=\frac12\left[
+\int_0^{\pi/6}16\sin^2\theta\,\dd\theta
++\int_{\pi/6}^{\pi/3}4\,\dd\theta
++\int_{\pi/3}^{\pi/2}16\cos^2\theta\,\dd\theta
+\right]\\
+&=16\int_0^{\pi/6}\sin^2\theta\,\dd\theta+\frac\pi3\\
+&=\frac{5\pi}{3}-2\sqrt3.
+\end{align*}
+
+\textbf{方法二（直角坐标）}\quad 对固定$x$，公共部分的下边界为
+\[
+ y=2-\sqrt{4-x^2}.
+\]
+当$0\le x\le1$时，上边界来自圆$(x-2)^2+y^2=4$；当$1\le x\le\sqrt3$时，上边界来自圆$x^2+y^2=4$。所以
+\begin{align*}
+|D|
+&=\int_0^1\left[\sqrt{4-(x-2)^2}-2+\sqrt{4-x^2}\right]\,\dd x\\
+&\quad+\int_1^{\sqrt3}\left[2\sqrt{4-x^2}-2\right]\,\dd x.
+\end{align*}
+利用
+\[
+ \int\sqrt{4-x^2}\,\dd x
+ =\frac x2\sqrt{4-x^2}+2\arcsin\frac x2
+\]
+逐项代入端点，整理同样得到
+\[
+ |D|=\boxed{\frac{5\pi}{3}-2\sqrt3}.
+\]
+\end{xsolution}
+
+\paragraph{题9}
+\begin{xsolution}
+平面$y=2z$写成$z=y/2$。在椭圆柱的每一个竖直截线上，两平面$z=0$与$z=y/2$之间的高度为$\abs{y}/2$。故体积
+\[
+ V=\frac12\iint_D\abs{y}\,\dd x\,\dd y,
+ \qquad
+ D:\ \frac{x^2}{16}+\frac{y^2}{100}\le1.
+\]
+利用关于$x$轴的对称性，
+\begin{align*}
+V&=\iint_{D\cap\{y\ge0\}}y\,\dd x\,\dd y\\
+&=\int_0^{10}8y\sqrt{1-\frac{y^2}{100}}\,\dd y
+=\frac{800}{3}.
+\end{align*}
+因此
+\[
+ \boxed{V=\frac{800}{3}}.
+\]
+\end{xsolution}
+
+\paragraph{题10}
+\begin{xsolution}
+立体区域满足
+\[
+ x^2+y^2\le a^2,\qquad x^2+z^2\le a^2.
+\]
+固定$x\in[-a,a]$后，$y,z$都在区间
+\[
+ -\sqrt{a^2-x^2}\le y,z\le\sqrt{a^2-x^2}
+\]
+内，因此垂直于$x$轴的截面是边长$2\sqrt{a^2-x^2}$的正方形，面积
+\[
+ A(x)=4(a^2-x^2).
+\]
+故
+\[
+ V=\int_{-a}^a4(a^2-x^2)\,\dd x
+ =\boxed{\frac{16}{3}a^3}.
+\]
+\end{xsolution}
+
+\section*{11.2.5　练习题}
+
+\paragraph{题1}
+\begin{xsolution}
+对$x_1<x_2$，有
+\[
+ \frac{F(x_2)-F(x_1)}{x_2-x_1}
+ =\frac1{x_2-x_1}\int_{x_1}^{x_2}f(t)\,\dd t.
+\]
+若$x_1<x_2<x_3$，由于$f$单调增加，左区间上$f$的每个值都不大于右区间上的每个值，因此
+\[
+ \frac{F(x_2)-F(x_1)}{x_2-x_1}
+ \le
+ \frac{F(x_3)-F(x_2)}{x_3-x_2}.
+\]
+函数的割线斜率随区间向右不减，故$F$为下凸函数。
+\end{xsolution}
+
+\paragraph{题2}
+\begin{xsolution}
+作代换$t=ux$，得
+\[
+ F(x)=\frac1x\int_0^xf(t)\,\dd t=\int_0^1f(ux)\,\dd u.
+\]
+对每个固定$u\in[0,1]$，因$f$下凸且$x\mapsto ux$为仿射映射，函数$x\mapsto f(ux)$也是下凸函数。因此对$0\le\lambda\le1$及$x,y>0$，
+\[
+ f(u(\lambda x+(1-\lambda)y))
+ \le\lambda f(ux)+(1-\lambda)f(uy).
+\]
+对$u$从0到1积分即得
+\[
+ F(\lambda x+(1-\lambda)y)
+ \le\lambda F(x)+(1-\lambda)F(y).
+\]
+故$F$在$(0,+\infty)$上下凸。
+\end{xsolution}
+
+\paragraph{题3}
+\begin{xsolution}
+设$f$在$c\in[0,1]$处取得最大值$M$。因$f$非负且上凸，图像在连接$(0,0)$与$(c,M)$的弦以及连接$(c,M)$与$(1,0)$的弦之上。于是
+\[
+ f(x)\ge
+ \begin{cases}
+ \dfrac{M}{c}x,&0\le x\le c,\quad(c>0),\\[4pt]
+ \dfrac{M}{1-c}(1-x),&c\le x\le1,\quad(c<1).
+ \end{cases}
+\]
+端点情形按极限理解。故
+\[
+ \int_0^1f(x)\,\dd x
+ \ge\frac{Mc}{2}+\frac{M(1-c)}2
+ =\frac M2.
+\]
+于是
+\[
+ 2\int_0^1f(x)\,\dd x\ge M=\max_{x\in[0,1]}f(x).
+\]
+\end{xsolution}
+
+\paragraph{题4}
+\begin{xsolution}
+上凸可微函数的图像位于任一点切线的下方。由端点处切线得
+\[
+ 0\le f(x)\le\min\{\alpha(x-a),\,\beta(x-b)\}.
+\]
+两条直线交于$x=x_0$，其中
+\[
+ x_0-a=\frac{\beta}{\beta-\alpha}(b-a),
+\]
+交点高度为
+\[
+ h=\alpha(x_0-a)=\frac{\alpha\beta}{\beta-\alpha}(b-a)>0.
+\]
+因此$f$下方的面积不超过以$b-a$为底、$h$为高的三角形面积：
+\[
+ 0\le\int_a^bf(x)\,\dd x
+ \le\frac12(b-a)h
+ =\frac12\alpha\beta\frac{(b-a)^2}{\beta-\alpha}.
+\]
+\end{xsolution}
+
+\paragraph{题5}
+\begin{xsolution}
+由$f(0)=1$及$\abs{f'}\le1$，
+\[
+ f(x)\ge1-x.
+\]
+由$f(2)=1$又有
+\[
+ f(x)\ge1-(2-x)=x-1.
+\]
+故对$0\le x\le2$，
+\[
+ f(x)\ge\abs{x-1}\ge0.
+\]
+于是
+\[
+ \abs{\int_0^2f(x)\,\dd x}
+ =\int_0^2f(x)\,\dd x
+ \ge\int_0^2\abs{x-1}\,\dd x=1.
+\]
+\end{xsolution}
+
+\paragraph{题6}
+\begin{xsolution}
+对$\sqrt{f(x)}$与$1/\sqrt{f(x)}$应用Schwarz不等式：
+\[
+ \left(\int_a^b1\,\dd x\right)^2
+ \le\left(\int_a^bf(x)\,\dd x\right)
+ \left(\int_a^b\frac{\dd x}{f(x)}\right).
+\]
+即
+\[
+ \int_a^bf(x)\,\dd x\int_a^b\frac{\dd x}{f(x)}\ge(b-a)^2.
+\]
+\end{xsolution}
+
+\paragraph{题7}
+\begin{xsolution}
+记
+\[
+ A=\int_a^bf(x)\cos kx\,\dd x,\qquad
+ B=\int_a^bf(x)\sin kx\,\dd x.
+\]
+若$A=B=0$则结论成立。否则令$R=\sqrt{A^2+B^2}$，取$\varphi$使$A=R\cos\varphi,B=R\sin\varphi$。于是
+\begin{align*}
+R&=A\cos\varphi+B\sin\varphi\\
+&=\int_a^bf(x)\cos(kx-\varphi)\,\dd x
+\le\int_a^bf(x)\,\dd x=1,
+\end{align*}
+其中用了$f\ge0$及$\cos(kx-\varphi)\le1$。故$A^2+B^2\le1$。
+\end{xsolution}
+
+\paragraph{题8}
+\begin{xsolution}
+由$f(a)=0$，
+\[
+ f(x)=\int_a^xf'(t)\,\dd t.
+\]
+Schwarz不等式给出
+\[
+ f^2(x)\le(x-a)\int_a^x(f'(t))^2\,\dd t.
+\]
+对$x$积分，并交换积分次序：
+\begin{align*}
+\int_a^bf^2(x)\,\dd x
+&\le\int_a^b(x-a)\int_a^x(f'(t))^2\,\dd t\,\dd x\\
+&=\int_a^b(f'(t))^2\int_t^b(x-a)\,\dd x\,\dd t\\
+&=\frac12\int_a^b(f'(t))^2\left[(b-a)^2-(t-a)^2\right]\,\dd t.
+\end{align*}
+这正是
+\[
+ \int_a^bf^2(x)\,\dd x
+ \le\frac{(b-a)^2}{2}\int_a^b(f')^2\,\dd x
+ -\frac12\int_a^b(f')^2(x-a)^2\,\dd x.
+\]
+\end{xsolution}
+
+\paragraph{题9}
+\begin{xsolution}
+令
+\[
+ F(x)=\int_0^xf(t)\,\dd t.
+\]
+因为$f(0)=0$且$0\le f'\le1$，故$f\ge0$。又
+\[
+ H(x)=2F(x)-f^2(x)
+\]
+满足$H(0)=0$及
+\[
+ H'(x)=2f(x)(1-f'(x))\ge0.
+\]
+因此$2F(x)\ge f^2(x)$。乘以$f(x)\ge0$并在$[0,1]$上积分：
+\[
+ \int_0^1f^3(x)\,\dd x
+ \le2\int_0^1F(x)f(x)\,\dd x
+ =F^2(1)
+ =\left(\int_0^1f(x)\,\dd x\right)^2.
+\]
+
+再讨论等号。若$f\not\equiv0$且等号成立，则在$f(x)>0$处必须有$H(x)=0$，从而$H'(x)=0$，即$f'(x)=1$。若$f$先在$[0,c]$恒为0而后变为正，则右侧必有$f(x)=x-c$，这在$c\in(0,1)$时与$f$可微矛盾。因此只有$c=0$，即$f(x)=x$。另一个等号情形是$f\equiv0$。故等号当且仅当$f(x)=0$或$f(x)=x$。
+\end{xsolution}
+
+\paragraph{题10(1)}
+\begin{xsolution}
+在Young不等式中取
+\[
+ \phi(x)=\ee^x-1,\qquad x\ge0,
+\]
+其反函数为$\psi(y)=\ln(1+y)$。令$u=a-1\ge0,v=b-1\ge0$，则
+\[
+ uv\le\int_0^u(\ee^x-1)\,\dd x+
+ \int_0^v\ln(1+y)\,\dd y.
+\]
+右边为
+\[
+ \ee^{a-1}-a+b\ln b-b+1.
+\]
+而左边为$ab-a-b+1$。消去公共项即得
+\[
+ \boxed{ab\le\ee^{a-1}+b\ln b}.
+\]
+\end{xsolution}
+
+\paragraph{题10(2)}
+\begin{xsolution}
+若题中两个不等式同时成立，则在$L^2[0,\pi]$中由Minkowski不等式，
+\begin{align*}
+\norm{\sin x-\cos x}_2
+&\le\norm{\sin x-f(x)}_2+\norm{f(x)-\cos x}_2\\
+&\le2\sqrt{\frac34}=\sqrt3.
+\end{align*}
+另一方面
+\[
+ \norm{\sin x-\cos x}_2^2
+ =\int_0^\pi(\sin x-\cos x)^2\,\dd x=\pi.
+\]
+于是$\sqrt\pi\le\sqrt3$，即$\pi\le3$，矛盾。因此两不等式不能同时成立。
+\end{xsolution}
+
+\section*{11.3.3　练习题}
+
+\paragraph{题1(1)}
+\begin{xsolution}
+作代换$t=x^2$，则
+\[
+ I=\int_0^{\sqrt{2\pi}}\sin x^2\,\dd x
+ =\frac12\int_0^{2\pi}\frac{\sin t}{\sqrt t}\,\dd t.
+\]
+把积分分成$[0,\pi]$与$[\pi,2\pi]$两段，并在第二段令$t=u+\pi$，得到
+\[
+ 2I=\int_0^\pi\sin u\left(\frac1{\sqrt u}-\frac1{\sqrt{u+\pi}}\right)\,\dd u>0.
+\]
+故$I>0$。
+\end{xsolution}
+
+\paragraph{题1(2)}
+\begin{xsolution}
+当$0<x<1$时，
+\[
+ 1<\sqrt[3]{1+x^6}<\sqrt[3]2.
+\]
+因$x^{19}>0$，所以
+\[
+ \frac{x^{19}}{\sqrt[3]2}
+ <\frac{x^{19}}{\sqrt[3]{1+x^6}}<x^{19}.
+\]
+积分即得
+\[
+ \frac1{20\sqrt[3]2}
+ <\int_0^1\frac{x^{19}}{\sqrt[3]{1+x^6}}\,\dd x
+ <\frac1{20}.
+\]
+\end{xsolution}
+
+\paragraph{题1(3)}
+\begin{xsolution}
+在$0<x\le\pi/2$上有
+\[
+ \sin x\ge\frac{2x}{\pi}.
+\]
+又由$\abs{\sin nx}\le n\sin x$及$\abs{\sin nx}\le1$，
+\[
+ \abs{\frac{\sin nx}{\sin x}}
+ \le\min\left\{n,\frac\pi{2x}\right\}.
+\]
+令$x_0=\pi/(2n)$。于是
+\begin{align*}
+\int_0^{\pi/2}x\left(\frac{\sin nx}{\sin x}\right)^4\,\dd x
+&\le n^4\int_0^{x_0}x\,\dd x
+ +\frac{\pi^4}{16}\int_{x_0}^{\pi/2}\frac{\dd x}{x^3}\\
+&=\frac{\pi^2n^2}{8}+\left(\frac{\pi^2n^2}{8}-\frac{\pi^2}{8}\right)\\
+&<\frac{n^2\pi^2}{4}.
+\end{align*}
+\end{xsolution}
+
+\paragraph{题1(4)}
+\begin{xsolution}
+对$x>0$有$0<x-\sin x<x^3/6$，故
+\[
+ 0<1-\frac{\sin x}{x}<\frac{x^2}{6}.
+\]
+于是
+\begin{align*}
+0&<\frac\pi2-\int_0^{\pi/2}\frac{\sin x}{x}\,\dd x
+ =\int_0^{\pi/2}\left(1-\frac{\sin x}{x}\right)\,\dd x\\
+&<\frac16\int_0^{\pi/2}x^2\,\dd x
+ =\frac{\pi^3}{144}.
+\end{align*}
+\end{xsolution}
+
+\paragraph{题1(5)}
+\begin{xsolution}
+因$x+100>100$，
+\[
+ \int_0^{100}\frac{\ee^{-x}}{x+100}\,\dd x
+ <\frac1{100}\int_0^{\infty}\ee^{-x}\,\dd x=0.01.
+\]
+另一方面，在$0\le x\le1$上$x+100\le101$，所以
+\[
+ \int_0^{100}\frac{\ee^{-x}}{x+100}\,\dd x
+ >\frac1{101}\int_0^1\ee^{-x}\,\dd x
+ =\frac{1-\ee^{-1}}{101}.
+\]
+由于$\ee>1+1+1/2=5/2$，故$\ee^{-1}<2/5$，从而
+\[
+ \frac{1-\ee^{-1}}{101}>\frac{3}{505}>\frac1{200}=0.005.
+\]
+于是所需双边估计成立。
+\end{xsolution}
+
+\paragraph{题1(6)}
+\begin{xsolution}
+在$\pi/6<x<\pi/2$上有$\sin x<1$，故
+\[
+ \frac{2x}{\sin x}>2x.
+\]
+因此
+\[
+ \int_{\pi/6}^{\pi/2}\frac{2x}{\sin x}\,\dd x
+ >\int_{\pi/6}^{\pi/2}2x\,\dd x
+ =\frac{2\pi^2}{9}.
+\]
+又因为在$[0,\pi/2]$上$\sin x\ge2x/\pi$，所以
+\[
+ \frac{2x}{\sin x}\le\pi,
+\]
+且在开区间内严格小于$\pi$。于是
+\[
+ \int_{\pi/6}^{\pi/2}\frac{2x}{\sin x}\,\dd x
+ <\pi\left(\frac\pi2-\frac\pi6\right)
+ =\frac{\pi^2}{3}.
+\]
+\end{xsolution}
+
+\paragraph{题2}
+\begin{xsolution}
+对任意$x\in[0,a]$，由Newton--Leibniz公式，
+\[
+ f(0)=f(x)-\int_0^xf'(t)\,\dd t.
+\]
+故
+\[
+ \abs{f(0)}\le\abs{f(x)}+\int_0^a\abs{f'(t)}\,\dd t.
+\]
+两边对$x$从0到$a$积分，再除以$a>0$，便得
+\[
+ \abs{f(0)}\le\frac1a\int_0^a\abs{f(x)}\,\dd x
+ +\int_0^a\abs{f'(x)}\,\dd x.
+\]
+\end{xsolution}
+
+\paragraph{题3}
+\begin{xsolution}
+记
+\[
+ A=\int_0^1\abs{f'(x)}\,\dd x,
+ \qquad
+ B=\abs{\int_0^1f(x)\,\dd x}.
+\]
+若$f$在$[0,1]$上不变号，则$\int_0^1\abs{f}=B$，结论成立。
+
+若$f$变号，由连续性存在$c\in(0,1)$使$f(c)=0$。当$x\le c$时
+\[
+ \abs{f(x)}\le\int_x^c\abs{f'(t)}\,\dd t,
+\]
+当$x\ge c$时
+\[
+ \abs{f(x)}\le\int_c^x\abs{f'(t)}\,\dd t.
+\]
+因此交换积分次序得
+\begin{align*}
+\int_0^1\abs{f(x)}\,\dd x
+&\le\int_0^ct\abs{f'(t)}\,\dd t
+ +\int_c^1(1-t)\abs{f'(t)}\,\dd t\\
+&\le A.
+\end{align*}
+故在两种情形下均有
+\[
+ \int_0^1\abs{f(x)}\,\dd x\le\max\{A,B\}.
+\]
+\end{xsolution}
+
+\paragraph{题4(1)}
+\begin{xsolution}
+令$L=b-a$。由$F(a)=F(b)=0$、$F'(x)=f(x)$及$\abs{F''(x)}=\abs{f'(x)}\le M$。
+
+固定$x\in(a,b)$。分别在$[a,x]$、$[x,b]$上对$F$作二阶Taylor公式，存在$\xi_1\in(a,x),\xi_2\in(x,b)$使
+\begin{align*}
+0&=F(x)+f(x)(a-x)+\frac12f'(\xi_1)(a-x)^2,\\
+0&=F(x)+f(x)(b-x)+\frac12f'(\xi_2)(b-x)^2.
+\end{align*}
+第一式乘$b-x$，第二式乘$x-a$后相加，含$f(x)$的项消去。于是
+\[
+ \abs{F(x)}
+ \le\frac M2(x-a)(b-x)
+ \le\frac{ML^2}{8}.
+\]
+当$x=a$或$x=b$时$F(x)=0$，故同一估计也成立。
+\end{xsolution}
+
+\paragraph{题4(2)}
+\begin{xsolution}
+增加$f(a)=f(b)=0$后，若$F\equiv0$，则左边恒为0，所求估计立即成立。否则令$x_0$为$\abs{F}$取得最大值的内点。此时$F'(x_0)=f(x_0)=0$。
+
+先证明一个辅助估计：若$u<v$且$f(u)=f(v)=0$、$\abs{f'}\le M$，则
+\[
+ \abs{f(t)}\le M\min\{t-u,v-t\},
+\]
+故
+\[
+ \abs{\int_u^vf(t)\,\dd t}
+ \le M\int_u^v\min\{t-u,v-t\}\,\dd t
+ =\frac{M(v-u)^2}{4}.
+\]
+应用于$[a,x_0]$与$[x_0,b]$，并用$F(b)=0$，得到
+\[
+ \abs{F(x_0)}
+ \le\frac M4\min\{(x_0-a)^2,(b-x_0)^2\}
+ \le\frac{M(b-a)^2}{16}.
+\]
+这就是所要的估计。
+\end{xsolution}
+
+\paragraph{题5}
+\begin{xsolution}
+由于$\sqrt x$严格单调增加，
+\[
+ \int_0^n\sqrt x\,\dd x
+ <\sum_{k=1}^n\sqrt k,
+\]
+故
+\[
+ \sum_{k=1}^n\sqrt k>\frac23n\sqrt n.
+\]
+
+又因$\sqrt x$严格下凹，在每个区间$[k-1,k]$上，函数图像位于弦的上方，故
+\[
+ \int_{k-1}^k\sqrt x\,\dd x
+ >\frac{\sqrt{k-1}+\sqrt k}{2}.
+\]
+对$k=1,\ldots,n$求和，得
+\[
+ \frac23n\sqrt n
+ >\sum_{k=1}^n\sqrt k-\frac12\sqrt n.
+\]
+于是
+\[
+ \sum_{k=1}^n\sqrt k
+ <\left(\frac{2n}{3}+\frac12\right)\sqrt n
+ =\frac{4n+3}{6}\sqrt n.
+\]
+\end{xsolution}
+
+\paragraph{题6}
+\begin{xsolution}
+由$f(a)=f(b)=0$及$\abs{f'}\le M$，对任意$x\in[a,b]$，
+\[
+ \abs{f(x)}\le M\min\{x-a,b-x\}.
+\]
+因此
+\begin{align*}
+\abs{\int_a^bf(x)\,\dd x}
+&\le\int_a^b\abs{f(x)}\,\dd x\\
+&\le M\int_a^b\min\{x-a,b-x\}\,\dd x
+=\frac M4(b-a)^2.
+\end{align*}
+\end{xsolution}
+
+\paragraph{题7}
+\begin{xsolution}
+设$L=b-a$。固定$x\in(a,b)$。由二阶Taylor公式，存在$\xi_1\in(a,x)$、$\xi_2\in(x,b)$使
+\begin{align*}
+0=f(a)&=f(x)+f'(x)(a-x)+\frac12f''(\xi_1)(a-x)^2,\\
+0=f(b)&=f(x)+f'(x)(b-x)+\frac12f''(\xi_2)(b-x)^2.
+\end{align*}
+第一式乘$b-x$，第二式乘$x-a$后相加，$f'(x)$项抵消，得到
+\[
+ (b-a)f(x)
+ =-\frac12(x-a)(b-x)
+ \left[f''(\xi_1)(x-a)+f''(\xi_2)(b-x)\right].
+\]
+由$\abs{f''}\le M$，
+\[
+ \abs{f(x)}\le\frac M2(x-a)(b-x).
+\]
+故
+\begin{align*}
+\abs{\int_a^bf(x)\,\dd x}
+&\le\frac M2\int_a^b(x-a)(b-x)\,\dd x\\
+&=\frac M2\cdot\frac{L^3}{6}
+=\frac{M(b-a)^3}{12}.
+\end{align*}
+\end{xsolution}
+
+\paragraph{题8（矩形公式）}
+\begin{xsolution}
+令$m=(a+b)/2$，并定义
+\[
+ K(x)=
+ \begin{cases}
+ \dfrac12(x-a)^2,&a\le x\le m,\\[4pt]
+ \dfrac12(b-x)^2,&m\le x\le b.
+ \end{cases}
+\]
+在$[a,m]$与$[m,b]$分别分部积分两次，边界项相加后含$f'(m)$的项抵消，得到
+\[
+ \int_a^bK(x)f''(x)\,\dd x
+ =\int_a^bf(x)\,\dd x-(b-a)f(m).
+\]
+因$K\ge0$且$f''$连续，由积分第一中值定理存在$\xi\in(a,b)$使
+\[
+ \int_a^bK(x)f''(x)\,\dd x
+ =f''(\xi)\int_a^bK(x)\,\dd x.
+\]
+而
+\[
+ \int_a^bK(x)\,\dd x
+ =2\cdot\frac12\int_0^{(b-a)/2}t^2\,\dd t
+ =\frac{(b-a)^3}{24}.
+\]
+故
+\[
+ \int_a^bf(x)\,\dd x-(b-a)f\left(\frac{a+b}{2}\right)
+ =\frac{f''(\xi)(b-a)^3}{24}.
+\]
+\end{xsolution}
+
+\paragraph{题9}
+% CHECK-SOLUTION: 原题右端使用常数 M，但题设没有定义 M；源章节已确认这是原书缺项，不能无条件确定命题含义。下面给出在通常解释 M=\max_{[-1,1]}|f'(x)| 下的条件化证明。
+\begin{xsolution}
+原题没有定义$M$，因此原命题按字面不完整。若按通常意图补充
+\[
+ M=\max_{-1\le x\le1}\abs{f'(x)},
+\]
+则可证明如下。
+
+由$\int_{-a}^af(x)\,\dd x=0$及连续性，存在$c\in[-a,a]$使$f(c)=0$。于是
+\[
+ \abs{f(x)}\le M\abs{x-c}.
+\]
+利用中间积分为0，
+\begin{align*}
+\abs{\int_{-1}^1f(x)\,\dd x}
+&=\abs{\int_{-1}^{-a}f(x)\,\dd x+\int_a^1f(x)\,\dd x}\\
+&\le M\left[
+\int_{-1}^{-a}(c-x)\,\dd x+\int_a^1(x-c)\,\dd x
+\right]\\
+&=M(1-a^2).
+\end{align*}
+\end{xsolution}
+
+\paragraph{题10}
+\begin{xsolution}
+把$[0,1]$等分为$I_k=[(k-1)/n,k/n]$。对$x\in I_k$，由中值定理
+\[
+ \abs{f(x)-f(k/n)}\le M\left(\frac kn-x\right).
+\]
+故每个小区间的误差满足
+\[
+ \abs{\int_{I_k}f(x)\,\dd x-\frac1n f\left(\frac kn\right)}
+ \le M\int_{(k-1)/n}^{k/n}\left(\frac kn-x\right)\,\dd x
+ =\frac{M}{2n^2}.
+\]
+对$k=1,\ldots,n$求和即得
+\[
+ \abs{\int_0^1f(x)\,\dd x-\frac1n\sum_{k=1}^nf\left(\frac kn\right)}
+ \le\frac{M}{2n}.
+\]
+\end{xsolution}
+
+\paragraph{题11}
+\begin{xsolution}
+记$I_k=[(k-1)/n,k/n]$。逐区间有
+\begin{align*}
+\int_{I_k}f(x)\,\dd x-\frac1nf\left(\frac kn\right)
+&=-\int_{(k-1)/n}^{k/n}\int_x^{k/n}f'(t)\,\dd t\,\dd x\\
+&=-\int_{(k-1)/n}^{k/n}\left(t-\frac{k-1}{n}\right)f'(t)\,\dd t.
+\end{align*}
+于是
+\[
+ nA_n=-\int_0^1w_n(t)f'(t)\,\dd t,
+\]
+其中在$I_k$上$w_n(t)=n(t-(k-1)/n)\in[0,1]$。
+
+我们用如下标准事实：若$g\in R[0,1]$，则
+\[
+ \int_0^1w_n(t)g(t)\,\dd t\longrightarrow\frac12\int_0^1g(t)\,\dd t.
+\]
+证明只需先对阶梯函数验证（每个完整小区间上$w_n$的平均值为$1/2$），再利用Riemann可积函数可由阶梯函数在积分意义下任意逼近，且$0\le w_n\le1$。
+
+取$g=f'$，便得
+\[
+ \lim_{n\to\infty}nA_n
+ =-\frac12\int_0^1f'(t)\,\dd t
+ =\frac12[f(0)-f(1)].
+\]
+\end{xsolution}
+
+\paragraph{题12}
+\begin{xsolution}
+仍将$[0,1]$分成长度$h=1/n$的小区间$I_k=[(k-1)h,kh]$，中点$m_k=(k-1/2)h$。由题8的分部积分恒等式，在$I_k$上
+\[
+ \int_{I_k}f(x)\,\dd x-hf(m_k)
+ =\int_{I_k}K_k(t)f''(t)\,\dd t,
+\]
+其中
+\[
+ K_k(t)=
+ \begin{cases}
+ \dfrac12(t-(k-1)h)^2,&t\le m_k,\\[4pt]
+ \dfrac12(kh-t)^2,&t\ge m_k.
+ \end{cases}
+\]
+因此
+\[
+ n^2B_n=\int_0^1q_n(t)f''(t)\,\dd t,
+ \qquad q_n=n^2K_k\quad(t\in I_k).
+\]
+在每个$I_k$上，$q_n\ge0$，且
+\[
+ \int_{I_k}q_n(t)\,\dd t
+ =n^2\frac{h^3}{24}=\frac{h}{24}.
+\]
+与题11相同，用阶梯函数逼近Riemann可积函数可得：若$g\in R[0,1]$，则
+\[
+ \int_0^1q_n(t)g(t)\,\dd t\longrightarrow\frac1{24}\int_0^1g(t)\,\dd t.
+\]
+取$g=f''$，得到
+\[
+ \lim_{n\to\infty}n^2B_n
+ =\frac1{24}\int_0^1f''(t)\,\dd t
+ =\frac1{24}[f'(1)-f'(0)].
+\]
+\end{xsolution}
+
+\section*{11.4.5　练习题}
+
+\paragraph{题1(1)}
+\begin{xsolution}
+将式子写成Riemann和：
+\[
+ n\sum_{k=1}^n\frac1{n^2+k^2}
+ =\frac1n\sum_{k=1}^n\frac1{1+(k/n)^2}.
+\]
+故
+\[
+ \lim_{n\to\infty}n\left(\frac1{n^2+1^2}+\cdots+\frac1{2n^2}\right)
+ =\int_0^1\frac{\dd x}{1+x^2}
+ =\boxed{\frac\pi4}.
+\]
+\end{xsolution}
+
+\paragraph{题1(2)}
+\begin{xsolution}
+原式为
+\[
+ \frac1n\sum_{k=0}^{n-1}\frac1{\sqrt{1+k/n}}.
+\]
+因此
+\[
+ \lim_{n\to\infty}\left[
+\frac1{\sqrt{n^2}}+\frac1{\sqrt{n(n+1)}}+\cdots+\frac1{\sqrt{n(2n-1)}}
+\right]
+=\int_0^1\frac{\dd x}{\sqrt{1+x}}
+=\boxed{2(\sqrt2-1)}.
+\]
+\end{xsolution}
+
+\paragraph{题1(3)}
+\begin{xsolution}
+题目只排除了$a=-1,b=-1$，因此必须按$a,b$相对于$-1$的位置分类。
+
+记
+\[
+ S_a(n)=\sum_{j=0}^n(2j+1)^a,
+ \qquad
+ T_b(n)=\sum_{j=1}^n(2j)^b.
+\]
+若$a>-1$，由积分和式
+\[
+ S_a(n)\sim\frac{2^a}{a+1}n^{a+1};
+\]
+若$a<-1$，则
+\[
+ S_a(n)\longrightarrow (1-2^a)\zeta(-a).
+\]
+对偶数和式也逐项提出$2^b$，可得：若$b>-1$，
+\[
+ T_b(n)\sim\frac{2^b}{b+1}n^{b+1},
+\]
+而若$b<-1$，
+\[
+ T_b(n)\longrightarrow 2^b\zeta(-b).
+\]
+因此所求极限$L=S_a(n)^{b+1}/T_b(n)^{a+1}$为
+\[
+ L=
+ \begin{cases}
+ \displaystyle
+ 2^{a-b}\frac{(b+1)^{a+1}}{(a+1)^{b+1}},&a>-1,\ b>-1,\\[8pt]
+ 0,&a>-1,\ b<-1,\\[4pt]
+ +\infty,&a<-1,\ b>-1,\\[4pt]
+ \displaystyle
+ \frac{[(1-2^a)\zeta(-a)]^{b+1}}
+ {[2^b\zeta(-b)]^{a+1}},&a<-1,\ b<-1.
+ \end{cases}
+\]
+这给出了题面所列全部$a,b\ne-1$的情形。
+\end{xsolution}
+
+\paragraph{题1(4)}
+\begin{xsolution}
+取对数：
+\[
+ \ln P_n=\frac\pi n\sum_{k=0}^{n-1}
+ \ln\left(2+\cos\frac{k\pi}{n}\right)
+ \longrightarrow\int_0^\pi\ln(2+\cos x)\,\dd x.
+\]
+为计算此积分，设$a>1$，
+\[
+ I(a)=\int_0^\pi\ln(a+\cos x)\,\dd x.
+\]
+则
+\[
+ I'(a)=\int_0^\pi\frac{\dd x}{a+\cos x}.
+\]
+在此积分中令$t=\tan(x/2)$，则
+\[
+ \cos x=\frac{1-t^2}{1+t^2},\qquad
+ \dd x=\frac{2\,\dd t}{1+t^2},
+\]
+从而
+\[
+ I'(a)=2\int_0^\infty\frac{\dd t}{(a+1)+(a-1)t^2}
+ =\frac\pi{\sqrt{a^2-1}}.
+\]
+积分并利用$a\to\infty$时$I(a)-\pi\ln a\to0$，得
+\[
+ I(a)=\pi\ln\frac{a+\sqrt{a^2-1}}2.
+\]
+于是
+\[
+ \int_0^\pi\ln(2+\cos x)\,\dd x
+ =\pi\ln\frac{2+\sqrt3}{2}.
+\]
+故
+\[
+ \boxed{\lim_{n\to\infty}P_n=\left(\frac{2+\sqrt3}{2}\right)^\pi}.
+\]
+\end{xsolution}
+
+\paragraph{题1(5)}
+\begin{xsolution}
+设
+\[
+ P_n=\frac1n\sqrt[n]{n(n+1)\cdots(2n-1)}.
+\]
+则
+\[
+ \ln P_n
+ =\frac1n\sum_{k=0}^{n-1}\ln\left(1+\frac kn\right)
+ \longrightarrow\int_0^1\ln(1+x)\,\dd x
+ =2\ln2-1.
+\]
+因此
+\[
+ \boxed{\lim_{n\to\infty}P_n=\frac4\ee}.
+\]
+\end{xsolution}
+
+\paragraph{题1(6)}
+\begin{xsolution}
+因$x>0$，对$1\le k\le n$有一致估计
+\[
+ \frac1n\sqrt{(nx+k)(nx+k-1)}
+ =\sqrt{\left(x+\frac kn\right)
+ \left(x+\frac{k-1}{n}\right)}
+ =x+\frac kn+\bigO\left(\frac1n\right),
+\]
+其中误差对$k$一致。故
+\begin{align*}
+\frac1{n^2}\sum_{k=1}^n\sqrt{(nx+k)(nx+k-1)}
+&=\frac1n\sum_{k=1}^n
+\sqrt{\left(x+\frac kn\right)
+\left(x+\frac{k-1}{n}\right)}\\
+&\longrightarrow\int_0^1(x+t)\,\dd t
+=\boxed{x+\frac12}.
+\end{align*}
+\end{xsolution}
+
+\paragraph{题2}
+\begin{xsolution}
+由Riemann和
+\[
+ \frac1{n^{3/2}}\sum_{k=1}^n\sqrt k
+ =\frac1n\sum_{k=1}^n\sqrt{\frac kn}
+ \longrightarrow\int_0^1\sqrt x\,\dd x=\frac23.
+\]
+给定$A\in(2/3,1)$，取$\varepsilon=A-2/3>0$。存在$N$使$n>N$时
+\[
+ \frac1{n^{3/2}}\sum_{k=1}^n\sqrt k<\frac23+\varepsilon=A,
+\]
+即
+\[
+ \sqrt1+\sqrt2+\cdots+\sqrt n<An^{3/2}.
+\]
+
+与11.3.3练习题5相比，本方法直接给出渐近主项
+\[
+ \sum_{k=1}^n\sqrt k\sim\frac23n^{3/2},
+\]
+而11.3.3题5还给出显式误差界
+\[
+ \sum_{k=1}^n\sqrt k<\left(\frac23+\frac1{2n}\right)n^{3/2}.
+\]
+后者可直接取$N>1/[2(A-2/3)]$。
+\end{xsolution}
+
+\paragraph{题3}
+\begin{xsolution}
+因$f>0$且连续，$\ln f$在$[0,1]$连续。故
+\begin{align*}
+\ln\left[
+\sqrt[n]{\prod_{k=1}^nf(k/n)}
+\right]
+&=\frac1n\sum_{k=1}^n\ln f(k/n)\\
+&\longrightarrow\int_0^1\ln f(x)\,\dd x.
+\end{align*}
+所以
+\[
+ \boxed{
+ \lim_{n\to\infty}\sqrt[n]{\prod_{k=1}^nf(k/n)}
+ =\exp\left(\int_0^1\ln f(x)\,\dd x\right)}.
+\]
+
+对每个$n$应用有限个正数的算术平均值—几何平均值不等式：
+\[
+ \sqrt[n]{\prod_{k=1}^nf(k/n)}
+ \le\frac1n\sum_{k=1}^nf(k/n).
+\]
+令$n\to\infty$，得
+\[
+ \exp\left(\int_0^1\ln f(x)\,\dd x\right)
+ \le\int_0^1f(x)\,\dd x.
+\]
+这正是(11.10)左边不等式在$p(x)\equiv1$、区间$[0,1]$时的情形。
+\end{xsolution}
+
+\paragraph{题4}
+\begin{xsolution}
+令$f(x)=1/(1+x)$。则
+\[
+ A_n=\frac1n\sum_{k=1}^nf(k/n),
+ \qquad
+ \int_0^1f(x)\,\dd x=\ln2.
+\]
+利用11.3.3练习题11已经证明的右端点Riemann和一阶误差公式，
+\[
+ \lim_{n\to\infty}n(\ln2-A_n)
+ =\frac12[f(0)-f(1)]
+ =\boxed{\frac14}.
+\]
+\end{xsolution}
+
+\paragraph{题5}
+\begin{xsolution}
+仍令$f(x)=1/(1+x)$。注意
+\[
+ B_n=\frac1n\sum_{k=1}^n
+ f\left(\frac{2k-1}{2n}\right),
+\]
+是$\int_0^1f$的中点Riemann和。由11.3.3练习题12，
+\[
+ \lim_{n\to\infty}n^2(\ln2-B_n)
+ =\frac1{24}[f'(1)-f'(0)].
+\]
+因$f'(x)=-(1+x)^{-2}$，故
+\[
+ f'(1)-f'(0)=-\frac14+1=\frac34.
+\]
+因此极限为
+\[
+ \boxed{\frac1{32}}.
+\]
+\end{xsolution}
+
+\paragraph{题6}
+\begin{xsolution}
+作代换$x=\sin t$，并利用偶性：
+\begin{align*}
+\int_{-1}^1(1-x^2)^n\,\dd x
+&=2\int_0^{\pi/2}\cos^{2n+1}t\,\dd t\\
+&=2\frac{(2n)!!}{(2n+1)!!}.
+\end{align*}
+由Wallis等价式
+\[
+ \frac{(2n)!!}{(2n-1)!!}\sim\sqrt{\pi n},
+\]
+得
+\[
+ \frac{(2n)!!}{(2n+1)!!}
+ =\frac1{2n+1}\frac{(2n)!!}{(2n-1)!!}
+ \sim\frac{\sqrt\pi}{2\sqrt n}.
+\]
+因此
+\[
+ \boxed{\lim_{n\to\infty}\sqrt n
+ \int_{-1}^1(1-x^2)^n\,\dd x=\sqrt\pi}.
+\]
+\end{xsolution}
+
+\paragraph{题7}
+\begin{xsolution}
+沿用命题11.4.2证明中的
+\[
+ a_n=\frac{n!\ee^n}{n^{n+1/2}},
+ \qquad \lim_{n\to\infty}a_n=\sqrt{2\pi}.
+\]
+由(11.35)，
+\[
+ 1\le\frac{a_n}{a_{n+1}}
+ \le\exp\left[\frac14\left(\frac1n-\frac1{n+1}\right)\right].
+\]
+所以$\{a_n\}$单调减少；同时
+\[
+ c_n=a_n\ee^{-1/(4n)}
+\]
+满足$c_n\le c_{n+1}$。两个数列有同一极限$\sqrt{2\pi}$，故
+\[
+ a_n\ee^{-1/(4n)}<\sqrt{2\pi}<a_n.
+\]
+因此存在$0<\theta_n<1$使
+\[
+ a_n=\sqrt{2\pi}\,\ee^{\theta_n/(4n)}.
+\]
+代回$a_n$定义即得
+\[
+ \boxed{
+ n!=\sqrt{2\pi n}\left(\frac n\ee\right)^n
+ \ee^{\theta_n/(4n)},\qquad 0<\theta_n<1}.
+\]
+\end{xsolution}
+
+\paragraph{题8}
+\begin{xsolution}
+由Stirling公式
+\[
+ n!\sim\sqrt{2\pi n}\left(\frac n\ee\right)^n.
+\]
+于是
+\[
+ (2n)!!=2^nn!
+ \sim\boxed{\sqrt{2\pi n}\left(\frac{2n}{\ee}\right)^n}.
+\]
+又
+\[
+ (2n-1)!!=\frac{(2n)!}{(2n)!!}
+ \sim\boxed{\sqrt2\left(\frac{2n}{\ee}\right)^n}.
+\]
+最后
+\[
+ C_{2n}^n=\frac{(2n)!}{(n!)^2}
+ \sim\boxed{\frac{4^n}{\sqrt{\pi n}}}.
+\]
+\end{xsolution}
+
+\paragraph{题9(1)}
+\begin{xsolution}
+由
+\[
+ n^2\ln\left(1+\frac1n\right)
+ =n-\frac12+\littleo(1)
+\]
+及Stirling公式，
+\[
+ \frac{n!}{n^n\sqrt n}
+ \sim\sqrt{2\pi}\,\ee^{-n}.
+\]
+故
+\begin{align*}
+\left(1+\frac1n\right)^{n^2}\frac{n!}{n^n\sqrt n}
+&\sim \ee^{n-1/2}\sqrt{2\pi}\,\ee^{-n}\\
+&\longrightarrow\boxed{\sqrt{\frac{2\pi}{\ee}}}.
+\end{align*}
+\end{xsolution}
+
+\paragraph{题9(2)}
+\begin{xsolution}
+利用恒等式
+\[
+ (-1)^n\binom{-1/2}{n}=\frac1{4^n}\binom{2n}{n},
+\]
+以及
+\[
+ \binom{2n}{n}\sim\frac{4^n}{\sqrt{\pi n}},
+\]
+可得
+\[
+ \boxed{\lim_{n\to\infty}(-1)^n\binom{-1/2}{n}\sqrt n
+ =\frac1{\sqrt\pi}}.
+\]
+\end{xsolution}
+
+\paragraph{题10}
+\begin{xsolution}
+记$H_n=1+1/2+\cdots+1/n$。先化简乘积：
+\[
+ \prod_{k=1}^n\left(1+\frac1k\right)^k
+ =\frac{(n+1)^n}{n!}.
+\]
+因此题中表达式为
+\begin{align*}
+P_n
+&=\sqrt n\,\ee^{n-H_n}\frac{n!}{(n+1)^n}.
+\end{align*}
+由Stirling公式
+\[
+ n!\sim\sqrt{2\pi n}\left(\frac n\ee\right)^n,
+\]
+所以
+\[
+ P_n\sim\sqrt{2\pi}\,n
+ \left(\frac n{n+1}\right)^n\ee^{-H_n}.
+\]
+又
+\[
+ \left(\frac n{n+1}\right)^n\to\ee^{-1},
+ \qquad H_n-\ln n\to\gamma,
+\]
+故$n\ee^{-H_n}\to\ee^{-\gamma}$。于是
+\[
+ \boxed{\lim_{n\to\infty}P_n
+ =\frac{\sqrt{2\pi}}{\ee^{1+\gamma}}}.
+\]
+\end{xsolution}
+
+\section*{11.5.2　第一组参考题}
+
+\paragraph{参考题1}
+\begin{xsolution}
+令
+\[
+ g(x)=\ee^{-x}f(x).
+\]
+则
+\[
+ g'(x)=\ee^{-x}(f'(x)-f(x)).
+\]
+由$f(0)=0,f(1)=1$，
+\[
+ \frac1\ee=\abs{g(1)-g(0)}
+ \le\int_0^1\ee^{-x}\abs{f'(x)-f(x)}\,\dd x
+ \le\int_0^1\abs{f'(x)-f(x)}\,\dd x.
+\]
+故结论成立。
+\end{xsolution}
+
+\paragraph{参考题2}
+\begin{xsolution}
+记
+\[
+ I=\int_0^\pi xa^{\sin x}\,\dd x.
+\]
+由$x\mapsto\pi-x$及$\sin(\pi-x)=\sin x$，
+\[
+ I=\int_0^\pi(\pi-x)a^{\sin x}\,\dd x,
+\]
+两式相加得
+\[
+ I=\frac\pi2\int_0^\pi a^{\sin x}\,\dd x
+ =\pi\int_0^{\pi/2}a^{\sin x}\,\dd x.
+\]
+另一方面，令$x=\pi/2-t$，
+\[
+ \int_0^{\pi/2}a^{-\cos x}\,\dd x
+ =\int_0^{\pi/2}a^{-\sin t}\,\dd t.
+\]
+对函数$a^{\sin t/2}$与$a^{-\sin t/2}$应用Schwarz不等式，
+\[
+ \left(\frac\pi2\right)^2
+ \le\left(\int_0^{\pi/2}a^{\sin t}\,\dd t\right)
+ \left(\int_0^{\pi/2}a^{-\sin t}\,\dd t\right).
+\]
+乘以$\pi$即得
+\[
+ \int_0^\pi xa^{\sin x}\,\dd x
+ \int_0^{\pi/2}a^{-\cos x}\,\dd x
+ \ge\frac{\pi^3}{4}.
+\]
+\end{xsolution}
+
+\paragraph{参考题3（Tchebycheff不等式）(1)}
+\begin{xsolution}
+令权函数$p(x)=F(x)>0$，取$u(x)=x$与$v(x)=F(x)$。一般地，
+\begin{align*}
+&\left(\int_a^bp\right)\left(\int_a^bp\,uv\right)
+ -\left(\int_a^bp\,u\right)\left(\int_a^bp\,v\right)\\
+&\qquad=\frac12\int_a^b\int_a^bp(x)p(y)
+ [u(x)-u(y)][v(x)-v(y)]\,\dd x\,\dd y.
+\end{align*}
+此处$u$单调增加，而$v=F$单调减少，因此双重积分非正。于是
+\[
+ \int_a^bF(x)\,\dd x\int_a^bxF^2(x)\,\dd x
+ \le\int_a^bF^2(x)\,\dd x\int_a^bxF(x)\,\dd x.
+\]
+\end{xsolution}
+
+\paragraph{参考题3（Tchebycheff不等式）(2)}
+\begin{xsolution}
+使用同一恒等式：
+\begin{align*}
+&\left(\int_a^bp\right)\left(\int_a^bpfg\right)
+ -\left(\int_a^bpf\right)
+ \left(\int_a^bpg\right)\\
+&\qquad=\frac12\int_a^b\int_a^bp(x)p(y)
+ [f(x)-f(y)][g(x)-g(y)]\,\dd x\,\dd y.
+\end{align*}
+由题设，对任意$x,y$都有
+\[
+ [f(x)-f(y)][g(x)-g(y)]\ge0,
+\]
+且$p(x)p(y)>0$，故右边非负，从而
+\[
+ \int_a^bp(x)f(x)\,\dd x\int_a^bp(x)g(x)\,\dd x
+ \le\int_a^bp(x)\,\dd x\int_a^bp(x)f(x)g(x)\,\dd x.
+\]
+\end{xsolution}
+
+\paragraph{参考题4}
+\begin{xsolution}
+函数
+\[
+ \varphi(t)=\frac{t}{1-t},\qquad 0\le t<1,
+\]
+满足
+\[
+ \varphi''(t)=\frac{2}{(1-t)^3}>0,
+\]
+故为下凸函数。由Jensen积分不等式（区间长度为1），
+\[
+ \int_0^1\frac{f(x)}{1-f(x)}\,\dd x
+ =\int_0^1\varphi(f(x))\,\dd x
+ \ge\varphi\left(\int_0^1f(x)\,\dd x\right),
+\]
+即
+\[
+ \int_0^1\frac{f(x)}{1-f(x)}\,\dd x
+ \ge\frac{\int_0^1f(x)\,\dd x}{1-\int_0^1f(x)\,\dd x}.
+\]
+\end{xsolution}
+
+\paragraph{参考题5}
+\begin{xsolution}
+在$0\le x\le1$上有
+\[
+ \cos x\ge1-\frac{x^2}{2},
+ \qquad
+ \sin x\le x.
+\]
+所以
+\[
+ \cos x-\sin x\ge1-x-\frac{x^2}{2}.
+\]
+于是
+\begin{align*}
+&\int_0^1\frac{\cos x-\sin x}{\sqrt{1-x^2}}\,\dd x\\
+&\quad\ge
+ \int_0^1\frac{1-x-x^2/2}{\sqrt{1-x^2}}\,\dd x\\
+&\quad=\frac\pi2-1-\frac\pi8
+ =\frac{3\pi}{8}-1>0,
+\end{align*}
+其中最后一步可用$\pi>8/3$。故题设不等式成立。
+\end{xsolution}
+
+\paragraph{参考题6}
+\begin{xsolution}
+令
+\[
+ q(x)=\frac{(x-a)^n(b-x)^n}{(2n)!}.
+\]
+它在$a,b$处都有$n$重零点，且因最高次项系数为$(-1)^n/(2n)!$，
+\[
+ q^{(2n)}(x)=(-1)^n.
+\]
+于是
+\[
+ \int_a^bf(x)\,\dd x
+ =(-1)^n\int_a^bf(x)q^{(2n)}(x)\,\dd x.
+\]
+连续分部积分$2n$次。每一个边界项都为
+$f^{(j)}q^{(2n-1-j)}$的端点值：若$j<n$，由题设$f^{(j)}(a)=f^{(j)}(b)=0$；若$j\ge n$，则$2n-1-j<n$，而$q$的相应低阶导数在两端为0。因此所有边界项消失，得到
+\[
+ \int_a^bf(x)\,\dd x
+ =(-1)^n\int_a^bf^{(2n)}(x)q(x)\,\dd x.
+\]
+记$M=\max_{a\le x\le b}\abs{f^{(2n)}(x)}$。因$q\ge0$，
+\[
+ \abs{\int_a^bf(x)\,\dd x}
+ \le M\int_a^bq(x)\,\dd x.
+\]
+作代换$x=a+(b-a)t$，
+\begin{align*}
+\int_a^bq(x)\,\dd x
+&=\frac{(b-a)^{2n+1}}{(2n)!}
+ \int_0^1t^n(1-t)^n\,\dd t\\
+&=\frac{(n!)^2(b-a)^{2n+1}}{(2n)!(2n+1)!}.
+\end{align*}
+代回即得所需估计。
+\end{xsolution}
+
+\paragraph{参考题7}
+\begin{xsolution}
+记
+\[
+ d_n=\int_a^b\abs{f(x)}^ng(x)\,\dd x>0,
+ \qquad
+ d_0=\int_a^bg(x)\,\dd x,
+ \qquad
+ M=\max_{[a,b]}\abs{f(x)}>0.
+\]
+由Schwarz不等式，
+\[
+ d_n^2
+ =\left(\int_a^b
+ \abs{f}^{(n-1)/2}\sqrt{g}\,
+ \abs{f}^{(n+1)/2}\sqrt{g}\,\dd x\right)^2
+ \le d_{n-1}d_{n+1}.
+\]
+因此$r_n=d_{n+1}/d_n$单调不减。又$d_{n+1}\le Md_n$，故$r_n\le M$，所以$r_n$收敛于某个$L\le M$。
+
+另一方面，$d_n^{1/n}\to M$。事实上上界$d_n\le M^n\int_a^bg$给出$\limsup d_n^{1/n}\le M$；对任意$\varepsilon>0$，由连续性存在一段正长度区间$J$使$\abs{f}>M-\varepsilon$，且$g$在$J$上有正的最小值，于是
+\[
+ d_n\ge(M-\varepsilon)^n\int_Jg(x)\,\dd x,
+\]
+故$\liminf d_n^{1/n}\ge M-\varepsilon$。令$\varepsilon\downarrow0$即得结论。
+
+而
+\[
+ d_n=d_1\prod_{k=1}^{n-1}r_k.
+\]
+若$r_k\to L$，则几何平均值也趋于$L$，从而$d_n^{1/n}\to L$。与上式比较得$L=M$。所以
+\[
+ \boxed{\lim_{n\to\infty}\frac{d_{n+1}}{d_n}
+ =\max_{a\le x\le b}\abs{f(x)}}.
+\]
+\end{xsolution}
+
+\paragraph{参考题8}
+\begin{xsolution}
+题中和式可写为
+\[
+ S_n=\frac1n\sum_{k=1}^n
+ \frac{\sin(\pi k/n)}{1+1/(nk)}.
+\]
+因$1\le k\le n$，
+\[
+ \sup_k\abs{\frac1{1+1/(nk)}-1}\le\frac1n,
+\]
+故$S_n$与Riemann和
+\[
+ \frac1n\sum_{k=1}^n\sin\frac{\pi k}{n}
+\]
+之差趋于0。因此
+\[
+ \lim_{n\to\infty}S_n
+ =\int_0^1\sin(\pi x)\,\dd x
+ =\boxed{\frac2\pi}.
+\]
+\end{xsolution}
+
+\paragraph{参考题9}
+\begin{xsolution}
+记
+\[
+ u_{k,n}=\frac{\sqrt{2k-1}}{n}a^2,
+ \qquad 1\le k\le n+1.
+\]
+则$\max_k\abs{u_{k,n}}=\bigO(n^{-1/2})\to0$。在零点邻域有一致展开
+\[
+ \ln\cos u=-\frac{u^2}{2}+\bigO(u^4).
+\]
+于是
+\begin{align*}
+\ln\prod_{k=1}^{n+1}\cos u_{k,n}
+&=-\frac12\sum_{k=1}^{n+1}u_{k,n}^2
+ +\bigO\left(\sum_{k=1}^{n+1}u_{k,n}^4\right).
+\end{align*}
+而
+\[
+ \sum_{k=1}^{n+1}u_{k,n}^2
+ =\frac{a^4}{n^2}\sum_{k=1}^{n+1}(2k-1)
+ =a^4\frac{(n+1)^2}{n^2}\to a^4,
+\]
+并且
+\[
+ \sum_{k=1}^{n+1}u_{k,n}^4
+ =\bigO\left(\frac1{n^4}\sum_{k=1}^{n+1}k^2\right)
+ =\bigO\left(\frac1n\right)\to0.
+\]
+故乘积的对数趋于$-a^4/2$，所以
+\[
+ \boxed{\lim_{n\to\infty}\prod_{k=1}^{n+1}
+ \cos\left(\frac{\sqrt{2k-1}}n a^2\right)=\ee^{-a^4/2}}.
+\]
+\end{xsolution}
+
+\paragraph{参考题10}
+\begin{xsolution}
+计算相邻两项：
+\begin{align*}
+a_{n+1}-a_n
+&=f(n+1)-\int_n^{n+1}f(x)\,\dd x\le0,
+\end{align*}
+因为$f$单调减少，所以$f(x)\ge f(n+1)$。故$\{a_n\}$单调不增。
+
+另一方面，在每个$[k,k+1]$上$f(x)\le f(k)$，所以
+\[
+ \int_1^nf(x)\,\dd x\le\sum_{k=1}^{n-1}f(k),
+\]
+从而
+\[
+ a_n\ge f(n)\ge0.
+\]
+因此$\{a_n\}$单调有下界，必收敛。
+\end{xsolution}
+
+\paragraph{参考题11}
+\begin{xsolution}
+在$0\le x\le1$上，对$y=x^2\in[0,1]$把$\sin y$在0处展开到4阶。因4次项系数为0，Taylor公式给出
+\[
+ \sin y=y-\frac{y^3}{3!}+R(y),
+ \qquad \abs{R(y)}\le\frac{y^5}{5!}.
+\]
+故
+\[
+ \sin x^2=x^2-\frac{x^6}{6}+R(x^2),
+ \qquad \abs{R(x^2)}\le\frac{x^{10}}{120}.
+\]
+积分得到
+\[
+ \int_0^1\sin x^2\,\dd x
+ =\frac13-\frac1{42}+E
+ =\frac{13}{42}+E,
+\]
+且
+\[
+ \abs{E}\le\frac1{120}\int_0^1x^{10}\,\dd x
+ =\frac1{1320}<0.001.
+\]
+因此可取
+\[
+ \boxed{\int_0^1\sin x^2\,\dd x\approx\frac{13}{42}\approx0.309524},
+\]
+误差严格小于$0.001$。
+\end{xsolution}
+
+\paragraph{参考题12}
+\begin{xsolution}
+对$x>0$作代换$u=1/t$，得到
+\[
+ F(x)=\int_{1/x}^{\infty}\frac{\sin u}{u^2}\,\dd u.
+\]
+定义
+\[
+ A_j=\int_{j\pi}^{(j+1)\pi}\frac{\abs{\sin u}}{u^2}\,\dd u,
+ \qquad j\ge1.
+\]
+把后一积分平移$\pi$即可看出$A_{j+1}<A_j$，且$A_j\to0$。因此
+\[
+ F\left(\frac1{m\pi}\right)
+ =(-1)^m(A_m-A_{m+1}+A_{m+2}-\cdots)
+\]
+是交错级数，其符号为$(-1)^m$。所以
+\[
+ F\left(\frac1{m\pi}\right)
+ F\left(\frac1{(m+1)\pi}\right)<0.
+\]
+$F$在$(0,1]$连续，故对每个充分大的$m$，区间
+\[
+ \left(\frac1{(m+1)\pi},\frac1{m\pi}\right)
+\]
+内至少有一个零点。这样的区间有无穷多个，故$F$在$(0,1]$有无穷多个零点。
+\end{xsolution}
+
+\paragraph{参考题13}
+\begin{xsolution}
+因$f'(x)\ge m>0$，$f$严格增加，可作变量代换$y=f(x)$。令$x=\phi(y)=f^{-1}(y)$，则
+\[
+ \int_a^b\cos f(x)\,\dd x
+ =\int_{f(a)}^{f(b)}\cos y\,g(y)\,\dd y,
+ \qquad
+ g(y)=\frac1{f'(\phi(y))}.
+\]
+由于$f'$单调增加，$g$单调减少且$0<g\le1/m$。由积分第二中值定理，存在$\xi\in[f(a),f(b)]$使
+\[
+ \int_{f(a)}^{f(b)}\cos y\,g(y)\,\dd y
+ =g(f(a))\int_{f(a)}^\xi\cos y\,\dd y.
+\]
+因此
+\[
+ \abs{\int_a^b\cos f(x)\,\dd x}
+ \le\frac1m\abs{\sin\xi-\sin f(a)}
+ \le\frac2m.
+\]
+\end{xsolution}
+
+\paragraph{参考题14}
+\begin{xsolution}
+由$f'\ge m>0$，$f$严格增加。作代换$y=f(x)$：
+\[
+ \int_a^b\sin f(x)\,\dd x
+ =\int_{f(a)}^{f(b)}\sin y\,g(y)\,\dd y,
+ \qquad 0<g(y)=\frac1{f'(f^{-1}(y))}\le\frac1m.
+\]
+又因$\abs{f(x)}\le\pi$，积分区间包含于$[-\pi,\pi]$。在$[-\pi,0]$上$\sin y\le0$，在$[0,\pi]$上$\sin y\ge0$。把积分在0处分开（若0不在区间内则只保留一段），每一段的绝对值都不超过
+\[
+ \frac1m\int_0^\pi\sin y\,\dd y=\frac2m.
+\]
+两段符号相反，因此它们之和的绝对值不超过两段绝对值中的较大者。故
+\[
+ \abs{\int_a^b\sin f(x)\,\dd x}\le\frac2m.
+\]
+\end{xsolution}
+
+\paragraph{参考题15}
+\begin{xsolution}
+令
+\[
+ T_j=\prod_{i=1}^j\frac{n-i}{n+i+1},
+ \qquad T_0=1,
+\]
+则$S_n=\sum_{j=0}^{n-1}T_j$。直接化阶乘得
+\[
+ T_j=\frac{(n-1)!(n+1)!}{(n-j-1)!(n+j+1)!}
+ =\frac{\binom{2n}{n-j-1}}{\binom{2n}{n-1}}.
+\]
+因此
+\begin{align*}
+S_n
+&=\frac{\sum_{m=0}^{n-1}\binom{2n}{m}}
+ {\binom{2n}{n-1}}\\
+&=\frac{4^n-\binom{2n}{n}}{2\binom{2n}{n-1}}.
+\end{align*}
+又
+\[
+ \binom{2n}{n-1}=\frac{n}{n+1}\binom{2n}{n},
+\]
+故
+\[
+ S_n=\frac{n+1}{2n}\left(
+ \frac{4^n}{\binom{2n}{n}}-1\right).
+\]
+由Stirling公式
+\[
+ \binom{2n}{n}\sim\frac{4^n}{\sqrt{\pi n}},
+\]
+于是
+\[
+ \frac{S_n}{\sqrt n}
+ \longrightarrow\frac12\sqrt\pi.
+\]
+即
+\[
+ \boxed{\lim_{n\to\infty}\frac{S_n}{\sqrt n}=\frac{\sqrt\pi}{2}}.
+\]
+\end{xsolution}
+
+\section*{11.5.2　第二组参考题}
+
+\paragraph{参考题1}
+\begin{xsolution}
+对$0\le\theta\le\pi/2$，取曲线$K$上极角分别为$\theta$和$\theta+\pi/2$的两点。两条半径互相垂直，因此两点距离的平方为
+\[
+ \rho^2(\theta)+\rho^2\left(\theta+\frac\pi2\right).
+\]
+由题设任意两点距离不超过1，
+\[
+ \rho^2(\theta)+\rho^2\left(\theta+\frac\pi2\right)\le1.
+\]
+对$\theta\in[0,\pi/2]$积分，
+\[
+ \int_0^\pi\rho^2(\theta)\,\dd\theta
+ =\int_0^{\pi/2}\left[
+ \rho^2(\theta)+\rho^2\left(\theta+\frac\pi2\right)
+ \right]\,\dd\theta
+ \le\frac\pi2.
+\]
+故
+\[
+ S=\frac12\int_0^\pi\rho^2(\theta)\,\dd\theta
+ \le\boxed{\frac\pi4}.
+\]
+\end{xsolution}
+
+\paragraph{参考题2}
+\begin{xsolution}
+因$f>0$且连续，$\ln f\in C[a,b]$。令$h_n=(b-a)/n$，则
+\begin{align*}
+\ln\sqrt[n]{f_{1n}\cdots f_{nn}}
+&=\frac1n\sum_{k=1}^n\ln f(a+kh_n)\\
+&=\frac1{b-a}\sum_{k=1}^n\ln f(a+kh_n)h_n\\
+&\longrightarrow\frac1{b-a}\int_a^b\ln f(x)\,\dd x.
+\end{align*}
+指数化即得
+\[
+ \lim_{n\to\infty}\sqrt[n]{f_{1n}\cdots f_{nn}}
+ =\exp\left[\frac1{b-a}\int_a^b\ln f(x)\,\dd x\right].
+\]
+
+下面证明Poisson积分。取
+\[
+ f(x)=1-2r\cos x+r^2=\abs{r-\ee^{\ii x}}^2,
+ \qquad r>1,
+\]
+它在$[0,2\pi]$上严格为正。令$x_k=2\pi k/n$。由于$\ee^{\ii x_k}$恰为全部$n$次单位根，
+\[
+ \prod_{k=1}^n(r-\ee^{\ii x_k})=r^n-1.
+\]
+故
+\[
+ \prod_{k=1}^nf(x_k)=(r^n-1)^2.
+\]
+于是
+\[
+ \sqrt[n]{\prod_{k=1}^nf(x_k)}=(r^n-1)^{2/n}\longrightarrow r^2.
+\]
+与刚证明的极限公式比较，
+\[
+ \exp\left[\frac1{2\pi}\int_0^{2\pi}
+ \ln(1-2r\cos x+r^2)\,\dd x\right]=r^2.
+\]
+取对数即得
+\[
+ \boxed{\frac1{2\pi}\int_0^{2\pi}
+ \ln(1-2r\cos x+r^2)\,\dd x=2\ln r}.
+\]
+\end{xsolution}
+
+\paragraph{参考题3(1)}
+\begin{xsolution}
+记$M=\max_{0\le x\le1}\abs{f(x)}$。由题设
+\[
+ 1=\abs{\int_0^1x^2f(x)\,\dd x}
+ \le M\int_0^1x^2\,\dd x=\frac M3.
+\]
+故$M\ge3$。
+\end{xsolution}
+
+\paragraph{参考题3(2)}
+\begin{xsolution}
+利用附加条件$\int_0^1xf(x)\,\dd x=0$，对任意$c\in[0,1]$有
+\[
+ 1=\int_0^1(x^2-cx)f(x)\,\dd x.
+\]
+因此
+\[
+ 1\le M\int_0^1\abs{x^2-cx}\,\dd x.
+\]
+当$0\le c\le1$时
+\begin{align*}
+\int_0^1\abs{x^2-cx}\,\dd x
+&=\int_0^cx(c-x)\,\dd x+\int_c^1x(x-c)\,\dd x\\
+&=\frac{c^3}{3}-\frac c2+\frac13.
+\end{align*}
+其最小值在$c=1/\sqrt2$处取得，等于
+\[
+ \frac13-\frac{\sqrt2}{6}=\frac{2-\sqrt2}{6}.
+\]
+故
+\[
+ M\ge\frac6{2-\sqrt2}=6+3\sqrt2>10.2.
+\]
+\end{xsolution}
+
+\paragraph{参考题4}
+\begin{xsolution}
+令$U_n$为第二类Chebyshev多项式，即
+\[
+ U_n(\cos\theta)=\frac{\sin((n+1)\theta)}{\sin\theta}.
+\]
+由恒等式
+\[
+ U_0(t)=1,\qquad U_1(t)=2t,\qquad
+ U_{n+1}(t)=2tU_n(t)-U_{n-1}(t),
+\]
+可归纳知$U_n$是$n$次多项式，最高次项系数为$2^n$。因此
+\[
+ P_n(x)=4^{-n}U_n(2x-1)
+\]
+是首一$n$次多项式，即$P_n(x)=x^n+q_{n-1}(x)$，其中$\deg q_{n-1}\le n-1$。由题设的矩条件，
+\[
+ \int_0^1P_n(x)f(x)\,\dd x=1.
+\]
+于是若$M=\max_{[0,1]}\abs{f}$，则
+\[
+ 1\le M\int_0^1\abs{P_n(x)}\,\dd x.
+\]
+作代换$2x-1=\cos\theta$：
+\begin{align*}
+\int_0^1\abs{P_n(x)}\,\dd x
+&=4^{-n}\frac12\int_{-1}^1\abs{U_n(t)}\,\dd t\\
+&=4^{-n}\frac12\int_0^\pi\abs{\sin((n+1)\theta)}\,\dd\theta\\
+&=4^{-n}.
+\end{align*}
+故$M\ge4^n$。因$n>1$时$2^n\ge n+1$，
+\[
+ 4^n\ge2^n(n+1).
+\]
+从而
+\[
+ \boxed{M\ge2^n(n+1)}.
+\]
+\end{xsolution}
+
+\paragraph{参考题5}
+\begin{xsolution}
+令
+\[
+ h(x)=\begin{cases}\sin x/x,&x\ne0,\\1,&x=0,\end{cases}
+\qquad
+ A_k=\int_{k\pi}^{(k+1)\pi}\abs{h(x)}\,\dd x.
+\]
+由于$1/x$严格减少，把相邻半波作平移比较可知
+\[
+ A_0>A_1>A_2>\cdots>0.
+\]
+并且各完整半波积分依次为$A_0,-A_1,A_2,-A_3,\ldots$。
+
+先考虑$0\le a<b$。若一个区间端点落在使$h$为负的半波内，为求上界可把该负的边缘部分删去；若端点落在正半波内，为求下界也可作相反调整。因此极值只需比较单个半波以及从零点开始、在零点结束的连续若干半波之和。由于$A_k$严格递减，任一这样的交错和的正值不超过$A_0$，负值的绝对值不超过$A_1$。故最佳常数为
+\[
+ \boxed{c_1=\int_\pi^{2\pi}\frac{\sin x}{x}\,\dd x=-A_1},
+ \qquad
+ \boxed{c_2=\int_0^\pi\frac{\sin x}{x}\,\dd x=A_0}.
+\]
+二者分别在$[\pi,2\pi]$与$[0,\pi]$取得，故确为最佳。
+
+再考虑任意$a<b$。因$h$是偶函数，令
+\[
+ H(x)=\int_0^xh(t)\,\dd t.
+\]
+由上述交错半波估计，对$x>0$有$0<H(x)\le A_0$，而$H(-x)=-H(x)$。若$a,b$同号，仍有积分下界$-A_1$；若$a<0<b$，积分为$H(b)+H(-a)>0$。因此最佳下界仍为
+\[
+ \boxed{c_1=-A_1=\int_\pi^{2\pi}\frac{\sin x}{x}\,\dd x}.
+\]
+对上界，跨过原点时
+\[
+ \int_a^bh(x)\,\dd x=H(b)+H(-a)\le2A_0,
+\]
+并在$a=-\pi,b=\pi$时取等号。因此第二种情形的最佳上界为
+\[
+ \boxed{c_2=2\int_0^\pi\frac{\sin x}{x}\,\dd x}.
+\]
+\end{xsolution}
+
+\paragraph{参考题6}
+\begin{xsolution}
+记$c=g(b)$，即$f(c)=b$。对连续严格增加函数及其反函数，有面积恒等式
+\[
+ \int_0^cf(x)\,\dd x+\int_0^bg(y)\,\dd y=bc.
+\]
+该恒等式可直接由曲线$y=f(x)$下方与其反函数曲线左方的互补面积得到，也可用Riemann和严格证明。
+
+因此
+\[
+ I:=\int_0^af(x)\,\dd x+\int_0^bg(y)\,\dd y
+ =bc+\int_c^af(x)\,\dd x.
+\]
+若$a>c$，则在$[c,a]$上$b=f(c)\le f(x)\le f(a)$，故
+\[
+ b(a-c)\le\int_c^af(x)\,\dd x\le f(a)(a-c).
+\]
+若$a<c$，则在$[a,c]$上$f(a)\le f(x)\le b$，改变积分方向后仍得到
+\[
+ b(a-c)\le\int_c^af(x)\,\dd x\le f(a)(a-c).
+\]
+因此
+\[
+ ab\le I\le bc+f(a)(a-c)
+ =bg(b)+af(a)-f(a)g(b).
+\]
+由于$f$严格增加，只要$a\ne c$，上述比较至少一处严格，故两端等号均当且仅当$a=c$，即$b=f(a)$。
+
+几何上，$I$是曲线$y=f(x)$与反函数曲线所确定的两个曲边区域面积之和；下界对应内接的$a\times b$矩形，上界对应由$a,b,f(a),g(b)$确定的外接补偿矩形。
+\end{xsolution}
+
+\paragraph{参考题7(1)}
+\begin{xsolution}
+要证$f$下凸，只需证明任意弦段之上没有图像点。固定$a<x_1<x_2<b$，令$\ell$为连接$(x_1,f(x_1))$与$(x_2,f(x_2))$的仿射函数，并令
+\[
+ h=f-\ell.
+\]
+由于仿射函数在任意对称区间上的平均值等于中点值，题设条件对$h$仍成立：
+\[
+ h\left(\frac{u+v}{2}\right)
+ \le\frac1{v-u}\int_u^vh(x)\,\dd x.
+\]
+且$h(x_1)=h(x_2)=0$。
+
+若$h$在$(x_1,x_2)$某处为正，则它在$[x_1,x_2]$取得正最大值$M$。取最大值集合某个连通分支的端点$c\in(x_1,x_2)$；在$c$一侧任意邻近处存在$h<M$。取足够小的对称区间$[c-\delta,c+\delta]\subset(x_1,x_2)$，则其中$h\le M$且在正长度子区间上$h<M$，所以其平均值严格小于$M=h(c)$，与题设矛盾。故$h\le0$，即$f$位于任意弦的下方，因此$f$为下凸函数。
+\end{xsolution}
+
+\paragraph{参考题7(2)}
+\begin{xsolution}
+仍固定$x_1<x_2$，令$h=f-\ell$，其中$\ell$为端点弦。仿射函数满足
+\[
+ \frac1{v-u}\int_u^v\ell(x)\,\dd x=\frac{\ell(u)+\ell(v)}2,
+\]
+故题设条件对$h$保持不变，且$h(x_1)=h(x_2)=0$。
+
+若$h$在$(x_1,x_2)$有正值，则集合$\{x:h(x)>0\}$存在一个开区间分支$(u,v)\subset(x_1,x_2)$，并有$h(u)=h(v)=0$、$h>0$于$(u,v)$。将题设不等式用于$[u,v]$，得到
+\[
+ 0<\frac1{v-u}\int_u^vh(x)\,\dd x
+ \le\frac{h(u)+h(v)}2=0,
+\]
+矛盾。因此$h\le0$，故$f$下凸。
+\end{xsolution}
+
+\paragraph{参考题7(3)}
+\begin{xsolution}
+若(1)中的不等式对所有区间恒取等号，则$f$满足该不等式，同时$-f$也满足同一方向的不等式。因此由(1)，$f$和$-f$都下凸，即$f$既下凸又上凸，只能是线性函数。
+
+若(2)中的不等式恒取等号，则把$f$换成$-f$后等号仍成立，故$f$与$-f$都满足(2)的假设。由(2)分别应用于$f$和$-f$，可知$f$既下凸又上凸，因此仍只能是线性函数。
+\end{xsolution}
+
+\paragraph{参考题8(1)}
+\begin{xsolution}
+令
+\[
+ F(x)=\int_0^x\abs{f'(t)}\,\dd t.
+\]
+由$f(0)=0$，$\abs{f(x)}\le F(x)$，且$F'(x)=\abs{f'(x)}$。于是
+\[
+ \int_0^a\abs{f(x)f'(x)}\,\dd x
+ \le\int_0^aF(x)F'(x)\,\dd x
+ =\frac12F(a)^2.
+\]
+再由Schwarz不等式
+\[
+ F(a)^2=\left(\int_0^a\abs{f'(x)}\,\dd x\right)^2
+ \le a\int_0^a\abs{f'(x)}^2\,\dd x.
+\]
+故
+\[
+ \int_0^a\abs{ff'}\,\dd x
+ \le\frac a2\int_0^a\abs{f'}^2\,\dd x.
+\]
+
+若等号成立，则上述两步都必须取等号。Schwarz等号要求$\abs{f'}$为常数；第一步等号要求$f'$不改变符号（否则$\abs{f}<F$会在一段区间严格发生）。故$f'$本身为常数，从$f(0)=0$得$f(x)=cx$。反之若$f(x)=cx$，则
+\[
+ \int_0^a\abs{f(x)f'(x)}\,\dd x
+ =c^2\frac{a^2}{2}
+ =\frac a2\int_0^ac^2\,\dd x,
+\]
+故确实成立等号。
+\end{xsolution}
+
+\paragraph{参考题8(2)（Opial不等式）}
+\begin{xsolution}
+将上一问的结论分别用于区间$[0,a/2]$和反向的区间$[a/2,a]$。前者利用$f(0)=0$，后者利用$f(a)=0$，均有区间长度$a/2$，故
+\[
+ \int_0^{a/2}\abs{ff'}\,\dd x
+ \le\frac a4\int_0^{a/2}\abs{f'}^2\,\dd x,
+\]
+\[
+ \int_{a/2}^{a}\abs{ff'}\,\dd x
+ \le\frac a4\int_{a/2}^{a}\abs{f'}^2\,\dd x.
+\]
+相加即得
+\[
+ \boxed{\int_0^a\abs{f(x)f'(x)}\,\dd x
+ \le\frac a4\int_0^a\abs{f'(x)}^2\,\dd x}.
+\]
+\end{xsolution}
+
+\paragraph{参考题9（Bellman--Gronwall不等式）}
+\begin{xsolution}
+令
+\[
+ H(x)=A+\int_0^xf(t)g(t)\,\dd t.
+\]
+则$H(x)\ge A>0$，且$f(x)\le H(x)$。因此
+\[
+ H'(x)=f(x)g(x)\le H(x)g(x).
+\]
+于是
+\[
+ (\ln H(x))'=\frac{H'(x)}{H(x)}\le g(x).
+\]
+从0到$x$积分，
+\[
+ \ln\frac{H(x)}A\le\int_0^xg(t)\,\dd t,
+\]
+故
+\[
+ f(x)\le H(x)\le A\exp\left(\int_0^xg(t)\,\dd t\right).
+\]
+\end{xsolution}
+
+\paragraph{参考题10}
+\begin{xsolution}
+$f$在$(0,1)$无零点，故不妨设$f>0$；若$f<0$则用$-f$代替。令$x_0\in(0,1)$为$f$的最大值点，记$M=f(x_0)>0$，则$f'(x_0)=0$。
+
+在$[0,x_0]$上分部积分：
+\[
+ M=f(x_0)-f(0)=\int_0^{x_0}f'(x)\,\dd x
+ =-\int_0^{x_0}x f''(x)\,\dd x.
+\]
+于是
+\[
+ M\le\int_0^{x_0}x\abs{f''(x)}\,\dd x
+ \le M\int_0^{x_0}x\abs{\frac{f''(x)}{f(x)}}\,\dd x,
+\]
+故
+\[
+ \int_0^{x_0}x\abs{\frac{f''}{f}}\,\dd x\ge1.
+\]
+在$[x_0,1]$上，由$f(1)=0$及$f'(x_0)=0$，分部积分给出
+\[
+ M=f(x_0)-f(1)=-\int_{x_0}^1f'(x)\,\dd x
+ =-\int_{x_0}^1(1-x)f''(x)\,\dd x,
+\]
+从而
+\[
+ \int_{x_0}^1(1-x)\abs{\frac{f''}{f}}\,\dd x\ge1.
+\]
+因此
+\begin{align*}
+\int_0^1\abs{\frac{f''}{f}}\,\dd x
+&\ge\frac1{x_0}+\frac1{1-x_0}\\
+&\ge4.
+\end{align*}
+
+下面说明4是最佳下界。取显式函数
+\[
+ \psi(u)=\frac{u^3-3u}{2},\qquad -1\le u\le1.
+\]
+它是严格递减奇函数，并满足
+\[
+ \psi(-1)=1,\quad \psi(1)=-1,\quad \psi'(\pm1)=0.
+\]
+对$0<\varepsilon<1/4$定义
+\[
+ v_\varepsilon(x)=
+ \begin{cases}
+ 1,&0\le x\le1/2-\varepsilon,\\
+ \psi((x-1/2)/\varepsilon),&\abs{x-1/2}\le\varepsilon,\\
+ -1,&1/2+\varepsilon\le x\le1,
+ \end{cases}
+\]
+以及$f_\varepsilon(x)=\int_0^xv_\varepsilon(t)\,\dd t$。由$\psi$为奇函数，$f_\varepsilon(1)=0$；且$f_\varepsilon>0$于$(0,1)$，$f_\varepsilon\in C^2[0,1]$。其二阶导数只支撑在中心小区间，并有
+\[
+ \int_0^1\abs{f_\varepsilon''(x)}\,\dd x=2,
+\]
+而在该支撑上$f_\varepsilon(x)\to1/2$一致成立。因此
+\[
+ \int_0^1\abs{\frac{f_\varepsilon''}{f_\varepsilon}}\,\dd x
+ \longrightarrow\frac{2}{1/2}=4.
+\]
+故常数4不能再提高。
+\end{xsolution}
+
+\paragraph{参考题11（Kantorovich不等式）}
+\begin{xsolution}
+由$m\le f(x)\le M$，
+\[
+ (M-f(x))(f(x)-m)\ge0.
+\]
+展开并除以$f(x)>0$：
+\[
+ f(x)+\frac{mM}{f(x)}\le m+M.
+\]
+积分得
+\[
+ A+mMB\le m+M,
+\]
+其中
+\[
+ A=\int_0^1f(x)\,\dd x,
+ \qquad B=\int_0^1\frac{\dd x}{f(x)}.
+\]
+另一方面由算术--几何平均值不等式
+\[
+ A+mMB\ge2\sqrt{mMAB}.
+\]
+故
+\[
+ 2\sqrt{mMAB}\le m+M,
+\]
+平方即得
+\[
+ \boxed{AB\le\frac{(m+M)^2}{4mM}}.
+\]
+\end{xsolution}
+
+\paragraph{参考题12}
+\begin{xsolution}
+记
+\[
+ I=\int_a^b\abs{f(x)}\,\dd x,
+ \qquad K=\frac{4I}{(b-a)^2}.
+\]
+反设对所有$x\in[a,b]$都有$\abs{f'(x)}\le K$。由$f(a)=f(b)=0$，
+\[
+ \abs{f(x)}\le K\min\{x-a,b-x\}.
+\]
+积分得到
+\[
+ I\le K\frac{(b-a)^2}{4}=I.
+\]
+因此实际上处处必须达到积分等号，即连续函数$\abs{f}$必须等于帐篷函数
+\[
+ K\min\{x-a,b-x\}.
+\]
+若$K=0$则$f\equiv0$，与$f$非常值矛盾；若$K>0$，该帐篷函数在中点不可微，而$f$可微，也矛盾。
+
+故反设不成立，至少存在$\xi\in[a,b]$使
+\[
+ \abs{f'(\xi)}>K
+ =\frac4{(b-a)^2}\int_a^b\abs{f(x)}\,\dd x.
+\]
+\end{xsolution}
+
+\paragraph{参考题13}
+\begin{xsolution}
+令$h=f''$。由$f'(1)-f'(0)=1$，
+\[
+ \int_0^1h(x)\,\dd x=1.
+\]
+又$f(1)=f(0)=f'(0)=0$，故
+\[
+ 0=f(1)=\int_0^1f'(x)\,\dd x
+ =\int_0^1(1-t)h(t)\,\dd t,
+\]
+从而
+\[
+ \int_0^1t h(t)\,\dd t=1.
+\]
+于是
+\[
+ \int_0^1(6x-2)h(x)\,\dd x
+ =6\cdot1-2\cdot1=4.
+\]
+由Schwarz不等式，
+\[
+ 16\le\left(\int_0^1(6x-2)^2\,\dd x\right)
+ \left(\int_0^1h^2(x)\,\dd x\right)
+ =4\int_0^1(f''(x))^2\,\dd x.
+\]
+故
+\[
+ \int_0^1(f''(x))^2\,\dd x\ge4.
+\]
+
+成立等号当且仅当$h$与$6x-2$成比例。又$\int h=1=\int(6x-2)$，故比例常数为1，
+\[
+ f''(x)=6x-2.
+\]
+结合$f'(0)=f(0)=0$积分得
+\[
+ f'(x)=3x^2-2x,
+ \qquad f(x)=x^3-x^2.
+\]
+反向代入可验证确实满足全部条件并取等号。
+\end{xsolution}
+
+\paragraph{参考题14}
+\begin{xsolution}
+定义严格增加的新变量
+\[
+ s(x)=\int_a^x\frac{\dd t}{f(t)}.
+\]
+它把$[a,b]$映到$[0,\beta]$；而$[c,d]$对应某个长度为$\alpha$的子区间$[u,u+\alpha]$。先由Lipschitz条件直接建立一个比较式。若$y<x$，则对$y\le z\le x$有
+\[
+ f(z)\le f(y)+L(z-y),
+\]
+故
+\begin{align*}
+ s(x)-s(y)
+ &=\int_y^x\frac{\dd z}{f(z)}\\
+ &\ge\int_y^x\frac{\dd z}{f(y)+L(z-y)}
+ =\frac1L\ln\left(1+\frac{L(x-y)}{f(y)}\right)\\
+ &\ge\frac1L\ln\frac{f(x)}{f(y)},
+\end{align*}
+最后一步用了$f(x)\le f(y)+L(x-y)$。交换$x,y$可得
+\[
+ \abs{\ln f(x)-\ln f(y)}\le L\abs{s(x)-s(y)}.
+\]
+记$x=x(s)$并令
+\[
+ H(s)=f^2(x(s)).
+\]
+于是对任意$s,t\in[0,\beta]$，
+\[
+ H(s)\le H(t)\ee^{2L\abs{s-t}}.
+\]
+固定$t$并对$s$积分：
+\begin{align*}
+\int_0^\beta H(s)\,\dd s
+&\le H(t)\int_0^\beta\ee^{2L\abs{s-t}}\,\dd s\\
+&=\frac{H(t)}{2L}\left(
+ \ee^{2Lt}+\ee^{2L(\beta-t)}-2
+\right)\\
+&\le\frac{\ee^{2L\beta}-1}{2L}H(t).
+\end{align*}
+最后一个不等式可由令$z=\ee^{2Lt}\in[1,\ee^{2L\beta}]$后化为
+$z+\ee^{2L\beta}/z-2\le\ee^{2L\beta}-1$验证。
+
+对$t\in[u,u+\alpha]$再积分，得
+\[
+ \alpha\int_0^\beta H(s)\,\dd s
+ \le\frac{\ee^{2L\beta}-1}{2L}
+ \int_u^{u+\alpha}H(t)\,\dd t.
+\]
+注意$\dd x=f\,\dd s$，所以
+\[
+ \int_0^\beta H(s)\,\dd s=\int_a^bf(x)\,\dd x,
+ \qquad
+ \int_u^{u+\alpha}H(s)\,\dd s=\int_c^df(x)\,\dd x.
+\]
+因此
+\[
+ \boxed{
+ \int_a^bf(x)\,\dd x
+ \le\frac{\ee^{2L\beta}-1}{2L\alpha}
+ \int_c^df(x)\,\dd x}.
+\]
+\end{xsolution}
+
+\paragraph{参考题15}
+\begin{xsolution}
+先证明题给基本不等式。令
+\[
+ \Phi(x)=\frac12\ln\frac{1+x}{1-x}-x,
+ \qquad 0<x<1.
+\]
+则$\Phi(0)=0$，且
+\[
+ \Phi'(x)=\frac{x^2}{1-x^2}>0,
+\]
+所以$\Phi(x)>0$。又
+\[
+ \Phi(x)=\int_0^x\frac{t^2}{1-t^2}\,\dd t
+ <\frac1{1-x^2}\int_0^xt^2\,\dd t
+ =\frac{x^3}{3(1-x^2)}.
+\]
+因此
+\[
+ 0<\frac12\ln\frac{1+x}{1-x}-x
+ <\frac{x^3}{3(1-x^2)}.
+\]
+
+取$x=1/(2n+1)$。注意
+\[
+ \frac{1+x}{1-x}=1+\frac1n.
+\]
+将不等式乘$2n+1$，得到
+\[
+ 0<\left(n+\frac12\right)\ln\left(1+\frac1n\right)-1
+ <\frac1{12n(n+1)}
+ =\frac1{12}\left(\frac1n-\frac1{n+1}\right).
+\]
+这比(11.34)中的系数$1/4$更强。
+
+仍采用Stirling公式证明中的数列
+\[
+ a_n=\frac{n!\ee^n}{n^{n+1/2}},
+ \qquad \lim_{n\to\infty}a_n=\sqrt{2\pi}.
+\]
+由
+\[
+ \ln\frac{a_n}{a_{n+1}}
+ =\left(n+\frac12\right)\ln\left(1+\frac1n\right)-1
+\]
+可得
+\[
+ 1<\frac{a_n}{a_{n+1}}
+ <\exp\left[\frac1{12}\left(\frac1n-\frac1{n+1}\right)\right].
+\]
+所以$\{a_n\}$严格减少，而
+\[
+ c_n=a_n\ee^{-1/(12n)}
+\]
+严格增加；二者极限同为$\sqrt{2\pi}$。于是
+\[
+ a_n\ee^{-1/(12n)}<\sqrt{2\pi}<a_n.
+\]
+故存在$0<\theta_n<1$使
+\[
+ a_n=\sqrt{2\pi}\,\ee^{\theta_n/(12n)}.
+\]
+代回定义，得到
+\[
+ \boxed{
+ \ln n!=\ln\sqrt{2\pi}+\left(n+\frac12\right)\ln n-n
+ +\frac{\theta_n}{12n}},
+\]
+等价地
+\[
+ \boxed{
+ n!=\sqrt{2\pi n}\left(\frac n\ee\right)^n
+ \ee^{\theta_n/(12n)},\qquad0<\theta_n<1}.
+\]
+\end{xsolution}
+
+% END SOLUTIONS
