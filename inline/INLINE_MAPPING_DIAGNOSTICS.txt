@@ -1,0 +1,20 @@
+EXTRA SOLUTION NUMBERS: ch02 '六、课堂练习题' group=2.8.2: [5, 6]
+EXTRA SOLUTION NUMBERS: ch02 '三、课堂练习题' group=2.8.3: [5]
+UNMATCHED SOLUTION: ch02 path='2.7.2' kind='练习题' q='' n=2 title='例题 2.7.1' mode=paragraph+xsolution
+UNMATCHED SOLUTION: ch02 path='2.7.2' kind='练习题' q='' n=2 title='例题 2.7.2' mode=paragraph+xsolution
+UNMATCHED SOLUTION: ch02 path='2.7.2' kind='练习题' q='' n=2 title='例题 2.7.3' mode=paragraph+xsolution
+UNMATCHED SOLUTION: ch02 path='2.7.2' kind='练习题' q='' n=2 title='例题 2.7.4' mode=paragraph+xsolution
+UNMATCHED SOLUTION: ch03 path='3.3.1' kind='思考题' q='' n=1 title='3.3.1 思考题' mode=xthought+xsolution
+UNMATCHED SOLUTION: ch03 path='3.4.1' kind='思考题' q='' n=1 title='3.4.1 思考题' mode=xthought+xsolution
+UNMATCHED SOLUTION: ch04 path='4.2.2' kind='练习题' q='' n=1 title='' mode=xsolution
+UNMATCHED SOLUTION: ch04 path='4.3.3' kind='练习题' q='' n=4 title='例题 4.3.1' mode=paragraph+xsolution
+UNMATCHED SOLUTION: ch04 path='4.3.3' kind='练习题' q='' n=4 title='例题 4.3.2' mode=paragraph+xsolution
+UNMATCHED SOLUTION: ch04 path='4.3.3' kind='练习题' q='' n=4 title='例题 4.3.3' mode=paragraph+xsolution
+UNMATCHED SOLUTION: ch08 path='8.3' kind='思考题' q='' n=1 title='思考题（8.3 基本事实第 7 条）' mode=paragraph+xsolution
+EXTRA SOLUTION NUMBERS: ch18 '练习题' group=18.1.6: [8, 9]
+EXTRA SOLUTION NUMBERS: ch18 '第一组参考题' group=18.3.2: [7]
+EXTRA SOLUTION NUMBERS: ch21 '练习题' group=21.4.4: [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28]
+UNMATCHED SOLUTION: ch21 path='21.3.1' kind='练习题' q='' n=1 title='命题 21.3.1' mode=paragraph+xsolution
+EXTRA SOLUTION NUMBERS: ch24 '第二组参考题' group=24.5.2: [6]
+UNMATCHED SOLUTION: ch25 path='25.4.4' kind='练习题' q='' n=1 title='性质 1' mode=paragraph+xsolution
+UNMATCHED SOLUTION: ch25 path='25.4.4' kind='练习题' q='' n=2 title='性质 2' mode=paragraph+xsolution

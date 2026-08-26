@@ -1,0 +1,2741 @@
+% Task C09
+% Source volume: upper
+% Physical scan pages: 295--315
+% Printed book pages: 278--298
+% Transcribe only source content; omit running headers, footers, and printed page numbers.
+\chapter{不定积分}
+
+% BEGIN TRANSCRIPTION
+
+本章主要讨论不定积分的计算，要点是掌握不定积分的基本计算方法与常见的可积函数类。本章共分三节：在 §9.1 中以分部积分法和换元积分法为中心，通过例题介绍不定积分的计算方法；在 §9.2 中讨论几类主要的可积函数；最后一节为学习要点和参考题。
+
+\section{不定积分的计算方法}
+
+\subsection{内容提要}
+
+\begin{enumerate}
+  \item 求原函数的运算是求导数运算的逆运算，即从函数 $F(x)$ 的导函数 $F'(x)$ 出发去求 $F(x)$。
+  \item \textbf{关于原函数的三个基本问题：}（1）存在性，（2）唯一性，（3）如何求。其中问题（1）要到下一章才能解决（见命题 10.3.3），问题（2）已在前面解决（见例题 7.1.6）。本章主要是解决问题（3），即计算不定积分。
+  \item 如果函数 $f(x)$ 在区间 $I$ 上有原函数，则在此区间上 $f(x)$ 是某个函数的导函数，因此它必须满足导函数的特有性质。例如，它一定具有介值性，且不会有第一类间断点。反之，在区间 $I$ 上有第一类间断点的函数在此区间上一定没有原函数。（参见 Darboux 定理（即命题 7.1.6）和例题 7.1.1。）
+  \item $f(x)$ 的不定积分 $\int f(x)\,\dd x$ 是 $f(x)$ 的原函数全体，它是一族函数，而不止是一个函数。由于不定积分 $\int f(x)\,\dd x$ 中任意两个函数相差一个常值函数，因此，求 $\int f(x)\,\dd x$ 时只要求出 $f(x)$ 的一个原函数，再加上一个任意常值函数。
+  \item 初等函数 $f(x)$ 的原函数 $\int f(x)\,\dd x$ 不一定是初等函数。如果 $\int f(x)\,\dd x$ 也是初等函数，则称 $\int f(x)\,\dd x$ 可积或积得出来；反之，则称其不可积或积不出来。不定积分的计算就是求出原函数为初等函数的不定积分。
+\end{enumerate}
+
+\subsection{思考题}
+
+\begin{xthought}[1]
+“不定积分”与“原函数”这两个概念有什么区别？有什么联系？
+\end{xthought}
+\begin{xsolution}
+\textbf{解}\quad 若 $F'(x)=f(x)$，则称 $F$ 是 $f$ 的一个原函数。原函数是一个具体函数；而不定积分
+  \[
+    \int f(x)\,\dd x
+  \]
+  表示 $f$ 的全部原函数所组成的函数族。在同一连通区间上，任意两个原函数之差为常数，因此若 $F$ 是一个原函数，则
+  \[
+    \int f(x)\,\dd x=F(x)+C.
+  \]
+  所以二者的联系是：求不定积分就是求原函数全体；区别是：一个原函数是函数族中的一个成员，而不定积分是整个函数族。
+\end{xsolution}
+
+
+\begin{xthought}[2]
+在 $x=0$ 点不连续的函数
+  \[
+    f(x)=
+    \begin{cases}
+      2x\sin\dfrac1x-\cos\dfrac1x, & x\ne0,\\
+      0, & x=0
+    \end{cases}
+  \]
+  在 $(-\infty,+\infty)$ 上是否有原函数？
+\end{xthought}
+\begin{xsolution}
+在 $x=0$ 点不连续的函数
+  \[
+    f(x)=
+    \begin{cases}
+      2x\sin\dfrac1x-\cos\dfrac1x,&x\ne0,\\
+      0,&x=0
+    \end{cases}
+  \]
+  在 $(-\infty,+\infty)$ 上是否有原函数？
+
+  \textbf{解}\quad 有。定义
+  \[
+    F(x)=
+    \begin{cases}
+      x^2\sin\dfrac1x,&x\ne0,\\
+      0,&x=0.
+    \end{cases}
+  \]
+  当 $x\ne0$ 时，
+  \[
+    F'(x)=2x\sin\frac1x+x^2\cos\frac1x\left(-\frac1{x^2}\right)
+    =2x\sin\frac1x-\cos\frac1x=f(x).
+  \]
+  而在 $x=0$，
+  \[
+    F'(0)=\lim_{h\to0}\frac{h^2\sin(1/h)}{h}
+    =\lim_{h\to0}h\sin\frac1h=0=f(0).
+  \]
+  因此 $F$ 在整个实轴上可导且 $F'=f$，所以 $f$ 虽在 $0$ 点不连续，仍在 $(-\infty,+\infty)$ 上有原函数。
+\end{xsolution}
+
+
+\begin{xthought}[3]
+在不定积分公式 $\int \operatorname{sgn}x\,\dd x=\abs{x}+C$ 和 $\int\dfrac1x\,\dd x=\ln\abs{x}+C$ 中为什么会出现绝对值号？
+\end{xthought}
+\begin{xsolution}
+在公式
+  \[
+    \int\operatorname{sgn}x\,\dd x=\abs{x}+C,
+    \qquad
+    \int\frac1x\,\dd x=\ln\abs{x}+C
+  \]
+  中为什么会出现绝对值号？
+
+  \textbf{解}\quad 两个公式都应按定义域的连通分支理解。对 $x>0$，
+  \[
+    \operatorname{sgn}x=1,
+    \qquad
+    \frac1x=(\ln x)',
+  \]
+  因而原函数分别为 $x+C$ 与 $\ln x+C$；对 $x<0$，
+  \[
+    \operatorname{sgn}x=-1,
+    \qquad
+    \frac1x=(\ln(-x))',
+  \]
+  因而原函数分别为 $-x+C$ 与 $\ln(-x)+C$。把正、负两个分支统一写出，就得到 $\abs{x}$ 与 $\ln\abs{x}$。
+
+  还要注意，$\operatorname{sgn}x$ 在 $0$ 处有第一类间断点，因此它在整个 $\RR$ 上没有原函数；公式 $\abs{x}+C$ 只是在 $(-\infty,0)$ 和 $(0,+\infty)$ 上分别成立。$1/x$ 本身也只在这两个区间上有定义。
+\end{xsolution}
+
+
+\begin{xthought}[4]
+下列等式是否正确？说明理由：
+  \begin{enumerate}[label=(\arabic*)]
+    \item $\dd\int f(x)\,\dd x=f(x)$；
+    \item $\dd\int f(x)\,\dd x=f(x)\,\dd x$；
+    \item $\int\dd f(x)=f(x)$；
+    \item $\dd\int\dd f(x)=\dd f(x)$。
+  \end{enumerate}
+  其中 $\dd\int f(x)\,\dd x$ 是指对于 $\int f(x)\,\dd x$ 中每一个函数求微分所得的集合。
+\end{xthought}
+\begin{xsolution}
+下列等式是否正确？说明理由。
+  \begin{enumerate}[label=(\arabic*)]
+    \item $\dd\int f(x)\,\dd x=f(x)$；
+
+    \textbf{解}\quad 不正确。左边是对原函数族中的每个函数取微分所得的微分式，而右边是函数。正确的形式应为
+    \[
+      \dd\int f(x)\,\dd x=f(x)\,\dd x.
+    \]
+
+    \item $\dd\int f(x)\,\dd x=f(x)\,\dd x$；
+
+    \textbf{解}\quad 正确。若 $F'(x)=f(x)$，则
+    \[
+      \dd(F(x)+C)=F'(x)\,\dd x=f(x)\,\dd x.
+    \]
+
+    \item $\int\dd f(x)=f(x)$；
+
+    \textbf{解}\quad 不正确。不定积分表示全部原函数，因此
+    \[
+      \int\dd f(x)=f(x)+C,
+    \]
+    不能漏掉任意常数。
+
+    \item $\dd\int\dd f(x)=\dd f(x)$。
+
+    \textbf{解}\quad 正确。因为
+    \[
+      \int\dd f(x)=f(x)+C,
+    \]
+    对其中每个函数再取微分都得到 $\dd f(x)$。
+  \end{enumerate}
+\end{xsolution}
+
+
+\begin{xthought}[5]
+以下推导中有什么错误？用分部积分公式可得到以下等式：
+  \[
+    \int\frac{\dd x}{x}
+      =x\cdot\frac1x-\int x\,\dd\left(\frac1x\right)
+      =1+\int\frac{\dd x}{x},
+  \]
+  因此推出 $0=1$。
+\end{xthought}
+\begin{xsolution}
+以下推导中有什么错误？
+  \[
+    \int\frac{\dd x}{x}
+    =x\cdot\frac1x-\int x\,\dd\left(\frac1x\right)
+    =1+\int\frac{\dd x}{x},
+  \]
+  因而推出 $0=1$。
+
+  \textbf{解}\quad 错误在于把两个不定积分中的任意常数当成了同一个常数，从而非法相消。不定积分等式表示的是原函数族。写明常数后应为
+  \[
+    \ln\abs{x}+C_1
+    =1+\ln\abs{x}+C_2,
+  \]
+  这要求 $C_1=C_2+1$，完全没有矛盾。也就是说，分部积分公式成立到一个任意常数；不能把等式两侧出现的同形不定积分当成同一个固定函数再直接消去。
+\end{xsolution}
+
+
+\subsection{基本计算方法}
+
+不定积分的基本计算方法有：
+
+\begin{enumerate}
+  \item \textbf{第一换元法——凑微分法，也称为直接代换法：}设
+  \[
+    \int f(u)\,\dd u=F(u)+C,
+  \]
+  $u=u(x)$ 可微，则
+  \[
+    \int f(u(x))u'(x)\,\dd x=F(u(x))+C.
+  \]
+  我们称这个方法为凑微分法，是因为在实际计算时，$u(x)$ 的形式是“凑出来”的，目的是使得被积表达式可以看成为 $f(u)\,\dd u$，同时能积出来。
+
+  \item \textbf{第二换元法——代入换元法，也称为逆代换法：}设不定积分 $\int f(x)\,\dd x$ 存在，$x=x(t)$ 可微且存在反函数 $t=t(x)$，又若
+  \[
+    \int f(x(t))x'(t)\,\dd t=F(t)+C,
+  \]
+  则
+  \[
+    \int f(x)\,\dd x=F(t(x))+C.
+  \]
+  在使用第二换元法时，往往会遇到一个问题：是否一定要求存在反函数，以及反函数是否要求处处可导？对此在各种教科书上有不同的条件，缺乏比较利落的论述。根据《美国数学月刊》(1994) 第 101 卷 520--526 页（译文见《数学译林》(1994) 348--352 页）一文的调查，这确实是在绝大多数教科书中都没有说清楚的一个问题。我们在下面将介绍其中的证明，从证明中可以看出，对于 $t(x)$ 只有一个要求，即满足恒等式 $x(t(x))\equiv x$，其他均无须考虑。此外，在 [42] 的 235--236 页中也注意到了这个问题。
+
+  \item \textbf{分部积分法：}设 $u(x)$ 与 $v(x)$ 可微，且在 $u(x)v'(x)$ 和 $v(x)u'(x)$ 中至少有一个存在原函数，则
+  \[
+    \int u(x)v'(x)\,\dd x=u(x)v(x)-\int v(x)u'(x)\,\dd x.
+  \]
+\end{enumerate}
+
+\begin{xremark}
+\textbf{1}\quad 计算不定积分的一般步骤是：通过代数运算、三角函数公式或换元、分部积分先将被积函数化为若干简单函数的和，然后应用不定积分的线性运算法则与基本积分公式求出最后的结果。为此，在学习时除了必须牢记基本积分公式外，还需要熟练掌握中学数学中的一些常用公式。
+\end{xremark}
+
+\begin{xremark}
+\textbf{2}\quad 分部积分法是与求导运算中的乘积求导法则相对应的积分法则。如果被积函数中出现幂函数、指数函数、三角函数这三类函数中两类或两类以上函数的乘积，或者出现对数函数、反三角函数，都可以考虑用分部积分法。应用分部积分法，最重要的是如何正确选择 $u(x)$ 与 $v(x)$。一般说来，要注意下面两个原则：
+\[
+  \text{(1) }v(x)\text{ 比较容易求出};
+  \qquad
+  \text{(2) }\int v\,\dd u\text{ 要比 }\int u\,\dd v\text{ 容易计算}.
+\]
+对于上面提到的五类初等函数，有人总结出“反对幂三指”五个字，这里“反”“对”“幂”“三”“指”依次是反三角函数、对数函数、幂函数、三角函数和指数函数，积分时，一般应将排列次序在后面的函数优先与 $\dd x$ 结合成为 $\dd v$。（有兴趣的读者可看 [42] 的 237 页和《美国数学月刊》(1983) 第 90 卷 211 页。）
+\end{xremark}
+
+\begin{xproposition}[9.1.1（第二换元法的证明）]
+设 $f(x)$ 有原函数，$x=x(t)$ 可微且有 $t=t(x)$ 满足 $x(t(x))\equiv x$，又若
+\[
+  \int f(x(t))x'(t)\,\dd t=F(t)+C,
+\]
+则
+\[
+  \int f(x)\,\dd x=F(t(x))+C.
+\]
+\end{xproposition}
+
+\begin{xproof}
+已知 $f(x)$ 有原函数，记为 $U(x)$，则有 $U'(x)=f(x)$。又已知 $F(t)$ 满足
+\[
+  F'(t)=f(x(t))x'(t).
+\]
+从复合函数求导法则得到
+\[
+  \frac{\dd U(x(t))}{\dd t}=U'(x(t))x'(t)=f(x(t))x'(t)=F'(t).
+\]
+因此 $U(x(t))$ 和 $F(t)$ 只相差一个常值函数，即有
+\[
+  U(x(t))=F(t)+C.
+\]
+用 $t=t(x)$ 代入，且利用恒等式 $x(t(x))\equiv x$，于是就有
+\[
+  U(x(t(x)))=U(x)=F(t(x))+C,
+\]
+因此
+\[
+  \frac{\dd F(t(x))}{\dd x}=U'(x)=f(x).
+\]
+\end{xproof}
+
+\subsection{例题}
+
+首先，我们通过一题多解来说明计算不定积分时的多种可能性。
+
+\begin{xexample}[9.1.1]
+计算
+\[
+  I=\int\frac{\dd x}{x\sqrt{x^2-1}}.
+\]
+\end{xexample}
+
+\begin{xsolution}
+\textbf{1}\quad
+\[
+  I=\int\frac{\dd x}{x^2\sqrt{1-(1/x)^2}}
+   =-\int\frac{\dd(1/x)}{\sqrt{1-(1/x)^2}}
+   =-\arcsin\frac1x+C.
+\]
+\end{xsolution}
+
+\begin{xremark}
+\textbf{1}\quad 这是第一换元法，在其中将 $1/x$ 看成为 $u$，将被积表达式看成 $\dfrac{\dd u}{\sqrt{1-u^2}}$，然后用基本积分公式。但实际上也可以说是用第二换元法。令 $x=1/t$，这时
+\[
+  \dd x=-\frac1{t^2}\,\dd t,
+  \qquad
+  \frac1{x\sqrt{x^2-1}}=\frac{t^2}{\sqrt{1-t^2}},
+\]
+于是就有
+\[
+  I=-\int\left(\frac1{t^2}\right)\frac{t^2}{\sqrt{1-t^2}}\,\dd t
+   =-\int\frac{\dd t}{\sqrt{1-t^2}},
+\]
+以下与解 1 相同。这个解法中的变换称为“倒代换”，是一种常用的变量代换。更一般的还有代换 $x=t^\alpha$，其中 $\alpha$ 待定。
+\end{xremark}
+
+\begin{xsolution}
+\textbf{2}\quad
+\[
+  I=\int\frac{x\,\dd x}{x^2\sqrt{x^2-1}}
+   =\int\frac{\dd\sqrt{x^2-1}}{(\sqrt{x^2-1})^2+1}
+   =\arctan\sqrt{x^2-1}+C.
+\]
+\end{xsolution}
+
+\begin{xsolution}
+\textbf{3}\quad 令 $x=\sec t$，则 $\dd x=\sec t\tan t\,\dd t$，
+\[
+  I=\int\frac{\sec t\tan t}{\sec t\tan t}\,\dd t
+   =\int\dd t=t+C=\arccos\frac1x+C.
+\]
+\end{xsolution}
+
+\begin{xsolution}
+\textbf{4}\quad 令 $\sqrt{x^2-1}=x-t$，则可解出
+\[
+  x=\frac{t^2+1}{2t},
+\]
+并计算得到
+\[
+  \dd x=\frac{t^2-1}{2t^2}\,\dd t,
+  \qquad
+  \sqrt{x^2-1}=\frac{1-t^2}{2t}.
+\]
+因此
+\[
+  I=\int\frac{2t\cdot2t(t^2-1)}{(t^2+1)(1-t^2)2t^2}\,\dd t
+   =-2\int\frac{\dd t}{1+t^2}
+   =-2\arctan t+C
+   =-2\arctan\left(x-\sqrt{x^2-1}\right)+C.
+\]
+\end{xsolution}
+
+\begin{xsolution}
+\textbf{5}\quad 令 $\sqrt{x^2-1}=t(x-1)$，则可解出
+\[
+  x=\frac{t^2+1}{t^2-1},
+\]
+并计算得到
+\[
+  \dd x=-\frac{4t\,\dd t}{(t^2-1)^2},
+  \qquad
+  \sqrt{x^2-1}=\frac{2t}{t^2-1}.
+\]
+因此
+\[
+  I=\int\frac{(t^2-1)^2(-4t)}{(t^2+1)2t(t^2-1)^2}\,\dd t
+   =-2\int\frac{\dd t}{1+t^2}
+   =-2\arctan t+C
+   =-2\arctan\frac{\sqrt{x^2-1}}{x-1}+C.
+\]
+\end{xsolution}
+
+\begin{xremark}
+\textbf{2}\quad 最后两种解法中所用的变换称为 Euler 变换，可以证明，对于形如
+\[
+  \int R\left(x,\sqrt{ax^2+bx+c}\right)\,\dd x\qquad(a\ne0)
+\]
+的不定积分（其中 $R$ 为有理分式），利用 Euler 变换一定能解决，见 [14] 第二卷 281 小节和 [59] 第二册的 3.3.3 小节。然而，过于一般的方法对于具体问题往往不是最简单的方法。正如本题的解 3 所示，对形如 $\int R(x,\sqrt{x^2-a^2})\,\dd x$（$a>0$）的不定积分，用变换 $x=a\sec t$ 有时要比利用 Euler 变换简单得多。一般来说，对形如 $\int R(x,\sqrt{a^2-x^2})\,\dd x$ 与 $\int R(x,\sqrt{x^2+a^2})\,\dd x$（$a>0$）的不定积分，较为简单的常用变换分别是 $x=a\sin t$ 与 $x=a\tan t$。
+\end{xremark}
+
+\begin{xremark}
+\textbf{3}\quad 本题的 5 种解法的答案表面上均不相同，这在不定积分计算中是常见的现象。由于不定积分是以一个原函数加上任意常值函数的形式来表示的，而其中原函数的选择是任意的，彼此之间只相差一个常值函数，因此表面上就可能不一样，但它们的导函数必须相同，否则就出错了。请初学者注意：\textbf{要养成用求导运算来检验不定积分计算结果是否正确的习惯。}
+\end{xremark}
+
+\begin{xexample}[9.1.2]
+计算不定积分
+\[
+  I=\int x^2\sqrt{x^2+1}\,\dd x.
+\]
+\end{xexample}
+
+\begin{xsolution}
+\textbf{1}\quad 将根号外的一个因子 $x$ 移入到根号下，并将积分表达式看成为 $f(u)\,\dd u$，其中 $u=x^2$，就可计算如下：
+\begin{align*}
+  I
+  &=\frac12\int\sqrt{x^4+x^2}\,\dd x^2\\
+  &=\frac12\int\sqrt{\left(x^2+\frac12\right)^2-\left(\frac12\right)^2}\,\dd\left(x^2+\frac12\right)\\
+  &=\frac14\left(x^2+\frac12\right)\sqrt{x^4+x^2}
+    -\frac1{16}\ln\left(x^2+\frac12+\sqrt{x^4+x^2}\right)+C_1\\
+  &=\frac18x(2x^2+1)\sqrt{x^2+1}
+    -\frac1{16}\ln\left(x+\sqrt{x^2+1}\right)^2+C
+    \qquad\left(C=C_1+\frac{\ln2}{16}\right)\\
+  &=\frac18x(2x^2+1)\sqrt{x^2+1}
+    -\frac18\ln\left(x+\sqrt{x^2+1}\right)+C.
+\end{align*}
+\end{xsolution}
+
+\begin{xsolution}
+\textbf{2}\quad 因为
+\[
+  \int x\sqrt{x^2+1}\,\dd x
+    =\frac12\int\sqrt{x^2+1}\,\dd(x^2+1)
+    =\frac13(x^2+1)^{3/2}+C_1,
+\]
+所以由分部积分法，可得
+\begin{align*}
+  I
+  &=\frac13\int x\,\dd(x^2+1)^{3/2}\\
+  &=\frac13x(x^2+1)^{3/2}-\frac13\int(x^2+1)^{3/2}\,\dd x\\
+  &=\frac13x(x^2+1)^{3/2}-\frac13\int x^2\sqrt{x^2+1}\,\dd x
+    -\frac13\int\sqrt{x^2+1}\,\dd x\\
+  &=\frac13x(x^2+1)^{3/2}-\frac13I
+    -\frac16\left[x\sqrt{x^2+1}+\ln\left(x+\sqrt{x^2+1}\right)\right].
+\end{align*}
+将 $\frac13I$ 移项到左边，且对两边同除以 $\frac43$，得到
+\[
+  I=\frac14x(x^2+1)^{3/2}
+    -\frac18\left[x\sqrt{x^2+1}+\ln\left(x+\sqrt{x^2+1}\right)\right]+C.
+\]
+\end{xsolution}
+
+本题还有下列解法，这种解法虽然不容易想到，但十分简洁。
+
+\begin{xsolution}
+\textbf{3}\quad 因为
+\[
+  \left(x^3\sqrt{x^2+1}\right)'
+    =3x^2\sqrt{x^2+1}+\frac{x^4}{\sqrt{x^2+1}}
+    =4x^2\sqrt{x^2+1}-\sqrt{x^2+1}+\frac1{\sqrt{x^2+1}},
+\]
+所以
+\[
+  x^2\sqrt{x^2+1}
+    =\frac14\left[\left(x^3\sqrt{x^2+1}\right)'
+      +\sqrt{x^2+1}-\frac1{\sqrt{x^2+1}}\right].
+\]
+于是
+\[
+  I=\frac14\left[x^3\sqrt{x^2+1}+\frac{x}{2}\sqrt{x^2+1}
+    -\frac12\ln\left(x+\sqrt{x^2+1}\right)\right]+C.
+\]
+\end{xsolution}
+
+\begin{xremark}
+\textbf{1}\quad 可由此设计不定积分 $\int x^k\sqrt{x^2+1}\,\dd x$ 和 $\int\dfrac{x^k}{\sqrt{x^2+1}}\,\dd x$ 的一般解法。
+\end{xremark}
+
+\begin{xremark}
+\textbf{2}\quad 如解 1 所示，往往可通过加减一个常数的方法来化简不定积分的结果。
+\end{xremark}
+
+\begin{xremark}
+\textbf{3}\quad 本题解 2 通过分部积分法产生一个关于所求积分的方程，然后解这个方程得到所求积分，这样运用分部积分的方法可称为“循环法”，是一种常用的技巧。特别当被积函数中含有指数函数与三角函数的乘积时，往往可以用循环法来进行积分。下面我们再看一道用循环法进行积分的例题。
+\end{xremark}
+
+\begin{xexample}[9.1.3]
+计算
+\[
+  I=\int\csc^4x\,\dd x.
+\]
+\end{xexample}
+
+\begin{xsolution}
+\begin{align*}
+  I
+  &=\int\csc^2x\,\dd(-\cot x)
+   =-\cot x\csc^2x+\int\cot x\,\dd(\csc^2x)\\
+  &=-\cot x\csc^2x-2\int(\csc^4x-\csc^2x)\,\dd x\\
+  &=-\cot x\csc^2x-2I-2\cot x,
+\end{align*}
+因此得到
+\[
+  I=-\frac13\cot x\csc^2x-\frac23\cot x+C.
+\]
+\end{xsolution}
+
+\begin{xexample}[9.1.4]
+计算
+\[
+  I=\int x\tan x\sec^2x\,\dd x.
+\]
+\end{xexample}
+
+\begin{xsolution}
+用分部积分法计算：
+\[
+  I=\int x\,\dd\left(\frac12\sec^2x\right)
+   =\frac12x\sec^2x-\frac12\int\sec^2x\,\dd x
+   =\frac12(x\sec^2x-\tan x)+C.
+\]
+\end{xsolution}
+
+\begin{xremark}
+有人用下面的方法做这道题：
+
+\textbf{错误解法}\quad 令 $x=\pi-t$，则
+\begin{align*}
+  I
+  &=\int\frac{(\pi-t)\sin t}{\cos^3t}\,\dd t
+   =\pi\int\frac{\sin t}{\cos^3t}\,\dd t
+    -\int\frac{t\sin t}{\cos^3t}\,\dd t\\
+  &=\pi\int\dd\left(\frac1{2\cos^2t}\right)-I
+   =\frac\pi2\sec^2t-I,
+\end{align*}
+所以得到
+\[
+  I=\frac\pi4\sec^2x+C.
+\]
+用求导还原的方法就可以发现上述结果是错的。原因是：虽然 $\int\dfrac{t\sin t}{\cos^3t}\,\dd t$ 与 $\int\dfrac{x\sin x}{\cos^3x}\,\dd x$ 的被积函数有相同形式，但它们是不同变量 $t$ 与 $x$ 的函数，且有关系 $x=\pi-t$，不能合并。同样，$\sec^2t$ 与 $\sec^2x$ 也是不同的函数，不能任意替换。
+\end{xremark}
+
+当被积函数含有指数函数、对数函数和反三角函数时，其不定积分既可以用换元积分法求，也可以用分部积分法求或用两种方法结合求。但是，同一道题，用不同的方法去解，其解法的难易程度可能很不相同。
+
+\begin{xexample}[9.1.5]
+求不定积分
+\[
+  \int\frac{x\ln x}{(1+x^2)^2}\,\dd x.
+\]
+\end{xexample}
+
+\begin{xsolution}
+用分部积分法计算：
+\begin{align*}
+  \int\frac{x\ln x}{(1+x^2)^2}\,\dd x
+  &=-\frac12\int\ln x\,\dd\left(\frac1{1+x^2}\right)\\
+  &=-\frac12\left(\frac{\ln x}{1+x^2}-\int\frac1{1+x^2}\,\dd\ln x\right)\\
+  &=-\frac12\left[\frac{\ln x}{1+x^2}-\int\frac{\dd x}{x(1+x^2)}\right]\\
+  &=-\frac12\left[\frac{\ln x}{1+x^2}-\int\left(\frac1x-\frac{x}{1+x^2}\right)\,\dd x\right]\\
+  &=-\frac12\left[\frac{\ln x}{1+x^2}-\ln x+\frac12\ln(1+x^2)\right]+C\\
+  &=-\frac12\frac{\ln x}{1+x^2}+\frac14\ln\frac{x^2}{1+x^2}+C.
+\end{align*}
+\end{xsolution}
+
+\begin{xexample}[9.1.6]
+求不定积分
+\[
+  \int\frac{x\arctan x}{(1+x^2)^2}\,\dd x.
+\]
+\end{xexample}
+
+\begin{xsolution}
+将分部积分法和换元法结合起来就很容易解决这个积分问题。首先用分部积分法计算如下：
+\[
+  \int\frac{x\arctan x}{(1+x^2)^2}\,\dd x
+   =-\frac12\int\arctan x\,\dd\left(\frac1{1+x^2}\right)
+   =-\frac{\arctan x}{2(1+x^2)}+\frac12\int\frac{\dd\arctan x}{1+x^2}.
+\]
+然后对最后一个积分用代换 $\arctan x=t$，就有
+\begin{align*}
+  \frac12\int\frac{\dd\arctan x}{1+x^2}
+  &=\frac12\int\frac{\dd t}{1+\tan^2t}
+   =\frac12\int\cos^2t\,\dd t\\
+  &=\frac14\int(\cos2t+1)\,\dd t
+   =\frac18\sin2t+\frac14t+C\\
+  &=\frac{x}{4(1+x^2)}+\frac14\arctan x+C.
+\end{align*}
+合并以上结果就得到
+\begin{align*}
+  \int\frac{x\arctan x}{(1+x^2)^2}\,\dd x
+  &=-\frac{\arctan x}{2(1+x^2)}+\frac{x}{4(1+x^2)}+\frac14\arctan x+C\\
+  &=\frac{x^2-1}{4(x^2+1)}\arctan x+\frac{x}{4(1+x^2)}+C.
+\end{align*}
+\end{xsolution}
+
+\begin{xremark}
+从以上例题的解法可以看出，对于不定积分而言，并不存在能对一切情况都适用的固定方法。初学者必须通过相当数量的解题训练，积累经验，才能掌握计算不定积分的技能。
+\end{xremark}
+
+\subsection{特殊计算方法}
+
+\paragraph{（一）配对积分法}
+
+先看下面这道例题：
+
+\begin{xexample}[9.1.7]
+计算不定积分
+\[
+  I=\int\frac{\sin x\,\dd x}{2\sin x+3\cos x}.
+\]
+\end{xexample}
+
+\begin{xsolution}
+注意到
+\[
+  \int\frac{2\sin x+3\cos x}{2\sin x+3\cos x}\,\dd x=\int\dd x=x+C,
+\]
+又有
+\[
+  \int\frac{(2\sin x+3\cos x)'}{2\sin x+3\cos x}\,\dd x
+   =\int\frac{2\cos x-3\sin x}{2\sin x+3\cos x}\,\dd x
+   =\ln\abs{2\sin x+3\cos x}+C.
+\]
+不难看出，如果设
+\[
+  J=\int\frac{\cos x}{2\sin x+3\cos x}\,\dd x,
+\]
+则 $2I+3J$ 与 $2J-3I$ 是直接可以求出的。因此为了求 $I$，只要解代数方程组就行了。具体计算从略。
+\end{xsolution}
+
+从上面这道题我们看到，有时为了计算不定积分 $I(x)=\int f(x)\,\dd x$，可以找另一个不定积分 $J(x)=\int g(x)\,\dd x$ 及实数 $a,b,c,d$（$ad-bc\ne0$），使 $af+bg$ 和 $cf+dg$ 的积分都比 $\int f(x)\,\dd x$ 容易计算。计算出 $aI(x)+bJ(x)$ 和 $cI(x)+dJ(x)$ 之后，就容易用代数方法求出 $I(x)$。
+
+\begin{xexample}[9.1.8]
+求不定积分
+\[
+  \int\frac{\dd x}{1+x^4}.
+\]
+\end{xexample}
+
+\begin{xsolution}
+令
+\[
+  M(x)=\int\frac{\dd x}{1+x^4},
+  \qquad
+  N(x)=\int\frac{x^2\,\dd x}{1+x^4},
+\]
+则有
+\begin{align*}
+  M(x)-N(x)
+  &=\int\frac{1-x^2}{1+x^4}\,\dd x
+   =\int\frac{1-1/x^2}{x^2+1/x^2}\,\dd x\\
+  &=-\int\frac{\dd(x+1/x)}{(x+1/x)^2-2}
+   =-\frac1{2\sqrt2}\ln\frac{x^2-\sqrt2x+1}{x^2+\sqrt2x+1}+C,
+\end{align*}
+而
+\begin{align*}
+  M(x)+N(x)
+  &=\int\frac{1+x^2}{1+x^4}\,\dd x
+   =\int\frac{1+1/x^2}{x^2+1/x^2}\,\dd x
+   =\int\frac{\dd(x-1/x)}{(x-1/x)^2+2}\\
+  &=\frac1{\sqrt2}\arctan\frac{x-1/x}{\sqrt2}+C
+   =\frac1{\sqrt2}\arctan\frac{x^2-1}{\sqrt2x}+C.
+\end{align*}
+因此得到
+\begin{align*}
+  M(x)
+  &=\frac12[(M(x)+N(x))+(M(x)-N(x))]\\
+  &=-\frac1{4\sqrt2}\ln\frac{x^2-\sqrt2x+1}{x^2+\sqrt2x+1}
+    +\frac1{2\sqrt2}\arctan\frac{x^2-1}{\sqrt2x}+C.
+\end{align*}
+\end{xsolution}
+
+\begin{xremark}
+本题也可用后面 9.2.1 小节中的标准方法做，但计算量却要大得多。
+\end{xremark}
+
+\paragraph{（二）递推法}
+
+设 $f_n(x)$ 是变量 $x$ 的函数，其表达式中含有参数 $n\in\NN_+$。为了计算积分 $I_n=\int f_n(x)\,\dd x$，可以用各种方法将它化成求参数值较小的积分 $I_{n-k}=\int f_{n-k}(x)\,\dd x$（$0<k\le n$），并且继续如此做下去，直到最后把问题化为求参数值最小的一个或几个积分，这种计算不定积分的方法，称为递推法。
+
+\begin{xexample}[9.1.9]
+导出求不定积分
+\[
+  I_n=\int\frac{\dd x}{(1+x^2)^n}
+  \qquad(n\text{ 是正整数})
+\]
+的递推公式。
+\end{xexample}
+
+\begin{xsolution}
+由分部积分法，我们有
+\begin{align*}
+  I_n
+  &=\int\frac{\dd x}{(1+x^2)^n}
+   =\frac{x}{(1+x^2)^n}+2n\int\frac{x^2}{(1+x^2)^{n+1}}\,\dd x\\
+  &=\frac{x}{(1+x^2)^n}+2n\int\left[\frac1{(1+x^2)^n}-\frac1{(1+x^2)^{n+1}}\right]\,\dd x\\
+  &=\frac{x}{(1+x^2)^n}+2nI_n-2nI_{n+1}.
+\end{align*}
+因此得到递推公式
+\[
+  I_{n+1}=\frac1{2n}\cdot\frac{x}{(1+x^2)^n}
+    +\left(1-\frac1{2n}\right)I_n,
+  \qquad n\in\NN_+.
+\]
+\end{xsolution}
+
+\begin{xexample}[9.1.10]
+设对正整数 $m,n$，定义
+\[
+  I(m,n)=\int\cos^mx\sin^nx\,\dd x,
+\]
+证明：
+\[
+  I(m,n)=\frac{\cos^{m-1}x\sin^{n+1}x}{m+n}
+    +\frac{m-1}{m+n}I(m-2,n).
+\]
+\end{xexample}
+
+\begin{xproof}
+用分部积分法得到
+\begin{align*}
+  I(m,n)
+  &=\int\cos^mx\sin^nx\,\dd x
+   =\int\cos^{m-1}x\sin^nx\,\dd(\sin x)\\
+  &=\cos^{m-1}x\sin^{n+1}x
+    -\int\sin x\,\dd(\cos^{m-1}x\sin^nx),
+\end{align*}
+而最后一个积分可以计算如下
+\begin{align*}
+  \int\sin x\,\dd(\cos^{m-1}x\sin^nx)
+  &=\int\sin x[-(m-1)\cos^{m-2}x\sin^{n+1}x
+    +n\cos^mx\sin^{n-1}x]\,\dd x\\
+  &=-(m-1)\int\cos^{m-2}x(1-\cos^2x)\sin^nx\,\dd x
+    +n\int\cos^mx\sin^nx\,\dd x\\
+  &=-(m-1)I(m-2,n)+(m+n-1)I(m,n).
+\end{align*}
+加以整理并除以 $m+n$，即得所要的递推公式。
+\end{xproof}
+
+虽然建立不定积分的递推公式主要是用分部积分法，但有时还需要考虑其他方法。下面我们看一道例题。
+
+\begin{xexample}[9.1.11]
+设对正整数 $n>2$，定义
+\[
+  I_n=\int\frac{\sin nx}{\sin x}\,\dd x,
+\]
+证明：
+\[
+  I_n=\frac2{n-1}\sin(n-1)x+I_{n-2}.
+\]
+\end{xexample}
+
+\begin{xproof}
+考虑降 $n$，
+\begin{align*}
+  I_n
+  &=\int\frac{\sin(n-1)x\cos x+\sin x\cos(n-1)x}{\sin x}\,\dd x\\
+  &=\int\frac{\sin(n-1)x\cos x}{\sin x}\,\dd x+\int\cos(n-1)x\,\dd x\\
+  &=\frac12\int\frac{\sin nx+\sin(n-2)x}{\sin x}\,\dd x
+    +\int\cos(n-1)x\,\dd x\\
+  &=\frac12I_n+\frac12I_{n-2}+\frac1{n-1}\sin(n-1)x,
+\end{align*}
+所以
+\[
+  I_n=\frac2{n-1}\sin(n-1)x+I_{n-2}.
+\]
+\end{xproof}
+
+\subsection{练习题}
+
+\begin{xexercise}[1]
+计算下列不定积分：
+  \begin{enumerate}[label=(\arabic*)]
+    \item $\displaystyle\int\frac{x}{1+x^4}\,\dd x$；
+    \item $\displaystyle\int\frac{\dd x}{\sqrt{x(1-x)}}$；
+    \item $\displaystyle\int\ln(1+x^2)\,\dd x$；
+    \item $\displaystyle\int\frac{\arctan\sqrt{x}}{\sqrt{x}(1+x)}\,\dd x$；
+    \item $\displaystyle\int\frac{\dd x}{\ee^x-1}$；
+    \item $\displaystyle\int\frac{x\ln(x+\sqrt{1+x^2})}{(1+x^2)^2}\,\dd x$；
+    \item $\displaystyle\int\frac{x\ee^x}{(1+x)^2}\,\dd x$；
+    \item $\displaystyle\int\frac{1+x}{x(1+x\ee^x)}\,\dd x$；
+    \item $\displaystyle\int\ln^2(x+\sqrt{1+x^2})\,\dd x$；
+    \item $\displaystyle\int\frac{\ee^{\arctan x}}{(1+x^2)^{3/2}}\,\dd x$。
+  \end{enumerate}
+\end{xexercise}
+\begin{xsolution}
+计算下列不定积分。
+  \begin{enumerate}[label=(\arabic*)]
+    \item
+    \[
+      \int\frac{x}{1+x^4}\,\dd x.
+    \]
+    令 $u=x^2$，则
+    \[
+      \int\frac{x}{1+x^4}\,\dd x
+      =\frac12\int\frac{\dd u}{1+u^2}
+      =\frac12\arctan x^2+C.
+    \]
+
+    \item
+    \[
+      \int\frac{\dd x}{\sqrt{x(1-x)}}.
+    \]
+    在 $0<x<1$ 上令 $x=\sin^2t$，则
+    \[
+      \dd x=2\sin t\cos t\,\dd t,
+      \qquad
+      \sqrt{x(1-x)}=\sin t\cos t,
+    \]
+    故
+    \[
+      \int\frac{\dd x}{\sqrt{x(1-x)}}
+      =2t+C
+      =2\arcsin\sqrt{x}+C.
+    \]
+
+    \item
+    \[
+      \int\ln(1+x^2)\,\dd x.
+    \]
+    分部积分得
+    \begin{align*}
+      \int\ln(1+x^2)\,\dd x
+      &=x\ln(1+x^2)-\int\frac{2x^2}{1+x^2}\,\dd x\\
+      &=x\ln(1+x^2)-2x+2\arctan x+C.
+    \end{align*}
+
+    \item
+    \[
+      \int\frac{\arctan\sqrt{x}}{\sqrt{x}(1+x)}\,\dd x.
+    \]
+    对 $x>0$ 令 $t=\sqrt{x}$，则 $\dd x=2t\,\dd t$，所以
+    \[
+      \int\frac{\arctan\sqrt{x}}{\sqrt{x}(1+x)}\,\dd x
+      =2\int\frac{\arctan t}{1+t^2}\,\dd t
+      =(\arctan\sqrt{x})^2+C.
+    \]
+
+    \item
+    \[
+      \int\frac{\dd x}{\ee^x-1}.
+    \]
+    令 $u=\ee^x$，则
+    \[
+      \int\frac{\dd x}{\ee^x-1}
+      =\int\frac{\dd u}{u(u-1)}
+      =\ln\abs{u-1}-\ln u+C,
+    \]
+    因而
+    \[
+      \boxed{\int\frac{\dd x}{\ee^x-1}=\ln\abs{1-\ee^{-x}}+C}.
+    \]
+
+    \item
+    \[
+      \int\frac{x\ln(x+\sqrt{1+x^2})}{(1+x^2)^2}\,\dd x.
+    \]
+    记
+    \[
+      u=\ln(x+\sqrt{1+x^2}),
+      \qquad
+      \dd u=\frac{\dd x}{\sqrt{1+x^2}},
+    \]
+    且
+    \[
+      \frac{x\,\dd x}{(1+x^2)^2}
+      =-\frac12\,\dd\left(\frac1{1+x^2}\right).
+    \]
+    分部积分得
+    \begin{align*}
+      \int\frac{x u}{(1+x^2)^2}\,\dd x
+      &=-\frac{u}{2(1+x^2)}
+        +\frac12\int\frac{\dd x}{(1+x^2)^{3/2}}\\
+      &=-\frac{u}{2(1+x^2)}+\frac{x}{2\sqrt{1+x^2}}+C.
+    \end{align*}
+    即
+    \[
+      \boxed{-\frac{\ln(x+\sqrt{1+x^2})}{2(1+x^2)}
+      +\frac{x}{2\sqrt{1+x^2}}+C}.
+    \]
+
+    \item
+    \[
+      \int\frac{x\ee^x}{(1+x)^2}\,\dd x.
+    \]
+    注意
+    \[
+      \left(\frac{\ee^x}{1+x}\right)'
+      =\frac{x\ee^x}{(1+x)^2},
+    \]
+    所以
+    \[
+      \boxed{\int\frac{x\ee^x}{(1+x)^2}\,\dd x=\frac{\ee^x}{1+x}+C}.
+    \]
+
+    \item
+    \[
+      \int\frac{1+x}{x(1+x\ee^x)}\,\dd x.
+    \]
+    乘以 $\ee^x/\ee^x$，并令 $u=x\ee^x$，有
+    \[
+      \dd u=\ee^x(1+x)\,\dd x,
+    \]
+    因而
+    \begin{align*}
+      \int\frac{1+x}{x(1+x\ee^x)}\,\dd x
+      &=\int\frac{\dd u}{u(1+u)}\\
+      &=\ln\abs{u}-\ln\abs{1+u}+C\\
+      &=x+\ln\abs{x}-\ln(1+x\ee^x)+C.
+    \end{align*}
+
+    \item
+    \[
+      \int\ln^2(x+\sqrt{1+x^2})\,\dd x.
+    \]
+    令
+    \[
+      u=\ln(x+\sqrt{1+x^2}),
+      \qquad
+      x=\sinh u,
+      \qquad
+      \dd x=\cosh u\,\dd u.
+    \]
+    则
+    \begin{align*}
+      \int u^2\cosh u\,\dd u
+      &=u^2\sinh u-2\int u\sinh u\,\dd u\\
+      &=u^2\sinh u-2u\cosh u+2\sinh u+C.
+    \end{align*}
+    因而
+    \[
+      \boxed{x\ln^2(x+\sqrt{1+x^2})
+      -2\sqrt{1+x^2}\ln(x+\sqrt{1+x^2})+2x+C}.
+    \]
+
+    \item
+    \[
+      \int\frac{\ee^{\arctan x}}{(1+x^2)^{3/2}}\,\dd x.
+    \]
+    令 $t=\arctan x$，则 $x=\tan t$，$\dd x=(1+x^2)\,\dd t$，且
+    \[
+      \frac1{\sqrt{1+x^2}}=\cos t.
+    \]
+    因此
+    \begin{align*}
+      \int\frac{\ee^{\arctan x}}{(1+x^2)^{3/2}}\,\dd x
+      &=\int\ee^t\cos t\,\dd t\\
+      &=\frac12\ee^t(\sin t+\cos t)+C\\
+      &=\boxed{\frac{(x+1)\ee^{\arctan x}}{2\sqrt{1+x^2}}+C}.
+    \end{align*}
+  \end{enumerate}
+\end{xsolution}
+
+
+\begin{xexercise}[2]
+用配对积分法计算下列不定积分：
+  \begin{enumerate}[label=(\arabic*)]
+    \item $\displaystyle\int\frac{\dd x}{1+x^2+x^4}$；
+    \item $\displaystyle\int\frac{\ee^x\,\dd x}{\ee^x+\ee^{-x}}$；
+    \item $\displaystyle\int\frac{b\sin x+a\cos x}{a\sin x+b\cos x}\,\dd x\quad(a\ne b)$；
+    \item $\displaystyle\int\frac{\dd x}{1+x^3}$。
+  \end{enumerate}
+\end{xexercise}
+\begin{xsolution}
+用配对积分法计算下列不定积分。
+  \begin{enumerate}[label=(\arabic*)]
+    \item
+    \[
+      \int\frac{\dd x}{1+x^2+x^4}.
+    \]
+    令
+    \[
+      I=\int\frac{\dd x}{1+x^2+x^4},
+      \qquad
+      J=\int\frac{x^2\,\dd x}{1+x^2+x^4}.
+    \]
+    对 $x\ne0$，分别配对可得
+    \begin{align*}
+      I+J
+      &=\int\frac{1+x^2}{1+x^2+x^4}\,\dd x
+       =\int\frac{\dd(x-1/x)}{(x-1/x)^2+3}\\
+      &=\frac1{\sqrt3}\arctan\frac{x^2-1}{\sqrt3x}+C_1,
+    \end{align*}
+    以及
+    \begin{align*}
+      J-I
+      &=\int\frac{x^2-1}{1+x^2+x^4}\,\dd x
+       =\int\frac{\dd(x+1/x)}{(x+1/x)^2-1}\\
+      &=\frac12\ln\frac{x^2-x+1}{x^2+x+1}+C_2.
+    \end{align*}
+    解这两个线性关系即可得到 $I$。将反正切的分支常数并入 $C$，并把结果写成在 $x=0$ 处也有定义的形式，得
+    \[
+      \boxed{
+      \frac14\ln\frac{x^2+x+1}{x^2-x+1}
+      +\frac1{2\sqrt3}\left[
+        \arctan\frac{2x+1}{\sqrt3}
+        +\arctan\frac{2x-1}{\sqrt3}
+      \right]+C}.
+    \]
+
+    \item
+    \[
+      \int\frac{\ee^x\,\dd x}{\ee^x+\ee^{-x}}.
+    \]
+    令
+    \[
+      I=\int\frac{\ee^x\,\dd x}{\ee^x+\ee^{-x}},
+      \qquad
+      J=\int\frac{\ee^{-x}\,\dd x}{\ee^x+\ee^{-x}}.
+    \]
+    则
+    \[
+      I+J=x+C_1,
+      \qquad
+      I-J=\ln(\ee^x+\ee^{-x})+C_2.
+    \]
+    解得
+    \[
+      \boxed{I=\frac12x+\frac12\ln(\ee^x+\ee^{-x})+C}
+      =\frac12\ln(1+\ee^{2x})+C.
+    \]
+
+    \item
+    \[
+      \int\frac{b\sin x+a\cos x}{a\sin x+b\cos x}\,\dd x,
+      \qquad a\ne b.
+    \]
+    设
+    \[
+      D=a\sin x+b\cos x,
+      \qquad
+      D'=a\cos x-b\sin x.
+    \]
+    因 $a\ne b$ 保证 $(a,b)\ne(0,0)$，有
+    \[
+      b\sin x+a\cos x
+      =\frac{2ab}{a^2+b^2}D
+       +\frac{a^2-b^2}{a^2+b^2}D'.
+    \]
+    因此
+    \[
+      \boxed{
+      \frac{2ab}{a^2+b^2}x
+      +\frac{a^2-b^2}{a^2+b^2}\ln\abs{a\sin x+b\cos x}+C}.
+    \]
+
+    \item
+    \[
+      \int\frac{\dd x}{1+x^3}.
+    \]
+    令
+    \[
+      I=\int\frac{\dd x}{1+x^3},
+      \qquad
+      J=\int\frac{x\,\dd x}{1+x^3},
+      \qquad
+      K=\int\frac{x^2\,\dd x}{1+x^3}
+       =\frac13\ln\abs{1+x^3}+C.
+    \]
+    配对后有
+    \[
+      K-J+I=\int\frac{\dd x}{x+1}=\ln\abs{x+1}+C_1,
+    \]
+    以及
+    \[
+      I+J=\int\frac{\dd x}{x^2-x+1}
+      =\frac2{\sqrt3}\arctan\frac{2x-1}{\sqrt3}+C_2.
+    \]
+    将两式相加并消去 $J$，得到
+    \[
+      \boxed{
+      I=\frac13\ln\abs{x+1}
+      -\frac16\ln(x^2-x+1)
+      +\frac1{\sqrt3}\arctan\frac{2x-1}{\sqrt3}+C}.
+    \]
+  \end{enumerate}
+\end{xsolution}
+
+
+\begin{xexercise}[3]
+通过计算不定积分
+  \[
+    \int(\cos^4x-\sin^4x)\,\dd x
+    \quad\text{与}\quad
+    \int(\cos^4x+\sin^4x)\,\dd x,
+  \]
+  进而求出不定积分
+  \[
+    \int\cos^4x\,\dd x
+    \quad\text{和}\quad
+    \int\sin^4x\,\dd x.
+  \]
+\end{xexercise}
+\begin{xsolution}
+通过两个配对积分求 $\int\cos^4x\,\dd x$ 与 $\int\sin^4x\,\dd x$。
+
+  \textbf{解}\quad 先有
+  \[
+    \cos^4x-\sin^4x=(\cos^2x-\sin^2x)(\cos^2x+\sin^2x)=\cos2x,
+  \]
+  因而
+  \[
+    A:=\int(\cos^4x-\sin^4x)\,\dd x
+    =\frac12\sin2x+C.
+  \]
+  又
+  \[
+    \cos^4x+\sin^4x
+    =1-2\sin^2x\cos^2x
+    =\frac34+\frac14\cos4x,
+  \]
+  所以
+  \[
+    B:=\int(\cos^4x+\sin^4x)\,\dd x
+    =\frac34x+\frac1{16}\sin4x+C.
+  \]
+  取线性组合可得
+  \[
+    \boxed{
+    \int\cos^4x\,\dd x
+    =\frac38x+\frac14\sin2x+\frac1{32}\sin4x+C},
+  \]
+  \[
+    \boxed{
+    \int\sin^4x\,\dd x
+    =\frac38x-\frac14\sin2x+\frac1{32}\sin4x+C}.
+  \]
+\end{xsolution}
+
+
+\begin{xexercise}[4]
+导出计算下列不定积分的递推公式：
+  \begin{enumerate}[label=(\arabic*)]
+    \item $\displaystyle\int\sin^nx\,\dd x$；
+    \item $\displaystyle\int\tan^nx\,\dd x$；
+    \item $\displaystyle\int\sec^nx\,\dd x$；
+    \item $\displaystyle\int\frac{\dd x}{x^n\sqrt{1+x^2}}$。
+  \end{enumerate}
+\end{xexercise}
+\begin{xsolution}
+导出计算下列不定积分的递推公式。
+  \begin{enumerate}[label=(\arabic*)]
+    \item 令
+    \[
+      I_n=\int\sin^nx\,\dd x.
+    \]
+    对 $n>1$，分部积分
+    \begin{align*}
+      I_n
+      &=-\int\sin^{n-1}x\,\dd(\cos x)\\
+      &=-\sin^{n-1}x\cos x
+        +(n-1)\int\sin^{n-2}x\cos^2x\,\dd x\\
+      &=-\sin^{n-1}x\cos x+(n-1)I_{n-2}-(n-1)I_n.
+    \end{align*}
+    因此
+    \[
+      \boxed{I_n=-\frac1n\sin^{n-1}x\cos x+\frac{n-1}{n}I_{n-2}}.
+    \]
+    可取 $I_0=x$、$I_1=-\cos x$ 为初始项。
+
+    \item 令
+    \[
+      T_n=\int\tan^nx\,\dd x.
+    \]
+    对 $n>1$，由 $\tan^2x=\sec^2x-1$，
+    \begin{align*}
+      T_n
+      &=\int\tan^{n-2}x(\sec^2x-1)\,\dd x\\
+      &=\frac{\tan^{n-1}x}{n-1}-T_{n-2}.
+    \end{align*}
+    即
+    \[
+      \boxed{T_n=\frac{\tan^{n-1}x}{n-1}-T_{n-2}}.
+    \]
+    可取
+    \[
+      T_0=x,
+      \qquad
+      T_1=-\ln\abs{\cos x}
+    \]
+    为初始项。
+
+    \item 令
+    \[
+      S_n=\int\sec^nx\,\dd x.
+    \]
+    对 $n>1$，分部积分
+    \begin{align*}
+      S_n
+      &=\int\sec^{n-2}x\,\dd(\tan x)\\
+      &=\sec^{n-2}x\tan x
+        -(n-2)\int\sec^{n-2}x\tan^2x\,\dd x\\
+      &=\sec^{n-2}x\tan x-(n-2)(S_n-S_{n-2}),
+    \end{align*}
+    因而
+    \[
+      \boxed{S_n=\frac{\sec^{n-2}x\tan x}{n-1}
+      +\frac{n-2}{n-1}S_{n-2}}.
+    \]
+    可取
+    \[
+      S_0=x,
+      \qquad
+      S_1=\ln\abs{\sec x+\tan x}
+    \]
+    为初始项。
+
+    \item 令
+    \[
+      J_n=\int\frac{\dd x}{x^n\sqrt{1+x^2}}.
+    \]
+    计算
+    \begin{align*}
+      \frac{\dd}{\dd x}\left(\frac{\sqrt{1+x^2}}{x^{n-1}}\right)
+      &=(2-n)\frac1{x^{n-2}\sqrt{1+x^2}}
+       +(1-n)\frac1{x^n\sqrt{1+x^2}}.
+    \end{align*}
+    对 $n>1$ 积分整理得
+    \[
+      \boxed{J_n
+      =-\frac{\sqrt{1+x^2}}{(n-1)x^{n-1}}
+       -\frac{n-2}{n-1}J_{n-2}}.
+    \]
+    可用
+    \[
+      J_0=\ln(x+\sqrt{1+x^2})+C,
+      \qquad
+      J_1=\ln\abs{\frac{x}{1+\sqrt{1+x^2}}}+C
+    \]
+    作为初始积分。
+  \end{enumerate}
+\end{xsolution}
+
+
+\begin{xexercise}[5]
+试求：
+  \begin{enumerate}[label=(\arabic*)]
+    \item $\displaystyle\int x f''(x)\,\dd x$；
+    \item $\displaystyle\int f'(2x)\,\dd x$。
+  \end{enumerate}
+\end{xexercise}
+\begin{xsolution}
+试求。
+  \begin{enumerate}[label=(\arabic*)]
+    \item
+    \[
+      \int x f''(x)\,\dd x.
+    \]
+    分部积分得
+    \[
+      \boxed{\int x f''(x)\,\dd x=x f'(x)-f(x)+C}.
+    \]
+
+    \item
+    \[
+      \int f'(2x)\,\dd x.
+    \]
+    令 $u=2x$，则
+    \[
+      \boxed{\int f'(2x)\,\dd x=\frac12f(2x)+C}.
+    \]
+  \end{enumerate}
+\end{xsolution}
+
+
+\begin{xexercise}[6]
+设对任意正整数 $m,n$，定义
+  \[
+    I(m,n)=\int\cos^mx\sin^nx\,\dd x,
+  \]
+  证明：
+  \begin{enumerate}[label=(\arabic*)]
+    \item $\displaystyle I(m,n)=-\frac{\sin^{n-1}x\cos^{m+1}x}{m+n}+\frac{n-1}{m+n}\cdot I(m,n-2)$；
+    \item $\displaystyle I(n,n)=-\frac{\cos2x\sin^{n-1}2x}{n\cdot2^{n+1}}+\frac{n-1}{4n}\cdot I(n-2,n-2)$。
+  \end{enumerate}
+\end{xexercise}
+\begin{xsolution}
+设
+  \[
+    I(m,n)=\int\cos^mx\sin^nx\,\dd x.
+  \]
+  证明下列递推关系。
+  \begin{enumerate}[label=(\arabic*)]
+    \item 证明
+    \[
+      I(m,n)=-\frac{\sin^{n-1}x\cos^{m+1}x}{m+n}
+      +\frac{n-1}{m+n}I(m,n-2).
+    \]
+    从
+    \[
+      I(m,n)=-\int\cos^mx\sin^{n-1}x\,\dd(\cos x)
+    \]
+    出发，分部积分得
+    \begin{align*}
+      I(m,n)
+      &=-\sin^{n-1}x\cos^{m+1}x
+       +\int\cos x\,\dd(\cos^mx\sin^{n-1}x)\\
+      &=-\sin^{n-1}x\cos^{m+1}x
+       -mI(m,n)
+       +(n-1)\int\cos^{m+2}x\sin^{n-2}x\,\dd x.
+    \end{align*}
+    又
+    \[
+      \int\cos^{m+2}x\sin^{n-2}x\,\dd x
+      =I(m,n-2)-I(m,n),
+    \]
+    因而
+    \[
+      (m+n)I(m,n)
+      =-\sin^{n-1}x\cos^{m+1}x+(n-1)I(m,n-2),
+    \]
+    即得所证公式。
+
+    \item 证明
+    \[
+      I(n,n)=-\frac{\cos2x\sin^{n-1}2x}{n\,2^{n+1}}
+      +\frac{n-1}{4n}I(n-2,n-2).
+    \]
+    由
+    \[
+      \sin x\cos x=\frac12\sin2x
+    \]
+    得
+    \[
+      I(n,n)=\frac1{2^n}\int\sin^n2x\,\dd x
+      =\frac1{2^{n+1}}\int\sin^nu\,\dd u,
+      \qquad u=2x.
+    \]
+    使用本题第 4(1) 小题的递推式，
+    \begin{align*}
+      I(n,n)
+      &=-\frac{\cos2x\sin^{n-1}2x}{n\,2^{n+1}}
+       +\frac{n-1}{n\,2^{n+1}}\int\sin^{n-2}u\,\dd u.
+    \end{align*}
+    而
+    \[
+      I(n-2,n-2)=\frac1{2^{n-1}}\int\sin^{n-2}u\,\dd u,
+    \]
+    故
+    \[
+      \frac{n-1}{n\,2^{n+1}}\int\sin^{n-2}u\,\dd u
+      =\frac{n-1}{4n}I(n-2,n-2),
+    \]
+    结论成立。
+  \end{enumerate}
+\end{xsolution}
+
+
+\section{几类可积函数}
+
+\subsection{有理函数的积分}
+
+有理函数是最基本的可积函数类，其他可积函数类都是化为有理函数进行积分的。有理函数可以分解为多项式与真分式的和，而真分式又可以分解为部分分式的和并求出积分，因此有理函数的原函数一定是初等函数。
+
+在将真分式分解为部分分式的和时，理论上是将问题归结为求解线性代数方程组。这方面的标准理论见 [14] 的第八章第 2 节。
+
+实际上许多问题还可以有很灵活的解法。这里有一些常用的技巧，下面我们举例说明。
+
+\begin{xexample}[9.2.1]
+将 $\dfrac1{1+x^3}$ 化为部分分式的和。
+\end{xexample}
+
+\begin{xsolution}
+对待定的表达式
+\begin{equation}
+  \frac1{1+x^3}
+  =\frac1{(1+x)(1-x+x^2)}
+  =\frac{A}{1+x}+\frac{Bx+C}{1-x+x^2}
+  \tag{9.1}
+  \label{eq:9.1}
+\end{equation}
+两边同乘 $1+x$ 后，令 $x\to-1$，得 $A=\frac13$。
+
+又将 \eqref{eq:9.1} 两边同乘 $x$ 后，令 $x\to+\infty$，得 $A+B=0$，因此 $B=-A=-\frac13$。
+
+再在 \eqref{eq:9.1} 两边用 $x=0$ 代入，得 $1=A+C$，因此 $C=1-A=\frac23$。
+\end{xsolution}
+
+\begin{xremark}
+从一般理论知道在求部分分式的计算中用四则代数运算就够了。以上引入的极限计算也是如此。容易看出，求 $A$ 的过程就是在 \eqref{eq:9.1} 的左边将分母中的因子 $(1+x)$ 去掉之后再用 $x=-1$ 代入的结果。
+\end{xremark}
+
+下面举一个比较复杂的例子（见 [72]），其中的解 1 中不仅有极限计算，还有求导计算和在复数域中的计算。
+
+\begin{xexample}[9.2.2]
+求不定积分
+\[
+  \int\frac{x^7-2x^6+4x^5-5x^4+4x^3-5x^2-x}{(x-1)^2(x^2+1)^2}\,\dd x.
+\]
+\end{xexample}
+
+\begin{xsolution}
+\textbf{1}\quad 记被积函数为 $R(x)$。首先要分离出真分式，得到
+\[
+  R(x)=x+\frac{x^5-x^4+x^3-3x^2-2x}{(x-1)^2(x^2+1)^2}.
+\]
+根据部分分式理论，一定有唯一的分解如下：
+\begin{equation}
+  \frac{x^5-x^4+x^3-3x^2-2x}{(x-1)^2(x^2+1)^2}
+  =\frac{A}{(x-1)^2}+\frac{B}{x-1}
+   +\frac{Cx+D}{(x^2+1)^2}+\frac{Ex+F}{x^2+1}.
+  \tag{9.2}
+  \label{eq:9.2}
+\end{equation}
+两边同乘 $(x-1)^2$ 后令 $x\to1$，就得到 $A=-1$。又两边同乘 $(x-1)^2$ 后求在点 $x=1$ 处的导数值，则就可用求导法则计算如下：
+\[
+  B=\frac{(5-4+3-6-2)\cdot4-8\cdot(1-1+1-3-2)}{16}=1.
+\]
+又在 \eqref{eq:9.2} 两边同乘 $(x^2+1)^2$，再令 $x\to\ii$（复数域中的极限），就得到\footnote{这方面的理论基础要到复变函数论中才能建立，这里只能作为一种计算法则来使用。}
+\[
+  C\ii+D=\frac{\ii-1-\ii+3-2\ii}{-2\ii}=1+\ii,
+\]
+因此 $C=D=1$。再在 \eqref{eq:9.2} 两边令 $x=0$ 代入，得到 $A-B+D+F=0$，因此 $F=1$。最后在 \eqref{eq:9.2} 两边同乘以 $x$，并令 $x\to+\infty$，就得到 $1=B+E$，因此 $E=0$。
+
+以下的积分没有困难，我们只列出结果为
+\[
+  \int R(x)\,\dd x
+  =\frac12x^2+\frac1{x-1}+\frac{x-1}{2(x^2+1)}+\ln\abs{x-1}+\frac32\arctan x+C.
+\]
+
+代替用各种手段去确定 \eqref{eq:9.2} 中的未知数的思路，另外还有一种方法值得介绍，它看似笨拙，实际上往往很有效（见 [72]）。
+\end{xsolution}
+
+\begin{xsolution}
+\textbf{2}\quad 写出 \eqref{eq:9.2} 并求出 $A=-1$ 之后，将右边这一项移到左边，计算出
+\begin{align*}
+  \frac{x^5-x^4+x^3-3x^2-2x}{(x-1)^2(x^2+1)^2}-\frac{-1}{(x-1)^2}
+  &=\frac{x^5+x^3-x^2-2x+1}{(x-1)^2(x^2+1)^2}\\
+  &=\frac{x^4+x^3+2x^2+x-1}{(x-1)(x^2+1)^2}
+   =\frac{B}{x-1}+\cdots,
+\end{align*}
+然后就容易求出 $B=1$。再将这右边的第一项移到左边，计算得到
+\begin{align*}
+  \frac{x^4+x^3+2x^2+x-1}{(x-1)(x^2+1)^2}-\frac1{x-1}
+  &=\frac{x^3+x-2}{(x-1)(x^2+1)^2}\\
+  &=\frac{x^2+x+2}{(x^2+1)^2}
+   =\frac{x+1}{(x^2+1)^2}+\frac1{x^2+1},
+\end{align*}
+以下从略。
+\end{xsolution}
+
+在将真分式分解为部分分式的和时，除了用观察法与待定系数法外，对于一些特殊的情况，另外有一些方法：
+
+\begin{enumerate}
+  \item 形如 $\displaystyle\int\frac{Q_m(x)}{(x-a)^n}\,\dd x$ 的积分，其中 $Q_m(x)$ 为 $m$ 次多项式。对此类积分，可用换元 $u=x-a$ 或者将 $Q_m(x)$ 展开为 $x=a$ 处的 Taylor 多项式。
+\end{enumerate}
+
+\begin{xexample}[9.2.3]
+计算
+\[
+  \int\frac{1-x^3}{(1+x)^4}\,\dd x.
+\]
+\end{xexample}
+
+\begin{xsolution}
+令 $u=1+x$，则 $x=u-1$，因此
+\begin{align*}
+  \int\frac{1-x^3}{(1+x)^4}\,\dd x
+  &=\int\frac{1-(u-1)^3}{u^4}\,\dd u\\
+  &=\int\left(-\frac1u+\frac3{u^2}-\frac3{u^3}+\frac2{u^4}\right)\,\dd u\\
+  &=-\ln\abs{u}-\frac3u+\frac3{2u^2}-\frac2{3u^3}+C\\
+  &=-\ln\abs{x+1}-\frac3{x+1}+\frac3{2(x+1)^2}-\frac2{3(x+1)^3}+C.
+\end{align*}
+\end{xsolution}
+
+\begin{enumerate}[resume]
+  \item 形如 $\displaystyle\int\frac{Q_m(x)}{(x^2+px+q)^n}\,\dd x$ 的积分，其中分母无实根，$Q_m(x)$ 为 $m$ 次多项式。这时可用带余除法将 $Q_m(x)$ 化成 $Q_{m-2}(x)(x^2+px+q)$ 与一个余项的和，如果 $m-2\ge2$，继续对 $Q_{m-2}(x)$ 作带余除法，直至其次小于 2（例题从略）。
+\end{enumerate}
+
+\subsection{三角函数有理式的积分}
+
+三角函数有理式的积分 $\int R(\sin x,\cos x)\,\dd x$ 都可以用“万能变换” $t=\tan\dfrac x2$ 化为有理函数进行积分。但这时产生的有理函数的分母的次数较高，计算工作量较大，因此我们往往避免用万能变换，而是根据具体情况寻找较为简单的解法。例如，下面的几种变换的计算量往往比用万能变换要小：
+
+\begin{enumerate}
+  \item 如果 $R(-\sin x,\cos x)=-R(\sin x,\cos x)$，则令 $t=\cos x$；
+  \item 如果 $R(\sin x,-\cos x)=-R(\sin x,\cos x)$，则令 $t=\sin x$；
+  \item 如果 $R(-\sin x,-\cos x)=R(\sin x,\cos x)$，则令 $t=\tan x$。
+\end{enumerate}
+
+\begin{xexample}[9.2.4]
+计算
+\[
+  I=\int\frac{\dd x}{\sin x\cos2x}.
+\]
+\end{xexample}
+
+\begin{xsolution}
+这属于上面的情况 1，所以可试用 $t=\cos x$ 计算如下：
+\begin{align*}
+  I
+  &=\int\frac{\sin x\,\dd x}{(1-\cos^2x)(2\cos^2x-1)}
+   =\int\frac{\dd\cos x}{(\cos^2x-1)(2\cos^2x-1)}\\
+  &=\int\frac{\dd t}{(t^2-1)(2t^2-1)}
+   =\int\left(\frac1{t^2-1}-\frac2{2t^2-1}\right)\,\dd t\\
+  &=\frac12\ln\abs{\frac{t-1}{t+1}}
+   -\frac1{\sqrt2}\ln\abs{\frac{\sqrt2t-1}{\sqrt2t+1}}+C\\
+  &=\frac12\ln\abs{\frac{\cos x-1}{\cos x+1}}
+   -\frac1{\sqrt2}\ln\abs{\frac{\sqrt2\cos x-1}{\sqrt2\cos x+1}}+C.
+\end{align*}
+\end{xsolution}
+
+\begin{xexample}[9.2.5]
+计算
+\[
+  I=\int\frac{\cos2x}{\sin^4x+\cos^4x}\,\dd x.
+\]
+\end{xexample}
+
+\begin{xsolution}
+\textbf{1}\quad 这属于上面的情况 3，因此可令 $t=\tan x$ 计算如下：
+\begin{align*}
+  I
+  &=\int\frac{(\cos^2x-\sin^2x)/\cos^2x}{(\sin^4x+\cos^4x)/\cos^4x}\cdot\frac1{\cos^2x}\,\dd x\\
+  &=\int\frac{1-\tan^2x}{1+\tan^4x}\,\dd\tan x
+   =\int\frac{1-t^2}{1+t^4}\,\dd t\\
+  &=\frac1{2\sqrt2}\ln\frac{t^2+\sqrt2t+1}{t^2-\sqrt2t+1}+C
+   =\frac1{2\sqrt2}\ln\frac{\sec^2x+\sqrt2\tan x}{\sec^2x-\sqrt2\tan x}+C.
+\end{align*}
+上面最后一个积分利用了例题 9.1.8 中的结果。
+\end{xsolution}
+
+\begin{xsolution}
+\textbf{2}\quad 如下解法更为简单：
+\begin{align*}
+  I
+  &=\int\frac{\cos2x}{(\sin^2x+\cos^2x)^2-2\sin^2x\cos^2x}\,\dd x\\
+  &=\int\frac{\cos2x}{2-\sin^22x}\,\dd(2x)
+   =\int\frac{\dd\sin2x}{2-\sin^22x}\\
+  &=\frac1{2\sqrt2}\ln\abs{\frac{\sin2x+\sqrt2}{\sin2x-\sqrt2}}+C.
+\end{align*}
+\end{xsolution}
+
+\begin{xremark}
+上面的例题表明，求三角函数有理式的不定积分时，不必拘泥于所提到的各种变换，而应根据具体问题去寻求最适当的解法。下面我们再举一例。
+\end{xremark}
+
+\begin{xexample}[9.2.6]
+计算
+\[
+  I=\int\sin^4x\,\dd x.
+\]
+\end{xexample}
+
+分析　本题属于上面的情况 3，但如果用变换 $t=\tan x$ 做，计算量较大。下面介绍两种解法：
+
+\begin{xsolution}
+\textbf{1}\quad 用分部积分法可进行如下：
+\begin{align*}
+  I
+  &=-\int\sin^3x\,\dd\cos x\\
+  &=-\sin^3x\cos x+\int\cos x\,\dd\sin^3x\\
+  &=-\sin^3x\cos x+3\int\sin^2x\cos^2x\,\dd x\\
+  &=-\sin^3x\cos x+3\int\sin^2x(1-\sin^2x)\,\dd x\\
+  &=-\sin^3x\cos x+3\int\sin^2x\,\dd x-3\int\sin^4x\,\dd x\\
+  &=-\sin^3x\cos x+\frac32\int(1-\cos2x)\,\dd x-3I\\
+  &=-\sin^3x\cos x+\frac32x-\frac34\sin2x-3I,
+\end{align*}
+所以得到
+\[
+  I=-\frac14\sin^3x\cos x+\frac38x-\frac3{16}\sin2x+C.
+\]
+\end{xsolution}
+
+\begin{xsolution}
+\textbf{2}\quad 如果用三角函数的倍角公式，则可得到更简单的解法：
+\begin{align*}
+  I
+  &=\int\left(\frac{1-\cos2x}{2}\right)^2\,\dd x
+   =\frac14\int(1-2\cos2x+\cos^22x)\,\dd x\\
+  &=\frac14\int\left(1-2\cos2x+\frac{1+\cos4x}{2}\right)\,\dd x\\
+  &=\frac38x-\frac14\sin2x+\frac1{32}\sin4x+C.
+\end{align*}
+\end{xsolution}
+
+\subsection{无理函数积分的例子}
+
+一般来说，无理函数的不定积分并不总是积得出来的。例如，即使看似简单的二项式微分式的积分
+\[
+  \int x^m(a+bx^n)^p\,\dd x,
+\]
+其中 $a,b$ 为常数，$m,n,p$ 为有理数，也仅仅在 $p$，$(m+1)/n$ 或 $(m+1)/n+p$ 为整数这三种特殊情况下才能积得出来。其余情况下的二项式微分式都积不出来，见 [14] 第二卷 279 小节。在前面我们已经提到，对于形如 $\int R(x,\sqrt{ax^2+bx+c})\,\dd x$（$a\ne0$），其中 $R$ 为有理分式的不定积分，可以利用 Euler 变换或三角变换化为有理函数进行积分（见例题 9.1.1 的注 2）。下面我们再举一些例题，说明如何对一些特殊的无理函数进行积分。
+
+\begin{xexample}[9.2.7]
+计算不定积分
+\[
+  \int\frac1x\sqrt{\frac{x+2}{x-2}}\,\dd x.
+\]
+\end{xexample}
+
+\begin{xsolution}
+令 $t=\sqrt{\dfrac{x+2}{x-2}}$，则
+\[
+  x=\frac{2(t^2+1)}{t^2-1},
+  \qquad
+  \dd x=-\frac{8t}{(t^2-1)^2}\,\dd t.
+\]
+因此
+\begin{align*}
+  \int\frac1x\sqrt{\frac{x+2}{x-2}}\,\dd x
+  &=\int\frac{4t^2}{(1-t^2)(1+t^2)}\,\dd t\\
+  &=2\int\left(\frac1{1-t^2}-\frac1{1+t^2}\right)\,\dd t\\
+  &=\ln\abs{\frac{1+t}{1-t}}-2\arctan t+C\\
+  &=\ln\abs{\frac{1+\sqrt{(x+2)/(x-2)}}{1-\sqrt{(x+2)/(x-2)}}}
+    -2\arctan\sqrt{\frac{x+2}{x-2}}+C\\
+  &=\ln\abs{x+\sqrt{x^2-4}}+\arctan\frac{\sqrt{x^2-4}}2+C.
+\end{align*}
+\end{xsolution}
+
+\begin{xremark}
+对于形如
+\[
+  \int R\left(x,\sqrt[n]{\frac{ax+b}{cx+d}}\right)\,\dd x
+  \qquad(n>1,\ ad-bc\ne0)
+\]
+的不定积分，一般只要令 $t=\sqrt[n]{\dfrac{ax+b}{cx+d}}$，就可以将其化为有理函数积分。
+\end{xremark}
+
+\begin{xexample}[9.2.8]
+计算不定积分
+\[
+  I=\int\frac{1-\sqrt{x+1}}{(x+1)(1+\sqrt[3]{x+1})}\,\dd x.
+\]
+\end{xexample}
+
+\begin{xsolution}
+令 $t=\sqrt[6]{x+1}$，则 $x=t^6-1$，$\dd x=6t^5\,\dd t$。因此
+\begin{align*}
+  I
+  &=\int\frac{6(1-t^3)t^5}{t^6(1+t^2)}\,\dd t
+   =6\int\frac{1-t^3}{t(1+t^2)}\,\dd t\\
+  &=6\int\frac{(1+t^2)-t(t-1)-t(1+t^2)}{t(1+t^2)}\,\dd t\\
+  &=6\int\left(\frac1t-\frac{t-1}{t^2+1}-1\right)\,\dd t\\
+  &=6\left(\ln\abs{t}-\frac12\ln(1+t^2)+\arctan t-t\right)+C\\
+  &=6\left(\ln\sqrt[6]{x+1}-\frac12\ln(1+\sqrt[3]{x+1})
+    +\arctan\sqrt[6]{x+1}-\sqrt[6]{x+1}\right)+C\\
+  &=3\ln\frac{\sqrt[3]{x+1}}{1+\sqrt[3]{x+1}}
+    +6\arctan\sqrt[6]{x+1}-6\sqrt[6]{x+1}+C.
+\end{align*}
+\end{xsolution}
+
+\begin{xremark}
+对于形如
+\[
+  \int R\left(x,\sqrt[n]{ax+b},\sqrt[m]{ax+b}\right)\,\dd x
+\]
+的不定积分，其中 $m,n$ 是正整数，可以用 $t=\sqrt[p]{ax+b}$，其中 $p$ 是 $m,n$ 的最小公倍数，将其有理化。
+\end{xremark}
+
+最后，我们举出一些被积函数既含有无理式，又含有超越函数（指数函数、对数函数、三角函数与反三角函数）的不定积分例题。对这类题，并没有固定的一般解法，只有根据经验，对具体问题进行分析和尝试，寻找合适的解法。
+
+\begin{xexample}[9.2.9]
+计算不定积分
+\[
+  I=\int\sqrt{1+\sin x}\,\dd x.
+\]
+\end{xexample}
+
+分析　关键是去掉根号或化掉根号下的三角函数。我们介绍下列两种方法：
+
+\begin{xsolution}
+\textbf{1}\quad 用适当的三角恒等式，可计算如下：
+\begin{align*}
+  I
+  &=\int\sqrt{\sin^2\frac x2+\cos^2\frac x2+2\sin\frac x2\cos\frac x2}\,\dd x\\
+  &=\int\left(\sin\frac x2+\cos\frac x2\right)\,\dd x\\
+  &=-2\cos\frac x2+2\sin\frac x2+C.
+\end{align*}
+\end{xsolution}
+
+\begin{xsolution}
+\textbf{2}\quad 用代换法，令 $t=\sqrt{1+\sin x}$，则
+\[
+  x=\arcsin(t^2-1),
+  \qquad
+  \dd x=\frac{2t\,\dd t}{\sqrt{2t^2-t^4}},
+\]
+因此
+\[
+  I=\int\frac{2t^2\,\dd t}{\sqrt{2t^2-t^4}}
+   =\int\frac{\dd t^2}{\sqrt{2-t^2}}
+   =-2\sqrt{2-t^2}+C
+   =-2\sqrt{1-\sin x}+C.
+\]
+\end{xsolution}
+
+\begin{xexample}[9.2.10]
+计算不定积分
+\[
+  I=\int\arctan\sqrt{\frac{a-x}{a+x}}\,\dd x
+  \qquad(a>0).
+\]
+\end{xexample}
+
+\begin{xsolution}
+\textbf{1}\quad 用分部积分法：
+\begin{align*}
+  I
+  &=x\arctan\sqrt{\frac{a-x}{a+x}}
+    -\int x\cdot\frac1{1+(a-x)/(a+x)}\cdot\frac1{2\sqrt{(a-x)/(a+x)}}\cdot\frac{-2a}{(a+x)^2}\,\dd x\\
+  &=x\arctan\sqrt{\frac{a-x}{a+x}}
+    +\frac12\int\frac{x}{\sqrt{a^2-x^2}}\,\dd x\\
+  &=x\arctan\sqrt{\frac{a-x}{a+x}}-\frac12\sqrt{a^2-x^2}+C.
+\end{align*}
+\end{xsolution}
+
+\begin{xsolution}
+\textbf{2}\quad 令 $x=a\cos t$，则有
+\[
+  \arctan\sqrt{\frac{a-x}{a+x}}
+  =\arctan\sqrt{\frac{1-\cos t}{1+\cos t}}
+  =\arctan\sqrt{\frac{2\sin^2(t/2)}{2\cos^2(t/2)}}
+  =\arctan\left(\tan\frac t2\right)=\frac t2,
+\]
+因此
+\begin{align*}
+  I
+  &=a\int\frac t2\,\dd\cos t
+   =a\cdot\frac t2\cos t-\frac a2\int\cos t\,\dd t\\
+  &=\frac{at}2\cos t-\frac a2\sin t+C\\
+  &=\frac x2\arccos\frac xa-\frac12\sqrt{a^2-x^2}+C.
+\end{align*}
+\end{xsolution}
+
+\subsection{练习题}
+
+\begin{xexercise}[1]
+用观察法将被积函数拆开后计算不定积分：
+  \begin{enumerate}[label=(\arabic*)]
+    \item $\displaystyle\int\frac{x}{(x+1)(x+2)}\,\dd x$；
+    \item $\displaystyle\int\frac{x^2+x+1}{x(1+x^2)}\,\dd x$；
+    \item $\displaystyle\int\frac{\dd x}{x^4(x^2+1)}$；
+    \item $\displaystyle\int\frac{4x^2+3}{(x^2+1)(x^2+2)}\,\dd x$。
+  \end{enumerate}
+\end{xexercise}
+\begin{xsolution}
+用观察法将被积函数拆开后计算不定积分。
+  \begin{enumerate}[label=(\arabic*)]
+    \item
+    \[
+      \frac{x}{(x+1)(x+2)}=-\frac1{x+1}+\frac2{x+2},
+    \]
+    所以
+    \[
+      \boxed{-\ln\abs{x+1}+2\ln\abs{x+2}+C}.
+    \]
+
+    \item
+    \[
+      \frac{x^2+x+1}{x(1+x^2)}=\frac1x+\frac1{1+x^2},
+    \]
+    因而
+    \[
+      \boxed{\ln\abs{x}+\arctan x+C}.
+    \]
+
+    \item
+    \[
+      \frac1{x^4(x^2+1)}=\frac1{x^4}-\frac1{x^2}+\frac1{x^2+1},
+    \]
+    故
+    \[
+      \boxed{-\frac1{3x^3}+\frac1x+\arctan x+C}.
+    \]
+
+    \item
+    \[
+      \frac{4x^2+3}{(x^2+1)(x^2+2)}
+      =-\frac1{x^2+1}+\frac5{x^2+2},
+    \]
+    因而
+    \[
+      \boxed{-\arctan x+\frac5{\sqrt2}\arctan\frac{x}{\sqrt2}+C}.
+    \]
+  \end{enumerate}
+\end{xsolution}
+
+
+\begin{xexercise}[2]
+计算下列有理函数的不定积分：
+  \begin{enumerate}[label=(\arabic*)]
+    \item $\displaystyle\int\frac{x^5-x}{1+x^8}\,\dd x$；
+    \item $\displaystyle\int\frac{\dd x}{x(x^n+a)}\quad(a\ne0)$；
+    \item $\displaystyle\int\frac{x\,\dd x}{(x+1)(x^2+3)}$；
+    \item $\displaystyle\int\frac{x-1}{(x^2+2x+3)^2}\,\dd x$；
+    \item $\displaystyle\int\frac{1+x+x^2}{(x-2)^{10}}\,\dd x$；
+    \item $\displaystyle\int\frac{x^3+1}{x^3-5x^2+6x}\,\dd x$；
+    \item $\displaystyle\int\frac{\dd x}{1+x^6}$；
+    \item $\displaystyle\int\frac{x^2-x+3}{(x^2+x+1)(x-1)^2}\,\dd x$。
+  \end{enumerate}
+\end{xexercise}
+\begin{xsolution}
+计算下列有理函数的不定积分。
+  \begin{enumerate}[label=(\arabic*)]
+    \item
+    \[
+      \int\frac{x^5-x}{1+x^8}\,\dd x.
+    \]
+    令 $t=x^2$，则
+    \[
+      \int\frac{x^5-x}{1+x^8}\,\dd x
+      =\frac12\int\frac{t^2-1}{1+t^4}\,\dd t.
+    \]
+    利用
+    \[
+      \int\frac{t^2-1}{1+t^4}\,\dd t
+      =\frac1{2\sqrt2}
+       \ln\frac{t^2-\sqrt2t+1}{t^2+\sqrt2t+1}+C,
+    \]
+    得
+    \[
+      \boxed{
+      \frac1{4\sqrt2}
+      \ln\frac{x^4-\sqrt2x^2+1}{x^4+\sqrt2x^2+1}+C}.
+    \]
+
+    \item
+    \[
+      \int\frac{\dd x}{x(x^n+a)},\qquad a\ne0.
+    \]
+    分解为
+    \[
+      \frac1{x(x^n+a)}
+      =\frac1a\left(\frac1x-\frac{x^{n-1}}{x^n+a}\right),
+    \]
+    所以
+    \[
+      \boxed{
+      \frac1a\ln\abs{x}-\frac1{an}\ln\abs{x^n+a}+C}.
+    \]
+
+    \item
+    \[
+      \int\frac{x\,\dd x}{(x+1)(x^2+3)}.
+    \]
+    有
+    \[
+      \frac{x}{(x+1)(x^2+3)}
+      =-\frac1{4(x+1)}+\frac{x+3}{4(x^2+3)},
+    \]
+    因而
+    \[
+      \boxed{-\frac14\ln\abs{x+1}
+      +\frac18\ln(x^2+3)
+      +\frac{\sqrt3}{4}\arctan\frac{x}{\sqrt3}+C}.
+    \]
+
+    \item
+    \[
+      \int\frac{x-1}{(x^2+2x+3)^2}\,\dd x.
+    \]
+    令 $u=x+1$，则分母为 $(u^2+2)^2$，分子为 $u-2$。利用
+    \[
+      \int\frac{\dd u}{(u^2+2)^2}
+      =\frac{u}{4(u^2+2)}+\frac1{4\sqrt2}\arctan\frac{u}{\sqrt2},
+    \]
+    可得
+    \[
+      \boxed{-\frac{x+2}{2(x^2+2x+3)}
+      -\frac1{2\sqrt2}\arctan\frac{x+1}{\sqrt2}+C}.
+    \]
+
+    \item
+    \[
+      \int\frac{1+x+x^2}{(x-2)^{10}}\,\dd x.
+    \]
+    令 $u=x-2$，则 $x^2+x+1=u^2+5u+7$，故
+    \begin{align*}
+      \int\frac{1+x+x^2}{(x-2)^{10}}\,\dd x
+      &=\int(u^{-8}+5u^{-9}+7u^{-10})\,\dd u\\
+      &=\boxed{-\frac1{7u^7}-\frac5{8u^8}-\frac7{9u^9}+C},
+    \end{align*}
+    其中 $u=x-2$。
+
+    \item
+    \[
+      \int\frac{x^3+1}{x^3-5x^2+6x}\,\dd x.
+    \]
+    先作除法并分解：
+    \[
+      \frac{x^3+1}{x(x-2)(x-3)}
+      =1+\frac1{6x}-\frac9{2(x-2)}+\frac{28}{3(x-3)}.
+    \]
+    因此
+    \[
+      \boxed{x+\frac16\ln\abs{x}
+      -\frac92\ln\abs{x-2}
+      +\frac{28}{3}\ln\abs{x-3}+C}.
+    \]
+
+    \item
+    \[
+      \int\frac{\dd x}{1+x^6}.
+    \]
+    因
+    \[
+      1+x^6=(x^2+1)(x^2+\sqrt3x+1)(x^2-\sqrt3x+1),
+    \]
+    且
+    \[
+      \frac1{1+x^6}
+      =\frac1{3(x^2+1)}
+       +\frac{\sqrt3x+2}{6(x^2+\sqrt3x+1)}
+       -\frac{\sqrt3x-2}{6(x^2-\sqrt3x+1)},
+    \]
+    所以
+    \[
+      \boxed{\begin{aligned}
+      &\frac{\sqrt3}{12}\ln\frac{x^2+\sqrt3x+1}{x^2-\sqrt3x+1}\\
+      &\quad+\frac16\left[
+        \arctan(2x+\sqrt3)+\arctan(2x-\sqrt3)
+      \right]\\
+      &\quad+\frac13\arctan x+C
+      \end{aligned}}.
+    \]
+
+    \item
+    \[
+      \int\frac{x^2-x+3}{(x^2+x+1)(x-1)^2}\,\dd x.
+    \]
+    分解为
+    \[
+      \frac{x^2-x+3}{(x^2+x+1)(x-1)^2}
+      =\frac1{(x-1)^2}-\frac2{3(x-1)}
+       +\frac{2(x+2)}{3(x^2+x+1)}.
+    \]
+    积分得
+    \[
+      \boxed{-\frac1{x-1}-\frac23\ln\abs{x-1}
+      +\frac13\ln(x^2+x+1)
+      +\frac2{\sqrt3}\arctan\frac{2x+1}{\sqrt3}+C}.
+    \]
+  \end{enumerate}
+\end{xsolution}
+
+
+\begin{xexercise}[3]
+计算下列三角函数有理式的不定积分：
+  \begin{enumerate}[label=(\arabic*)]
+    \item $\displaystyle\int\frac{\dd x}{1+\cos x}$；
+    \item $\displaystyle\int\frac{\dd x}{\sin x\cos^4x}$；
+    \item $\displaystyle\int\frac{\dd x}{2+\tan^2x}$；
+    \item $\displaystyle\int\tan^5x\sec^3x\,\dd x$；
+    \item $\displaystyle\int\frac{\sec x}{(1+\sec x)^2}\,\dd x$；
+    \item $\displaystyle\int\frac{\sin^2x\cos x}{\sin x+\cos x}\,\dd x$；
+    \item $\displaystyle\int\frac{\sin x\cos x}{1+\sin^4x}\,\dd x$；
+    \item $\displaystyle\int\frac{\dd x}{\sin^4x\cos^2x}$。
+  \end{enumerate}
+\end{xexercise}
+\begin{xsolution}
+计算下列三角函数有理式的不定积分。
+  \begin{enumerate}[label=(\arabic*)]
+    \item
+    \[
+      \int\frac{\dd x}{1+\cos x}
+      =\frac12\int\sec^2\frac x2\,\dd x
+      =\boxed{\tan\frac x2+C}.
+    \]
+
+    \item
+    \[
+      \int\frac{\dd x}{\sin x\cos^4x}.
+    \]
+    令 $u=\cos x$，则 $\dd u=-\sin x\,\dd x$，从而
+    \[
+      \int\frac{\dd x}{\sin x\cos^4x}
+      =-\int\frac{\dd u}{u^4(1-u^2)}.
+    \]
+    又
+    \[
+      \frac1{u^4(1-u^2)}=\frac1{u^4}+\frac1{u^2}+\frac1{1-u^2},
+    \]
+    因此
+    \[
+      \boxed{
+      \frac13\sec^3x+\sec x+\ln\abs{\tan\frac x2}+C}.
+    \]
+
+    \item
+    \[
+      \int\frac{\dd x}{2+\tan^2x}.
+    \]
+    令 $t=\tan x$，则
+    \[
+      \frac{\dd x}{2+\tan^2x}
+      =\frac{\dd t}{(1+t^2)(2+t^2)}
+      =\left(\frac1{1+t^2}-\frac1{2+t^2}\right)\dd t.
+    \]
+    故在任一不跨越 $\tan x$ 极点的区间上
+    \[
+      \boxed{x-\frac1{\sqrt2}\arctan\frac{\tan x}{\sqrt2}+C}.
+    \]
+
+    \item
+    \[
+      \int\tan^5x\sec^3x\,\dd x.
+    \]
+    令 $u=\sec x$，$\dd u=\sec x\tan x\,\dd x$，则
+    \begin{align*}
+      \int\tan^5x\sec^3x\,\dd x
+      &=\int\tan^4x\sec^2x\,\dd u\\
+      &=\int u^2(u^2-1)^2\,\dd u.
+    \end{align*}
+    因而
+    \[
+      \boxed{\frac17\sec^7x-\frac25\sec^5x+\frac13\sec^3x+C}.
+    \]
+
+    \item
+    \[
+      \int\frac{\sec x}{(1+\sec x)^2}\,\dd x.
+    \]
+    令 $t=\tan(x/2)$，利用
+    \[
+      \cos x=\frac{1-t^2}{1+t^2},
+      \qquad
+      \dd x=\frac{2\,\dd t}{1+t^2},
+    \]
+    得
+    \[
+      \frac{\sec x}{(1+\sec x)^2}\,\dd x
+      =\frac12(1-t^2)\,\dd t.
+    \]
+    所以
+    \[
+      \boxed{\frac12\tan\frac x2-\frac16\tan^3\frac x2+C}.
+    \]
+
+    \item
+    \[
+      \int\frac{\sin^2x\cos x}{\sin x+\cos x}\,\dd x.
+    \]
+    一个便于检验的分解结果为
+    \[
+      \frac{\sin^2x\cos x}{\sin x+\cos x}
+      =\frac{\dd}{\dd x}\left[
+        \frac14\ln\abs{\sin x+\cos x}
+        -\frac14\cos x(\sin x+\cos x)
+      \right].
+    \]
+    因而
+    \[
+      \boxed{\frac14\ln\abs{\sin x+\cos x}
+      -\frac14\cos x(\sin x+\cos x)+C}.
+    \]
+
+    \item
+    \[
+      \int\frac{\sin x\cos x}{1+\sin^4x}\,\dd x.
+    \]
+    令 $u=\sin^2x$，则 $\dd u=2\sin x\cos x\,\dd x$，故
+    \[
+      \boxed{\frac12\arctan(\sin^2x)+C}.
+    \]
+
+    \item
+    \[
+      \int\frac{\dd x}{\sin^4x\cos^2x}.
+    \]
+    令 $t=\cot x$，则 $\dd x=-\dd t/(1+t^2)$，并有
+    \[
+      \frac{\dd x}{\sin^4x\cos^2x}
+      =-\left(t^{-2}+2+t^2\right)\dd t.
+    \]
+    因此
+    \[
+      \boxed{\tan x-2\cot x-\frac13\cot^3x+C}.
+    \]
+  \end{enumerate}
+\end{xsolution}
+
+
+\begin{xexercise}[4]
+计算 Poisson（泊松）积分
+  \[
+    \int\frac{1-r^2}{1-2r\cos x+r^2}\,\dd x
+    \qquad(-1<r<1).
+  \]
+\end{xexercise}
+\begin{xsolution}
+计算 Poisson（泊松）积分
+  \[
+    \int\frac{1-r^2}{1-2r\cos x+r^2}\,\dd x,
+    \qquad -1<r<1.
+  \]
+  令 $t=\tan(x/2)$。由于
+  \[
+    \cos x=\frac{1-t^2}{1+t^2},
+    \qquad
+    \dd x=\frac{2\,\dd t}{1+t^2},
+  \]
+  分母化为
+  \[
+    1-2r\cos x+r^2
+    =\frac{(1-r)^2+(1+r)^2t^2}{1+t^2}.
+  \]
+  因此
+  \begin{align*}
+    \int\frac{1-r^2}{1-2r\cos x+r^2}\,\dd x
+    &=2(1-r^2)\int
+      \frac{\dd t}{(1-r)^2+(1+r)^2t^2}\\
+    &=\boxed{2\arctan\left(
+      \frac{1+r}{1-r}\tan\frac x2
+      \right)+C}.
+  \end{align*}
+  该表达式在每个不跨越 $x=(2k+1)\pi$ 的区间上直接成立；跨越这些点时只需调整反正切的分支常数即可得到全局原函数。
+\end{xsolution}
+
+
+\begin{xexercise}[5]
+计算下列无理函数的不定积分：
+  \begin{enumerate}[label=(\arabic*)]
+    \item $\displaystyle\int\frac{\dd x}{\sqrt{\sin x\cos^7x}}$；
+    \item $\displaystyle\int\frac{\dd x}{x\sqrt{2x^2+3}}$；
+    \item $\displaystyle\int\sqrt{\tan^2x+2}\,\dd x$；
+    \item $\displaystyle\int\frac{x\ee^x\,\dd x}{\sqrt{1+\ee^x}}$；
+    \item $\displaystyle\int\frac{\dd x}{\sqrt{(x-1)^3(x-2)}}$；
+    \item $\displaystyle\int\frac{\sqrt{x}-1}{\sqrt[3]{x}+1}\,\dd x$。
+  \end{enumerate}
+\end{xexercise}
+\begin{xsolution}
+计算下列无理函数的不定积分。
+  \begin{enumerate}[label=(\arabic*)]
+    \item
+    \[
+      \int\frac{\dd x}{\sqrt{\sin x\cos^7x}}.
+    \]
+    在原根式为实数且非零的区间上有 $\tan x>0$。令
+    \[
+      t=\sqrt{\tan x},
+      \qquad \tan x=t^2.
+    \]
+    则
+    \[
+      \dd x=\frac{2t}{1+t^4}\,\dd t,
+      \qquad
+      \sqrt{\sin x\cos^7x}=\frac{t}{(1+t^4)^2},
+    \]
+    从而
+    \[
+      \int\frac{\dd x}{\sqrt{\sin x\cos^7x}}
+      =2\int(1+t^4)\,\dd t.
+    \]
+    因此
+    \[
+      \boxed{2\sqrt{\tan x}+\frac25\tan^{5/2}x+C}.
+    \]
+
+    \item
+    \[
+      \int\frac{\dd x}{x\sqrt{2x^2+3}}.
+    \]
+    令 $t=\sqrt{2x^2+3}$。由 $t^2-3=2x^2$ 得
+    \[
+      \frac{\dd x}{x t}=\frac{\dd t}{t^2-3},
+    \]
+    所以
+    \[
+      \boxed{
+      \frac1{2\sqrt3}\ln\abs{
+        \frac{\sqrt{2x^2+3}-\sqrt3}{\sqrt{2x^2+3}+\sqrt3}}
+      +C}.
+    \]
+
+    \item
+    \[
+      \int\sqrt{\tan^2x+2}\,\dd x.
+    \]
+    先令 $t=\tan x$，得到
+    \[
+      \int\frac{\sqrt{t^2+2}}{1+t^2}\,\dd t.
+    \]
+    再令 $t=\sqrt2\sinh u$，则
+    \[
+      \frac{\sqrt{t^2+2}}{1+t^2}\,\dd t
+      =\left(1+\frac1{\cosh2u}\right)\dd u.
+    \]
+    利用
+    \[
+      \int\frac{\dd u}{\cosh2u}
+      =\frac12\arctan(\sinh2u)+C,
+    \]
+    且
+    \[
+      u=\ln\frac{t+\sqrt{t^2+2}}{\sqrt2},
+      \qquad
+      \sinh2u=t\sqrt{t^2+2},
+    \]
+    得
+    \[
+      \boxed{
+      \ln\frac{\tan x+\sqrt{\tan^2x+2}}{\sqrt2}
+      +\frac12\arctan\left(\tan x\sqrt{\tan^2x+2}\right)+C}.
+    \]
+
+    \item
+    \[
+      \int\frac{x\ee^x\,\dd x}{\sqrt{1+\ee^x}}.
+    \]
+    因
+    \[
+      \frac{\ee^x\,\dd x}{\sqrt{1+\ee^x}}
+      =2\,\dd\sqrt{1+\ee^x},
+    \]
+    分部积分得
+    \[
+      I=2x\sqrt{1+\ee^x}-2\int\sqrt{1+\ee^x}\,\dd x.
+    \]
+    再令 $u=\sqrt{1+\ee^x}$，则
+    \[
+      \int\sqrt{1+\ee^x}\,\dd x
+      =\int\frac{2u^2}{u^2-1}\,\dd u
+      =2u+\ln\abs{\frac{u-1}{u+1}}+C.
+    \]
+    因而
+    \[
+      \boxed{
+      2x\sqrt{1+\ee^x}-4\sqrt{1+\ee^x}
+      -2\ln\abs{\frac{\sqrt{1+\ee^x}-1}{\sqrt{1+\ee^x}+1}}+C}.
+    \]
+
+    \item
+    \[
+      \int\frac{\dd x}{\sqrt{(x-1)^3(x-2)}}.
+    \]
+    实根式要求 $x<1$ 或 $x>2$。在任一这样的区间上令
+    \[
+      t=\sqrt{\frac{x-2}{x-1}}.
+    \]
+    由
+    \[
+      x-1=\frac1{1-t^2},
+      \qquad
+      \dd x=\frac{2t}{(1-t^2)^2}\,\dd t,
+    \]
+    可得被积式恰化为 $2\,\dd t$，故
+    \[
+      \boxed{2\sqrt{\frac{x-2}{x-1}}+C}.
+    \]
+
+    \item
+    \[
+      \int\frac{\sqrt{x}-1}{\sqrt[3]{x}+1}\,\dd x.
+    \]
+    对 $x>0$ 令 $t=x^{1/6}$，则 $x=t^6$、$\dd x=6t^5\,\dd t$，于是
+    \[
+      I=6\int\frac{t^5(t^3-1)}{t^2+1}\,\dd t.
+    \]
+    多项式除法给出
+    \[
+      \frac{t^5(t^3-1)}{t^2+1}
+      =t^6-t^4-t^3+t^2+t-1-\frac{t-1}{t^2+1}.
+    \]
+    所以
+    \[
+      \boxed{
+      6\left(
+        \frac{t^7}{7}-\frac{t^5}{5}-\frac{t^4}{4}
+        +\frac{t^3}{3}+\frac{t^2}{2}-t
+        -\frac12\ln(1+t^2)+\arctan t
+      \right)+C,
+      \quad t=x^{1/6}}.
+    \]
+    该原函数可由连续性延拓到 $x=0$。
+  \end{enumerate}
+\end{xsolution}
+
+
+\section{对于教学的建议}
+
+\subsection{学习要点}
+
+\begin{enumerate}
+  \item 计算不定积分是微积分课程的基本技能之一（这方面可参看 [59] 第二册的第三章）。在计算机科学突飞猛进的今天，许多不定积分都可以在计算机上用 Mathematica、Maple 等软件直接求出。因此，许多教师在教“不定积分”这一章时，可能会产生这样一个问题：关于求不定积分的方法与技巧，究竟应该教些什么？本章的内容反映了我们对这个问题的观点。有兴趣的读者可以参看《美国数学月刊》(1985) 第 92 卷 214--215 页中的意见。
+
+  \item 不定积分的计算含有大量的技巧。这些技巧对于爱好数学的大学一年级学生往往有很大的吸引力。当然，学生需要进行必要的训练来掌握这一项技能，这对于今后的学习与数学素养的提高都是必不可少的。但是如果在这方面耗费太多的精力与时间，特别是追求一些针对特殊类型不定积分的特殊技巧，则是在费心机和得不偿失的。教师需要向学生强调，例如
+  \[
+    \int\ee^{-x^2}\,\dd x,
+    \quad
+    \int\sin x^2\,\dd x,
+    \quad
+    \int\cos x^2\,\dd x,
+  \]
+  \[
+    \int\frac{\sin x}{x}\,\dd x,
+    \quad
+    \int\frac{\cos x}{x}\,\dd x,
+    \quad
+    \int\frac{\dd x}{\ln x},
+  \]
+  \[
+    \int\frac{\dd x}{\sqrt{1-k^2\sin^2x}},
+    \quad
+    \int\sqrt{1-k^2\sin^2x}\,\dd x,
+  \]
+  \[
+    \int\frac{\dd x}{(1+k^2\sin^2x)\sqrt{1-k^2\sin^2x}}
+    \qquad(0<k<1)
+  \]
+  等在各种领域有重要应用的许多不定积分都不是初等函数。这些不定积分的可积性，就像中学时代遇到过的“用尺规三等分任意角”问题一样，不是未解决的难题，而是在 19 世纪早已解决的问题。（关于二项式微分式除三种情况外不可积的证明见 [11] 中的第六章。）
+
+  \item 许多初等函数的原函数不是初等函数并不是坏事，而是好事。例如上面列出的许多非初等不定积分都是有重要意义和多方面应用的新函数。
+
+  \item 利用求导运算是求不定积分的逆运算，而求导运算要容易得多，初学者在求得不定积分后应当用求导运算加以验证，这样就可以纠正绝大部分错误。
+
+  \item \textbf{对习题课的建议}\quad 不定积分计算灵活多变，在学习中可以用一些不是很困难的题引导学生寻找多种解法。这对于掌握基本技能很有好处。例如
+  \[
+    \int\frac{\dd x}{(x^2+a^2)^2},
+    \qquad
+    \int\frac{\dd x}{\sin x},
+    \qquad
+    \int\frac{\sin x\,\dd x}{\sin x+\cos x}
+  \]
+  都是值得使用的积分题。此外，根据教材和时间的情况还可以介绍双曲代换和复数计算方法等内容。
+\end{enumerate}
+
+\subsection{参考题}
+
+\begin{xreferenceproblem}[1]
+设 $f'(\sin^2x)=\cos4x+\tan^2x$，$0<x<1$，求函数 $f(x)$。
+\end{xreferenceproblem}
+\begin{xsolution}
+设
+  \[
+    f'(\sin^2x)=\cos4x+\tan^2x,
+    \qquad 0<x<1,
+  \]
+  求 $f$。
+
+  \textbf{解}\quad 令 $y=\sin^2x$。由于 $0<x<1$，故 $0<y<\sin^21$。并且
+  \[
+    \cos4x=1-8y(1-y)=1-8y+8y^2,
+    \qquad
+    \tan^2x=\frac{y}{1-y}=-1+\frac1{1-y}.
+  \]
+  因而
+  \[
+    f'(y)=8y^2-8y+\frac1{1-y}.
+  \]
+  对 $y$ 积分，得
+  \[
+    f(y)=\frac83y^3-4y^2-\ln(1-y)+C.
+  \]
+  所以在 $0<y<\sin^21$ 上
+  \[
+    \boxed{f(y)=\frac83y^3-4y^2-\ln(1-y)+C}.
+  \]
+  若把自变量仍记为 $x$，则为
+  \[
+    \boxed{f(x)=\frac83x^3-4x^2-\ln(1-x)+C}.
+  \]
+\end{xsolution}
+
+
+\begin{xreferenceproblem}[2]
+计算下列不定积分：
+  \begin{enumerate}[label=(\arabic*)]
+    \item $\displaystyle\int x\arctan x\ln(1+x^2)\,\dd x$；
+    \item $\displaystyle\int\frac{1-\ln x}{(x-\ln x)^2}\,\dd x$；
+    \item $\displaystyle\int [x]\abs{\sin\pi x}\,\dd x\quad(x\ge0)$；
+    \item $\displaystyle\int\sin x\ln(\sin x)\,\dd x$；
+    \item $\displaystyle\int\frac{\dd x}{\sin(x+a)\sin(x+b)}$；
+    \item $\displaystyle\int\frac{1-x^n}{x(1+x^n)}\,\dd x\quad(n\in\NN_+)$。
+  \end{enumerate}
+\end{xreferenceproblem}
+\begin{xsolution}
+计算下列不定积分。
+  \begin{enumerate}[label=(\arabic*)]
+    \item
+    \[
+      I=\int x\arctan x\ln(1+x^2)\,\dd x.
+    \]
+    取
+    \[
+      u=\arctan x,
+      \qquad
+      \dd v=x\ln(1+x^2)\,\dd x.
+    \]
+    有
+    \[
+      v=\frac12\left[(1+x^2)\ln(1+x^2)-(1+x^2)\right].
+    \]
+    因此
+    \begin{align*}
+      I
+      &=\frac12(1+x^2)[\ln(1+x^2)-1]\arctan x\\
+      &\quad-\frac12\int[\ln(1+x^2)-1]\,\dd x.
+    \end{align*}
+    又
+    \[
+      \int\ln(1+x^2)\,\dd x
+      =x\ln(1+x^2)-2x+2\arctan x+C,
+    \]
+    故
+    \[
+      \boxed{
+      \frac12(1+x^2)[\ln(1+x^2)-1]\arctan x
+      -\frac x2\ln(1+x^2)+\frac32x-\arctan x+C}.
+    \]
+
+    \item
+    \[
+      \int\frac{1-\ln x}{(x-\ln x)^2}\,\dd x.
+    \]
+    对 $x>0$，直接计算
+    \[
+      \left(\frac{x}{x-\ln x}\right)'
+      =\frac{1-\ln x}{(x-\ln x)^2},
+    \]
+    故
+    \[
+      \boxed{\frac{x}{x-\ln x}+C}.
+    \]
+
+    \item
+    \[
+      \int [x]\abs{\sin\pi x}\,\dd x,
+      \qquad x\ge0.
+    \]
+    令
+    \[
+      n=\lfloor x\rfloor,
+      \qquad
+      u=x-n\in[0,1).
+    \]
+    在 $[n,n+1)$ 上有 $[x]=n$ 且
+    \[
+      \abs{\sin\pi x}=\sin\pi u.
+    \]
+    从 $0$ 积到 $x$，前面每个完整区间 $[k,k+1]$ 的贡献为 $2k/\pi$，所以
+    \begin{align*}
+      F(x)
+      &=\sum_{k=0}^{n-1}\frac{2k}{\pi}
+        +\frac{n}{\pi}(1-\cos\pi u)\\
+      &=\frac{n^2-n\cos\pi u}{\pi}.
+    \end{align*}
+    因而一个在 $[0,+\infty)$ 上连续可导的原函数为
+    \[
+      \boxed{
+      F(x)=\frac{n^2-n\cos\pi(x-n)}{\pi}+C,
+      \qquad n=\lfloor x\rfloor}.
+    \]
+
+    \item
+    \[
+      \int\sin x\ln(\sin x)\,\dd x.
+    \]
+    实对数要求 $\sin x>0$。令 $u=\cos x$，则
+    \[
+      I=-\frac12\int\ln(1-u^2)\,\dd u.
+    \]
+    分部积分可得
+    \[
+      \int\ln(1-u^2)\,\dd u
+      =u\ln(1-u^2)-2u+\ln\abs{\frac{1+u}{1-u}}+C.
+    \]
+    代回 $u=\cos x$，并用 $\ln(1-\cos^2x)=2\ln(\sin x)$，得到
+    \[
+      \boxed{
+      \cos x\,[1-\ln(\sin x)]
+      +\ln\abs{\tan\frac x2}+C}.
+    \]
+
+    \item
+    \[
+      \int\frac{\dd x}{\sin(x+a)\sin(x+b)}.
+    \]
+    若 $\sin(b-a)\ne0$，利用
+    \[
+      \cot(x+a)-\cot(x+b)
+      =\frac{\sin(b-a)}{\sin(x+a)\sin(x+b)},
+    \]
+    得
+    \[
+      \boxed{
+      \frac1{\sin(b-a)}
+      \ln\abs{\frac{\sin(x+a)}{\sin(x+b)}}+C}.
+    \]
+    若 $b-a=k\pi$，则
+    \[
+      \sin(x+b)=(-1)^k\sin(x+a),
+    \]
+    因而
+    \[
+      \boxed{
+      \int\frac{\dd x}{\sin(x+a)\sin(x+b)}
+      =(-1)^{k+1}\cot(x+a)+C}.
+    \]
+
+    \item
+    \[
+      \int\frac{1-x^n}{x(1+x^n)}\,\dd x,
+      \qquad n\in\NN_+.
+    \]
+    因
+    \[
+      \frac{1-x^n}{x(1+x^n)}
+      =\frac1x-\frac{2x^{n-1}}{1+x^n},
+    \]
+    故
+    \[
+      \boxed{\ln\abs{x}-\frac2n\ln\abs{1+x^n}+C}.
+    \]
+  \end{enumerate}
+\end{xsolution}
+
+
+\begin{xreferenceproblem}[3]
+对每个正整数 $n$，定义
+  \[
+    I_n=\int\frac{(ax+b)^n}{\sqrt{cx+b}}\,\dd x,
+  \]
+  求出计算 $I_n$ 的递推公式。
+\end{xreferenceproblem}
+\begin{xsolution}
+对每个正整数 $n$，定义
+  \[
+    I_n=\int\frac{(ax+b)^n}{\sqrt{cx+b}}\,\dd x,
+  \]
+  求递推公式。
+
+  \textbf{解}\quad 记
+  \[
+    y=ax+b,
+    \qquad z=cx+b.
+  \]
+  对 $c\ne0$，计算
+  \[
+    \dd(y^n\sqrt z)
+    =na y^{n-1}\sqrt z\,\dd x
+     +\frac c2\frac{y^n}{\sqrt z}\,\dd x.
+  \]
+  因此
+  \[
+    cI_n=2y^n\sqrt z-2na\int y^{n-1}\sqrt z\,\dd x.
+  \]
+  又有恒等式
+  \[
+    az=cy+b(a-c),
+  \]
+  从而
+  \[
+    a\int y^{n-1}\sqrt z\,\dd x
+    =cI_n+b(a-c)I_{n-1}.
+  \]
+  代入上式并整理，得到
+  \[
+    \boxed{
+    I_n=\frac{2(ax+b)^n\sqrt{cx+b}}{c(2n+1)}
+    -\frac{2n\,b(a-c)}{c(2n+1)}I_{n-1}},
+    \qquad c\ne0.
+  \]
+  初始项为
+  \[
+    I_0=\frac2c\sqrt{cx+b}+C.
+  \]
+  上述公式在 $c\ne0$ 且 $cx+b>0$ 的任一连通区间上使用。若 $c=0$，实变量下要使被积函数有定义必须有 $b>0$，此时无需递推：当 $a\ne0$ 时
+  \[
+    I_n=\frac{(ax+b)^{n+1}}{a(n+1)\sqrt b}+C,
+  \]
+  而当 $a=0$ 时
+  \[
+    I_n=b^{n-1/2}x+C.
+  \]
+\end{xsolution}
+
+
+\begin{xreferenceproblem}[4]
+对于实数 $a\ne0$ 与正整数 $n>2$，定义
+  \[
+    I_n=\int\left[\frac{\sin((x-a)/2)}{\sin((x+a)/2)}\right]^n\,\dd x.
+  \]
+  证明：对于 $I_n$ 有递推公式
+  \[
+    I_n=-I_{n-2}+2\cos a\cdot I_{n-1}
+      +\frac{2\sin a}{n-1}
+      \left[\frac{\sin((x-a)/2)}{\sin((x+a)/2)}\right]^{n-1}.
+  \]
+\end{xreferenceproblem}
+\begin{xsolution}
+对于实数 $a\ne0$ 与正整数 $n>2$，定义
+  \[
+    I_n=\int\left[
+      \frac{\sin((x-a)/2)}{\sin((x+a)/2)}
+    \right]^n\,\dd x.
+  \]
+  证明题中递推公式。
+
+  \textbf{证明}\quad 记
+  \[
+    y=\frac{\sin((x-a)/2)}{\sin((x+a)/2)}.
+  \]
+  在分母非零的区间上，直接求导得
+  \[
+    y'=\frac{\sin a}{2\sin^2((x+a)/2)}.
+  \]
+  另一方面，利用两角相差 $a$，可验证
+  \[
+    y^2-2\cos a\,y+1
+    =\frac{\sin^2a}{\sin^2((x+a)/2)}.
+  \]
+  因此
+  \begin{align*}
+    y^n+y^{n-2}-2\cos a\,y^{n-1}
+    &=y^{n-2}\frac{\sin^2a}{\sin^2((x+a)/2)}\\
+    &=2\sin a\,y^{n-2}y'\\
+    &=\frac{2\sin a}{n-1}(y^{n-1})'.
+  \end{align*}
+  两边积分即得
+  \[
+    I_n+I_{n-2}-2\cos a\,I_{n-1}
+    =\frac{2\sin a}{n-1}y^{n-1},
+  \]
+  即
+  \[
+    \boxed{
+    I_n=-I_{n-2}+2\cos a\,I_{n-1}
+    +\frac{2\sin a}{n-1}
+    \left[
+      \frac{\sin((x-a)/2)}{\sin((x+a)/2)}
+    \right]^{n-1}}.
+  \]
+\end{xsolution}
+
+
+\begin{xreferenceproblem}[5]
+设 $Q$ 为 $n$ 次多项式，且具有 $n$ 个相异实根 $x_i$，$i=1,2,\ldots,n$。又设 $P$ 是与 $Q$ 不可约的 $m$ 次多项式，且 $m<n$，证明：
+  \[
+    \int\frac{P(x)}{Q(x)}\,\dd x
+    =\sum_{i=1}^n\frac{P(x_i)}{Q'(x_i)}\ln\abs{x-x_i}+C.
+  \]
+\end{xreferenceproblem}
+\begin{xsolution}
+设 $Q$ 为 $n$ 次多项式，具有 $n$ 个相异实根 $x_i$；$P$ 与 $Q$ 不可约，且 $\deg P=m<n$。证明
+  \[
+    \int\frac{P(x)}{Q(x)}\,\dd x
+    =\sum_{i=1}^n\frac{P(x_i)}{Q'(x_i)}\ln\abs{x-x_i}+C.
+  \]
+
+  \textbf{证明}\quad 因 $Q$ 的根均为单根，可写成
+  \[
+    Q(x)=q_n\prod_{i=1}^n(x-x_i).
+  \]
+  由部分分式分解，存在唯一常数 $A_i$ 使
+  \[
+    \frac{P(x)}{Q(x)}=\sum_{i=1}^n\frac{A_i}{x-x_i}.
+  \]
+  对固定的 $i$，两边乘以 $x-x_i$ 并令 $x\to x_i$，得
+  \[
+    A_i=\lim_{x\to x_i}\frac{(x-x_i)P(x)}{Q(x)}.
+  \]
+  令 $Q(x)=(x-x_i)Q_i(x)$，则
+  \[
+    Q_i(x_i)=Q'(x_i),
+  \]
+  所以
+  \[
+    A_i=\frac{P(x_i)}{Q'(x_i)}.
+  \]
+  因而
+  \[
+    \frac{P(x)}{Q(x)}
+    =\sum_{i=1}^n\frac{P(x_i)}{Q'(x_i)}\frac1{x-x_i}.
+  \]
+  在任一不含根 $x_i$ 的连通区间上逐项积分，即得
+  \[
+    \boxed{
+    \int\frac{P(x)}{Q(x)}\,\dd x
+    =\sum_{i=1}^n\frac{P(x_i)}{Q'(x_i)}\ln\abs{x-x_i}+C}.
+  \]
+\end{xsolution}
+
+
+\begin{xreferenceproblem}[6]
+求 $\int f(x)\,\dd x$，其中 $f(x)$ 为 $x$ 到离其最近的整数的距离。
+\end{xreferenceproblem}
+\begin{xsolution}
+\textbf{解}\quad 令
+  \[
+    n=\lfloor x\rfloor,
+    \qquad
+    u=x-n\in[0,1).
+  \]
+  则
+  \[
+    f(x)=
+    \begin{cases}
+      u,&0\le u\le\dfrac12,\\[2mm]
+      1-u,&\dfrac12\le u<1.
+    \end{cases}
+  \]
+  该函数以 $1$ 为周期，且每个完整周期的积分为
+  \[
+    \int_0^1f(x)\,\dd x
+    =2\int_0^{1/2}u\,\dd u=\frac14.
+  \]
+  因此可取原函数
+  \[
+    \boxed{
+    F(x)=\frac n4+
+    \begin{cases}
+      \dfrac{u^2}{2},&0\le u\le\dfrac12,\\[2mm]
+      u-\dfrac{u^2}{2}-\dfrac14,&\dfrac12\le u<1,
+    \end{cases}
+    \quad n=\lfloor x\rfloor,\ u=x-n}.
+  \]
+  在半整数和整数连接点处，左右函数值及导数均吻合，因此这是整个实轴上的原函数；最后再加任意常数 $C$。
+\end{xsolution}
+
+
+\begin{xreferenceproblem}[7]
+Liouville 在 19 世纪 30 年代对于初等函数的不定积分在什么条件下是初等函数进行过深入的研究（参见 [55]），他得到的一个结果是：
+
+  \begin{xtheorem}
+  设 $f,g$ 为有理函数，$g$ 不是常值函数，如果 $\int f(x)\ee^{g(x)}\,\dd x$ 是初等函数，则存在有理函数 $h$，使得
+  \[
+    \int f(x)\ee^{g(x)}\,\dd x=h(x)\ee^{g(x)}+C.
+  \]
+  \end{xtheorem}
+
+  试用这个定理证明：$\int\ee^{-x^2}\,\dd x$ 和 $\int\dfrac{\ee^x}{x}\,\dd x$ 都是非初等不定积分（由后者又可推出 $\int\dfrac{\dd x}{\ln x}$ 也是非初等积分）。
+\end{xreferenceproblem}
+\begin{xsolution}
+使用题给 Liouville 定理证明
+  \[
+    \int\ee^{-x^2}\,\dd x,
+    \qquad
+    \int\frac{\ee^x}{x}\,\dd x
+  \]
+  均不是初等不定积分。
+
+  \textbf{证明}\quad 先考虑
+  \[
+    \int\ee^{-x^2}\,\dd x.
+  \]
+  若它是初等函数，则由题给定理，存在有理函数 $h$ 使
+  \[
+    \int\ee^{-x^2}\,\dd x=h(x)\ee^{-x^2}+C.
+  \]
+  求导得到
+  \[
+    h'(x)-2xh(x)=1.
+  \]
+  假设有理函数 $h$ 有有限极点 $x=a$，阶数为 $m\ge1$。则 $h'$ 在 $a$ 处有 $m+1$ 阶极点，而 $2xh$ 至多有 $m$ 阶极点（当 $a=0$ 时甚至更低），因此上述等式左边必有极点，不可能等于常数 $1$。所以 $h$ 没有有限极点，只能是多项式。
+
+  若 $h$ 是非零的 $d$ 次多项式，则 $-2xh$ 的次数为 $d+1$，而 $h'$ 的次数至多为 $d-1$，最高次项不可能抵消，故该等式不可能成立；$h=0$ 也不满足 (1)。矛盾。因此
+  \[
+    \boxed{\int\ee^{-x^2}\,\dd x\text{ 不是初等函数}}.
+  \]
+
+  再考虑
+  \[
+    \int\frac{\ee^x}{x}\,\dd x.
+  \]
+  若它是初等函数，则存在有理函数 $h$ 使
+  \[
+    \int\frac{\ee^x}{x}\,\dd x=h(x)\ee^x+C.
+  \]
+  求导得到
+  \[
+    h'(x)+h(x)=\frac1x.
+  \]
+  若 $h$ 在某个 $a\ne0$ 处有 $m$ 阶极点，则 $h'$ 有 $m+1$ 阶极点，不能被 $h$ 抵消，而等式右边在 $a$ 处解析，矛盾。因此 $h$ 的有限极点只能可能在 $0$。
+
+  若 $h$ 在 $0$ 有 $m\ge1$ 阶极点，则 $h'$ 有 $m+1$ 阶极点，而 $h$ 只有 $m$ 阶极点，左边最高阶极点仍无法抵消；这也不可能等于只有一阶极点的 $1/x$。若 $h$ 在 $0$ 无极点，则左边在 $0$ 解析，同样不可能等于 $1/x$。故不存在这样的有理函数 $h$，于是
+  \[
+    \boxed{\int\frac{\ee^x}{x}\,\dd x\text{ 不是初等函数}}.
+  \]
+
+  最后，若 $\int\dfrac{\dd x}{\ln x}$ 是初等函数，作代换 $x=\ee^t$ 就会得到初等原函数
+  \[
+    \int\frac{\ee^t}{t}\,\dd t,
+  \]
+  与上面的结论矛盾。因此 $\int\dfrac{\dd x}{\ln x}$ 也不是初等不定积分。
+\end{xsolution}
+

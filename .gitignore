@@ -24,6 +24,8 @@
 *.xdv
 
 # Local/editor/temp
+__pycache__/
+*.pyc
 *.tmp
 *.bak
 *.swp
