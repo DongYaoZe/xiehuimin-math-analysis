@@ -1,0 +1,3547 @@
+% Task S02
+% Solutions for Chapter 2: 数列极限
+% Based on latest main chapter text. Do not duplicate examples already solved in the source chapter.
+
+\section*{第2章《数列极限》习题解析}
+
+\subsection*{2.1 数列极限的基本概念}
+
+\subsubsection*{2.1.2 思考题}
+
+\paragraph{2.1.2 思考题 1}
+\begin{xsolution}
+三种叙述均与标准的 $\varepsilon$--$N$ 定义等价。
+
+(1) 标准定义中若当 $n>N$ 时成立，则令 $N_1=N+1$，当 $n\ge N_1$ 时同样成立。反过来，若当 $n\ge N$ 时成立，则当 $n>N$ 时当然成立。
+
+(2) 若 $a_n\to a$，对任意 $m\in\NN_+$，在定义中取 $\varepsilon=1/m$ 即可。反过来，若题中关于 $m$ 的条件成立，给定任意 $\varepsilon>0$，取 $m>1/\varepsilon$，则 $1/m<\varepsilon$；相应地存在 $N$，使 $n>N$ 时
+\[
+  \abs{a_n-a}<\frac1m<\varepsilon.
+\]
+故 $a_n\to a$。
+
+(3) 设 $K>0$ 为与 $n,\varepsilon$ 无关的常数。若标准定义成立，则对给定的 $\varepsilon>0$，把标准定义中的误差取为 $K\varepsilon$，即可得到 $\abs{a_n-a}<K\varepsilon$。反过来，若题中条件成立，给定 $\delta>0$，令 $\varepsilon=\delta/K$，则最终有
+\[
+  \abs{a_n-a}<K\varepsilon=\delta.
+\]
+所以仍得到标准定义。
+\end{xsolution}
+
+\paragraph{2.1.2 思考题 2}
+\begin{xsolution}
+定义只要求：对每个 $\varepsilon>0$，至少存在一个合适的 $N$。这样的 $N$ 一般不唯一；如果某个 $N$ 可用，那么任何更大的整数也可用。因此可以人为选定一个规则写成 $N=N(\varepsilon)$，但这并不是极限定义所唯一确定的函数，更不表示必须取最小的 $N$。
+\end{xsolution}
+
+\paragraph{2.1.2 思考题 3}
+\begin{xsolution}
+第一个结论正确。若 $a_n\to a$，则 $a_{n+1}\to a$，故
+\[
+  a_{n+1}-a_n\to a-a=0.
+\]
+
+第二个结论不正确，因为当极限为 $0$ 时不能保证商趋于 $1$，甚至商可能不存在。比如
+\[
+  a_n=\frac{(-1)^n}{n}\to0,
+\]
+但
+\[
+  \frac{a_{n+1}}{a_n}=-\frac{n}{n+1}\to-1.
+\]
+若另加条件 $a\ne0$，则由极限的四则运算才有 $a_{n+1}/a_n\to1$。
+\end{xsolution}
+
+\paragraph{2.1.2 思考题 4}
+\begin{xsolution}
+该数列必从某一项起成为常值数列。设 $a_n\to a$，取 $\varepsilon=1/3$，存在 $N$，使 $n>N$ 时
+\[
+  \abs{a_n-a}<\frac13.
+\]
+任意两个 $m,n>N$ 满足
+\[
+  \abs{a_n-a_m}\le\abs{a_n-a}+\abs{a_m-a}<\frac23<1.
+\]
+而 $a_n-a_m$ 是整数，只能为 $0$。所以尾部各项完全相同。
+\end{xsolution}
+
+\paragraph{2.1.2 思考题 5}
+\begin{xsolution}
+都不一定。比如
+\[
+  a_n=\frac{(-1)^n}{n}
+\]
+收敛于 $0$，但不是单调数列；它本身也是无穷小量，所以无穷小量也不一定单调。
+\end{xsolution}
+
+\paragraph{2.1.2 思考题 6}
+\begin{xsolution}
+不是。无穷小量是关于一个变量趋于某种极限过程时的概念，必须是一族量或一个数列满足“极限为 $0$”。几个纳米只是一个固定的、很小的正数；无论用米还是其他单位表示，它仍是一个固定常数，不存在趋于 $0$ 的过程，因此不能称为无穷小量。
+\end{xsolution}
+
+\paragraph{2.1.2 思考题 7}
+\begin{xsolution}
+都不一定。正无穷大数列可取
+\[
+  a_n=n+(-1)^n.
+\]
+它满足 $a_n\to+\infty$，但相邻差有时为负，所以并非单调增加。
+
+无界数列也不一定是无穷大量。例如
+\[
+  b_{2k}=2k,\qquad b_{2k-1}=0.
+\]
+它无界，但奇数项子列恒为 $0$，故并不满足 $\abs{b_n}\to\infty$。
+\end{xsolution}
+
+\paragraph{2.1.2 思考题 8}
+\begin{xsolution}
+不一定。极限定义只说明 $\abs{a_n-a}\to0$，不要求误差单调减小。例如令
+\[
+  a=0,\qquad
+  a_{2k}=\frac1k,\qquad
+  a_{2k-1}=\frac1{(2k-1)^2}.
+\]
+则 $a_n\to0$，但从 $a_{2k-1}$ 到 $a_{2k}$ 时绝对值会增大，因此 $\abs{a_n-a}$ 不是单调数列。
+\end{xsolution}
+
+\paragraph{2.1.2 思考题 9}
+\begin{xsolution}
+“非负数列的极限是非负数”正确。若 $a_n\ge0$ 而 $a<0$，取 $\varepsilon=-a/2$，则充分大的 $n$ 应有 $a_n<a/2<0$，矛盾。
+
+“正数列的极限是正数”错误。反例为 $a_n=1/n>0$，但 $a_n\to0$。所以正数列的极限只能保证非负，不能保证严格为正。
+\end{xsolution}
+
+\subsubsection*{2.1.5 练习题}
+
+\paragraph{2.1.5 练习题 1}
+\begin{xsolution}
+(1) 对 $n\ge3$，
+\[
+  \abs{\frac{3n^2}{n^2-4}-3}
+  =\frac{12}{n^2-4}.
+\]
+给定 $\varepsilon>0$，取
+\[
+  N>\max\left\{3,\sqrt{\frac{12}{\varepsilon}+4}\right\},
+\]
+则 $n>N$ 时上式小于 $\varepsilon$，故极限为 $3$。
+
+(2) 有
+\[
+  \abs{\frac{\sin n}{n}}\le\frac1n.
+\]
+取 $N>1/\varepsilon$ 即得所需结论。
+
+(3) 令 $y_n=(n+1)^{1/n}-1>0$。当 $n\ge2$ 时
+\[
+  n+1=(1+y_n)^n\ge1+\frac{n(n-1)}2y_n^2,
+\]
+从而
+\[
+  0<y_n\le\sqrt{\frac{2(n+1)}{n(n-1)}}
+  \le\frac2{\sqrt{n-1}}.
+\]
+给定 $\varepsilon>0$，取 $N>1+4/\varepsilon^2$，即可使 $y_n<\varepsilon$。
+
+(4) 先设 $a>0$。取整数 $m>2a$。当 $n\ge m$ 时，
+\[
+  \frac{a^{n+1}/(n+1)!}{a^n/n!}=\frac a{n+1}<\frac12.
+\]
+故对 $n\ge m$，
+\[
+  0<\frac{a^n}{n!}
+  \le \frac{a^m}{m!}\,2^{-(n-m)}.
+\]
+右端为趋于 $0$ 的几何数列，因此对任意 $\varepsilon>0$ 都可取充分大的 $N$ 使其小于 $\varepsilon$，于是 $a^n/n!\to0$。
+\end{xsolution}
+
+\paragraph{2.1.5 练习题 2}
+\begin{xsolution}
+由于 $a_n\ge0$ 且 $a_n\to a$，先由保号性知 $a\ge0$。
+
+若 $a>0$，则
+\[
+  \abs{\sqrt{a_n}-\sqrt a}
+  =\frac{\abs{a_n-a}}{\sqrt{a_n}+\sqrt a}
+  \le\frac{\abs{a_n-a}}{\sqrt a}\to0.
+\]
+若 $a=0$，给定 $\varepsilon>0$，由 $a_n\to0$ 可取 $N$ 使 $n>N$ 时 $0\le a_n<\varepsilon^2$，于是 $\sqrt{a_n}<\varepsilon$。故两种情况下均有 $\sqrt{a_n}\to\sqrt a$。
+\end{xsolution}
+
+\paragraph{2.1.5 练习题 3}
+\begin{xsolution}
+由反三角不等式
+\[
+  \bigl|\abs{a_n}-\abs a\bigr|\le\abs{a_n-a}\to0,
+\]
+所以 $\abs{a_n}\to\abs a$。
+
+反过来一般不成立。例如 $a=1$，取 $a_n=-1$，则 $\abs{a_n}=1=\abs a$，但 $a_n\not\to1$。若 $a=0$，则反向成立，因为 $\abs{a_n}\to0$ 与 $a_n\to0$ 等价。
+\end{xsolution}
+
+\paragraph{2.1.5 练习题 4}
+\begin{xsolution}
+(1) 先由极限四则运算归纳得到 $a_n^k\to a^k$。若
+\[
+  p(x)=c_0+c_1x+\cdots+c_mx^m,
+\]
+则逐项使用有限次加法和乘法的极限运算即得 $p(a_n)\to p(a)$。
+
+(2) 只需证明当 $h_n\to0$ 时 $b^{h_n}\to1$。先设 $b>1$。给定 $\varepsilon>0$，由已知的 $b^{1/m}\to1$ 可取 $m$ 足够大，使
+\[
+  b^{1/m}-1<\varepsilon,
+  \qquad
+  1-b^{-1/m}<\varepsilon.
+\]
+又因 $h_n\to0$，充分大的 $n$ 有 $\abs{h_n}<1/m$，故
+\[
+  b^{-1/m}<b^{h_n}<b^{1/m},
+\]
+于是 $b^{h_n}\to1$。若 $0<b<1$，对 $1/b>1$ 应用同一结论即可。取 $h_n=a_n-a$，便有
+\[
+  b^{a_n}=b^a b^{h_n}\to b^a.
+\]
+
+(3) 先设 $b>1$。给定 $\varepsilon>0$，有
+\[
+  b^{-\varepsilon}a<a<b^{\varepsilon}a.
+\]
+由于 $a_n\to a>0$，充分大的 $n$ 满足
+\[
+  b^{-\varepsilon}a<a_n<b^{\varepsilon}a.
+\]
+取以 $b$ 为底的对数得到
+\[
+  -\varepsilon<\log_ba_n-\log_ba<\varepsilon.
+\]
+所以 $\log_ba_n\to\log_ba$。当 $0<b<1$ 时不等号方向反转，但同样得到结论。$b=1$ 时通常不定义对数，故应排除。
+
+(4) 因 $a_n>0$ 且 $a_n\to a>0$，由 (3) 有 $\ln a_n\to\ln a$，再由 (2) 得
+\[
+  a_n^b=\ee^{b\ln a_n}\to\ee^{b\ln a}=a^b.
+\]
+
+(5) 利用恒等式
+\[
+  \abs{\sin u-\sin v}
+  =2\abs{\cos\frac{u+v}{2}\sin\frac{u-v}{2}}
+  \le\abs{u-v},
+\]
+可知
+\[
+  \abs{\sin a_n-\sin a}\le\abs{a_n-a}\to0.
+\]
+\end{xsolution}
+
+\paragraph{2.1.5 练习题 5}
+\begin{xsolution}
+由已知极限 $\sqrt[n]n\to1$ 以及上一题对对数函数的极限运算，
+\[
+  \frac{\log_a n}{n}
+  =\log_a\left(n^{1/n}\right)
+  \longrightarrow\log_a1=0.
+\]
+这里 $a>1$ 保证对数有定义且单调增加。
+\end{xsolution}
+
+\subsection*{2.2 收敛数列的基本性质}
+
+\subsubsection*{2.2.1 思考题}
+
+\paragraph{2.2.1 思考题 1}
+\begin{xsolution}
+$\{a_n+b_n\}$ 必发散。否则若它收敛，则
+\[
+  b_n=(a_n+b_n)-a_n
+\]
+是两个收敛数列之差，也应收敛，与题设矛盾。
+
+乘积没有统一结论。若 $a_n\to a\ne0$，则 $a_nb_n$ 也必发散，否则 $b_n=(a_nb_n)/a_n$ 将收敛。若 $a=0$，乘积可收敛也可发散。例如
+\[
+  a_n=\frac1n,\ b_n=(-1)^n
+\]
+时 $a_nb_n\to0$；而取 $a_n=1/n,b_n=n^2$ 时 $a_nb_n=n$ 发散。
+\end{xsolution}
+
+\paragraph{2.2.1 思考题 2}
+\begin{xsolution}
+和与积都没有确定的敛散性。
+
+和可以收敛：取 $a_n=n,b_n=-n$，则 $a_n+b_n=0$；也可以发散：取 $a_n=b_n=n$。
+
+积可以收敛：令
+\[
+  a_{2k}=2k,\ a_{2k-1}=1,
+  \qquad
+  b_n=\frac1{a_n}.
+\]
+则 $\{a_n\}$、$\{b_n\}$ 都发散，但 $a_nb_n\equiv1$。积也可以发散，例如仍取 $a_n=b_n=n$。
+\end{xsolution}
+
+\paragraph{2.2.1 思考题 3}
+\begin{xsolution}
+不一定。取
+\[
+  a_n=b_n=c_n=(-1)^n.
+\]
+则 $a_n\le b_n\le c_n$ 且 $c_n-a_n\equiv0$，但 $\{b_n\}$ 发散。要应用夹逼定理，还必须知道两侧数列本身趋于同一个极限，而不仅是它们的差趋于 $0$。
+\end{xsolution}
+
+\paragraph{2.2.1 思考题 4}
+\begin{xsolution}
+错误在于收敛数列的有限项加法法则只能用于项数固定的和，而这里从 $1/(n+1)$ 到 $1/(2n)$ 一共有 $n$ 项，项数随 $n$ 增大，不能把极限号分配到一个长度不断变化的和中。事实上该极限等于 $\ln2$，并非 $0$。
+\end{xsolution}
+
+\paragraph{2.2.1 思考题 5}
+\begin{xsolution}
+只能推出
+\[
+  b\le a\le c,
+\]
+不能保证严格不等式。比如 $a_n=b+1/n$，则对每个 $n$ 有 $a_n>b$，但极限恰为 $b$。
+\end{xsolution}
+
+\paragraph{2.2.1 思考题 6}
+\begin{xsolution}
+不一定。当极限位于端点时可能从区间外逼近。例如取 $b=a=0$、$c=1$，令 $a_n=-1/n$，则 $a_n\to0$，但任何尾部都有 $a_n<b$。
+
+若另有严格条件 $b<a<c$，则结论成立：取
+\[
+  \varepsilon<\min\{a-b,c-a\},
+\]
+充分大的 $n$ 即有 $b<a_n<c$。
+\end{xsolution}
+
+\paragraph{2.2.1 思考题 7}
+\begin{xsolution}
+正向成立。由 $a_n\to0$，可取 $N$ 使 $n>N$ 时 $\abs{a_n}\le1/2$。于是对 $n>N$，
+\[
+  \abs{a_1a_2\cdots a_n}
+  \le C\left(\frac12\right)^{n-N},
+  \qquad
+  C=\abs{a_1\cdots a_N},
+\]
+故乘积趋于 $0$。
+
+反向不成立。例如 $a_n\equiv1/2$，则 $a_1a_2\cdots a_n=2^{-n}\to0$，但 $a_n\to1/2\ne0$。
+\end{xsolution}
+
+\subsubsection*{2.2.4 练习题}
+
+\paragraph{2.2.4 练习题 1}
+\begin{xsolution}
+必要性显然，因为收敛数列的任一子列都收敛于原极限。
+
+反之，设
+\[
+  a_{2k}\to A,\qquad a_{2k-1}\to A.
+\]
+给定 $\varepsilon>0$，分别取 $K_1,K_2$，使 $k>K_1$ 时 $\abs{a_{2k}-A}<\varepsilon$，$k>K_2$ 时 $\abs{a_{2k-1}-A}<\varepsilon$。取 $N>2\max\{K_1,K_2\}+1$，则任意 $n>N$ 无论奇偶都满足 $\abs{a_n-A}<\varepsilon$，故 $a_n\to A$。
+\end{xsolution}
+
+\paragraph{2.2.4 练习题 2}
+\begin{xsolution}
+(1) 令 $M=\max\{a_1,\ldots,a_p\}$。则
+\[
+  M^n\le a_1^n+\cdots+a_p^n\le pM^n.
+\]
+开 $n$ 次方得到
+\[
+  M\le\sqrt[n]{a_1^n+\cdots+a_p^n}\le p^{1/n}M\to M.
+\]
+故极限为 $M$。
+
+(2) 和式共有 $2n+1$ 项，并且
+\[
+  \frac{2n+1}{n+1}
+  \le x_n
+  \le\frac{2n+1}{\sqrt{n^2+1}}.
+\]
+两端都趋于 $2$，故 $x_n\to2$。
+
+(3) 记 $H_n=1+1/2+\cdots+1/n$。显然
+\[
+  1\le H_n\le n,
+\]
+所以
+\[
+  1\le H_n^{1/n}\le n^{1/n}\to1.
+\]
+故极限为 $1$。
+
+(4) 因 $a_n\to a>0$，充分大的 $n$ 有
+\[
+  \frac a2<a_n<\frac{3a}{2}.
+\]
+于是
+\[
+  \left(\frac a2\right)^{1/n}
+  <a_n^{1/n}
+  <\left(\frac{3a}{2}\right)^{1/n}.
+\]
+两端均趋于 $1$，由夹逼定理得 $a_n^{1/n}\to1$。
+\end{xsolution}
+
+\paragraph{2.2.4 练习题 3}
+\begin{xsolution}
+(1) 利用恒等式
+\[
+  (1-x)\prod_{j=0}^n(1+x^{2^j})=1-x^{2^{n+1}},
+\]
+可得当 $\abs x<1$ 时
+\[
+  \prod_{j=0}^n(1+x^{2^j})	o\frac1{1-x}.
+\]
+
+(2)
+\[
+  \prod_{k=2}^n\left(1-\frac1{k^2}\right)
+  =\prod_{k=2}^n\frac{k-1}{k}\frac{k+1}{k}
+  =\frac{n+1}{2n}\to\frac12.
+\]
+
+(3) 因 $1+2+\cdots+k=k(k+1)/2$，
+\[
+  1-\frac1{1+\cdots+k}
+  =1-\frac2{k(k+1)}
+  =\frac{k-1}{k}\frac{k+2}{k+1}.
+\]
+从 $k=2$ 到 $n$ 连乘得
+\[
+  \frac1n\cdot\frac{n+2}{3}=\frac{n+2}{3n}\to\frac13.
+\]
+
+(4) 分解
+\[
+  \frac1{k(k+1)(k+2)}
+  =\frac12\left(\frac1{k(k+1)}-\frac1{(k+1)(k+2)}\right).
+\]
+故前 $n$ 项和为
+\[
+  \frac14-\frac1{2(n+1)(n+2)}\to\frac14.
+\]
+
+(5) 对正整数 $\nu$，
+\[
+  \frac1{k(k+1)\cdots(k+\nu)}
+  =\frac1\nu\left[
+    \frac1{k(k+1)\cdots(k+\nu-1)}
+    -\frac1{(k+1)\cdots(k+\nu)}
+  \right].
+\]
+于是望远镜相消后
+\[
+  \sum_{k=1}^n\frac1{k(k+1)\cdots(k+\nu)}
+  =\frac1\nu\left(\frac1{\nu!}-\frac1{(n+1)\cdots(n+\nu)}\right),
+\]
+极限为
+\[
+  \boxed{\frac1{\nu\,\nu!}}.
+\]
+\end{xsolution}
+
+\paragraph{2.2.4 练习题 4}
+\begin{xsolution}
+把
+\[
+  s_n=\sum_{k=1}^n(2k-1)a^k
+\]
+与 $as_n$ 相减，或直接使用几何级数求导的有限形式。因 $\abs a<1$，极限等于无穷和
+\[
+  \sum_{k=1}^\infty(2k-1)a^k
+  =2\sum_{k=1}^\infty ka^k-\sum_{k=1}^\infty a^k.
+\]
+利用
+\[
+  \sum_{k=1}^\infty a^k=\frac a{1-a},
+  \qquad
+  \sum_{k=1}^\infty ka^k=\frac a{(1-a)^2},
+\]
+得到
+\[
+  \boxed{\lim_{n\to\infty}s_n=\frac{a(1+a)}{(1-a)^2}}.
+\]
+\end{xsolution}
+
+\paragraph{2.2.4 练习题 5}
+\begin{xsolution}
+设 $x_n\to L>0$。取 $N$ 使 $n>N$ 时 $x_n>L/2$。再令
+\[
+  m=\min\{x_1,\ldots,x_N,L/2\}>0,
+\]
+则对所有 $n$ 都有 $x_n\ge m$，故有正下界。
+
+但最小数不一定存在。例如 $x_n=1+1/n$ 收敛于 $1>0$，以 $1$ 为正下界，却没有任何一项等于最小值 $1$。
+\end{xsolution}
+
+\paragraph{2.2.4 练习题 6}
+\begin{xsolution}
+由 $a_n\to+\infty$，取 $G=a_1$，存在 $N$ 使 $n>N$ 时 $a_n>a_1$。有限集合 $\{a_1,\ldots,a_N\}$ 有最小值 $m$，而所有尾项又都大于 $a_1\ge m$，所以 $m$ 就是整个数列的最小数。
+\end{xsolution}
+
+\paragraph{2.2.4 练习题 7}
+\begin{xsolution}
+无界意味着至少有一侧无界：或者数列没有上界，或者没有下界。
+
+若没有上界，递归选取 $n_k>n_{k-1}$ 使 $a_{n_k}>k$，则 $a_{n_k}\to+\infty$。若没有下界，则可选 $n_k$ 使 $a_{n_k}<-k$，于是 $a_{n_k}\to-\infty$。因此至少存在一个确定符号的无穷大量子列。
+\end{xsolution}
+
+\paragraph{2.2.4 练习题 8}
+\begin{xsolution}
+用反证法。若 $\tan n\to L$，则移位数列也趋于 $L$，故 $\tan(n+1)-\tan n\to0$。由正切加法公式
+\[
+  \tan(n+1)=\frac{\tan n+\tan1}{1-\tan n\tan1}.
+\]
+若 $1-L\tan1\ne0$，令 $n\to\infty$ 得
+\[
+  L=\frac{L+\tan1}{1-L\tan1},
+\]
+即 $\tan1(1+L^2)=0$，不可能。若 $1-L\tan1=0$，右端分母趋于 $0$ 而分子趋于 $L+\tan1\ne0$，也不可能收敛到有限的 $L$。故 $\{\tan n\}$ 发散。
+\end{xsolution}
+
+\paragraph{2.2.4 练习题 9}
+\begin{xsolution}
+若 $p\le0$，则 $k^{-p}\ge1$，所以 $S_n\ge n\to+\infty$。
+
+若 $0<p<1$，取 $n\ge2$。从 $k=\lceil n/2\rceil$ 到 $n$ 至少有 $n/2$ 项，且每项不小于 $1/n^p$，故
+\[
+  S_n\ge\frac n2\cdot\frac1{n^p}
+  =\frac12n^{1-p}\to+\infty.
+\]
+两种情形均发散，而且实际上都趋于 $+\infty$。
+\end{xsolution}
+
+\subsection*{2.3 单调数列}
+
+\subsubsection*{2.3.2 练习题}
+
+\paragraph{2.3.2 练习题 1}
+\begin{xsolution}
+设 $x_n$ 单调增加。若它最终非负，则从那一项起 $\abs{x_n}=x_n$ 仍单调增加；若它始终为负，则 $\abs{x_n}=-x_n$ 单调减少；若由负变正，单调数列至多跨过 $0$ 一次，所以跨过后绝对值仍单调。单调减少的情形完全类似。因此 $\abs{x_n}$ 总会从某项起单调。
+
+反之不成立。例如 $x_n=(-1)^n$，则 $\abs{x_n}\equiv1$ 是单调的常值数列，但 $x_n$ 本身不单调。
+\end{xsolution}
+
+\paragraph{2.3.2 练习题 2}
+\begin{xsolution}
+令 $d_n=a_n-b_n$。由于 $a_n$ 单调增加而 $b_n$ 单调减少，$d_n$ 单调增加；又 $d_n\to0$，所以对所有 $n$ 有 $d_n\le0$，即 $a_n\le b_n$。
+
+于是
+\[
+  a_1\le a_n\le b_n\le b_1.
+\]
+$\{a_n\}$ 单调增加且有上界，$\{b_n\}$ 单调减少且有下界，故二者都收敛。设极限分别为 $A,B$，由 $a_n-b_n\to0$ 得 $A-B=0$，故 $A=B$。
+\end{xsolution}
+
+\paragraph{2.3.2 练习题 3}
+\begin{xsolution}
+设 $a_n$ 单调增加且 $a_n\to A$。固定任意 $k$，对所有 $n\ge k$ 有 $a_k\le a_n$。令 $n\to\infty$，由极限的保序性得 $a_k\le A$。因此极限不小于任一项。
+
+若 $a_n$ 单调减少且趋于 $A$，同理对 $n\ge k$ 有 $a_k\ge a_n$，令 $n\to\infty$ 得 $a_k\ge A$，即极限不大于任一项。
+\end{xsolution}
+
+\paragraph{2.3.2 练习题 4}
+\begin{xsolution}
+记
+\[
+  x_n=\frac23\frac35\cdots\frac{n+1}{2n+1}>0.
+\]
+则
+\[
+  \frac{x_{n+1}}{x_n}=\frac{n+2}{2n+3}\to\frac12<1.
+\]
+取 $q\in(1/2,1)$，充分大的 $n$ 有 $x_{n+1}<q x_n$，从而尾部被一个趋于 $0$ 的几何数列控制。故
+\[
+  \boxed{x_n\to0}.
+\]
+\end{xsolution}
+
+\paragraph{2.3.2 练习题 5}
+\begin{xsolution}
+记
+\[
+  a_n=\frac{10}{1}\frac{11}{3}\cdots\frac{n+9}{2n-1}>0.
+\]
+则
+\[
+  \frac{a_{n+1}}{a_n}=\frac{n+10}{2n+1}\to\frac12<1.
+\]
+与上一题完全相同，取任意 $q\in(1/2,1)$，尾部满足 $a_{n+1}<qa_n$，因此
+\[
+  \boxed{a_n\to0}.
+\]
+\end{xsolution}
+
+\paragraph{2.3.2 练习题 6}
+\begin{xsolution}
+$S_n$ 单调增加，只需证有上界。按二进制分组：若 $2^{m-1}<n\le2^m$，则
+\[
+  S_n\le S_{2^m}
+  =1+\sum_{j=0}^{m-1}\sum_{k=2^j+1}^{2^{j+1}}\frac1{k^p}.
+\]
+在第 $j$ 组中共有 $2^j$ 项，每项不超过 $2^{-jp}$，故
+\[
+  S_{2^m}\le1+\sum_{j=0}^{m-1}2^{j(1-p)}.
+\]
+因 $p>1$，公比 $2^{1-p}<1$，右端被一个收敛几何级数的和统一控制。因此 $\{S_n\}$ 单调有界，从而收敛。
+\end{xsolution}
+
+\paragraph{2.3.2 练习题 7}
+\begin{xsolution}
+在 $(0,\pi/2)$ 上有 $0<\sin x<x$。因此由 $0<x_0<\pi/2$ 归纳得
+\[
+  0<x_{n+1}=\sin x_n<x_n<\frac\pi2.
+\]
+所以 $\{x_n\}$ 单调减少且以 $0$ 为下界，设极限为 $L\ge0$。由正弦函数的数列连续性，
+\[
+  L=\sin L.
+\]
+而在 $[0,\pi/2)$ 上方程 $x=\sin x$ 只有根 $0$，故
+\[
+  \boxed{L=0}.
+\]
+\end{xsolution}
+
+\paragraph{2.3.2 练习题 8}
+\begin{xsolution}
+记
+\[
+  a_n=\prod_{k=1}^n\left(\frac{2k-1}{2k}\right)^2.
+\]
+对每个 $k$，
+\[
+  \left(\frac{2k-1}{2k}\right)^2
+  <\frac{2k-1}{2k+1},
+\]
+因为 $(2k-1)(2k+1)<4k^2$。故
+\[
+  0<a_n<\prod_{k=1}^n\frac{2k-1}{2k+1}
+  =\frac1{2n+1}\to0.
+\]
+于是 $a_n\to0$。
+\end{xsolution}
+
+\paragraph{2.3.2 练习题 9}
+\begin{xsolution}
+有
+\[
+  a_n=\frac1{2n+1}\left(\frac{(2n)!!}{(2n-1)!!}\right)^2
+  =\prod_{k=1}^n\frac{(2k)^2}{(2k-1)(2k+1)}.
+\]
+所以
+\[
+  \frac{a_{n+1}}{a_n}
+  =\frac{(2n+2)^2}{(2n+1)(2n+3)}>1,
+\]
+数列严格增加。另一方面
+\[
+  \frac{(2k)^2}{(2k-1)(2k+1)}
+  =1+\frac1{4k^2-1}.
+\]
+利用 $1+t\le\ee^t$，
+\[
+  a_n\le\exp\left(\sum_{k=1}^n\frac1{4k^2-1}\right).
+\]
+而
+\[
+  \frac1{4k^2-1}
+  =\frac12\left(\frac1{2k-1}-\frac1{2k+1}\right),
+\]
+故该和小于 $1/2$。于是 $a_n<\ee^{1/2}$，数列单调有界，因而收敛。
+\end{xsolution}
+
+\paragraph{2.3.2 练习题 10}
+\begin{xsolution}
+(1) $1/(1+n^2)$ 随 $n$ 严格减少，因此是单调数列。
+
+(2) $\sin n$ 不是单调数列。例如 $\sin1<\sin2$，而 $\sin3<\sin2$。
+
+(3) 令 $u_n=(n!)^{1/n}$。因 $u_n<n+1$，有
+\[
+  u_{n+1}>u_n
+  \Longleftrightarrow
+  (n+1)n!>(n!)^{(n+1)/n}
+  \Longleftrightarrow n+1>u_n,
+\]
+故 $\{\sqrt[n]{n!}\}$ 严格单调增加。
+\end{xsolution}
+
+\paragraph{2.3.2 练习题 11}
+\begin{xsolution}
+必要性显然。反过来，设单调数列 $a_n$ 有子列 $a_{n_k}\to L$。
+
+若 $a_n$ 单调增加，则对任意固定 $n$，取 $k$ 足够大使 $n_k\ge n$，有 $a_n\le a_{n_k}$，令 $k\to\infty$ 得 $a_n\le L$，所以原数列有上界，因而收敛。其极限记为 $A$。由于子列也必须收敛于 $A$，故 $A=L$。单调减少情形同理。
+\end{xsolution}
+
+\paragraph{2.3.2 练习题 12}
+\begin{xsolution}
+记 $x_n\in[0,1]$ 满足
+\[
+  x_n+x_n^2+\cdots+x_n^n=1.
+\]
+对同一个 $x_n$，再加上正项 $x_n^{n+1}$ 后左端大于 $1$，而函数 $x+x^2+\cdots+x^{n+1}$ 在 $[0,1]$ 上严格增加，所以
+\[
+  x_{n+1}<x_n.
+\]
+故 $x_n$ 单调减少且有下界 $0$，设 $x_n\to L$。
+
+当 $n\ge2$ 时 $x_n\le x_2<1$。由等比数列求和公式，
+\[
+  \frac{x_n(1-x_n^n)}{1-x_n}=1,
+\]
+即
+\[
+  2x_n-1=x_n^{n+1}.
+\]
+由于 $x_n\le x_2<1$，右端趋于 $0$，故
+\[
+  2L-1=0,
+  \qquad
+  \boxed{L=\frac12}.
+\]
+\end{xsolution}
+
+\subsection*{2.4 Cauchy 命题与 Stolz 定理}
+
+\subsubsection*{2.4.1 思考题}
+
+\paragraph{2.4.1 思考题}
+\begin{xsolution}
+若把三个命题中的极限值改为不带符号的无穷大量 $\infty$，结论都可能失败。
+
+对 Cauchy 命题，取 $x_n=(-1)^n n$。有 $\abs{x_n}=n\to\infty$，但前 $n$ 项平均值并不是无穷大量。实际上
+\[
+  \frac1{2m}\sum_{k=1}^{2m}(-1)^k k=\frac12,
+\]
+而
+\[
+  \frac1{2m+1}\sum_{k=1}^{2m+1}(-1)^k k
+  =-\frac{m+1}{2m+1}\to-\frac12.
+\]
+
+对 $0/0$ 型 Stolz 定理，取
+\[
+  a_n=\frac1n,\qquad b_n=\frac{(-1)^n}{n}.
+\]
+则 $a_n,b_n\to0$ 且 $a_n$ 严格减少，但
+\[
+  \abs{\frac{b_{n+1}-b_n}{a_{n+1}-a_n}}
+  =2n+1\to\infty,
+\]
+而 $b_n/a_n=(-1)^n$ 不收敛。
+
+对 $*/\infty$ 型 Stolz 定理，取 $a_n=n$、$b_n=(-1)^n n$。则
+\[
+  \abs{\frac{b_{n+1}-b_n}{a_{n+1}-a_n}}=2n+1\to\infty,
+\]
+而 $b_n/a_n=(-1)^n$ 仍不收敛。
+\end{xsolution}
+
+\subsubsection*{2.4.3 练习题}
+
+\paragraph{2.4.3 练习题 1}
+\begin{xsolution}
+给定 $G>0$。由 $x_n\to+\infty$，存在 $N$，使 $k>N$ 时 $x_k>2G$。记
+\[
+  C=\abs{x_1}+\cdots+\abs{x_N}.
+\]
+当 $n>N$ 时，
+\[
+  \frac{x_1+\cdots+x_n}{n}
+  \ge-\frac Cn+\frac{n-N}{n}\,2G.
+\]
+再取 $n$ 充分大，使 $C/n<G/2$ 且 $2GN/n<G/2$，即可得到右端大于 $G$。故
+\[
+  \frac{x_1+\cdots+x_n}{n}\to+\infty.
+\]
+\end{xsolution}
+
+\paragraph{2.4.3 练习题 2}
+\begin{xsolution}
+记
+\[
+  A_n=\frac{x_1+\cdots+x_n}{n}\to a.
+\]
+因为 $\{x_n\}$ 单调增加，所以
+\[
+  A_n\le x_n.
+\]
+另一方面，
+\[
+  nx_n\le x_{n+1}+\cdots+x_{2n}=2nA_{2n}-nA_n,
+\]
+故
+\[
+  x_n\le2A_{2n}-A_n.
+\]
+两边夹住得
+\[
+  A_n\le x_n\le2A_{2n}-A_n.
+\]
+左右两端都趋于 $a$，所以 $x_n\to a$。
+\end{xsolution}
+
+\paragraph{2.4.3 练习题 3}
+\begin{xsolution}
+设奇数项子列趋于 $a$，偶数项子列趋于 $b$。对偶数下标 $n=2m$，
+\[
+  \frac{a_1+\cdots+a_{2m}}{2m}
+  =\frac12\left(
+    \frac{a_1+a_3+\cdots+a_{2m-1}}m
+    +\frac{a_2+a_4+\cdots+a_{2m}}m
+  \right).
+\]
+分别对两个子列应用 Cauchy 命题，右边趋于 $(a+b)/2$。奇数下标与相邻偶数下标之差为
+\[
+  \frac{a_1+\cdots+a_{2m+1}}{2m+1}
+  -\frac{a_1+\cdots+a_{2m}}{2m}
+  =\frac{a_{2m+1}-A_{2m}}{2m+1},
+\]
+其中 $A_{2m}$ 为前 $2m$ 项平均值；因 $a_{2m+1}$ 和 $A_{2m}$ 都有界，该差趋于 $0$。故全数列的平均值极限为
+\[
+  \boxed{\frac{a+b}{2}}.
+\]
+\end{xsolution}
+
+\paragraph{2.4.3 练习题 4}
+\begin{xsolution}
+把 $a_n/n$ 视为以 $n$ 为分母的 Stolz 型。因 $n\to+\infty$ 严格增加，
+\[
+  \lim_{n\to\infty}\frac{a_n}{n}
+  =\lim_{n\to\infty}\frac{a_n-a_{n-1}}{n-(n-1)}=d.
+\]
+其中有限个初始项不影响极限。
+\end{xsolution}
+
+\paragraph{2.4.3 练习题 5}
+\begin{xsolution}
+若 $A>0$，充分大的 $n$ 有 $a_n>0$，并且 $\ln a_n\to\ln A$。于是由 Cauchy 命题，
+\[
+  \frac1n\sum_{k=1}^n\ln a_k\to\ln A.
+\]
+取指数即得
+\[
+  (a_1a_2\cdots a_n)^{1/n}\to A.
+\]
+
+若 $A=0$，给定 $\varepsilon>0$，从某项起 $0<a_n<\varepsilon$。前面有限项的乘积记为 $C>0$，则
+\[
+  0<(a_1\cdots a_n)^{1/n}
+  \le C^{1/n}\varepsilon^{(n-N)/n}\to\varepsilon.
+\]
+由 $\varepsilon$ 任意可知极限为 $0=A$。
+\end{xsolution}
+
+\paragraph{2.4.3 练习题 6}
+\begin{xsolution}
+先设 $l>0$。令
+\[
+  r_n=\frac{a_{n+1}}{a_n}>0,
+\]
+则 $r_n\to l$，从而 $\ln r_n\to\ln l$。又
+\[
+  \ln a_n=\ln a_1+\sum_{k=1}^{n-1}\ln r_k.
+\]
+由 Cauchy 命题，
+\[
+  \frac{\ln a_n}{n}\to\ln l,
+\]
+于是 $a_n^{1/n}\to l$。
+
+若 $l=0$，给定任意 $q>0$，从某项起 $a_{n+1}/a_n<q$，故有常数 $C>0$ 使
+\[
+  a_n\le Cq^n
+\]
+对充分大的 $n$ 成立，于是
+\[
+  \limsup_{n\to\infty}a_n^{1/n}\le q.
+\]
+让 $q\downarrow0$ 得极限为 $0$。
+\end{xsolution}
+
+\paragraph{2.4.3 练习题 7}
+\begin{xsolution}
+把奇偶项分别处理。对偶数项，
+\[
+  x_{2m}=x_0+\sum_{k=1}^m(x_{2k}-x_{2k-2}).
+\]
+因括号中的数列趋于 $0$，由 Cauchy 命题
+\[
+  \frac{x_{2m}-x_0}{m}\to0,
+\]
+所以 $x_{2m}/(2m)\to0$。奇数项完全相同，故
+\[
+  \boxed{\frac{x_n}{n}\to0}.
+\]
+\end{xsolution}
+
+\paragraph{2.4.3 练习题 8}
+\begin{xsolution}
+由上一题，$x_n/n\to0$，同时 $x_{n-1}/(n-1)\to0$。于是
+\[
+  \frac{x_n-x_{n-1}}n
+  =\frac{x_n}{n}-\frac{n-1}{n}\frac{x_{n-1}}{n-1}\to0.
+\]
+\end{xsolution}
+
+\paragraph{2.4.3 练习题 9}
+\begin{xsolution}
+由 $0<a_1<1$ 及
+\[
+  a_{n+1}=a_n(1-a_n)<a_n
+\]
+知 $\{a_n\}$ 单调减少且保持正，故有极限 $L\ge0$。在递推式中取极限得 $L=L(1-L)$，所以 $L=0$。
+
+现在计算
+\[
+  \frac1{a_{n+1}}-\frac1{a_n}
+  =\frac1{a_n(1-a_n)}-\frac1{a_n}
+  =\frac1{1-a_n}\to1.
+\]
+对 $1/a_n$ 与 $n$ 应用 Stolz 定理，
+\[
+  \frac{1/a_n}{n}\to1,
+\]
+即
+\[
+  \boxed{na_n\to1}.
+\]
+\end{xsolution}
+
+\paragraph{2.4.3 练习题 10}
+\begin{xsolution}
+写
+\[
+  a_k=\alpha+u_k,\qquad b_k=\beta+v_k,
+\]
+其中 $u_k\to0,v_k\to0$。则所求表达式等于
+\[
+  \alpha\beta
+  +\alpha\frac{v_1+\cdots+v_n}{n}
+  +\beta\frac{u_1+\cdots+u_n}{n}
+  +\frac1n\sum_{k=1}^n u_kv_{n+1-k}.
+\]
+前两个平均值由 Cauchy 命题趋于 $0$。只需处理最后一项。
+
+收敛数列 $\{u_k\},\{v_k\}$ 有界。设 $\abs{u_k}\le M$。给定 $\varepsilon>0$，取 $N$ 使 $j>N$ 时 $\abs{v_j}<\varepsilon$。则
+\[
+  \frac1n\sum_{k=1}^n\abs{u_kv_{n+1-k}}
+  \le \frac1n\sum_{j=1}^N M\abs{v_j}
+     +\frac1n\sum_{j=N+1}^n M\varepsilon.
+\]
+第一项在固定 $N$ 后趋于 $0$，第二项不超过 $M\varepsilon$。由 $\varepsilon$ 任意，卷积项趋于 $0$，故原极限为 $\alpha\beta$。
+\end{xsolution}
+
+\subsection*{2.5 自然对数的底 $\ee$ 和 Euler 常数 $\gamma$}
+
+\subsubsection*{2.5.5 练习题}
+
+\paragraph{2.5.5 练习题 1}
+\begin{xsolution}
+利用
+\[
+  \frac{x}{1+x}<\ln(1+x)<x\qquad(x>0)
+\]
+及本章已经建立的 $\left(1+1/n\right)^n\to\ee$，可得到：
+\begin{enumerate}[label=(\arabic*)]
+  \item 令 $m=n-1$，
+  \[
+    \left(1-\frac1n\right)^n
+    =\left(1+\frac1m\right)^{-(m+1)}\to\ee^{-1}.
+  \]
+  \item
+  \[
+    \left(1+\frac1{2n}\right)^n
+    =\left[\left(1+\frac1{2n}\right)^{2n}\right]^{1/2}\to\ee^{1/2}.
+  \]
+  \item 同理
+  \[
+    \left(1+\frac2n\right)^n
+    =\left[\left(1+\frac1{n/2}\right)^{n/2}\right]^2\to\ee^2.
+  \]
+  \item
+  \[
+    \left(1+\frac1n\right)^{n^2}
+    =\left[\left(1+\frac1n\right)^n\right]^n\to+\infty,
+  \]
+  因为括号内最终大于某个常数 $q>1$。
+  \item 取对数，有
+  \[
+    0<n\ln\left(1+\frac1{n^2}\right)<\frac1n\to0,
+  \]
+  故极限为 $1$。
+  \item 取对数并令 $u_n=1/n+1/n^2$，则
+  \[
+    \frac{nu_n}{1+u_n}<n\ln(1+u_n)<nu_n.
+  \]
+  两端均趋于 $1$，故对数趋于 $1$，原极限为 $\ee$。
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{2.5.5 练习题 2}
+\begin{xsolution}
+把不等式 (2.16)
+\[
+  \frac1{j+1}<\ln\left(1+\frac1j\right)<\frac1j
+\]
+中的 $j$ 依次取 $n,n+1,\ldots,n+k-1$ 并相加，得到
+\[
+  \sum_{j=n}^{n+k-1}\frac1{j+1}
+  <\ln\left(1+\frac kn\right)
+  <\sum_{j=n}^{n+k-1}\frac1j.
+\]
+左边每项都不小于 $1/(n+k)$，右边每项都不大于 $1/n$，故
+\[
+  \boxed{\frac{k}{n+k}<\ln\left(1+\frac kn\right)<\frac kn}.
+\]
+\end{xsolution}
+
+\paragraph{2.5.5 练习题 3}
+\begin{xsolution}
+记
+\[
+  P_n=\prod_{k=1}^n\left(1+\frac{k}{n^2}\right).
+\]
+取对数并用 $x/(1+x)<\ln(1+x)<x$：
+\[
+  \sum_{k=1}^n\frac{k/n^2}{1+k/n^2}
+  <\ln P_n
+  <\sum_{k=1}^n\frac{k}{n^2}.
+\]
+右端趋于 $1/2$。左右两端之差不超过
+\[
+  \sum_{k=1}^n\left(\frac{k}{n^2}\right)^2
+  =\frac1{n^4}\sum_{k=1}^n k^2\to0.
+\]
+因此 $\ln P_n\to1/2$，从而
+\[
+  \boxed{P_n\to\sqrt\ee}.
+\]
+\end{xsolution}
+
+\paragraph{2.5.5 练习题 4}
+\begin{xsolution}
+令
+\[
+  y_n=\left(1+\frac1{p_n}\right)^{p_n}.
+\]
+由于 $p_n\to+\infty$，
+\[
+  \frac{p_n}{p_n+1}
+  <p_n\ln\left(1+\frac1{p_n}\right)<1.
+\]
+两端趋于 $1$，故 $\ln y_n\to1$，于是
+\[
+  \boxed{y_n\to\ee}.
+\]
+\end{xsolution}
+
+\paragraph{2.5.5 练习题 5}
+\begin{xsolution}
+令
+\[
+  u_n=\frac{n!\,2^n}{n^n}>0.
+\]
+由本章例题 2.5.3，
+\[
+  \sqrt[n]{u_n}=2\frac{\sqrt[n]{n!}}n\to\frac2\ee<1.
+\]
+取 $q$ 满足 $2/\ee<q<1$，则充分大的 $n$ 有 $\sqrt[n]{u_n}<q$，从而 $0<u_n<q^n\to0$。故极限为 $0$。
+\end{xsolution}
+
+\paragraph{2.5.5 练习题 6}
+\begin{xsolution}
+由 Euler 常数的定义，
+\[
+  H_n=1+\frac12+\cdots+\frac1n
+  =\ln n+\gamma+\littleo(1).
+\]
+故
+\[
+  \frac{\ln n}{H_n}
+  =\frac1{1+(\gamma+\littleo(1))/\ln n}\to1.
+\]
+\end{xsolution}
+
+\paragraph{2.5.5 练习题 7}
+\begin{xsolution}
+由 (2.16)，对 $k=1,\ldots,n$ 有
+\[
+  \frac{k}{k+1}<k\ln\left(1+\frac1k\right)<1.
+\]
+相加得
+\[
+  n+1-H_{n+1}
+  <\sum_{k=1}^n k\ln\left(1+\frac1k\right)<n.
+\]
+而
+\[
+  \sum_{k=1}^n k\ln\left(1+\frac1k\right)
+  =n\ln(n+1)-\ln n!.
+\]
+上界立即给出
+\[
+  \ln n!>n\ln(n+1)-n,
+\]
+即
+\[
+  \left(\frac{n+1}{\ee}\right)^n<n!.
+\]
+
+另一方面，由 $H_{n+1}<1+\ln(n+1)$，上面的下界给出
+\[
+  n\ln(n+1)-\ln n!>n-\ln(n+1).
+\]
+整理为
+\[
+  \ln n!<(n+1)\ln(n+1)-n,
+\]
+即
+\[
+  n!<\ee\left(\frac{n+1}{\ee}\right)^{n+1}.
+\]
+\end{xsolution}
+
+\paragraph{2.5.5 练习题 8}
+\begin{xsolution}
+记 $S_n=\sum_{k=1}^n k^k$。显然
+\[
+  S_n\ge n^n+(n-1)^{n-1}.
+\]
+由
+\[
+  \left(1+\frac1{n-1}\right)^{n-1}<\ee
+\]
+得
+\[
+  (n-1)^{n-1}>\frac{n^{n-1}}\ee.
+\]
+对 $n\ge4$，$1/\ee\ge n/[4(n-1)]$，故
+\[
+  (n-1)^{n-1}\ge\frac{n^n}{4(n-1)}.
+\]
+$n=2,3$ 可直接检查，所以
+\[
+  S_n\ge n^n\left(1+\frac1{4(n-1)}\right).
+\]
+
+再看上界。对 $2\le k\le n$，
+\[
+  \frac{(k-1)^{k-1}}{k^k}<\frac1k\le\frac12.
+\]
+因此
+\[
+  1^1+2^2+\cdots+(n-1)^{n-1}<2(n-1)^{n-1}.
+\]
+又由
+\[
+  \ee<\left(1+\frac1{n-1}\right)^n
+\]
+可得
+\[
+  (n-1)^{n-1}<\frac{n^n}{\ee(n-1)}.
+\]
+于是
+\[
+  S_n<n^n\left(1+\frac2{\ee(n-1)}\right).
+\]
+两边不等式均得证。
+\end{xsolution}
+
+\paragraph{2.5.5 练习题 9}
+\begin{xsolution}
+令
+\[
+  b_n=\frac{a_n}{n!}.
+\]
+由 $a_n=n(a_{n-1}+1)$，
+\[
+  b_n=b_{n-1}+\frac1{(n-1)!},
+\]
+且 $b_1=1$，故
+\[
+  b_n=\sum_{j=0}^{n-1}\frac1{j!}.
+\]
+另一方面，
+\[
+  1+\frac1{a_k}
+  =\frac{a_k+1}{a_k}
+  =\frac{a_{k+1}}{(k+1)a_k}.
+\]
+所以乘积望远镜相消：
+\[
+  x_n=\prod_{k=1}^n\left(1+\frac1{a_k}\right)
+  =\frac{a_{n+1}}{(n+1)!}=b_{n+1}.
+\]
+于是
+\[
+  \boxed{x_n\to\ee}.
+\]
+\end{xsolution}
+
+\subsection*{2.6 由迭代生成的数列}
+
+\subsubsection*{2.6.3 练习题}
+
+\paragraph{2.6.3 练习题 1}
+\begin{xsolution}
+(1) 令
+\[
+  L=\frac{1+\sqrt{1+4a}}2,
+\]
+则 $L>0$ 且 $L^2=L+a$。由于 $x_1=\sqrt a<L$，且函数 $f(x)=\sqrt{a+x}$ 单调增加；对 $0<x<L$，
+\[
+  x<f(x)<L.
+\]
+因此归纳可得 $0<x_1<x_2<\cdots<L$。数列单调有界，故收敛，极限只能是不动点 $L$。所以
+\[
+  \boxed{\lim x_n=\frac{1+\sqrt{1+4a}}2}.
+\]
+
+(2) 因所有项为正，令 $y_n=\ln x_n$。递推式变为
+\[
+  y_{n+1}=\frac{\ln a+y_n}{2},
+  \qquad y_1=\frac12\ln a.
+\]
+直接解得
+\[
+  y_n=(1-2^{-n})\ln a\to\ln a.
+\]
+故
+\[
+  \boxed{x_n\to a}.
+\]
+\end{xsolution}
+
+\paragraph{2.6.3 练习题 2}
+\begin{xsolution}
+令
+\[
+  e_n=1-Ab_n.
+\]
+由 $0<b_0<A^{-1}$ 知 $0<e_0<1$。递推式给出
+\[
+  e_{n+1}=1-Ab_n(2-Ab_n)=(1-Ab_n)^2=e_n^2.
+\]
+因此
+\[
+  e_n=e_0^{2^n}\to0,
+\]
+从而
+\[
+  \boxed{b_n\to A^{-1}}.
+\]
+\end{xsolution}
+
+\paragraph{2.6.3 练习题 3}
+\begin{xsolution}
+因 $x_1=1/2$，有
+\[
+  x_2=\frac b4>1.
+\]
+于是
+\[
+  x_3=bx_2(1-x_2)<0.
+\]
+若 $x<0$，则
+\[
+  bx(1-x)<x,
+\]
+因为 $b(1-x)>b>4>1$，乘以负数 $x$ 后不等号反向。因此从 $x_3$ 起数列严格减少并保持负值。
+
+若它有有限极限 $L$，连续性给出 $L=bL(1-L)$，即 $L=0$ 或 $L=1-1/b>0$，都与尾部严格为负且递减矛盾。因此数列无有限极限，实际上 $x_n\to-\infty$，故发散。
+\end{xsolution}
+
+\paragraph{2.6.3 练习题 4}
+\begin{xsolution}
+有
+\[
+  x_{n+1}-x_n=\frac{(x_n-1)^2}{2}\ge0,
+\]
+所以数列总是单调不减。
+
+若 $-1\le b\le1$，则 $x_2=(b^2+1)/2\in[1/2,1]$；以后若 $0\le x_n\le1$，就有 $x_n\le x_{n+1}\le1$。故数列收敛，其极限满足
+\[
+  L=\frac{L^2+1}{2},
+\]
+于是 $L=1$。
+
+若 $\abs b>1$，则 $x_2>1$，以后严格增加。若有有限极限也只能为 $1$，但尾部始终大于 $1$ 且严格增加，不可能趋于 $1$，故发散于 $+\infty$。
+
+因此
+\[
+  \boxed{\{x_n\}\text{ 收敛当且仅当 }-1\le b\le1,
+  \quad\text{此时极限为 }1.}
+\]
+\end{xsolution}
+
+\paragraph{2.6.3 练习题 5}
+\begin{xsolution}
+递推式为
+\[
+  x_n=1+bx_{n-1},\qquad x_0=a.
+\]
+若 $b\ne1$，其通项为
+\[
+  x_n=\frac1{1-b}+b^n\left(a-\frac1{1-b}\right).
+\]
+因此分类如下：
+\begin{itemize}
+  \item $\abs b<1$：任意 $a$ 均收敛，极限为 $1/(1-b)$；
+  \item $b=-1$：只有 $a=1/2$ 时为常值数列并收敛；
+  \item $\abs b>1$：只有 $a=1/(1-b)$ 时为常值数列并收敛；
+  \item $b=1$：$x_n=a+n$，对任何 $a$ 都不收敛。
+\end{itemize}
+这就是全部可能情形。
+\end{xsolution}
+
+\paragraph{2.6.3 练习题 6}
+\begin{xsolution}
+线性迭代
+\[
+  x_{n+1}=ax_n+b
+\]
+在 $a\ne1$ 时满足
+\[
+  x_n=x_*+a^{n-1}(x_1-x_*),
+  \qquad x_*=\frac b{1-a}.
+\]
+据此逐问回答：
+
+(1) 存在。例如取 $\abs a<1$，则对任何 $x_1$ 都收敛于 $x_*$。
+
+(2) 存在。例如取 $a=1,b=1$，则 $x_n=x_1+n-1\to+\infty$，对任何初值都发散。
+
+(3) 存在。取 $a=1,b=0$，则 $x_n\equiv x_1$，不同初值收敛到不同极限。
+
+(4) 存在。例如取 $a=2,b=0$。当 $x_1=0$ 时收敛；当 $x_1\ne0$ 时 $x_n=2^{n-1}x_1$ 发散。
+\end{xsolution}
+
+\paragraph{2.6.3 练习题 7}
+\begin{xsolution}
+由
+\[
+  x_{n+1}+\frac1{x_n}<2
+\]
+且 $x_{n+1}>0$，可知 $x_n>1/2$。又
+\[
+  x_{n+1}<2-\frac1{x_n}\le x_n,
+\]
+因为
+\[
+  2-\frac1x-x=-\frac{(x-1)^2}{x}\le0
+  \qquad(x>0).
+\]
+故 $\{x_n\}$ 单调减少且以下界 $1/2$ 有界，设极限为 $L>0$。令 $n\to\infty$，由原不等式得到
+\[
+  L+\frac1L\le2.
+\]
+而对 $L>0$ 总有 $L+1/L\ge2$，所以必有 $L=1$。即
+\[
+  \boxed{x_n\to1}.
+\]
+\end{xsolution}
+
+\paragraph{2.6.3 练习题 8}
+\begin{xsolution}
+由算术—几何平均值不等式，
+\[
+  x_{n+1}=\frac12\left(x_n+\frac A{x_n}\right)\ge\sqrt A.
+\]
+所以从第二项起 $x_n\ge\sqrt A$。此时
+\[
+  x_{n+1}-x_n
+  =\frac{A-x_n^2}{2x_n}\le0.
+\]
+故尾部单调减少且以下界 $\sqrt A$ 有界，设极限为 $L\ge\sqrt A$。在递推式中取极限得
+\[
+  L=\frac12\left(L+\frac A L\right),
+\]
+故 $L^2=A$，即 $L=\sqrt A$。
+
+此外，误差有精确恒等式
+\[
+  x_{n+1}-\sqrt A
+  =\frac{(x_n-\sqrt A)^2}{2x_n},
+\]
+这说明该算法具有二次收敛速度。
+\end{xsolution}
+
+\paragraph{2.6.3 练习题 9}
+\begin{xsolution}
+令
+\[
+  r_n=\frac{x_n}{\sqrt A}>0.
+\]
+则
+\[
+  r_{n+1}=\frac{r_n(r_n^2+3)}{3r_n^2+1}.
+\]
+直接计算得
+\[
+  r_{n+1}-1=\frac{(r_n-1)^3}{3r_n^2+1},
+\]
+所以 $r_{n+1}-1$ 与 $r_n-1$ 同号；同时
+\[
+  r_{n+1}-r_n
+  =\frac{2r_n(1-r_n^2)}{3r_n^2+1}.
+\]
+若 $r_1>1$，则 $1<r_{n+1}<r_n$；若 $0<r_1<1$，则 $r_n<r_{n+1}<1$。两种情况下均单调有界并趋于某个 $L>0$。取极限有
+\[
+  L=\frac{L(L^2+3)}{3L^2+1},
+\]
+故 $L=1$。因此
+\[
+  \boxed{x_n\to\sqrt A}.
+\]
+且由第一条误差公式可见误差近似按三次方衰减，收敛速度为三次。
+\end{xsolution}
+
+\subsection*{2.7 对于教学的建议}
+
+\subsubsection*{2.7.2 补充例题}
+
+\paragraph{例题 2.7.1}
+\begin{xsolution}
+设 $a_n\to a>0$，给定 $c\in(0,a)$。取
+\[
+  \varepsilon=a-c>0.
+\]
+由极限定义，存在 $N$，当 $n>N$ 时
+\[
+  \abs{a_n-a}<a-c.
+\]
+于是
+\[
+  a_n>a-(a-c)=c.
+\]
+
+$c=0$ 时也可以：取 $\varepsilon=a/2$，充分大的 $n$ 有 $a_n>a/2>0$。
+
+$c=a$ 时一般不可以。例如 $a_n=a-1/n$ 收敛于 $a$，但每一项都小于 $a$。
+\end{xsolution}
+
+\paragraph{例题 2.7.2}
+\begin{xsolution}
+只需给出一个直接的夹逼证明。对 $n\ge2$，在 $1,2,\ldots,n$ 中至少有 $n/2$ 个数不小于 $n/2$，因此
+\[
+  n!\ge\left(\frac n2\right)^{n/2}.
+\]
+所以
+\[
+  0<\frac1{\sqrt[n]{n!}}
+  \le\sqrt{\frac2n}\to0.
+\]
+故
+\[
+  \boxed{\lim_{n\to\infty}\frac1{\sqrt[n]{n!}}=0}.
+\]
+\end{xsolution}
+
+\paragraph{例题 2.7.3}
+\begin{xsolution}
+设
+\[
+  a_n=1-\frac12+\frac13-\cdots+(-1)^{n-1}\frac1n.
+\]
+偶数项子列满足
+\[
+  a_{2n+2}-a_{2n}
+  =\frac1{2n+1}-\frac1{2n+2}>0,
+\]
+故 $\{a_{2n}\}$ 单调增加；奇数项子列满足
+\[
+  a_{2n+3}-a_{2n+1}
+  =-\frac1{2n+2}+\frac1{2n+3}<0,
+\]
+故 $\{a_{2n+1}\}$ 单调减少。并且
+\[
+  a_{2n+1}-a_{2n}=\frac1{2n+1}>0.
+\]
+所以偶数项子列以上述任一奇数项为上界，奇数项子列以下述任一偶数项为下界，二者都收敛。又它们的差趋于 $0$，故两极限相同，于是全数列收敛。
+
+利用原书给出的 Catalan 恒等式，
+\[
+  a_{2n}=\frac1{n+1}+\cdots+\frac1{2n}\to\ln2,
+\]
+所以事实上
+\[
+  \boxed{a_n\to\ln2}.
+\]
+\end{xsolution}
+
+\paragraph{例题 2.7.4}
+\begin{xsolution}
+递推关系为
+\[
+  x_{n+1}=\frac1{2-x_n}.
+\]
+若 $x_1=1$，则数列恒为 $1$。否则令
+\[
+  y_n=\frac1{1-x_n}.
+\]
+由递推式直接计算
+\[
+  y_{n+1}
+  =\frac1{1-1/(2-x_n)}
+  =\frac{2-x_n}{1-x_n}=y_n+1.
+\]
+因此
+\[
+  y_n=y_1+n-1.
+\]
+题设递推式能对所有 $n$ 定义，故中途不会出现使分母为零的项。于是 $\abs{y_n}\to\infty$，从
+\[
+  x_n=1-\frac1{y_n}
+\]
+得到
+\[
+  \boxed{x_n\to1}.
+\]
+\end{xsolution}
+
+\subsubsection*{2.7.3 第一组参考题}
+
+\paragraph{第一组参考题 1}
+\begin{xsolution}
+设
+\[
+  a_{2k-1}\to A,\qquad a_{2k}\to B,
+\]
+而 $a_{3k}\to C$。在 $\{a_{3k}\}$ 中，子列 $\{a_{6j}\}$ 同时是偶数项子列的子列，因此 $a_{6j}\to B$；另一方面它也是 $\{a_{3k}\}$ 的子列，所以 $a_{6j}\to C$，故 $B=C$。
+
+同理 $\{a_{6j-3}\}$ 同时是奇数项子列和 $\{a_{3k}\}$ 的子列，所以 $A=C$。因此 $A=B$。由奇偶子列判别准则，$\{a_n\}$ 收敛，极限为 $A=B=C$。
+\end{xsolution}
+
+\paragraph{第一组参考题 2}
+\begin{xsolution}
+由 $a_n\le a_{n+2}$，奇数项和偶数项子列都单调增加。原数列有界，所以这两个子列分别收敛，设
+\[
+  a_{2k-1}\to A,\qquad a_{2k}\to B.
+\]
+条件 $a_n\le a_{n+3}$ 分别取 $n=2k-1$ 与 $n=2k$，得到
+\[
+  a_{2k-1}\le a_{2k+2},
+  \qquad
+  a_{2k}\le a_{2k+3}.
+\]
+令 $k\to\infty$，得 $A\le B$ 和 $B\le A$，故 $A=B$。于是原数列收敛。
+\end{xsolution}
+
+\paragraph{第一组参考题 3}
+\begin{xsolution}
+设
+\[
+  u_n=a_n+a_{n+1}\to U,
+  \qquad
+  v_n=a_n+a_{n+2}\to V.
+\]
+由
+\[
+  v_n-u_{n+1}=a_n-a_{n+1}
+\]
+可知差分 $d_n=a_{n+1}-a_n$ 有极限 $U-V$。另一方面
+\[
+  u_{n+1}-u_n=a_{n+2}-a_n=d_{n+1}+d_n\to0,
+\]
+因此 $2(U-V)=0$，即 $U=V$，从而 $d_n\to0$。
+
+最后
+\[
+  a_n=\frac{u_n-d_n}{2}\to\frac U2.
+\]
+所以 $\{a_n\}$ 收敛。
+\end{xsolution}
+
+\paragraph{第一组参考题 4}
+\begin{xsolution}
+设
+\[
+  \abs{\frac{a_{n+1}}{a_n}}\to a.
+\]
+若 $a>1$，可取 $q$ 满足 $1<q<a$。充分大的 $n$ 有
+\[
+  \abs{a_{n+1}}>q\abs{a_n}.
+\]
+于是只要某个尾项非零，后续绝对值就按至少几何速度增加，不可能趋于 $0$；若尾项为零，则商在此后无定义，也与题设存在该极限不符。因此 $a>1$ 不可能，故
+\[
+  \boxed{a\le1}.
+\]
+\end{xsolution}
+
+\paragraph{第一组参考题 5}
+\begin{xsolution}
+有理化得
+\[
+  \sqrt{1+\frac{k}{n^2}}-1
+  =\frac{k/n^2}{\sqrt{1+k/n^2}+1}.
+\]
+对 $1\le k\le n$，分母一致趋于 $2$，更具体地
+\[
+  2\le \sqrt{1+k/n^2}+1\le\sqrt{1+1/n}+1.
+\]
+因此
+\[
+  \frac{1}{\sqrt{1+1/n}+1}\frac1{n^2}\sum_{k=1}^n k
+  \le a_n
+  \le\frac12\frac1{n^2}\sum_{k=1}^n k.
+\]
+两端都趋于 $1/4$，故
+\[
+  \boxed{a_n\to\frac14}.
+\]
+\end{xsolution}
+
+\paragraph{第一组参考题 6}
+\begin{xsolution}
+若 $n$ 有 $p(n)$ 个互异素因子，则这些素因子的乘积至少为 $2^{p(n)}$，且该乘积整除 $n$，故不超过 $n$。于是
+\[
+  2^{p(n)}\le n,
+  \qquad
+  p(n)\le\log_2 n.
+\]
+所以
+\[
+  0\le\frac{p(n)}n\le\frac{\log_2 n}{n}\to0.
+\]
+\end{xsolution}
+
+\paragraph{第一组参考题 7}
+\begin{xsolution}
+由 $a_0+\cdots+a_p=0$，可减去 $\sqrt n$：
+\[
+  \sum_{j=0}^p a_j\sqrt{n+j}
+  =\sum_{j=0}^p a_j(\sqrt{n+j}-\sqrt n).
+\]
+而
+\[
+  \sqrt{n+j}-\sqrt n
+  =\frac{j}{\sqrt{n+j}+\sqrt n}\to0.
+\]
+$p$ 固定，有限项之和趋于 $0$，故所求极限为
+\[
+  \boxed{0}.
+\]
+\end{xsolution}
+
+\paragraph{第一组参考题 8}
+\begin{xsolution}
+函数 $f(x)=x^k$ 在 $(0,\infty)$ 上可用均值不等式估计；由于 $0<k<1$，$f'(x)=kx^{k-1}$ 单调减少。对某个 $\xi_n\in(n,n+1)$，
+\[
+  (n+1)^k-n^k=k\xi_n^{k-1}\le k n^{k-1}.
+\]
+因 $k-1<0$，右端趋于 $0$，故所求极限为 $0$。
+\end{xsolution}
+
+\paragraph{第一组参考题 9}
+\begin{xsolution}
+(1) 不一定。取
+\[
+  x_n=\frac{(-1)^n}{n}\to0.
+\]
+则
+\[
+  y_n=n(x_n-x_{n-1})
+  =(-1)^n\left(1+\frac n{n-1}\right),
+\]
+它在正负两个值附近振荡，不收敛。
+
+(2) 若 $y_n\to L$，则
+\[
+  x_n-x_{n-1}=\frac{y_n}{n}.
+\]
+因为 $x_n$ 收敛，级数
+\[
+  \sum_{n=2}^{\infty}\frac{y_n}{n}
+\]
+的部分和 $x_N-x_1$ 必收敛。若 $L\ne0$，则充分大的 $n$ 有 $y_n$ 与 $L$ 同号且 $\abs{y_n}\ge\abs L/2$，从而上式与调和级数比较必发散，矛盾。因此 $L=0$。
+\end{xsolution}
+
+\paragraph{第一组参考题 10}
+\begin{xsolution}
+(1) 由
+\[
+  \frac{a_n}{a_{n+1}}\to0,
+\]
+充分大的 $n$ 有 $a_n/a_{n+1}<1/2$，即 $a_{n+1}>2a_n$。于是尾部严格增加并至少按几何速度增长，所以 $a_n\to+\infty$。
+
+(2) 反设 $\{a_n\}$ 有界。对某个足够大的 $N$，由极限为 $0$ 可使
+\[
+  a_n<\varepsilon(a_{n+1}+a_{n+2})
+  \qquad(n\ge N)
+\]
+成立，其中取 $0<\varepsilon<1/2$。令
+\[
+  M_N=\sup_{n\ge N}a_n.
+\]
+由于正数列且有界，$0<M_N<\infty$。上式给出对所有 $n\ge N$
+\[
+  a_n\le2\varepsilon M_N.
+\]
+取上确界得 $M_N\le2\varepsilon M_N$，与 $2\varepsilon<1$ 矛盾。因此 $\{a_n\}$ 无界。
+\end{xsolution}
+
+\paragraph{第一组参考题 11}
+\begin{xsolution}
+先证下界。$n=1,2$ 可直接检查。若
+\[
+  n!>\left(\frac n3\right)^n,
+\]
+则
+\[
+  (n+1)!>(n+1)\left(\frac n3\right)^n.
+\]
+要使右边大于 $((n+1)/3)^{n+1}$，等价于
+\[
+  \left(1+\frac1n\right)^n<3,
+\]
+而左端小于 $\ee<3$。故由归纳法得
+\[
+  \left(\frac n3\right)^n<n!.
+\]
+
+再证上界。$n=6$ 时 $720<3^6=729$。若对某个 $n\ge6$ 有
+\[
+  n!<\left(\frac n2\right)^n,
+\]
+则
+\[
+  (n+1)!<(n+1)\left(\frac n2\right)^n.
+\]
+它小于 $((n+1)/2)^{n+1}$ 等价于
+\[
+  \left(1+\frac1n\right)^n>2,
+\]
+此式对 $n>1$ 成立。因此归纳得到 $n\ge6$ 时
+\[
+  n!<\left(\frac n2\right)^n.
+\]
+\end{xsolution}
+
+\paragraph{第一组参考题 12}
+\begin{xsolution}
+左边可直接用 2.5.5 练习题 7 的更强结果
+\[
+  \left(\frac{n+1}{\ee}\right)^n<n!
+\]
+推出
+\[
+  \left(\frac n\ee\right)^n<n!.
+\]
+
+右边对 $n\ge6$ 由上一题
+\[
+  n!<\left(\frac n2\right)^n<\ee\left(\frac n2\right)^n.
+\]
+对 $n=1,2,\ldots,5$ 逐项直接检验即可。因此对全部正整数 $n$ 有
+\[
+  \boxed{\left(\frac n\ee\right)^n<n!<\ee\left(\frac n2\right)^n}.
+\]
+\end{xsolution}
+
+\paragraph{第一组参考题 13}
+\begin{xsolution}
+(1) 记
+\[
+  T_n=1+1+\frac1{2!}+\cdots+\frac1{n!}+\frac1{n!n}.
+\]
+$n=2$ 时直接成立。若把右端记为
+\[
+  R_n=3-\sum_{j=2}^n\frac1{j!(j-1)j},
+\]
+则
+\[
+  T_{n+1}-T_n
+  =\frac1{(n+1)!}+\frac1{(n+1)!(n+1)}-\frac1{n!n}
+  =-\frac1{(n+1)!n(n+1)},
+\]
+而 $R_{n+1}-R_n$ 也是同一数。因此由归纳法 $T_n=R_n$。
+
+(2) 令 $n\to\infty$。由 $1/(n!n)\to0$ 及
+\[
+  \sum_{k=0}^n\frac1{k!}\to\ee,
+\]
+得到
+\[
+  \boxed{\ee=3-\lim_{n\to\infty}
+  \sum_{k=0}^n\frac1{(k+2)!(k+1)(k+2)}}.
+\]
+
+(3) 记通常部分和误差
+\[
+  \varepsilon_n=\ee-\sum_{k=0}^n\frac1{k!}.
+\]
+命题 2.5.4 给出
+\[
+  \frac1{(n+1)!}<\varepsilon_n<\frac1{n!n}.
+\]
+故改进近似
+\[
+  T_n=\sum_{k=0}^n\frac1{k!}+\frac1{n!n}
+\]
+满足
+\[
+  0<T_n-\ee
+  =\frac1{n!n}-\varepsilon_n
+  <\frac1{n!n}-\frac1{(n+1)!}
+  =\frac1{n!n(n+1)}.
+\]
+而原误差大于 $1/(n+1)!$，因此加入修正项后误差至少又缩小了一个量级，确实好得多。
+\end{xsolution}
+
+\paragraph{第一组参考题 14}
+\begin{xsolution}
+记
+\[
+  a_n=\sum_{k=1}^n\frac1{\sqrt k}-2\sqrt n.
+\]
+有
+\[
+  a_{n+1}-a_n
+  =\frac1{\sqrt{n+1}}-rac{2}{\sqrt{n+1}+\sqrt n}<0,
+\]
+因为 $\sqrt{n+1}+\sqrt n<2\sqrt{n+1}$。所以 $\{a_n\}$ 单调减少。
+
+又由
+\[
+  \frac1{\sqrt k}>2(\sqrt{k+1}-\sqrt k)
+\]
+可得
+\[
+  \sum_{k=1}^n\frac1{\sqrt k}>2(\sqrt{n+1}-1),
+\]
+因此
+\[
+  a_n>2(\sqrt{n+1}-\sqrt n)-2>-2.
+\]
+故 $\{a_n\}$ 单调有下界，从而收敛。
+\end{xsolution}
+
+\paragraph{第一组参考题 15}
+\begin{xsolution}
+令
+\[
+  A_n=\frac{a_1+\cdots+a_n}{n}.
+\]
+题设 $A_n$ 有有限极限。由
+\[
+  a_n=nA_n-(n-1)A_{n-1}
+\]
+得
+\[
+  \frac{a_n}{n}=A_n-\frac{n-1}{n}A_{n-1}\to0.
+\]
+\end{xsolution}
+
+\paragraph{第一组参考题 16}
+\begin{xsolution}
+有粗略估计
+\[
+  1\le n!\le n^n.
+\]
+取 $n^2$ 次方根，
+\[
+  1\le(n!)^{1/n^2}\le n^{1/n}\to1.
+\]
+由夹逼定理得
+\[
+  \boxed{(n!)^{1/n^2}\to1}.
+\]
+\end{xsolution}
+
+\paragraph{第一组参考题 17}
+\begin{xsolution}
+由 $(1-x_n)x_{n+1}\ge1/4$ 且 $x_{n+1}>0$ 可知 $x_n<1$。同时
+\[
+  x_{n+1}\ge\frac1{4(1-x_n)}.
+\]
+而对 $x<1$，
+\[
+  \frac1{4(1-x)}-x
+  =\frac{(2x-1)^2}{4(1-x)}\ge0.
+\]
+所以 $x_{n+1}\ge x_n$，即数列单调增加，又以上界 $1$ 有界，因此收敛。设极限为 $L\le1$。令 $n\to\infty$，
+\[
+  L(1-L)\ge\frac14.
+\]
+但对任意实数 $L$，$L(1-L)\le1/4$，且等号只在 $L=1/2$ 成立。因此
+\[
+  \boxed{x_n\to\frac12}.
+\]
+\end{xsolution}
+
+\paragraph{第一组参考题 18}
+\begin{xsolution}
+线性递推
+\[
+  a_n=\frac{a_{n-1}+a_{n-2}}2
+\]
+的特征方程为
+\[
+  2r^2-r-1=0,
+\]
+根为 $1$ 与 $-1/2$。因此
+\[
+  a_n=A+B\left(-\frac12\right)^{n-1}.
+\]
+由 $a_1=b,a_2=c$，解得
+\[
+  A=\frac{b+2c}{3}.
+\]
+第二项随 $n$ 趋于 $0$，故
+\[
+  \boxed{a_n\to\frac{b+2c}{3}}.
+\]
+\end{xsolution}
+
+\paragraph{第一组参考题 19}
+\begin{xsolution}
+先注意总和不变：
+\[
+  a_{n+1}+b_{n+1}+c_{n+1}=a_n+b_n+c_n=a+b+c.
+\]
+另一方面，
+\[
+  a_{n+1}-b_{n+1}=-\frac12(a_n-b_n),
+\]
+其余两对差也有同样关系。因此三对差都按因子 $-1/2$ 衰减到 $0$，即三数列若有极限必相同，事实上它们之间的距离已经趋于 $0$。
+
+由总和恒定可知每一项都趋于共同值
+\[
+  \boxed{\frac{a+b+c}{3}}.
+\]
+\end{xsolution}
+
+\paragraph{第一组参考题 20}
+\begin{xsolution}
+(1) 由 $a_n>b_n>0$ 及调和平均数、几何平均数、算术平均数之间的关系，
+\[
+  b_n<a_{n+1}=\frac{2a_nb_n}{a_n+b_n}<a_n,
+\]
+且
+\[
+  b_n<b_{n+1}=\sqrt{a_{n+1}b_n}<a_{n+1}.
+\]
+所以 $\{a_n\}$ 单调减少，$\{b_n\}$ 单调增加，并始终有 $a_n>b_n>0$。二者均收敛，设极限为 $A\ge B>0$。在
+\[
+  a_{n+1}=\frac{2a_nb_n}{a_n+b_n}
+\]
+中取极限得
+\[
+  A=\frac{2AB}{A+B},
+\]
+从而 $A=B$。
+
+(2) 令
+\[
+  m_n=6\cdot2^{n-1}.
+\]
+证明
+\[
+  a_n=m_n\tan\frac\pi{m_n},
+  \qquad
+  b_n=m_n\sin\frac\pi{m_n}.
+\]
+$n=1$ 时
+\[
+  6\tan\frac\pi6=2\sqrt3=a_1,
+  \qquad
+  6\sin\frac\pi6=3=b_1.
+\]
+若第 $n$ 步成立，由半角公式
+\[
+  \frac{2\tan t\sin t}{\tan t+\sin t}=2\tan\frac t2,
+\]
+可得
+\[
+  a_{n+1}=2m_n\tan\frac{1}{2}\frac\pi{m_n}
+  =m_{n+1}\tan\frac\pi{m_{n+1}}.
+\]
+再由
+\[
+  \sqrt{2\tan(t/2)\sin t}=2\sin(t/2)
+\]
+得相应的 $b_{n+1}$ 公式。因此归纳成立。
+
+最后利用 $\lim_{m\to\infty}m\sin(\pi/m)=\pi$，以及 $\tan t/\sin t=1/\cos t\to1$，得到两数列共同极限
+\[
+  \boxed{\pi}.
+\]
+\end{xsolution}
+
+\subsubsection*{2.7.3 第二组参考题}
+
+\paragraph{第二组参考题 1}
+\begin{xsolution}
+对固定的 $n$，从最里面向外定义
+\[
+  r_n^{(n)}=\sqrt n,
+  \qquad
+  r_k^{(n)}=\sqrt{k+r_{k+1}^{(n)}}
+  \quad(k=n-1,\ldots,1),
+\]
+则题中 $a_n=r_1^{(n)}$。
+
+加入最里面的新一层后，最深处的值严格增大；由于每个映射 $x\mapsto\sqrt{k+x}$ 都严格增加，逐层向外推出
+\[
+  a_{n+1}>a_n.
+\]
+所以 $\{a_n\}$ 严格单调增加。
+
+再证明统一上界。由逆向归纳可证
+\[
+  r_k^{(n)}<k+1.
+\]
+最深处 $\sqrt n<n+1$。若 $r_{k+1}^{(n)}<k+2$，则
+\[
+  r_k^{(n)}<\sqrt{2k+2}\le k+1
+  \qquad(k\ge1).
+\]
+因此特别有 $a_n=r_1^{(n)}<2$。数列单调增加且有上界，故收敛。
+\end{xsolution}
+
+\paragraph{第二组参考题 2}
+\begin{xsolution}
+二项式展开给出
+\[
+  \left(1+\frac1n\right)^n
+  =\sum_{k=0}^n\frac1{k!}
+   \prod_{j=1}^{k-1}\left(1-\frac jn\right),
+\]
+其中 $k=0,1$ 时空乘积按 $1$ 计。因此
+\[
+  \sum_{k=0}^n\frac1{k!}
+  -\left(1+\frac1n\right)^n
+  =\sum_{k=2}^n\frac1{k!}\left[
+     1-\prod_{j=1}^{k-1}\left(1-\frac jn\right)
+   \right].
+\]
+对 $0\le u_j\le1$ 有
+\[
+  1-\prod_j(1-u_j)\le\sum_j u_j.
+\]
+故
+\[
+  1-\prod_{j=1}^{k-1}\left(1-\frac jn\right)
+  \le\frac1n\sum_{j=1}^{k-1}j
+  =\frac{k(k-1)}{2n}.
+\]
+于是
+\[
+  0<\sum_{k=0}^n\frac1{k!}
+  -\left(1+\frac1n\right)^n
+  \le\frac1{2n}\sum_{k=2}^n\frac1{(k-2)!}
+  <\frac\ee{2n}.
+\]
+移项即得
+\[
+  \boxed{\left(1+\frac1n\right)^n>
+  \sum_{k=0}^n\frac1{k!}-\frac\ee{2n}}.
+\]
+\end{xsolution}
+
+\paragraph{第二组参考题 3}
+\begin{xsolution}
+写
+\[
+  n!\ee=n!\sum_{k=0}^n\frac1{k!}+r_n,
+  \qquad
+  r_n=n!\left(\ee-\sum_{k=0}^n\frac1{k!}\right).
+\]
+第一项是整数，所以
+\[
+  \sin(2\pi n!\ee)=\sin(2\pi r_n).
+\]
+由命题 2.5.3，
+\[
+  (n+1)!\left(\ee-\sum_{k=0}^n\frac1{k!}\right)\to1,
+\]
+故
+\[
+  nr_n=\frac n{n+1}(n+1)!\left(\ee-\sum_{k=0}^n\frac1{k!}\right)\to1.
+\]
+又 $r_n\to0$，于是
+\[
+  n\sin(2\pi n!\ee)
+  =nr_n\cdot\frac{\sin(2\pi r_n)}{r_n}
+  \to1\cdot2\pi.
+\]
+因此所求极限为
+\[
+  \boxed{2\pi}.
+\]
+\end{xsolution}
+
+\paragraph{第二组参考题 4}
+\begin{xsolution}
+记调和和 $H_k=1+1/2+\cdots+1/k$。由 $K_n$ 的最小性，
+\[
+  H_{K_n-1}<n\le H_{K_n}=H_{K_n-1}+\frac1{K_n}.
+\]
+故
+\[
+  H_{K_n}=n+\littleo(1),
+\]
+因为 $K_n\to\infty$。又由 Euler 常数公式
+\[
+  H_m=\ln m+\gamma+\littleo(1),
+\]
+于是
+\[
+  \ln K_n=n-\gamma+\littleo(1).
+\]
+因此
+\[
+  \ln\frac{K_{n+1}}{K_n}
+  =1+\littleo(1),
+\]
+从而
+\[
+  \boxed{\frac{K_{n+1}}{K_n}\to\ee}.
+\]
+\end{xsolution}
+
+\paragraph{第二组参考题 5}
+\begin{xsolution}
+令
+\[
+  T_n=\sum_{k=0}^n\ln\binom nk,
+  \qquad x_n=\frac{T_n}{n^2}.
+\]
+利用
+\[
+  \binom{n+1}{k}=\frac{n+1}{n+1-k}\binom nk
+  \qquad(0\le k\le n),
+\]
+可得
+\[
+  T_{n+1}-T_n
+  =n\ln(n+1)-\ln n!.
+\]
+由例题 2.5.3 的结果
+\[
+  \frac n{\sqrt[n]{n!}}\to\ee
+\]
+取对数，得到
+\[
+  \ln n!=n\ln n-n+\littleo(n).
+\]
+所以
+\[
+  T_{n+1}-T_n
+  =n\ln\left(1+\frac1n\right)+n+\littleo(n)
+  =n+\littleo(n).
+\]
+对 $T_n/n^2$ 使用 Stolz 定理，
+\[
+  \lim_{n\to\infty}x_n
+  =\lim_{n\to\infty}\frac{T_{n+1}-T_n}{(n+1)^2-n^2}
+  =\frac12.
+\]
+故
+\[
+  \boxed{\lim x_n=\frac12}.
+\]
+\end{xsolution}
+
+\paragraph{第二组参考题 6}
+\begin{xsolution}
+二项式系数的算术平均值为
+\[
+  A_n=\frac1{n+1}\sum_{k=0}^n\binom nk
+  =\frac{2^n}{n+1}.
+\]
+因此
+\[
+  \sqrt[n]{A_n}=\frac2{(n+1)^{1/n}}\to2.
+\]
+
+几何平均值满足
+\[
+  \ln G_n=\frac1{n+1}\sum_{k=0}^n\ln\binom nk
+  =\frac{T_n}{n+1},
+\]
+其中上一题已知 $T_n/n^2\to1/2$。所以
+\[
+  \ln\sqrt[n]{G_n}
+  =\frac{T_n}{n(n+1)}\to\frac12,
+\]
+从而
+\[
+  \boxed{\sqrt[n]{G_n}\to\sqrt\ee}.
+\]
+\end{xsolution}
+
+\paragraph{第二组参考题 7}
+\begin{xsolution}
+记
+\[
+  A_n=\sum_{k=1}^n a_k\to A.
+\]
+Abel 变换给出
+\[
+  \sum_{k=1}^n p_ka_k
+  =p_nA_n-\sum_{k=1}^{n-1}A_k(p_{k+1}-p_k).
+\]
+减去常数 $A$ 后写成
+\[
+  \sum_{k=1}^n p_ka_k
+  =p_n(A_n-A)
+   -\sum_{k=1}^{n-1}(A_k-A)(p_{k+1}-p_k)
+   +Ap_1.
+\]
+除以 $p_n$。第一项趋于 $0$，最后一项因 $p_n\to+\infty$ 也趋于 $0$。
+
+对中间项，给定 $\varepsilon>0$，取 $N$ 使 $k>N$ 时 $\abs{A_k-A}<\varepsilon$。有限的前 $N$ 项除以 $p_n$ 后趋于 $0$；尾部则因 $p_k$ 单调增加而有
+\[
+  \frac1{p_n}\sum_{k=N+1}^{n-1}
+  \abs{A_k-A}(p_{k+1}-p_k)
+  \le\varepsilon\frac{p_n-p_{N+1}}{p_n}\le\varepsilon.
+\]
+故中间项也趋于 $0$。于是
+\[
+  \boxed{\frac{p_1a_1+\cdots+p_na_n}{p_n}\to0}.
+\]
+\end{xsolution}
+
+\paragraph{第二组参考题 8}
+\begin{xsolution}
+记
+\[
+  S_n=\sum_{i=1}^n a_i^2.
+\]
+题设为 $a_nS_n\to1$。先证 $S_n\to+\infty$。若 $S_n$ 有有限极限，则 $a_n^2=S_n-S_{n-1}\to0$，于是 $a_nS_n\to0$，矛盾。
+
+因为
+\[
+  \frac{S_n-S_{n-1}}{S_n}=rac{a_n^2}{S_n}
+  =\frac{(a_nS_n)^2}{S_n^3}\to0,
+\]
+所以 $S_{n-1}/S_n\to1$。于是
+\begin{align*}
+  S_n^3-S_{n-1}^3
+  &=a_n^2(S_n^2+S_nS_{n-1}+S_{n-1}^2)\\
+  &=(a_nS_n)^2\left[1+\frac{S_{n-1}}{S_n}
+     +\left(\frac{S_{n-1}}{S_n}\right)^2\right]	o3.
+\end{align*}
+由 Stolz 定理，
+\[
+  \frac{S_n^3}{n}\to3,
+\]
+即 $S_n/(3n)^{1/3}\to1$。最后
+\[
+  (3n)^{1/3}a_n
+  =(a_nS_n)\frac{(3n)^{1/3}}{S_n}\to1.
+\]
+故
+\[
+  \boxed{\sqrt[3]{3n}\,a_n\to1}.
+\]
+\end{xsolution}
+
+\paragraph{第二组参考题 9}
+\begin{xsolution}
+题设意味着
+\[
+  u_n=\sum_{j=n+1}^{\infty}u_j^2,
+\]
+因而 $u_n\ge0$，且
+\[
+  u_n-u_{n+1}=u_{n+1}^2.
+\]
+又已知部分和 $u_1+\cdots+u_n$ 有有限极限，所以非负级数 $\sum u_n$ 收敛，特别有 $u_n\to0$。
+
+若不是所有 $u_n$ 都为 $0$，则从某项起 $u_n>0$。此时
+\[
+  \frac1{u_{n+1}}-\frac1{u_n}
+  =\frac{u_n-u_{n+1}}{u_nu_{n+1}}
+  =\frac{u_{n+1}}{u_n}
+  =\frac1{1+u_{n+1}}\to1.
+\]
+由 Stolz 定理
+\[
+  \frac{1/u_n}{n}\to1,
+\]
+即 $nu_n\to1$。于是充分大的 $n$ 有 $u_n>1/(2n)$，这与 $\sum u_n$ 收敛矛盾。因此只能有
+\[
+  \boxed{u_n=0\quad\text{对所有 }n}.
+\]
+\end{xsolution}
+
+\paragraph{第二组参考题 10（Toeplitz 定理）}
+\begin{xsolution}
+设 $a_n\to a$，并定义
+\[
+  x_n=\sum_{k=1}^nt_{nk}a_k,
+  \qquad t_{nk}\ge0,
+  \qquad \sum_{k=1}^nt_{nk}=1.
+\]
+则
+\[
+  x_n-a=\sum_{k=1}^nt_{nk}(a_k-a).
+\]
+给定 $\varepsilon>0$，取 $N$ 使 $k>N$ 时 $\abs{a_k-a}<\varepsilon$。于是
+\[
+  \abs{x_n-a}
+  \le\sum_{k=1}^Nt_{nk}\abs{a_k-a}
+   +\varepsilon\sum_{k=N+1}^nt_{nk}.
+\]
+第二项不超过 $\varepsilon$。固定 $N$ 后，每个 $t_{nk}\to0$，故第一项为有限项之和，也趋于 $0$。所以 $x_n\to a$。
+
+对变型 (1)，若行和
+\[
+  s_n=\sum_{k=1}^nt_{nk}\to1,
+\]
+则
+\[
+  x_n-a=\sum t_{nk}(a_k-a)+a(s_n-1),
+\]
+第一项用同样分拆证明趋于 $0$（行和最终有界），第二项显然趋于 $0$。
+
+对变型 (2)，若不要求 $t_{nk}\ge0$，但
+\[
+  \sum_{k=1}^n\abs{t_{nk}}\le M
+\]
+且 $a=0$，则
+\[
+  \abs{x_n}
+  \le\sum_{k=1}^N\abs{t_{nk}a_k}
+   +\varepsilon\sum_{k=N+1}^n\abs{t_{nk}}.
+\]
+第一项趋于 $0$，第二项不超过 $M\varepsilon$，所以结论仍成立。
+\end{xsolution}
+
+\paragraph{第二组参考题 11}
+\begin{xsolution}
+先导出 $*/\infty$ 型 Stolz 定理。设 $a_n$ 严格增加且 $a_n\to+\infty$，并且
+\[
+  r_k=\frac{b_k-b_{k-1}}{a_k-a_{k-1}}\to l.
+\]
+令 $d_k=a_k-a_{k-1}>0$。则
+\[
+  \frac{b_n}{a_n}
+  =\frac{b_1}{a_n}
+   +\sum_{k=2}^n\frac{d_k}{a_n}r_k.
+\]
+对每个固定 $k$，$d_k/a_n\to0$；而
+\[
+  \sum_{k=2}^n\frac{d_k}{a_n}
+  =\frac{a_n-a_1}{a_n}\to1.
+\]
+由 Toeplitz 定理的行和趋于 $1$ 的变型，和式趋于 $l$，第一项趋于 $0$，故 $b_n/a_n\to l$。
+
+对 $0/0$ 型，设 $a_n\downarrow0$，$b_n\to0$，并令
+\[
+  d_k=a_k-a_{k+1}>0,
+  \qquad
+  r_k=\frac{b_k-b_{k+1}}{a_k-a_{k+1}}\to l.
+\]
+固定 $n$ 后令 $m\to\infty$，有
+\[
+  \frac{b_n}{a_n}
+  =\frac{\sum_{k=n}^{\infty}d_kr_k}{\sum_{k=n}^{\infty}d_k}.
+\]
+这是尾部 $r_k$ 的正权平均。给定 $\varepsilon>0$，当 $n$ 足够大时所有 $k\ge n$ 都有 $\abs{r_k-l}<\varepsilon$，故该加权平均与 $l$ 的距离也小于 $\varepsilon$。于是同样得到 $b_n/a_n\to l$。这正是 $0/0$ 型 Stolz 定理。
+\end{xsolution}
+
+\paragraph{第二组参考题 12}
+\begin{xsolution}
+写 $a_n=a+u_n$，其中 $u_n\to0$。则
+\[
+  a_n+\lambda a_{n-1}+\cdots+\lambda^na_0
+  =a\sum_{j=0}^n\lambda^j
+   +\sum_{j=0}^n\lambda^ju_{n-j}.
+\]
+第一项趋于 $a/(1-\lambda)$。只需证明第二项趋于 $0$。
+
+给定 $\varepsilon>0$，取 $N$ 使 $k>N$ 时 $\abs{u_k}<\varepsilon$。对 $n>N$，把和分成 $n-j>N$ 与 $n-j\le N$ 两部分。第一部分的绝对值不超过
+\[
+  \varepsilon\sum_{j=0}^{\infty}\lambda^j
+  =\frac{\varepsilon}{1-\lambda}.
+\]
+第二部分只含有限个初始 $u_k$，却都带有至少 $\lambda^{n-N}$ 的因子，因此趋于 $0$。故误差和趋于 $0$，最终
+\[
+  \boxed{a_n+\lambda a_{n-1}+\cdots+\lambda^na_0
+  \to\frac a{1-\lambda}}.
+\]
+\end{xsolution}
+
+\paragraph{第二组参考题 13}
+\begin{xsolution}
+由
+\[
+  \sum_{j=1}^n\abs{y_j}\le K
+\]
+知非负部分和单调有界，所以 $\sum_{j=1}^{\infty}\abs{y_j}$ 收敛，特别有 $y_j\to0$。
+
+给定 $\varepsilon>0$，取 $N$ 使 $i>N$ 时 $\abs{x_i}<\varepsilon$。写
+\[
+  z_n=\sum_{i=1}^Nx_i y_{n+1-i}
+      +\sum_{i=N+1}^n x_i y_{n+1-i}.
+\]
+第一项是有限项之和，因 $y_{n+1-i}\to0$ 而趋于 $0$；第二项满足
+\[
+  \abs{\sum_{i=N+1}^n x_i y_{n+1-i}}
+  \le\varepsilon\sum_{j=1}^{n-N}\abs{y_j}
+  \le K\varepsilon.
+\]
+由 $\varepsilon$ 任意，得到 $z_n\to0$。
+
+仅有 $x_n\to0,y_n\to0$ 并不够。例如取
+\[
+  x_n=y_n=\frac1{\sqrt n}.
+\]
+则在 $n/4\le k\le3n/4$ 的约 $n/2$ 个指标上，
+\[
+  \frac1{\sqrt{k(n+1-k)}}\ge\frac2{n+1},
+\]
+故卷积和始终有一个趋近于 $1$ 的正下界，不能趋于 $0$。
+\end{xsolution}
+
+\paragraph{第二组参考题 14}
+\begin{xsolution}
+设 $y_n\to Y$。由
+\[
+  y_n=x_n+2x_{n+1}
+\]
+得
+\[
+  x_{n+1}=-\frac12x_n+\frac12y_n.
+\]
+令 $L=Y/3$，$u_n=x_n-L$，$v_n=y_n-Y$，则
+\[
+  u_{n+1}=-\frac12u_n+\frac12v_n,
+  \qquad v_n\to0.
+\]
+迭代可得
+\[
+  u_n=\left(-\frac12\right)^{n-1}u_1
+  +\frac12\sum_{k=1}^{n-1}\left(-\frac12\right)^{n-1-k}v_k.
+\]
+第一项趋于 $0$。第二项按与上一题相同的“有限头部 + 小尾部”方法估计：固定前有限个 $v_k$ 后其系数趋于 $0$，而尾部 $\abs{v_k}<\varepsilon$ 时由几何级数控制。因此第二项也趋于 $0$。故
+\[
+  x_n\to L=\frac Y3.
+\]
+所以 $\{x_n\}$ 必收敛。
+\end{xsolution}
+
+\paragraph{第二组参考题 15}
+\begin{xsolution}
+递推式
+\[
+  a_n=2^{n-1}-3a_{n-1}
+\]
+的通项为
+\[
+  a_n=\frac{2^n}{5}+\left(a_0-\frac15\right)(-3)^n.
+\]
+若 $a_0\ne1/5$，则相邻差
+\[
+  a_n-a_{n-1}
+  =\frac{2^{n-1}}5-4\left(a_0-\frac15\right)(-3)^{n-1}
+\]
+的第二项在绝对值上最终占优势，而且符号随奇偶交替，因此不可能对所有 $n$ 都为正。
+
+若 $a_0=1/5$，则 $a_n=2^n/5$，显然严格单调增加。因此唯一可能值为
+\[
+  \boxed{a_0=\frac15}.
+\]
+\end{xsolution}
+
+\paragraph{第二组参考题 16}
+\begin{xsolution}
+把题中数列记为 $\{x_n\}$。从所列根式可看出每隔两项满足同一递推关系
+\[
+  x_{n+2}=F(x_n),
+  \qquad
+  F(x)=\sqrt{7-\sqrt{7+x}}.
+\]
+所有项均为正且小于 $\sqrt7$。函数 $F$ 的正不动点为 $2$，因为 $F(2)=2$。
+
+对 $0\le x\le\sqrt7$，有
+\begin{align*}
+  \abs{F(x)-2}
+  &=\frac{\abs{F(x)^2-4}}{F(x)+2}\\
+  &=\frac{\abs{3-\sqrt{7+x}}}{F(x)+2}\\
+  &=\frac{\abs{x-2}}
+  {(F(x)+2)(3+\sqrt{7+x})}
+  \le\frac16\abs{x-2}.
+\end{align*}
+因此对奇数项、偶数项分别反复应用，
+\[
+  \abs{x_{n+2}-2}\le\frac16\abs{x_n-2}.
+\]
+两个子列都收敛于 $2$，故整个数列收敛，且
+\[
+  \boxed{\lim x_n=2}.
+\]
+\end{xsolution}
+
+\paragraph{第二组参考题 17}
+\begin{xsolution}
+设
+\[
+  r=\frac{y_0-\sqrt{y_0^2-4}}2,
+\]
+则 $0<r\le1$ 且 $y_0=r+r^{-1}$。由
+\[
+  (t+t^{-1})^2-2=t^2+t^{-2}
+\]
+归纳得到
+\[
+  y_n=r^{2^n}+r^{-2^n}.
+\]
+
+先设 $0<r<1$。记
+\[
+  p_n=\frac1{y_0y_1\cdots y_n}.
+\]
+利用
+\[
+  \prod_{j=0}^n(1+r^{2^{j+1}})
+  =\frac{1-r^{2^{n+2}}}{1-r^2},
+\]
+得到
+\[
+  p_n=\frac{r^{2^{n+1}-1}(1-r^2)}{1-r^{2^{n+2}}}.
+\]
+再令
+\[
+  q_n=\frac{r^{2^{n+1}-1}(1-r^2)}{1-r^{2^{n+1}}}.
+\]
+直接通分可验
+\[
+  p_n=q_n-q_{n+1}.
+\]
+故
+\[
+  S_n=p_0+p_1+\cdots+p_n=q_0-q_{n+1}.
+\]
+这里 $q_0=r$ 且 $q_{n+1}\to0$，所以 $S_n\to r$。
+
+若 $r=1$，即 $y_0=2$，则所有 $y_n=2$，而
+\[
+  S_n=\frac12+\frac1{2^2}+\cdots+\frac1{2^{n+1}}\to1=r.
+\]
+因此统一地
+\[
+  \boxed{\lim S_n=rac{y_0-\sqrt{y_0^2-4}}2}.
+\]
+\end{xsolution}
+
+\paragraph{第二组参考题 18}
+\begin{xsolution}
+记 $f(x)=a^x$，数列满足 $x_{n+1}=f(x_n)$。以下使用题目给出的不动点个数以及 $f$、$F=f\circ f$ 的单调性。
+
+(1) $a>1$ 时 $f$ 单调增加。
+
+(i) 若 $a>\ee^{1/\ee}$，$f$ 无不动点，且必有 $f(x)>x$ 对所有实数 $x$ 成立。于是 $x_{n+1}>x_n$。若该递增数列有有限上界，则必收敛，极限应为 $f$ 的不动点，矛盾。因此
+\[
+  x_n\to+\infty.
+\]
+
+(ii) 若 $a=\ee^{1/\ee}$，唯一不动点为 $\ee$，且 $f(x)\ge x$，等号只在 $x=\ee$。若 $c<\ee$，则
+\[
+  c<x_2<\ee
+\]
+并归纳得数列递增且以 $\ee$ 为上界，所以趋于 $\ee$；$c=\ee$ 时为常值数列。若 $c>\ee$，数列严格递增；若有有限极限又只能是 $\ee<c$，不可能，所以趋于 $+\infty$。
+
+(iii) 若 $1<a<\ee^{1/\ee}$，设两个不动点为
+\[
+  \alpha<\ee<\beta.
+\]
+由 $f(x)-x$ 的符号可知：$x<\alpha$ 时 $f(x)>x$，$\alpha<x<\beta$ 时 $f(x)<x$，$x>\beta$ 时 $f(x)>x$。又 $f$ 单调增加。因此
+\begin{itemize}
+  \item $c<\alpha$：数列递增且以 $\alpha$ 为上界，趋于 $\alpha$；
+  \item $c=\alpha$：恒为 $\alpha$；
+  \item $\alpha<c<\beta$：数列递减且以 $\alpha$ 为下界，趋于 $\alpha$；
+  \item $c=\beta$：恒为 $\beta$；
+  \item $c>\beta$：数列递增且不可能有有限极限，故趋于 $+\infty$。
+\end{itemize}
+
+(2) $0<a<1$ 时 $f$ 单调减少，存在唯一不动点 $\alpha$。从第二项起所有项都为正，且很快进入一个有界正区间。复合函数 $F=f\circ f$ 单调增加，所以两个奇偶子列分别是 $F$ 的迭代轨道。
+
+(i) 当 $\ee^{-\ee}\le a<1$ 时，$F$ 只有不动点 $\alpha$。由第二律，两子列具有相反单调性；它们有界，故分别收敛，而其极限都必须是 $F$ 的不动点 $\alpha$。因此
+\[
+  \boxed{x_n\to\alpha}.
+\]
+若初值恰为 $\alpha$，则数列恒为 $\alpha$。
+
+(ii) 当 $0<a<\ee^{-\ee}$ 时，$F$ 有三个不动点
+\[
+  p<\alpha<q,
+\]
+其中 $f(p)=q,f(q)=p$。由 $F(x)-x$ 的符号表和单调性，除非 $c=\alpha$，两个奇偶子列分别单调趋于 $p,q$（次序由初值所在一侧决定）。因为 $p\ne q$，原数列发散。只有 $c=\alpha$ 时数列为常值并收敛。
+\end{xsolution}
+
+\paragraph{第二组参考题 19}
+\begin{xsolution}
+令
+\[
+  f(x)=bx(1-x),\qquad x_1=\frac12,
+\]
+且记非零不动点
+\[
+  \alpha=1-\frac1b
+\]
+（当 $b>1$ 时为正）。
+
+(1) $0<b\le1$。当 $0<x\le1/2$ 时
+\[
+  0<f(x)=bx(1-x)<x,
+\]
+所以 $x_n$ 单调减少且以下界 $0$ 有界，极限只能是非负不动点 $0$，故 $x_n\to0$。
+
+(2) $1<b\le2$。此时 $0<\alpha\le1/2$。区间 $[\alpha,1/2]$ 在 $f$ 下保持不变，并且其中
+\[
+  f(x)-x=bx(\alpha-x)\le0.
+\]
+所以 $x_n$ 单调减少且以下界 $\alpha$ 有界，极限为 $\alpha=1-1/b$。
+
+(3)(4) 考察二次迭代 $F=f\circ f$。直接因式分解得
+\[
+  F(x)-x
+  =-x(bx-b+1)
+  \left[b^2x^2-(b^2+b)x+b+1\right].
+\]
+二次因子的判别式为
+\[
+  b^2(b-3)(b+1).
+\]
+
+当 $2<b\le3$ 时，该二次因子非负（$b=3$ 时只有重根）。又有 $x_1<\alpha<x_2=b/4$。由上式的符号可知，奇数项子列即 $F$ 的迭代严格增加，偶数项子列严格减少；二者有界，而且 $F$ 在相关区间内唯一的共同不动点为 $\alpha$。故两子列均趋于
+\[
+  \boxed{\alpha=1-\frac1b}.
+\]
+
+当 $3<b\le1+\sqrt5$ 时，二次因子有两个根
+\[
+  p=\frac{b+1-\sqrt{(b+1)(b-3)}}{2b},
+  \qquad
+  q=\frac{b+1+\sqrt{(b+1)(b-3)}}{2b}.
+\]
+可直接验算
+\[
+  x_1\le p<\alpha<q\le x_2.
+\]
+由同一符号分解，奇数项子列单调增加并以 $p$ 为上界，偶数项子列单调减少并以 $q$ 为下界，因此分别趋于 $p,q$。二者不同，所以原数列发散而趋于一个二周期轨道。
+
+特别在 $b=1+\sqrt5$ 时
+\[
+  p=\frac12,
+  \qquad
+  q=\frac{1+\sqrt5}{4},
+\]
+从第一步开始就是精确的二周期。
+\end{xsolution}
+
+\paragraph{第二组参考题 20}
+\begin{xsolution}
+把长度为 $n$ 的数组记为向量
+\[
+  X^{(k)}=(x_1^{(k)},\ldots,x_n^{(k)}),
+\]
+并令 $S$ 表示循环移位算子。一次迭代就是
+\[
+  X^{(k)}=PX^{(k-1)},
+  \qquad
+  P=\frac{I+S}{2}.
+\]
+显然每一步都保持总和，因此所有数组的平均值恒为
+\[
+  \bar x=\frac{x_1+\cdots+x_n}{n}.
+\]
+
+只需证明各分量之间的最大差趋于 $0$。经过 $n-1$ 步，
+\[
+  P^{n-1}=2^{-(n-1)}(I+S)^{n-1}.
+\]
+展开后 $I,S,\ldots,S^{n-1}$ 的系数都为正，且至少为
+\[
+  c=2^{-(n-1)}.
+\]
+因此 $P^{n-1}$ 的每一行都是对原来全部 $n$ 个分量的凸组合，而且每个分量的权至少为 $c$。
+
+若某一步数组的最大值、最小值分别为 $M,m$，则把每个权写成 $c$ 加剩余非负权，可知经过 $n-1$ 步后任意两个新分量之差至多为
+\[
+  (1-nc)(M-m).
+\]
+当 $n\ge3$ 时 $0<1-nc<1$，故每经过 $n-1$ 步，极差按固定比例缩小；$n=1,2$ 可直接检查。因此
+\[
+  \max_i x_i^{(k)}-\min_i x_i^{(k)}\to0.
+\]
+所有分量最终趋于同一极限，而平均值始终为 $\bar x$，所以对每个 $i$，
+\[
+  \boxed{\lim_{k\to\infty}x_i^{(k)}
+  =\frac{x_1+\cdots+x_n}{n}}.
+\]
+\end{xsolution}
+
+\subsection*{2.8 关于数列极限的一组习题课教案}
+
+\subsubsection*{2.8.1 第一次习题课}
+
+\paragraph{第一次习题课例题 1.1}
+\begin{xsolution}
+证明 $\sqrt[n]a\to1$，$a>0$。
+
+若 $a=1$ 显然。先设 $a>1$，令
+\[
+  h_n=\sqrt[n]a-1>0.
+\]
+则
+\[
+  a=(1+h_n)^n\ge1+nh_n,
+\]
+故
+\[
+  0<h_n\le\frac{a-1}{n}\to0.
+\]
+所以 $a^{1/n}\to1$。
+
+若 $0<a<1$，令 $b=1/a>1$。由已证结果 $b^{1/n}\to1$，再取倒数得到
+\[
+  a^{1/n}=\frac1{b^{1/n}}\to1.
+\]
+这也给出了直接的 $\varepsilon$--$N$ 控制。
+\end{xsolution}
+
+\paragraph{第一次习题课例题 1.2}
+\begin{xsolution}
+设 $x_n>0$，$x_n\to a>0$，$b>1$。给定 $\varepsilon>0$，令
+\[
+  \delta=a\min\{b^\varepsilon-1,\,1-b^{-\varepsilon}\}>0.
+\]
+由 $x_n\to a$，存在 $N$，当 $n>N$ 时 $\abs{x_n-a}<\delta$。于是
+\[
+  ab^{-\varepsilon}<x_n<ab^\varepsilon.
+\]
+除以 $a$ 后取以 $b$ 为底的对数，得到
+\[
+  -\varepsilon<\log_bx_n-\log_ba<\varepsilon.
+\]
+因此
+\[
+  \boxed{\log_bx_n\to\log_ba}.
+\]
+\end{xsolution}
+
+\paragraph{第一次习题课例题 2.1}
+\begin{xsolution}
+令
+\[
+  x_1=\sqrt2,
+  \qquad
+  x_{n+1}=\sqrt{2x_n}.
+\]
+这就是题中 $n$ 重根式。若 $0<x_n<2$，则
+\[
+  x_n<x_{n+1}<2,
+\]
+因为 $x_n^2<2x_n$ 等价于 $x_n<2$。由 $x_1<2$ 归纳可知 $\{x_n\}$ 单调增加且以 $2$ 为上界，因此收敛。设极限为 $L>0$，则
+\[
+  L=\sqrt{2L},
+\]
+所以 $L=2$。故所求极限为
+\[
+  \boxed{2}.
+\]
+\end{xsolution}
+
+\paragraph{第一次习题课课堂练习题 1}
+\begin{xsolution}
+证明 $a^n/n!\to0$。
+
+若 $a=0$，从第一项起通项即为 $0$。若 $a\ne0$，考虑绝对值。取整数 $N>2\abs a$。当 $n\ge N$ 时
+\[
+  \frac{\abs a^{n+1}/(n+1)!}{\abs a^n/n!}
+  =\frac{\abs a}{n+1}<\frac12.
+\]
+故对 $n\ge N$，
+\[
+  0\le\frac{\abs a^n}{n!}
+  \le C2^{-(n-N)}
+\]
+其中 $C=\abs a^N/N!$，右端趋于 $0$。因此 $a^n/n!\to0$。
+\end{xsolution}
+
+\paragraph{第一次习题课课堂练习题 2}
+\begin{xsolution}
+设 $c\ge0,a>1$。令
+\[
+  u_n=\frac{n^c}{a^n}>0.
+\]
+则
+\[
+  \frac{u_{n+1}}{u_n}
+  =\frac{(1+1/n)^c}{a}\to\frac1a<1.
+\]
+所以存在 $q<1$ 和 $N$，使 $n>N$ 时 $u_{n+1}<qu_n$。于是尾部由几何数列控制，故
+\[
+  \boxed{\frac{n^c}{a^n}\to0}.
+\]
+\end{xsolution}
+
+\paragraph{第一次习题课课堂练习题 3}
+\begin{xsolution}
+若存在一个与 $\varepsilon$ 无关的固定 $N$，使对每个 $\varepsilon>0$、每个 $n>N$ 都有
+\[
+  \abs{x_n-a}<\varepsilon,
+\]
+那么固定任意 $n>N$ 后，上式对所有正 $\varepsilon$ 都成立，只可能有 $x_n=a$。因此数列从第 $N+1$ 项起恒等于 $a$。
+
+反之，任何最终恒等于 $a$ 的数列当然可以取同一个 $N$。所以这种数列不必从第一项起是常值数列，但必定\textbf{最终为常值 $a$}。
+\end{xsolution}
+
+\paragraph{第一次习题课课堂练习题 4}
+\begin{xsolution}
+(1) “$\{x_n\}$ 不是无穷小量”是命题
+\[
+  \forall\varepsilon>0,\ \exists N,\ \forall n>N,
+  \quad\abs{x_n}<\varepsilon
+\]
+的否定。由对偶法则得到
+\[
+  \boxed{\exists\varepsilon_0>0,\ \forall N,\ \exists n>N,
+  \quad\abs{x_n}\ge\varepsilon_0}.
+\]
+
+(2) 原命题为
+\[
+  \forall\varepsilon>0,\ \exists N,\ \forall n,m\ge N,
+  \quad\abs{x_n-x_m}<\varepsilon.
+\]
+其否命题为
+\[
+  \boxed{\exists\varepsilon_0>0,\ \forall N,\ \exists n,m\ge N,
+  \quad\abs{x_n-x_m}\ge\varepsilon_0}.
+\]
+\end{xsolution}
+
+\paragraph{第一次习题课课堂练习题 5}
+\begin{xsolution}
+给定 $a\in\RR$ 和 $\delta>0$。取正整数 $q>2/\delta$。令 $p=[qa]$ 或 $[qa]+1$，总可选到一个使
+\[
+  \abs{\frac pq-a}<\frac1q<\frac\delta2.
+\]
+所以邻域中有有理数 $r=p/q$。
+
+再取正整数 $m$ 足够大，使 $\sqrt2/m<\delta/2$。则
+\[
+  s=r+\frac{\sqrt2}{m}
+\]
+是无理数，而且
+\[
+  \abs{s-a}\le\abs{r-a}+\frac{\sqrt2}{m}<\delta.
+\]
+故任意邻域中同时有有理数和无理数。
+\end{xsolution}
+
+\paragraph{第一次习题课例题 4.1}
+\begin{xsolution}
+取 $\varepsilon=a/2$。由 $x_n\to a>0$，存在 $N$，使 $n\ge N$ 时
+\[
+  \abs{x_n-a}<\frac a2.
+\]
+于是
+\[
+  x_n>a-\frac a2=\frac a2>0.
+\]
+\end{xsolution}
+
+\paragraph{第一次习题课例题 4.2}
+\begin{xsolution}
+不能保证 $a>0$。反例
+\[
+  x_n=\frac1n>0
+\]
+满足 $x_n\to0$。由保号性只能推出正数列的极限 $a\ge0$。
+\end{xsolution}
+
+\paragraph{第一次习题课例题 4.3}
+\begin{xsolution}
+设
+\[
+  \alpha=\sup A,\qquad\beta=\inf B.
+\]
+题设任意 $x\in A$、$y\in B$ 都有 $x<y$，所以 $\alpha\le\beta$。
+
+若 $\alpha<\beta$，取
+\[
+  z=\frac{\alpha+\beta}{2}.
+\]
+因为 $A\cup B=\RR$，必有 $z\in A$ 或 $z\in B$。若 $z\in A$，则 $z\le\alpha$，与 $z>\alpha$ 矛盾；若 $z\in B$，则 $z\ge\beta$，与 $z<\beta$ 矛盾。因此不可能 $\alpha<\beta$，只能
+\[
+  \boxed{\sup A=\inf B}.
+\]
+\end{xsolution}
+
+\subsubsection*{2.8.2 第二次习题课}
+
+\paragraph{第二次习题课习题讲评 1}
+\begin{xsolution}
+设 $x_n>0$，$a>0,a\ne1$。
+
+若 $x_n\to1$，由对数函数在 $1$ 处的数列连续性，
+\[
+  \log_ax_n\to\log_a1=0.
+\]
+
+反过来，若 $\log_ax_n\to0$，则
+\[
+  x_n=a^{\log_ax_n}\to a^0=1,
+\]
+这里用到了指数函数的数列连续性。因此
+\[
+  \boxed{x_n\to1\Longleftrightarrow\log_ax_n\to0}.
+\]
+\end{xsolution}
+
+\paragraph{第二次习题课习题讲评 2}
+\begin{xsolution}
+设
+\[
+  \alpha=\sup A,\qquad\beta=\sup B,
+  \qquad C=\{x+y\mid x\in A,y\in B\}.
+\]
+任意 $x\in A,y\in B$ 有 $x+y\le\alpha+\beta$，故
+\[
+  \sup C\le\alpha+\beta.
+\]
+给定 $\varepsilon>0$，由上确界定义可取 $x\in A,y\in B$ 使
+\[
+  x>\alpha-\frac\varepsilon2,
+  \qquad y>\beta-\frac\varepsilon2.
+\]
+于是 $x+y\in C$ 且
+\[
+  x+y>\alpha+\beta-\varepsilon.
+\]
+所以任何比 $\alpha+\beta$ 小的数都不是 $C$ 的上界，因而
+\[
+  \boxed{\sup C=\sup A+\sup B}.
+\]
+\end{xsolution}
+
+\paragraph{第二次习题课例题 1}
+\begin{xsolution}
+利用恒等式
+\[
+  \max\{x,y\}=\frac{x+y+\abs{x-y}}2.
+\]
+由 $x_n\to a,y_n\to b$，有
+\[
+  x_n-y_n\to a-b,
+  \qquad
+  \abs{x_n-y_n}\to\abs{a-b}.
+\]
+所以
+\[
+  \max\{x_n,y_n\}
+  \to\frac{a+b+\abs{a-b}}2
+  =\max\{a,b\}.
+\]
+\end{xsolution}
+
+\paragraph{第二次习题课例题 2}
+\begin{xsolution}
+令 $M=\max\{a_1,\ldots,a_m\}$。则
+\[
+  M^n\le a_1^n+\cdots+a_m^n\le mM^n.
+\]
+开 $n$ 次方得到
+\[
+  M\le(a_1^n+\cdots+a_m^n)^{1/n}\le m^{1/n}M.
+\]
+两端都趋于 $M$，所以所求极限为
+\[
+  \boxed{M}.
+\]
+\end{xsolution}
+
+\paragraph{第二次习题课例题 3}
+\begin{xsolution}
+(1) 令
+\[
+  \alpha=\frac{\sqrt5-1}{2},
+\]
+则 $\alpha=1/(1+\alpha)$。递推式给出
+\[
+  x_{n+1}-\alpha
+  =-\frac{x_n-\alpha}{(1+x_n)(1+\alpha)}.
+\]
+从 $x_0=1$ 出发可归纳得 $1/2\le x_n\le1$，所以
+\[
+  \abs{x_{n+1}-\alpha}\le\frac12\abs{x_n-\alpha}.
+\]
+故
+\[
+  \abs{x_n-\alpha}\le2^{-n}\abs{x_0-\alpha}\to0.
+\]
+于是 $x_n\to\alpha$。
+
+(2) 定义
+\[
+  x_n=\frac{F_n}{F_{n+1}}.
+\]
+由 Fibonacci 递推式
+\[
+  x_{n+1}=\frac{F_{n+1}}{F_{n+2}}
+  =\frac1{1+F_n/F_{n+1}}
+  =\frac1{1+x_n}.
+\]
+且 $x_0=1$，所以与 (1) 完全是同一个数列。因此
+\[
+  \boxed{\frac{F_n}{F_{n+1}}\to\frac{\sqrt5-1}{2}}.
+\]
+\end{xsolution}
+
+\paragraph{第二次习题课例题 4}
+\begin{xsolution}
+记
+\[
+  x_n=\prod_{j=0}^n\left(1+2^{-2^j}\right).
+\]
+利用恒等式
+\[
+  (1-t)\prod_{j=0}^n(1+t^{2^j})=1-t^{2^{n+1}}
+\]
+并令 $t=1/2$，得到
+\[
+  \frac12x_n=1-2^{-2^{n+1}}.
+\]
+右端趋于 $1$，故
+\[
+  \boxed{x_n\to2}.
+\]
+\end{xsolution}
+
+\paragraph{第二次习题课例题 5}
+\begin{xsolution}
+设
+\[
+  x_n=a_1+\cdots+a_n\to a.
+\]
+由 Abel 变换，
+\[
+  a_1+2a_2+\cdots+na_n
+  =nx_n-\sum_{k=1}^{n-1}x_k.
+\]
+除以 $n$，
+\[
+  \frac{a_1+2a_2+\cdots+na_n}{n}
+  =x_n-\frac1n\sum_{k=1}^{n-1}x_k.
+\]
+第一项趋于 $a$，第二项由 Cauchy 命题也趋于 $a$，故差趋于 $0$。
+\end{xsolution}
+
+\paragraph{第二次习题课例题 6}
+\begin{xsolution}
+这就是第二组参考题 12。写 $a_n=a+u_n$，$u_n\to0$，则
+\[
+  a_n+\lambda a_{n-1}+\cdots+\lambda^na_0
+  =a\frac{1-\lambda^{n+1}}{1-\lambda}
+  +\sum_{j=0}^n\lambda^ju_{n-j}.
+\]
+后一项按“有限头部 + 小尾部”分拆趋于 $0$，故极限为
+\[
+  \boxed{\frac a{1-\lambda}}.
+\]
+\end{xsolution}
+
+\paragraph{第二次习题课课堂练习题 1}
+\begin{xsolution}
+对 $\abs\lambda<1$，有限算术—几何和有公式
+\[
+  \sum_{k=1}^n k\lambda^k
+  =\frac{\lambda\bigl(1-(n+1)\lambda^n+n\lambda^{n+1}\bigr)}{(1-\lambda)^2}.
+\]
+由于 $n\lambda^n\to0$，故
+\[
+  \boxed{\lim_{n\to\infty}(\lambda+2\lambda^2+\cdots+n\lambda^n)
+  =\frac\lambda{(1-\lambda)^2}}.
+\]
+\end{xsolution}
+
+\paragraph{第二次习题课课堂练习题 2}
+\begin{xsolution}
+和式共有 $n$ 项，并且每项满足
+\[
+  \frac1{\sqrt{n^2+n}}
+  \le\frac1{\sqrt{n^2+k}}
+  \le\frac1{\sqrt{n^2+1}}.
+\]
+因此
+\[
+  \frac n{\sqrt{n^2+n}}
+  \le\sum_{k=1}^n\frac1{\sqrt{n^2+k}}
+  \le\frac n{\sqrt{n^2+1}}.
+\]
+两端都趋于 $1$，故所求极限为
+\[
+  \boxed{1}.
+\]
+\end{xsolution}
+
+\paragraph{第二次习题课课堂练习题 3}
+\begin{xsolution}
+若 $b>0$，令
+\[
+  r_n=\frac{b_{n+1}}{b_n}\to b.
+\]
+取对数，
+\[
+  \ln b_n=\ln b_1+\sum_{k=1}^{n-1}\ln r_k.
+\]
+由 Cauchy 命题，$\ln b_n/n\to\ln b$，所以 $b_n^{1/n}\to b$。
+
+若 $b=0$，给定任意 $q>0$，充分大的 $n$ 有 $b_{n+1}/b_n<q$，于是 $b_n\le Cq^n$，故
+\[
+  \limsup b_n^{1/n}\le q.
+\]
+让 $q\downarrow0$ 得 $b_n^{1/n}\to0$。因此统一有
+\[
+  \boxed{b_n^{1/n}\to b}.
+\]
+\end{xsolution}
+
+\paragraph{第二次习题课课堂练习题 4}
+\begin{xsolution}
+给定 $G>0$。由 $x_n\to+\infty$，可取 $N$ 使 $n>N$ 时 $x_n>2G$。记
+\[
+  C=\abs{x_1}+\cdots+\abs{x_N}.
+\]
+则对 $n>N$，
+\[
+  \frac{x_1+\cdots+x_n}{n}
+  \ge-\frac Cn+2G\frac{n-N}{n}.
+\]
+再令 $n$ 足够大即可使右端大于 $G$。所以相应的 Cauchy 命题成立：
+\[
+  \boxed{x_n\to+\infty\Longrightarrow
+  \frac{x_1+\cdots+x_n}{n}\to+\infty}.
+\]
+\end{xsolution}
+
+\subsubsection*{2.8.3 第三次习题课}
+
+\paragraph{第三次习题课习题讲评 1}
+\begin{xsolution}
+(1) 错误在于把项数随 $n$ 增长的和式当成固定有限项之和使用四则运算法则。正确估计为
+\[
+  0<\sum_{k=n+1}^{2n}\frac1{k^2}
+  \le n\frac1{(n+1)^2}\to0.
+\]
+所以此题答案虽确为 $0$，但原推导没有依据。
+
+(2) 忽略了 $b=0$。例如
+\[
+  b_n=\frac{(-1)^n}{n}\to0,
+\]
+但
+\[
+  \frac{b_{n+1}}{b_n}=-\frac n{n+1}\to-1.
+\]
+只有当 $b\ne0$ 时，才能由商的极限法则推出 $b_{n+1}/b_n\to1$。
+
+(3) 原写法没有正确使用 Stolz 定理：若把 $1/(a^n/n^k)$ 看作一个分式，分子的差应为 $0$，而不是把分母差直接放到 $1$ 的下面；此外还必须先核验分母最终严格单调并趋于 $+\infty$。更直接的正确方法是令
+\[
+  u_n=\frac{n^k}{a^n}>0.
+\]
+则
+\[
+  \frac{u_{n+1}}{u_n}=\frac{(1+1/n)^k}{a}\to\frac1a<1,
+\]
+故 $u_n\to0$。
+
+(4) 错误在最后把两个都趋于无穷大的部分“分别取极限”。正确用 Stolz 定理：令
+\[
+  S_n=1^k+2^k+\cdots+n^k.
+\]
+则
+\[
+  \lim_{n\to\infty}\frac{S_n}{n^{k+1}}
+  =\lim_{n\to\infty}
+  \frac{(n+1)^k}{(n+1)^{k+1}-n^{k+1}}.
+\]
+除以 $(n+1)^k$，分母为
+\[
+  (n+1)-n\left(\frac n{n+1}\right)^k.
+\]
+由二项式展开
+\[
+  \left(1-\frac1{n+1}\right)^k
+  =1-\frac{k}{n+1}+\bigO(n^{-2}),
+\]
+可知分母趋于 $k+1$。因此
+\[
+  \boxed{\lim_{n\to\infty}\frac{1^k+\cdots+n^k}{n^{k+1}}
+  =\frac1{k+1}}.
+\]
+\end{xsolution}
+
+\paragraph{第三次习题课习题讲评 2}
+\begin{xsolution}
+不带符号的无穷大量定义为
+\[
+  \forall G>0,\ \exists N,\ \forall n>N,
+  \quad\abs{a_n}>G.
+\]
+其否命题为
+\[
+  \exists G_0>0,\ \forall N,\ \exists n>N,
+  \quad\abs{a_n}\le G_0.
+\]
+正无穷大量则把 $\abs{a_n}>G$ 改为 $a_n>G$。
+
+本章已经建立的常见增长级别为
+\[
+  \ln n\ll n^\varepsilon\ll a^n\ll n!\ll n^n
+  \qquad(a>1,\varepsilon>0).
+\]
+其中：$\ln n/n^\varepsilon\to0$ 可由对数与幂的比较得到；$n^\varepsilon/a^n\to0$ 用相邻项之比；$a^n/n!\to0$ 同样用比值；最后
+\[
+  \frac{n!}{n^n}
+  =\prod_{k=1}^n\frac kn
+  \le\left(\frac12\right)^{\lfloor n/2\rfloor}	o0.
+\]
+这些极限正是记号 $\ll$ 的含义。
+\end{xsolution}
+
+\paragraph{第三次习题课习题讲评 3}
+\begin{xsolution}
+无穷级数
+\[
+  \sum_{n=1}^{\infty}a_n
+\]
+的收敛定义是其部分和数列 $S_n=a_1+\cdots+a_n$ 收敛。因
+\[
+  a_n=S_n-S_{n-1},
+\]
+级数收敛的必要条件是 $a_n\to0$，但这不是充分条件，调和级数就是反例。
+
+对 $p$-级数 $\sum1/n^p$：本章已经证明 $p>1$ 时部分和单调有界，故收敛；$p=1$ 为调和级数，发散；$p<1$ 时也已由分组或比较证明发散。
+
+几何级数 $\sum q^n$ 在 $\abs q<1$ 时由有限和公式收敛，在 $\abs q\ge1$ 时通项不趋于 $0$，故发散。
+
+Euler 常数与调和和的关系为
+\[
+  H_n=\ln n+\gamma+\littleo(1),
+\]
+而数 $\ee$ 的级数展开为
+\[
+  \ee=\sum_{n=0}^{\infty}\frac1{n!}.
+\]
+这些例子说明级数问题本质上仍是部分和数列的极限问题。
+\end{xsolution}
+
+\paragraph{第三次习题课例题 1}
+\begin{xsolution}
+设
+\[
+  x_n\to\alpha,\qquad y_n\to\beta.
+\]
+写 $x_n=\alpha+u_n,y_n=\beta+v_n$，其中 $u_n,v_n\to0$。则
+\begin{align*}
+  \frac1n\sum_{k=1}^n x_ky_{n+1-k}
+  &=\alpha\beta
+   +\alpha\frac1n\sum_{k=1}^n v_k
+   +\beta\frac1n\sum_{k=1}^n u_k\\
+  &\quad+\frac1n\sum_{k=1}^n u_kv_{n+1-k}.
+\end{align*}
+前两个误差平均由 Cauchy 命题趋于 $0$。对最后一项，收敛数列有界；按一个指标固定有限头部、另一个指标取小尾部的方式分拆，可得其绝对值的上极限不超过任意给定的 $C\varepsilon$，故也趋于 $0$。所以极限为
+\[
+  \boxed{\alpha\beta}.
+\]
+\end{xsolution}
+
+\paragraph{第三次习题课例题 2}
+\begin{xsolution}
+在 $0<x<\pi/2$ 上有 $0<\sin x<x$。因此
+\[
+  0<x_{n+1}=\sin x_n<x_n<\frac\pi2,
+\]
+所以 $x_n$ 单调减少且有下界 $0$，设极限为 $L$。由
+\[
+  \abs{\sin x_n-\sin L}\le\abs{x_n-L}
+\]
+知 $\sin x_n\to\sin L$，从递推式得 $L=\sin L$。在 $[0,\pi/2)$ 中该方程只有 $L=0$，故
+\[
+  \boxed{x_n\to0}.
+\]
+\end{xsolution}
+
+\paragraph{第三次习题课例题 3}
+\begin{xsolution}
+对 $n>1$，
+\[
+  1+\frac1n
+  <1+\frac1n+\frac1{n^2}
+  <1+\frac1{n-1}.
+\]
+取 $n$ 次方，
+\[
+  \left(1+\frac1n\right)^n
+  <\left(1+\frac1n+\frac1{n^2}\right)^n
+  <\left(1+\frac1{n-1}\right)^n.
+\]
+左端趋于 $\ee$，右端为
+\[
+  \left(1+\frac1{n-1}\right)^{n-1}
+  \left(1+\frac1{n-1}\right)\to\ee.
+\]
+所以由夹逼定理，所求极限为
+\[
+  \boxed{\ee}.
+\]
+\end{xsolution}
+
+\paragraph{第三次习题课例题 4}
+\begin{xsolution}
+令
+\[
+  a_n=\frac1n+\frac1{n+1}+\cdots+\frac1{2n}.
+\]
+由
+\[
+  \frac1{k+1}<\ln\left(1+\frac1k\right)<\frac1k
+\]
+分别相加，得到
+\[
+  \ln\frac{2n+1}{n}<a_n<\ln\frac{2n}{n-1}.
+\]
+左右两端都趋于 $\ln2$，故
+\[
+  \boxed{a_n\to\ln2}.
+\]
+\end{xsolution}
+
+\paragraph{第三次习题课例题 5}
+\begin{xsolution}
+从 $I_0=[0,1]$ 开始。假设闭区间 $I_k$ 中既有 $A$ 的点又有 $B$ 的点。把 $I_k$ 二等分。若某个半区间已同时含有两集的点，就选它为 $I_{k+1}$；若两集的点分别只出现在左右两半，则中点属于 $A\cup B$ 中的一集，而含另一集点的那个闭半区间也包含中点，因此仍可选出一个同时含有两集点的闭半区间。
+
+这样得到闭区间套
+\[
+  I_0\supset I_1\supset I_2\supset\cdots,
+  \qquad \abs{I_k}=2^{-k}.
+\]
+其交集只有一个点，记为 $\xi\in[0,1]$。给定 $\delta>0$，取 $k$ 足够大使 $\abs{I_k}<\delta$。因为 $\xi\in I_k$，整个 $I_k$ 都落在 $O_\delta(\xi)$ 中，而 $I_k$ 按构造同时含有 $A$、$B$ 的点。因此每个 $O_\delta(\xi)$ 中都同时有两集的点。
+\end{xsolution}
+
+\paragraph{第三次习题课课堂练习题 1}
+\begin{xsolution}
+在 $0<x<1$ 上
+\[
+  0<1-\sqrt{1-x}<x,
+\]
+因为 $\sqrt{1-x}>1-x$。故由 $0<x_0<1$ 归纳得到
+\[
+  0<x_{n+1}<x_n<1.
+\]
+数列单调减少且有下界，设极限为 $L\in[0,1)$。令 $n\to\infty$，
+\[
+  L=1-\sqrt{1-L}.
+\]
+等价于 $\sqrt{1-L}=1-L$。在 $0<1-L\le1$ 中只有 $1-L=1$，所以 $L=0$。即
+\[
+  \boxed{x_n\to0}.
+\]
+\end{xsolution}
+
+\paragraph{第三次习题课课堂练习题 2}
+\begin{xsolution}
+(1)
+\[
+  \left(1+\frac1{2n}\right)^n
+  =\left[\left(1+\frac1{2n}\right)^{2n}\right]^{1/2}	o\sqrt\ee.
+\]
+
+(2) 取对数并使用 $0<\ln(1+x)<x$：
+\[
+  0<n\ln\left(1+\frac1{n^2}\right)<\frac1n\to0.
+\]
+因此原式趋于 $\ee^0=1$。
+\end{xsolution}
+
+\paragraph{第三次习题课课堂练习题 3}
+\begin{xsolution}
+必要性由“收敛数列的任一子列收敛到同一极限”立即得到。
+
+反之，若
+\[
+  a_{2n}\to L,
+  \qquad
+  a_{2n+1}\to L,
+\]
+给定 $\varepsilon>0$，分别取两个子列的阈值，最后取其最大值。充分大的原序列下标无论奇偶都落在相应子列的尾部，所以 $\abs{a_n-L}<\varepsilon$。因此 $a_n\to L$。
+\end{xsolution}
+
+\paragraph{第三次习题课课堂练习题 4}
+\begin{xsolution}
+偶数部分和有 Catalan 恒等式
+\[
+  a_{2n}=\frac1{n+1}+\frac1{n+2}+\cdots+\frac1{2n}.
+\]
+由前面的结果 $a_{2n}\to\ln2$。又
+\[
+  a_{2n+1}-a_{2n}=\frac1{2n+1}\to0,
+\]
+所以奇数部分和也趋于 $\ln2$。故
+\[
+  \boxed{1-\frac12+\frac13-\frac14+\cdots\to\ln2}.
+\]
+\end{xsolution}
+
+\subsubsection*{2.8.4 第四次习题课}
+
+\paragraph{第四次习题课子列性质 1}
+\begin{xsolution}
+若 $x_n\to a$，任取子列 $x_{n_k}$。因为 $n_k\ge k\to\infty$，原数列尾部的 $\varepsilon$--$N$ 条件自动传给子列，所以 $x_{n_k}\to a$。
+
+反过来，若每一子列都收敛于 $a$，取 $n_k=k$ 就得到原数列本身，因此 $x_n\to a$。即
+\[
+  \boxed{x_n\to a\Longleftrightarrow\text{每一子列都趋于 }a}.
+\]
+\end{xsolution}
+
+\paragraph{第四次习题课子列性质 2}
+\begin{xsolution}
+设 $\{x_n\}$ 单调且有子列 $x_{n_k}\to a$。若原数列单调增加，则对固定 $n$，取 $k$ 足够大使 $n_k\ge n$，有
+\[
+  x_n\le x_{n_k}.
+\]
+令 $k\to\infty$ 得 $x_n\le a$，所以原数列有上界，因而收敛。其极限记为 $L$，而子列必须也趋于 $L$，故 $L=a$。单调减少情形同理。
+\end{xsolution}
+
+\paragraph{第四次习题课子列性质 3}
+\begin{xsolution}
+必要性显然。反之，若奇数项和偶数项子列都收敛到 $L$，则给定 $\varepsilon>0$，两子列分别在充分大的指标后都落入 $O_\varepsilon(L)$。因此原数列充分大的每一项无论奇偶都落入该邻域，故原数列也收敛到 $L$。
+\end{xsolution}
+
+\paragraph{第四次习题课子列性质 4}
+\begin{xsolution}
+设 $\{x_n\}$ 有界，全部项落在某闭区间 $I_0$ 中。把 $I_0$ 二等分，至少有一个半区间包含无穷多个数列项，记为 $I_1$；继续二分，每次选含无穷多项的闭半区间，得到
+\[
+  I_0\supset I_1\supset I_2\supset\cdots,
+  \qquad \abs{I_k}\to0.
+\]
+依次在 $I_k$ 中选取下标严格增加的一项 $x_{n_k}$。闭区间套有唯一公共点 $\xi$。因 $x_{n_k},\xi\in I_k$，
+\[
+  \abs{x_{n_k}-\xi}\le\abs{I_k}\to0.
+\]
+故 $x_{n_k}\to\xi$，即有界数列必有收敛子列。
+\end{xsolution}
+
+\paragraph{第四次习题课子列性质 5}
+\begin{xsolution}
+若 $\{x_n\}$ 无界，则任意去掉有限项后的尾部仍无界。递归选取
+\[
+  n_1<n_2<\cdots,
+  \qquad
+  \abs{x_{n_k}}>k.
+\]
+于是
+\[
+  \abs{x_{n_k}}\to+\infty,
+\]
+所以 $\{x_{n_k}\}$ 是一个无穷大量子列。
+\end{xsolution}
+
+\paragraph{第四次习题课单元测验 1}
+\begin{xsolution}
+设 $\alpha=\sup A,\beta=\sup B$。任意 $x\in A,y\in B$ 有 $x+y\le\alpha+\beta$，所以 $\sup(A+B)\le\alpha+\beta$。
+
+给定 $\varepsilon>0$，可取 $x\in A,y\in B$ 使
+\[
+  x>\alpha-\frac\varepsilon2,
+  \qquad y>\beta-\frac\varepsilon2.
+\]
+则 $x+y\in A+B$ 且 $x+y>\alpha+\beta-\varepsilon$。所以
+\[
+  \boxed{\sup(A+B)=\sup A+\sup B}.
+\]
+\end{xsolution}
+
+\paragraph{第四次习题课单元测验 2}
+\begin{xsolution}
+取 $\varepsilon=a/2$。由 $x_n\to a>0$，充分大的 $n$ 有
+\[
+  \abs{x_n-a}<\frac a2,
+\]
+于是 $x_n>a/2>0$。
+
+逆命题不成立。例如 $x_n=1+(-1)^n/2$ 对所有 $n$ 都为正，但数列不收敛，更谈不上收敛到正数 $a$。
+\end{xsolution}
+
+\paragraph{第四次习题课单元测验 3}
+\begin{xsolution}
+对 $1\le k\le n$，
+\[
+  n+1\le n+\sqrt k\le n+\sqrt n.
+\]
+所以
+\[
+  \frac n{n+\sqrt n}
+  \le\sum_{k=1}^n\frac1{n+\sqrt k}
+  \le\frac n{n+1}.
+\]
+左右两端都趋于 $1$，故所求极限为
+\[
+  \boxed{1}.
+\]
+\end{xsolution}
+
+\paragraph{第四次习题课单元测验 4}
+\begin{xsolution}
+$0/0$ 型 Stolz 定理叙述如下：设 $a_n\to0,b_n\to0$，且 $\{a_n\}$ 严格单调减少；若
+\[
+  \lim_{n\to\infty}
+  \frac{b_{n+1}-b_n}{a_{n+1}-a_n}=l
+\]
+存在，其中 $l$ 可为有限数或 $\pm\infty$，则
+\[
+  \lim_{n\to\infty}\frac{b_n}{a_n}=l.
+\]
+
+先证有限 $l$。给定 $\varepsilon>0$，存在 $N$，当 $k>N$ 时
+\[
+  l-\varepsilon<
+  \frac{b_k-b_{k+1}}{a_k-a_{k+1}}
+  <l+\varepsilon.
+\]
+因 $a_k-a_{k+1}>0$，任取 $m>n>N$ 并从 $k=n$ 到 $m-1$ 相加，得
+\[
+  (l-\varepsilon)(a_n-a_m)
+  <b_n-b_m
+  <(l+\varepsilon)(a_n-a_m).
+\]
+令 $m\to\infty$，利用 $a_m,b_m\to0$，得到
+\[
+  l-\varepsilon\le\frac{b_n}{a_n}\le l+\varepsilon.
+\]
+故 $b_n/a_n\to l$。
+
+若 $l=+\infty$，给定任意 $G>0$，充分大的 $k$ 有
+\[
+  \frac{b_k-b_{k+1}}{a_k-a_{k+1}}>G.
+\]
+同样相加并令 $m\to\infty$ 得 $b_n/a_n\ge G$；由 $G$ 任意可知比值趋于 $+\infty$。$l=-\infty$ 同理。
+\end{xsolution}
+
+\paragraph{第四次习题课单元测验 5}
+\begin{xsolution}
+设
+\[
+  a_n=\sqrt{1+\sqrt{2+\cdots+\sqrt n}}.
+\]
+增加最深处一层会使最里面的量增大，而所有外层映射 $x\mapsto\sqrt{k+x}$ 都严格增加，因此 $a_{n+1}>a_n$。
+
+另一方面，从最里面向外定义尾根式 $r_k$。逆向归纳有
+\[
+  r_k<k+1:
+\]
+最深处 $\sqrt n<n+1$；若 $r_{k+1}<k+2$，则
+\[
+  r_k<\sqrt{2k+2}\le k+1.
+\]
+特别地 $a_n<2$。故 $\{a_n\}$ 单调增加且有上界，从而极限存在。
+\end{xsolution}
