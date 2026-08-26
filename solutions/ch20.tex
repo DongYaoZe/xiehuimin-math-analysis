@@ -1,0 +1,2372 @@
+% 第20章 隐函数存在定理与隐函数求导——题目解答
+% 对应 chapters/ch20.tex；仅收录原章思考题、练习题与参考题的解答。
+
+\section*{第20章题目解答}
+
+\subsection*{20.1 一个方程的情形}
+
+\begin{xthought}[20.1.3 思考题 1]
+方程 $F(x,y)=(x-y)^2=0$ 在点 $(0,0)$ 处虽有 $F_y(0,0)=0$，但仍唯一确定连续可微函数 $y=x$。
+\end{xthought}
+\begin{xsolution}
+由
+\[
+  F_y(x,y)=-2(x-y)
+\]
+可知 $F_y(0,0)=0$。另一方面，
+\[
+  F(x,y)=0\iff (x-y)^2=0\iff y=x,
+\]
+故不仅在 $x=0$ 附近，而且在整个实轴上都唯一确定函数 $y=x$，且该函数为 $C^\infty$ 函数。
+
+这与隐函数存在定理并不矛盾。条件 $F_y(x_0,y_0)\ne0$ 是保证局部存在唯一可微隐函数的充分条件，并不是必要条件；本题正说明在该充分条件失效时，隐函数仍可能存在且具有很好的光滑性。
+\end{xsolution}
+
+\begin{xthought}[20.1.3 思考题 2]
+设
+\[
+  F(x,y,z)=x^2+y^2+z^2-3xyz.
+\]
+讨论点 $(1,1,1)$ 附近分别以 $z$、$y$ 为因变量的隐函数，并求指定偏导数。
+\end{xthought}
+\begin{xsolution}
+有
+\[
+  F(1,1,1)=0,
+\]
+且
+\[
+  F_x=2x-3yz,\qquad F_y=2y-3xz,\qquad F_z=2z-3xy.
+\]
+在 $(1,1,1)$ 处，
+\[
+  F_x=F_y=F_z=-1.
+\]
+因此：
+\begin{enumerate}[label=(\arabic*)]
+  \item 因 $F_z(1,1,1)=-1\ne0$，由隐函数存在定理，在 $(1,1)$ 附近唯一确定 $C^1$ 隐函数 $z=z(x,y)$。由
+  \[
+    z_x=-\frac{F_x}{F_z}
+  \]
+  得
+  \[
+    z_x(1,1)=-\frac{-1}{-1}=-1.
+  \]
+  \item 因 $F_y(1,1,1)=-1\ne0$，在 $(x,z)=(1,1)$ 附近唯一确定 $C^1$ 隐函数 $y=y(x,z)$。由
+  \[
+    y_x=-\frac{F_x}{F_y}
+  \]
+  得
+  \[
+    y_x(1,1)=-\frac{-1}{-1}=-1.
+  \]
+\end{enumerate}
+\end{xsolution}
+
+\begin{xexercise}[20.1.4 练习题 1]
+设 $y=y(x)$ 由题中三个方程分别确定，求 $y',y''$。
+\end{xexercise}
+\begin{xsolution}
+以下各式均在相应隐函数存在且分母不为零的正则点上成立。
+
+\begin{enumerate}[label=(\arabic*)]
+  \item 令
+  \[
+    F(x,y)=\ln(x^2+y^2)-\arctan\frac yx.
+  \]
+  直接计算得
+  \[
+    F_x=\frac{2x+y}{x^2+y^2},\qquad
+    F_y=\frac{2y-x}{x^2+y^2}.
+  \]
+  因而
+  \[
+    y'=-\frac{F_x}{F_y}
+    =\frac{2x+y}{x-2y}.
+  \]
+  对右端沿曲线再次求导：
+  \begin{align*}
+    y''
+    &=\frac{\dd}{\dd x}\left(\frac{2x+y}{x-2y}\right)\\
+    &=\frac{(2+y')(x-2y)-(2x+y)(1-2y')}{(x-2y)^2}.
+  \end{align*}
+  代入 $y'=(2x+y)/(x-2y)$ 并整理，得到
+  \[
+    \boxed{\displaystyle
+      y''=\frac{10(x^2+y^2)}{(x-2y)^3}}.
+  \]
+
+  \item 在 $x>0,y>0$ 的区域内取对数，原方程等价于
+  \[
+    F(x,y)=y\ln x-x\ln y=0.
+  \]
+  有
+  \[
+    F_x=\frac yx-\ln y,
+    \qquad
+    F_y=\ln x-\frac xy,
+  \]
+  故
+  \[
+    \boxed{\displaystyle
+      y'=\frac{\ln y-y/x}{\ln x-x/y}}.
+  \]
+  又
+  \[
+    F_{xx}=-\frac{y}{x^2},\qquad
+    F_{xy}=\frac1x-\frac1y,
+    \qquad
+    F_{yy}=\frac{x}{y^2}.
+  \]
+  对 $F(x,y(x))=0$ 求二阶导数，
+  \[
+    F_{xx}+2F_{xy}y'+F_{yy}(y')^2+F_yy''=0,
+  \]
+  因而
+  \[
+    \boxed{\displaystyle
+      y''=
+      -\frac{-y/x^2+2(1/x-1/y)y'+(x/y^2)(y')^2}
+      {\ln x-x/y}},
+  \]
+  其中 $y'$ 取上式。该公式要求 $\ln x-x/y\ne0$。
+
+  \item 令 $L=\ln2$，
+  \[
+    F(x,y)=xy-2^xL+2^y.
+  \]
+  则
+  \[
+    F_x=y-2^xL^2,
+    \qquad
+    F_y=x+2^yL,
+  \]
+  因此
+  \[
+    \boxed{\displaystyle
+      y'=\frac{2^xL^2-y}{x+2^yL}}.
+  \]
+  再由
+  \[
+    F_{xx}=-2^xL^3,\qquad F_{xy}=1,\qquad F_{yy}=2^yL^2
+  \]
+  得
+  \[
+    \boxed{\displaystyle
+      y''=\frac{2^xL^3-2y'-2^yL^2(y')^2}{x+2^yL}}.
+  \]
+\end{enumerate}
+\end{xsolution}
+
+\begin{xexercise}[20.1.4 练习题 2]
+求题中三个方程在指定点的导数。
+\end{xexercise}
+\begin{xsolution}
+\begin{enumerate}[label=(\arabic*)]
+  \item 由
+  \[
+    y^3+y-x^2=0
+  \]
+  得
+  \[
+    (3y^2+1)y'=2x.
+  \]
+  当 $x=0$ 时，原方程给出 $y=0$，故
+  \[
+    \boxed{y'(0)=0}.
+  \]
+
+  \item 对
+  \[
+    x^{2/3}+y^{2/3}=4
+  \]
+  求导，
+  \[
+    \frac23x^{-1/3}+\frac23y^{-1/3}y'=0,
+  \]
+  即
+  \[
+    y'=-\left(\frac yx\right)^{1/3}.
+  \]
+  在 $(1,3\sqrt3)$ 处，$(3\sqrt3)^{1/3}=\sqrt3$，所以
+  \[
+    \boxed{y'=-\sqrt3}.
+  \]
+
+  \item 对
+  \[
+    \sin x+2\cos y-1=0
+  \]
+  求导，
+  \[
+    \cos x-2\sin y\,y'=0,
+  \]
+  故
+  \[
+    y'=\frac{\cos x}{2\sin y}.
+  \]
+  在 $\left(\dfrac\pi2,\dfrac{3\pi}2\right)$ 处，$y'=0$。再求一次导数：
+  \[
+    -\sin x-2\cos y\,(y')^2-2\sin y\,y''=0.
+  \]
+  代入指定点得到
+  \[
+    -1+2y''=0.
+  \]
+  因此
+  \[
+    \boxed{y'=0,\qquad y''=\frac12}.
+  \]
+\end{enumerate}
+\end{xsolution}
+
+\begin{xexercise}[20.1.4 练习题 3]
+设 $z=z(x,y)$ 由题中五个方程分别确定，求指定偏导数或微分。
+\end{xexercise}
+\begin{xsolution}
+\begin{enumerate}[label=(\arabic*)]
+  \item 记 $s=x+y+z$。原方程为
+  \[
+    s=\ee^{-s}.
+  \]
+  对 $x$ 求偏导，
+  \[
+    (1+z_x)=-\ee^{-s}(1+z_x),
+  \]
+  而 $1+\ee^{-s}>0$，故 $z_x=-1$。同理 $z_y=-1$。因此
+  \[
+    \boxed{z_x=z_y=-1,\qquad z_{xx}=z_{yy}=z_{xy}=0}.
+  \]
+
+  \item 令
+  \[
+    F=x^3+y^3+z^3-3xyz-4.
+  \]
+  在 $(1,1,2)$ 处，
+  \[
+    F_x=3-6=-3,\qquad F_y=-3,
+    \qquad F_z=12-3=9.
+  \]
+  因而
+  \[
+    \boxed{z_x(1,1)=z_y(1,1)=\frac13}.
+  \]
+
+  \item 设
+  \[
+    r=\sqrt{x^2-y^2},\qquad q=\frac zr.
+  \]
+  在 $r\ne0$ 的区域内，原方程等价于 $q=\tan q$。连续隐函数支上的 $q$ 必须落在方程 $q=\tan q$ 的某个孤立根上，因此在足够小的连通邻域内 $q$ 为常数。于是 $z=qr$，从而
+  \[
+    z_x=q\frac xr=\frac{xz}{x^2-y^2},
+    \qquad
+    z_y=-q\frac yr=-\frac{yz}{x^2-y^2}.
+  \]
+  即
+  \[
+    \boxed{\displaystyle
+      z_x=\frac{xz}{x^2-y^2},\qquad
+      z_y=-\frac{yz}{x^2-y^2}}.
+  \]
+
+  \item 对
+  \[
+    \frac xz=\ln\frac zy
+  \]
+  取全微分：
+  \[
+    \frac{\dd x}{z}-\frac{x}{z^2}\dd z
+    =\frac{\dd z}{z}-\frac{\dd y}{y}.
+  \]
+  乘以 $z^2$ 后整理得
+  \[
+    (x+z)\dd z=z\,\dd x+\frac{z^2}{y}\dd y.
+  \]
+  因而
+  \[
+    \boxed{\displaystyle
+      \dd z=\frac{z}{x+z}\dd x
+      +\frac{z^2}{y(x+z)}\dd y}.
+  \]
+
+  \item 令
+  \[
+    F(x,y,z)=xy+yz+zx-1,
+  \]
+  则 $F_z=x+y$。当 $x+y\ne0$ 时，
+  \[
+    z_x=-\frac{y+z}{x+y},
+    \qquad
+    z_y=-\frac{x+z}{x+y}.
+  \]
+  对两式继续沿隐函数求导，得到
+  \[
+    \boxed{\displaystyle
+      z_{xx}=\frac{2(y+z)}{(x+y)^2}},
+    \qquad
+    \boxed{\displaystyle
+      z_{yy}=\frac{2(x+z)}{(x+y)^2}},
+  \]
+  以及
+  \[
+    \boxed{\displaystyle
+      z_{xy}=\frac{2z}{(x+y)^2}}.
+  \]
+\end{enumerate}
+\end{xsolution}
+
+\begin{xexercise}[20.1.4 练习题 4]
+设 $z=z(x,y)$ 由题中三个一般函数方程分别确定，求指定导数或微分。
+\end{xexercise}
+\begin{xsolution}
+下文 $f_i,f_{ij}$ 均表示 $f$ 对相应自变量的偏导，并在题目所给复合自变量处取值。
+
+\begin{enumerate}[label=(\arabic*)]
+  \item 置
+  \[
+    a=x+y+z,\qquad b=x^2+y^2+z^2.
+  \]
+  对 $f(a,b)=0$ 取全微分：
+  \[
+    f_1(\dd x+\dd y+\dd z)
+    +2f_2(x\,\dd x+y\,\dd y+z\,\dd z)=0.
+  \]
+  若 $f_1+2zf_2\ne0$，则
+  \[
+    \boxed{\displaystyle
+    \dd z=-\frac{f_1+2xf_2}{f_1+2zf_2}\dd x
+           -\frac{f_1+2yf_2}{f_1+2zf_2}\dd y}.
+  \]
+
+  \item 对
+  \[
+    f(x,x+y,x+y+z)=0
+  \]
+  分别对 $x,y$ 求偏导，得
+  \[
+    f_1+f_2+f_3(1+z_x)=0,
+  \]
+  \[
+    f_2+f_3(1+z_y)=0.
+  \]
+  因而在 $f_3\ne0$ 时
+  \[
+    \boxed{\displaystyle
+      z_x=-\frac{f_1+f_2+f_3}{f_3},\qquad
+      z_y=-\frac{f_2+f_3}{f_3}}.
+  \]
+
+  \item 置
+  \[
+    a=x+y,\qquad b=y+z,\qquad c=z+x,
+  \]
+  并记
+  \[
+    A=f_1+f_3,\qquad B=f_1+f_2,\qquad C=f_2+f_3.
+  \]
+  于是
+  \[
+    p:=z_x=-\frac AC,
+    \qquad
+    q:=z_y=-\frac BC.
+  \]
+  为写出二阶导数，记复合函数 $F(x,y,z)=f(a,b,c)$。其二阶偏导为
+  \begin{align*}
+    F_{xx}&=f_{11}+2f_{13}+f_{33},\\
+    F_{yy}&=f_{11}+2f_{12}+f_{22},\\
+    F_{zz}&=f_{22}+2f_{23}+f_{33},\\
+    F_{xy}&=f_{11}+f_{12}+f_{13}+f_{23},\\
+    F_{xz}&=f_{12}+f_{13}+f_{23}+f_{33},\\
+    F_{yz}&=f_{12}+f_{13}+f_{22}+f_{23}.
+  \end{align*}
+  由 $F(x,y,z(x,y))=0$ 的二阶隐式求导公式，若 $C\ne0$，则
+  \[
+    \boxed{\displaystyle
+      z_{xx}=-\frac{F_{xx}+2F_{xz}p+F_{zz}p^2}{C}},
+  \]
+  \[
+    \boxed{\displaystyle
+      z_{yy}=-\frac{F_{yy}+2F_{yz}q+F_{zz}q^2}{C}},
+  \]
+  \[
+    \boxed{\displaystyle
+      z_{xy}=-\frac{F_{xy}+F_{xz}q+F_{yz}p+F_{zz}pq}{C}}.
+  \]
+\end{enumerate}
+\end{xsolution}
+
+\begin{xexercise}[20.1.4 练习题 5]
+验证题中四个隐函数满足指定微分方程。
+\end{xexercise}
+\begin{xsolution}
+\begin{enumerate}[label=(\arabic*)]
+  \item 设
+  \[
+    F(xy,z-2x)=0.
+  \]
+  分别对 $x,y$ 求偏导：
+  \[
+    yF_1+(z_x-2)F_2=0,
+    \qquad
+    xF_1+z_yF_2=0.
+  \]
+  由隐函数可解条件可取 $F_2\ne0$。第一式乘 $x$、第二式乘 $y$ 后相减，得到
+  \[
+    F_2\bigl[x(z_x-2)-yz_y\bigr]=0,
+  \]
+  即
+  \[
+    \boxed{xz_x-yz_y=2x}.
+  \]
+
+  \item 令
+  \[
+    F=x^2+y^2+z^2-yf\!\left(\frac zy\right)=0,
+    \qquad q=\frac zy.
+  \]
+  则
+  \[
+    F_x=2x,
+    \qquad
+    F_y=2y-f(q)+qf'(q),
+    \qquad
+    F_z=2z-f'(q).
+  \]
+  因而 $z_x=-F_x/F_z,z_y=-F_y/F_z$。于是
+  \begin{align*}
+    &(x^2-y^2-z^2)z_x+2xyz_y\\
+    &=-\frac{2x}{F_z}
+      \left[x^2-y^2-z^2+yF_y\right].
+  \end{align*}
+  由原方程 $yf(q)=x^2+y^2+z^2$，括号内
+  \begin{align*}
+    x^2-y^2-z^2+yF_y
+    &=x^2+y^2-z^2-yf(q)+zf'(q)\\
+    &=-2z^2+zf'(q)\\
+    &=-zF_z.
+  \end{align*}
+  故
+  \[
+    \boxed{(x^2-y^2-z^2)z_x+2xyz_y=2xz}.
+  \]
+
+  \item 将原关系写成
+  \[
+    H(x,y,z)=x-z\varphi\!\left(\frac yz\right)=0.
+  \]
+  由关系本身 $x=z\varphi(y/z)$ 可知
+  \[
+    H_z=-\varphi\!\left(\frac yz\right)
+         +\frac yz\varphi'\!\left(\frac yz\right)
+       =-\frac{x-y\varphi'(y/z)}{z}\ne0,
+  \]
+  因而 $z=z(x,y)$ 局部二阶可微。又 $H$ 关于 $(x,y,z)$ 是一次齐次的，故由隐函数的局部唯一性，
+  \[
+    z(\lambda x,\lambda y)=\lambda z(x,y)
+  \]
+  对 $\lambda$ 充分接近 $1$ 成立。对 $\lambda$ 在 $1$ 处求导得 Euler 关系
+  \[
+    xz_x+yz_y=z.
+  \]
+  再分别对 $x,y$ 求导：
+  \[
+    xz_{xx}+yz_{xy}=0,
+    \qquad
+    xz_{xy}+yz_{yy}=0.
+  \]
+  即 Hessian 矩阵满足
+  \[
+    \begin{pmatrix}
+      z_{xx}&z_{xy}\\
+      z_{xy}&z_{yy}
+    \end{pmatrix}
+    \binom xy=\binom00.
+  \]
+  在关系有意义的点 $(x,y)\ne(0,0)$，故 Hessian 行列式必为零：
+  \[
+    \boxed{z_{xx}z_{yy}-z_{xy}^2=0}.
+  \]
+
+  \item 记
+  \[
+    A=a^2+u,\qquad B=b^2+u,\qquad C=c^2+u,
+  \]
+  并令
+  \[
+    Q=\frac{x^2}{A^2}+\frac{y^2}{B^2}+\frac{z^2}{C^2}.
+  \]
+  由
+  \[
+    \frac{x^2}{A}+\frac{y^2}{B}+\frac{z^2}{C}=1
+  \]
+  对 $x,y,z$ 分别隐式求导可得
+  \[
+    u_x=\frac{2x}{AQ},\qquad
+    u_y=\frac{2y}{BQ},\qquad
+    u_z=\frac{2z}{CQ}.
+  \]
+  因而
+  \[
+    u_x^2+u_y^2+u_z^2
+    =\frac4{Q^2}
+      \left(\frac{x^2}{A^2}+\frac{y^2}{B^2}+\frac{z^2}{C^2}\right)
+    =\frac4Q.
+  \]
+  另一方面，利用原方程，
+  \begin{align*}
+    2(xu_x+yu_y+zu_z)
+    &=\frac4Q\left(\frac{x^2}{A}+\frac{y^2}{B}+\frac{z^2}{C}\right)\\
+    &=\frac4Q.
+  \end{align*}
+  故
+  \[
+    \boxed{u_x^2+u_y^2+u_z^2=2(xu_x+yu_y+zu_z)}.
+  \]
+\end{enumerate}
+\end{xsolution}
+
+\subsection*{20.2 隐函数组}
+
+\begin{xthought}[20.2.2 思考题 1]
+若三个方程 $F=0,G=0,H=0$ 要在某点附近解出 $x=x(u),y=y(u),z=z(u)$，写出隐函数组存在定理所需条件。
+\end{xthought}
+\begin{xsolution}
+设基点为 $(x_0,y_0,z_0,u_0)$。令
+\[
+  \Phi(x,y,z,u)=
+  \begin{pmatrix}
+    F(x,y,z,u)\\G(x,y,z,u)\\H(x,y,z,u)
+  \end{pmatrix}.
+\]
+一个标准的充分条件是：
+\begin{enumerate}[label=(\arabic*)]
+  \item $F,G,H$ 在基点的某邻域内为 $C^1$ 函数；
+  \item
+  \[
+    F(x_0,y_0,z_0,u_0)=G(x_0,y_0,z_0,u_0)
+    =H(x_0,y_0,z_0,u_0)=0;
+  \]
+  \item 关于待解变量 $(x,y,z)$ 的 Jacobi 行列式非零：
+  \[
+    \boxed{\displaystyle
+      \left.
+      \frac{\partial(F,G,H)}{\partial(x,y,z)}
+      \right|_{(x_0,y_0,z_0,u_0)}\ne0}.
+  \]
+\end{enumerate}
+在这些条件下，存在 $u_0$ 的邻域，在其中唯一确定 $C^1$ 函数组
+\[
+  x=x(u),\qquad y=y(u),\qquad z=z(u),
+\]
+并取给定初值 $x(u_0)=x_0,y(u_0)=y_0,z(u_0)=z_0$。
+\end{xsolution}
+
+\begin{xthought}[20.2.2 思考题 2]
+讨论极坐标变换 $x=r\cos\theta,y=r\sin\theta$ 的局部反函数。
+\end{xthought}
+\begin{xsolution}
+计算 Jacobi 行列式：
+\[
+  \frac{\partial(x,y)}{\partial(r,\theta)}
+  =\begin{vmatrix}
+    \cos\theta&-r\sin\theta\\
+    \sin\theta&r\cos\theta
+  \end{vmatrix}
+  =r.
+\]
+因此当
+\[
+  \boxed{r_0\ne0}
+\]
+时，反函数组存在定理保证在 $(r_0,\theta_0)$ 附近存在唯一的局部反函数
+\[
+  r=r(x,y),\qquad \theta=\theta(x,y).
+\]
+
+当 $r_0=0$ 时不仅 Jacobi 行列式为零，而且局部单射性也确实失败：对任意靠近 $\theta_0$ 的不同角度 $\theta_1,\theta_2$，
+\[
+  (0,\theta_1)\mapsto(0,0),
+  \qquad
+  (0,\theta_2)\mapsto(0,0).
+\]
+所以在 $(0,\theta_0)$ 的任何邻域内都不能存在反函数组。
+
+直观上，$r\ne0$ 时一个点的小邻域可以用“半径与角度”唯一描述；而在原点所有方向都汇聚到同一点，角度信息完全丢失，所以不能反解角度。
+\end{xsolution}
+
+\begin{xexercise}[20.2.5 练习题 1]
+设 $x=\ee^v+u^3,y=\ee^u-v^3$，求反函数组的一阶偏导数 $u_x,u_y$。
+\end{xexercise}
+\begin{xsolution}
+正向变换的 Jacobi 矩阵为
+\[
+  \frac{\partial(x,y)}{\partial(u,v)}
+  =\begin{pmatrix}
+    3u^2&\ee^v\\
+    \ee^u&-3v^2
+  \end{pmatrix},
+\]
+其行列式
+\[
+  \Delta=-9u^2v^2-\ee^{u+v}.
+\]
+由于 $\ee^{u+v}>0$，故 $\Delta<0$，反函数在每一点局部存在。逆矩阵给出
+\[
+  \begin{pmatrix}
+    u_x&u_y\\v_x&v_y
+  \end{pmatrix}
+  =\frac1\Delta
+  \begin{pmatrix}
+    -3v^2&-\ee^v\\
+    -\ee^u&3u^2
+  \end{pmatrix}.
+\]
+因此
+\[
+  \boxed{\displaystyle
+    u_x=\frac{3v^2}{9u^2v^2+\ee^{u+v}},\qquad
+    u_y=\frac{\ee^v}{9u^2v^2+\ee^{u+v}}}.
+\]
+\end{xsolution}
+
+\begin{xexercise}[20.2.5 练习题 2]
+由
+\[
+  x+y+z=0,\qquad x^2+y^2+z^2=1
+\]
+确定 $x=x(z),y=y(z)$，求指定点处的 $\dd x/\dd z,\dd y/\dd z$。
+\end{xexercise}
+\begin{xsolution}
+记
+\[
+  x'=\frac{\dd x}{\dd z},\qquad y'=\frac{\dd y}{\dd z}.
+\]
+对两个方程关于 $z$ 求导：
+\[
+  x'+y'+1=0,
+\]
+\[
+  xx'+yy'+z=0.
+\]
+在
+\[
+  \left(x,y,z\right)
+  =\left(\frac1{\sqrt2},-\frac1{\sqrt2},0\right)
+\]
+处，第二式变为 $x'-y'=0$，故 $x'=y'$。与第一式联立得到
+\[
+  \boxed{\displaystyle
+    \frac{\dd x}{\dd z}=-\frac12,
+    \qquad
+    \frac{\dd y}{\dd z}=-\frac12}.
+\]
+\end{xsolution}
+
+\begin{xexercise}[20.2.5 练习题 3]
+讨论方程组
+\[
+  x^3+y^3+z^3=3xyz,
+  \qquad x+y+z=a
+\]
+所谓的隐函数组 $y=y(x),z=z(x)$ 及其导数。
+\end{xexercise}
+\begin{xsolution}
+本题的两个方程存在退化，必须先检查是否真的能确定隐函数组。恒等式
+\[
+  x^3+y^3+z^3-3xyz
+  =(x+y+z)
+  \bigl(x^2+y^2+z^2-xy-yz-zx\bigr)
+\]
+给出：在第二个方程 $x+y+z=a$ 下，第一个方程等价于
+\[
+  a\bigl(x^2+y^2+z^2-xy-yz-zx\bigr)=0.
+\]
+
+若 $a\ne0$，则
+\[
+  x^2+y^2+z^2-xy-yz-zx
+  =\frac12\bigl[(x-y)^2+(y-z)^2+(z-x)^2\bigr]=0,
+\]
+从而 $x=y=z=a/3$。解集只是一个点，不可能在 $x$ 的某个开区间上形成 $y=y(x),z=z(x)$。
+
+若 $a=0$，则只要 $x+y+z=0$，第一个方程自动成立，两个方程只剩一个独立约束，也不能唯一确定两个函数 $y(x),z(x)$。
+
+同样，从隐函数组的 Jacobi 行列式也能看出退化：
+\[
+  \frac{\partial(F_1,F_2)}{\partial(y,z)}
+  =3(y-z)(x+y+z)=3a(y-z),
+\]
+在上述任一实际解上都为零。
+
+因此实变量范围内，题中方程组并不在任何解点附近正则地确定 $y=y(x),z=z(x)$，所列一、二阶导数也就没有可定义的隐函数组导数值。这不是求导计算中的分母偶然为零，而是方程组本身退化所致。
+\end{xsolution}
+
+\begin{xexercise}[20.2.5 练习题 4]
+设
+\[
+  x=u\cos\frac vu,\qquad y=\sin\frac vu,
+\]
+求反函数组 $u=u(x,y),v=v(x,y)$ 的一阶偏导数。
+\end{xexercise}
+\begin{xsolution}
+置
+\[
+  q=\frac vu.
+\]
+正向变换的偏导为
+\[
+  x_u=\cos q+q\sin q,
+  \qquad x_v=-\sin q,
+\]
+\[
+  y_u=-\frac q u\cos q,
+  \qquad y_v=\frac1u\cos q.
+\]
+其 Jacobi 行列式
+\[
+  J=\frac{\partial(x,y)}{\partial(u,v)}
+  =\frac{\cos^2q}{u}.
+\]
+在 $u\ne0,\cos q\ne0$ 时局部可逆。取逆矩阵得
+\[
+  \boxed{\displaystyle u_x=\frac1{\cos q}},
+\]
+\[
+  \boxed{\displaystyle
+    u_y=\frac{u\sin q}{\cos^2q}},
+\]
+\[
+  \boxed{\displaystyle
+    v_x=\frac q{\cos q}=\frac vu\frac1{\cos(v/u)}},
+\]
+\[
+  \boxed{\displaystyle
+    v_y=\frac{u(\cos q+q\sin q)}{\cos^2q}
+       =\frac{u}{\cos q}+\frac{v\sin q}{\cos^2q}}.
+\]
+\end{xsolution}
+
+\begin{xexercise}[20.2.5 练习题 5]
+设 $u=u(x)$ 由
+\[
+  u=f(x,y,z),\qquad g(x,y,z)=0,\qquad h(x,y,z)=0
+\]
+确定，求 $\dd u/\dd x$ 与 $\dd^2u/\dd x^2$。
+\end{xexercise}
+\begin{xsolution}
+设
+\[
+  \Delta=g_yh_z-g_zh_y\ne0,
+\]
+并令
+\[
+  p=y'(x),\qquad q=z'(x).
+\]
+由 $g=0,h=0$ 对 $x$ 求导，
+\[
+  g_x+g_yp+g_zq=0,
+  \qquad
+  h_x+h_yp+h_zq=0.
+\]
+故
+\[
+  p=\frac{-g_xh_z+g_zh_x}{\Delta},
+  \qquad
+  q=\frac{g_xh_y-g_yh_x}{\Delta}.
+\]
+于是
+\[
+  \boxed{\displaystyle
+    \frac{\dd u}{\dd x}=f_x+f_yp+f_zq}.
+\]
+
+为求二阶导数，记
+\begin{align*}
+  G_2={}&g_{xx}+2g_{xy}p+2g_{xz}q
+       +g_{yy}p^2+2g_{yz}pq+g_{zz}q^2,\\
+  H_2={}&h_{xx}+2h_{xy}p+2h_{xz}q
+       +h_{yy}p^2+2h_{yz}pq+h_{zz}q^2.
+\end{align*}
+再次对 $g=0,h=0$ 求导得到
+\[
+  g_yy''+g_zz''=-G_2,
+  \qquad
+  h_yy''+h_zz''=-H_2.
+\]
+因此
+\[
+  y''=\frac{-G_2h_z+g_zH_2}{\Delta},
+  \qquad
+  z''=\frac{h_yG_2-g_yH_2}{\Delta}.
+\]
+最后对 $u=f(x,y(x),z(x))$ 求二阶导数：
+\[
+  \boxed{\begin{aligned}
+  \frac{\dd^2u}{\dd x^2}
+  ={}&f_{xx}+2f_{xy}p+2f_{xz}q
+      +f_{yy}p^2+2f_{yz}pq+f_{zz}q^2\\
+     &+f_yy''+f_zz''.
+  \end{aligned}}
+\]
+所有偏导均在相应隐函数曲线上取值。
+\end{xsolution}
+
+\begin{xexercise}[20.2.5 练习题 6]
+由 $x=u\cos v,y=u\sin v,z=v$ 确定 $z=z(x,y)$，求全部二阶偏导数。
+\end{xexercise}
+\begin{xsolution}
+在 $u\ne0$ 且选定连续角度分支的局部邻域内，
+\[
+  z=v=\arctan\frac yx.
+\]
+因此
+\[
+  z_x=-\frac{y}{x^2+y^2},
+  \qquad
+  z_y=\frac{x}{x^2+y^2}.
+\]
+继续求导，得到
+\[
+  \boxed{\displaystyle
+    z_{xx}=\frac{2xy}{(x^2+y^2)^2}},
+\]
+\[
+  \boxed{\displaystyle
+    z_{yy}=-\frac{2xy}{(x^2+y^2)^2}},
+\]
+\[
+  \boxed{\displaystyle
+    z_{xy}=z_{yx}=\frac{y^2-x^2}{(x^2+y^2)^2}}.
+\]
+\end{xsolution}
+
+\begin{xexercise}[20.2.5 练习题 7]
+设
+\[
+  x=\ee^{u+v},\qquad y=\ee^{u-v},\qquad z=uv,
+\]
+求 $(u,v)=(0,0)$ 时的 $\dd z,\dd^2z$。
+\end{xexercise}
+\begin{xsolution}
+由前两式
+\[
+  u=\frac12(\ln x+\ln y),
+  \qquad
+  v=\frac12(\ln x-\ln y),
+\]
+故
+\[
+  z=uv=\frac14\bigl[(\ln x)^2-(\ln y)^2\bigr].
+\]
+当 $(u,v)=(0,0)$ 时，$(x,y)=(1,1)$。此时
+\[
+  z_x=\frac{\ln x}{2x}=0,
+  \qquad
+  z_y=-\frac{\ln y}{2y}=0,
+\]
+所以
+\[
+  \boxed{\dd z=0}.
+\]
+又
+\[
+  z_{xx}=\frac{1-\ln x}{2x^2},
+  \qquad z_{xy}=0,
+  \qquad
+  z_{yy}=-\frac{1-\ln y}{2y^2}.
+\]
+在 $(1,1)$ 处
+\[
+  z_{xx}=\frac12,
+  \qquad z_{xy}=0,
+  \qquad z_{yy}=-\frac12.
+\]
+因此
+\[
+  \boxed{\displaystyle
+    \dd^2z=\frac12(\dd x)^2-\frac12(\dd y)^2}.
+\]
+\end{xsolution}
+
+\begin{xexercise}[20.2.5 练习题 8]
+设 $u=f(x,y,z)$，$g(x^2,\ee^y,z)=0$，$y=\sin x$，求 $\dd u/\dd x$。
+\end{xexercise}
+\begin{xsolution}
+把 $g$ 的三个自变量记为 $(\xi,\eta,\zeta)$，相应偏导记为 $g_1,g_2,g_3$。由 $y=\sin x$，
+\[
+  y'=\cos x.
+\]
+对
+\[
+  g(x^2,\ee^y,z)=0
+\]
+关于 $x$ 求导：
+\[
+  2xg_1+\ee^y y'g_2+z'g_3=0.
+\]
+故在 $g_3\ne0$ 时
+\[
+  z'=-\frac{2xg_1+\ee^y\cos x\,g_2}{g_3}.
+\]
+再对 $u=f(x,y,z)$ 使用链式法则，得到
+\[
+  \boxed{\displaystyle
+  \frac{\dd u}{\dd x}
+  =f_x+f_y\cos x
+   -f_z\frac{2xg_1+\ee^y\cos x\,g_2}{g_3}}.
+\]
+\end{xsolution}
+
+\subsection*{20.3 变量代换问题}
+
+\begin{xexercise}[20.3.3 练习题 1]
+把
+\[
+  (x-y)z_x+yz_y=0
+\]
+变为 $x$ 作因变量，$y,z$ 为自变量的形式。
+\end{xexercise}
+\begin{xsolution}
+设反解后 $x=x(y,z)$，并假设局部可逆所需的 $z_x\ne0$。由恒等式
+\[
+  z(x(y,z),y)=z
+\]
+分别对新自变量 $z,y$ 求偏导，得到
+\[
+  z_xx_z=1,
+  \qquad
+  z_xx_y+z_y=0.
+\]
+因此
+\[
+  z_x=\frac1{x_z},
+  \qquad
+  z_y=-\frac{x_y}{x_z}.
+\]
+代入原方程并乘以 $x_z$：
+\[
+  x-y-yx_y=0.
+\]
+故变换后的方程为
+\[
+  \boxed{\displaystyle y\frac{\partial x}{\partial y}=x-y}.
+\]
+这里 $z$ 作为另一个自变量，只起参数作用。
+\end{xsolution}
+
+\begin{xexercise}[20.3.3 练习题 2]
+以 $r=\sqrt{x^2+y^2},\varphi=\arctan(y/x)$ 变换
+\[
+  w=x\frac{\dd^2y}{\dd t^2}-y\frac{\dd^2x}{\dd t^2}.
+\]
+\end{xexercise}
+\begin{xsolution}
+写成
+\[
+  x=r\cos\varphi,
+  \qquad
+  y=r\sin\varphi.
+\]
+先计算一次导数的组合：
+\[
+  xy'-yx'
+  =r^2\varphi'.
+\]
+两边对 $t$ 求导，左边的交叉项 $x'y'-y'x'$ 抵消，故
+\[
+  xy''-yx''=\frac{\dd}{\dd t}(r^2\varphi')
+  =2rr'\varphi'+r^2\varphi''.
+\]
+因此
+\[
+  \boxed{\displaystyle
+    w=r^2\frac{\dd^2\varphi}{\dd t^2}
+      +2r\frac{\dd r}{\dd t}\frac{\dd\varphi}{\dd t}}
+  =\boxed{\displaystyle
+    \frac{\dd}{\dd t}\left(r^2\frac{\dd\varphi}{\dd t}\right)}.
+\]
+\end{xsolution}
+
+\begin{xexercise}[20.3.3 练习题 3]
+以 $\xi=x+y,\eta=x-y$ 为新自变量，变换 $z_x=z_y$。
+\end{xexercise}
+\begin{xsolution}
+由链式法则
+\[
+  z_x=z_\xi\xi_x+z_\eta\eta_x=z_\xi+z_\eta,
+\]
+\[
+  z_y=z_\xi\xi_y+z_\eta\eta_y=z_\xi-z_\eta.
+\]
+所以 $z_x=z_y$ 等价于
+\[
+  z_\xi+z_\eta=z_\xi-z_\eta,
+\]
+即
+\[
+  \boxed{z_\eta=0}.
+\]
+\end{xsolution}
+
+\begin{xexercise}[20.3.3 练习题 4]
+取
+\[
+  u=y+z\ee^{-x},\qquad v=x+z\ee^{-y}
+\]
+为新自变量，变换题给微分式 $F$。
+\end{xexercise}
+\begin{xsolution}
+令 $z=z(u,v)$，记
+\[
+  p=z_u,
+  \qquad q=z_v,
+  \qquad
+  D=1-p\ee^{-x}-q\ee^{-y}.
+\]
+由链式法则，
+\[
+  z_x=p\,u_x+q\,v_x,
+\]
+而
+\[
+  u_x=\ee^{-x}(z_x-z),
+  \qquad
+  v_x=1+\ee^{-y}z_x.
+\]
+因此
+\[
+  Dz_x=q-pz\ee^{-x}.
+\]
+同理，由
+\[
+  u_y=1+\ee^{-x}z_y,
+  \qquad
+  v_y=\ee^{-y}(z_y-z)
+\]
+得到
+\[
+  Dz_y=p-qz\ee^{-y}.
+\]
+于是当 $D\ne0$ 时
+\[
+  z_x=\frac{q-pz\ee^{-x}}D,
+  \qquad
+  z_y=\frac{p-qz\ee^{-y}}D.
+\]
+代入
+\[
+  F=(z+\ee^x)z_x+(z+\ee^y)z_y-(z^2-\ee^{x+y})
+\]
+并通分，分子化简为 $\ee^{x+y}-z^2$。故
+\[
+  \boxed{\displaystyle
+    F=\frac{\ee^{x+y}-z^2}
+    {1-\ee^{-x}z_u-\ee^{-y}z_v}}.
+\]
+其中 $x,y$ 由新坐标关系
+\[
+  u=y+z\ee^{-x},\qquad v=x+z\ee^{-y}
+\]
+局部反解为 $u,v,z$ 的函数。若原问题进一步令 $F=0$，则在变换正则的区域内等价于 $z^2=\ee^{x+y}$。
+\end{xsolution}
+
+\begin{xexercise}[20.3.3 练习题 5]
+设
+\[
+  u=x\ee^z,\qquad v=y\ee^z,\qquad w=z\ee^z,
+\]
+以 $w$ 为因变量、$u,v$ 为自变量，变换 $z_x=z_y$。
+\end{xexercise}
+\begin{xsolution}
+令 $w=w(u,v)$，记 $p=w_u,q=w_v$。因为
+\[
+  w_x=\ee^z(1+z)z_x,
+\]
+另一方面
+\[
+  u_x=\ee^z(1+xz_x),
+  \qquad
+  v_x=y\ee^z z_x,
+\]
+所以链式法则给出
+\[
+  \ee^z(1+z)z_x
+  =p\ee^z(1+xz_x)+qy\ee^z z_x.
+\]
+约去 $\ee^z$ 后
+\[
+  (1+z-xp-yq)z_x=p.
+\]
+同理，
+\[
+  (1+z-xp-yq)z_y=q.
+\]
+在变换正则、公共系数非零处，$z_x=z_y$ 当且仅当 $p=q$。因此新方程为
+\[
+  \boxed{\displaystyle \frac{\partial w}{\partial u}
+  =\frac{\partial w}{\partial v}}.
+\]
+\end{xsolution}
+
+\begin{xexercise}[20.3.3 练习题 6]
+以
+\[
+  \xi=\frac xz,\qquad \eta=\frac yz,
+  \qquad \zeta=z,
+  \qquad w=\frac uz
+\]
+变换题给一阶偏微分方程。
+\end{xexercise}
+\begin{xsolution}
+反写为
+\[
+  x=\xi\zeta,
+  \qquad y=\eta\zeta,
+  \qquad z=\zeta,
+  \qquad u=\zeta w(\xi,\eta,\zeta).
+\]
+沿保持 $(\xi,\eta)$ 不变而只改变 $\zeta$ 的射线，Euler 算子满足
+\[
+  x\frac\partial{\partial x}
+  +y\frac\partial{\partial y}
+  +z\frac\partial{\partial z}
+  =\zeta\frac\partial{\partial\zeta}.
+\]
+故
+\[
+  xu_x+yu_y+zu_z
+  =\zeta\frac\partial{\partial\zeta}(\zeta w)
+  =\zeta w+\zeta^2w_\zeta
+  =u+\zeta^2w_\zeta.
+\]
+而
+\[
+  \frac{xy}{z}=\frac{(\xi\zeta)(\eta\zeta)}\zeta
+  =\xi\eta\zeta.
+\]
+代入原方程并消去 $u$，得到
+\[
+  \zeta^2w_\zeta=\xi\eta\zeta.
+\]
+因此
+\[
+  \boxed{\displaystyle
+    \zeta\frac{\partial w}{\partial\zeta}=\xi\eta}
+  \qquad(\zeta\ne0).
+\]
+\end{xsolution}
+
+\begin{xexercise}[20.3.3 练习题 7]
+求三维 Laplace 方程在球坐标下的形式。
+\end{xexercise}
+\begin{xsolution}
+采用标准球坐标约定
+\[
+  x=r\sin\theta\cos\varphi,
+  \qquad
+  y=r\sin\theta\sin\varphi,
+  \qquad
+  z=r\cos\theta,
+\]
+其中 $r>0,0<\theta<\pi$。三个正交坐标的尺度因子为
+\[
+  h_r=1,
+  \qquad h_\theta=r,
+  \qquad h_\varphi=r\sin\theta.
+\]
+对正交曲线坐标，Laplacian 可写为
+\[
+  \Delta u
+  =\frac1{h_rh_\theta h_\varphi}
+   \sum_{q\in\{r,\theta,\varphi\}}
+   \frac\partial{\partial q}
+   \left(\frac{h_rh_\theta h_\varphi}{h_q^2}u_q\right).
+\]
+代入三个尺度因子：
+\begin{align*}
+  \Delta u
+  &={1\over r^2}\frac\partial{\partial r}
+      \left(r^2u_r\right)
+    +{1\over r^2\sin\theta}\frac\partial{\partial\theta}
+      \left(\sin\theta\,u_\theta\right)
+    +{1\over r^2\sin^2\theta}u_{\varphi\varphi}\\
+  &=u_{rr}+\frac2r u_r
+    +\frac1{r^2}u_{\theta\theta}
+    +\frac{\cot\theta}{r^2}u_\theta
+    +\frac1{r^2\sin^2\theta}u_{\varphi\varphi}.
+\end{align*}
+故原方程化为
+\[
+  \boxed{\displaystyle
+    u_{rr}+\frac2r u_r
+    +\frac1{r^2}u_{\theta\theta}
+    +\frac{\cot\theta}{r^2}u_\theta
+    +\frac1{r^2\sin^2\theta}u_{\varphi\varphi}=0}.
+\]
+\end{xsolution}
+
+\begin{xexercise}[20.3.3 练习题 8]
+以 $u=x+2y+2,v=x-y-1$ 为新自变量，变换题给二阶偏微分方程。
+\end{xexercise}
+\begin{xsolution}
+由
+\[
+  u_x=1,\ v_x=1,
+  \qquad
+  u_y=2,\ v_y=-1
+\]
+得微分算子
+\[
+  \frac\partial{\partial x}=\frac\partial{\partial u}+\frac\partial{\partial v},
+  \qquad
+  \frac\partial{\partial y}=2\frac\partial{\partial u}-\frac\partial{\partial v}.
+\]
+因此
+\[
+  z_x=z_u+z_v,
+  \qquad z_y=2z_u-z_v,
+\]
+并且
+\[
+  z_{xx}=z_{uu}+2z_{uv}+z_{vv},
+\]
+\[
+  z_{xy}=2z_{uu}+z_{uv}-z_{vv},
+\]
+\[
+  z_{yy}=4z_{uu}-4z_{uv}+z_{vv}.
+\]
+代入
+\[
+  2z_{xx}+z_{xy}-z_{yy}+z_x+z_y=0
+\]
+得到
+\[
+  9z_{uv}+3z_u=0.
+\]
+约去 $3$，新方程为
+\[
+  \boxed{\displaystyle 3z_{uv}+z_u=0}.
+\]
+\end{xsolution}
+
+\begin{xexercise}[20.3.3 练习题 9]
+以 $u=x,v=x+y,w=x+y+z$ 变换题给二阶偏微分方程。
+\end{xexercise}
+\begin{xsolution}
+由
+\[
+  u=x,\qquad v=x+y,\qquad z=w-v
+\]
+知
+\[
+  \frac\partial{\partial x}=\frac\partial{\partial u}+\frac\partial{\partial v},
+  \qquad
+  \frac\partial{\partial y}=\frac\partial{\partial v}.
+\]
+因此
+\[
+  z_{xx}=w_{uu}+2w_{uv}+w_{vv},
+\]
+\[
+  z_{xy}=w_{uv}+w_{vv},
+  \qquad
+  z_{yy}=w_{vv}.
+\]
+又 $y=v-u,x=u$，故
+\[
+  1+\frac yx=1+\frac{v-u}{u}=\frac vu.
+\]
+代入原方程，混合项抵消：
+\begin{align*}
+  0&=z_{xx}-2z_{xy}+\left(1+\frac yx\right)z_{yy}\\
+   &=w_{uu}+\left(\frac vu-1\right)w_{vv}.
+\end{align*}
+所以
+\[
+  \boxed{\displaystyle
+    w_{uu}+\frac{v-u}{u}w_{vv}=0}
+  \qquad(u\ne0).
+\]
+\end{xsolution}
+
+\begin{xexercise}[20.3.3 练习题 10]
+设 $xu=x^2+y^2,yv=x^2+y^2$，证明题给 Jacobi 行列式恒等式。
+\end{xexercise}
+\begin{xsolution}
+在 $xy\ne0$ 的区域内
+\[
+  u=x+\frac{y^2}{x},
+  \qquad
+  v=y+\frac{x^2}{y}.
+\]
+于是
+\[
+  u_x=1-\frac{y^2}{x^2},
+  \qquad u_y=\frac{2y}{x},
+\]
+\[
+  v_x=\frac{2x}{y},
+  \qquad v_y=1-\frac{x^2}{y^2}.
+\]
+所以
+\begin{align*}
+  \frac{\partial(u,v)}{\partial(x,y)}
+  &=\left(1-\frac{y^2}{x^2}\right)
+    \left(1-\frac{x^2}{y^2}\right)-4\\
+  &=-\frac{(x^2+y^2)^2}{x^2y^2}.
+\end{align*}
+另一方面，
+\[
+  \frac{uv}{xy}
+  =\frac1{xy}\cdot\frac{x^2+y^2}{x}
+                  \cdot\frac{x^2+y^2}{y}
+  =\frac{(x^2+y^2)^2}{x^2y^2}.
+\]
+故
+\[
+  \boxed{\displaystyle
+    \frac{\partial(u,v)}{\partial(x,y)}=-\frac{uv}{xy}}.
+\]
+\end{xsolution}
+
+\begin{xexercise}[20.3.3 练习题 11]
+证明题给三个二阶 Jacobi 行列式与 $u_x,u_y,u_z$ 的恒等式。
+\end{xexercise}
+\begin{xsolution}
+把三个 Jacobi 行列式展开：
+\[
+  \frac{\partial(u,v)}{\partial(y,z)}=u_yv_z-u_zv_y,
+\]
+\[
+  \frac{\partial(u,v)}{\partial(z,x)}=u_zv_x-u_xv_z,
+\]
+\[
+  \frac{\partial(u,v)}{\partial(x,y)}=u_xv_y-u_yv_x.
+\]
+因此题中左端等于
+\begin{align*}
+ &(u_yv_z-u_zv_y)u_x
+ +(u_zv_x-u_xv_z)u_y
+ +(u_xv_y-u_yv_x)u_z\\
+ &=u_xu_yv_z-u_xu_zv_y
+   +u_yu_zv_x-u_xu_yv_z
+   +u_xu_zv_y-u_yu_zv_x\\
+ &=0.
+\end{align*}
+故所证恒等式成立。
+\end{xsolution}
+
+\begin{xexercise}[20.3.3 练习题 12]
+设 $u=xy,v=x/y$，求正、逆 Jacobi 行列式。
+\end{xexercise}
+\begin{xsolution}
+有
+\[
+  u_x=y,
+  \qquad u_y=x,
+  \qquad
+  v_x=\frac1y,
+  \qquad v_y=-\frac{x}{y^2}.
+\]
+故
+\[
+  \frac{\partial(u,v)}{\partial(x,y)}
+  =y\left(-\frac{x}{y^2}\right)-x\frac1y
+  =-\frac{2x}{y}=-2v.
+\]
+在 $v\ne0$ 的局部可逆区域，逆 Jacobi 行列式是其倒数：
+\[
+  \boxed{\displaystyle
+    \frac{\partial(u,v)}{\partial(x,y)}=-2v,
+    \qquad
+    \frac{\partial(x,y)}{\partial(u,v)}=-\frac1{2v}}.
+\]
+\end{xsolution}
+
+\begin{xexercise}[20.3.3 练习题 13]
+设
+\[
+  u=\frac{x}{r^2},\quad v=\frac{y}{r^2},\quad w=\frac{z}{r^2},
+  \qquad r^2=x^2+y^2+z^2,
+\]
+求三阶 Jacobi 行列式。
+\end{xexercise}
+\begin{xsolution}
+令
+\[
+  \vect{x}=\begin{pmatrix}x\\y\\z\end{pmatrix},
+  \qquad
+  \vect{n}=\frac{\vect{x}}r.
+\]
+映射可写为
+\[
+  \vect{F}(\vect{x})=\frac{\vect{x}}{r^2}.
+\]
+其 Jacobi 矩阵为
+\[
+  JF=\frac1{r^2}I-\frac2{r^4}\vect{x}\vect{x}^{\mathsf T}
+  =\frac1{r^2}\left(I-2\vect{n}\vect{n}^{\mathsf T}\right).
+\]
+矩阵 $I-2\vect{n}\vect{n}^{\mathsf T}$ 是关于垂直于 $\vect n$ 的平面的反射：沿 $\vect n$ 的特征值为 $-1$，两个切向特征值为 $1$。因此其行列式为 $-1$。从而
+\[
+  \boxed{\displaystyle
+    \frac{\partial(u,v,w)}{\partial(x,y,z)}
+    =-\frac1{r^6}}
+  \qquad(r\ne0).
+\]
+\end{xsolution}
+
+\subsection*{20.5.2 第一组参考题}
+
+\begin{xreferenceproblem}[20.5.2 第一组参考题 1]
+证明题给方程在 $\left(0,\pi/2\right)$ 附近确定隐函数 $t=\varphi(x)$，并求 $\varphi'(0)$。
+\end{xreferenceproblem}
+\begin{xsolution}
+原题积分中的积分变量与外部变量同名；把积分变量改记为 $s$，则
+\[
+  \int_0^t\sin s\,\dd s=1-\cos t.
+\]
+定义
+\[
+  F(x,t)=f(x,1-\cos t).
+\]
+在 $(x,t)=(0,\pi/2)$ 处，
+\[
+  F\left(0,\frac\pi2\right)=f(0,1)=0,
+\]
+且
+\[
+  F_t(x,t)=f_y(x,1-\cos t)\sin t,
+\]
+所以
+\[
+  F_t\left(0,\frac\pi2\right)=f_y(0,1)\ne0.
+\]
+由隐函数存在定理，在该点附近唯一确定 $C^1$ 函数 $t=\varphi(x)$。又
+\[
+  F_x\left(0,\frac\pi2\right)=f_x(0,1),
+\]
+故
+\[
+  \boxed{\displaystyle
+    \varphi'(0)=-\frac{f_x(0,1)}{f_y(0,1)}}.
+\]
+\end{xsolution}
+
+\begin{xreferenceproblem}[20.5.2 第一组参考题 2]
+证明 $y=x+\tfrac12\sin y$ 在整个实轴上唯一确定 $C^\infty$ 隐函数 $y=y(x)$。
+\end{xreferenceproblem}
+\begin{xsolution}
+令
+\[
+  F(x,y)=y-x-\frac12\sin y.
+\]
+对任意 $(x,y)\in\RR^2$，
+\[
+  F_y=1-\frac12\cos y\ge\frac12>0.
+\]
+因此对每个固定的 $x$，函数 $y\mapsto F(x,y)$ 严格增加。又
+\[
+  \lim_{y\to-\infty}F(x,y)=-\infty,
+  \qquad
+  \lim_{y\to+\infty}F(x,y)=+\infty,
+\]
+故由介值定理，对每个 $x\in\RR$ 恰有一个 $y$ 满足 $F(x,y)=0$。于是得到定义在整个 $\RR$ 上的唯一函数 $y=y(x)$。
+
+由于处处有 $F_y\ne0$，隐函数存在定理在每一点都适用，故 $y$ 局部为 $C^1$，从而全局为 $C^1$。并且
+\[
+  y'=\frac1{1-\frac12\cos y}.
+\]
+右端是 $y$ 的 $C^\infty$ 函数。若已知 $y\in C^k$，则上式右端属于 $C^k$，因而 $y\in C^{k+1}$。从 $C^1$ 开始归纳，得到
+\[
+  \boxed{y\in C^\infty(\RR)}.
+\]
+\end{xsolution}
+
+\begin{xreferenceproblem}[20.5.2 第一组参考题 3]
+设 $x=y+\varphi(y)$，且 $\varphi(0)=0$、$\varphi'$ 在 $(-a,a)$ 连续、$\abs{\varphi'(0)}\le k<1$。证明原点附近存在唯一可微反解 $y=y(x)$。
+\end{xreferenceproblem}
+\begin{xsolution}
+定义
+\[
+  F(x,y)=y+\varphi(y)-x.
+\]
+则 $F(0,0)=0$，并且
+\[
+  F_y(0,0)=1+\varphi'(0).
+\]
+由 $\abs{\varphi'(0)}\le k<1$ 可知
+\[
+  F_y(0,0)\ge1-k>0.
+\]
+所以隐函数存在定理直接给出：存在 $\delta>0$，当 $\abs{x}<\delta$ 时，存在唯一可微函数 $y=y(x)$ 满足
+\[
+  F(x,y(x))=0,
+  \qquad y(0)=0.
+\]
+即
+\[
+  x=y(x)+\varphi(y(x)).
+\]
+此外，连续性还允许取更小邻域使 $\abs{\varphi'(y)}<1$，此时映射 $y\mapsto y+\varphi(y)$ 严格增加，亦可直接看出局部唯一性。
+\end{xsolution}
+
+\begin{xreferenceproblem}[20.5.2 第一组参考题 4]
+证明
+\[
+  1-\ee^{-x}+y^3\ee^{-y}=0
+\]
+对每个 $x>0$ 有唯一实解 $y=y(x)$，且该解连续可微。
+\end{xreferenceproblem}
+\begin{xsolution}
+当 $x>0$ 时
+\[
+  \ee^{-x}-1\in(-1,0).
+\]
+方程等价于
+\[
+  h(y):=y^3\ee^{-y}=\ee^{-x}-1<0.
+\]
+因此任何解必有 $y<0$。在 $(-\infty,0)$ 上，
+\[
+  h'(y)=y^2(3-y)\ee^{-y}>0,
+\]
+且
+\[
+  \lim_{y\to-\infty}h(y)=-\infty,
+  \qquad
+  \lim_{y\to0^-}h(y)=0.
+\]
+故 $h$ 把 $(-\infty,0)$ 严格单调地映到 $(-\infty,0)$，从而对每个 $x>0$ 有且只有一个 $y<0$ 满足方程。
+
+再令
+\[
+  F(x,y)=1-\ee^{-x}+y^3\ee^{-y}.
+\]
+在解曲线上 $y<0$，并且
+\[
+  F_y=y^2(3-y)\ee^{-y}>0.
+\]
+因此隐函数存在定理在每个解点都适用，所得全局唯一函数 $y=y(x)$ 在 $(0,+\infty)$ 上连续可微。
+\end{xsolution}
+
+\begin{xreferenceproblem}[20.5.2 第一组参考题 5]
+在题设 $\abs{f_x}<M\abs{f_y}$、$f(x_0,y_0)=0$ 下证明存在全局唯一可微零点曲线，并回答两个附问。
+\end{xreferenceproblem}
+\begin{xsolution}
+首先，严格不等式
+\[
+  \abs{f_x(x,y)}<M\abs{f_y(x,y)}
+\]
+说明 $f_y$ 在 $\RR^2$ 上处处不为零；否则在某点 $f_y=0$ 时右端为 $0$，不可能有 $\abs{f_x}<0$。由于 $f_y$ 连续而 $\RR^2$ 连通，$f_y$ 在全平面同号。不妨设 $f_y>0$；若 $f_y<0$，以下论证完全相同。因此对每个固定的 $x$，$y\mapsto f(x,y)$ 严格增加，零点若存在则唯一。
+
+先说明在已知零点 $(x_0,y_0)$ 附近确有唯一局部隐函数，而不额外假设 $f_x$ 连续。由于 $f_y$ 连续，它在 $(x_0,y_0)$ 的一个小矩形内有界。对 $(x,y)$ 趋于 $(x_0,y_0)$，写成
+\[
+  f(x,y)-f(x_0,y_0)
+  =[f(x,y)-f(x,y_0)]+[f(x,y_0)-f(x_0,y_0)].
+\]
+第一项由关于 $y$ 的中值定理被常数倍 $\abs{y-y_0}$ 控制；第二项因 $x\mapsto f(x,y_0)$ 在 $x_0$ 可微而趋于 $0$。故 $f$ 在 $(x_0,y_0)$ 连续。又因 $f_y$ 在邻域内同号，可取 $\varepsilon>0$ 使
+\[
+  f(x_0,y_0-\varepsilon)<0<f(x_0,y_0+\varepsilon)
+\]
+（若 $f_y<0$ 则不等号反向）。由刚证得的连续性，当 $x$ 充分接近 $x_0$ 时两端仍异号；再利用 $y\mapsto f(x,y)$ 严格单调，介值定理给出唯一零点 $y=y(x)$。同样的夹逼论证说明 $y(x)$ 连续。
+
+即使题设未要求 $f_x$ 连续，导数公式仍可由差商直接得到。事实上，令 $y_h=y(x+h)$，由
+\[
+  f(x+h,y_h)-f(x,y)=0
+\]
+在中间加减 $f(x+h,y)$，并对 $y$ 使用中值定理，得
+\[
+  \frac{y_h-y}{h}
+  =-\frac{[f(x+h,y)-f(x,y)]/h}{f_y(x+h,\xi_h)},
+\]
+其中 $\xi_h$ 介于 $y$ 与 $y_h$ 之间。令 $h\to0$，利用 $f_y$ 的连续性可得
+\[
+  y'(x)=-\frac{f_x(x,y(x))}{f_y(x,y(x))}.
+\]
+于是
+\[
+  \abs{y'(x)}<M.
+\]
+
+设该解的最大定义区间为 $I=(\alpha,\beta)$，其中 $x_0\in I$。由中值定理，对 $x_1,x_2\in I$ 有
+\[
+  \abs{y(x_2)-y(x_1)}\le M\abs{x_2-x_1}.
+\]
+若 $\beta<+\infty$，则当 $x\to\beta^-$ 时 $y(x)$ 为 Cauchy，存在有限极限 $y_\beta$。由 $f$ 的连续性，
+\[
+  f(\beta,y_\beta)=0.
+\]
+且 $f_y(\beta,y_\beta)\ne0$，所以用上面基于连续性、单调性和介值定理的同一局部构造，可把解延拓过 $\beta$，与最大性矛盾。因此 $\beta=+\infty$。同理 $\alpha=-\infty$。故解定义在整个 $\RR$ 上。前述 $y$ 方向严格单调性又保证了全局唯一性，并且 $y(x_0)=y_0$。
+
+关于附问：
+\begin{enumerate}[label=(\arabic*)]
+  \item 条件 $\abs{f_x}<M\abs{f_y}$ 不是必要条件。例如
+  \[
+    f(x,y)=y-x^2
+  \]
+  唯一确定全局光滑解 $y=x^2$，但
+  \[
+    \frac{\abs{f_x}}{\abs{f_y}}=2\abs{x}
+  \]
+  在全实轴上无界，不存在统一常数 $M$ 满足题设不等式。
+  \item 若去掉存在零点的条件 $f(x_0,y_0)=0$，结论不再成立。例如
+  \[
+    f(x,y)=\ee^y
+  \]
+  满足 $f_x=0$、$f_y=\ee^y>0$，因而对任意 $M>0$ 都有 $\abs{f_x}<M\abs{f_y}$，但方程 $f(x,y)=0$ 没有任何实解。
+\end{enumerate}
+\end{xsolution}
+
+\begin{xreferenceproblem}[20.5.2 第一组参考题 6]
+讨论秩恒为 $1$ 的平面映射与局部函数关系，并证明逆命题。
+\end{xreferenceproblem}
+\begin{xsolution}
+记
+\[
+  \Phi(x,y)=(f(x,y),g(x,y)).
+\]
+
+\begin{enumerate}[label=(\arabic*)]
+  \item 固定任一点 $(x_0,y_0)\in\Omega$。由于 $J\Phi$ 的秩为 $1$，至少有一个一阶偏导在该点不为零。经交换 $x,y$ 或交换 $f,g$ 后，不妨设
+  \[
+    f_x(x_0,y_0)\ne0.
+  \]
+  考虑坐标变换
+  \[
+    (x,y)\longmapsto(u,t)=(f(x,y),y).
+  \]
+  其 Jacobi 行列式为 $f_x\ne0$，故在 $(x_0,y_0)$ 附近是 $C^1$ 局部微分同胚。于是可写
+  \[
+    x=x(u,t),\qquad y=t,
+  \]
+  并令
+  \[
+    \widetilde g(u,t)=g(x(u,t),t).
+  \]
+  在保持 $u$ 不变时，由
+  \[
+    f_xx_t+f_y=0
+  \]
+  得 $x_t=-f_y/f_x$，从而
+  \[
+    \widetilde g_t
+    =g_xx_t+g_y
+    =\frac{f_xg_y-f_yg_x}{f_x}.
+  \]
+  秩恒为 $1$ 意味着
+  \[
+    f_xg_y-f_yg_x=0,
+  \]
+  故 $\widetilde g_t=0$。缩小到连通邻域后，$\widetilde g$ 只依赖 $u$，即存在 $C^1$ 函数 $\psi$ 使
+  \[
+    g(x,y)=\psi(f(x,y)).
+  \]
+  取
+  \[
+    F(u,v)=v-\psi(u),
+  \]
+  则
+  \[
+    F(f(x,y),g(x,y))=0
+  \]
+  在该邻域恒成立，并且
+  \[
+    (F_u')^2+(F_v')^2=(\psi'(u))^2+1>0.
+  \]
+
+  \item 反之，若
+  \[
+    F(f(x,y),g(x,y))=0
+  \]
+  且 $(F_u',F_v')\ne(0,0)$，分别对 $x,y$ 求导：
+  \[
+    F_u'f_x+F_v'g_x=0,
+    \qquad
+    F_u'f_y+F_v'g_y=0.
+  \]
+  这说明矩阵
+  \[
+    \begin{pmatrix}f_x&g_x\\f_y&g_y\end{pmatrix}
+  \]
+  有非零零空间向量 $(F_u',F_v')^{\mathsf T}$，故其行列式为零，即
+  \[
+    \boxed{\displaystyle
+      \frac{\partial(u,v)}{\partial(x,y)}=0}.
+  \]
+\end{enumerate}
+\end{xsolution}
+
+\begin{xreferenceproblem}[20.5.2 第一组参考题 7]
+证明题给点集 $E$ 在曲线 $C$ 附近组成连续曲面 $z=z(x,y)$。
+\end{xreferenceproblem}
+\begin{xsolution}
+记
+\[
+  q(t)=\frac{f'(t)}{\varphi'(t)}.
+\]
+题给参数表示为
+\[
+  X(s,t)=s^2+q(t)s+f(t),
+  \qquad
+  Y(s,t)=2s+\varphi(t),
+  \qquad
+  Z(s,t)=q(t).
+\]
+曲线 $C$ 正对应于 $s=0$。为了把 $Z$ 写成 $X,Y$ 的函数，只需证明参数变换 $(s,t)\mapsto(X,Y)$ 在 $s=0$ 附近局部可逆。
+
+计算
+\[
+  X_s=2s+q(t),
+  \qquad
+  X_t=q'(t)s+f'(t),
+\]
+\[
+  Y_s=2,
+  \qquad
+  Y_t=\varphi'(t).
+\]
+故在任意 $(0,t_0)$ 处
+\begin{align*}
+  \frac{\partial(X,Y)}{\partial(s,t)}
+  &=q(t_0)\varphi'(t_0)-2f'(t_0)\\
+  &=f'(t_0)-2f'(t_0)\\
+  &=-f'(t_0)\ne0.
+\end{align*}
+这里使用了 $q\varphi'=f'$ 以及题设 $f'\ne0$。
+
+因此由反函数组存在定理，在每个曲线点附近都可唯一写出
+\[
+  s=s(x,y),\qquad t=t(x,y).
+\]
+于是
+\[
+  z=Z(s,t)=q(t(x,y))
+\]
+是 $x,y$ 的连续函数；事实上因 $f,\varphi\in C^2$ 且 $\varphi'\ne0$，它还是局部 $C^1$。故 $E$ 中 $\abs{s}$ 足够小时靠近 $C$ 的部分局部组成一张连续曲面 $z=z(x,y)$。
+\end{xsolution}
+
+\begin{xreferenceproblem}[20.5.2 第一组参考题 8]
+在有界闭区域 $D\subset G$ 中，证明方程组 $f(x,y)=g(x,y)=0$ 的解至多有限个。
+\end{xreferenceproblem}
+\begin{xsolution}
+令
+\[
+  \Phi(x,y)=(f(x,y),g(x,y)).
+\]
+题设保证在 $G$ 内每一点
+\[
+  \det J\Phi(x,y)\ne0.
+\]
+因此由反函数组存在定理，每个零点 $p$ 都有一个邻域 $U_p$，使 $\Phi$ 在 $U_p$ 内为一一映射。特别地，$U_p$ 中不可能还有另一个零点，所以所有零点都是孤立点。
+
+若 $D$ 中零点有无限多个，则因 $D$ 有界闭，在 $\RR^2$ 中为紧集。由 Bolzano--Weierstrass 定理，这些零点存在聚点 $p\in D$。由 $f,g$ 连续，聚点仍满足
+\[
+  f(p)=g(p)=0.
+\]
+但 $p\in D\subset G$，故 $p$ 也应是孤立零点，与存在其他零点趋于 $p$ 矛盾。因此 $D$ 中零点至多有限个。
+\end{xsolution}
+
+\begin{xreferenceproblem}[20.5.2 第一组参考题 9]
+解释并验证三变量隐式关系中的循环偏导乘积公式，并推广到 $n$ 元情形。
+\end{xreferenceproblem}
+\begin{xsolution}
+\begin{enumerate}[label=(\arabic*)]
+  \item 设在某个解点附近 $f\in C^1$ 且
+  \[
+    f_xf_yf_z\ne0.
+  \]
+  于是分别固定第三个变量时，可以局部把任一变量看成另一个变量的函数。精确地说，题中三个偏导应理解为
+  \[
+    \left(\frac{\partial z}{\partial y}\right)_x,
+    \qquad
+    \left(\frac{\partial y}{\partial x}\right)_z,
+    \qquad
+    \left(\frac{\partial x}{\partial z}\right)_y.
+  \]
+  由隐函数求导公式，
+  \[
+    \left(\frac{\partial z}{\partial y}\right)_x=-\frac{f_y}{f_z},
+  \]
+  \[
+    \left(\frac{\partial y}{\partial x}\right)_z=-\frac{f_x}{f_y},
+  \]
+  \[
+    \left(\frac{\partial x}{\partial z}\right)_y=-\frac{f_z}{f_x}.
+  \]
+  三式相乘即得
+  \[
+    \boxed{\displaystyle
+    \left(\frac{\partial z}{\partial y}\right)_x
+    \left(\frac{\partial y}{\partial x}\right)_z
+    \left(\frac{\partial x}{\partial z}\right)_y=-1}.
+  \]
+
+  \item Clapeyron 关系写为
+  \[
+    PV=CT,
+  \]
+  其中 $C$ 为常数。在相应非零区域，
+  \[
+    \left(\frac{\partial T}{\partial V}\right)_P=\frac PC,
+  \]
+  \[
+    \left(\frac{\partial V}{\partial P}\right)_T=-\frac{CT}{P^2}=-\frac VP,
+  \]
+  \[
+    \left(\frac{\partial P}{\partial T}\right)_V=\frac CV=\frac PT.
+  \]
+  因而乘积为
+  \[
+    \frac PC\left(-\frac VP\right)\frac CV=-1.
+  \]
+
+  \item 对 $n$ 元关系
+  \[
+    f(x_1,\ldots,x_n)=0,
+  \]
+  若各 $f_{x_i}\ne0$，并令 $x_{n+1}=x_1$，则在其余 $n-2$ 个变量保持不变时
+  \[
+    \left(\frac{\partial x_i}{\partial x_{i+1}}\right)
+    =-\frac{f_{x_{i+1}}}{f_{x_i}}.
+  \]
+  将 $i=1,\ldots,n$ 的公式循环相乘，所有偏导因子约去，得到
+  \[
+    \boxed{\displaystyle
+      \prod_{i=1}^n
+      \left(\frac{\partial x_i}{\partial x_{i+1}}\right)
+      =(-1)^n}.
+  \]
+  当 $n=3$ 时正是题给公式。
+\end{enumerate}
+\end{xsolution}
+
+\begin{xreferenceproblem}[20.5.2 第一组参考题 10]
+设 $f\colon\RR^2\to\RR^2$ 为 $C^1$ 映射，临界点只有有限多个，且每个有界像球的原像有界。证明 $f$ 满射。
+\end{xreferenceproblem}
+\begin{xsolution}
+记像集
+\[
+  A=f(\RR^2).
+\]
+先证 $A$ 为闭集。若 $y_k=f(x_k)\in A$ 且 $y_k\to y$，则 $\{y_k\}$ 有界，所以存在 $M>0$ 使 $\abs{y_k}\le M$。题设给出
+\[
+  \{x\in\RR^2\mid \abs{f(x)}\le M\}
+\]
+有界，故 $\{x_k\}$ 有界。取收敛子列 $x_{k_j}\to x_*$，由连续性
+\[
+  y=\lim_j f(x_{k_j})=f(x_*)\in A.
+\]
+因此 $A$ 闭。
+
+设临界点只有 $x_1,\ldots,x_r$。若 $y\in\partial A$，因 $A$ 闭，$y\in A$，取 $x$ 使 $f(x)=y$。若 $\det Jf(x)\ne0$，则反函数组存在定理说明 $f(x)=y$ 是像集的内点，与 $y\in\partial A$ 矛盾。因此边界点的任一原像都是临界点，特别地
+\[
+  \partial A\subset\{f(x_1),\ldots,f(x_r)\}.
+\]
+所以 $\partial A$ 是有限集。
+
+另一方面，临界点只有有限多个，故可取某个正则点 $x$。在该点附近 $f$ 是局部微分同胚，所以 $A$ 有非空内部。若 $A\ne\RR^2$，因为 $A$ 闭，其补集也是非空开集。删去有限集 $\partial A$ 后，平面 $\RR^2\setminus\partial A$ 仍然连通；但它被两个互不相交、均非空的相对开集
+\[
+  \operatorname{int}A
+  \quad\text{和}\quad
+  \RR^2\setminus A
+\]
+分开，矛盾。因此
+\[
+  \boxed{f(\RR^2)=\RR^2}.
+\]
+\end{xsolution}
+
+\begin{xreferenceproblem}[20.5.2 第一组参考题 11]
+设 $Jf(x_0)$ 可逆。证明对充分小的 $x$，存在 $z=\littleo(\abs{x})$ 使
+\[
+  f(x_0+x+z)-f(x_0)-Jf(x_0)x=0.
+\]
+\end{xreferenceproblem}
+\begin{xsolution}
+记
+\[
+  A=Jf(x_0).
+\]
+由 $A$ 可逆和局部逆映射定理，存在 $f(x_0)$ 的邻域，在其中 $f$ 有 $C^1$ 局部逆映射 $g$，并且
+\[
+  g(f(x_0))=x_0,
+  \qquad
+  Jg(f(x_0))=A^{-1}.
+\]
+当 $x$ 充分小时，$f(x_0)+Ax$ 落在该邻域内。定义
+\[
+  x_0+x+z:=g(f(x_0)+Ax),
+\]
+即
+\[
+  z=g(f(x_0)+Ax)-x_0-x.
+\]
+由 $g$ 在 $f(x_0)$ 处可微，
+\begin{align*}
+  g(f(x_0)+Ax)
+  &=g(f(x_0))+A^{-1}(Ax)+\littleo(\abs{Ax})\\
+  &=x_0+x+\littleo(\abs{x}).
+\end{align*}
+因为 $A$ 是固定可逆线性映射，$\abs{Ax}=\bigO(\abs{x})$。故
+\[
+  z=\littleo(\abs{x}).
+\]
+按定义又有
+\[
+  f(x_0+x+z)=f(x_0)+Ax,
+\]
+即题中等式成立。
+\end{xsolution}
+
+\subsection*{20.5.2 第二组参考题}
+
+\begin{xreferenceproblem}[20.5.2 第二组参考题 1]
+用压缩映射原理证明局部 $C^k$ 微分同胚定理。
+\end{xreferenceproblem}
+\begin{xsolution}
+记
+\[
+  y_0=f(x_0),
+  \qquad A=Jf(x_0).
+\]
+由 $\det A\ne0$，$A$ 可逆。因为 $Jf$ 连续，可取以 $x_0$ 为中心的闭球
+\[
+  \overline B=\overline B(x_0,r)\subset U
+\]
+以及常数 $0<q<1$，使得对一切 $x\in\overline B$，
+\[
+  \norm{I-A^{-1}Jf(x)}\le q.
+\]
+对给定 $y$ 定义
+\[
+  \Phi_y(x)=x+A^{-1}(y-f(x)).
+\]
+则
+\[
+  J\Phi_y(x)=I-A^{-1}Jf(x),
+\]
+所以由微分中值估计，
+\[
+  \norm{\Phi_y(x_1)-\Phi_y(x_2)}
+  \le q\norm{x_1-x_2},
+  \qquad x_1,x_2\in\overline B.
+\]
+即 $\Phi_y$ 是压缩映射。
+
+又
+\[
+  \Phi_y(x_0)-x_0=A^{-1}(y-y_0).
+\]
+取 $\delta>0$ 充分小，使
+\[
+  \norm{A^{-1}}\delta\le(1-q)r.
+\]
+若 $\norm{y-y_0}<\delta$，则对 $x\in\overline B$，
+\begin{align*}
+  \norm{\Phi_y(x)-x_0}
+  &\le\norm{\Phi_y(x)-\Phi_y(x_0)}
+      +\norm{\Phi_y(x_0)-x_0}\\
+  &\le qr+(1-q)r=r.
+\end{align*}
+故 $\Phi_y$ 把 $\overline B$ 映入自身。由压缩映射原理，存在唯一 $x=g(y)\in\overline B$ 使
+\[
+  \Phi_y(x)=x.
+\]
+这与 $f(x)=y$ 等价。因此对
+\[
+  V=B(y_0,\delta)
+\]
+中的每个 $y$，方程 $f(x)=y$ 在 $\overline B$ 中有唯一解 $x=g(y)$。
+
+还需说明逆映射的光滑性。若 $y_1,y_2\in V$，令 $x_i=g(y_i)$，由固定点方程
+\[
+  x_i=\Phi_{y_i}(x_i)
+\]
+相减得
+\[
+  (1-q)\norm{x_1-x_2}
+  \le\norm{A^{-1}}\norm{y_1-y_2}.
+\]
+故 $g$ 局部 Lipschitz。取 $x=g(y)$，$\Delta x=g(y+h)-g(y)$，则 $\Delta x=\bigO(\norm{h})$，而
+\[
+  h=f(x+\Delta x)-f(x)
+   =Jf(x)\Delta x+\littleo(\norm{\Delta x}).
+\]
+由于 $Jf(x)$ 在缩小后的球内均可逆，
+\[
+  \Delta x=(Jf(x))^{-1}h+\littleo(\norm{h}).
+\]
+所以
+\[
+  Jg(y)=(Jf(g(y)))^{-1}.
+\]
+右端连续，故 $g\in C^1$。若 $f\in C^k$，由上式和矩阵求逆的光滑性逐阶归纳，得到 $g\in C^k$。
+
+令 $W=g(V)$。由于 $Jg$ 可逆，$W$ 是 $x_0$ 的开邻域，并且
+\[
+  f\colon W\to V,
+  \qquad g=f^{-1}\colon V\to W
+\]
+互为 $C^k$ 逆映射。因此 $f$ 在 $x_0$ 附近是 $C^k$ 微分同胚。
+\end{xsolution}
+
+\begin{xreferenceproblem}[20.5.2 第二组参考题 2]
+设
+\[
+  u^{\mathsf T}Jf(x)u\ge\alpha\abs{u}^2
+\]
+对所有 $x,u$ 成立，证明 $f$ 有下界估计并且是 $\RR^n$ 上的微分同胚。
+\end{xreferenceproblem}
+\begin{xsolution}
+任取 $x,y\in\RR^n$，令
+\[
+  h=x-y.
+\]
+沿线段 $y+th$，$0\le t\le1$，由微积分基本定理
+\[
+  f(x)-f(y)=\int_0^1Jf(y+th)h\,\dd t.
+\]
+与 $h$ 作内积：
+\begin{align*}
+  h^{\mathsf T}(f(x)-f(y))
+  &=\int_0^1 h^{\mathsf T}Jf(y+th)h\,\dd t\\
+  &\ge\int_0^1\alpha\abs{h}^2\,\dd t
+   =\alpha\abs{h}^2.
+\end{align*}
+由 Cauchy--Schwarz 不等式，
+\[
+  \abs{h}\,\abs{f(x)-f(y)}
+  \ge h^{\mathsf T}(f(x)-f(y)),
+\]
+故当 $x\ne y$ 时约去 $\abs{h}$，得到
+\[
+  \boxed{\displaystyle
+    \abs{f(x)-f(y)}\ge\alpha\abs{x-y}}.
+\]
+$x=y$ 时也显然成立。特别地，$f$ 是单射。
+
+再看 Jacobi 矩阵。若 $Jf(x)u=0$，则
+\[
+  0=u^{\mathsf T}Jf(x)u\ge\alpha\abs{u}^2,
+\]
+故 $u=0$。因此 $Jf(x)$ 对每个 $x$ 都可逆，$f$ 在每一点都是局部微分同胚，像集 $f(\RR^n)$ 是开集。
+
+取 $y=0$，上面的估计给出
+\[
+  \abs{f(x)-f(0)}\ge\alpha\abs{x},
+\]
+从而
+\[
+  \abs{f(x)}\ge\alpha\abs{x}-\abs{f(0)}\longrightarrow+\infty
+  \qquad(\abs{x}\to\infty).
+\]
+这还说明像集是闭的：若 $f(x_k)\to y$，则上式迫使 $\{x_k\}$ 有界；取收敛子列 $x_{k_j}\to x_*$，连续性给出 $f(x_*)=y$。
+
+因此 $f(\RR^n)$ 是 $\RR^n$ 中非空的既开又闭子集。由 $\RR^n$ 连通，
+\[
+  f(\RR^n)=\RR^n.
+\]
+所以 $f$ 是双射。局部逆映射的导数为
+\[
+  Jf^{-1}(y)=(Jf(f^{-1}(y)))^{-1},
+\]
+且连续，故全局逆映射为 $C^1$。于是
+\[
+  \boxed{f\text{ 是 }\RR^n\text{ 上的 }C^1\text{ 微分同胚}}.
+\]
+\end{xsolution}
+
+\begin{xreferenceproblem}[20.5.2 第二组参考题 3]
+用映射语言叙述隐函数组存在定理，并把它化为逆映射存在定理。
+\end{xreferenceproblem}
+\begin{xsolution}
+设
+\[
+  F\colon E\subset\RR^m\times\RR^n\to\RR^n
+\]
+为 $C^1$ 映射，$(a,b)\in E$，满足
+\[
+  F(a,b)=0,
+  \qquad
+  D_yF(a,b)\text{ 可逆}.
+\]
+隐函数组存在定理的映射表述是：存在 $a$ 的邻域 $U$、$b$ 的邻域 $V$，以及唯一 $C^1$ 映射
+\[
+  \varphi\colon U\to V
+\]
+使
+\[
+  \varphi(a)=b,
+  \qquad
+  F(x,\varphi(x))=0,
+  \qquad x\in U.
+\]
+且
+\[
+  D\varphi(x)
+  =-[D_yF(x,\varphi(x))]^{-1}D_xF(x,\varphi(x)).
+\]
+
+为由逆映射定理推出它，定义
+\[
+  \Psi(x,y)=(x,F(x,y))
+  \colon\RR^{m+n}\to\RR^{m+n}.
+\]
+在 $(a,b)$ 处，其 Jacobi 矩阵为分块下三角矩阵
+\[
+  J\Psi(a,b)=
+  \begin{pmatrix}
+    I_m&0\\
+    D_xF(a,b)&D_yF(a,b)
+  \end{pmatrix},
+\]
+故
+\[
+  \det J\Psi(a,b)=\det D_yF(a,b)\ne0.
+\]
+由局部逆映射定理，$\Psi$ 在 $(a,b)$ 附近有唯一 $C^1$ 局部逆映射。由于 $\Psi$ 的前 $m$ 个分量就是 $x$，逆映射必可写成
+\[
+  \Psi^{-1}(x,\eta)=(x,\Phi(x,\eta)).
+\]
+取 $\eta=0$，定义
+\[
+  \varphi(x)=\Phi(x,0).
+\]
+则
+\[
+  \Psi(x,\varphi(x))=(x,0),
+\]
+也即
+\[
+  F(x,\varphi(x))=0.
+\]
+局部唯一性来自 $\Psi^{-1}$ 的唯一性。
+
+最后对 $F(x,\varphi(x))=0$ 求导：
+\[
+  D_xF+D_yF\,D\varphi=0,
+\]
+从而
+\[
+  D\varphi=-(D_yF)^{-1}D_xF,
+\]
+这正是隐函数组的导数公式。
+\end{xsolution}
+
+\begin{xreferenceproblem}[20.5.2 第二组参考题 4]
+讨论
+\[
+  T(x,y)=\left(\frac12(x^2-y^2),xy\right)
+\]
+在 $a=(1,1)^{\mathsf T}$ 附近的逆映射、二次迭代解及其与一次微分近似的比较。
+\end{xreferenceproblem}
+\begin{xsolution}
+首先
+\[
+  T(1,1)=(0,1).
+\]
+Jacobi 矩阵为
+\[
+  T'(x,y)=
+  \begin{pmatrix}
+    x&-y\\y&x
+  \end{pmatrix},
+\]
+所以
+\[
+  \boxed{\displaystyle
+  T'(a)=\begin{pmatrix}1&-1\\1&1\end{pmatrix}},
+  \qquad
+  \boxed{\displaystyle
+  (T'(a))^{-1}=\frac12
+  \begin{pmatrix}1&1\\-1&1\end{pmatrix}}.
+\]
+
+取迭代初值
+\[
+  (x_0,y_0)=(1,1).
+\]
+第一次迭代为
+\begin{align*}
+  \binom{x_1}{y_1}
+  &=\binom11+(T'(a))^{-1}
+    \left(\binom uv-\binom01\right)\\
+  &=\binom{\dfrac{1+u+v}{2}}
+           {\dfrac{1-u+v}{2}}.
+\end{align*}
+这恰好就是题中给出的逆映射一次微分近似。
+
+再计算
+\[
+  T(x_1,y_1)
+  =\binom{\dfrac{u(1+v)}2}
+          {\dfrac{1+2v+v^2-u^2}{4}}.
+\]
+第二次迭代
+\[
+  \binom{x_2}{y_2}
+  =\binom{x_1}{y_1}
+   +(T'(a))^{-1}
+    \left[\binom uv-T(x_1,y_1)\right]
+\]
+化简得到
+\[
+  \boxed{\displaystyle
+  x_2=\frac{u^2-2uv+6u-v^2+6v+3}{8}},
+\]
+\[
+  \boxed{\displaystyle
+  y_2=\frac{u^2+2uv-6u-v^2+6v+3}{8}}.
+\]
+
+还可写出局部逆映射的精确表达式。令
+\[
+  \rho=\sqrt{u^2+v^2}.
+\]
+由
+\[
+  (x^2+y^2)^2=(x^2-y^2)^2+(2xy)^2=4(u^2+v^2)
+\]
+知在 $(1,1)$ 附近取正分支时
+\[
+  \boxed{\displaystyle
+    x=\sqrt{\rho+u},\qquad
+    y=\sqrt{\rho-u}}.
+\]
+这里邻域可取在 $v>0$ 内，以保证 $xy=v$ 与正分支一致。
+
+为比较精度，置
+\[
+  p=u,\qquad q=v-1.
+\]
+则一次近似为
+\[
+  x_1=1+\frac{p+q}{2},
+  \qquad
+  y_1=1+\frac{-p+q}{2},
+\]
+而二次迭代为
+\[
+  x_2=x_1+\frac{p^2}{8}-\frac{pq}{4}-\frac{q^2}{8},
+\]
+\[
+  y_2=y_1+\frac{p^2}{8}+\frac{pq}{4}-\frac{q^2}{8}.
+\]
+把精确逆映射在 $(u,v)=(0,1)$ 作 Taylor 展开，二次项正好与上两式一致。因此一次微分近似只保留一阶项，而二次迭代还正确给出了全部二阶项，其误差为
+\[
+  \bigO\!\left((\abs{p}+\abs{q})^3\right).
+\]
+\end{xsolution}
+
+\begin{xreferenceproblem}[20.5.2 第二组参考题 5]
+证明 $m\le n$、$\operatorname{rank}Jf(0)=m$ 时的秩定理，并作几何解释。
+\end{xreferenceproblem}
+\begin{xsolution}
+因为 $Jf(0)$ 的秩为 $m$，可以从 $f$ 的 $n$ 个分量中选出 $m$ 个，使它们关于 $(x_1,\ldots,x_m)$ 的 Jacobi 行列式在 $0$ 处非零。经重新排列目标空间坐标，不妨设
+\[
+  f(x)=(F(x),G(x)),
+\]
+其中
+\[
+  F\colon\RR^m\to\RR^m,
+  \qquad
+  G\colon\RR^m\to\RR^{n-m},
+\]
+且 $JF(0)$ 可逆。由局部逆映射定理，存在 $0$ 的邻域，在其中 $F$ 有 $C^k$ 局部逆映射
+\[
+  \psi=F^{-1}.
+\]
+
+对目标坐标 $y=(y',y'')\in\RR^m\times\RR^{n-m}$ 定义
+\[
+  h(y',y'')
+  =\bigl(\psi(y'),\ y''-G(\psi(y'))\bigr).
+\]
+它的逆映射显式为
+\[
+  h^{-1}(\xi,\eta)
+  =\bigl(F(\xi),\ \eta+G(\xi)\bigr),
+\]
+故缩小邻域后，$h$ 是 $C^k$ 微分同胚，并且因 $f(0)=0$ 有 $h(0)=0$。对任意足够靠近 $0$ 的 $x$，
+\begin{align*}
+  h(f(x))
+  &=h(F(x),G(x))\\
+  &=\bigl(\psi(F(x)),G(x)-G(\psi(F(x)))\bigr)\\
+  &=(x,0).
+\end{align*}
+即
+\[
+  \boxed{\displaystyle
+    h\circ f(x_1,\ldots,x_m)
+    =(x_1,\ldots,x_m,0,\ldots,0)}.
+\]
+这给出了题中所需的邻域 $V,W$ 与微分同胚 $h$。
+
+几何上，满秩 $m$ 的映射 $f\colon\RR^m\to\RR^n$ 在 $0$ 附近是一张 $m$ 维浸入子流形的参数化。适当改变目标空间坐标后，这张弯曲的 $m$ 维曲面被“拉直”为坐标平面
+\[
+  \RR^m\times\{0\}\subset\RR^n.
+\]
+\end{xsolution}
+
+\begin{xreferenceproblem}[20.5.2 第二组参考题 6]
+证明 $m\ge n$、$\operatorname{rank}Jf(0)=n$ 时的秩定理，并作几何解释。
+\end{xreferenceproblem}
+\begin{xsolution}
+因为 $Jf(0)$ 的秩为 $n$，可从 $m$ 个自变量中选出 $n$ 个，使相应的 $n\times n$ Jacobi 子式非零。经重新排列源空间坐标，写
+\[
+  x=(p,q),
+  \qquad p\in\RR^n,
+  \quad q\in\RR^{m-n},
+\]
+使
+\[
+  D_pf(0,0)
+\]
+可逆。
+
+定义
+\[
+  \Psi(p,q)=(f(p,q),q)
+  \colon\RR^m\to\RR^m.
+\]
+其 Jacobi 矩阵在原点为
+\[
+  J\Psi(0)=
+  \begin{pmatrix}
+    D_pf(0)&D_qf(0)\\
+    0&I_{m-n}
+  \end{pmatrix},
+\]
+故
+\[
+  \det J\Psi(0)=\det D_pf(0)\ne0.
+\]
+由局部逆映射定理，$\Psi$ 在 $0$ 附近有 $C^k$ 局部逆映射
+\[
+  \varphi=\Psi^{-1}.
+\]
+由于 $f(0)=0$，有 $\varphi(0)=0$。把新坐标写成
+\[
+  (y,q)\in\RR^n\times\RR^{m-n},
+\]
+由
+\[
+  \Psi(\varphi(y,q))=(y,q)
+\]
+取前 $n$ 个分量立即得到
+\[
+  \boxed{\displaystyle
+    f\circ\varphi(y_1,\ldots,y_n,q_1,\ldots,q_{m-n})
+    =(y_1,\ldots,y_n)}.
+\]
+这就是题中所述形式。
+
+几何上，满秩 $n$ 的映射 $f\colon\RR^m\to\RR^n$ 是局部下沉映射。改变源空间坐标后，它变成最简单的坐标投影
+\[
+  (y_1,\ldots,y_n,q_1,\ldots,q_{m-n})
+  \longmapsto(y_1,\ldots,y_n).
+\]
+于是每个等值集局部看起来就是一个 $(m-n)$ 维坐标平面。这与上一题“把浸入曲面拉直”正是秩定理的两种基本几何图景。
+\end{xsolution}
