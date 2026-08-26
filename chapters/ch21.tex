@@ -5,4 +5,1596 @@
 % Transcribe only source content; omit running headers, footers, and printed page numbers.
 \chapter{偏导数的应用}
 
-% BEGIN TRANSCRIPTION
+本章介绍偏导数在几个方面的应用。§21.1 是偏导数在几何上的应用。§21.2 是方向导数与梯度。§21.3 讨论 Taylor 公式与极值问题。§21.4 是条件极值与条件最值。§21.5 是向量值函数的 Rolle 定理，这可以作为习题课的补充材料。最后一节是学习要点和两组参考题。
+
+我们在本章的讨论中特别强调用向量与矩阵语言描述和处理多元问题，对条件最值的求解作了比较详细的讨论。
+
+\section{偏导数在几何上的应用}
+
+\subsection{曲线的切向量、切线与法平面}
+
+设空间曲线 $l$ 在点 $(x_0,y_0,z_0)$ 处的切向量为
+\[
+  \tau=(\tau_x,\tau_y,\tau_z),
+\]
+则曲线 $l$ 在点 $(x_0,y_0,z_0)$ 的切线方程与法平面方程分别是
+\[
+  \frac{x-x_0}{\tau_x}=\frac{y-y_0}{\tau_y}=\frac{z-z_0}{\tau_z},
+\]
+\[
+  \tau_x(x-x_0)+\tau_y(y-y_0)+\tau_z(z-z_0)=0.
+\]
+
+如果空间曲线 $l$ 的参数方程是
+\[
+  x=x(t),\qquad y=y(t),\qquad z=z(t),\qquad a\le t\le b,
+\]
+其中 $t$ 是参数。又设 $x'(t),y'(t),z'(t)$ 都在 $[a,b]$ 上连续，并且不同时为 $0$，这样的曲线称为光滑曲线。这时曲线上点 $(x_0,y_0,z_0)=(x(t_0),y(t_0),z(t_0))$ 的切向量为
+\[
+  \tau=(x'(t_0),y'(t_0),z'(t_0)).
+\]
+
+如果空间曲线 $l$ 是用两个曲面
+\[
+  F(x,y,z)=0,\qquad G(x,y,z)=0
+\]
+的交线来表示的，又设 $F$ 和 $G$ 关于 $x,y,z$ 有连续的偏导数，点 $p_0(x_0,y_0,z_0)$ 满足这一方程组，即 $F(x_0,y_0,z_0)=0,G(x_0,y_0,z_0)=0$，并且 $F,G$ 的 Jacobi 矩阵
+\[
+  \begin{pmatrix}
+    \dfrac{\partial F}{\partial x} & \dfrac{\partial F}{\partial y} & \dfrac{\partial F}{\partial z}\\[4pt]
+    \dfrac{\partial G}{\partial x} & \dfrac{\partial G}{\partial y} & \dfrac{\partial G}{\partial z}
+  \end{pmatrix}
+\]
+在点 $p_0$ 的秩为 $2$，则曲线 $l$ 在点 $p_0$ 的切向量为
+\[
+  \tau=\left(
+    \frac{\partial(F,G)}{\partial(y,z)},
+    \frac{\partial(F,G)}{\partial(z,x)},
+    \frac{\partial(F,G)}{\partial(x,y)}
+  \right)_{p_0}.
+\]
+
+\begin{xexample}[21.1.1]
+设 $f(x,y)$ 为可微函数，曲线方程为
+\[
+  z=f(x,y),\qquad \frac{x-x_0}{\cos\alpha}=\frac{y-y_0}{\sin\alpha}.
+\]
+求曲线上点 $M_0(x_0,y_0,z_0)$ 的切线与 $xOy$ 平面所成角的正切。
+\end{xexample}
+\begin{xsolution}
+令
+\[
+  F(x,y,z)=z-f(x,y),\qquad
+  G(x,y,z)=\sin\alpha(x-x_0)-\cos\alpha(y-y_0),
+\]
+则
+\[
+  \frac{\partial(F,G)}{\partial(y,z)}
+  =\begin{vmatrix}-f_y&1\\-\cos\alpha&0\end{vmatrix}
+  =\cos\alpha,
+\]
+\[
+  \frac{\partial(F,G)}{\partial(z,x)}
+  =\begin{vmatrix}1&-f_x\\0&\sin\alpha\end{vmatrix}
+  =\sin\alpha,
+\]
+\[
+  \frac{\partial(F,G)}{\partial(x,y)}
+  =\begin{vmatrix}-f_x&-f_y\\\sin\alpha&-\cos\alpha\end{vmatrix}
+  =f_x\cos\alpha+f_y\sin\alpha.
+\]
+于是曲线上点 $M_0(x_0,y_0,z_0)$ 的切线与 $z$ 轴正方向所成夹角 $\varphi$ 的余弦为
+\[
+  \cos\varphi=
+  \frac{f_x(x_0,y_0)\cos\alpha+f_y(x_0,y_0)\sin\alpha}
+  {\sqrt{1+[f_x(x_0,y_0)\cos\alpha+f_y(x_0,y_0)\sin\alpha]^2}}.
+\]
+由此可计算出切线与 $xOy$ 平面所成角的正切为
+\[
+  f_x(x_0,y_0)\cos\alpha+f_y(x_0,y_0)\sin\alpha.
+\]
+\end{xsolution}
+
+\subsection{曲面的法向量、法线与切平面}
+
+光滑曲面 $z=f(x,y)$ 在点 $(x,y,z)$ 处的法向量为
+\[
+  \vect{n}=\pm(f_x(x,y),f_y(x,y),-1).
+\]
+这里所说的光滑是指偏导数连续。
+
+由 $F(x,y,z)=0$ 确定的光滑曲面在 $(x,y,z)$ 处的法向量为
+\[
+  \vect{n}=\pm(F_x(x,y,z),F_y(x,y,z),F_z(x,y,z)),
+\]
+其中 $F_x,F_y,F_z$ 不同时为零。
+
+由参数方程
+\[
+  x=x(u,v),\qquad y=y(u,v),\qquad z=z(u,v)
+\]
+决定的光滑曲面在点 $(x,y,z)$ 的法向量为
+\[
+  \vect{n}=\pm\left(
+  \frac{\partial(y,z)}{\partial(u,v)},
+  \frac{\partial(z,x)}{\partial(u,v)},
+  \frac{\partial(x,y)}{\partial(u,v)}
+  \right).
+\]
+有了法向量之后，过曲面上任一点的法线方程和切平面方程都很容易写出来。
+
+\begin{xexample}[21.1.2]
+求曲面
+\[
+  x=u+v,\qquad y=u^2+v^2,\qquad z=u^3+v^3
+\]
+的切平面当切点 $M(u,v)$，$u\ne v$，趋于曲面的边界 $u=v$ 上的点 $M_0(u_0,v_0)$ 时的极限位置。
+\end{xexample}
+\begin{xsolution}
+先求 $u\ne v$ 时的切平面方程。由于
+\[
+  \frac{\partial(y,z)}{\partial(u,v)}
+  =\begin{vmatrix}2u&2v\\3u^2&3v^2\end{vmatrix}
+  =6uv(v-u),
+\]
+\[
+  \frac{\partial(z,x)}{\partial(u,v)}
+  =\begin{vmatrix}3u^2&3v^2\\1&1\end{vmatrix}
+  =3(u^2-v^2),
+\]
+\[
+  \frac{\partial(x,y)}{\partial(u,v)}
+  =\begin{vmatrix}1&1\\2u&2v\end{vmatrix}
+  =2(v-u),
+\]
+于是过 $(x,y,z)$ 点的切平面方程为
+\[
+  6uv(v-u)(X-(u+v))+3(u^2-v^2)(Y-(u^2+v^2))
+  +2(v-u)(Z-(u^3+v^3))=0.
+\]
+消去 $v-u$，并整理得到
+\[
+  6uvX-3(u+v)Y+2Z=3uv(u+v)-u^3-v^3.
+\]
+令 $(u,v)\to(u_0,u_0)$，则有
+\[
+  6u_0^2X-6u_0Y+2Z=4u_0^3.
+\]
+将 $(X,Y,Z)$ 改写为 $(x,y,z)$，可见所求的极限位置为
+\[
+  3u_0^2x-3u_0y+z=2u_0^3.
+\]
+\end{xsolution}
+
+\subsection{曲线的夹角、曲面的夹角}
+
+由解析几何知 $\RR^2$ 中两个相交向量 $\vect{l}$ 与 $\vect{m}$ 所交的角 $\omega$ 的余弦为
+\[
+  \cos\omega=\frac{\vect{l}\cdot\vect{m}}{\abs{\vect{l}}\abs{\vect{m}}},
+\]
+其中“$\cdot$”为 Euclid 内积，$\abs{\cdot}$ 为 Euclid 范数。设连续可微的隐函数定义的曲线 $F(x,y)=0$ 与 $G(x,y)=0$ 在 $(x,y)$ 处相交，则在 $(x,y)$ 处两曲线相应的切向量分别为 $(F_y,-F_x)$ 与 $(G_y,-G_x)$，其夹角余弦为
+\[
+  \cos\omega=
+  \frac{F_xG_x+F_yG_y}{\sqrt{F_x^2+F_y^2}\sqrt{G_x^2+G_y^2}}.
+\]
+两曲线正交的条件是
+\[
+  F_xG_x+F_yG_y=0.
+\]
+
+在 $\RR^3$ 中也有类似的讨论。设 $F(x,y,z)=0$ 与 $G(x,y,z)=0$ 为 $\RR^3$ 中两光滑曲面。它们在 $(x,y,z)$ 处相交。两曲面夹角定义为相应切平面的夹角（或相应法向量的夹角）。设 $\omega$ 为其夹角，则有
+\[
+  \cos\omega=
+  \frac{F_xG_x+F_yG_y+F_zG_z}
+  {\sqrt{F_x^2+F_y^2+F_z^2}\sqrt{G_x^2+G_y^2+G_z^2}}.
+\]
+两曲面正交的条件是
+\[
+  F_xG_x+F_yG_y+F_zG_z=0.
+\]
+
+\begin{xexample}[21.1.3]
+设
+\[
+  \frac{xy}{z}=u,\qquad
+  \sqrt{x^2+z^2}+\sqrt{y^2+z^2}=v,
+  \qquad
+  \sqrt{x^2+z^2}-\sqrt{y^2+z^2}=w
+\]
+是三个分别以 $u,v,w$ 为参数的单参数曲面族，证明：过同一点的三曲面族的三个曲面是两两正交的。
+\end{xexample}
+\begin{xproof}
+设三曲面交于点 $(x,y,z)$ 处，其法向量分别为
+\[
+  \left(\frac{y}{z},\frac{x}{z},-\frac{xy}{z^2}\right),
+\]
+\[
+  \left(\frac{x}{\sqrt{x^2+z^2}},
+  \frac{y}{\sqrt{y^2+z^2}},
+  \frac{z}{\sqrt{x^2+z^2}}+\frac{z}{\sqrt{y^2+z^2}}\right),
+\]
+\[
+  \left(\frac{x}{\sqrt{x^2+z^2}},
+  -\frac{y}{\sqrt{y^2+z^2}},
+  \frac{z}{\sqrt{x^2+z^2}}-\frac{z}{\sqrt{y^2+z^2}}\right).
+\]
+由于这三个向量的两两内积均为 $0$，所以过 $(x,y,z)$ 点的这三个曲面族的三个曲面是两两正交的。
+\end{xproof}
+
+\subsection{练习题}
+\begin{xexercise}
+\begin{enumerate}[label=\arabic*.]
+  \item 在曲线 $x=t,y=t^2,z=t^3$ 上求出一点，使该点的切线平行于平面 $x+2y+z=4$。
+  \item 证明：斜坡线
+  \[
+    \tan\left(\frac{\pi}{4}+\frac{\psi}{2}\right)=\ee^{k\varphi},\qquad k=\text{常数},
+  \]
+  与地球的每一条子午线相交成定角，其中 $\varphi$ 为地球上点的经度，$\psi$ 为地球上点的纬度。
+  \item 求曲线 $x^2+y^2+z^2=6,\ x+y+z=0$ 在点 $(1,-2,1)$ 处的切线与法平面方程。
+  \item 求曲面 $z=\arctan\dfrac{y}{x}$ 在点 $\left(1,1,\dfrac{\pi}{4}\right)$ 处的法线与切平面方程。
+  \item 证明：曲面 $xyz=a^3\ (a>0)$ 的每一个切平面与坐标面形成体积相同的四面体。
+\end{enumerate}
+\end{xexercise}
+
+\section{方向导数与梯度}
+
+\subsection{方向导数}
+
+为方便起见，我们在 $\RR^3$ 中考虑。设 $D$ 是 $\RR^3$ 中的一个区域，$f$ 是定义在 $D$ 上的函数，点 $p_0\in D$，$\vect{l}$ 是 $\RR^3$ 中的一个单位向量。如果极限
+\[
+  \lim_{t\to0^+}\frac{f(p_0+t\vect{l})-f(p_0)}{t}
+\]
+存在，则称此极限是函数 $f$ 在点 $p_0$ 处沿方向 $\vect{l}$ 的方向导数，记为 $\dfrac{\partial f}{\partial l}(p_0)$，它表示函数 $f$ 在点 $p_0$ 沿方向 $\vect{l}$ 的变化率。特别地，若 $f$ 在 $p_0$ 处存在关于 $x$ 的偏导数，则当 $\vect{l}=(1,0,0)$ 时，$\dfrac{\partial f}{\partial l}(p_0)=\dfrac{\partial f}{\partial x}(p_0)$；当 $\vect{l}=(-1,0,0)$ 时，$\dfrac{\partial f}{\partial l}(p_0)=-\dfrac{\partial f}{\partial x}(p_0)$。
+
+\begin{xproposition}[21.2.1]
+设函数 $f$ 在点 $p_0$ 可微，则 $f$ 在点 $p_0$ 沿任何方向 $\vect{l}$ 的方向导数存在，且
+\begin{equation}
+  \frac{\partial f}{\partial l}(p_0)
+  =\frac{\partial f}{\partial x}(p_0)\cos\alpha
+  +\frac{\partial f}{\partial y}(p_0)\cos\beta
+  +\frac{\partial f}{\partial z}(p_0)\cos\gamma,
+  \tag{21.1}
+  \label{eq:21.1}
+\end{equation}
+其中 $\cos\alpha,\cos\beta,\cos\gamma$ 是方向 $\vect{l}$ 的方向余弦。
+\end{xproposition}
+
+\subsection{梯度}
+
+设函数 $f$ 定义于某个区域 $D\subset\RR^3$ 上，又设 $f$ 具有关于各个变元的偏导数，称向量
+\[
+  \frac{\partial f}{\partial x}(x,y,z)\vect{i}
+  +\frac{\partial f}{\partial y}(x,y,z)\vect{j}
+  +\frac{\partial f}{\partial z}(x,y,z)\vect{k}
+\]
+是 $f$ 在点 $(x,y,z)$ 的梯度，记为 $\operatorname{grad}f(x,y,z)$ 或 $\nabla f(x,y,z)$。
+
+由梯度的定义，(21.1) 的方向导数公式可以写为
+\begin{equation}
+  \frac{\partial f}{\partial l}(x,y,z)
+  =\nabla f(x,y,z)\cdot\vect{l}
+  =\abs{\nabla f(x,y,z)}\cos\theta,
+  \tag{21.2}
+  \label{eq:21.2}
+\end{equation}
+其中 $\theta$ 是向量 $\nabla f(x,y,z)$ 与 $\vect{l}$ 之间的夹角。由 (21.2) 可以看出在一个固定点 $(x,y,z)$，$f(x,y,z)$ 沿任意方向的方向导数中以沿 $\nabla f$ 的方向导数为最大，其值为 $\abs{\nabla f(x,y,z)}$。从而梯度的方向就是函数在该点增加最快的方向。
+
+\begin{xexample}[21.2.1]
+求 $u=x+y+z$ 在沿 $x^2+y^2+z^2=1$ 上点的外法方向的方向导数，并问在球面上何点该方向导数取：(1) 最大值；(2) 最小值；(3) 等于 $0$。
+\end{xexample}
+\begin{xsolution}
+球面 $x^2+y^2+z^2=1$ 上点的外法方向为 $(x,y,z)$，函数 $u=x+y+z$ 沿 $(x,y,z)$ 方向的方向导数为
+\[
+  \frac{\partial u}{\partial l}
+  =\nabla u\cdot(x,y,z)=\abs{\nabla u}\cos\theta=\sqrt3\cos\theta,
+\]
+其中 $\theta$ 是向量 $\nabla u=(1,1,1)$ 与 $(x,y,z)$ 之间的夹角。于是当 $x=y=z>0$ 时，方向导数取最大值 $\sqrt3$，此时 $x=y=z=\dfrac{\sqrt3}{3}$；当 $x=y=z<0$ 时，方向导数取最小值 $-\sqrt3$，此时 $x=y=z=-\dfrac{\sqrt3}{3}$；当 $x+y+z=0$ 时，方向导数为 $0$。
+\end{xsolution}
+
+\begin{xexample}[21.2.2]
+若 $\RR^2$ 上的可微函数 $f(x,y)$ 满足
+\begin{equation}
+  xf_x(x,y)+yf_y(x,y)=0,
+  \tag{21.3}
+  \label{eq:21.3}
+\end{equation}
+则 $f(x,y)$ 恒为常数。
+\end{xexample}
+\begin{xproof}
+\textbf{证 1}\quad 设 $x=r\cos\theta,y=r\sin\theta$，取 $\vect{l}=(\cos\theta,\sin\theta)$，由 (21.3) 得
+\[
+  \frac{\partial f}{\partial l}
+  =\cos\theta f_x(r\cos\theta,r\sin\theta)
+  +\sin\theta f_y(r\cos\theta,r\sin\theta)=0.
+\]
+于是在任一从原点出发的射线上的方向导数 $\dfrac{\partial f}{\partial l}=0$，因此 $f(x,y)$ 在该射线上为常数，即
+\[
+  f(x,y)\equiv f(0,0).
+\]
+
+\textbf{证 2}\quad 令 $x=r\cos\theta,y=r\sin\theta$，由 (21.3) 得
+\[
+  \frac{\partial f}{\partial r}=f_x\cos\theta+f_y\sin\theta=0,
+\]
+即 $f(r\cos\theta,r\sin\theta)$ 与 $r$ 无关。对任意固定的 $\theta$，令 $r\to0^+$，得
+\[
+  f(x,y)=\lim_{r\to0^+}f(r\cos\theta,r\sin\theta)=f(0,0).
+\]
+
+\textbf{证 3}\quad 由 (21.3) 知
+\[
+  xf_x(x,y)+yf_y(x,y)=0=0\cdot f(x,y),
+\]
+由齐次函数的充分必要条件（命题 19.3.1）知 $f$ 为零次齐次函数，于是 $\forall t\in\RR$，
+\[
+  f(tx,ty)=t^0f(x,y)=f(x,y),
+\]
+于其中令 $t\to0$，得
+\[
+  f(x,y)=f(0,0).
+\]
+
+\textbf{证 4}\quad 对任意固定的 $(x,y)\in\RR^2$，定义一元函数
+\[
+  \varphi(t)=f(tx,ty),\qquad t\ge0.
+\]
+则
+\[
+  \varphi'(t)=xf_1(tx,ty)+yf_2(tx,ty).
+\]
+于是当 $t>0$ 时，由 (21.3) 得
+\[
+  \varphi'(t)=\frac1t[txf_1(tx,ty)+tyf_2(tx,ty)]=0,
+\]
+所以 $\varphi(t)$ 为常数。取 $t=1$，则 $\varphi(t)\equiv\varphi(1)$。即
+\[
+  f(tx,ty)=f(x,y).
+\]
+令 $t\to0$，得
+\[
+  f(x,y)=f(0,0).
+\]
+\end{xproof}
+
+\subsection{练习题}
+\begin{xexercise}
+\begin{enumerate}[label=\arabic*.]
+  \item 求函数 $u=x^2+y^2+z^2$ 在沿椭球面 $\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}+\dfrac{z^2}{c^2}=1$ 上点 $(x,y,z)$ 处的外法线方向的方向导数。
+  \item 设 $\dfrac{\partial u}{\partial n}$ 和 $\dfrac{\partial v}{\partial n}$ 为函数 $u$ 和 $v$ 在沿曲面 $F(x,y,z)=0$ 上的点 $(x,y,z)$ 的法线方向 $\vect{n}$ 的方向导数，证明：
+  \[
+    \frac{\partial}{\partial n}(uv)=u\frac{\partial v}{\partial n}+v\frac{\partial u}{\partial n}.
+  \]
+  \item 设 $f(t),u=u(x,y,z)$ 为可微函数，证明：$\nabla f(u)=f'(u)\nabla u$。
+  \item 设 $f(x,y)$ 在点 $p_0(x_0,y_0)$ 处可微，$\vect{l}_1,\vect{l}_2,\ldots,\vect{l}_n$ 为 $n$ 个单位向量，相邻的两向量夹角为 $\dfrac{2\pi}{n}$。证明：
+  \[
+    \sum_{i=1}^n\frac{\partial f}{\partial l_i}(x_0,y_0)=0.
+  \]
+  \item 设 $u=\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}-\dfrac{z^2}{c^2}$，其中 $a>b>c>0$。求在点 $(0,0,0)$ 处函数 $u$ 增加最快的方向。
+  \item 设
+  \[
+    f(x,y)=\begin{cases}
+      x-y+\dfrac{xy^2}{x^2+y^2},&(x,y)\ne(0,0),\\[6pt]
+      0,&(x,y)=(0,0).
+    \end{cases}
+  \]
+  证明：$f(x,y)$ 在原点处连续，沿任何方向的方向导数存在，但不可微。
+\end{enumerate}
+\end{xexercise}
+\section{Taylor 公式与极值问题}
+
+\subsection{Taylor 公式}
+
+在一元微分学中（上册 §7.2），我们对 Taylor 公式及其应用给予了足够的重视，介绍了带有 Peano 余项和 Lagrange 余项的 Taylor 公式，它们分别是对一元函数的带有渐近误差估计和大范围误差估计的多项式逼近。在多元函数中，我们仍然有相应的 Taylor 公式。为叙述方便起见，仅讨论二元函数的情形。
+
+\paragraph{Taylor 公式}
+设函数 $f(x,y)$ 在开圆盘 $D=\{(x,y)\mid (x-x_0)^2+(y-y_0)^2<a^2\}$ 上有关于 $x,y$ 的各个 $m+1$ 阶连续偏导数。对 $D$ 内任意一点 $(x,y)$，记 $\Delta x=x-x_0,\Delta y=y-y_0$，则
+\[
+\begin{aligned}
+  f(x,y)={}&f(x_0,y_0)+\frac{\partial f}{\partial x}(x_0,y_0)\Delta x
+  +\frac{\partial f}{\partial y}(x_0,y_0)\Delta y\\
+  &+\frac1{2!}\left(\Delta x\frac{\partial}{\partial x}+\Delta y\frac{\partial}{\partial y}\right)^2 f(x_0,y_0)+\cdots\\
+  &+\frac1{m!}\left(\Delta x\frac{\partial}{\partial x}+\Delta y\frac{\partial}{\partial y}\right)^m f(x_0,y_0)+R_m(x,y),
+\end{aligned}
+\]
+其中
+\[
+  R_m(x,y)=\frac1{(m+1)!}
+  \left(\Delta x\frac{\partial}{\partial x}+\Delta y\frac{\partial}{\partial y}\right)^{m+1}
+  f(x_0+\theta\Delta x,y_0+\theta\Delta y),
+\]
+$0<\theta<1$，称为 Lagrange 余项。
+
+在所述条件下（甚至条件可减弱为 $f(x,y)$ 在 $(x_0,y_0)$ 处有关于 $x,y$ 的各个 $m$ 阶连续偏导数），也可取 Peano 余项 $R_m(x,y)=\littleo(r^m),r\to0$，其中
+\[
+  r=\sqrt{(\Delta x)^2+(\Delta y)^2}.
+\]
+
+上述两个公式的证明均可化归为一元函数来证明。其中在 Lagrange 余项的证明中，令 $\varphi(t)=f(x_0+t\Delta x,y_0+t\Delta y)$；在 Peano 余项的证明中可先把 $f(x,y)=f(x_0+\Delta x,y_0+\Delta y)$ 作为 $\Delta x$ 的一元函数进行带 Peano 余项的一元 Taylor 公式展开，再对各阶偏导数作 $\Delta y$ 的一元函数展开，然后整理。
+
+\begin{xproposition}[21.3.1（Taylor 公式的惟一性）]
+设 $f(x,y)$ 具有 $m+1$ 阶连续偏导数，若用某种方法得到展开式
+\[
+  f(x,y)=\sum_{i+j=0}^{m}A_{ij}(x-x_0)^i(y-y_0)^j+\littleo(\rho^m)\quad(\rho\to0),
+\]
+其中 $\rho=\sqrt{(x-x_0)^2+(y-y_0)^2}$，则必有
+\[
+  A_{ij}=\frac1{i!j!}\frac{\partial^{i+j}}{\partial x^i\partial y^j}f(x_0,y_0).
+\]
+证明留作习题。
+\end{xproposition}
+
+\begin{xexample}[21.3.1]
+设
+\[
+  f(x,y)=\begin{cases}
+    \dfrac{1-\ee^{x(x^2+y^2)}}{x^2+y^2},&(x,y)\ne(0,0),\\[6pt]
+    0,&(x,y)=(0,0).
+  \end{cases}
+\]
+求 $f(x,y)$ 在 $(0,0)$ 的 $4$ 阶 Taylor 多项式，并求出 $\dfrac{\partial^2f}{\partial x\partial y}(0,0)$，$\dfrac{\partial^4f}{\partial x^4}(0,0)$。
+\end{xexample}
+\begin{xsolution}
+由于
+\[
+  \ee^{x(x^2+y^2)}=1+x(x^2+y^2)+\frac12x^2(x^2+y^2)^2
+  +\littleo([x(x^2+y^2)]^2),
+\]
+于是
+\[
+  \frac{1-\ee^{x(x^2+y^2)}}{x^2+y^2}
+  =-x-\frac12x^2(x^2+y^2)+\littleo(x^2(x^2+y^2)).
+\]
+由 Taylor 展式的惟一性知 $f(x,y)$ 的 $4$ 阶 Taylor 展开式为
+\[
+  -x-\frac12x^4-\frac12x^2y^2.
+\]
+由此得
+\[
+  \frac{\partial^2f}{\partial x\partial y}(0,0)=0,
+  \qquad
+  \frac{\partial^4f}{\partial x^4}(0,0)=4!\left(-\frac12\right)=-12.
+\]
+\end{xsolution}
+
+Taylor 公式有许多重要而有趣的应用，下面举出几例。我们先用向量与矩阵形式来重新表达 Taylor 公式，这样的表达式简单明了。特别是它的前三项，与线性代数的知识紧密联系在一起。建议读者要熟悉。
+
+考虑定义在一个开区域 $D\subset\RR^n$ 上的 $n$ 元二次连续可微函数 $f(x_1,x_2,\ldots,x_n)$。设点 $p_0=(x_1^0,x_2^0,\ldots,x_n^0)\in D$。带 Peano 余项的二阶 Taylor 展式可写为
+\[
+  f(p_0+\Delta x)=f(p_0)+\nabla f(p_0)\cdot\Delta x^{\mathsf T}
+  +\frac1{2!}\Delta xQ\Delta x^{\mathsf T}+\littleo(r^2),
+\]
+其中 $\Delta x=(\Delta x_1,\Delta x_2,\ldots,\Delta x_n)=(x_1-x_1^0,x_2-x_2^0,\ldots,x_n-x_n^0)$，$\nabla f(p_0)$ 是 $f(x)$ 在 $p_0$ 处的梯度，
+\[
+  Q=\left(\frac{\partial^2f}{\partial x_i\partial x_j}\right)_{x=p_0}
+\]
+称为 Hesse（黑塞）矩阵。
+
+记函数的增量 $\Delta f=f(p_0+\Delta x)-f(p_0)$。易知当 $\nabla f(p_0)\ne0$ 时可取不同的 $\Delta x$，使 $\Delta f$ 取到正值与负值，因此当 $p_0$ 是可微函数 $f$ 的一个极值点时，$p_0$ 必是 $f$ 的驻点（又称临界点），即有\footnote{这里的结论和证明都可以与一元函数的 Fermat 定理作比较。参见上册 187 页该定理的证明 2 和 239 页的例题 8.3.1。当然在多元情况下梯度为 $0$ 的结论具有更为丰富的意义。}
+\[
+  \nabla f(p_0)=0.
+\]
+
+又当 $\nabla f(p_0)\ne0$，且 $\abs{\Delta x}$ 为定值时，在 $\Delta x$ 与 $\nabla f(p_0)$ 同向时 $\Delta f$ 取最大。因此梯度方向是函数增长最快的方向。当 $\nabla f(p_0)=0$ 时，可根据 $Q$ 的情况来讨论函数增长最快的方向。
+
+\begin{xexample}[21.3.2]
+设
+\[
+  u=\frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2},\qquad a>b>c>0.
+\]
+求在 $(0,0,0)$ 处函数增长最快的方向。
+\end{xexample}
+\begin{xsolution}
+由于 $\nabla u(0,0,0)$ 为零向量，故不能应用梯度方向是函数增长最快的方向的性质，需另想办法。考虑沿某单位方向 $\vect{l}=(\alpha,\beta,\gamma)$ 函数 $u$ 的变化
+\[
+  u(t\alpha,t\beta,t\gamma)-u(0,0,0),
+\]
+其中 $t$ 是参数。令 $\varphi(t)=u(t\alpha,t\beta,t\gamma)$。由 Taylor 展式
+\[
+\begin{aligned}
+  \varphi(t)-\varphi(0)
+  &=\varphi'(0)t+\frac{\varphi''(0)}2t^2+\littleo(t^2)\\
+  &=\frac12\left(
+  \frac{\partial^2u}{\partial x^2}(0,0,0)\alpha^2
+  +\frac{\partial^2u}{\partial y^2}(0,0,0)\beta^2
+  +\frac{\partial^2u}{\partial z^2}(0,0,0)\gamma^2
+  \right)t^2+\littleo(t^2)\\
+  &=\left(\frac{\alpha^2}{a^2}+\frac{\beta^2}{b^2}+\frac{\gamma^2}{c^2}\right)t^2+\littleo(t^2).
+\end{aligned}
+\]
+由于 $a>b>c$ 及 $\alpha^2+\beta^2+\gamma^2=1$，当 $t>0$ 充分小时，沿方向 $\vect{l}=(0,0,\pm1)$，$\varphi(t)-\varphi(0)$ 最大，即函数 $u$ 增加最快。
+\end{xsolution}
+
+\begin{xremark}
+设二次连续可微函数 $f$ 在点 $p_0$ 处的梯度为零向量，但 Hesse 矩阵 $Q$ 是非零矩阵，则 $f$ 增长最快的可能方向在 $Q$ 的最大特征值对应的特征子空间中。如最大特征值对应的特征子空间为一维空间，则相应的方向就是 $f$ 增长最快的方向（第二组参考题 1）。
+\end{xremark}
+
+\begin{xexample}[21.3.3]
+设 $f(x,y)$ 在单位圆盘 $D=\{(x,y)\mid x^2+y^2\le1\}$ 上具有连续的一阶偏导数，且满足 $\abs{f(x,y)}\le1,\forall(x,y)\in D$。证明：存在点
+\[
+  (x_0,y_0)\in\operatorname{int}D=\{(x,y)\mid x^2+y^2<1\},
+\]
+使得在点 $(x_0,y_0)$ 处有不等式 $f_x^2+f_y^2\le16$。
+\end{xexample}
+\begin{xproof}
+设 $g(x,y)=f(x,y)+2(x^2+y^2)$。在单位圆周上显然有 $g(x,y)\ge1$，而在原点 $g(0,0)\le1$。所以或者 $g$ 在 $D$ 上恒等于 $1$，或者 $g(x,y)$ 必在 $D$ 的某个内点 $(x_0,y_0)$ 处取到极小值。因此总存在 $(x_0,y_0)\in\operatorname{int}D$，使得
+\[
+  \left.\frac{\partial g}{\partial x}\right|_{(x_0,y_0)}
+  =\left.\frac{\partial g}{\partial y}\right|_{(x_0,y_0)}=0,
+\]
+于是就有
+\[
+  (f_x^2+f_y^2)|_{(x_0,y_0)}\le16.
+\]
+\end{xproof}
+
+\begin{xexample}[21.3.4]
+证明：当 $\abs{x}$ 和 $\abs{y}$ 充分小时，有近似式
+\begin{equation}
+  \frac{\cos x}{\cos y}\approx1-\frac12x^2+\frac12y^2.
+  \tag{21.4}
+  \label{eq:21.4}
+\end{equation}
+\end{xexample}
+\begin{xproof}
+设 $f(x,y)=\dfrac{\cos x}{\cos y}$，则 $f(x,y)$ 在原点附近无穷次可微，且
+\[
+  f(0,0)=1,\qquad f_x(0,0)=0,\qquad f_y(0,0)=0,
+\]
+\[
+  f_{xx}(0,0)=-1,\qquad f_{yy}(0,0)=1,\qquad f_{xy}(0,0)=0.
+\]
+由 Taylor 公式，当 $\abs{x}$ 和 $\abs{y}$ 充分小时，有
+\[
+  \frac{\cos x}{\cos y}=1-\frac12x^2+\frac12y^2+\littleo(\abs{x}^2+\abs{y}^2),
+\]
+此即 (21.4)。
+\end{xproof}
+
+\subsection{极值问题}
+
+考虑定义在一个开区域 $D\subset\RR^n$ 上的 $n$ 元二次连续可微函数 $f(x_1,x_2,\ldots,x_n)$。设 $p_0=(x_1^0,x_2^0,\ldots,x_n^0)\in D$ 是 $f$ 的一个极值点，那么 $\nabla f(p_0)=0$。由二阶 Taylor 展式得
+\[
+  f(p_0+\Delta x)=f(p_0)+\frac1{2!}\Delta xQ\Delta x^{\mathsf T}+\littleo(r^2),
+\]
+因而可以根据二次型 $\Delta xQ\Delta x^{\mathsf T}$ 的符号来确定 $f(x)$ 能否在 $p_0$ 处取到极值，即有如下的极值的充分条件：
+
+设函数 $f$ 在驻点 $p_0$ 的某邻域上有二阶连续偏导数，则
+\begin{enumerate}[label=(\arabic*)]
+  \item 若 $Q$ 是正定的，则 $f(p_0)$ 是极小值；
+  \item 若 $Q$ 是负定的，则 $f(p_0)$ 是极大值；
+  \item 若 $Q$ 是不定的（即既有正的特征值，也有负的特征值），则 $p_0$ 点不是极值点；
+  \item 若 $Q$ 是半定的（即所有特征值同号，但有零特征值），则需进一步判别。
+\end{enumerate}
+
+\begin{xremark}
+Hesse 矩阵 $Q$ 是否是正定、负定可以根据高等代数中学到的 Sylvester（西尔维斯特）准则来判断，即考虑 $Q$ 的各阶主子式的符号。特别有：
+
+设 $f$ 是二元函数 $f(x,y)$。如果 $f(x,y)$ 在驻点 $(x_0,y_0)$ 的某个邻域上有二阶连续偏导数，并设 $A=f_{xx}(x_0,y_0),B=f_{xy}(x_0,y_0),C=f_{yy}(x_0,y_0)$ 以及 $\Delta=AC-B^2$，则
+\begin{enumerate}[label=(\arabic*)]
+  \item 若 $\Delta>0,A>0$，则 $f$ 在点 $(x_0,y_0)$ 有极小值；
+  \item 若 $\Delta>0,A<0$，则 $f$ 在点 $(x_0,y_0)$ 有极大值；
+  \item 若 $\Delta<0$，则 $f$ 在点 $(x_0,y_0)$ 没有极值；
+  \item 若 $\Delta=0$，则需进一步判别。
+\end{enumerate}
+\end{xremark}
+
+求多元函数 $z=f(x_1,x_2,\ldots,x_n)$ 的极值的步骤可归结如下：
+\begin{enumerate}[label=\arabic*.]
+  \item 通过解方程组 $f_{x_i}=0,i=1,2,\ldots,n$，求出驻点 $p_0=(x_1^0,x_2^0,\ldots,x_n^0)$；
+  \item 如果函数 $f$ 在驻点 $p_0$ 的某邻域上有二阶连续偏导数，则考查 Hesse 矩阵
+  \[
+    Q=\left(\frac{\partial^2f}{\partial x_i\partial x_j}\right)_{x=p_0},
+  \]
+  利用上述的充分条件；
+  \item 考查 $f_{x_i},i=1,2,\ldots,n$，不存在的点是否为极值点；
+  \item 考查没有二阶连续偏导数的驻点是否为极值点。
+\end{enumerate}
+
+\begin{xexample}[21.3.5]
+求 $z=\dfrac12x^2+xy+\dfrac12y^2-2x-2y+5$ 的全部极值点与极值。
+\end{xexample}
+\begin{xsolution}
+由于 $z_x=z_y=x+y-2$，则直线 $x+y-2=0$ 上的点都是驻点。又 $A=f_{xx}=1,B=f_{xy}=1,C=f_{yy}=1$，于是 $\Delta=AC-B^2=0$。故不能用法则来判别这些驻点是否为极值点。从函数本身来看有
+\[
+  z=\frac12(x+y)^2-2(x+y)+5=\frac12[(x+y)-2]^2+3,
+\]
+故 $x+y=2$ 上的全部点均为 $z$ 的极小值点，极小值为 $3$。
+
+由于 $z$ 在 $\RR^2$ 上可微，故无其他极值点。
+\end{xsolution}
+\begin{xremark}
+本题表明，对于二元函数，即使它不是常值函数，其驻点仍可以有无穷多个，且可以构成曲线。
+\end{xremark}
+
+\begin{xexample}[21.3.6]
+设 $f(x,y)=(y-x^2)(y-2x^2)$。证明：沿着经过点 $(0,0)$ 的每一条直线，点 $(0,0)$ 均是 $f(x,y)$ 在该直线上的极小值点。但点 $(0,0)$ 不是 $f(x,y)$ 在整体上的极小值点。
+\end{xexample}
+\begin{xproof}
+在 $xOy$ 平面上画出 $S_1:y=x^2$ 和 $S_2:y=2x^2$ 表示的两条抛物线，可见 $S_1$ 和 $S_2$ 把平面分成四个区域，在每个区域 $f$ 取确定的符号，而过 $(0,0)$ 的每一条直线在 $(0,0)$ 附近都位于 $f$ 取“$+$”的区域内，$f(0,0)=0$，所以 $(0,0)$ 是 $f$ 在该直线上取到极小值的点。另一方面，$(0,0)$ 在 $\RR^2$ 中的任一个邻域内都包含着上述四个小区域，即 $f$ 可在这个小邻域取到正值，也可以取到负值。故 $f$ 在 $(0,0)$ 处不可能取到极值。
+\end{xproof}
+\begin{xremark}
+根据需要在不同的区域取不同的值是构造二元函数反例的常用手法。
+\end{xremark}
+
+\subsection{最大最小值问题}
+
+与一元函数相仿（参见上册 §8.3），可以通过求驻点的办法求函数的最大、最小值。以二元函数为例叙述如下：
+\begin{enumerate}[label=\arabic*.]
+  \item 如果 $f(x,y)$ 定义在有界闭区域上，则先求出 $D$ 内部的全部驻点、不可导点及相应的函数值，然后求出 $f$ 在 $\partial D$ 上的最值（可将边界曲线代入 $f(x,y)$，化为求一元函数的最值问题），最后在所有这些函数值中取其最大者为最大值，最小者为最小值；
+  \item 如果 $f(x,y)$ 定义在无界区域上，则去掉明显取不到最值的某个无界子区域部分，使之成为有界区域上的最值问题；
+  \item 利用
+  \[
+    \max f=\max_x\max_y f\qquad(\text{或 }\max_y\max_x f),
+  \]
+  对 $x,y$ 累次求最值；
+  \item 如果 $f(x,y)$ 定义在有界开区域 $D$ 上，有时需要先将 $f(x,y)$ 的定义域连续延拓到 $\overline D$ 上，然后求有界闭区域上的最大、最小值，最后求出所要的结果。
+\end{enumerate}
+
+\begin{xexample}[21.3.7]
+求 $f(x,y)=x^2-xy+y^2-2x+y$ 在全平面上的最大、最小值。
+\end{xexample}
+\begin{xsolution}
+\textbf{解 1}\quad 令 $f_x=2x-y-2=0,f_y=-x+2y+1=0$ 得驻点 $(1,0)$。$A=f_{xx}(1,0)=2>0,B=f_{xy}(1,0)=-1,C=f_{yy}(1,0)=2,\Delta=AC-B^2>0$。故 $(1,0)$ 是极小值点，极小值为 $f(1,0)=-1$。又有
+\[
+  f(\rho\cos\theta,\rho\sin\theta)
+  =\rho^2(1-\sin\theta\cos\theta)-\rho(2\cos\theta-\sin\theta)
+  \ge\frac12\rho^2-3\rho\to+\infty\quad(\rho\to+\infty),
+\]
+可见 $f(x,y)$ 在全平面上无最大值。又可知存在 $\rho_0$，当 $\rho\ge\rho_0$ 时，$f>-1$。于是在 $x^2+y^2\ge\rho_0^2$ 内，$f$ 不可能取最小值，即 $f$ 在 $\RR^2$ 上最小值与 $f$ 在 $D=\{x^2+y^2\le\rho_0^2\}$ 上最小值相同，又 $f(x,y)$ 在 $D$ 内无不可导点，于是
+\[
+  \min_{\RR^2}f=\min_D f=\min\{f(1,0),f|_{\partial D}\}=-1.
+\]
+
+\textbf{解 2}\quad 由 $f(x,y)=y^2+(1-x)y+(x^2-2x)$，先固定 $x$，求 $\min_{y\in\RR}\{f(x,y)\}$。将 $f(x,y)$ 改写为
+\[
+  f(x,y)=\left(y+\frac{1-x}{2}\right)^2+\left(\frac34x^2-\frac32x-\frac14\right),
+\]
+于是
+\[
+  \min_{y\in\RR}\{f(x,y)\}=\frac34x^2-\frac32x-\frac14
+  =\frac34(x-1)^2-1,
+\]
+从而
+\[
+  \min_{x\in\RR}\left\{\min_{y\in\RR}\{f(x,y)\}\right\}
+  =\min_{x\in\RR}\left\{\frac34(x-1)^2-1\right\}=-1,
+\]
+所以
+\[
+  \min_{\RR^2}\{f(x,y)\}=-1.
+\]
+又 $f(0,y)=y^2+y$ 无最大值，因此 $f(x,y)$ 也无最大值。
+
+\textbf{解 3}\quad
+\[
+  f(x,y)=\left(x-\frac y2-1\right)^2+\frac34y^2-1\ge-1
+\]
+且 $f(1,0)=-1$，于是 $f(x,y)$ 在 $(1,0)$ 点取得最小值 $-1$，无最大值。
+\end{xsolution}
+\begin{xremark}
+在上例的解 1 中，能否像一元函数那样（上册 242 页练习题 1），根据 $f(x,y)$ 在 $\RR^2$ 上只有惟一的极值点，就断言该极值点是最值点呢？回答是否定的，考虑 $f(x,y)=x^3-4x^2+2xy-y^2$ 在 $\RR^2$ 上的情况（见下一小节的练习题 5）。
+\end{xremark}
+\begin{xexample}[21.3.8]
+设 $D$ 为有界闭区域，$u(x,y)$ 在 $D$ 上连续，存在偏导数，且
+\[
+  \frac{\partial u}{\partial x}+\frac{\partial u}{\partial y}=u,
+  \qquad u|_{\partial D}=0,
+\]
+则 $u$ 在 $D$ 上恒为零。
+\end{xexample}
+\begin{xproof}
+用反证法。假设 $u$ 在 $D$ 上有正的最大值或负的最小值。由条件 $u|_{\partial D}=0$ 知这样的最大值或最小值只能在 $D$ 的内部达到。不妨设 $(x_0,y_0)\in\operatorname{int}D$，且满足
+\begin{equation}
+  u(x_0,y_0)>0,\qquad u(x_0,y_0)\ge u(x,y),\quad\forall(x,y)\in D.
+  \tag{21.5}
+  \label{eq:21.5}
+\end{equation}
+于是 $(x_0,y_0)$ 也是极大值点，从而
+\begin{equation}
+  \frac{\partial u}{\partial x}(x_0,y_0)
+  =\frac{\partial u}{\partial y}(x_0,y_0)=0.
+  \tag{21.6}
+  \label{eq:21.6}
+\end{equation}
+另一方面，由已知条件
+\[
+  \frac{\partial u}{\partial x}(x_0,y_0)
+  +\frac{\partial u}{\partial y}(x_0,y_0)=u(x_0,y_0),
+\]
+此与 (21.5)、(21.6) 矛盾，从而 $u\equiv0$。
+\end{xproof}
+
+\begin{xexample}[21.3.9（Fermat 三村问题）]
+在平面上给定不在同一直线上的三点 $M_i(a_i,b_i),i=1,2,3$。求平面内的一点，使它到三定点的距离之和为最小。
+\end{xexample}
+\begin{xsolution}
+任取点 $M(x,y)$，令
+\[
+  \rho_i=\sqrt{(x-a_i)^2+(y-b_i)^2},\qquad i=1,2,3.
+\]
+于是所给问题为研究函数
+\[
+  u(x,y)=\sum_{i=1}^3\rho_i
+  =\sum_{i=1}^3\sqrt{(x-a_i)^2+(y-b_i)^2}
+\]
+的最小值。除了在三个给定点以外，它处处存在着偏导数
+\[
+  \frac{\partial u}{\partial x}
+  =\sum_{i=1}^3\frac{x-a_i}{\rho_i}=\sum_{i=1}^3\cos\theta_i,
+\]
+\[
+  \frac{\partial u}{\partial y}
+  =\sum_{i=1}^3\frac{y-b_i}{\rho_i}=\sum_{i=1}^3\sin\theta_i,
+\]
+% SOURCE-ERR: 原书第二式分子印作 y-a_i；由 M_i(a_i,b_i) 及距离公式可确定应为 y-b_i。
+其中 $\theta_i$ 表示 $x$ 轴正向与以 $M_i$ 为起点的射线 $M_iM$ 的夹角（见图 21.1）。
+
+首先找驻点 $M_0$，令两个偏导数为 $0$ 得
+\[
+  \cos\theta_1+\cos\theta_2+\cos\theta_3=0,
+\]
+\[
+  \sin\theta_1+\sin\theta_2+\sin\theta_3=0.
+\]
+第一式乘以 $\sin\theta_2$，第二式乘以 $\cos\theta_2$，相减得
+\begin{equation}
+  \sin(\theta_2-\theta_1)=\sin(\theta_3-\theta_2),
+  \tag{21.7}
+  \label{eq:21.7}
+\end{equation}
+同样可得
+\begin{equation}
+  \sin(\theta_3-\theta_2)=\sin(\theta_1-\theta_3).
+  \tag{21.8}
+  \label{eq:21.8}
+\end{equation}
+由图 21.1 可以算出 $\angle M_1M_0M_2=\theta_2-\theta_1$，$\angle M_2M_0M_3=\theta_3-\theta_2$，$\angle M_3M_0M_1=\theta_1-\theta_3+2\pi$。由 (21.7)、(21.8) 得
+\[
+  \sin\angle M_1M_0M_2
+  =\sin\angle M_2M_0M_3
+  =\sin\angle M_3M_0M_1.
+\]
+由于三个角都在 $0$ 与 $2\pi$ 之间，且三个角之和为 $2\pi$，于是
+\[
+  \angle M_1M_0M_2
+  =\angle M_2M_0M_3
+  =\angle M_3M_0M_1=\frac{2}{3}\pi.
+\]
+于是点 $M_0$ 可由下列方法求得：在三角形 $M_1M_2M_3$ 的三边上各作一含圆周角为 $\dfrac{2\pi}{3}$ 的弧，三弧的公共点为 $M_0$（称为 Fermat 点）。
+
+\begin{center}
+  \includegraphics[width=.47\linewidth]{figures/lower/ch21/fig-21-1.png}
+\end{center}
+
+若三角形没有大于或等于 $\dfrac{2\pi}{3}$ 的内角，则此弧确能在三角形之内相交而确定 $M_0$，这时，各边显然都对着顶点在 $M_0$ 的等于 $\dfrac{2\pi}{3}$ 的角（见图 21.1），在这种情形，就必须比较 $u(x,y)$ 在 $M_0,M_1,M_2,M_3$ 这四个点的值。我们将证明，在驻点 $M_0$ 处的 $u(x,y)$ 的数值必小于其他三个数值。实际上由余弦定理以及 $\angle M_1M_0M_2=\dfrac{2}{3}\pi$，有
+\[
+  (M_1M_2)^2=(M_0M_2)^2+(M_0M_1)^2+M_0M_2\cdot M_0M_1
+  >\left(M_0M_2+\frac12M_0M_1\right)^2,
+\]
+于是
+\[
+  M_1M_2>M_0M_2+\frac12M_0M_1,
+\]
+同理
+\[
+  M_1M_3>M_0M_3+\frac12M_0M_1,
+\]
+两式相加得
+\[
+  M_1M_2+M_1M_3>M_0M_1+M_0M_2+M_0M_3,
+\]
+即 $u(M_1)>u(M_0)$。显然此处的 $M_1$ 可以换成 $M_2$ 或 $M_3$。
+
+若三角形 $M_1M_2M_3$ 有一个内角大于或等于 $\dfrac{2\pi}{3}$ 时，情形就不同了，这时三条圆弧没有公共点，驻点也就不存在了。而函数 $f(x,y)$ 在 $M_1,M_2,M_3$ 中之一处，也就是在钝角的顶点处达到其最小值。
+\end{xsolution}
+\begin{xremark}
+这一问题再一次说明，在探求函数的最大最小值时，除了驻点以外，导数不存在的点也必须考虑在内。
+\end{xremark}
+
+\begin{xexample}[21.3.10（最小二乘法）]
+设通过观测或实验得到一列数据 $(x_i,y_i),i=1,2,\ldots,n$，它们大体上满足线性关系，即大体上可以用直线方程来反映变量 $x$ 与变量 $y$ 之间的对应关系。确定直线方程使这些数据代入后的偏差的平方和最小。
+\end{xexample}
+\begin{xsolution}
+不妨设 $x_i\ (i=1,2,\ldots,n)$ 不全相等，即直线是非垂直的，设方程为
+\[
+  y=ax+b.
+\]
+偏差的平方和为
+\[
+  f(a,b)=\sum_{i=1}^n(ax_i+b-y_i)^2.
+\]
+现要确定 $a,b$，使得 $f(a,b)$ 为最小。为此，令
+\[
+  f_a=2\sum_{i=1}^n x_i(ax_i+b-y_i)=0,
+  \qquad
+  f_b=2\sum_{i=1}^n(ax_i+b-y_i)=0,
+\]
+按 $a,b$ 合并整理得
+\[
+  a\sum_{i=1}^n x_i^2+b\sum_{i=1}^n x_i=\sum_{i=1}^n x_iy_i,
+\]
+\[
+  a\sum_{i=1}^n x_i+bn=\sum_{i=1}^n y_i.
+\]
+解此方程组得惟一的驻点 $(a=\bar a,b=\bar b)$。为进一步确定该点是否取到极小值，我们计算得到
+\[
+  A=f_{aa}=2\sum_{i=1}^n x_i^2,
+  \qquad
+  B=f_{ab}=2\sum_{i=1}^n x_i,
+  \qquad
+  C=f_{bb}=2n,
+\]
+\[
+  D=AC-B^2=4n\sum_{i=1}^n x_i^2-4\left(\sum_{i=1}^n x_i\right)^2>0.
+\]
+由前述定理 $f(a,b)$ 在点 $(\bar a,\bar b)$ 取到惟一极小值，并且由 $x_i\ (i=1,2,\ldots,n)$ 不全相等的假定知道对任意 $(a,b)$ 有
+\[
+  \max_{1\le i\le n}\abs{ax_i+b}>0.
+\]
+从而
+\[
+  \min_{a^2+b^2=1}\left\{\max_{1\le i\le n}\abs{ax_i+b}\right\}\ge\delta>0,
+\]
+由此得到
+\[
+\begin{aligned}
+  \lim_{\abs{a}+\abs{b}\to+\infty}f(a,b)
+  &=\lim_{\abs{a}+\abs{b}\to+\infty}
+  (a^2+b^2)\sum_{i=1}^n
+  \left(\frac{ax_i+b-y_i}{\sqrt{a^2+b^2}}\right)^2\\
+  &\ge(a^2+b^2)\left[\delta^2-\littleo\left(\frac1{a^2+b^2}\right)\right]\to+\infty.
+\end{aligned}
+\]
+因此 $f$ 的最小值在有界闭区域上取到。故所得的惟一极小值就是最小值。
+\end{xsolution}
+\begin{xremark}
+\textbf{注 1}\quad 在具体问题中（主要指应用问题），如果问题确有最值，而边界值明显不是最值，在区域内部驻点又惟一，则此驻点必是最值点。
+
+\textbf{注 2}\quad 如例题 21.3.7 的注所指出的，多元函数的惟一极值点并不一定是最值点。但如果 $f$ 是二次函数，则 $f$ 的极值点一定是最值点。证明如下：设 $p_0$ 是 $f$ 的极值点，则 $p_0$ 是 $f$ 的驻点。在 $p_0$ 处作 Taylor 展开，有
+\[
+  f(x)=f(p_0)+\frac12(x-p_0)^{\mathsf T}Q(x-p_0).
+\]
+由于 $f$ 是二次函数，故 $Q$ 是常值矩阵。并且 $f$ 在 $p_0$ 附近取到极值，因此 $Q$ 是半正定或半负定矩阵。如果 $Q$ 是半正定矩阵，则 $f(x)-f(p_0)\ge0,\forall x$。所以 $f(p_0)$ 是最小值。如果 $Q$ 是半负定矩阵，则 $f(x)-f(p_0)\le0,\forall x$，所以 $f(p_0)$ 是最大值。由此也得到了最小二乘法中惟一极小值就是最小值的另一种证明。
+\end{xremark}
+
+\subsection{练习题}
+\begin{xexercise}
+\begin{enumerate}[label=\arabic*.]
+  \item 设 $u(x,y)$ 在 $(x_0,y_0)$ 的邻域上具有连续的二阶偏导数，证明：当 $h\to0$ 时有
+  \[
+    \frac{\partial^2u}{\partial x^2}(x_0,y_0)+\frac{\partial^2u}{\partial y^2}(x_0,y_0)
+    =\frac1{h^2}\bigl[u(x_0+h,y_0)+u(x_0-h,y_0)
+  \]
+  \[
+    \qquad\qquad\qquad\qquad
+    +u(x_0,y_0+h)+u(x_0,y_0-h)-4u(x_0,y_0)\bigr]+\littleo(1).
+  \]
+  \item 对于下列函数，点 $(0,0)$ 是否为驻点？是否为极值点？
+  \begin{enumerate}[label=(\arabic*)]
+    \item $f(x,y)=x^2-4xy+5y^2-1$；
+    \item $f(x,y)=\sqrt{x^2+y^2}$；
+    \item $f(x,y)=(x+y)^2-y^2$。
+  \end{enumerate}
+  \item 求下列函数的极值点及相应的极值：
+  \begin{enumerate}[label=(\arabic*)]
+    \item $u(x,y)=x^2(y-1)^2$；
+    \item $u(x,y)=3x^2y-x^4-2y^2$；
+    \item $u(x,y)=(1+\ee^y)\cos x-y\ee^y$。
+  \end{enumerate}
+  \item 求 $f(x,y)=\sin x\sin y\sin(x+y)$ 在 $D=\{(x,y)\mid x\ge0,y\ge0,x+y\le\pi\}$ 上的最大、最小值。
+  \item 证明：函数 $f(x,y)=x^3-4x^2+2xy-y^2$ 在 $\RR^2$ 上有惟一的极大值点，但该极大值点不是最大值点。
+\end{enumerate}
+\end{xexercise}
+
+\section{条件极值与条件最值}
+
+\subsection{条件极值}
+
+在满足约束条件 $\varphi_i(x_1,x_2,\ldots,x_n)=0\ (i=1,2,\ldots,m,\ m<n)$ 时，求函数 $f(x_1,x_2,\ldots,x_n)$ 的极值问题，可归结为对 Lagrange 函数
+\begin{equation}
+  L(x_1,x_2,\ldots,x_n)=f(x_1,x_2,\ldots,x_n)
+  +\sum_{i=1}^m\lambda_i\varphi_i(x_1,x_2,\ldots,x_n)
+  \tag{21.9}
+  \label{eq:21.9}
+\end{equation}
+求普通函数极值的问题，其中 $\lambda_i\ (i=1,2,\ldots,m)$ 为常数因子。这种方法称为 Lagrange 乘子法。Lagrange 乘子法的证明见 [55] 第三册的 6.7.5 小节（其中证明了 4 个命题），其几何解释可见教科书 [9,24,63] 等。
+
+Lagrange 乘子法的具体步骤是：
+\begin{enumerate}[label=\arabic*.]
+  \item 作出 Lagrange 函数 (21.9)；
+  \item 由 $L_{x_i}=0\ (i=1,2,\ldots,n)$ 与 $\varphi_i=0\ (i=1,2,\ldots,m)$ 联立解出 $L$ 的全部驻点与 $\lambda_i\ (i=1,2,\ldots,m)$ 的具体值，并要求驻点处矩阵
+  \begin{equation}
+  \begin{pmatrix}
+  \dfrac{\partial\varphi_1}{\partial x_1}&\dfrac{\partial\varphi_1}{\partial x_2}&\cdots&\dfrac{\partial\varphi_1}{\partial x_n}\\[4pt]
+  \dfrac{\partial\varphi_2}{\partial x_1}&\dfrac{\partial\varphi_2}{\partial x_2}&\cdots&\dfrac{\partial\varphi_2}{\partial x_n}\\
+  \vdots&\vdots&&\vdots\\[2pt]
+  \dfrac{\partial\varphi_m}{\partial x_1}&\dfrac{\partial\varphi_m}{\partial x_2}&\cdots&\dfrac{\partial\varphi_m}{\partial x_n}
+  \end{pmatrix}
+  \tag{21.10}
+  \label{eq:21.10}
+  \end{equation}
+  的秩为 $m$；
+  \item 对每个驻点 $p_0$，算出 Hesse 矩阵
+  \[
+    H(p_0)=\left(\frac{\partial^2L}{\partial x_i\partial x_j}\right)_{n\times n}(p_0).
+  \]
+  \begin{enumerate}[label=(\arabic*)]
+    \item 若 $H(p_0)$ 正定，则 $p_0$ 为（条件）极小值点；
+    \item 若 $H(p_0)$ 负定，则 $p_0$ 为（条件）极大值点；
+    \item 若 $H(p_0)$ 既不是正定，也不是负定，则由
+    \[
+      \dd\varphi_i(x_1,x_2,\ldots,x_n)=\frac{\partial\varphi_i}{\partial x_i}\dd x_i=0,
+      \qquad i=1,2,\ldots,m
+    \]
+    以及矩阵 (21.10) 的秩为 $m$，解出 $\dd x_1,\dd x_2,\ldots,\dd x_n$ 中的 $m$ 个。不妨设可解出 $\dd x_1,\dd x_2,\ldots,\dd x_m$，将其代入 $n$ 元二次型
+    \[
+      \left(\dd x_1\frac{\partial}{\partial x_1}+\dd x_2\frac{\partial}{\partial x_2}+\cdots+\dd x_n\frac{\partial}{\partial x_n}\right)^2L(p_0)
+    \]
+    中，化为二次型 $\sum_{i,j=1}^{n-m}a_{ij}\dd x_i\dd x_j$。令 $A=(a_{ij})_{(n-m)\times(n-m)}$。若 $A$ 是正定的，则 $p_0$ 为（条件）极小值点。若 $A$ 是负定的，则 $p_0$ 为（条件）极大值点。若 $A$ 是不定的，则 $p_0$ 不是（条件）极值点。若 $A$ 是半定的，则需进一步判定。
+  \end{enumerate}
+\end{enumerate}
+
+如此看来，若出现 $H(p_0)$ 既不正定，也不负定的情况下，讨论将相当复杂。
+
+\begin{xexample}[21.4.1]
+求 $f(x,y)=ax^2+2bxy+cy^2\ (b\ne0)$ 在条件 $x^2+y^2=1$ 之下的极值。
+\end{xexample}
+\begin{xsolution}
+\textbf{解 1}\quad 作 Lagrange 函数
+\[
+  L(x,y,\lambda)=ax^2+2bxy+cy^2-\lambda(x^2+y^2-1).
+\]
+解方程组
+\begin{align}
+  L_x&=2ax+2by-2\lambda x=0, \tag{21.11}\label{eq:21.11}\\
+  L_y&=2bx+2cy-2\lambda y=0, \tag{21.12}\label{eq:21.12}\\
+  x^2+y^2&=1. \tag{21.13}\label{eq:21.13}
+\end{align}
+由 (21.13) 知 $x,y$ 不可能同时为零，于是由 (21.11)、(21.12) 得
+\begin{equation}
+  \begin{vmatrix}a-\lambda&b\\ b&c-\lambda\end{vmatrix}
+  =\lambda^2-(a+c)\lambda+ac-b^2=0.
+  \tag{21.14}
+  \label{eq:21.14}
+\end{equation}
+因判别式 $\Delta=(a+c)^2-4(ac-b^2)=(a-c)^2+4b^2>0$，从而解得两个相异实根
+\[
+  \lambda_\pm=\frac12\left[a+c\pm\sqrt{(a-c)^2+4b^2}\right].
+\]
+对每个 $\lambda$，由 (21.11)（或 (21.12)）与 (21.13) 解出两组解
+\[
+  (\lambda_+,x_1,y_1),\ (\lambda_+,x_2,y_2),\ (\lambda_-,x_3,y_3),\ (\lambda_-,x_4,y_4),
+\]
+且 $y_1y_2y_3y_4\ne0$。由 (21.11) 与 (21.12) 知
+\[
+  \begin{vmatrix}L_{xx}&L_{xy}\\L_{xy}&L_{yy}\end{vmatrix}
+  =\begin{vmatrix}2(a-\lambda)&2b\\2b&2(c-\lambda)\end{vmatrix}=0.
+\]
+从而在驻点，矩阵 $\begin{pmatrix}L_{xx}&L_{xy}\\L_{xy}&L_{yy}\end{pmatrix}$ 既不是正定的，也不是负定的。此时，对 (21.13) 求微分得
+\[
+  2x\dd x+2y\dd y=0,
+\]
+解出
+\[
+  \dd y=-\frac{x}{y}\dd x.
+\]
+然后代入
+\[
+  \dd^2L=2(a-\lambda)\dd x^2+4b\dd x\dd y+2(c-\lambda)\dd y^2
+\]
+中，得
+\[
+\begin{aligned}
+  \dd^2L
+  &=\frac2{y^2}[(a-\lambda)y^2-2bxy+(c-\lambda)x^2]\dd x^2\\
+  &=-\frac2{y^2}(a+c-2\lambda)\dd x^2
+  \begin{cases}
+    <0,&\lambda=\lambda_+,\\
+    >0,&\lambda=\lambda_-.
+  \end{cases}
+\end{aligned}
+\]
+因此，对应于 $\lambda_+$（$\lambda_-$），$f$ 取得极大（小）值。
+
+\textbf{解 2}\quad 用隐函数方法。
+
+容易证明 $b\ne0$ 时，$f$ 的极值不在 $(\pm1,0)$ 取得，而除去这两点外，$x^2+y^2-1=0$ 在单位圆上任意点的某邻域内有连续可导的隐函数 $y=h(x)$，且 $y'=-\dfrac{x}{y}$。
+
+记 $F(x)=f(x,h(x))$，则
+\[
+\begin{aligned}
+  F'(x)
+  &=2ax+2b(y+xy')+2cyy'\\
+  &=2(ax+by)+2(bx+cy)\left(-\frac{x}{y}\right)\\
+  &=\frac2y[(a-c)xy+b(y^2-x^2)].
+\end{aligned}
+\]
+令 $F'(x)=0$，记 $u=\dfrac{x}{y}$，由上式得
+\[
+  bu^2-(a-c)u-b=0.
+\]
+它的判别式 $\Delta=(a-c)^2+4b^2>0$，故方程有相异实根
+\[
+  u_\pm=\frac1{2b}\left[a-c\pm\sqrt{(a-c)^2+4b^2}\right],
+\]
+且异号。将它们代入 $x^2+y^2=1$ 中可解得对应于 $u_+$ 的解 $x_1,x_2$ 和对应于 $u_-$ 的解 $x_3,x_4$。在这些驻点上
+\[
+\begin{aligned}
+  F''(x)
+  &=\frac2y\left\{(a-c)y-2bx+[(a-c)x+2by]\left(-\frac{x}{y}\right)\right\}\\
+  &=\frac2{y^2}[(a-c)(y^2-x^2)-4bxy]\\
+  &=\frac{2xy}{y^2}\left[-\frac{(a-c)^2}{b}-4b\right]\\
+  &=-\frac{2u}{b}[(a-c)^2+4b^2]
+  \begin{cases}
+    <0,&u=u_+,\\
+    >0,&u=u_-.
+  \end{cases}
+\end{aligned}
+\]
+故 $x_1,x_2$ 是 $f$ 的极大值点，$x_3,x_4$ 是 $f$ 的极小值点，其极大值和极小值分别为
+\[
+  \frac{au_+^2+2bu_++c}{u_+^2+1}
+  \quad\text{和}\quad
+  \frac{au_-^2+2bu_-+c}{u_-^2+1}.
+\]
+
+\textbf{解 3}\quad 注意到
+\[
+  f(x,y)=(x,y)\begin{pmatrix}a&b\\b&c\end{pmatrix}\begin{pmatrix}x\\y\end{pmatrix}
+\]
+是一个实的二元二次型，利用高等代数中的有关定理：任意一个实二次型
+\[
+  \sum_{i,j=1}^n a_{ij}x_ix_j\qquad(a_{ij}=a_{ji},\ i,j=1,2,\ldots,n)
+\]
+都可以经过正交的线性变换变成平方和
+\[
+  \lambda_1y_1^2+\lambda_2y_2^2+\cdots+\lambda_ny_n^2,
+\]
+其中平方项的系数 $\lambda_1,\lambda_2,\ldots,\lambda_n$ 就是矩阵 $(a_{ij})_{n\times n}$ 的特征多项式全部的根。因此 $f(x,y)$ 可化为
+\[
+  f(x,y)=\lambda_1u^2+\lambda_2v^2,
+  \qquad u^2+v^2=1,
+\]
+其中 $u,v$ 是 $x,y$ 的线性组合，然后再用 Lagrange 乘子法或初等方法求解。
+\end{xsolution}
+\begin{xremark}
+有些极值问题会有初等解法，但这些初等解法一般都有一定的局限性。
+\end{xremark}
+\subsection{条件最值}
+
+在很多实际问题中，要求的是条件最值。从理论上讲，可通过求条件极值及与边界值、不可导点的值等的比较来得到条件最值。但从上节看到，确定条件极值是一件比较麻烦的事。在实际解题过程中，有许多简捷的方法，下面作些讨论。
+
+以三元函数 $u=f(x,y,z)$ 和一个约束条件 $g(x,y,z)=0$ 为例（设 $f,g$ 在其定义域上连续可微）。在求 $u$ 的最值时，只要最值存在，且 $g_x,g_y,g_z$ 在 $D_1=\{(x,y,z)\mid g(x,y,z)=0\}$ 上不同时为 $0$，则最值点必是极值点，从而必是 Lagrange 函数的驻点。事实上，设 $p_0(x_0,y_0,z_0)$ 是最值点，且 $g_z(p_0)\ne0$，则存在点 $(x_0,y_0)$ 的邻域 $O(x_0,y_0)$，使在其中确定隐函数 $z=z(x,y)$。于是 $u=f(x,y,z(x,y))$ 在 $O(x_0,y_0)$ 中有定义，且于点 $(x_0,y_0)$ 处取最值。因为 $O(x_0,y_0)$ 是开区域，所以 $u=f(x,y,z(x,y))$ 在点 $(x_0,y_0)$ 处取极值。由此可得求条件最值的方法如下：
+\begin{enumerate}[label=\arabic*.]
+  \item 若约束为标准形式 $g(x,y,z)=0$，且约束集合 $D_1=\{(x,y,z)\mid g(x,y,z)=0\}$ 是有界闭集（此时最值必定存在）。设 $g_x,g_y,g_z$ 在 $D_1$ 上不同时为 $0$，则求出 Lagrange 函数的全部驻点及相应的函数值，再取其最值即可；
+  \item 若约束为标准形式 $g(x,y,z)=0$，但 $D_1$ 为无界集。通常加上附加约束，转化为具有附加约束条件的有界域上的条件最值问题；
+  \item $D_1$ 为有界集，并有附加约束情况（如 $x^2+y^2+z^2=1,x>0,y>0,z>0$）。先扩充为有界闭集（如 $x^2+y^2+z^2=1,x\ge0,y\ge0,z\ge0$），从而最值存在，其次求出 Lagrange 函数全部驻点及相应的 $f$ 的值，令其最大者为 $M_1$，最小者为 $m_1$，然后求出 $f$ 在附加约束边界上的最大值 $M_2$ 和最小值 $m_2$，若 $M_1\ge M_2$，则条件最大值为 $M_1$；若 $M_1<M_2$，则条件最大值不存在。条件最小值可类似讨论；
+  \item 标准约束 $g(x,y,z)=0$，$D_1$ 无界，且具有附加约束（如 $x+y+z=1,x>0,y>0,z>0$）。通常应该首先证明条件最值存在，再证明条件最值点只能在某一有界域中，从而转化为情形 3。
+\end{enumerate}
+
+\begin{xremark}
+对具体问题要作具体分析。对某个具体问题，很可能有体现这个问题特点的更为简捷的方法，甚至是完全初等的方法。
+\end{xremark}
+
+\begin{xexample}[21.4.2]
+椭球面 $\dfrac{x^2}{3}+y^2+\dfrac{z^2}{2}=1$ 被通过原点的平面 $2x+y+z=0$ 截成一个椭圆 $l$。求此椭圆的面积。
+\end{xexample}
+\begin{xsolution}
+只要求出椭圆 $l$ 的长短半轴即可。于是问题转化为在约束条件
+\begin{align}
+  F(x,y,z)&=\frac{x^2}{3}+y^2+\frac{z^2}{2}-1=0, \tag{21.15}\label{eq:21.15}\\
+  G(x,y,z)&=2x+y+z=0 \tag{21.16}\label{eq:21.16}
+\end{align}
+下求 $r^2=x^2+y^2+z^2$ 之最大、最小值。为此定义
+\[
+  L(x,y,z,\lambda,\mu)
+  =x^2+y^2+z^2+\lambda\left(\frac{x^2}{3}+y^2+\frac{z^2}{2}-1\right)+\mu(2x+y+z).
+\]
+令
+\begin{align}
+  L_x&=2x+\frac23\lambda x+2\mu=0, \tag{21.17}\label{eq:21.17}\\
+  L_y&=2y+2\lambda y+\mu=0, \tag{21.18}\label{eq:21.18}\\
+  L_z&=2z+\lambda z+\mu=0. \tag{21.19}\label{eq:21.19}
+\end{align}
+将 (21.17)--(21.19) 分别乘 $x,y,z$，然后相加，利用 (21.15)、(21.16) 得
+\begin{equation}
+  \lambda=-r^2.
+  \tag{21.20}
+  \label{eq:21.20}
+\end{equation}
+将 (21.20) 代入 (21.17)，得
+\[
+  (r^2-3)x=3\mu.
+\]
+若 $r^2=3$，则 $\mu=0$。代入 (21.18)、(21.19)，得 $y=z=0$，显然不满足 (21.15) 和 (21.16)。因此 $r^2-3\ne0$。所以
+\begin{equation}
+  x=\frac{3\mu}{r^2-3}.
+  \tag{21.21}
+  \label{eq:21.21}
+\end{equation}
+同理将 (21.20) 代入 (21.18)、(21.19) 得
+\begin{equation}
+  y=\frac{\mu}{2(r^2-1)},\qquad z=\frac{\mu}{r^2-2}.
+  \tag{21.22}
+  \label{eq:21.22}
+\end{equation}
+将 (21.21)、(21.22) 代入 (21.16)，得
+\begin{equation}
+  \frac{6\mu}{r^2-3}+\frac{\mu}{2(r^2-1)}+\frac{\mu}{r^2-2}=0.
+  \tag{21.23}
+  \label{eq:21.23}
+\end{equation}
+由于 $\mu\ne0$，消去 $\mu$，得
+\[
+  15(r^2)^2-49r^2+36=0.
+\]
+由此可以解出两个根 $r_1^2$ 和 $r_2^2$ 即为条件驻点对应的函数值。由于约束集合是有界闭集，故 $r^2$ 的最值存在，又因为在约束集合上
+\[
+  \frac{\partial(F,G)}{\partial(y,z)},\qquad
+  \frac{\partial(F,G)}{\partial(z,x)},\qquad
+  \frac{\partial(F,G)}{\partial(x,y)}
+\]
+不同时为 $0$，故最值必定在条件驻点达到，因而这两个值也即为 $r^2$ 的最大最小值，即长、短半轴的平方。根据 Viète 定理有
+\[
+  r_1^2r_2^2=\frac{36}{15}=\frac{12}{5},
+\]
+于是所求的面积为
+\[
+  s=\pi r_1r_2=2\pi\sqrt{\frac35}.
+\]
+\end{xsolution}
+\begin{xremark}
+\textbf{注 1}\quad 本题所用解法也是条件极值或最值问题中常用的技巧，其特点是不必求出条件驻点，而直接求出所要求的条件最值。
+
+\textbf{注 2}\quad 在得到 (21.20) 之后可用下面的解法来求 $\lambda$：由 (21.15) 知 $x,y,z$ 不能同时为 $0$，于是在方程组 (21.16)--(21.19) 中视 $x,y,z,\mu$ 为未知量，$\lambda$ 为系数，则方程组有非零解。于是系数矩阵的行列式为 $0$，即
+\[
+\begin{vmatrix}
+2+\frac23\lambda&0&0&2\\
+0&2+2\lambda&0&1\\
+0&0&2+\lambda&1\\
+2&1&1&0
+\end{vmatrix}=0,
+\]
+\[
+=\left(2+\frac23\lambda\right)
+\begin{vmatrix}2+2\lambda&0&1\\0&2+\lambda&1\\1&1&0\end{vmatrix}
+-2\begin{vmatrix}0&2+2\lambda&0\\0&0&2+\lambda\\2&1&1\end{vmatrix}
+\]
+\[
+=-\left(2+\frac23\lambda\right)(2+\lambda+2+2\lambda)-4(2+2\lambda)(2+\lambda)=0,
+\]
+即
+\[
+  15\lambda^2-49\lambda+36=0.
+\]
+\end{xremark}
+
+\begin{xexample}[21.4.3]
+设 $p\ge1$。求 $f(x,y)=\dfrac12(x^p+y^p)$ 在 $x+y=C$（$C$ 为正常数），$x\ge0,y\ge0$ 的条件下的最小值。
+\end{xexample}
+\begin{xsolution}
+设
+\[
+  L(x,y,\lambda)=\frac12(x^p+y^p)+\lambda(x+y-C).
+\]
+令
+\[
+  L_x=\frac p2x^{p-1}+\lambda=0,
+  \qquad
+  L_y=\frac p2y^{p-1}+\lambda=0,
+  \qquad
+  x+y=C.
+\]
+解得驻点 $x=y=\dfrac C2$。由于约束集是有界闭集，比较驻点值与附加约束集合边界点的值
+\[
+  f\left(\frac C2,\frac C2\right)=\left(\frac C2\right)^p,
+  \qquad
+  f(0,C)=f(C,0)=\frac12C^p,
+\]
+可知 $\left(\dfrac C2\right)^p$ 为 $f$ 在条件 $x,y\ge0$ 下的最小值。
+\end{xsolution}
+\begin{xremark}
+由本题结论可得
+\[
+  \frac12(x^p+y^p)\ge\left(\frac{x+y}{2}\right)^p.
+\]
+一般地，可以证明：若 $p\ge1,x_i\ge0,i=1,2,\ldots,n$，则有（参见上册 259 页题 8）
+\[
+  \frac1n\sum_{i=1}^n x_i^p\ge\left(\frac1n\sum_{i=1}^n x_i\right)^p.
+\]
+很多不等式都可以类似地化为条件最值问题来证明。
+\end{xremark}
+
+\begin{xexample}[21.4.4]
+求 $f(x,y,z)=\ln x+2\ln y+3\ln z$ 的最大值，其中 $x^2+y^2+z^2=6r^2\ (r>0),x>0,y>0,z>0$。且证明对任何正数 $a,b,c$，有
+\begin{equation}
+  ab^2c^3\le108\left(\frac{a+b+c}{6}\right)^6.
+  \tag{21.24}
+  \label{eq:21.24}
+\end{equation}
+\end{xexample}
+\begin{xsolution}
+\textbf{分析}\quad 原问题等价于求 $u=xy^2z^3$ 的最大值，这样做是因为对数函数在零点无定义，而幂函数则不然，因而可将约束条件化为 $x\ge0,y\ge0,z\ge0$。注意到在边界上 $u$ 取最小值。故在
+\[
+  D_1=\{(x,y,z)\mid x^2+y^2+z^2=6r^2,x\ge0,y\ge0,z\ge0\}
+\]
+的内部一定有 $u$ 的最大值点。
+
+构造 Lagrange 函数
+\[
+  L(x,y,z,\lambda)=xy^2z^3+\lambda(x^2+y^2+z^2-6r^2).
+\]
+令
+\begin{align}
+  L_x&=y^2z^3+2\lambda x=0, \tag{21.25}\label{eq:21.25}\\
+  L_y&=2xyz^3+2\lambda y=0, \tag{21.26}\label{eq:21.26}\\
+  L_z&=3xy^2z^2+2\lambda z=0, \tag{21.27}\label{eq:21.27}\\
+  x^2+y^2+z^2&=6r^2. \tag{21.28}\label{eq:21.28}
+\end{align}
+在 (21.25)--(21.27) 两边分别乘以 $x,y,z$，然后相加，利用 (21.28) 得
+\begin{equation}
+  xy^2z^3=-2\lambda r^2.
+  \tag{21.29}
+  \label{eq:21.29}
+\end{equation}
+再将 (21.29) 代入 (21.25)--(21.27) 中，明显地 $\lambda\ne0$，则
+\[
+  x=r,\qquad y=\sqrt2r,\qquad z=\sqrt3r,
+  \qquad \lambda=-3\sqrt3r^4
+\]
+对应了惟一驻点，于是 $xy^2z^3$ 的最大值为 $6\sqrt3r^6$，即
+\[
+  xy^2z^3\le6\sqrt3r^6.
+\]
+两边平方得
+\[
+  x^2y^4z^6\le108r^{12}.
+\]
+令 $a=x^2,b=y^2,c=z^2$，则 $r^2=\dfrac{a+b+c}{6}$。于是
+\[
+  ab^2c^3\le108\left(\frac{a+b+c}{6}\right)^6.
+\]
+\end{xsolution}
+\begin{xremark}
+也可以用算术平均值--几何平均值不等式（上册第 4 页）证不等式 (21.24)：
+\begin{equation}
+  ab^2c^3=2^23^3a\left(\frac b2\right)^2\left(\frac c3\right)^3
+  \le108\left(\frac{a+b+c}{6}\right)^6.
+  \tag{21.30}
+  \label{eq:21.30}
+\end{equation}
+\end{xremark}
+
+\subsection{隐函数的极值}
+
+求隐函数的极值有两种方法：第一种是用隐函数求导，称为直接法；第二种是化为条件极值去做，称为间接法。下面的例子给出了求隐函数极值的这两种方法。
+
+\begin{xexample}[21.4.5]
+求由方程
+\begin{equation}
+  2x^2+y^2+z^2+2xy-2x-2y-4z+4=0
+  \tag{21.31}
+  \label{eq:21.31}
+\end{equation}
+所确定的函数 $z=z(x,y)$ 的极值。
+\end{xexample}
+\begin{xsolution}
+\textbf{解 1（直接法）}\quad 设
+\[
+  g(x,y,z)=2x^2+y^2+z^2+2xy-2x-2y-4z+4,
+\]
+$\dfrac{\partial g}{\partial z}=2z-4$。由 $\dfrac{\partial g}{\partial z}\ne0$ 得 $z\ne2$。在满足 (21.31) 的 $(x,y,z),z\ne2$ 附近确定了隐函数 $z=z(x,y)$。由 (21.31) 对隐函数 $z=z(x,y)$ 求导，得
+\begin{align}
+  4x+2z\frac{\partial z}{\partial x}+2y-2-4\frac{\partial z}{\partial x}&=0, \tag{21.32}\label{eq:21.32}\\
+  2y+2z\frac{\partial z}{\partial y}+2x-2-4\frac{\partial z}{\partial y}&=0. \tag{21.33}\label{eq:21.33}
+\end{align}
+令 $\dfrac{\partial z}{\partial x}=\dfrac{\partial z}{\partial y}=0$，则
+\[
+  2x+y-1=0,\qquad y+x-1=0.
+\]
+由此得驻点为 $(0,1)$，将之代入 (21.31) 得
+\[
+  z^2-4z+3=0.
+\]
+于是 $z_1=1,z_2=3$，在 (21.32)、(21.33) 两边求导，得
+\begin{align}
+  4+2\left(\frac{\partial z}{\partial x}\right)^2+2z\frac{\partial^2z}{\partial x^2}-4\frac{\partial^2z}{\partial x^2}&=0, \tag{21.34}\label{eq:21.34}\\
+  2\frac{\partial z}{\partial x}\frac{\partial z}{\partial y}+2z\frac{\partial^2z}{\partial x\partial y}+2-4\frac{\partial^2z}{\partial x\partial y}&=0, \tag{21.35}\label{eq:21.35}\\
+  2+2\left(\frac{\partial z}{\partial y}\right)^2+2z\frac{\partial^2z}{\partial y^2}-4\frac{\partial^2z}{\partial y^2}&=0. \tag{21.36}\label{eq:21.36}
+\end{align}
+在 (21.34)--(21.36) 中令 $(x,y,z)=(0,1,1)$，$\dfrac{\partial z}{\partial x}=\dfrac{\partial z}{\partial y}=0$，得 $A=z_{xx}=2,B=z_{xy}=1,C=z_{yy}=1$，于是 $D=AC-B^2>0$。故 $z=1$ 为极小值。
+
+在 (21.34)--(21.36) 中令 $(x,y,z)=(0,1,3)$，$\dfrac{\partial z}{\partial x}=\dfrac{\partial z}{\partial y}=0$，得 $A=z_{xx}=-2,B=z_{xy}=-1,C=z_{yy}=-1$，于是 $D=AC-B^2>0$。由此可见 $z=3$ 为极大值。
+
+\textbf{解 2}\quad 以 (21.31) 为约束条件，取目标函数 $f(x,y,z)=z$，则 Lagrange 函数为
+\[
+  L(x,y,z,\lambda)=z+\lambda(2x^2+y^2+z^2+2xy-2x-2y-4z+4).
+\]
+令
+\begin{align}
+  L_x&=4\lambda x+2\lambda y-2\lambda=0, \tag{21.37}\label{eq:21.37}\\
+  L_y&=2\lambda x+2\lambda y-2\lambda=0, \tag{21.38}\label{eq:21.38}\\
+  L_z&=1+2\lambda z-4\lambda=0. \tag{21.39}\label{eq:21.39}
+\end{align}
+显然 $\lambda\ne0$，于是由 (21.37) 和 (21.38) 得驻点为 $(0,1)$。代入 (21.31) 得 $z_1=1,z_2=3$。再由 (21.39) 得 $\lambda_1=-\dfrac12,\lambda_2=\dfrac12$。由于
+\[
+  L_{xx}=4\lambda,\qquad L_{yy}=L_{zz}=2\lambda,
+  \qquad L_{xy}=2\lambda,\qquad L_{xz}=L_{yz}=0,
+\]
+于是 $L$ 在 $(0,1,1)$ 与 $(0,1,3)$ 的 Hesse 矩阵分别为
+\[
+  \begin{pmatrix}2&1&0\\1&1&0\\0&0&1\end{pmatrix},
+  \qquad
+  \begin{pmatrix}-2&-1&0\\-1&-1&0\\0&0&-1\end{pmatrix},
+\]
+前者正定，后者负定，所以 $z=1$ 为极小值，$z=3$ 为极大值。
+\end{xsolution}
+\begin{xremark}
+在上述条件极值问题中约束条件给出了一个有界闭集，所以条件最值一定取到。而且可以证明条件最值一定是条件极值，所以 $z=1$ 和 $z=3$ 分别是 (21.31) 确定的隐函数 $z=z(x,y)$ 的最小值和最大值。
+\end{xremark}
+
+\subsection{练习题}
+\begin{xexercise}
+\begin{enumerate}[label=\arabic*.]
+  \item 求 $f(x,y,z)=x^4+y^4+z^4$ 在条件 $xyz=1$ 下的极值。
+  \item 求 $u=x-2y+2z$ 在条件 $x^2+y^2+z^2=1$ 下的极值。
+  \item 求 $z=\cos^2x+\cos^2y$ 满足条件 $x-y=\dfrac\pi4$ 时的极值。
+  \item 求 $f(x,y,z)=x^ly^mz^n$ 满足条件 $ax+by+cz=k$ 的极值，常数和变量均正。
+  \item 求 $u=\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}+\dfrac{z^2}{c^2}$ 在条件 $x^2+y^2+z^2=1,\ x\cos\alpha+y\cos\beta+z\cos\gamma=0$ 下的极值，其中 $a>b>c>0,\cos^2\alpha+\cos^2\beta+\cos^2\gamma=1$。
+  \item 设约束条件为 $\dfrac1{x_1}+\dfrac1{x_2}+\cdots+\dfrac1{x_n}=\dfrac1a$，$x_i>0,i=1,2,\ldots,n$，而 $a>0$ 为定值，求 $u=x_1x_2\cdots x_n$ 的极值。
+  \item 求满足约束条件 $x+y+z=\dfrac\pi2,x>0,y>0,z>0$ 时，$u=\sin x\sin y\sin z$ 的极值。
+  \item 若 $\dfrac{x_1}{a_1}+\dfrac{x_2}{a_2}+\cdots+\dfrac{x_n}{a_n}=1$，求 $u=x_1^2+x_2^2+\cdots+x_n^2$ 的极值，其中 $a_i>0\ (i=1,2,\ldots,n)$ 是常数，变量 $x_1,x_2,\ldots,x_n$ 均大于 $0$。
+  \item 求 $u=x^3+y^3+z^3-2xyz$ 在 $x^2+y^2+z^2\le1$ 中的最大、最小值。
+  \item 求 $z=x^2-xy+y^2$ 在 $\abs{x}+\abs{y}\le1$ 中的最大、最小值。
+  \item 在球面 $x^2+y^2+z^2=1$ 上求一点，使其到 $n$ 个已知点 $M_i(x_i,y_i,z_i)\ (i=1,2,\ldots,n)$ 距离的平方和最小。
+  \item 求点 $(-1,0)$ 到半立方抛物线 $y^2=x^3$ 的最短距离。
+  \item 在周长为定数的三角形中，求面积为最大的三角形。
+  \item 分解正数 $a$ 为 $n$ 个因子，使其倒数和最小。
+  \item 长为 $a$ 的铁丝截成两段，一段围成一个正方形，另一段围成一个圆。这两段各为多少时，正方形与圆面积之和达最大值。
+\end{enumerate}
+\end{xexercise}
+\begin{xexercise}
+\begin{enumerate}[label=\arabic*.,start=16]
+  \item 过椭圆 $3x^2+2xy+3y^2=1$ 上任意点作此椭圆的切线，求切线与两坐标轴围成的三角形面积最小者。
+  \item 求原点到曲面 $(x-y)^2+z^2=1$ 的最短距离。
+  \item 求 $x^2-xy+y^2-z^2=1$ 与 $x^2+y^2=1$ 的交线到原点的最近距离。
+  \item 在圆外切三角形中，求面积最小的三角形。
+  \item 设四边形各边长为定数，求面积最大的四边形。
+  \item 在一个已知凸四边形内求一点 $C$，使其到四个顶点距离的平方和最小。
+  \item 证明：椭圆的内接三角形中，面积达最大的三角形的一个顶点处的法线，必定与此三角形的该顶点所对的边正交，并求面积最大的内接三角形。
+  \item 在椭圆 $x^2+4y^2=4$ 上求一点，使到直线 $3x+4y=12$ 的距离最短。
+  \item 设椭圆 $\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1$ 的任一切线与 $x,y$ 轴分别交于 $A,B$ 两点，试求线段 $AB$ 长度的最小值。
+  \item 在抛物线 $y=x^2$ 的所有与法线重合的弦中求长度最短的弦。
+  \item 设椭圆 $\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1$ 将圆 $(x-1)^2+y^2=1$ 包围于其内，试求 $a,b$ 的值，使符合上述条件的椭圆的面积为最小。
+  \item 设方程 $F(x,y)=0$ 满足隐函数定理的条件，并由此确定了隐函数 $y=f(x)$，又设 $F(x,y)$ 具有连续的二阶偏导数。
+  \begin{enumerate}[label=(\arabic*)]
+    \item 求 $f''(x)$；
+    \item 若 $F(x_0,y_0)=0,y_0=f(x_0)$ 为 $f(x)$ 的一个极值，证明：当 $F_y(x_0,y_0)$ 与 $F_{xx}(x_0,y_0)$ 同号时，$f(x_0)$ 为极大值，当 $F_y(x_0,y_0)$ 与 $F_{xx}(x_0,y_0)$ 异号时，$f(x_0)$ 为极小值；
+    \item 对方程 $x^2+xy+y^2=27$ 在隐函数形式下（不解出 $y$），求 $y=f(x)$ 的极值，并用 (2) 的结论判别极大或极小。
+  \end{enumerate}
+  \item 设 $D$ 是由两抛物线 $y=x^2-1,y=-x^2+1$ 所围成的闭域，试在 $D$ 内求一椭圆 $\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1$，使其面积为最大。
+\end{enumerate}
+\end{xexercise}
+
+\section{高维 Rolle 定理}
+
+本节可看成多元微分学应用的一个例子，主要材料取自《美国数学月刊》(1995) 第 102 卷 243--249 页。
+
+首先我们给出如下形式的 Rolle 定理。
+
+\begin{xproposition}[21.5.1]
+设函数 $f$ 在 $\RR^n$ 中的闭球 $\overline B(0;r)$ 上连续，在它的边界上等于常值，并且在开球 $B(0;r)$ 上可微，则在球内至少有一个点是函数的临界点（驻点），即存在 $(x_1^*,x_2^*,\ldots,x_n^*)\in B(0;r)$，使 $\nabla f(x_1^*,x_2^*,\ldots,x_n^*)=0$。
+\end{xproposition}
+\begin{xproof}
+如果 $f$ 在 $\overline B(0;r)$ 上为常值，结论显然。如果 $f$ 在 $\overline B(0;r)$ 上不为常值，则至少有一个最值在内部取到。因此这个最值点就是极值点，从而为 $f$ 的临界点（驻点）。
+\end{xproof}
+
+当 $n=2$ 时，设 $z=f(x,y)$ 表示定义在闭圆盘 $\overline B(0;r)$ 上的连续可微曲面 $\Sigma$。曲面在点 $(x_0,y_0)$ 处的切平面的法方向是
+\[
+  \left(\frac{\partial f}{\partial x}(x_0,y_0),
+  \frac{\partial f}{\partial y}(x_0,y_0),\pm1\right).
+\]
+上述定理表明存在点 $(x_0,y_0)$，使该点的切平面的法方向是 $(0,0,\pm1)$。因而切平面平行于 $\Sigma$ 的边界所在的平面 $z=c$，$c$ 为常值。
+
+下面考虑在 $B(0,r)\subset\RR^n$ 上的可微映射 $F$。有如下形式的 Rolle 定理：
+
+\begin{xproposition}[21.5.2]
+设 $F:B(0,r)\to\RR^m$ 可微，在闭球 $\overline B(0,r)$ 上连续，且存在非零向量 $\vect{v}\in\RR^m$ 使
+\begin{equation}
+  \vect{v}\cdot F(x)=0\qquad\text{对任意 }x\in\partial B(0,r)\text{ 成立},
+  \tag{21.40}
+  \label{eq:21.40}
+\end{equation}
+则存在 $\xi\in B(0,r)$，使对任意 $u\in\RR^n$ 都有
+\begin{equation}
+  \vect{v}\cdot JF(\xi)u=0.
+  \tag{21.41}
+  \label{eq:21.41}
+\end{equation}
+\end{xproposition}
+
+\paragraph{几何分析}
+在给出这个定理的证明之前，先看一下它的几何含义是什么。如果 $n=2,m=3$，则 $F$ 就表示定义在圆盘 $\overline B(0,r)$ 上的一个双参数曲面 $\Sigma$。条件 (21.40) 表明这个曲面在边界位于以 $\vect{v}$ 为法向量的一个平面 $\Pi$ 上（即法向量与平面的生成向量正交）。然后再分别取 $u=e_1,e_2$ 为 $\RR^2$ 的标准基，则 $\alpha=JF(\xi)e_1$ 和 $\beta=JF(\xi)e_2$ 就是 $JF(\xi)$ 的两个线性无关的列向量，因此
+\[
+  \vect{v}\cdot JF(\xi)e_j=0,\qquad j=1,2
+\]
+表明 $\vect{v}$ 与该两个线性无关向量正交。另一方面，这两个向量正是过 $F(\xi)$ 的切平面 $\Pi_\xi$ 的生成向量。因此，$\vect{v}$ 是 $\Pi_\xi$ 的法向量。也就是说 $\Pi_\xi$ 与 $\Pi$ 平行。一个定义在圆盘上的双参数可微曲面，如果它在边界上的点都位于一个平面 $\Pi$ 上，则必可在圆盘内部找到一参量 $\xi$，使对应 $F(\xi)$ 的曲面的点的切平面 $\Pi_\xi$ 与 $\Pi$ 平行。
+
+\paragraph{命题 21.5.2 的证明}
+定义多元函数 $g(x)=\vect{v}\cdot F(x)$，则 $g$ 是 $B(0,r)$ 上的可微函数，在 $\overline B(0,r)$ 上连续，并且当 $x\in\partial B(0,r)$ 时，$g(x)=0$。因此 $g$ 的最大值和最小值中至少有一个在开球 $B(0,r)$ 中的点 $\xi$ 上取到，从而 $\xi$ 必为 $g$ 的极值点，因此 $\nabla g(\xi)=0$。所以，$\forall u\in\RR^n$，有 $\nabla g(\xi)\cdot u=0$，即
+\[
+  \vect{v}\cdot JF(\xi)u=0.
+\]
+
+\begin{xremark}
+\textbf{注 1}\quad 在命题 21.5.2 中，开球 $B(0,r)$ 可换成任一个有界开区域。
+
+\textbf{注 2}\quad 在命题 21.5.2 中，条件 (21.40) 可换成：$\exists x_0\in B(0,r)$，使 $\vect{v}\cdot(F(x)-F(x_0))$ 在 $\partial B(0,r)$ 上不变号。
+
+\textbf{注 3}\quad 命题 21.5.2 有很多有趣的几何应用，如本章第二组参考题 2,3。
+\end{xremark}
+
+\section{对于教学的建议}
+
+\subsection{学习要点}
+
+\begin{enumerate}[label=\arabic*.]
+  \item 在解有关几何的习题中，许多学生惧怕“方向”，如切向、法向等。到了曲线、曲面积分部分更是如此。要从这一章起开始培养学生用数学分析处理空间问题的兴趣和信心。几何应用方面的习题可以参考 [25,55] 的 §6.5。
+  \item Taylor 公式是微分学应用的基础。用向量与矩阵的语言叙述和运用 Taylor 公式也许一上来要多费些时间，但从长远来看是非常值得的。
+  \item 极值问题（包括条件极值、条件最值）是本章的一个重点，材料十分丰富，我们在很多地方加进了自己的学习体会。一些重要的应用问题，如距离问题、面积问题和不等式等是研究生入学试题中的常客。21.4.4 小节中许多练习题选自实际试题，可用于考研复习。还可以参考 [25,55] 6.7.4 小节中的许多应用题。
+  \item 对习题课的建议。现在有一种不好的苗头是削减多元微积分的课时，有些老师把多元微积分上成了单纯的“计算”课。但实际上多元微积分中包含了极为丰富的数学思想和解题技巧。它所体现的综合性、空间性、应用性也不可能被一元微积分所替代。本章集中了多元微分学应用最重要的一些内容，在习题课安排上要给予充分的时间保证，让学生逐步形成使用微分学工具描述、处理多维问题的能力。由于向量与矩阵是处理多维问题最基本的数学工具，在训练中，要有意识地引导学生使用这些工具，可多举一些结合高等代数知识的例子。
+\end{enumerate}
+
+在解条件极值问题时，除认真分析目标函数、限制条件，正确写出 Lagrange 函数外，对如何快速准确地求出结果，要注意两点。下面以例题 21.4.2 为例说明：
+\begin{enumerate}[label=(\arabic*)]
+  \item 在令偏导数为 $0$，解代数方程组求驻点时，要充分利用方程组的特点。在例题 21.4.2 中，(21.15)--(21.19) 是 5 个方程，5 个未知量的方程组。如果不充分利用方程组的特点，是很难解出的。一般来说首先像例题中那样得到表达式 (21.20)；
+  \item 在解方程组 (21.15)--(21.19) 时，不需要将全部 5 个未知量都解出。事实上由 (21.20) 知只需要将 $\lambda$ 求出即可。
+\end{enumerate}
+
+\subsection{参考题}
+
+\subsubsection*{第一组参考题}
+\begin{xreferenceproblem}
+\begin{enumerate}[label=\arabic*.]
+  \item 曲面 $z=z(x,y)$ 由方程
+  \[
+    F\left(\frac{x-a}{z-c},\frac{y-b}{z-c}\right)=0
+  \]
+  确定，其中 $a,b,c$ 为常数。证明：
+  \begin{enumerate}[label=(\arabic*)]
+    \item 曲面的切平面经过定点 $(a,b,c)$；
+    \item 函数 $z=z(x,y)$ 满足方程
+    \[
+      \frac{\partial^2z}{\partial x^2}\cdot\frac{\partial^2z}{\partial y^2}
+      -\left(\frac{\partial^2z}{\partial x\partial y}\right)^2=0.
+    \]
+  \end{enumerate}
+  \item 在平面上给定一个边长为 $a,b,c$ 的三角形，在它上面可作无数个等体积的给定高 $h$ 的三棱锥，在其中求出有最小侧面积 $S$ 的那一个。
+  \item 设 $u=f(x,y,z)$ 为二次可微函数，记 $\cos\alpha,\cos\beta,\cos\gamma$ 为方向 $l$ 的方向余弦。求
+  \[
+    \frac{\partial^2u}{\partial l^2}=\frac{\partial}{\partial l}\left(\frac{\partial u}{\partial l}\right).
+  \]
+  \item 设 $u=f(x,y,z)$ 为二次可微函数，$l_i=(\cos\alpha_i,\cos\beta_i,\cos\gamma_i),i=1,2,3$ 为三个互相垂直的单位向量，证明：
+  \begin{enumerate}[label=(\arabic*)]
+    \item
+    \[
+      \left(\frac{\partial u}{\partial l_1}\right)^2
+      +\left(\frac{\partial u}{\partial l_2}\right)^2
+      +\left(\frac{\partial u}{\partial l_3}\right)^2
+      =\left(\frac{\partial u}{\partial x}\right)^2
+      +\left(\frac{\partial u}{\partial y}\right)^2
+      +\left(\frac{\partial u}{\partial z}\right)^2;
+    \]
+    \item
+    \[
+      \frac{\partial^2u}{\partial l_1^2}
+      +\frac{\partial^2u}{\partial l_2^2}
+      +\frac{\partial^2u}{\partial l_3^2}
+      =\frac{\partial^2u}{\partial x^2}
+      +\frac{\partial^2u}{\partial y^2}
+      +\frac{\partial^2u}{\partial z^2};
+    \]
+    \item 若 $\dfrac{\partial f}{\partial l_i}=0,i=1,2,3$，则 $f(x,y,z)$ 在 $\RR^3$ 中恒为常数。
+  \end{enumerate}
+  \item 设 $f$ 在 $O_\delta(x_0)\subset\RR^n$ 上连续，在 $O_\delta(x_0)\setminus\{x_0\}$ 可微，证明：
+  \begin{enumerate}[label=(\arabic*)]
+    \item 如果 $\forall x\in O_\delta(x_0)\setminus\{x_0\}$，有 $(x-x_0)\cdot\nabla f(x)<0$，则 $x_0$ 是 $f$ 的一个极大值点；
+    \item 如果 $\forall x\in O_\delta(x_0)\setminus\{x_0\}$，有 $(x-x_0)\cdot\nabla f(x)>0$，则 $x_0$ 是 $f$ 的一个极小值点。
+  \end{enumerate}
+  \item 设 $f$ 在 $O_{\delta_0}(x_0)\subset\RR^n$ 上二次连续可微，Hesse 矩阵 $\left(\dfrac{\partial^2f}{\partial x_i\partial x_j}(x_0)\right)$ 为正定阵，$\nabla f(x_0)=0$。证明：$\exists\delta\in(0,\delta_0)$，使 $(x-x_0)\cdot\nabla f(x)>0,\forall x\in O_\delta(x_0)\setminus\{x_0\}$。
+  \item 用条件极值的方法证明 Hölder 不等式：
+  \[
+    \sum_{i=1}^n a_ix_i
+    \le\left(\sum_{i=1}^n a_i^p\right)^{1/p}
+    \left(\sum_{i=1}^n x_i^q\right)^{1/q},
+  \]
+  其中 $a_i\ge0,x_i\ge0,i=1,2,\ldots,n;p,q>1,\dfrac1p+\dfrac1q=1$。
+  \item 证明：二次型
+  \[
+    f(x,y,z)=Ax^2+By^2+Cz^2+2Dyz+2Ezx+2Fxy
+  \]
+  在单位球面 $x^2+y^2+z^2=1$ 上的最大值与最小值恰好是矩阵
+  \[
+    \begin{pmatrix}A&F&E\\F&B&D\\E&D&C\end{pmatrix}
+  \]
+  的最大特征值与最小特征值。
+  \item 设 $A=(a_{ij})$ 是 $n$ 阶方阵，且设 $\sum_{j=1}^n a_{ij}^2=H_i,i=1,2,\ldots,n$，其中 $H_1,H_2,\ldots,H_n$ 是 $n$ 个确定的非负实数。
+  \begin{enumerate}[label=(\arabic*)]
+    \item 证明：如果矩阵 $A$ 的行向量是 $\RR^n$ 中两两正交的向量，则 $(\det A)^2$ 取到极值；
+    \item 根据等式 $(\det A)^2=\det A\cdot\det A^{\mathsf T}$，其中 $A^{\mathsf T}$ 是矩阵 $A$ 的转置矩阵，证明：
+    \[
+      \max_A\{(\det A)^2\}=H_1\times H_2\times\cdots\times H_n;
+    \]
+    \item 证明：对任意的矩阵 $B=(b_{ij})$ 有 Hadamard 不等式
+    \[
+      (\det B)^2\le\prod_{j=1}^n\left(\sum_{i=1}^n b_{ij}^2\right);
+    \]
+    \item 给 Hadamard 不等式以直观的几何解释。
+  \end{enumerate}
+  \item 设 $u(x,y)$ 在 $x^2+y^2\le1$ 上连续，在 $x^2+y^2<1$ 上满足
+  \[
+    \frac{\partial^2u}{\partial x^2}+\frac{\partial^2u}{\partial y^2}=u,
+  \]
+  则
+  \begin{enumerate}[label=(\arabic*)]
+    \item 若在 $x^2+y^2=1$ 上 $u(x,y)\ge0$，证明：当 $x^2+y^2\le1$ 时，$u(x,y)\ge0$；
+    \item 若在 $x^2+y^2=1$ 上 $u(x,y)>0$，证明：当 $x^2+y^2\le1$ 时，$u(x,y)>0$。
+  \end{enumerate}
+  \item 对多元函数极值的充分性定理给出详细的证明。
+  \item 仿照 21.4.2 小节对具有多个约束条件的条件最值的确定给出详细的讨论。
+\end{enumerate}
+\end{xreferenceproblem}
+
+\subsubsection*{第二组参考题}
+\begin{xreferenceproblem}
+\begin{enumerate}[label=\arabic*.]
+  \item 设二次连续可微函数 $f$ 在点 $p_0$ 处的梯度为零向量，但 Hesse 矩阵 $Q$ 为非零矩阵。证明：$f$ 在 $p_0$ 处的函数值增长最快的方向位于 $Q$ 的最大特征值对应的特征子空间中。如果最大特征值对应的特征子空间为一维空间，则相应的方向就是 $f$ 增长最快的方向。
+  \item 设 $\RR^3$ 中的光滑曲线段 $L$ 的参数表达式为
+  \[
+    x=x(t),\qquad y=y(t),\qquad z=z(t),\qquad t\in[a,b].
+  \]
+  $P(x(a),y(a),z(a)),Q(x(b),y(b),z(b))$ 为 $L$ 的起点与终点。$\Pi$ 是通过直线段 $PQ$ 的任一平面。证明：$\exists\xi\in(a,b)$，使得向量 $(x'(\xi),y'(\xi),z'(\xi))$ 与 $\Pi$ 平行。
+  \item （Sanderson（桑德森）中值定理）设 $f:[a,b]\to\RR^m$ 为 $k$ 次可微向量值函数，并且非零向量 $\vect{v}$ 与 $f(a),f(b)$ 及 $f^{(j)}(a),j=1,2,\ldots,k-1$ 正交。证明：$\exists\xi\in(a,b)$，使 $\vect{v}$ 与 $f^{(k)}(\xi)$ 正交。其中 $f^{(j)}$ 表示 $f$ 的各个分量函数的 $j$ 阶导数组成的向量。
+  \item 证明：与曲面 $ax^2+by^2+cz^2=1\ (abc\ne0)$ 相切的三个互相垂直的平面的交点在球面
+  \[
+    x^2+y^2+z^2=\frac1a+\frac1b+\frac1c
+  \]
+  上。
+  \item 设曲面 $\Sigma:z=f(x,y),(x,y)\in D$ 的每一点的法线与 $z$ 轴相交，其中 $D$ 是 $\RR^2$ 中的圆环或圆盘，$f$ 是 $C^1$ 函数。证明：$\Sigma$ 是一个旋转曲面。
+  \item 证明：不等式
+  \[
+    2ab\le\ee^{a-1}+a\ln a+\ee^{b-1}+b\ln b
+  \]
+  对所有 $a>0,b>0$ 成立。并求出等式成立的充分必要条件。
+  \item 设 $T:u=\varphi(x,y),v=\psi(x,y)$ 是平面上的一个变换。如果在该变换下任何两条相交曲线的交角保持不变，则称该变换是保角的。
+  \begin{enumerate}[label=(\arabic*)]
+    \item 如果 $\varphi$ 与 $\psi$ 满足 $\varphi_x=\psi_y,\varphi_y=-\psi_x$，则 $T$ 是保角变换；
+    \item 证明：下面的反演变换是保角的
+    \[
+      \xi=\frac{x}{x^2+y^2},\qquad
+      \eta=\frac{y}{x^2+y^2};
+    \]
+    \item 证明：任一圆的反演像是另一圆或直线；
+    \item 求出反演变换的 Jacobi 行列式；
+    \item 证明：连续可微变换 $T$ 是保角的充分必要条件是它满足 Cauchy--Riemann 方程
+    \[
+      \varphi_x=\psi_y,\ \varphi_y=-\psi_x
+      \qquad\text{或}\qquad
+      \varphi_x=-\psi_y,\ \varphi_y=\psi_x.
+    \]
+    第一种情况保持角度方向，第二种情况角度反向。
+  \end{enumerate}
+  \item 由公式
+  \[
+    \xi=\frac{x}{x^2+y^2+z^2},\qquad
+    \eta=\frac{y}{x^2+y^2+z^2},\qquad
+    \zeta=\frac{z}{x^2+y^2+z^2}
+  \]
+  定义三维反演变换。
+  \begin{enumerate}[label=(\arabic*)]
+    \item 证明：任何两个曲面之间的夹角在反演变换下不变；
+    \item 证明：球面被变换为球面或平面；
+    \item 求变换的 Jacobi 行列式。
+  \end{enumerate}
+\end{enumerate}
+\end{xreferenceproblem}
