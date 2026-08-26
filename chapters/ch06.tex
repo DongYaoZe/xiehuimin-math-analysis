@@ -5,4 +5,1286 @@
 % Transcribe only source content; omit running headers, footers, and printed page numbers.
 \chapter{导数与微分}
 
-% BEGIN TRANSCRIPTION
+这是进入微分学的第一章。本章含有四节。在 §6.1 中介绍导数概念、基本的求导公式和计算，§6.2 介绍高阶导数及其他求导法则，一阶微分的概念在 §6.3 中讨论，最后一节为学习要点和两组参考题。
+
+\section{导数及其计算}
+
+\subsection{内容提要}
+
+这里的要点为
+\begin{enumerate}
+  \item 导数就是变量的变化率。它在几何上来源于如何定义一般曲线的切线，而在运动学上则与中学物理中的瞬时速度的定义方式完全相同。
+  \item 从导数的定义可以看出，计算导数就是要求 $\frac{0}{0}$ 型的不定式的函数极限。这也就是在学习微分学之前先要学习极限理论的理由之一。§4.3 的两个重要极限以及许多例题都与此直接相关。
+  \item 函数在某一个点是否可导，只与该函数在这点附近的性态有关。因此与函数的极限和连续性类似，函数的可导性是一种局部性概念。
+  \item 函数在一点可导，则一定在该点连续。反之未必成立。
+  \item 除了导数的几何意义之外，还要知道单侧导数的几何意义，以及在某一点的导数或单侧导数为无穷大时的几何意义。
+  \item 导函数的概念。这直接导致高阶导数的概念。
+  \item 导数的计算。初等函数的导函数仍是初等函数。这里的计算可以用求导公式按部就班地进行。对于分段定义的函数，在特殊点上要从导数定义出发直接计算。
+  \item 复合函数求导的链式法则是导数计算中的基本工具。
+  \item 对隐函数和用参数方程定义的函数的导数计算所涉及的理论问题将在以后学习，本章着重于学习用求导法则进行计算。
+\end{enumerate}
+
+初等函数的求导公式在数学分析的教科书中都有，本书不再重复。请初学者注意：求导数是数学分析中最基本的一项计算，而这必须通过做教科书中的大量导数计算题才能学会。否则连基本公式都记不住，还有什么技能可谈。
+
+\subsection{思考题}
+
+\begin{enumerate}
+  \item 设 $f\in C(a,b)$，又在点 $x_0\in(a,b)$ 处可导。在 $x\ne x_0$ 时定义函数
+  \[
+    g(x)=\frac{f(x)-f(x_0)}{x-x_0}.
+  \]
+  问：如何在 $x_0$ 处补充定义 $g(x)$ 才能使得 $g\in C(a,b)$？
+  \item 说明 $f'_+(x_0)$ 和 $f'(x_0^+)$ 的不同意义，并举出它们取不同数值的例子。
+  \item $f'(x_0)$ 和 $(f(x_0))'$ 有无区别？为什么？
+  \item 验证下列三个函数 $f(x)=\sin^2x$，$g(x)=-\cos^2x$，$h(x)=-\frac12\cos2x$ 的导函数均相等。为什么相等？
+  \item 若 $f'(x_0)$ 存在，求
+  \[
+    \lim_{\Delta x\to0}\frac{f(x_0-\Delta x)-f(x_0)}{\Delta x}.
+  \]
+  \item 若 $[f(x)]'=[f^2(x)]'$，证明：或者 $f(1)=1$，或者 $f'(1)=0$。
+  \item
+  \begin{enumerate}[label=(\arabic*)]
+    \item 在圆面积公式 $S(r)=\pi r^2$ 和圆周长公式 $l(r)=2\pi r$ 之间有微分学的关系 $S'(r)=l(r)$，请作出解释；
+    \item 同样，在球体积公式 $V(r)=\frac43\pi r^3$ 和球面积公式 $A(r)=4\pi r^2$ 之间有微分学的关系 $V'(r)=A(r)$，请作出解释；
+    \item 能否在所知的初等几何计算公式中再找出类似的微分学联系？
+  \end{enumerate}
+  \item 设 $f(x)$ 在 $(a,b)$ 上可导。
+  \begin{enumerate}[label=(\arabic*)]
+    \item 若 $\lim_{x\to a^+}f(x)=\infty$，是否可以推出 $\lim_{x\to a^+}f'(x)=\infty$？
+    \item 若 $\lim_{x\to a^+}f'(x)=\infty$，是否可以推出 $\lim_{x\to a^+}f(x)=\infty$？
+  \end{enumerate}
+  \item 判断下列命题的真假，并说明理由：
+  \begin{enumerate}[label=(\arabic*)]
+    \item 若 $f$ 在 $x=0$ 可导，且 $f(0)=0$，则 $f'(0)=0$；反之也成立；
+    \item 若 $f$ 在 $x_0$ 可导，且在某 $O(x_0)$ 上 $f(x)>0$，则 $f'(x_0)>0$；
+    \item 若 $f$ 为 $(-1,1)$ 上的偶函数，于 $x=0$ 处可导，则 $f'(0)=0$；
+    \item 若 $f$ 为 $(-1,1)$ 上的奇函数，于 $x=0$ 处可导，则 $f'(0)=0$；
+    \item 若 $f$ 在 $x_0$ 可导，则 $\abs{f}$ 也在 $x_0$ 处可导；反之也成立；
+    \item 若存在极限
+    \[
+      \lim_{\Delta x\to0}\frac{f(x_0+\Delta x)-f(x_0-\Delta x)}{\Delta x},
+    \]
+    则 $f(x)$ 于 $x_0$ 处可导；反之也成立。
+  \end{enumerate}
+  \item
+  \begin{enumerate}[label=(\arabic*)]
+    \item 如果 $f(x)$ 在点 $x_0$ 处既左连续，又右连续，问 $f(x)$ 在 $x_0$ 处是否连续？
+    \item 如果 $f(x)$ 在点 $x_0$ 处既左侧可导，又右侧可导，问 $f(x)$ 在 $x_0$ 处是否可导？为什么？
+  \end{enumerate}
+\end{enumerate}
+
+\subsection{例题}
+
+以下第一个例题的内容是联系导数与连续的基本结果。
+
+\begin{xexample}[6.1.1]
+证明：函数在某点可导，则在该点一定连续。
+\end{xexample}
+\begin{xproof}
+证 1\quad 设函数 $y=f(x)$ 于点 $x_0$ 处可导。根据定义，存在极限
+\[
+  \lim_{\Delta x\to0}\frac{\Delta y}{\Delta x}=f'(x_0).
+\]
+因此有
+\[
+  \frac{\Delta y}{\Delta x}=f'(x_0)+\littleo(1)\quad(\Delta x\to0).
+\]
+两边乘以 $\Delta x$，得到
+\begin{equation}
+  \Delta y=f'(x_0)\Delta x+\littleo(\Delta x)\quad(\Delta x\to0).
+  \tag{6.1}
+  \label{eq:6.1}
+\end{equation}
+由于 $\Delta x=x-x_0,\Delta y=y-y_0=f(x)-f(x_0)$，上式可以重写为
+\[
+  f(x)=f(x_0)+f'(x_0)(x-x_0)+\littleo(x-x_0)\quad(x\to x_0).
+\]
+令 $x\to x_0$，就得到 $\lim_{x\to x_0}f(x)=f(x_0)$。
+\end{xproof}
+
+\begin{xremark}
+称 (6.1) 为无穷小增量公式。它是微分学中的主要工具之一。
+\end{xremark}
+
+\begin{xproof}
+证 2\quad 将函数 $y=f(x)$ 的因变量 $y$ 的增量 $\Delta y$ 写成（$\Delta x\ne0$）
+\[
+  \Delta y=\frac{\Delta y}{\Delta x}\cdot\Delta x.
+\]
+由于右边的差商当 $\Delta x\to0$ 时有极限，第二个因子是无穷小量，因此就得到
+\[
+  \Delta y=\littleo(1)\quad(\Delta x\to0).
+\]
+这就是说当 $x\to x_0$ 时 $f(x)\to f(x_0)$，即 $f$ 在 $x_0$ 处连续。
+\end{xproof}
+
+\begin{xproof}
+证 3\quad 直接用连续性的 $\varepsilon$-$\delta$ 定义来进行证明。由于存在极限
+\[
+  \lim_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}=f'(x_0),
+\]
+应用局部有界性定理，存在 $M>0,\eta>0$，使得当 $0<\abs{x-x_0}<\eta$ 时，成立
+\[
+  \abs{\frac{f(x)-f(x_0)}{x-x_0}}<M.
+\]
+对给定的 $\varepsilon>0$，取
+\[
+  \delta=\min\left\{\eta,\frac{\varepsilon}{M}\right\}.
+\]
+则当 $0<\abs{x-x_0}<\delta$ 时，成立
+\[
+  \abs{f(x)-f(x_0)}
+  =\abs{\frac{f(x)-f(x_0)}{x-x_0}}\cdot\abs{x-x_0}
+  <M\abs{x-x_0}\le\varepsilon.
+\]
+这样就证明了 $f$ 在 $x_0$ 处连续。
+\end{xproof}
+
+\begin{xremark}
+与这个基本结论有关的其他内容有：(1) 若 $f(x)$ 在点 $x_0$ 存在某个单侧导数，则 $f(x)$ 在点 $x_0$ 具有相应的单侧连续性；(2) 若 $f(x)$ 在点 $x_0$ 存在两个单侧导数（不论它们是否相等），则 $f(x)$ 在点 $x_0$ 处连续。（典型例子为 $f(x)=\abs{x},x_0=0$。）
+\end{xremark}
+
+\begin{xexample}[6.1.2]
+举例说明函数在某点可导，但在这点外的每个点上可以不连续。
+\end{xexample}
+\begin{xsolution}
+定义函数 $f$ 如下：
+\[
+  f(x)=
+  \begin{cases}
+    x^2, & x\text{ 是有理数},\\
+    0,   & x\text{ 是无理数}.
+  \end{cases}
+\]
+则在 $x=0$ 处 $f'(0)=0$，当然函数于该点连续。但在任何 $x\ne0$ 处函数 $f$ 均有第二类间断点（证明细节请读者完成）。
+\end{xsolution}
+
+若 $y=f(x)$ 在点 $x_0$ 处可导，则曲线 $y=f(x)$ 在点 $(x_0,f(x_0))$ 处有切线
+\[
+  l(x)=f(x_0)+f'(x_0)(x-x_0).
+\]
+下一个例题刻画了这条特殊的直线所具有的局部最优性（见 [17]）。
+
+\begin{xexample}[6.1.3]
+设函数 $f(x)$ 在点 $x_0$ 处可导，$l(x)$ 定义如上。对于不等于 $l(x)$ 的其他任何 $L(x)=ax+b$，存在 $\delta>0$，使得当 $0<\abs{x-x_0}<\delta$ 时，成立不等式
+\begin{equation}
+  \abs{f(x)-l(x)}<\abs{f(x)-L(x)}.
+  \tag{6.2}
+  \label{eq:6.2}
+\end{equation}
+\end{xexample}
+\begin{xproof}
+如图 6.1 所示分两种情况讨论。
+
+\begin{center}
+  \includegraphics[width=.72\linewidth]{figures/upper/ch06/fig-6-1.png}
+\end{center}
+
+(1) $L(x_0)\ne f(x_0)$。几何上这表明直线 $L(x)=ax+b$ 不经过点 $(x_0,y_0)$，其中 $y_0=f(x_0)=l(x_0)$。由于 $L(x_0)\ne y_0$，利用
+\[
+  \lim_{x\to x_0}\abs{f(x)-l(x)}=\abs{f(x_0)-l(x_0)}=0
+  <\abs{f(x_0)-L(x_0)}
+  =\lim_{x\to x_0}\abs{f(x)-L(x)}
+\]
+和连续函数的局部保号性，存在 $\delta>0$，使得当 $\abs{x-x_0}<\delta$ 时，所要的不等式 (6.2) 成立。注意：这时 $x=x_0$ 是允许的。
+
+(2) $L(x_0)=f(x_0)$。几何上这表明直线 $L(x)=ax+b$ 经过点 $(x_0,y_0)$，即有
+\[
+  L(x_0)=f(x_0)=l(x_0)=ax_0+b.
+\]
+改写 $L(x)$ 为
+\[
+  L(x)=a(x-x_0)+f(x_0).
+\]
+由于 $L(x)\ne l(x)$，所以必有 $a\ne f'(x_0)$。由于导数 $f'(x_0)$ 存在，即有（这就是无穷小增量公式 (6.1)）
+\[
+  f(x)=f(x_0)+f'(x_0)(x-x_0)+\littleo(x-x_0)\quad(x\to x_0).
+\]
+因此有
+\[
+  f(x)-l(x)=\littleo(x-x_0)\quad(x\to x_0).
+\]
+另一方面，既然 $a\ne f'(x_0)$，因此有
+\[
+  \frac{f(x)-l(x)}{f(x)-L(x)}
+  =\frac{\littleo(x-x_0)}{(f'(x_0)-a)(x-x_0)+\littleo(x-x_0)}
+  =\littleo(1)\quad(x\to x_0).
+\]
+从而存在 $\delta>0$，使得当 $0<\abs{x-x_0}<\delta$ 时，成立
+\[
+  \abs{\frac{f(x)-l(x)}{f(x)-L(x)}}<1,
+\]
+这就是所要求证的不等式 (6.2)。
+\end{xproof}
+
+无穷小增量公式 (6.1) 可以加强为在下一个例题中更为有用的形式 (6.3)。（取自 [17]，又参见本章第一组参考题 14。）
+
+\begin{xexample}[6.1.4]
+设 $f(x)$ 在点 $x_0$ 处可导，则成立以下公式：
+\begin{equation}
+  \Delta y=f'(x_0)\Delta x+\omega(x)\Delta x,
+  \tag{6.3}
+  \label{eq:6.3}
+\end{equation}
+其中的函数 $\omega(x)$ 满足条件 $\lim_{x\to x_0}\omega(x)=\omega(x_0)=0$。
+\end{xexample}
+\begin{xproof}
+定义
+\[
+  \omega(x)=
+  \begin{cases}
+    \dfrac{\Delta y}{\Delta x}-f'(x_0), & x\ne x_0,\\[6pt]
+    0, & x=x_0.
+  \end{cases}
+\]
+可以看出 $\omega(x)$ 在点 $x_0$ 处连续，因此公式 (6.3) 成立。
+\end{xproof}
+
+公式 (6.3) 的另一个形式是
+\[
+  f(x)=f(x_0)+f'(x_0)(x-x_0)+\omega(x)(x-x_0).
+\]
+
+\begin{xremark}
+公式 (6.1) 右边的第二项带有小 $o$ 记号，因此并不是普通的等式，这使得它的使用不如 (6.3) 方便。实际上，在用 (6.3) 来证明一系列求导公式时，我们只需要作简单的计算即可。作为例子，我们将用它来证明反函数与复合函数的求导公式。这两个公式的证明对初学者往往有困难，在证明时也很容易犯错误。
+\end{xremark}
+
+\begin{xproposition}[6.1.1（反函数求导公式）]
+设 $x=\varphi(y)$ 在点 $y_0$ 的某邻域上为严格单调连续函数，且有 $\varphi'(y_0)\ne0$。若 $y=f(x)$ 是 $x=\varphi(y)$ 的反函数，则 $f(x)$ 在点 $x_0=\varphi(y_0)$ 处可导，而且有
+\[
+  f'(x_0)=\frac{1}{\varphi'(y_0)}.
+\]
+\end{xproposition}
+
+\begin{xremark}
+在图 6.2 中显示了反函数求导公式的几何意义，其中同一条曲线代表了变量 $x$ 和 $y$ 之间的对应关系。以 $y$ 为自变量、$x$ 为因变量时即代表函数 $x=\varphi(y)$，而以 $x$ 为自变量、$y$ 为因变量时就得到反函数 $y=f(x)$。它们在点 $(x_0,y_0)$ 的切线是同一条直线，而与两条坐标轴的夹角的正切成倒数关系。这就是反函数求导公式的几何意义。
+
+\begin{center}
+  \includegraphics[width=.45\linewidth]{figures/upper/ch06/fig-6-2.png}
+\end{center}
+\end{xremark}
+
+\begin{xproof}
+根据命题 5.5.4（即单调连续函数的反函数定理），$f(x)$ 在点 $x_0$ 的邻近也是严格单调连续函数。从 $x=\varphi(y)$ 在点 $y_0$ 处可导出发，应用公式 (6.3) 得到
+\begin{equation}
+  \Delta x=x-x_0=[\varphi'(y_0)+\omega(y)](y-y_0)=[\varphi'(y_0)+\omega(y)]\Delta y,
+  \tag{6.4}
+  \label{eq:6.4}
+\end{equation}
+其中 $\omega(y)$ 满足条件
+\[
+  \lim_{y\to y_0}\omega(y)=\omega(y_0)=0.
+\]
+现在用 $y=f(x)$ 代入等式 (6.4) 中的 $\omega(y)$ 内。由于 $f(x)$ 在 $x_0$ 处连续，而 $\omega(y)$ 在 $y_0=f(x_0)$ 处连续，从复合函数的连续性定理知道 $\omega(f(x))$ 在 $x_0$ 处连续，且有
+\[
+  \lim_{x\to x_0}\omega(f(x))
+  =\omega\!\left(\lim_{x\to x_0}f(x)\right)
+  =\omega(f(x_0))=\omega(y_0)=0.
+\]
+再利用条件 $\varphi'(y_0)\ne0$，存在点 $x_0$ 的某邻域 $O(x_0)$，当 $x\in O(x_0)$ 时，有
+\[
+  \varphi'(y_0)+\omega(f(x))\ne0.
+\]
+因此当 $x\in O(x_0)$ 时，可以从 (6.4) 得到
+\[
+  \frac{\Delta y}{\Delta x}
+  =\frac{1}{\varphi'(y_0)+\omega(f(x))}.
+\]
+令 $x\to x_0$，即 $\Delta x\to0$，就有所要的结果
+\[
+  \lim_{\Delta x\to0}\frac{\Delta y}{\Delta x}=\frac{1}{\varphi'(y_0)}.
+\]
+\end{xproof}
+
+\begin{xremark}
+对这个结果的常见说法是从
+\[
+  \frac{\Delta y}{\Delta x}=\frac{1}{\dfrac{\Delta x}{\Delta y}}
+\]
+取极限，就可以得到
+\[
+  \frac{\dd y}{\dd x}=\frac{1}{\dfrac{\dd x}{\dd y}}.
+\]
+这作为一种启发或记忆方法是可以的，但要严格讲清楚的话并不容易。而在上面的证明中只要用公式 (6.3) 进行计算。
+\end{xremark}
+
+\begin{xproposition}[6.1.2（复合函数求导的链式法则）]
+设 $u=\varphi(x)$ 于 $x_0$ 处可导，$y=f(u)$ 于 $u_0=\varphi(x_0)$ 处可导，则 $y=f(\varphi(x))$ 于 $x_0$ 处可导，而且有
+\[
+  [f(\varphi(x))]'_{x=x_0}=f'(u_0)\varphi'(x_0).
+\]
+\end{xproposition}
+\begin{xproof}
+分别将无穷小增量公式 (6.3) 用于 $u=\varphi(x)$（在 $x_0$）和 $y=f(u)$（在 $u_0$），得到
+\begin{align}
+  \varphi(x)-\varphi(x_0)&=[\varphi'(x_0)+\omega_1(x)]\Delta x, \tag{6.5}\label{eq:6.5}\\
+  f(u)-f(u_0)&=[f'(u_0)+\omega_2(u)]\Delta u, \tag{6.6}\label{eq:6.6}
+\end{align}
+其中 $\omega_1(x)$ 在 $x_0$ 处连续，且取值为 0，又其中 $\omega_2(u)$ 在 $u_0$ 连续，且取值为 0。
+
+现在考虑复合函数 $y=f(\varphi(x))$。在 (6.6) 中令 $u=\varphi(x)$，利用条件 $u_0=\varphi(x_0)$，从而有 $\Delta u=\varphi(x)-\varphi(x_0)$，然后再将 (6.5) 代入，就得到
+\[
+  \Delta y=f(\varphi(x))-f(\varphi(x_0))
+  =f'(u_0)\varphi'(x_0)\Delta x+\omega(x)\Delta x,
+\]
+其中
+\[
+  \omega(x)=f'(u_0)\omega_1(x)+\varphi'(x_0)\omega_2(\varphi(x))+\omega_1(x)\omega_2(\varphi(x)).
+\]
+根据 $\omega_1(x)$ 和 $\omega_2(u)$ 分别在 $x_0$ 和 $u_0=\varphi(x_0)$ 处连续且取值为 0，又知道 $\varphi(x)$ 在 $x_0$ 处连续，就可以看出函数 $\omega(x)$ 在 $x_0$ 处连续且取值为 0。这样就得到
+\[
+  \lim_{x\to x_0}\omega(x)=0.
+\]
+现在只要写出差商
+\[
+  \frac{\Delta y}{\Delta x}=f'(u_0)\varphi'(x_0)+\omega(x),
+\]
+再令 $x\to x_0$，就得到所要求证的公式
+\[
+  [f(\varphi(x))]'_{x=x_0}=f'(u_0)\varphi'(x_0).
+\]
+\end{xproof}
+
+\begin{xremark}
+关于复合函数求导法则证明的一个常见错误是从
+\begin{equation}
+  \frac{\Delta y}{\Delta x}=\frac{\Delta y}{\Delta u}\cdot\frac{\Delta u}{\Delta x}
+  \tag{6.7}
+  \label{eq:6.7}
+\end{equation}
+出发，令 $\Delta x\to0$，得到
+\[
+  \frac{\dd y}{\dd x}=\frac{\dd y}{\dd u}\cdot\frac{\dd u}{\dd x}.
+\]
+由于这里涉及对函数极限的基本理解问题，需要作些解释。
+
+在 (6.7) 的左边，按照极限定义有 $\Delta x\ne0$，因此无问题。但在右边的
+\[
+  \Delta u=u-u_0=\varphi(x)-\varphi(x_0)
+\]
+完全可能取到 0 值（甚至有可能在 $\Delta x\to0$ 的过程中无限次取到 0 值），因此等式 (6.7) 是不合法的。这里的 $\Delta u$ 是中间变量 $u=\varphi(x)$ 的增量，它是由自变量 $x$ 的增量 $\Delta x$ 决定的，没有理由加上 $\Delta u\ne0$ 的限制。
+
+但在命题 6.1.2 的上述证明中不存在任何概念上的困难，只是有关连续性的普通计算而已。这就是用无穷小增量公式 (6.3) 代替 (6.1) 的优点。
+\end{xremark}
+
+\begin{xexample}[6.1.5]
+求函数
+\[
+  f(x)=
+  \begin{cases}
+    x^2\sin\dfrac1x, & x\ne0,\\[4pt]
+    0, & x=0
+  \end{cases}
+\]
+的导函数，并讨论其连续性（参见图 6.3）。
+\end{xexample}
+\begin{xsolution}
+在 $x\ne0$ 处可以用初等函数的求导法则，但在点 $x=0$ 处则必须按导数的定义，先写出差商，再求极限。根据 $f$ 的定义，可得到 $f'(0)=0$（具体计算过程从略）。这里只写出所得的结果：
+\[
+  f'(x)=
+  \begin{cases}
+    2x\sin\dfrac1x-\cos\dfrac1x, & x\ne0,\\[4pt]
+    0, & x=0.
+  \end{cases}
+\]
+
+\begin{center}
+  \includegraphics[width=.48\linewidth]{figures/upper/ch06/fig-6-3.png}
+\end{center}
+
+由此可见，函数 $f(x)$ 处处可导，但导函数 $f'(x)$ 在点 $x=0$ 处不连续。由于极限 $\lim_{x\to0}f'(x)$ 不存在，因此 $x=0$ 是第二类间断点。
+\end{xsolution}
+
+\begin{xremark}
+函数在某点的单侧导数和导函数在该点的单侧极限是不同的概念。初学者在这一个问题上容易把两者混淆。对本题来说，既然有 $f'(0)=0$，因此在 $x=0$ 处的两个单侧导数均为 0，即 $f'_-(0)=f'_+(0)=0$。但从 $f'(x)$ 在 $x\ne0$ 时的表达式可以看出，导函数在点 $x=0$ 的两个单侧极限，即 $f'(0^-)$ 和 $f'(0^+)$ 都不存在。（参见下一章的命题 7.1.7，即单侧导数极限定理。）
+\end{xremark}
+
+\begin{xexample}[6.1.6]
+确定函数
+\[
+  f(x)=
+  \begin{cases}
+    ax+b, & x>1,\\
+    x^2, & x\le1
+  \end{cases}
+\]
+中的 $a,b$，使得函数 $f(x)$ 在 $x=1$ 处可导。
+\end{xexample}
+\begin{xsolution}
+根据函数在一点存在导数的充分必要条件是两个单侧导数存在且相等，我们将分别计算 $f'_-(1)$ 和 $f'_+(1)$。
+
+左侧导数 $f'_-(1)$ 可以直接计算如下：
+\[
+  f'_-(1)=\lim_{\Delta x\to0^-}\frac{(1+\Delta x)^2-1}{\Delta x}
+  =\lim_{\Delta x\to0^-}\frac{2\Delta x+\Delta^2x}{\Delta x}=2.
+\]
+右侧导数的计算有所不同。这里一方面涉及两个待定的数 $a,b$，另一方面又必须保证函数在点 $x=1$ 处有连续性。由函数 $f$ 在 $x>1$ 的表达式 $ax+b$ 和 $f(1)=1$ 可见 $a,b$ 必须满足要求 $a+b=1$，否则 $f'_+(1)$ 就不可能存在。令 $b=1-a$，然后可以计算如下：
+\[
+  f'_+(1)=\lim_{\Delta x\to0^+}\frac{a(1+\Delta x)+(1-a)-1}{\Delta x}
+  =\lim_{\Delta x\to0^+}\frac{a\Delta x}{\Delta x}=a.
+\]
+令 $f'_-(1)=f'_+(1)$，得到 $a=2$，从而 $b=-1$。
+\end{xsolution}
+
+\begin{xremark}
+由于单侧导数与导函数的单侧极限是不同的概念，因此本题应当按单侧导数的定义计算。注意在求（单侧）导数之前先要看是否（单侧）连续。
+\end{xremark}
+
+导数计算中的一个困难是求形式为 $u(x)^{v(x)}$ 的函数的导函数。
+
+\begin{xexample}[6.1.7]
+计算 $f(x)=x^{1/x}$ 的导函数。
+\end{xexample}
+\begin{xsolution}
+用对数求导法。先取对数得到
+\[
+  \ln f(x)=\ln(x^{1/x})=\frac{\ln x}{x},
+\]
+然后求导，左边用复合函数求导法则得到
+\[
+  [\ln f(x)]'=\frac{f'(x)}{f(x)},
+\]
+右边直接计算得到
+\[
+  \left(\frac1x\cdot\ln x\right)'=-\frac{1}{x^2}\ln x+\frac{1}{x^2}=\frac{1}{x^2}(1-\ln x).
+\]
+这样就计算出
+\[
+  f'(x)=f(x)\cdot\frac{1}{x^2}(1-\ln x)=x^{1/x-2}(1-\ln x).
+\]
+\end{xsolution}
+
+\begin{xremark}
+对数求导法在对乘积形式的函数求导数时也有用处。例如设有多项式
+\[
+  p(x)=(x-x_1)(x-x_2)\cdots(x-x_n),
+\]
+且其中 $x_i,i=1,2,\ldots,n$ 互不相等，则为了求 $p(x)$ 的导数，可以先取绝对值，再取对数，然后将
+\[
+  \ln\abs{p(x)}=\ln\abs{x-x_1}+\ln\abs{x-x_2}+\cdots+\ln\abs{x-x_n}
+\]
+对 $x$ 求导，就很方便地得到
+\[
+  p'(x)=p(x)\left(\frac1{x-x_1}+\frac1{x-x_2}+\cdots+\frac1{x-x_n}\right).
+\]
+\end{xremark}
+
+\subsection{练习题}
+
+\begin{xexercise}
+\begin{enumerate}
+  \item 证明以下基本事实：
+  \begin{enumerate}[label=(\arabic*)]
+    \item 可导的偶函数的导函数为奇函数；
+    \item 可导的奇函数的导函数为偶函数；
+    \item 可导的周期函数的导函数为周期函数。
+  \end{enumerate}
+  \item 已知偶函数 $f(x)$ 在点 $x=0$ 处可导，求 $f'(0)$。
+  \item 确定 $a$ 的值，使两条曲线 $y=ax^2$ 与 $y=\ln x$ 相切。
+  \item 设函数 $f(x),g(x)$ 在点 $x_0$ 处均可导。证明：$f(x)-g(x)=\littleo(x-x_0)\ (x\to x_0)$ 的充分必要条件是两条曲线 $y=f(x)$ 与 $y=g(x)$ 在 $x=x_0$ 时相切。
+  \item 设函数 $f(x)$ 可导，且 $f(x)$ 无零点。证明：两条曲线 $y=f(x)$ 和 $y=f(x)\sin x$ 在其交点处相切。
+  \item 设 $p(x)$ 是有 $n$ 个实根的 $n$ 次多项式，记它的相异根为 $x_1,\ldots,x_k$，其中根 $x_i$ 的重数为 $n_i,i=1,2,\ldots,k,n_1+n_2+\cdots+n_k=n$。证明：成立
+  \[
+    p'(x)=p(x)\left(\sum_{i=1}^k\frac{n_i}{x-x_i}\right).
+  \]
+  \item 设函数
+  \[
+    f(x)=
+    \begin{cases}
+      \dfrac{x}{1+\ee^{1/x}}, & x\ne0,\\[4pt]
+      0, & x=0,
+    \end{cases}
+  \]
+  研究 $f(x)$ 的可导性。
+  \item 设 $n$ 为正整数，在什么条件下，函数
+  \[
+    f(x)=
+    \begin{cases}
+      x^n\sin\dfrac1x, & x\ne0,\\[4pt]
+      0, & x=0
+    \end{cases}
+  \]
+  (1) 在 $x=0$ 处连续；(2) 在 $x=0$ 处可导；(3) 在 $x=0$ 处导函数连续。
+  \item 设函数 $f(x)$ 满足函数方程 $f(x+y)=f(x)\cdot f(y)$，且已知 $f'(0)=1$。证明：$f(x)$ 处处可导，且成立 $f'(x)=f(x)$。（可与 5.1.4 小节的题 10 作比较。）
+  \item 给定函数
+  \[
+    f(x)=\begin{cases}0,&x\text{ 为无理数},\\x,&x\text{ 为有理数},\end{cases}
+    \qquad
+    g(x)=\begin{cases}0,&x\text{ 为无理数},\\x^2,&x\text{ 为有理数},\end{cases}
+  \]
+  讨论它们的连续性与可导性。
+  \item 设
+  \[
+    f(x)=\begin{cases}x,&x\text{ 为有理数},\\x^2+x,&x\text{ 为无理数}.
+    \end{cases}
+  \]
+  (1) 证明 $x\ne0$ 时，$f$ 不连续；(2) 计算 $f'(0)$。
+  \item 设在原点某邻域 $O(0)$ 上有 $\abs{f(x)}\le\abs{g(x)}$，且 $g(0)=g'(0)=0$。求 $f'(0)$。
+\end{enumerate}
+\end{xexercise}
+
+% END OF SECTION 6.1 TRANSCRIPTION
+
+\section{高阶导数及其他求导法则}
+
+本节的内容为高阶导数的计算方法、隐函数求导法则和用参数方程给出的函数的求导法则。
+
+\subsection{高阶导数计算}
+
+高阶导数的计算，特别是 $n$ 阶导数的一般表达式的计算往往会有困难，这里 Leibniz（莱布尼茨）公式是主要工具：
+\[
+  (uv)^{(n)}
+  =\binom n0u^{(0)}v^{(n)}+\binom n1u'v^{(n-1)}+\binom n2u''v^{(n-2)}+\cdots+\binom nn u^{(n)}v^{(0)}
+  =\sum_{k=0}^n\binom nk u^{(k)}v^{(n-k)}.
+\]
+由于这个公式在各种教科书中都有证明，这里不再重复。
+
+在 Leibniz 公式的右边有 $n+1$ 项，如果在 $uv$ 中有一个函数是低次多项式，则实际出现的项数就很少，这对于计算很有利。
+
+\begin{xexample}[6.2.1]
+计算 $(x^2\sin x)^{(80)}$。
+\end{xexample}
+\begin{xsolution}
+用 Leibniz 公式和 $(\sin x)^{(4)}=\sin x,(\cos x)^{(4)}=\cos x$，就有
+\[
+  (x^2\sin x)^{(80)}
+  =x^2(\sin x)^{(80)}+\binom{80}{1}(x^2)'(\sin x)^{(79)}
+  +\binom{80}{2}(x^2)''(\sin x)^{(78)}
+  =(x^2-6320)\sin x-160x\cos x.
+\]
+\end{xsolution}
+
+\begin{xexample}[6.2.2]
+设 $f(x)=\dfrac{2x}{1-x^2}$，求 $f^{(n)}(x)$。
+\end{xexample}
+\begin{xsolution}
+分解为简单分式后再求导。先将 $f$ 改写为
+\[
+  f(x)=\frac1{1-x}-\frac1{1+x},
+\]
+这样就有
+\[
+  f^{(n)}(x)=\left(\frac1{1-x}\right)^{(n)}-\left(\frac1{1+x}\right)^{(n)}.
+\]
+然后可以试求几次找出规律，并用数学归纳法证明（细节从略）：
+\[
+  \left(\frac{2x}{1-x^2}\right)^{(n)}
+  =n!\left[\frac1{(1-x)^{n+1}}-\frac{(-1)^n}{(1+x)^{n+1}}\right].
+\]
+\end{xsolution}
+
+\begin{xexample}[6.2.3]
+对 $y=\arcsin x$ 计算 $y^{(n)}(0)$。
+\end{xexample}
+\begin{xsolution}
+直接计算很难总结出规律。关键是寻找递推关系。首先有
+\[
+  y'=\frac1{\sqrt{1-x^2}},
+\]
+将它改写为
+\[
+  y'\sqrt{1-x^2}=1
+\]
+后再求导，得到
+\[
+  y''\sqrt{1-x^2}-y'\cdot\frac{x}{\sqrt{1-x^2}}=0.
+\]
+又将它整理为
+\[
+  (1-x^2)y''-xy'=0,
+\]
+然后用 Leibniz 公式得到
+\[
+  y^{(n+2)}(1-x^2)+ny^{(n+1)}(-2x)+\frac{n(n-1)}2y^{(n)}(-2)
+  -(xy^{(n+1)}+ny^{(n)})=0.
+\]
+整理后得到
+\[
+  (1-x^2)y^{(n+2)}-(2n+1)xy^{(n+1)}-n^2y^{(n)}=0.
+\]
+现在用 $x=0$ 代入，就得到递推公式
+\[
+  y^{(n+2)}(0)-n^2y^{(n)}(0)=0.
+\]
+从 $y(0)=0$ 即可知道 $y(x)$ 在 $x=0$ 的所有偶数阶导数都等于零：$y^{(2k)}(0)=0,k\in\NN_+$。再从 $y'(0)=1$ 出发用递推公式，计算出 $y'''(0)=1,y^{(5)}(0)=3^2,y^{(7)}(0)=5^2\cdot3^2,\ldots$，即可总结出
+\[
+  y^{(2k+1)}(0)=[(2k-1)!!]^2,\qquad k\in\NN_+.
+\]
+\end{xsolution}
+
+\begin{xremark}
+在第七章学了 Taylor 公式后可以提出一种计算高阶导数的间接方法。见那里的例题 7.2.1 解 1 之后的注解中对本题的回顾。
+\end{xremark}
+
+\begin{xexample}[6.2.4]
+设
+\[
+  f(x)=
+  \begin{cases}
+    \ee^{-1/x^2}, & x\ne0,\\
+    0, & x=0,
+  \end{cases}
+\]
+证明 $f^{(n)}(0)=0,n\in\NN_+$（见图 6.4）。
+\end{xexample}
+
+\begin{center}
+  \includegraphics[width=.68\linewidth]{figures/upper/ch06/fig-6-4.png}
+\end{center}
+
+\begin{xproof}
+这里的基础是对于任何 $\alpha$ 成立
+\[
+  \lim_{u\to+\infty}\frac{u^\alpha}{\ee^u}=0.
+\]
+先计算 $f'(0)$。按定义计算并作代换 $y=1/x$，就有
+\[
+  f'(0)=\lim_{x\to0}\frac1x\cdot\ee^{-1/x^2}=\lim_{y\to\infty}y\ee^{-y^2}=0.
+\]
+然后求出 $x\ne0$ 时的导函数表达式
+\[
+  f'(x)=\frac{2}{x^3}\cdot\ee^{-1/x^2},
+\]
+再按定义计算出
+\[
+  f''(0)=\lim_{x\to0}\frac{f'(x)-f'(0)}x
+  =\lim_{x\to0}\frac{2}{x^4}\cdot\ee^{-1/x^2}=0.
+\]
+然后求出 $x\ne0$ 时的二阶导函数表达式
+\[
+  f''(x)=\left(\frac4{x^6}-\frac6{x^4}\right)\cdot\ee^{-1/x^2}.
+\]
+可以提出猜测，即函数 $f$ 的 $n$ 阶导数在 $x\ne0$ 时具有以下形式：
+\[
+  f^{(n)}(x)=P_n\!\left(\frac1x\right)\cdot\ee^{-1/x^2},
+\]
+其中的 $P_n(1/x)$ 的意义是在变量 $y$ 的多项式 $P_n(y)$ 中用 $y=1/x$ 代入。由于我们只要求计算 $f^{(n)}(0)$，而从前面的两次计算可以知道，我们不必去关心多项式 $P_n(y)$ 的具体次数、系数和递推关系。
+
+用数学归纳法来证明这个猜测。已看到 $n=1,2$ 时猜测成立。设 $f^{(k)}(x)$ 已具有所说的形式，讨论 $f^{(k+1)}(x)$。通过对 $f^{(k)}(x)$ 求导，就有
+\begin{align*}
+  f^{(k+1)}(x)
+  &=\left(P_k\!\left(\frac1x\right)\ee^{-1/x^2}\right)'\\
+  &=P_k'\!\left(\frac1x\right)\left(-\frac1{x^2}\right)\ee^{-1/x^2}
+    +P_k\!\left(\frac1x\right)\left(\frac2{x^3}\right)\ee^{-1/x^2}\\
+  &=\left[P_k'(y)(-y^2)+P_k(y)(2y^3)\right]_{y=1/x}\ee^{-1/x^2},
+\end{align*}
+将第一个因子记为 $P_{k+1}(1/x)$ 即可。
+
+最后，用数学归纳法来证明对于任意的正整数 $n$，有 $f^{(n)}(0)=0$ 成立。在 $n=1,2$ 时已经成立。设在 $n=k$ 时已有 $f^{(k)}(0)=0$，则对于 $n=k+1$，可以利用 $n=k$ 和 $x\ne0$ 时 $f^{(k)}(x)$ 的上述特殊形式作以下计算：
+\[
+  f^{(k+1)}(0)
+  =\lim_{x\to0}\frac{f^{(k)}(x)-f^{(k)}(0)}x
+  =\lim_{x\to0}\frac{f^{(k)}(x)}x
+  =\lim_{x\to0}\frac1xP_k\!\left(\frac1x\right)\ee^{-1/x^2}=0.
+\]
+\end{xproof}
+
+\begin{xremark}
+这是在数学分析中的重要例子。(1) 它说明一个非常值函数也可以在某些点上的任何阶导数等于 0；(2) 幂函数 $x^n\ (n\ge2)$ 在 $x=0$ 处直到 $n-1$ 阶的导数均为 0，当 $x\to0$ 时为 $n$ 阶无穷小量。因此 $x^n$ 的图像在原点附近随着 $n$ 增加越来越平坦。但是与本例的函数相比，就大为不如。因为这里对所有 $n$ 都成立
+\[
+  \ee^{-1/x^2}=\littleo(x^n)\quad(x\to0).
+\]
+从图 6.4 可见这个函数在 $x=0$ 附近的图像极其平坦。(3) 在 Taylor 公式（§7.2）和 Taylor 级数（见下册命题 14.4.2）的理论中，本例的函数有重要的应用。
+
+下一个例题说明：上述例子不只是理论上的“精品”，而且有实际上的价值，其中的辅助函数在许多研究中有用。
+\end{xremark}
+
+\begin{xexample}[6.2.5]
+将 $(-\infty,0]$ 上的常值函数 $u(x)\equiv0$ 和 $[1,+\infty)$ 上的常值函数 $v(x)\equiv1$ 延拓为在 $(-\infty,+\infty)$ 上的无限次可微函数，且使其值域为 $[0,1]$。
+\end{xexample}
+\begin{xsolution}
+先定义
+\[
+  g(x)=
+  \begin{cases}
+    0, & x\le0,\\
+    \ee^{-1/x^2}, & x>0,
+  \end{cases}
+\]
+然后令
+\[
+  f(x)=\frac{g(x)}{g(x)+g(1-x)},
+\]
+则 $f(x)$ 就满足要求。（请读者验证。）
+\end{xsolution}
+
+\subsection{隐函数求导法}
+
+从上一章的命题 5.5.4 和其后的两个例题中我们已经看到，函数的给定方法已经突破了过去的显式方法，而可以采用隐式方法。具体地说，再举那里的 Kepler 方程为例，即可以用一个方程
+\[
+  y=x-q\sin x\qquad(0<q<1)
+\]
+来定义一个函数 $x=x(y)$。用第二、三章中的迭代生成数列的方法可以计算这个函数（的近似值）。在上一章我们能够确定这个函数是连续单调增加函数，而在本章则从反函数求导法则（即命题 6.1.1）还知道它可导，且可以将导数 $x'(y)$ 计算出来（看下面的例题 6.2.6）。
+
+本小节的隐函数求导法则与多元函数的偏导数计算有关，它的一般形式将在多元微积分的隐函数章节中学习。在这里只介绍这个法则的基本思想，并计算一些较为简单的问题。
+
+这里的要点是：如果一个函数 $y=y(x)$ 满足方程
+\[
+  F(x,y)=0,
+\]
+则将它代入后就得到恒等式 $F(x,y(x))\equiv0$。然后对 $x$ 求导，就有可能将导数 $y'(x)$ 计算出来。
+
+可以认为隐函数求导法则是反函数求导法则的一个发展。实际上根据上述思想就可以导出反函数的求导法则如下。
+
+若 $y=y(x)$ 和 $x=x(y)$ 互为反函数，则可将 $y=y(x)$ 代入后者，得到
+\[
+  x=x(y(x)).
+\]
+对 $x$ 求导，就有
+\[
+  1=x'(y(x))y'(x),
+\]
+这样就可以得到反函数求导公式
+\[
+  y'(x)=\frac1{x'(y)},
+\]
+其中 $y=y(x)$ 由 $x=x(y)$ 决定。（这不能代替命题 6.1.1。为什么？）
+
+\begin{xexample}[6.2.6]
+设函数 $x=x(y)$ 满足 Kepler 方程 $y=x-q\sin x\ (0<q<1)$，求 $x'(y)$。
+\end{xexample}
+\begin{xsolution}
+解 1\quad 已知 $y=x-q\sin x\ (0<q<1)$ 是以 $(-\infty,+\infty)$ 为定义域和值域的连续单调增加函数。由于导数 $y'=1-q\cos x\ne0$，就可以应用命题 6.1.1，知道反函数 $x(y)$ 可导，且得到导数
+\[
+  x'(y)=\frac1{y'(x)}=\frac1{1-q\cos x(y)}.
+\]
+
+解 2\quad 将函数 $x=x(y)$ 代入方程 $y-x+q\sin x=0$ 中，得到以 $y$ 为自变量的恒等式
+\[
+  y-x(y)+q\sin x(y)=0.
+\]
+对 $y$ 求导，得到
+\[
+  1-x'(y)+q\cos x(y)\cdot x'(y)=0.
+\]
+这样就可以得到
+\[
+  x'(y)=\frac1{1-q\cos x(y)}.
+\]
+\end{xsolution}
+
+\begin{xremark}
+对这两个方法进行比较。
+
+第一种解法是严格的，反函数的存在是由命题 5.5.4 保证的，而反函数的可导与计算方法是以命题 6.1.1 为根据的。它的缺点是不能解决一般的隐函数的存在和求导问题。
+
+第二种解法的优点是可以用于一般的隐函数求导计算。但在这一章中对隐函数的存在性和可导性都还不可能建立严格的理论基础，这些问题要到多元微积分中才能解决，在那里会证明这里的计算方法是正确的（见下册的第二十章）。此外，在一般计算中上述恒等式只写成为普通的等式。
+
+现在举一个简单的例子，从中可以看出隐函数求导方法的一个优点。
+\end{xremark}
+
+\begin{xexample}[6.2.7]
+设函数 $y=y(x)$ 满足单位圆方程 $x^2+y^2=1$，用显式和隐式两种方法求 $y'(x)$，并作比较。
+\end{xexample}
+\begin{xsolution}
+从所给方程可以得到两个显函数：记为
+\begin{equation}
+  y_1=\sqrt{1-x^2}\quad\text{和}\quad y_2=-\sqrt{1-x^2},\qquad -1\le x\le1.
+  \tag{6.8}
+  \label{eq:6.8}
+\end{equation}
+它们在 $-1<x<1$ 上处处可导。容易计算出
+\begin{equation}
+  y_1'=-\frac{x}{\sqrt{1-x^2}}\quad\text{和}\quad
+  y_2'=\frac{x}{\sqrt{1-x^2}}.
+  \tag{6.9}
+  \label{eq:6.9}
+\end{equation}
+另一方面，用隐函数求导法则，将 $y=y(x)$ 代入方程，有恒等式
+\[
+  x^2+y^2(x)\equiv1.
+\]
+对 $x$ 求导，得到 $2x+2y(x)y'(x)=0$，就有
+\begin{equation}
+  y'(x)=-\frac{x}{y(x)}.
+  \tag{6.10}
+  \label{eq:6.10}
+\end{equation}
+现比较这两个不同的方法。从前面的计算可见，方程 $x^2+y^2=1$ 确定的函数不止一个。实际上，根据函数的定义，两个函数只要定义域不同，即使解析表达式相同，也应当看成是不同的函数。因此从这个观点看的话，方程 $x^2+y^2=1$ 所确定的函数就不是只有两个，而是多得不计其数了。（这正是将来要学习的隐函数理论中的观点。）那么就产生了一个问题，即第二个方法所得的公式 (6.10) 中的 $y'(x)$ 是指哪一个函数 $y(x)$ 的导数？
+
+这个问题的回答是：用隐函数求导法则所得到的导数公式对（由方程确定的）每一个函数同时有效。由于本题十分简单，只要在公式 (6.10) 中用公式 (6.8) 中的 $y_1(x)$ 和 $y_2(x)$ 分别代入，就可以分别得到用第一个方法计算出来的 $y_1'$ 和 $y_2'$，即公式 (6.9)。至于由单位圆方程确定的其他函数，它们的定义域都是 $[-1,1]$ 的子集，因此只要可导，公式 (6.10) 同样有效。
+\end{xsolution}
+
+\begin{xexample}[6.2.8]
+设 $y=y(x)$ 可导，且满足方程 $x^2+xy+y^2=1$，求 $y',y'',y'''$。
+\end{xexample}
+\begin{xsolution}
+将 $x^2+xy+y^2=1$ 看成关于 $x$ 的恒等式，其中 $y=y(x)$，对 $x$ 求导得到
+\begin{equation}
+  2x+y+xy'+2yy'=0,
+  \tag{6.11}
+  \label{eq:6.11}
+\end{equation}
+就有
+\[
+  y'=-\frac{2x+y}{x+2y}.
+\]
+根据这个表达式可以直接看出，在函数 $y(x)$ 可导的假定下，只要分母 $x+2y\ne0$，二阶导数 $y''$ 一定存在。
+
+将 (6.11)（它实际上也是关于 $x$ 的恒等式）对 $x$ 求导，得到
+\[
+  2+2y'+xy''+2y'^2+2yy''=0.
+\]
+由此可以计算出（请读者补充计算过程）
+\[
+  y''=-\frac6{(x+2y)^3}.
+\]
+从这个公式又一次推知，只要 $x+2y\ne0$，函数 $y(x)$ 就会有三阶导数。对 $y''$ 的公式再求导，就得到
+\[
+  y'''=-\frac{54x}{(x+2y)^5}.
+\]
+\end{xsolution}
+
+\begin{xremark}
+从平面解析几何的二次曲线理论可知，如图 6.5 所示，本题方程的几何图像是一个以原点为中心的椭圆，但其主轴与坐标轴不重合。这个椭圆与直线 $x+2y=0$ 的交点处的切线平行于 $y$ 轴，斜率为无穷大。当然可以从方程出发得到 $y(x)$ 的显式，但这时的显式表达式较复杂，计算并不方便。而且我们也不知道题意中的 $y(x)$ 是哪一个，因而隐函数求导法则即使在能求出函数的显式公式时也有它的优点。
+
+\begin{center}
+  \includegraphics[width=.48\linewidth]{figures/upper/ch06/fig-6-5.png}
+\end{center}
+\end{xremark}
+
+\subsection{参数方程求导法}
+
+用参数方程给出平面或空间曲线的做法由来已久。从解析几何的发展开始，许多有实际意义的曲线都是这样给定的，如果一定要用 $y=y(x)$ 或 $x=x(y)$ 来表示它们反而会很不方便。这即使对于常见的圆也是如此。在中学里已经学过极坐标和用 $\rho=\rho(\theta)$ 来表示的曲线。若写出
+\[
+  x=\rho(\theta)\cos\theta,\qquad y=\rho(\theta)\sin\theta,
+\]
+就得到了以 $\theta$ 为参数的参数方程。
+
+对于一般的参数方程
+\[
+  x=\varphi(t),\qquad y=\psi(t),\qquad a\le t\le b,
+\]
+在一定的条件下可以确定函数关系 $y=y(x)$（或 $x=x(y)$）。这时对函数 $y=y(x)$ 的研究完全可以从参数方程出发来进行，而不一定需要 $y=y(x)$ 的显式表达式，因为这样的显式表达式一般地说不一定存在，而即使存在也不一定有用。这里的情况与上一个小节完全类似。
+
+\begin{xproposition}[6.2.1]
+设 $x=\varphi(t),y=\psi(t)$ 在区间 $(a,b)$ 上可导，且 $\varphi'(t)\ne0,\forall t\in(a,b)$，则有以下结论成立：
+\begin{enumerate}[label=(\arabic*)]
+  \item $x=\varphi(t)$ 是区间 $(a,b)$ 上的严格单调连续函数，因而存在反函数 $t=t(x)$；
+  \item 在 $x=\varphi(t)$ 和 $y=\psi(t)$ 之间存在函数关系 $y=\psi(t(x))$，简记为 $y=y(x)$；
+  \item 函数 $y=y(x)$ 可导，且有公式
+  \[
+    y'(x)=\left.\frac{\psi'(t)}{\varphi'(t)}\right|_{t=t(x)}.
+  \]
+\end{enumerate}
+\end{xproposition}
+\begin{xproof}
+关于 (1) 的证明见注 2 的说明，在这里暂且先承认它。(2) 是 (1) 的推论。下面只对 (3) 给出证明。
+
+由 $\varphi'(t)\ne0$ 和 (1)，可以用反函数求导法则（即命题 6.1.1），知道 $t=t(x)$ 可导，且有
+\[
+  t'(x)=\left.\frac1{\varphi'(t)}\right|_{t=t(x)}.
+\]
+对 $y=\psi(t(x))$ 用复合函数求导公式，就有
+\[
+  y'(x)=\psi'(t(x))\cdot t'(x)
+  =\left.\frac{\psi'(t)}{\varphi'(t)}\right|_{t=t(x)}.
+\]
+\end{xproof}
+
+\begin{xremark}
+注 1\quad 以上法则可以写为
+\[
+  y'_x=y'_t t'_x=\frac{y'_t}{x'_t},
+\]
+因此是复合函数求导公式与反函数求导公式的结合。
+
+注 2\quad 关于 (1) 的证明在此作个说明。由于在区间 $(a,b)$ 上处处有 $\varphi'(t)\ne0$，应用下一章命题 7.1.6 的导函数介值定理（Darboux（达布）定理），可见导函数 $\varphi'(t)$ 在区间 $(a,b)$ 上保号。然后再用第八章 §8.2 中关于单调性的讨论即可。
+\end{xremark}
+
+\begin{xexample}[6.2.9]
+将例题 6.2.8 中的椭圆用参数方程表示为
+\[
+  x=\frac2{\sqrt3}\cos t,\qquad y=\sin t-\frac1{\sqrt3}\cos t,
+\]
+计算 $y$ 对 $x$ 的前三阶导数：$y'_x,y''_x,y'''_x$。
+\end{xexample}
+\begin{xsolution}
+由上面的注解，可以计算如下：
+\begin{align*}
+  y'_x
+  &=\left(\sin t-\frac1{\sqrt3}\cos t\right)'_x
+   =\left(\sin t-\frac1{\sqrt3}\cos t\right)'_t\,t'_x\\
+  &=\left(\cos t+\frac1{\sqrt3}\sin t\right)\frac1{x'_t}
+   =-\frac{\sqrt3}{2}\cot t-\frac12,\\
+  y''_x
+  &=(y'_x)'_x=(y'_x)'_t\,t'_x
+   =\frac{\sqrt3}{2}\csc^2t\cdot\frac1{x'_t}
+   =-\frac34\csc^3t,\\
+  y'''_x
+  &=(y''_x)'_x=(y''_x)'_t\,t'_x
+   =-\frac{9\sqrt3}{8}\cdot\frac{\cos t}{\sin^5t}.
+\end{align*}
+当然在三个答案中的 $t$ 都应当理解为反函数 $t=t(x)=\arccos\frac{\sqrt3}{2}x$。同时只有当分母中的 $\sin t\ne0$ 时公式有效，从 $x'_t=-\frac2{\sqrt3}\sin t$ 可知这就是在推导法则时的条件。实际上有 $x+2y=2\sin t$，因此与例题 6.2.8 一致。
+\end{xsolution}
+
+\subsection{练习题}
+
+\begin{xexercise}
+\begin{enumerate}
+  \item 对 $y=\arctan x$ 计算 $y^{(n)}(0)$。
+  \item 对 $y=(\arctan x)^2$ 计算 $y^{(n)}(0)$。
+  \item 对 $y=(\arcsin x)^2$ 计算 $y^{(n)}(0)$。
+  \item 设 $y=x^{n-1}\ee^{1/x}$，证明：$y^{(n)}=\dfrac{(-1)^n}{x^{n+1}}\ee^{1/x}$。
+  \item 求下列函数的 $n$ 阶导函数：
+  \begin{enumerate}[label=(\arabic*)]
+    \item $y=\sin^3x$；
+    \item $y=\ee^x\sin x$；
+    \item $y=x^{n-1}\ln x$；
+    \item $y=x^3\ee^x$；
+    \item $y=\dfrac{x^n}{1-x}$；
+    \item $y=\dfrac{x^n}{(x+1)^2}$；
+    \item $y=\sin ax\sin bx$。
+  \end{enumerate}
+  \item 证明：$y=C_1\ee^{\lambda_1x}+C_2\ee^{\lambda_2x}$ 满足微分方程 $y''-(\lambda_1+\lambda_2)y'+\lambda_1\lambda_2y=0$。
+  \item 证明：$y=C_1\sin(\omega t+\varphi)+C_2\cos(\omega t+\varphi)$ 满足微分方程 $y''+\omega^2y=0$。
+  \item 若曲线由极坐标方程 $\rho=f(\theta)$ 表示，则可得到参数方程 $x=f(\theta)\cos\theta,y=f(\theta)\sin\theta$，求 $y'(x)$。
+  \item 证明：Archimedes 螺线 $\rho=a\theta$ 与双曲螺线 $\rho=a\theta^{-1}$ 在相交处的切线正交。
+  \item 对下列参数方程求 $y'(x)$ 和 $y''(x)$（在 (4) 中假定 $f$ 二阶可导）：
+  \begin{enumerate}[label=(\arabic*)]
+    \item $x=\sqrt{1+t},\ y=\sqrt{1-t}$；
+    \item $x=at\cos t,\ y=at\sin t$；
+    \item $x=a\cos^3t,\ y=a\sin^3t$；
+    \item $x=f'(t),\ y=tf'(t)-f(t)$。
+  \end{enumerate}
+  \item 求出由方程 $x^3+y^3-3axy=0$ 确定的曲线上有水平切线的点。
+  \item 是否可以利用函数 $y=\sin x\sin3x\sin5x$ 的奇偶性计算 $y''(0)$？
+  \item 是否可以不展开乘积 $y=(6+5x)(4+3x)^2(2+x)^3$ 就求出 $y^{(5)}(0)$？
+  \item 设 $f$ 为 7 次多项式，若 $f(x)+1$ 能被 $(x-1)^4$ 整除，$f(x)-1$ 能被 $(x+1)^4$ 整除，能否利用导数工具求出 $f$？
+\end{enumerate}
+\end{xexercise}
+
+% END OF SECTION 6.2 TRANSCRIPTION
+
+\section{一阶微分及其形式不变性}
+
+\subsection{基本概念}
+
+\begin{enumerate}
+  \item 微分是增量中的线性主部。具体来说，考虑 $y=f(x)$ 在点 $x_0$ 由自变量的增量 $\Delta x$ 引起的因变量的增量 $\Delta y$。若有常数 $a$，使得
+  \[
+    \Delta y=a\Delta x+\littleo(\Delta x)\quad(\Delta x\to0),
+  \]
+  则称 $\Delta y$ 有线性主部 $a\Delta x$。这时称 $y=f(x)$ 在点 $x_0$ 可微，并将这个线性主部称为 $y=f(x)$ 在点 $x_0$ 的微分。
+  \item 函数 $y=f(x)$ 在点 $x_0$ 可微的充分必要条件是 $y=f(x)$ 在 $x_0$ 可导，而且这时的导数就等于上述线性主部中的系数 $a$，即 $f'(x_0)=a$。
+  \item 由可微和可导的关系可知：并非每个函数在某点的增量中都能分离出线性主部。
+  \item 上述微分的记号是 $\dd y=f'(x_0)\dd x$，其中将自变量的增量 $\Delta x$ 写为 $\dd x$。这是因为，对于最简单的线性函数 $y=x$，确实有 $\dd y=\dd x=\Delta x$。
+  \item 如果不只是考虑某个点 $x_0$ 处函数 $y=f(x)$ 的微分，而是一般地考虑函数 $y=f(x)$ 的微分，则微分 $\dd y=f'(x)\dd x$ 实际上是二元函数。每当给定了自变量 $x$ 的值和增量 $\Delta x$ 的值之后，微分 $\dd y$ 就有确定的值。如果 $x$ 固定，则 $\dd y$ 必是 $\dd x$ 的线性函数。
+  \item 由于历史原因，有时会将微分说成是“很小很小的量”“小于任何给定量的量”等。应当指出这样说是错误的。在 $\dd y=f'(x_0)\dd x$ 中 $\dd x$ 只不过是一个自变量，当 $f'(x_0)\ne0$ 时，只要 $\Delta x=\dd x$ 取得足够大，微分 $\dd y$ 的值就可以取到任意大的值。
+  \item 固定点 $x_0$，将微分 $\dd y=f'(x_0)\dd x$ 中的 $\dd y$ 改写为 $y-f(x_0)$，$\dd x$ 改写为 $x-x_0$，就得到曲线 $y=f(x)$ 在点 $(x_0,f(x_0))$ 的切线方程
+  \[
+    y=f(x_0)+f'(x_0)(x-x_0).
+  \]
+\end{enumerate}
+
+\subsection{微分与近似计算}
+
+由于微分是增量的线性主部，即有 $\Delta y=\dd y+\littleo(\Delta x)\ (\Delta x\to0)$，可见当 $\Delta x$ 充分小时，可以用微分作为增量的近似值。这就是所谓的“一次近似”。这种方法的效果有限，也不能作误差估计，但是在一些简单问题上还是很有用的工具。
+
+\begin{xexample}[6.3.1]
+在没有数学用表和计算工具的情况下，求 $\sqrt[3]{2}$ 的近似值。
+\end{xexample}
+\begin{xsolution}
+若取 $f(x)=\sqrt[3]{x}$，则有 $f'(x)=\dfrac1{3\sqrt[3]{x^2}}$。这时有
+\[
+  \sqrt[3]{x}\approx\sqrt[3]{x_0}+\dd\sqrt[3]{x},
+\]
+其中第二项是函数 $\sqrt[3]{x}$ 在点 $x_0$ 的微分：
+\[
+  \dd\sqrt[3]{x}=\frac1{3\sqrt[3]{x_0^2}}\cdot\Delta x.
+\]
+若取 $x_0=1$，则 $\Delta x=1$，计算很简单，即
+\[
+  \sqrt[3]{2}\approx1+\frac13\approx1.333.
+\]
+但是这个近似值太差。问题出在 $\Delta x=1$ 太大了。可以改进如下。
+
+取近似值的前两位 1.3，计算 1.3 的立方，得到 $1.3^3=2.197$。因此可以取
+\[
+  x_0=2.197,\qquad\Delta x=-0.197.
+\]
+再次计算如下：
+\[
+  \sqrt[3]{2}
+  =1.3+\frac{-0.197}{3\cdot1.3^2}
+  =1.3-\frac{0.197}{5.07}
+  \approx1.3-\frac{0.2}{5}
+  =1.3-0.04=1.26.
+\]
+实际上有 $\sqrt[3]{2}\approx1.25992$。第二次的结果较好。原因是这次的增量 $\Delta x$ 较小。
+\end{xsolution}
+
+\begin{xremark}
+用微分代替增量，就是在无穷小增量公式 $\Delta y=f'(x_0)\Delta x+\littleo(\Delta x)\ (\Delta x\to0)$ 中将余项 $\littleo(\Delta x)$ 去掉。这种做法很简单，缺点是对于由此带来的误差不能作出定量估计。在第八章微分学的应用中将会对此作进一步的讨论。
+
+在测量问题中一般来说往往是测量一些容易得到的量，然后通过计算得到最后结果。这时使用微分可以对于测量的绝对误差和相对误差作出估计。
+\end{xremark}
+
+\begin{xexample}[6.3.2]
+假定用测量球的直径来得到球的体积。为了所得的球体积的相对误差不超过 $1\%$，问测量直径的相对误差应如何才行？
+\end{xexample}
+\begin{xsolution}
+从直径 $D$ 计算球体积 $V$ 的公式是
+\[
+  V=\frac\pi6D^3.
+\]
+因此有
+\[
+  \dd V=\frac\pi2D^2\dd D.
+\]
+我们看到，由于用了微分代替增量，公式就很简单，而且一定是线性的。这样就有
+\[
+  \frac{\dd V}{V}=3\frac{\dd D}{D}.
+\]
+因此为了所得的球体积的相对误差不超过 $1\%$，在测量直径时的相对误差应当控制在 $0.33\%$ 之内。
+\end{xsolution}
+
+\subsection{一阶微分的形式不变性}
+
+这是一个初学者不容易理解的问题。由于这个不变性在一元微分学中不起重要作用，更使它容易被忽视。但在多元微分学中的情况不一样，一阶微分的形式不变性将变得很有用处，因此作为基础，在这里应当了解：一阶微分的形式不变性的确切意义是什么？为什么叫“形式”不变性？它会有什么用处？
+
+为了讨论这些问题，先简要回顾教科书中的内容。
+
+若 $y=y(x)$ 可导，则有微分
+\begin{equation}
+  \dd y=y'(x)\dd x.
+  \tag{6.12}
+  \label{eq:6.12}
+\end{equation}
+又若在 $y=y(x)$ 中的 $x$ 并非自变量，而只是中间变量，即有 $x=x(t)$，这里的 $t$ 才是真的自变量。这时若假定 $x(t)$ 也可导，则对于函数 $y=y(x(t))$ 有微分
+\begin{equation}
+  \dd y=[y(x(t))]'_t\dd t=y'_x(x(t))x'(t)\dd t.
+  \tag{6.13}
+  \label{eq:6.13}
+\end{equation}
+从 $x=x(t)$ 又可以写出微分 $\dd x=x'(t)\dd t$。将它代入 (6.13)，就可以将这个公式改写为
+\begin{equation}
+  \dd y=y'_x(x(t))\dd x=y'(x)\dd x.
+  \tag{6.14}
+  \label{eq:6.14}
+\end{equation}
+因此从形式上看，公式 (6.14) 与公式 (6.12) 是一样的。从而，不论在 $y=y(x)$ 中的 $x$ 是否是真的自变量，一阶微分 (6.12) 在形式上是不变的。
+
+仔细考察以上论证过程就可以发现，这种不变性只是形式上的，而并非真正的不变性。这里至少可以列出以下几点：
+\begin{enumerate}
+  \item 在 (6.12) 中的 $\dd x=\Delta x$，如将公式写成 $\dd y=f'(x)\Delta x$ 也是正确的。但在 (6.14) 中的 $\dd x=x'(t)\dd t$ 一般不等于 $\Delta x$。我们知道它们之间相差一个 $\littleo(\Delta t)\ (\Delta t\to0)$。
+  \item 在 (6.12) 中的 $\dd y$ 与 $\Delta x$ 成比例，而在 (6.14)（即 (6.13)）中的 $\dd y$ 与 $\Delta t$ 成比例。它也与 $\dd x$ 成比例，但并不一定与 $\Delta x$ 成比例，因为 $\dd x$ 一般不等于 $\Delta x$。
+  \item 在 (6.12) 中的 $\dd y$ 是 $x$ 和 $\dd x$（$=\Delta x$）的二元函数，但在 (6.14)（即 (6.13)）中的 $\dd y$ 是 $t$ 和 $\dd t$（$=\Delta t$）的二元函数。只不过在 (6.14) 中我们故意抹去了它与 $t$ 和 $\dd t$ 的真正依赖关系，从而造成了形式上的不变性。
+\end{enumerate}
+
+既然我们关于一阶微分的形式不变性讲了这样多的“坏话”，那么学习这种不变性还有什么意义呢？先观察一个例子。
+
+\begin{xexample}[6.3.3]
+计算函数 $y=\ee^{\sin(ax+b)}$ 的微分。
+\end{xexample}
+\begin{xsolution}
+解 1\quad 根据 $\dd y=y'(x)\dd x$，只要计算出导数 $y'(x)$。根据复合函数的求导法则，可以得到
+\begin{align*}
+  (\ee^{\sin(ax+b)})'
+  &=\ee^{\sin(ax+b)}\cdot[\sin(ax+b)]'\\
+  &=\ee^{\sin(ax+b)}\cdot\cos(ax+b)\cdot(ax+b)'\\
+  &=\ee^{\sin(ax+b)}\cdot\cos(ax+b)\cdot a\\
+  &=a\cos(ax+b)\ee^{\sin(ax+b)}.
+\end{align*}
+因此有
+\[
+  \dd y=a\cos(ax+b)\ee^{\sin(ax+b)}\dd x.
+\]
+
+解 2\quad 根据一阶微分的形式不变性，可以计算如下：
+\begin{align*}
+  \dd(\ee^{\sin(ax+b)})
+  &=\ee^{\sin(ax+b)}\cdot\dd(\sin(ax+b))\\
+  &=\ee^{\sin(ax+b)}\cdot\cos(ax+b)\cdot\dd(ax+b)\\
+  &=\ee^{\sin(ax+b)}\cdot\cos(ax+b)\cdot a\dd x\\
+  &=a\cos(ax+b)\ee^{\sin(ax+b)}\dd x.
+\end{align*}
+\end{xsolution}
+
+\begin{xremark}
+一方面，可以认为这两个解法没有很大的本质差别。从 (6.13) 到 (6.14) 的推导可以知道，其中的主要工具就是复合函数的求导法则。因此从这一点来看，两个解法之间的差别只是表面的，其实质是完全一样的。
+
+另一方面，一阶微分的形式不变性毕竟为一阶微分的计算提供了一种新解法。它的优点就是在每一步计算时不必考虑真正的自变量是什么。由于微分的定义是由真正的自变量的增量所引起的因变量增量中的线性主部，因此上述第二种解法确实含有新的思想。
+\end{xremark}
+
+\subsection{练习题}
+
+\begin{xexercise}
+\begin{enumerate}
+  \item 证明：若 $f'(x_0)\ne0$，则 $\lim_{\Delta x\to0}\dfrac{\Delta y}{\dd y}=1$。
+  \item 设 $u,v,w$ 均为 $x$ 的可微函数，求 $y$ 的微分：
+  \begin{enumerate}[label=(\arabic*)]
+    \item $y=uvw$；
+    \item $y=\dfrac{u}{v^2}$；
+    % SOURCE-ERR: 原书此小题序号印作 (4)，与前后编号可确定应为 (3)。
+    \item $y=\arctan\dfrac{u}{vw}$；
+    \item $y=\dfrac1{\sqrt{u^2+v^2+w^2}}$。
+  \end{enumerate}
+  \item 证明：在 $x/a^n\approx0$ 时有近似公式：
+  \[
+    \sqrt[n]{a^n+x}\approx a+\frac{x}{na^{n-1}}\qquad(a>0).
+  \]
+  并用于计算：(1) $\sqrt[3]{9}$；(2) $\sqrt[4]{80}$；(3) $\sqrt[7]{100}$；(4) $\sqrt[10]{1000}$。
+  \item 设通过单摆振动的实验，用公式 $g=4\pi^2l/T^2$ 求重力加速度 $g$。分别研究 (1) 测量摆长 $l$，(2) 测量周期 $T$ 时的相对误差对 $g$ 的影响。
+  \item 设要求测量值 $x$ 的常用对数，问：$x$ 的相对误差会给结果带来什么影响？
+\end{enumerate}
+\end{xexercise}
+
+% END OF SECTION 6.3 TRANSCRIPTION
+
+\section{对于教学的建议}
+
+\subsection{学习要点}
+
+\begin{enumerate}
+  \item 本章的重点包含：(1) 导数和微分的概念，(2) 求导的计算能力。
+  \item 在求导计算中，主要的错误有这样几类：(1) 基本求导法则记不住，(2) 粗心，(3) 概念不清。由于一般读者都明白如何克服前两类毛病，因此本书在这一章中的内容主要是围绕概念来展开的。实际上在运用反函数求导法则和复合函数求导法则时的错误主要是对于这两个法则并不真正理解。
+  \item 在一元微分学中，微分的概念从另一种与变化率完全不同的角度加深了我们对导数的了解。这对于今后多元微分学的学习是必要的基础。
+  \item 既然微分 $\dd y$ 是增量 $\Delta y$ 的线性主部，因此在 $\Delta x$ 充分小时可以用微分作为增量的近似值。但这里不能对误差作出定量估计，因此这只是近似计算的初步方法，它是在以后学习 Taylor 公式的基础。
+  \item 本章没有提到二阶微分和一般的高阶微分的概念。但是应当知道，对于二阶微分以及更高阶的微分来说，不存在形式上的不变性。
+  \item \textbf{对习题课的建议}\quad 本章内容不难理解。训练重点应当放在基本概念和基本运算能力上。在习题课上要对概念模糊和运算马虎的学生提出警告。同时，在第一学期数学分析的讲授中这一章的内容也是比较容易的部分，习题课教师可以利用这段时间处理一些前面的遗漏事项。初学者往往对微分不予重视，其实微分这种线性近似的观点是十分重要的。要重视无穷小增量公式。这是进入下一章学习的重要基础。
+\end{enumerate}
+
+\subsection{参考题}
+
+\subsubsection*{第一组参考题}
+
+\begin{xreferenceproblem}
+\begin{enumerate}
+  \item 利用导数的定义计算极限
+  \[
+    \lim_{x\to0}\frac{(1+\tan x)^{10}-(1-\sin x)^{10}}{\sin x}.
+  \]
+  \item 设 $f(x)=\dfrac1{x^2+3x+2}$，计算 $f^{(100)}(0)$，要求相对误差不超过 $1\%$。
+  \item 设 $f$ 在点 $a$ 处可导，$f(a)\ne0$，计算
+  \[
+    \lim_{n\to\infty}\left[\frac{f\left(a+\frac1n\right)}{f(a)}\right]^n.
+  \]
+  \item 设 $a\ne0$，计算
+  \[
+    f(x)=\frac{\sin x+\sin(x+a)}{\cos x-\cos(x+a)}
+  \]
+  的导数并对结果作出解释。
+  \item 设 $f(0)=0,f'(0)$ 存在。定义数列
+  \[
+    x_n=f\left(\frac1{n^2}\right)+f\left(\frac2{n^2}\right)+\cdots+f\left(\frac n{n^2}\right),\qquad n\in\NN_+,
+  \]
+  试求 $\lim_{n\to\infty}x_n$。
+  \item 求下列数列极限：
+  \begin{enumerate}[label=(\arabic*)]
+    \item $\displaystyle\lim_{n\to\infty}\left(\sin\frac1{n^2}+\sin\frac2{n^2}+\cdots+\sin\frac n{n^2}\right)$；
+    \item $\displaystyle\lim_{n\to\infty}\left[\left(1+\frac1{n^2}\right)\left(1+\frac2{n^2}\right)\cdots\left(1+\frac n{n^2}\right)\right]$。
+  \end{enumerate}
+  \item 设 $y=\dfrac{1+x}{\sqrt{1-x}}$，计算 $y^{(n)}(x),n\in\NN_+$。
+  \item 设 $f$ 在 $\RR$ 上有任意阶导数，证明：对每个正整数 $n$ 成立
+  \[
+    \frac1{x^{n+1}}f^{(n)}\left(\frac1x\right)
+    =(-1)^n\left[x^{n-1}f\left(\frac1x\right)\right]^{(n)}.
+  \]
+  \item 利用 $1+x+x^2+\cdots+x^n$ 的和，求以下各式之和：
+  \begin{enumerate}[label=(\arabic*)]
+    \item $1+2x+3x^2+\cdots+nx^{n-1}$；
+    \item $1^2+2^2x+3^2x^2+\cdots+n^2x^{n-1}$。
+  \end{enumerate}
+  又问：不用微分学方法能否求出 (1) 与 (2) 中的和？
+  \item 证明组合恒等式：
+  \begin{enumerate}[label=(\arabic*)]
+    \item $\displaystyle\sum_{k=1}^n k\binom nk=n2^{n-1},\ n\in\NN_+$；
+    \item $\displaystyle\sum_{k=1}^n k^2\binom nk=n(n+1)2^{n-2},\ n\in\NN_+$。
+  \end{enumerate}
+  \item 证明：由抛物线的焦点出发的射线经抛物线反射后一定平行于抛物线的对称轴。
+  \item 证明：由椭圆的焦点出发的射线经椭圆反射后一定经过椭圆的另一个焦点。
+  \item 证明：在曳物线
+  \[
+    x=a\left(\ln\tan\frac t2+\cos t\right),\qquad y=a\sin t
+  \]
+  的每一条切线上从切点到与 $x$ 轴的交点的长度为常数。
+  \item 证明：函数 $f$ 在点 $x_0$ 可微的充分必要条件是 $f$ 在 $x_0$ 的某个邻域上可以写为
+  \[
+    f(x)=f(x_0)+\varphi(x)(x-x_0),
+  \]
+  其中 $\varphi(x)$ 于 $x_0$ 连续。
+
+  （上述充分必要条件称为导数的 Carathéodory（卡拉泰奥多里）定义。若在教学中一开始就用它作为导数的定义，则有不少优点。这方面可以参考《美国数学月刊》上的两篇文章：(1991) 第 98 卷 40--44 页，(1994) 第 101 卷 332--338 页。还可以参考教材 [73] 在这方面的内容。本章多次利用例题 6.1.4 中的无穷小增量公式 (6.3) 的做法与此类似。）
+  \item 设 $n\ge2$，函数 $f(x)=f(x_0)+\varphi(x)(x-x_0)$，$\varphi(x)$ 在某邻域 $O(x_0)$ 上 $n-1$ 阶可微，且 $\varphi^{(n-1)}(x)$ 于 $x_0$ 连续。证明：存在 $f^{(n)}(x_0)$。
+  \item 设 $f(x)$ 在区间 $(a,b)$ 上有 $n$ 阶导数，且存在不全为 0 的 $n+1$ 个常数 $a_0,a_1,\ldots,a_n$，使得
+  \[
+    a_0f(x)+a_1f'(x)+\cdots+a_nf^{(n)}(x)\equiv0.
+  \]
+  证明：$f(x)$ 在 $(a,b)$ 上存在任意阶导数。
+  \item 设多项式 $p(x)$ 只有实零点。证明：$[p'(x)]^2-p(x)p''(x)\ge0,\ \forall x\in\RR$。
+  \item 设 $f$ 在 $[0,1]$ 上可微，且使得数集 $\{x\in[0,1]\mid f(x)=0=f'(x)\}=\varnothing$。证明：$f$ 在 $[0,1]$ 中只有有限个零点。
+  \item 对于 $y=\arctan x$，证明：
+  \begin{enumerate}[label=(\arabic*)]
+    \item $y^{(n)}(x)=(n-1)!\cos^n y\sin n\left(y+\dfrac\pi2\right)$；
+    \item $\displaystyle y^{(n)}(x)=\frac{P_{n-1}(x)}{(1+x^2)^n}$，其中 $P_{n-1}(x)$ 是最高次项系数等于 $(-1)^{n-1}n!$ 的 $n-1$ 次多项式。
+  \end{enumerate}
+  \item 定义 $f_0(x)\equiv1,f_{n+1}(x)=xf_n(x)-f_n'(x),n=0,1,\ldots$。证明：
+  \begin{enumerate}[label=(\arabic*)]
+    \item $f_n(x)$ 是 $n$ 次多项式；
+    \item $f_n(x)$ 有 $n$ 个不同实根，且关于原点对称。
+  \end{enumerate}
+\end{enumerate}
+\end{xreferenceproblem}
+
+\subsubsection*{第二组参考题}
+
+\begin{xreferenceproblem}
+\begin{enumerate}
+  \item
+  \begin{enumerate}[label=(\arabic*)]
+    \item 求 $\displaystyle\sum_{k=1}^n\sin kx$ 和 $\displaystyle\sum_{k=1}^n\cos kx$；
+    \item 求 $\displaystyle\sum_{k=1}^n k\sin kx$ 和 $\displaystyle\sum_{k=1}^n k\cos kx$。
+  \end{enumerate}
+  \item 证明：（例题 5.1.4 中的）Riemann 函数 $R(x)$ 处处不可导。
+  \item 若从点 $(x_0,y_0)$ 向抛物线 $y=ax^2+bx+c$ 能够作出两条切线，或只能作出一条切线，或不能作出切线，问：在这三种情况中的 $(x_0,y_0)$ 的位置与抛物线有什么关系？
+  \item 证明：Legendre 多项式
+  \[
+    P_n(x)=\frac1{2^nn!}\frac{\dd^n}{\dd x^n}(x^2-1)^n
+  \]
+  满足方程
+  \[
+    P'_{n+1}(x)-P'_{n-1}(x)=(2n+1)P_n(x).
+  \]
+  \item 证明：Legendre 多项式满足方程
+  \[
+    (1-x^2)P_n''(x)-2xP_n'(x)+n(n+1)P_n(x)=0.
+  \]
+  \item 分析三项式 $(u+v+w)^n$ 展开的系数规律，猜测并证明 $(uvw)^{(n)}$ 的一般计算公式。
+  \item 设 $f(x)=ax^2+bx+c$，当 $\abs{x}\le1$ 时，$\abs{f(x)}\le1$。证明：当 $\abs{x}\le1$ 时，$\abs{f'(x)}\le4$。
+  \item 证明：对每个正整数 $n$，成立
+  \[
+    \sum_{k=0}^n(-1)^k\binom nk k^m
+    =
+    \begin{cases}
+      0, & 0\le m\le n-1,\\
+      (-1)^n n!, & m=n.
+    \end{cases}
+  \]
+  \item 设 $f(x)=x^n\ln x,n\in\NN_+$，求
+  \[
+    \lim_{n\to\infty}\frac{f^{(n)}(1/n)}{n!}.
+  \]
+  \item 设 $f$ 在 $x=0$ 处连续，且存在极限
+  \[
+    \lim_{x\to0}\frac{f(2x)-f(x)}x=A.
+  \]
+  证明：$f'(0)=A$。
+  \item 设 $y=(1+\sqrt{x})^{2n+2},n\in\NN_+$，求 $y^{(n)}(1)$。
+  \item 设 $f(x)$ 在区间 $I$ 上三阶可导，$f'(x)\ne0$，则可以定义 $f(x)$ 的 Schwarz 导数如下：
+  \[
+    S(f,x)=\frac{f'''(x)}{f'(x)}-\frac32\left(\frac{f''(x)}{f'(x)}\right)^2
+    =\left(\frac{f''(x)}{f'(x)}\right)'-\frac12\left(\frac{f''(x)}{f'(x)}\right)^2.
+  \]
+  证明：
+  \begin{enumerate}[label=(\arabic*)]
+    \item 若 $f(x)=(ax+b)/(cx+d)$，即分式线性函数，则 $S(f,x)\equiv0$；
+    \item 若 $p(x)$ 是 $x$ 的多项式，且 $p'(x)=0$ 的根都是互不相等的实数，则 $S(p,x)<0$；
+    \item 若 $f,g$ 具有所需的各阶导数，则 $S(f\circ g,x)=S(f,g(x))(g'(x))^2+S(g,x)$；
+    \item 若 $S(f,x)<0,S(g,x)<0$，则 $S(f\circ g,x)<0$；
+    \item 若 $S(f,x)<0$，又记 $f^n=\underbrace{f\circ f\circ\cdots\circ f}_{n\text{ 个 }f}$，则 $S(f^n,x)<0$。
+  \end{enumerate}
+\end{enumerate}
+\end{xreferenceproblem}
+
+% END TRANSCRIPTION
