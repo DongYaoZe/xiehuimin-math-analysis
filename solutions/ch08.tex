@@ -6,24 +6,36 @@
 
 \paragraph{题 1}
 \begin{xsolution}
-这里的“不宜”并不都表示 L'Hospital 法则不能使用，而是指直接化简更自然。
+逐题检查 L'Hospital 法则的适用条件及求导后的表达式。
 \begin{enumerate}[label=(\arabic*)]
-  \item 当 $x\to1$ 时原式不是不定式，直接代入得 $1/2$。
-  \item 分子、分母同除以 $x$，得到
+  \item 当 $x\to1$ 时原式趋于 $1/2$，既不是 $0/0$ 型也不是 $\infty/\infty$ 型，因此不能使用 L'Hospital 法则。
+
+  \item 原式虽为 $\infty/\infty$ 型，但求导后得到
+  \[
+    \frac{1+\cos x}{1-\cos x}.
+  \]
+  该比值在 $x\to+\infty$ 时没有极限，而且分母导数 $1-\cos x$ 在任意远处仍有零点，故 L'Hospital 法则不能给出所求极限。直接同除以 $x$ 即得
   \[
     \frac{1+\sin x/x}{1-\sin x/x}\to1.
   \]
-  若求导，得到 $(1+\cos x)/(1-\cos x)$，反而失去极限，故不宜使用 L'Hospital 法则。
-  \item 分子、分母同除以 $\ee^x$，得到
+
+  \item 求导后得到
+  \[
+    \frac{\ee^x-\ee^{-x}}{\ee^x+\ee^{-x}},
+  \]
+  恰为原比值的倒数；若继续求导又回到原式，因此单靠反复使用 L'Hospital 法则只会循环。直接同除以 $\ee^x$ 得
   \[
     \frac{1+\ee^{-2x}}{1-\ee^{-2x}}\to1.
   \]
-  L'Hospital 法则虽可用，但只是把问题改写成同样量级的指数式，没有必要。
-  \item 因 $x\to+\infty$，直接除以 $x$：
+
+  \item 求导后得到
+  \[
+    \frac{1}{x/\sqrt{1+x^2}}=\frac{\sqrt{1+x^2}}x,
+  \]
+  仍是原比值的倒数，因而同样形成循环。直接同除以 $x$：
   \[
     \frac{x}{\sqrt{1+x^2}}=\frac1{\sqrt{1+x^{-2}}}\to1.
   \]
-  L'Hospital 法则也可用，但显然比这一化简繁琐。
 \end{enumerate}
 \end{xsolution}
 
@@ -994,7 +1006,7 @@ $p<0$ 时情形关于原点对称：正半轴恰有一个根，负半轴有两�
 \[
   f'''(0)=6\ne0.
 \]
-因此不能给出所要求的证明，原题条件或结论应有误。
+因此题面所述命题为假。
 \end{xsolution}
 
 \paragraph{题 19}
@@ -1064,6 +1076,16 @@ $p<0$ 时情形关于原点对称：正半轴恰有一个根，负半轴有两�
   \frac{x_2-x_1}{x_2}<\ln\frac{x_2}{x_1}
   <\frac{x_2-x_1}{x_1}.
 \]
+
+\textbf{另解}\quad 对 $\ln x$ 在区间 $[x_1,x_2]$ 使用 Lagrange 中值定理，存在 $\xi\in(x_1,x_2)$ 使
+\[
+  \frac{\ln x_2-\ln x_1}{x_2-x_1}=\frac1\xi.
+\]
+由于 $x_1<\xi<x_2$，有
+\[
+  \frac1{x_2}<\frac1\xi<\frac1{x_1},
+\]
+两边乘以 $x_2-x_1>0$ 即得所证双边不等式。
 \end{xsolution}
 
 \paragraph{题 4}
@@ -1284,11 +1306,25 @@ $p<0$ 时情形关于原点对称：正半轴恰有一个根，负半轴有两�
 \[
   1<f(x)<1+\arctan x-\frac\pi4<1+\frac\pi4.
 \]
-所以 $f$ 单调增加且有上界，极限存在，并且
+所以 $f$ 单调增加且有上界，极限
 \[
-  \lim_{x\to+\infty}f(x)\le1+\frac\pi4.
+  L=\lim_{x\to+\infty}f(x)
 \]
-实际上对每个有限 $x>1$ 上式严格，且由 $f(x)>1$ 可在任意尾区间保持严格余量，故极限严格小于 $1+\pi/4$。
+存在。又由微分方程
+\[
+  L-1
+  =\int_1^{+\infty}\frac{\dd t}{t^2+f(t)^2}.
+\]
+对 $t>1$ 有 $f(t)>1$，故被积函数严格小于 $1/(t^2+1)$。例如先在 $[1,2]$ 上积分即可得到严格差额，而在 $[2,+\infty)$ 上仍保持不大于，因而
+\[
+  L-1
+  <\int_1^{+\infty}\frac{\dd t}{t^2+1}
+  =\frac\pi4.
+\]
+所以
+\[
+  \boxed{\displaystyle\lim_{x\to+\infty}f(x)<1+\frac\pi4}.
+\]
 \end{xsolution}
 
 \paragraph{题 14}
@@ -1424,7 +1460,7 @@ $p<0$ 时情形关于原点对称：正半轴恰有一个根，负半轴有两�
     \frac{y'}y=
     \frac{2x^3(3-x^2)}{(1-x^2)^2(1+x^2)}.
   \]
-  因而在 $(0,1)$ 严格增加，从 $y(0)=\ee$ 增到 $+\infty$；在 $(1,\sqrt3)$ 从 $0$ 墓到极大值
+  因而在 $(0,1)$ 严格增加，从 $y(0)=\ee$ 增到 $+\infty$；在 $(1,\sqrt3)$ 从 $0$ 增到极大值
   \[
     y(\sqrt3)=\frac14\ee^{-1/2},
   \]
@@ -1723,9 +1759,39 @@ Newton 映射为
 \end{xsolution}
 
 \paragraph{题 4}
-% CHECK-SOLUTION: 当前 ch08 只交叉引用“2.6.3 小节的题 9”，未给出该算法的递推公式；按用户要求只读本章，无法可靠重建并证明其三阶收敛性。
 \begin{xsolution}
-本题所需的具体迭代公式不在本章题面中。为避免猜测算法，保留待由整合者在允许读取 2.6.3 题 9 后补全。
+题 9 中求 $\sqrt A$ 的迭代式为
+\[
+  x_{n+1}=\frac{x_n(x_n^2+3A)}{3x_n^2+A},
+  \qquad A>0,\quad x_0>0.
+\]
+令 $r=\sqrt A$，$t_n=x_n/r$，则
+\[
+  t_{n+1}=T(t_n),
+  \qquad
+  T(t)=\frac{t(t^2+3)}{3t^2+1}.
+\]
+直接计算得
+\[
+  T(t)-1=\frac{(t-1)^3}{3t^2+1},
+  \qquad
+  T(t)-t=\frac{2t(1-t^2)}{3t^2+1}.
+\]
+故当 $t>1$ 时 $1<T(t)<t$，当 $0<t<1$ 时 $t<T(t)<1$。因此 $\{t_n\}$ 单调有界并收敛，其极限只能为 $1$，即 $x_n\to r$。
+
+更重要的是有精确误差关系
+\[
+  x_{n+1}-r
+  =\frac{(x_n-r)^3}{3x_n^2+A}.
+\]
+于是
+\[
+  \lim_{n\to\infty}
+  \frac{x_{n+1}-r}{(x_n-r)^3}
+  =\frac1{3r^2+A}
+  =\frac1{4A}\ne0.
+\]
+所以该算法为求平方根的三阶收敛算法。
 \end{xsolution}
 
 \paragraph{题 5}
@@ -2262,18 +2328,27 @@ $c$ 与 $1-c$ 至少一个不超过 $1/2$，所以相应的二阶导数至少为
     2,&x\ge0,
   \end{cases}
 \]
-在 $(-1,1)$ 内从不取值 3。因此保留为待勘误题。
+在 $(-1,1)$ 内从不取值 3。因此题面所述结论为假。
 \end{xsolution}
 
 \paragraph{第一组参考题 18}
 \begin{xsolution}
-反设 $g(x)$ 在 $(a,b)$ 内无零点。由连续性，$g$ 在整个 $[a,b]$ 上除端点可能性外保持非零；且若端点有零点，结合 Wronski 条件与 $f(a)=f(b)=0$ 可先在内缩区间作以下论证并取极限。直接在 $g\ne0$ 的情形令
+反设 $g$ 在 $(a,b)$ 内无零点。先看端点：由 $f(a)=0$ 与 $W(f,g)(a)\ne0$，
+\[
+  W(f,g)(a)=-g(a)f'(a)\ne0,
+\]
+所以 $g(a)\ne0$；同理 $g(b)\ne0$。因此在反设下 $g$ 在整个 $[a,b]$ 上处处非零，可以定义
 \[
   h(x)=\frac{f(x)}{g(x)}.
 \]
-由 $f(a)=f(b)=0$ 得 $h(a)=h(b)=0$，Rolle 定理给出某 $\xi\in(a,b)$ 使 $h'(\xi)=0$。然而
+此时 $h$ 在 $[a,b]$ 上连续、在 $(a,b)$ 上可微，并且
 \[
-  h'(x)=\frac{f'g-fg'}{g^2}=-\frac{W(f,g)}{g^2}\ne0,
+  h(a)=h(b)=0.
+\]
+由 Rolle 定理，存在 $\xi\in(a,b)$ 使 $h'(\xi)=0$。但
+\[
+  h'(x)=\frac{f'g-fg'}{g^2}
+  =-\frac{W(f,g)}{g^2}\ne0,
 \]
 矛盾。故 $g$ 必在 $(a,b)$ 中有零点。
 \end{xsolution}
