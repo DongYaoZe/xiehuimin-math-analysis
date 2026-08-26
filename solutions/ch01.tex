@@ -10,21 +10,15 @@
 \end{xexercise}
 \begin{xsolution}
 \begin{enumerate}[label=(\arabic*)]
-  \item 当 $-2\le h\le-1$ 时，有 $-1\le1+h\le0$。
-
-  若 $n=1$，则
+  \item 当 $-2\le h\le-1$ 时，$-1\le1+h\le0$。对任意 $n\in\NN_+$，
   \[
-    (1+h)^n=1+h=1+nh.
+    (1+h)^n\ge-\abs{1+h}=1+h.
   \]
-  若 $n\ge2$，则 $1+nh\le1-n\le-1$；另一方面，因 $-1\le1+h\le0$，故
+  又因 $h\le0$ 且 $n\ge1$，有 $h\ge nh$，故
   \[
-    (1+h)^n\ge-1.
+    (1+h)^n\ge1+h\ge1+nh.
   \]
-  因此
-  \[
-    (1+h)^n\ge-1\ge1+nh.
-  \]
-  故 Bernoulli 不等式在 $-2\le h\le-1$ 时仍成立。
+  因而 Bernoulli 不等式在该区间仍成立。
 
   \item 当 $h\ge0$ 时，由二项式展开
   \[
@@ -43,35 +37,28 @@
     \qquad h\ge0.
   \]
 
-  \item 先设 $a_i\ge0$（$i=1,\ldots,n$）。直接展开乘积可得
+  \item 对 $n$ 作数学归纳。$n=1$ 时为等式。设结论对 $n=k$ 成立，即
   \[
-    \prod_{i=1}^n(1+a_i)
-    =1+\sum_{i=1}^n a_i+\sum_{i<j}a_ia_j+\cdots+\prod_{i=1}^n a_i
-    \ge1+\sum_{i=1}^n a_i.
+    \prod_{i=1}^k(1+a_i)\ge1+\sum_{i=1}^k a_i.
   \]
-
-  再设 $-1<a_i\le0$。令 $x_i=-a_i$，则 $0\le x_i<1$。证明
-  \[
-    \prod_{i=1}^n(1-x_i)\ge1-\sum_{i=1}^n x_i.
-  \]
-  对 $n$ 作归纳。$n=1$ 时为等式。若结论对 $n-1$ 成立，记
-  \[
-    S=\sum_{i=1}^{n-1}x_i\ge0,
-  \]
-  则因 $1-x_n>0$，
+  因 $a_{k+1}>-1$，有 $1+a_{k+1}>0$，故
   \[
   \begin{aligned}
-    \prod_{i=1}^n(1-x_i)
-    &\ge(1-S)(1-x_n)\\
-    &=1-S-x_n+Sx_n\\
-    &\ge1-S-x_n.
+    \prod_{i=1}^{k+1}(1+a_i)
+    &\ge\left(1+\sum_{i=1}^k a_i\right)(1+a_{k+1})\\
+    &=1+\sum_{i=1}^{k+1}a_i
+      +a_{k+1}\sum_{i=1}^k a_i.
   \end{aligned}
   \]
-  因而结论对所有 $n$ 成立。代回 $x_i=-a_i$，得
+  题设各 $a_i$ 同号，所以
   \[
-    \prod_{i=1}^n(1+a_i)\ge1+\sum_{i=1}^n a_i.
+    a_{k+1}\sum_{i=1}^k a_i\ge0.
   \]
-  由于题设各 $a_i$ 同号，两种情况已穷尽。
+  因而
+  \[
+    \prod_{i=1}^{k+1}(1+a_i)\ge1+\sum_{i=1}^{k+1}a_i,
+  \]
+  归纳完成。
 \end{enumerate}
 \end{xsolution}
 
@@ -544,36 +531,34 @@ Cauchy 不等式取等号当且仅当 $(a,c,g,t)$ 与 $(1,1,1,1)$ 成比例。�
     \exists x\in A,\quad x<b.
   \]
 
-  \item 若“单调增加”按通常的非严格定义，即
+  \item “$f$ 是区间 $(a,b)$ 上的单调增加函数”可写为
   \[
     \forall x_1,x_2\in(a,b),\quad
-    x_1<x_2\Longrightarrow f(x_1)\le f(x_2),
+    x_1<x_2\Longrightarrow f(x_1)\le f(x_2).
   \]
-  则其否定为
+  因此其否定为
   \[
     \exists x_1,x_2\in(a,b),\quad
     x_1<x_2,\qquad f(x_1)>f(x_2).
   \]
-  若后文采用“单调增加”表示严格递增，即结论写成 $f(x_1)<f(x_2)$，则相应否定中的最后一个不等号应改为 $f(x_1)\ge f(x_2)$。这样不依赖术语的严格/非严格约定。
 
-  \item 按非严格约定，“$f$ 是区间 $(a,b)$ 上的单调函数”表示 $f$ 非减或非增。其否定要求这两种情形都失败，即
+  \item “$f$ 是区间 $(a,b)$ 上的单调函数”表示 $f$ 单调增加或单调减少。其否定要求两种情形都不成立，即
   \[
   \begin{gathered}
     \exists x_1,x_2\in(a,b),\quad x_1<x_2,\quad f(x_1)>f(x_2),\\
     \exists y_1,y_2\in(a,b),\quad y_1<y_2,\quad f(y_1)<f(y_2).
   \end{gathered}
   \]
-  两对点不必相同。若“单调”采用严格约定，则上述两个末端不等号分别改为 $\ge$ 与 $\le$。
+  两对点不必相同。
 
-  \item 若 $A\subset B$ 表示包含关系，即
+  \item $A\subset B$ 表示
   \[
-    \forall x,\quad x\in A\Longrightarrow x\in B,
+    \forall x,\quad x\in A\Longrightarrow x\in B.
   \]
-  则其否定为
+  因此其否定为
   \[
     \exists x,\quad x\in A,\qquad x\notin B.
   \]
-  若采用 $\subset$ 专指真包含的约定，则 $A\subset B$ 还要求 $A\ne B$，其否定相应为“存在 $x\in A$ 但 $x\notin B$，或 $A=B$”。
 
   \item $A-B\ne\varnothing$ 等价于
   \[
