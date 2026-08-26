@@ -67,7 +67,7 @@
 设 $y=y(x)$ 由题中三个方程分别确定，求 $y',y''$。
 \end{xexercise}
 \begin{xsolution}
-以下各式均在相应隐函数存在且分母不为零的正则点上成立。
+以下各式均在原方程有定义、相应隐函数存在且分母不为零的正则点上成立。特别地，第 (1) 小题还需 $x\ne0$。
 
 \begin{enumerate}[label=(\arabic*)]
   \item 令
@@ -256,7 +256,7 @@
   \[
     r=\sqrt{x^2-y^2},\qquad q=\frac zr.
   \]
-  在 $r\ne0$ 的区域内，原方程等价于 $q=\tan q$。连续隐函数支上的 $q$ 必须落在方程 $q=\tan q$ 的某个孤立根上，因此在足够小的连通邻域内 $q$ 为常数。于是 $z=qr$，从而
+  原式在实数范围内要求 $x^2-y^2>0$。在这一开区域内 $r>0$，原方程等价于 $q=\tan q$。连续隐函数支上的 $q$ 必须落在方程 $q=\tan q$ 的某个孤立根上，因此在足够小的连通邻域内 $q$ 为常数。于是 $z=qr$，从而
   \[
     z_x=q\frac xr=\frac{xz}{x^2-y^2},
     \qquad
@@ -269,7 +269,7 @@
       z_y=-\frac{yz}{x^2-y^2}}.
   \]
 
-  \item 对
+  \item 原式在实数范围内要求 $z/y>0$。在此定义域内，并在 $x+z\ne0$ 的正则点，对
   \[
     \frac xz=\ln\frac zy
   \]
@@ -319,7 +319,7 @@
 设 $z=z(x,y)$ 由题中三个一般函数方程分别确定，求指定导数或微分。
 \end{xexercise}
 \begin{xsolution}
-下文 $f_i,f_{ij}$ 均表示 $f$ 对相应自变量的偏导，并在题目所给复合自变量处取值。
+下文 $f_i,f_{ij}$ 均表示 $f$ 对相应自变量的偏导，并在题目所给复合自变量处取值；涉及二阶导数的第 (3) 小题中假设 $f$ 二阶连续可微。
 
 \begin{enumerate}[label=(\arabic*)]
   \item 置
@@ -432,7 +432,7 @@
     \qquad
     F_z=2z-f'(q).
   \]
-  因而 $z_x=-F_x/F_z,z_y=-F_y/F_z$。于是
+  原式要求 $y\ne0$。在 $F_z\ne0$ 的正则点，因而 $z_x=-F_x/F_z,z_y=-F_y/F_z$。于是
   \begin{align*}
     &(x^2-y^2-z^2)z_x+2xyz_y\\
     &=-\frac{2x}{F_z}
@@ -450,7 +450,7 @@
     \boxed{(x^2-y^2-z^2)z_x+2xyz_y=2xz}.
   \]
 
-  \item 将原关系写成
+  \item 原式要求 $z\ne0$。将原关系写成
   \[
     H(x,y,z)=x-z\varphi\!\left(\frac yz\right)=0.
   \]
@@ -487,7 +487,7 @@
     \boxed{z_{xx}z_{yy}-z_{xy}^2=0}.
   \]
 
-  \item 记
+  \item 在原式有定义的区域，即 $a^2+u,b^2+u,c^2+u$ 均非零处，记
   \[
     A=a^2+u,\qquad B=b^2+u,\qquad C=c^2+u,
   \]
@@ -754,11 +754,11 @@
 确定，求 $\dd u/\dd x$ 与 $\dd^2u/\dd x^2$。
 \end{xexercise}
 \begin{xsolution}
-设
+为使二阶导数有意义，以下设 $f,g,h$ 至少二阶连续可微，并在
 \[
-  \Delta=g_yh_z-g_zh_y\ne0,
+  \Delta=g_yh_z-g_zh_y\ne0
 \]
-并令
+的正则点讨论。令
 \[
   p=y'(x),\qquad q=z'(x).
 \]
@@ -789,9 +789,9 @@
 \end{align*}
 再次对 $g=0,h=0$ 求导得到
 \[
-  g_yy''+g_zz''=-G_2,
+  g_y y''+g_z z''=-G_2,
   \qquad
-  h_yy''+h_zz''=-H_2.
+  h_y y''+h_z z''=-H_2.
 \]
 因此
 \[
@@ -805,7 +805,7 @@
   \frac{\dd^2u}{\dd x^2}
   ={}&f_{xx}+2f_{xy}p+2f_{xz}q
       +f_{yy}p^2+2f_{yz}pq+f_{zz}q^2\\
-     &+f_yy''+f_zz''.
+     &+f_y y''+f_z z''.
   \end{aligned}}
 \]
 所有偏导均在相应隐函数曲线上取值。
@@ -815,11 +815,25 @@
 由 $x=u\cos v,y=u\sin v,z=v$ 确定 $z=z(x,y)$，求全部二阶偏导数。
 \end{xexercise}
 \begin{xsolution}
-在 $u\ne0$ 且选定连续角度分支的局部邻域内，
+正向变换的 Jacobi 行列式为
 \[
-  z=v=\arctan\frac yx.
+  \frac{\partial(x,y)}{\partial(u,v)}=u,
 \]
-因此
+所以在 $u\ne0$ 的任一正则点都可选取连续角度分支，而不必限制 $x\ne0$。对
+\[
+  x=u\cos v,\qquad y=u\sin v
+\]
+取微分，得
+\[
+  \dd x=\cos v\,\dd u-u\sin v\,\dd v,
+  \qquad
+  \dd y=\sin v\,\dd u+u\cos v\,\dd v.
+\]
+联立解出
+\[
+  \dd v=\frac{-\sin v\,\dd x+\cos v\,\dd y}{u}.
+\]
+由 $z=v$ 以及 $x=u\cos v,y=u\sin v$，有 $u^2=x^2+y^2$，故
 \[
   z_x=-\frac{y}{x^2+y^2},
   \qquad
@@ -1361,7 +1375,7 @@
 设 $u=xy,v=x/y$，求正、逆 Jacobi 行列式。
 \end{xexercise}
 \begin{xsolution}
-有
+原变换要求 $y\ne0$。在这一域内有
 \[
   u_x=y,
   \qquad u_y=x,
@@ -1961,14 +1975,15 @@
 \]
 取 $\delta>0$ 充分小，使
 \[
-  \norm{A^{-1}}\delta\le(1-q)r.
+  \norm{A^{-1}}\delta\le\frac{1-q}{2}r.
 \]
 若 $\norm{y-y_0}<\delta$，则对 $x\in\overline B$，
 \begin{align*}
   \norm{\Phi_y(x)-x_0}
   &\le\norm{\Phi_y(x)-\Phi_y(x_0)}
       +\norm{\Phi_y(x_0)-x_0}\\
-  &\le qr+(1-q)r=r.
+  &\le qr+\frac{1-q}{2}r
+   =\frac{1+q}{2}r<r.
 \end{align*}
 故 $\Phi_y$ 把 $\overline B$ 映入自身。由压缩映射原理，存在唯一 $x=g(y)\in\overline B$ 使
 \[
@@ -2004,7 +2019,20 @@
 \]
 右端连续，故 $g\in C^1$。若 $f\in C^k$，由上式和矩阵求逆的光滑性逐阶归纳，得到 $g\in C^k$。
 
-令 $W=g(V)$。由于 $Jg$ 可逆，$W$ 是 $x_0$ 的开邻域，并且
+还需验证 $W=g(V)$ 确为开集，而不能在这里反过来调用正在证明的局部逆映射定理。若 $x=g(y)$，由固定点方程直接有
+\[
+  \norm{x-x_0}
+  \le q\norm{x-x_0}+\norm{A^{-1}}\delta,
+\]
+故
+\[
+  \norm{x-x_0}\le\frac r2.
+\]
+另一方面，若 $x\in B(x_0,r)$ 且 $f(x)\in V$，则 $x$ 是 $\Phi_{f(x)}$ 在 $\overline B$ 中的不动点，由唯一性必有 $x=g(f(x))$。因此
+\[
+  W=g(V)=B(x_0,r)\cap f^{-1}(V),
+\]
+右端是开集，并且含 $x_0$。于是
 \[
   f\colon W\to V,
   \qquad g=f^{-1}\colon V\to W
