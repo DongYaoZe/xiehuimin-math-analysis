@@ -1,0 +1,3031 @@
+% Task C08 solutions
+% Based on chapters/ch08.tex from local main b4628dd90903b38fb9c71bf61921e79513bb5295.
+\chapter*{第8章 微分学的应用习题解答}
+
+\section*{8.1.3 练习题}
+
+\paragraph{题 1}
+\begin{xsolution}
+这里的“不宜”并不都表示 L'Hospital 法则不能使用，而是指直接化简更自然。
+\begin{enumerate}[label=(\arabic*)]
+  \item 当 $x\to1$ 时原式不是不定式，直接代入得 $1/2$。
+  \item 分子、分母同除以 $x$，得到
+  \[
+    \frac{1+\sin x/x}{1-\sin x/x}\to1.
+  \]
+  若求导，得到 $(1+\cos x)/(1-\cos x)$，反而失去极限，故不宜使用 L'Hospital 法则。
+  \item 分子、分母同除以 $\ee^x$，得到
+  \[
+    \frac{1+\ee^{-2x}}{1-\ee^{-2x}}\to1.
+  \]
+  L'Hospital 法则虽可用，但只是把问题改写成同样量级的指数式，没有必要。
+  \item 因 $x\to+\infty$，直接除以 $x$：
+  \[
+    \frac{x}{\sqrt{1+x^2}}=\frac1{\sqrt{1+x^{-2}}}\to1.
+  \]
+  L'Hospital 法则也可用，但显然比这一化简繁琐。
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{题 2}
+\begin{xsolution}
+\begin{enumerate}[label=(\arabic*)]
+  \item 设 $a,b>0$ 且 $a\ne b$。当 $x\to0$ 时
+  \[
+    a^{x^2}-b^{x^2}=x^2(\ln a-\ln b)+\littleo(x^2),
+  \]
+  而
+  \[
+    a^x-b^x=x(\ln a-\ln b)+\littleo(x).
+  \]
+  因而
+  \[
+    \lim_{x\to0}\frac{a^{x^2}-b^{x^2}}{(a^x-b^x)^2}
+    =\frac1{\ln a-\ln b}=\frac1{\ln(a/b)}.
+  \]
+  若 $a=b$，原分母恒为零，原式没有通常意义。
+
+  \item 令 $t=1/x$。有
+  \[
+    (1-t+\tfrac12t^2)\ee^t=1+\frac16t^3+\bigO(t^4),
+  \]
+  故
+  \[
+    \left(x^3-x^2+\frac x2\right)\ee^{1/x}
+    =x^3+\frac16+\bigO(x^{-1}).
+  \]
+  又
+  \[
+    \sqrt{1+x^6}=x^3\sqrt{1+x^{-6}}=x^3+\bigO(x^{-3}).
+  \]
+  所以极限为 $1/6$。
+
+  \item 取对数：
+  \[
+    \ln\left(\ln\frac1x\right)^x=x\ln\ln\frac1x.
+  \]
+  令 $t=\ln(1/x)\to+\infty$，则右端为 $\ee^{-t}\ln t\to0$，故极限为 $1$。
+
+  \item 因 $x>0$ 时 $\frac\pi2-\arctan x=\arctan(1/x)\sim1/x$，故
+  \[
+    \ln\left(\frac\pi2-\arctan x\right)^{1/\ln x}
+    =\frac{\ln(\frac\pi2-\arctan x)}{\ln x}\to-1.
+  \]
+  因此极限为 $\ee^{-1}$。
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{题 3}
+\begin{xsolution}
+逐项比较 Maclaurin 展开式的低阶系数即可。
+\begin{enumerate}[label=(\arabic*)]
+  \item
+  \[
+    (a+b\cos x)\sin x
+    =(a+b)x+\left(-\frac{a+b}{6}-\frac b2\right)x^3
+    +\left(\frac{a+b}{120}+\frac b8\right)x^5+\bigO(x^7).
+  \]
+  令一次、三次项在 $x-(a+b\cos x)\sin x$ 中消失，得
+  \[
+    a+b=1,\qquad \frac16+\frac b2=0,
+  \]
+  即
+  \[
+    a=\frac43,\qquad b=-\frac13.
+  \]
+  此时 $f(x)=\frac1{30}x^5+\bigO(x^7)$，故最高可做到五阶。
+
+  \item
+  \[
+    \frac{1+ax}{1+bx}
+    =1+(a-b)x-b(a-b)x^2+b^2(a-b)x^3+\bigO(x^4).
+  \]
+  与 $\ee^x$ 比较，令一次、二次项相同：
+  \[
+    a-b=1,\qquad -b=\frac12.
+  \]
+  因而
+  \[
+    a=\frac12,\qquad b=-\frac12.
+  \]
+  此时三次项之差为 $1/6-1/4=-1/12$，故 $f(x)=-x^3/12+\bigO(x^4)$。
+
+  \item
+  \[
+    \frac{1+ax^2}{x+bx^3}
+    =\frac1x+(a-b)x-b(a-b)x^3+b^2(a-b)x^5+\bigO(x^7),
+  \]
+  而
+  \[
+    \cot x=\frac1x-\frac x3-\frac{x^3}{45}-\frac{2x^5}{945}+\bigO(x^7).
+  \]
+  令 $a-b=-1/3$、$-b(a-b)=-1/45$，得到
+  \[
+    b=-\frac1{15},\qquad a=-\frac25.
+  \]
+  此时五次项之差为 $-1/1575$，所以最高为五阶无穷小。
+
+  \item
+  \[
+    \frac{1+ax^2}{1+bx^2}
+    =1+(a-b)x^2-b(a-b)x^4+b^2(a-b)x^6+\bigO(x^8).
+  \]
+  与
+  \[
+    \cos x=1-\frac{x^2}{2}+\frac{x^4}{24}-\frac{x^6}{720}+\bigO(x^8)
+  \]
+  比较，得
+  \[
+    a-b=-\frac12,\qquad \frac b2=\frac1{24},
+  \]
+  即
+  \[
+    b=\frac1{12},\qquad a=-\frac5{12}.
+  \]
+  此时 $f(x)=x^6/480+\bigO(x^8)$，故最高为六阶。
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{题 4}
+\begin{xsolution}
+\begin{enumerate}[label=(\arabic*)]
+  \item 由 $\sin x=x-x^3/6+\bigO(x^5)$，
+  \[
+    \frac1x-\frac1{\sin x}
+    =\frac{\sin x-x}{x\sin x}\sim-\frac x6\to0.
+  \]
+
+  \item
+  \[
+    \ee^{x^3}-1-x^3=\frac12x^6+\bigO(x^9),\qquad
+    \sin^6 2x=64x^6+\littleo(x^6),
+  \]
+  故极限为 $1/128$。
+
+  \item
+  \[
+    n\sin\frac1n=1-\frac1{6n^2}+\bigO(n^{-4}),
+  \]
+  因而
+  \[
+    n^2\ln\left(n\sin\frac1n\right)
+    =n^2\left(-\frac1{6n^2}+\bigO(n^{-4})\right)\to-\frac16.
+  \]
+
+  \item
+  \[
+    \sqrt{n^2+2}\,\pi
+    =n\pi+\frac\pi n+\bigO(n^{-3}).
+  \]
+  因此
+  \[
+    (-1)^n n\sin(\sqrt{n^2+2}\,\pi)
+    =n\sin\left(\frac\pi n+\bigO(n^{-3})\right)\to\pi.
+  \]
+
+  \item 展开到七次项可得
+  \[
+    \sin(\tan x)-\tan(\sin x)=-\frac1{30}x^7+\bigO(x^9),
+  \]
+  故极限为 $-1/30$。
+
+  \item 展开到六次项可得
+  \[
+    x\sin(\sin x)-\sin^2x=\frac1{18}x^6+\bigO(x^8),
+  \]
+  故极限为 $1/18$。
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{题 5}
+\begin{xsolution}
+由 $f''(a)$ 存在，
+\[
+  f(a+h)=f(a)+f'(a)h+\frac12f''(a)h^2+\littleo(h^2),
+\]
+\[
+  f(a+2h)=f(a)+2f'(a)h+2f''(a)h^2+\littleo(h^2).
+\]
+相减后
+\[
+  f(a+2h)-2f(a+h)+f(a)=f''(a)h^2+\littleo(h^2),
+\]
+除以 $h^2$ 并令 $h\to0$ 即得结论。
+\end{xsolution}
+
+\paragraph{题 6}
+\begin{xsolution}
+记 $t=x-x_0$，$A=f'(x_0)\ne0$，$B=f''(x_0)/2$。二阶 Taylor 公式给出
+\[
+  f(x)-f(x_0)=At+Bt^2+\littleo(t^2).
+\]
+于是
+\begin{align*}
+  &\frac1{f(x)-f(x_0)}-\frac1{f'(x_0)(x-x_0)}\\
+  &\quad=\frac{At-[At+Bt^2+\littleo(t^2)]}
+  {At[At+Bt^2+\littleo(t^2)]}
+  \to-\frac{B}{A^2}.
+\end{align*}
+故所求极限为
+\[
+  -\frac{f''(x_0)}{2[f'(x_0)]^2}.
+\]
+\end{xsolution}
+
+\paragraph{题 7}
+\begin{xsolution}
+切线方程为
+\[
+  Y-f(x)=f'(x)(X-x),
+\]
+故其 $x$ 轴截距
+\[
+  u=x-\frac{f(x)}{f'(x)}.
+\]
+记 $c=f''(0)>0$。当 $x\to0+$ 时
+\[
+  f(x)=\frac c2x^2+\littleo(x^2),\qquad
+  f'(x)=cx+\littleo(x),
+\]
+所以
+\[
+  u=\frac x2+\littleo(x),\qquad \frac ux\to\frac12.
+\]
+又 $u\to0+$，故
+\[
+  \frac{f(u)}{f(x)}\sim\frac{u^2}{x^2}.
+\]
+从而
+\[
+  \frac{x f(u)}{u f(x)}\sim\frac ux\to\frac12.
+\]
+\end{xsolution}
+
+\paragraph{题 8}
+\begin{xsolution}
+记
+\[
+  a_n=\left(1+\frac1n\right)^n.
+\]
+由
+\[
+  n\ln\left(1+\frac1n\right)
+  =1-\frac1{2n}+\frac1{3n^2}+\bigO(n^{-3})
+\]
+得到
+\[
+  a_n=\ee\left(1-\frac1{2n}+\frac{11}{24n^2}+\bigO(n^{-3})\right).
+\]
+因此
+\[
+  a_{n+1}-a_n=\frac{\ee}{2n^2}+\bigO(n^{-3}).
+\]
+于是
+\[
+  n^x(a_{n+1}-a_n)
+  =\frac\ee2 n^{x-2}(1+\littleo(1)).
+\]
+按通常实值函数的定义，极限有限的 $x$ 恰为 $x\le2$，且
+\[
+  f(x)=
+  \begin{cases}
+    0,&x<2,\\
+    \ee/2,&x=2.
+  \end{cases}
+\]
+故定义域为 $(-\infty,2]$，值域为 $\{0,\ee/2\}$。若允许扩充实数值，则 $x>2$ 时极限为 $+\infty$。
+\end{xsolution}
+
+\paragraph{题 9}
+\begin{xsolution}
+因 $0<\ln(1+t)<t$（$t>0$），有 $0<x_{n+1}<x_n$，故 $x_n\to L\ge0$。令极限进入递推式得 $L=\ln(1+L)$，所以 $L=0$。
+
+考察 $1/x_n$，有
+\begin{align*}
+  \frac1{x_{n+1}}-\frac1{x_n}
+  &=\frac{x_n-\ln(1+x_n)}{x_n\ln(1+x_n)}\\
+  &\to\frac12,
+\end{align*}
+其中用了
+\[
+  \ln(1+x)=x-\frac{x^2}{2}+\littleo(x^2).
+\]
+由 Stolz 定理，
+\[
+  \lim_{n\to\infty}\frac{1/x_n}{n}=\frac12,
+\]
+即
+\[
+  \boxed{\lim_{n\to\infty}nx_n=2}.
+\]
+\end{xsolution}
+
+\paragraph{题 10}
+\begin{xsolution}
+由定义
+\[
+  x_{n+1}=x_n+\ln(a-x_n).
+\]
+令 $y_n=a-x_n$，则
+\[
+  y_{n+1}=y_n-\ln y_n,
+  \qquad y_0=a-\ln a.
+\]
+由基本不等式 $\ln a\le a-1$ 得 $y_0\ge1$。若 $y_n>1$，则
+\[
+  1<y_n-\ln y_n<y_n,
+\]
+其中左边由函数 $u-\ln u$ 在 $u\ge1$ 上递增且在 $u=1$ 取值 1 得到。因此 $\{y_n\}$ 单调减少且以下界 1 有界；若其极限为 $L$，则
+\[
+  L=L-\ln L,
+\]
+故 $L=1$。当 $a=1$ 时从一开始即 $y_n=1$。综上
+\[
+  \boxed{\lim_{n\to\infty}x_n=a-1}.
+\]
+\end{xsolution}
+
+\section*{8.2.2 练习题}
+
+\paragraph{题 1}
+\begin{xsolution}
+两个方向都不成立。
+
+单调可微函数的导函数不必单调。例如
+\[
+  f(x)=x+\frac1{10}\sin x
+\]
+满足 $f'(x)=1+\frac1{10}\cos x>0$，故 $f$ 在 $\RR$ 上严格增加，但 $f'$ 不是单调函数。
+
+反过来，导函数单调也不能推出原函数在整个区间单调。例如 $f(x)=x^2$ 的导函数 $f'(x)=2x$ 严格增加，但 $f$ 在 $\RR$ 上先减后增。
+\end{xsolution}
+
+\paragraph{题 2}
+\begin{xsolution}
+令
+\[
+  F(x)=x\ln\left(1+\frac1x\right).
+\]
+在 $(-\infty,-1)\cup(0,+\infty)$ 上
+\[
+  F'(x)=\ln\left(1+\frac1x\right)-\frac1{x+1}.
+\]
+令 $t=1/x$，则 $t>-1$ 且 $t\ne0$。由例题 8.5.1 的不等式
+\[
+  \ln(1+t)>\frac{t}{1+t}
+\]
+得到 $F'(x)>0$。由于原函数为 $\ee^{F(x)}$，故在两个区间上均严格单调增加。
+\end{xsolution}
+
+\paragraph{题 3}
+\begin{xsolution}
+取 $0<x<y$。因为 $f'$ 严格单调增加，由 Lagrange 中值定理，存在
+\[
+  \xi_1\in(0,x),\qquad \xi_2\in(x,y)
+\]
+使
+\[
+  \frac{f(x)-f(0)}x=f'(\xi_1),
+  \qquad
+  \frac{f(y)-f(x)}{y-x}=f'(\xi_2).
+\]
+于是
+\[
+  \frac{f(x)}x<\frac{f(y)-f(x)}{y-x}.
+\]
+交叉相乘整理即得
+\[
+  \frac{f(x)}x<\frac{f(y)}y.
+\]
+故 $f(x)/x$ 在 $(0,+\infty)$ 上严格单调增加。
+\end{xsolution}
+
+\paragraph{题 4}
+\begin{xsolution}
+设
+\[
+  R(x)=\frac{f(x)}{g(x)},\qquad r(x)=\frac{f'(x)}{g'(x)}.
+\]
+由 $g'>0$、$g(0)=0$ 知 $g(x)>0$（$0<x<a$）。对区间 $[0,x]$ 用 Cauchy 中值定理，存在 $\xi\in(0,x)$ 使
+\[
+  R(x)=\frac{f(x)-f(0)}{g(x)-g(0)}=r(\xi).
+\]
+因 $r$ 单调增加，$r(\xi)\le r(x)$。于是
+\[
+  R'(x)=\frac{g'(x)}{g(x)}[r(x)-R(x)]\ge0.
+\]
+故 $f/g$ 单调增加。
+\end{xsolution}
+
+\paragraph{题 5}
+\begin{xsolution}
+由 $f''(x)\le0$，$f'$ 在 $[a,+\infty)$ 上单调减少，因此
+\[
+  f'(x)\le f'(a)<0,\qquad x>a.
+\]
+所以 $f$ 严格单调减少，零点至多一个。又由 Lagrange 中值定理
+\[
+  f(x)\le f(a)+f'(a)(x-a)\to-\infty,
+\]
+而 $f(a)>0$，故连续性保证至少存在一个零点。于是零点恰有一个。
+\end{xsolution}
+
+\paragraph{题 6}
+\begin{xsolution}
+由于 $f'(x)>k>0$，$f$ 严格单调增加，故零点至多一个。令
+\[
+  b=a-\frac{f(a)}k>a.
+\]
+由中值定理，对于某个 $\xi\in(a,b)$，
+\[
+  f(b)-f(a)=f'(\xi)(b-a)>k\left(-\frac{f(a)}k\right)=-f(a),
+\]
+所以 $f(b)>0$。结合 $f(a)<0$，零点存在于 $(a,b)$，且因严格单调而唯一。
+\end{xsolution}
+
+\paragraph{题 7}
+\begin{xsolution}
+将方程写成
+\[
+  H(x)=(1+x+x^2/2)\ee^{-x}=a.
+\]
+因为二次多项式 $1+x+x^2/2=[(x+1)^2+1]/2>0$，且
+\[
+  H'(x)=-\frac{x^2}{2}\ee^{-x}\le0,
+\]
+并且除 $x=0$ 外严格小于零，所以 $H$ 在 $\RR$ 上严格减少。又
+\[
+  \lim_{x\to-\infty}H(x)=+\infty,
+  \qquad
+  \lim_{x\to+\infty}H(x)=0.
+\]
+因此对每个 $a>0$，方程 $H(x)=a$ 恰有一个实根。
+\end{xsolution}
+
+\paragraph{题 8}
+\begin{xsolution}
+记
+\[
+  c=\frac2\pi-1<0,
+  \qquad
+  F(x)=c\ln x-\ln2+\ln(1+x^2).
+\]
+则
+\[
+  F'(x)=\frac{c+(c+2)x^2}{x(1+x^2)}.
+\]
+在 $(0,1)$ 中唯一临界点为
+\[
+  x_0=\sqrt{\frac{\pi-2}{\pi+2}}.
+\]
+所以 $F$ 在 $(0,x_0)$ 上严格减少，在 $(x_0,1)$ 上严格增加。又
+\[
+  \lim_{x\to0+}F(x)=+\infty,
+  \qquad F(1)=0.
+\]
+因此 $F(x)<0$ 对 $x_0<x<1$ 成立，从而 $F(x_0)<0$。于是下降支 $(0,x_0)$ 上恰穿过零点一次，而上升支在开区间 $(x_0,1)$ 内没有零点。故原方程在 $(0,1)$ 内恰有一个实根。
+\end{xsolution}
+
+\section*{8.3 思考题}
+
+\paragraph{思考题（8.3 基本事实第 7 条）}
+\begin{xsolution}
+令
+\[
+  f(x)=
+  \begin{cases}
+    \ee^{-1/x^2},&x>0,\\
+    0,&x=0,\\
+    -\ee^{-1/x^2},&x<0.
+  \end{cases}
+\]
+这是 $C^\infty$ 函数，并且 $f^{(n)}(0)=0$ 对每个 $n\ge0$ 都成立；这是经典的平坦函数性质，可由反复求导后每一项均为多项式乘 $\ee^{-1/x^2}$，再利用指数衰减压倒任意幂得到。
+
+但 $x<0$ 时 $f(x)<0=f(0)$，$x>0$ 时 $f(x)>0=f(0)$，所以 $x=0$ 既不是极大值点也不是极小值点。这给出了书中所要求的“所有阶导数均为零但不取极值”的例子。
+\end{xsolution}
+
+\section*{8.3.2 练习题}
+
+\paragraph{题 1}
+\begin{xsolution}
+先设 $x_0$ 是唯一极值点且为极小值点。若它不是全局最小值点，则存在 $y\in I$ 使 $f(y)<f(x_0)$。不妨设 $y>x_0$。由局部极小性，在 $x_0$ 右侧充分小的邻域内 $f(x)\ge f(x_0)$。若该邻域内恒等于 $f(x_0)$，则其中每一点都是极值点，矛盾；故可取 $z\in(x_0,y)$ 使 $f(z)>f(x_0)$。连续函数在 $[x_0,y]$ 上取得最大值，而该最大值既不能在 $x_0$ 取得，也不能在 $y$ 取得，故在内部出现另一个极大值点，矛盾。因此 $x_0$ 是最小值点。极大值情形同理。
+
+若 $x_0$ 是极小值点而另有 $y\ne x_0$ 也取得同一最小值，则在两点之间若函数恒为该值，就有无穷多个极值点；若不恒定，则区间内部有一点取得更大的最大值，从而产生另一个极值点。故 $x_0$ 还是唯一最小值点。极大值情形同理。
+\end{xsolution}
+
+\paragraph{题 2}
+\begin{xsolution}
+设
+\[
+  F(x)=x^3+px+q.
+\]
+若有三个不同实根，则必须 $p<0$，否则 $F'(x)=3x^2+p\ge0$，函数单调而不可能有三个不同实根。令
+\[
+  s=\sqrt{-\frac p3}>0.
+\]
+此时 $-s$ 为极大值点，$s$ 为极小值点，且
+\[
+  F(-s)=q+2s^3,\qquad F(s)=q-2s^3.
+\]
+三条不同实根出现的充分必要条件正是
+\[
+  F(-s)>0,\qquad F(s)<0,
+\]
+即
+\[
+  |q|<2s^3.
+\]
+化为 $p,q$ 的条件为
+\[
+  \boxed{\,4p^3+27q^2<0\,},
+\]
+这本身已包含 $p<0$。
+\end{xsolution}
+
+\paragraph{题 3}
+\begin{xsolution}
+令
+\[
+  F(x)=\frac1{x^2}+px+q,\qquad x\ne0.
+\]
+若 $p=0$，左右两个半轴上至多各有一个正的 $x^2$ 值，不可能有三个不同实根，故必须 $p\ne0$。
+
+有
+\[
+  F'(x)=p-\frac2{x^3}.
+\]
+若 $p>0$，则在 $(-\infty,0)$ 上 $F$ 严格增加，并从 $-\infty$ 变到 $+\infty$，恰有一个负根；在 $(0,+\infty)$ 上只有一个临界点
+\[
+  x_0=\left(\frac2p\right)^{1/3},
+\]
+且为极小值点。要在正半轴另有两个不同根，充要条件是
+\[
+  F(x_0)=q+3\left(\frac p2\right)^{2/3}<0.
+\]
+$p<0$ 时情形关于原点对称：正半轴恰有一个根，负半轴有两个根的充要条件仍为
+\[
+  q+3\left(\frac{|p|}{2}\right)^{2/3}<0.
+\]
+因此总的充分必要条件为
+\[
+  \boxed{p\ne0,\qquad q<-3\left(\frac{|p|}{2}\right)^{2/3}}.
+\]
+\end{xsolution}
+
+\paragraph{题 4}
+\begin{xsolution}
+先设 $\lambda\ne0$。由算术平均值－几何平均值不等式，
+\[
+  a^2\ee^{\lambda x}+b^2\ee^{-\lambda x}
+  \ge2ab,
+\]
+且等号当且仅当
+\[
+  a^2\ee^{\lambda x}=b^2\ee^{-\lambda x},
+  \qquad
+  x=\frac1\lambda\ln\frac ba.
+\]
+故极小值为
+\[
+  \boxed{2ab},
+\]
+与 $\lambda$ 无关。
+
+若允许退化参数 $\lambda=0$，则函数恒为 $a^2+b^2$；因此原题“与 $\lambda$ 无关”的通常理解应当排除 $\lambda=0$（或另把这个退化情形列出）。
+\end{xsolution}
+
+\paragraph{题 5}
+\begin{xsolution}
+若
+\[
+  f(x)=\frac{ax+b}{cx+d}
+\]
+不是常值函数，则 $ad-bc\ne0$。在定义域的每个连通区间上
+\[
+  f'(x)=\frac{ad-bc}{(cx+d)^2}
+\]
+恒不为零且符号不变，所以 $f$ 在每个定义区间上严格单调，不存在内点极值。
+\end{xsolution}
+
+\paragraph{题 6}
+\begin{xsolution}
+\begin{enumerate}[label=(\arabic*)]
+  \item 比较对数即可。令 $\phi(x)=\ln x/x$。因
+  \[
+    \phi'(x)=\frac{1-\ln x}{x^2},
+  \]
+  $\phi$ 在 $[\ee,+\infty)$ 上严格减少。由于 $\pi>\ee$，
+  \[
+    \frac{\ln\pi}{\pi}<\frac1\ee,
+  \]
+  即 $\ee\ln\pi<\pi$，故
+  \[
+    \boxed{\pi^{\ee}<\ee^\pi}.
+  \]
+
+  \item 两边取对数并约去正因子 $\sqrt{n(n+1)}/2$，问题等价于比较
+  \[
+    \psi(n)=\frac{\ln n}{\sqrt n},
+    \qquad
+    \psi(n+1)=\frac{\ln(n+1)}{\sqrt{n+1}}.
+  \]
+  有
+  \[
+    \psi'(x)=\frac{1-\frac12\ln x}{x^{3/2}},
+  \]
+  故 $\psi$ 在 $(0,\ee^2)$ 上增加，在 $(\ee^2,+\infty)$ 上减少。于是 $1\le n\le6$ 时
+  \[
+    (\sqrt n)^{\sqrt{n+1}}<(\sqrt{n+1})^{\sqrt n};
+  \]
+  $n\ge8$ 时不等号反向。对唯一跨过极大点的整数 $n=7$ 直接比较
+  \[
+    \frac{\ln7}{\sqrt7}>\frac{\ln8}{\sqrt8}
+  \]
+  （两边数值约为 $0.73545$ 与 $0.73519$），所以 $n=7$ 时也为反向不等号。综上，$n\le6$ 时右边较大，$n\ge7$ 时左边较大。
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{题 7}
+\begin{xsolution}
+\begin{enumerate}[label=(\arabic*)]
+  \item 设三角形面积为 $K$，半周长为 $s$。令
+  \[
+    x=s-a,\quad y=s-b,\quad z=s-c,
+  \]
+  则 $x+y+z=s$，Heron 公式给出 $K^2=sxyz$。由
+  \[
+    xyz\le\left(\frac s3\right)^3
+  \]
+  得
+  \[
+    K^2\le\frac{s^4}{27}.
+  \]
+  固定 $K$ 时，$s$ 因而有确定的下界，且等号当且仅当 $x=y=z$，即 $a=b=c$。故周长最小的是等边三角形。
+
+  \item 固定周长即固定 $s$。同一公式
+  \[
+    K^2=sxyz\le s\left(\frac s3\right)^3
+  \]
+  表明面积最大当且仅当 $x=y=z$，故仍为等边三角形。
+
+  \item 取第一象限顶点 $(x,y)$，矩形的长、宽为 $2x,2y$，且
+  \[
+    \frac{x^2}{a^2}+\frac{y^2}{b^2}=1.
+  \]
+  令 $u=x/a$，$v=y/b$，则 $u^2+v^2=1$。面积
+  \[
+    4xy=4abuv\le2ab,
+  \]
+  等号在 $u=v=1/\sqrt2$ 时成立。因此最大面积矩形的长、宽为
+  \[
+    \boxed{\sqrt2\,a,\qquad \sqrt2\,b}.
+  \]
+
+  \item 周长为 $4(x+y)$。由 Cauchy 不等式
+  \[
+    x+y=au+bv\le\sqrt{a^2+b^2}\sqrt{u^2+v^2}=\sqrt{a^2+b^2},
+  \]
+  等号在
+  \[
+    u=\frac a{\sqrt{a^2+b^2}},\qquad
+    v=\frac b{\sqrt{a^2+b^2}}
+  \]
+  时成立。因此所求长、宽为
+  \[
+    \boxed{
+    \frac{2a^2}{\sqrt{a^2+b^2}},\qquad
+    \frac{2b^2}{\sqrt{a^2+b^2}}}.
+  \]
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{题 8}
+\begin{xsolution}
+设 $y_1,y_2$ 是两个满足同一边界条件的解，令 $z=y_1-y_2$，则
+\[
+  z''+p(x)z'+q(x)z=0,
+  \qquad z(a)=z(b)=0.
+\]
+若 $z\not\equiv0$，则连续函数 $z$ 在 $(a,b)$ 内或者取得正的最大值，或者取得负的最小值。
+
+若在 $x_0$ 处取得正最大值，则 $z'(x_0)=0$、$z''(x_0)\le0$，但微分方程给出
+\[
+  z''(x_0)=-q(x_0)z(x_0)>0,
+\]
+矛盾。若取得负最小值，则 $z'(x_0)=0$、$z''(x_0)\ge0$，而
+\[
+  z''(x_0)=-q(x_0)z(x_0)<0,
+\]
+也矛盾。故 $z\equiv0$，解唯一。
+\end{xsolution}
+
+\section*{8.4.2 练习题}
+
+\paragraph{题 1}
+\begin{xsolution}
+对 $n$ 作归纳。$n=2$ 时就是下凸函数的定义。设结论对 $n-1$ 个点成立。令
+\[
+  \mu=\lambda_1+\cdots+\lambda_{n-1}=1-\lambda_n,
+  \qquad
+  y=\frac1\mu\sum_{i=1}^{n-1}\lambda_i x_i.
+\]
+由两点下凸性及归纳假设，
+\begin{align*}
+  f\left(\sum_{i=1}^n\lambda_i x_i\right)
+  &=f(\mu y+\lambda_nx_n)\\
+  &\le \mu f(y)+\lambda_nf(x_n)\\
+  &\le \sum_{i=1}^{n-1}\lambda_i f(x_i)+\lambda_nf(x_n).
+\end{align*}
+故 Jensen 不等式对任意下凸函数成立，不需可微条件。
+\end{xsolution}
+
+\paragraph{题 2}
+\begin{xsolution}
+设 $z=\lambda x+(1-\lambda)y$，$0<\lambda<1$。因 $f$ 上凸且为正，
+\[
+  f(z)\ge \lambda f(x)+(1-\lambda)f(y)>0.
+\]
+取倒数并利用 $u\mapsto1/u$ 在 $(0,+\infty)$ 上下凸，得到
+\begin{align*}
+  \frac1{f(z)}
+  &\le\frac1{\lambda f(x)+(1-\lambda)f(y)}\\
+  &\le\frac\lambda{f(x)}+\frac{1-\lambda}{f(y)}.
+\end{align*}
+故 $1/f$ 下凸。
+
+若把 $f$ 的条件改成下凸，则一般没有确定结论。例如 $f(x)=1+x^2$ 在 $\RR$ 上正且下凸，而
+\[
+  \left(\frac1{1+x^2}\right)''
+  =\frac{2(3x^2-1)}{(1+x^2)^3}
+\]
+变号，所以 $1/f$ 既非全局下凸也非全局上凸。
+\end{xsolution}
+
+\paragraph{题 3}
+\begin{xsolution}
+令 $h=\max\{f,g\}$。对 $z=\lambda x+(1-\lambda)y$，有
+\begin{align*}
+  h(z)
+  &=\max\{f(z),g(z)\}\\
+  &\le\max\{\lambda f(x)+(1-\lambda)f(y),
+             \lambda g(x)+(1-\lambda)g(y)\}\\
+  &\le\lambda h(x)+(1-\lambda)h(y).
+\end{align*}
+故 $h$ 下凸。
+\end{xsolution}
+
+\paragraph{题 4}
+\begin{xsolution}
+设 $x<y$，$z=\lambda x+(1-\lambda)y$。记
+\[
+  a=f(x),\ b=f(y),\ c=g(x),\ d=g(y).
+\]
+由单调增加及非负性，$0\le a\le b$，$0\le c\le d$。由下凸性，
+\[
+  f(z)g(z)\le[\lambda a+(1-\lambda)b][\lambda c+(1-\lambda)d].
+\]
+而
+\begin{align*}
+ &\lambda ac+(1-\lambda)bd
+ -[\lambda a+(1-\lambda)b][\lambda c+(1-\lambda)d]\\
+ &=\lambda(1-\lambda)(b-a)(d-c)\ge0.
+\end{align*}
+故
+\[
+  f(z)g(z)\le\lambda f(x)g(x)+(1-\lambda)f(y)g(y),
+\]
+即 $fg$ 下凸。
+\end{xsolution}
+
+\paragraph{题 5}
+\begin{xsolution}
+设 $z=\lambda x+(1-\lambda)y$。由 $f$ 下凸且指数函数严格增加，
+\[
+  \ee^{f(z)}\le \ee^{\lambda f(x)+(1-\lambda)f(y)}.
+\]
+又因 $u\mapsto\ee^u$ 下凸，
+\[
+  \ee^{\lambda f(x)+(1-\lambda)f(y)}
+  \le\lambda\ee^{f(x)}+(1-\lambda)\ee^{f(y)}.
+\]
+故 $F(x)=\ee^{f(x)}$ 下凸。
+\end{xsolution}
+
+\paragraph{题 6}
+\begin{xsolution}
+不一定。例如
+\[
+  f(u)=\ee^{-u},\qquad g(x)=x^2
+\]
+都是 $\RR$ 上的下凸函数，但
+\[
+  (f\circ g)(x)=\ee^{-x^2},
+  \qquad
+  (f\circ g)''(x)=(4x^2-2)\ee^{-x^2},
+\]
+二阶导数在 $x=0$ 附近为负，所以复合函数并非下凸函数。
+\end{xsolution}
+
+\paragraph{题 7}
+\begin{xsolution}
+由下凸函数的单侧导数性质，$f'_-$ 与 $f'_+$ 均单调增加。若所有单侧斜率均非负，则 $f$ 单调增加；若均非正，则 $f$ 单调减少。
+
+余下情形中，负斜率与正斜率都出现。令
+\[
+  c=\sup\{x\in\RR\mid f'_+(x)<0\}.
+\]
+单侧导数的单调性表明：在 $x<c$ 的范围内各割线斜率非正，而在 $x>c$ 的范围内各割线斜率非负。由命题 8.4.1 的割线斜率刻画可得 $f$ 在 $(-\infty,c]$ 上单调减少，在 $[c,+\infty)$ 上单调增加。端点处若存在一段斜率为零，只需把 $c$ 取在该常值区间内即可。
+\end{xsolution}
+
+\paragraph{题 8}
+\begin{xsolution}
+由 $f''\ge0$，函数 $f$ 下凸，故任一点的切线都是支撑线。若某点 $x_0$ 有 $f'(x_0)>0$，则
+\[
+  f(x)\ge f(x_0)+f'(x_0)(x-x_0)\to+\infty
+  \quad(x\to+\infty),
+\]
+与有界矛盾。若 $f'(x_0)<0$，令 $x\to-\infty$ 同样矛盾。因此 $f'(x)=0$ 对一切 $x$ 成立，故 $f$ 为常值函数。
+\end{xsolution}
+
+\paragraph{题 9}
+\begin{xsolution}
+因为 $f^{(n)}(x)>0$，由导数的 Darboux 性质及中值定理，$f^{(n-1)}$ 严格增加，而 $f^{(n-1)}(x_0)=0$，所以它在 $x_0$ 左负右正。逐级积分（或反复用中值定理）可知：每下降一次求导阶数，符号在左侧交替一次、右侧保持为正。
+
+当 $n$ 为奇数时，从 $f^{(n)}$ 下降到 $f'$ 共 $n-1$ 次，$n-1$ 为偶数，因此 $f'(x)>0$ 对 $x\ne x_0$ 成立，而 $f'(x_0)=0$，故 $f$ 在 $(a,b)$ 上严格单调增加。
+
+当 $n$ 为偶数时，从 $f^{(n)}$ 下降到 $f''$ 共 $n-2$ 次，$n-2$ 为偶数，因此 $f''(x)>0$ 对 $x\ne x_0$ 成立，而 $f''(x_0)=0$。故 $f'$ 严格单调增加，从而 $f$ 在 $(a,b)$ 上严格下凸。
+\end{xsolution}
+
+\paragraph{题 10}
+\begin{xsolution}
+任取闭区间 $[a,b]\subset(c,d)$。再取 $\alpha,\beta$ 使
+\[
+  c<\alpha<a<b<\beta<d.
+\]
+对任意 $a\le x_1<x_2\le b$，由下凸函数三点斜率不等式，
+\[
+  \frac{f(a)-f(\alpha)}{a-\alpha}
+  \le\frac{f(x_2)-f(x_1)}{x_2-x_1}
+  \le\frac{f(\beta)-f(b)}{\beta-b}.
+\]
+令两端常数分别为 $m,M$，则
+\[
+  \left|\frac{f(x_2)-f(x_1)}{x_2-x_1}\right|
+  \le\max\{|m|,|M|\}.
+\]
+故 $f$ 在 $[a,b]$ 上满足 Lipschitz 条件。
+\end{xsolution}
+
+\paragraph{题 11}
+\begin{xsolution}
+先设 $f$ 下凸。固定 $c\in I$。由命题 8.4.3，有限单侧导数满足
+\[
+  f'_-(c)\le f'_+(c).
+\]
+任取
+\[
+  a\in[f'_-(c),f'_+(c)].
+\]
+若 $x<c$，割线斜率不大于 $f'_-(c)\le a$；若 $x>c$，割线斜率不小于 $f'_+(c)\ge a$。两种情形都给出
+\[
+  f(x)\ge f(c)+a(x-c).
+\]
+
+反之，设每个 $c$ 都存在这样的支撑线。对任意 $x_1<x_2<x_3$，在 $c=x_2$ 取支撑线斜率 $a$，则
+\[
+  \frac{f(x_2)-f(x_1)}{x_2-x_1}\le a
+  \le\frac{f(x_3)-f(x_2)}{x_3-x_2}.
+\]
+由命题 8.4.1，$f$ 下凸。
+\end{xsolution}
+
+\paragraph{题 12}
+\begin{xsolution}
+对 $x>a$ 定义
+\[
+  q(x)=\frac{f(x)-f(a)}{x-a}.
+\]
+由凸函数三点斜率不等式，$q(x)$ 单调增加，故
+\[
+  L=\lim_{x\to+\infty}q(x)
+\]
+在扩充实数意义下存在（可能为 $+\infty$）。又
+\[
+  \frac{f(x)}x=\frac{x-a}{x}q(x)+\frac{f(a)}x,
+\]
+所以
+\[
+  \lim_{x\to+\infty}\frac{f(x)}x=L.
+\]
+这说明该极限一定有意义。
+\end{xsolution}
+
+\paragraph{题 13}
+\begin{xsolution}
+若 $f$ 不是常值函数，则存在 $x_1<x_2$ 使割线斜率
+\[
+  m=\frac{f(x_2)-f(x_1)}{x_2-x_1}\ne0.
+\]
+若 $m>0$，由下凸性，对 $x>x_2$ 有
+\[
+  \frac{f(x)-f(x_2)}{x-x_2}\ge m,
+\]
+故 $\liminf_{x\to+\infty}f(x)/x\ge m>0$，矛盾。若 $m<0$，向 $-\infty$ 作同样比较得到 $\limsup_{x\to-\infty}f(x)/x\le m<0$，也矛盾。因此所有割线斜率均为零，$f$ 为常值函数。
+\end{xsolution}
+
+\paragraph{题 14}
+\begin{xsolution}
+记公共值为 $K$。由 $f$ 在 $[a,b]$ 上凸，图像在端点弦下方，故
+\[
+  f(x)\le K,\qquad x\in[a,b].
+\]
+若 $x\in(a,c)$，可将 $c$ 写成 $x$ 与 $b$ 的严格凸组合：
+\[
+  c=\lambda x+(1-\lambda)b,\qquad0<\lambda<1.
+\]
+于是
+\[
+  K=f(c)\le\lambda f(x)+(1-\lambda)K,
+\]
+从而 $f(x)\ge K$。故 $f(x)=K$。对 $x\in(c,b)$ 用 $a$ 与 $x$ 表示 $c$ 同理。于是 $f\equiv K$。
+\end{xsolution}
+
+\paragraph{题 15}
+\begin{xsolution}
+用命题 8.4.1 的割线斜率刻画。因为 $f$ 在 $[a,c]$ 和 $[b,d]$ 上均下凸，所以各自区间内的割线斜率随位置右移而不减。特别是重叠区间 $[b,c]$ 把两套斜率次序连接起来。
+
+任取 $x_1<x_2<x_3$ 于 $[a,d]$。若三点全在 $[a,c]$ 或全在 $[b,d]$，结论已有。若跨越两个区间，取任意 $u<v$ 于重叠区间 $[b,c]$，利用三点斜率不等式先在 $[a,c]$ 将左侧割线与 $[u,v]$ 的割线比较，再在 $[b,d]$ 将 $[u,v]$ 的割线与右侧割线比较，即得到
+\[
+  \frac{f(x_2)-f(x_1)}{x_2-x_1}
+  \le
+  \frac{f(x_3)-f(x_2)}{x_3-x_2}
+\]
+（端点落在重叠区间的情形直接取相应端点）。故任意三点都满足命题 8.4.1，$f$ 在 $[a,d]$ 上下凸。
+\end{xsolution}
+
+\paragraph{题 16}
+\begin{xsolution}
+设奇次多项式 $P$ 的次数为 $2m+1\ge3$。则 $P''$ 是次数 $2m-1$ 的奇次多项式，其首项系数非零，因此
+\[
+  P''(x)\to+\infty,\ -\infty
+\]
+在 $x\to+\infty$ 与 $x\to-\infty$ 时符号相反（次序由首项系数决定）。故 $P''$ 不可能在全实轴恒非负，也不可能恒非正。由二阶导数判据，$P$ 不可能在 $\RR$ 上为下凸或上凸函数。
+\end{xsolution}
+
+\paragraph{题 17}
+\begin{xsolution}
+因 $f''$ 无零点且导数具有 Darboux 性质，$f''$ 在 $(a,b)$ 上恒正或恒负。因此 $f'$ 严格单调。
+
+对固定 $x_1<x_2$，Lagrange 中值定理中的 $\xi$ 必须满足
+\[
+  f'(\xi)=\frac{f(x_2)-f(x_1)}{x_2-x_1}.
+\]
+由于 $f'$ 为严格单调函数，同一个值至多有一个原像，所以 $\xi$ 唯一。
+\end{xsolution}
+
+\paragraph{题 18}
+% CHECK-SOLUTION: 原书扫描页 250（物理页 267）明确写作“若曲线以该点为拐点且存在 f'''(x_0)，证明 f'''(x_0)=0”，但命题本身错误；反例 f(x)=x^3 在 x_0=0 为拐点而 f'''(0)=6。
+\begin{xsolution}
+按本书对拐点的定义，该命题不成立。例如
+\[
+  f(x)=x^3
+\]
+在 $x_0=0$ 两侧分别严格上凸、严格下凸（因为 $f''(x)=6x$ 变号），故 $(0,0)$ 是拐点；但
+\[
+  f'''(0)=6\ne0.
+\]
+因此不能给出所要求的证明，原题条件或结论应有误。
+\end{xsolution}
+
+\paragraph{题 19}
+\begin{xsolution}
+不一定。例如 $f(x)=x^4$ 满足 $f'''(0)=0$，但
+\[
+  f''(x)=12x^2\ge0
+\]
+在原点两侧凸性不改变，所以 $(0,0)$ 不是拐点。
+\end{xsolution}
+
+\paragraph{题 20}
+\begin{xsolution}
+令 $g=f''$。由题设及 Peano 型 Taylor 公式，
+\[
+  f''(x)
+  =\frac{f^{(n)}(x_0)}{(n-2)!}(x-x_0)^{n-2}
+   +\littleo((x-x_0)^{n-2}).
+\]
+因 $f^{(n)}(x_0)\ne0$，在 $x_0$ 的充分小邻域内，$f''(x)$ 的符号由
+\[
+  f^{(n)}(x_0)(x-x_0)^{n-2}
+\]
+决定。曲线在两侧严格凸性不同，当且仅当该量在 $x_0$ 两侧变号，即当且仅当 $n-2$ 为奇数。故充分必要条件为
+\[
+  \boxed{n\text{ 为奇数}}.
+\]
+\end{xsolution}
+
+\section*{8.5.3 练习题}
+
+\paragraph{题 1}
+\begin{xsolution}
+令
+\[
+  F(x)=\ln x-\frac{2(x-1)}{x+1}.
+\]
+则 $F(1)=0$，且
+\[
+  F'(x)=\frac1x-\frac4{(x+1)^2}
+  =\frac{(x-1)^2}{x(x+1)^2}>0\qquad(x>1).
+\]
+故 $F(x)>0$，即所证不等式成立。
+\end{xsolution}
+
+\paragraph{题 2}
+\begin{xsolution}
+函数 $h(x)=x\ln x$ 在 $(0,+\infty)$ 上严格下凸，因为 $h''(x)=1/x>0$。由 Jensen 不等式，且 $a\ne b$，
+\[
+  \frac{a\ln a+b\ln b}{2}>
+  \frac{a+b}{2}\ln\frac{a+b}{2}.
+\]
+两边乘以 2 即得
+\[
+  a\ln a+b\ln b>(a+b)[\ln(a+b)-\ln2].
+\]
+\end{xsolution}
+
+\paragraph{题 3}
+\begin{xsolution}
+令 $t=(x_2-x_1)/x_1>0$，则 $x_2/x_1=1+t$。例题 8.5.1 给出
+\[
+  \frac{t}{1+t}<\ln(1+t)<t.
+\]
+代回即为
+\[
+  \frac{x_2-x_1}{x_2}<\ln\frac{x_2}{x_1}
+  <\frac{x_2-x_1}{x_1}.
+\]
+\end{xsolution}
+
+\paragraph{题 4}
+\begin{xsolution}
+\begin{enumerate}[label=(\arabic*)]
+  \item 函数 $u\mapsto a^u=\ee^{u\ln a}$ 为下凸函数（$a=1$ 时为常值），故 Jensen 不等式给出
+  \[
+    a^{(x_1+\cdots+x_n)/n}\le\frac1n\sum_{i=1}^n a^{x_i}.
+  \]
+
+  \item 在使 $x_i^p$ 为实数的通常非负变量范围内，$u\mapsto u^p$（$p>1$）下凸，因此
+  \[
+    \left(\frac{x_1+\cdots+x_n}{n}\right)^p
+    \le\frac1n\sum_{i=1}^n x_i^p.
+  \]
+
+  \item 函数 $h(u)=u\ln u$ 在 $(0,+\infty)$ 上严格下凸。记
+  \[
+    S=\sum_{i=1}^n x_i,\qquad \bar x=\frac Sn.
+  \]
+  Jensen 不等式给出
+  \[
+    \frac1n\sum x_i\ln x_i\ge\bar x\ln\bar x.
+  \]
+  乘以 $n/S$ 后指数化，得到
+  \[
+    \frac Sn\le
+    \exp\left(\frac1S\sum x_i\ln x_i\right)
+    =\left(\prod x_i^{x_i}\right)^{1/S}.
+  \]
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{题 5}
+\begin{xsolution}
+在 Bernoulli 不等式中令 $u=x-1>-1$。当 $0<\alpha<1$ 时
+\[
+  x^\alpha=(1+u)^\alpha\le1+\alpha u=\alpha x+1-\alpha,
+\]
+即
+\[
+  x^\alpha-\alpha x+\alpha-1\le0.
+\]
+当 $\alpha>1$ 时 Bernoulli 不等式反向，故结论也反向。
+\end{xsolution}
+
+\paragraph{题 6}
+\begin{xsolution}
+所求条件等价于
+\[
+  \alpha\le A_n\le\beta,
+  \qquad
+  A_n=\frac1{\ln(1+1/n)}-n.
+\]
+把 $n$ 暂看作连续变量 $x>0$。可证明 $A(x)$ 严格增加。事实上令 $t=1/x$，只需用
+\[
+  \ln(1+t)<\frac{t}{\sqrt{1+t}},\qquad t>0,
+\]
+而该式可由两边之差求导得到。于是
+\[
+  \inf_{n\ge1}A_n=A_1=\frac1{\ln2}-1.
+\]
+另一方面由
+\[
+  \ln(1+1/n)=\frac1n-\frac1{2n^2}+\bigO(n^{-3})
+\]
+得
+\[
+  \lim_{n\to\infty}A_n=\frac12.
+\]
+因此最大的 $\alpha$ 与最小的 $\beta$ 分别是
+\[
+  \boxed{\alpha=\frac1{\ln2}-1,\qquad \beta=\frac12}.
+\]
+\end{xsolution}
+
+\paragraph{题 7}
+\begin{xsolution}
+依次记调和、几何、对数、算术、平方平均值为 $H,G,L,A,Q$。显然 $a<H$。由
+\[
+  (\sqrt a-\sqrt b)^2>0
+\]
+可得 $H<G$。
+
+令 $u=\sqrt{b/a}>1$。不等式 $G<L$ 等价于
+\[
+  2\ln u<u-\frac1u.
+\]
+右减左的导数为 $(u-1)^2/u^2>0$，且在 $u=1$ 为 0，故成立。
+
+由题 1 对 $x=b/a>1$ 应用
+\[
+  \ln x>\frac{2(x-1)}{x+1},
+\]
+得到 $L<A$。而
+\[
+  A<Q
+\]
+是严格的均方根－算术平均值不等式，$Q<b$ 由 $a^2<b^2$ 立即得到。因此
+\[
+  a<H<G<L<A<Q<b.
+\]
+\end{xsolution}
+
+\paragraph{题 8}
+\begin{xsolution}
+先取有限的 $r<s$。若 $0<r<s$，令 $p=s/r>1$，对正数 $x_i^r$ 用加权幂平均（或 Jensen）得
+\[
+  \left(\sum\lambda_i x_i^r\right)^{1/r}
+  \le
+  \left(\sum\lambda_i x_i^s\right)^{1/s}.
+\]
+若 $r<s<0$，对 $1/x_i$ 使用前述正指数情形即可。若 $r<0<s$，分别与 $M_0=\prod x_i^{\lambda_i}$ 比较即可；$r=0$ 由极限连接。
+
+当 $n>1$ 且 $x_i$ 不全相等时，所用 Jensen/幂平均不等式均为严格不等式，所以 $M_t$ 严格增加。最后
+\[
+  \lim_{t\to+\infty}M_t=\max_i x_i,
+  \qquad
+  \lim_{t\to-\infty}M_t=\min_i x_i,
+\]
+与题中的补充定义一致，故结论在整个扩充参数区间成立。
+\end{xsolution}
+
+\paragraph{题 9}
+\begin{xsolution}
+设 $0<p<1$，并记
+\[
+  A=\left(\sum x_k^p\right)^{1/p},
+  \qquad
+  B=\left(\sum y_k^p\right)^{1/p}.
+\]
+若 $A,B>0$，令 $u_k=x_k/A$，$v_k=y_k/B$，$\lambda=A/(A+B)$，$\mu=B/(A+B)$。由于 $t^p$ 在非负半轴上为上凸函数，
+\[
+  \sum(\lambda u_k+\mu v_k)^p
+  \ge\lambda\sum u_k^p+\mu\sum v_k^p=1.
+\]
+因此
+\[
+  \left(\sum(x_k+y_k)^p\right)^{1/p}\ge A+B,
+\]
+即 Minkowski 不等式反向。$A=0$ 或 $B=0$ 时结论直接成立。
+\end{xsolution}
+
+\paragraph{题 10}
+\begin{xsolution}
+对非负数 $x,y$ 应用权为 $1/p,1/q$ 的加权算术－几何平均值不等式：
+\[
+  \frac xp+\frac yq
+  \ge x^{1/p}y^{1/q}.
+\]
+这就是 Young 不等式。等号当且仅当 $x=y$。
+\end{xsolution}
+
+\paragraph{题 11}
+\begin{xsolution}
+\begin{enumerate}[label=(\arabic*)]
+  \item 对两个数，Young 不等式正是权重为 $1/p$、$1/q$ 的加权 AM--GM。对多个有理权重反复使用二元形式即可得到广义 AM--GM；一般实权重再由连续性逼近得到。
+
+  \item 记
+  \[
+    X=\left(\sum x_k^p\right)^{1/p},
+    \qquad
+    Y=\left(\sum y_k^q\right)^{1/q}.
+  \]
+  若 $XY=0$ 则显然。否则对每个 $k$ 将 Young 不等式用于
+  \[
+    \left(\frac{x_k}{X}\right)^p,
+    \qquad
+    \left(\frac{y_k}{Y}\right)^q,
+  \]
+  得
+  \[
+    \frac{x_ky_k}{XY}
+    \le\frac1p\frac{x_k^p}{X^p}
+       +\frac1q\frac{y_k^q}{Y^q}.
+  \]
+  对 $k$ 求和，右端为 $1/p+1/q=1$，故
+  \[
+    \sum x_ky_k\le XY,
+  \]
+  即 Hölder 不等式。
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{题 12}
+\begin{xsolution}
+由 $|f'|\le\varphi'$ 可知 $\varphi'\ge0$，且
+\[
+  (\varphi-f)'=\varphi'-f'\ge0,
+  \qquad
+  (\varphi+f)'=\varphi'+f'\ge0.
+\]
+因此对 $x\ge a$，利用 $f(a)=\varphi(a)$，
+\[
+  \varphi(x)-\varphi(a)\ge f(x)-f(a),
+\]
+同时
+\[
+  \varphi(x)-\varphi(a)\ge-[f(x)-f(a)].
+\]
+合并即得
+\[
+  |f(x)-f(a)|\le\varphi(x)-\varphi(a).
+\]
+\end{xsolution}
+
+\paragraph{题 13}
+\begin{xsolution}
+因 $f'(x)>0$，$f$ 在 $[1,+\infty)$ 上严格增加，故 $f(x)\ge1$。于是
+\[
+  0<f'(x)=\frac1{x^2+f(x)^2}<\frac1{x^2+1}\qquad(x>1).
+\]
+令
+\[
+  \varphi(x)=1+\arctan x-\frac\pi4.
+\]
+则 $\varphi(1)=f(1)=1$ 且 $f'(x)<\varphi'(x)$，故由导数比较
+\[
+  1<f(x)<1+\arctan x-\frac\pi4<1+\frac\pi4.
+\]
+所以 $f$ 单调增加且有上界，极限存在，并且
+\[
+  \lim_{x\to+\infty}f(x)\le1+\frac\pi4.
+\]
+实际上对每个有限 $x>1$ 上式严格，且由 $f(x)>1$ 可在任意尾区间保持严格余量，故极限严格小于 $1+\pi/4$。
+\end{xsolution}
+
+\paragraph{题 14}
+\begin{xsolution}
+对每个 $i$，有
+\[
+  y_i=\sum_{j=1}^n a_{ij}x_j,
+  \qquad a_{ij}\ge0,\quad \sum_j a_{ij}=1.
+\]
+由加权 AM--GM，
+\[
+  y_i\ge\prod_{j=1}^n x_j^{a_{ij}}.
+\]
+对 $i$ 相乘，并利用每列和也为 1，得到
+\[
+  \prod_{i=1}^n y_i
+  \ge\prod_{j=1}^n x_j^{\sum_i a_{ij}}
+  =\prod_{j=1}^n x_j.
+\]
+若某些 $x_j=0$，右端为 0，结论仍直接成立。
+\end{xsolution}
+
+\paragraph{题 15}
+\begin{xsolution}
+记
+\[
+  R_n(x)=\sin x-T_n(x).
+\]
+有 $R_n(0)=R_n'(0)=0$，并且
+\[
+  R_n''(x)=-R_{n-1}(x).
+\]
+从 $R_0(x)=\sin x-x<0$（$x>0$）开始归纳。若 $R_{n-1}$ 在 $x>0$ 上符号为 $(-1)^n$，则 $R_n''$ 的符号为 $(-1)^{n+1}$。由 $R_n'(0)=R_n(0)=0$ 两次利用单调性可知 $R_n$ 本身也具有符号 $(-1)^{n+1}$。因此 $n$ 为奇数时 $R_n>0$，$n$ 为偶数时 $R_n<0$，恰为题中两式。
+\end{xsolution}
+
+\paragraph{题 16}
+\begin{xsolution}
+要证
+\[
+  \ee^{-x}-\left(1-\frac xa\right)^a
+  \le\frac{x^2}{a}\ee^{-x},
+  \qquad 0\le x\le a,\ a\ge1.
+\]
+乘以 $\ee^x$ 后等价于
+\[
+  1-\ee^x\left(1-\frac xa\right)^a\le\frac{x^2}{a}.
+\]
+若 $x\ge\sqrt a$，右端不小于 1，而左端不大于 1，结论成立。
+
+以下设 $0\le x<\sqrt a$。此时两边移项后都为正，只需证明
+\[
+  \ee^x\left(1-\frac xa\right)^a\ge1-\frac{x^2}{a}.
+\]
+取对数，令
+\[
+  H(x)=x+a\ln\left(1-\frac xa\right)
+       -\ln\left(1-\frac{x^2}{a}\right).
+\]
+有 $H(0)=0$，直接化简得
+\[
+  H'(x)=
+  \frac{x[(x-1)^2+a-1]}{(a-x)(a-x^2)}\ge0.
+\]
+故 $H(x)\ge0$，所需不等式成立。
+\end{xsolution}
+
+\section*{8.6.2 练习题}
+
+\paragraph{题 1}
+\begin{xsolution}
+本题没有唯一答案；关键是使三幅图互相满足“斜率”和“斜率变化率”的关系。给出一个可核验的代表：取
+\[
+  f(x)=x^3-3x.
+\]
+则
+\[
+  f'(x)=3x^2-3,
+  \qquad
+  f''(x)=6x.
+\]
+因此 $f$ 是一条三次曲线，在 $x=\pm1$ 处有极值，在 $x=0$ 处有拐点；$f'$ 是顶点为 $(0,-3)$、零点为 $\pm1$ 的开口向上抛物线；$f''$ 是过原点、斜率为 6 的直线。这一组三图完整体现了原题要求的对应关系。
+\end{xsolution}
+
+\paragraph{题 2}
+\begin{xsolution}
+令
+\[
+  f(x)=\frac{x+1}{x^2+1}.
+\]
+计算得
+\[
+  f'(x)=-\frac{x^2+2x-1}{(x^2+1)^2},
+\]
+\[
+  f''(x)=\frac{2(x-1)(x^2+4x+1)}{(x^2+1)^3}.
+\]
+所以三个拐点横坐标为
+\[
+  x=1,\qquad x=-2\pm\sqrt3.
+\]
+相应纵坐标分别为
+\[
+  1,\qquad \frac{1\pm\sqrt3}{4}.
+\]
+容易核对三点均满足
+\[
+  \boxed{y=\frac x4+\frac34},
+\]
+故三个拐点共线。
+
+作图所需的其余信息为：$x=-1\pm\sqrt2$ 是两个驻点；$f(-1)=0$；$y=0$ 是水平渐近线；由 $f''$ 的三个简单零点可依次确定各凸性区间。上述信息与单调区间一起唯一确定其标准草图。
+\end{xsolution}
+
+\paragraph{题 3}
+\begin{xsolution}
+逐小题给出足以确定草图的定义域、极限、单调性、极值及渐近性质。
+\begin{enumerate}[label=(\arabic*)]
+  \item $y=(1+1/x)^x$，$x>0$。由 8.2.2 题 2 知它严格增加，且
+  \[
+    \lim_{x\to0+}y=1,
+    \qquad
+    \lim_{x\to+\infty}y=\ee.
+  \]
+  故值域为 $(1,\ee)$，$y=\ee$ 为水平渐近线。
+
+  \item
+  \[
+    y=\frac1{1+x^2}\ee^{1/(1-x^2)},
+    \qquad x\ne\pm1.
+  \]
+  它为偶函数。对 $x\ne0,\pm1$，
+  \[
+    \frac{y'}y=
+    \frac{2x^3(3-x^2)}{(1-x^2)^2(1+x^2)}.
+  \]
+  因而在 $(0,1)$ 严格增加，从 $y(0)=\ee$ 增到 $+\infty$；在 $(1,\sqrt3)$ 从 $0$ 墓到极大值
+  \[
+    y(\sqrt3)=\frac14\ee^{-1/2},
+  \]
+  再在 $(\sqrt3,+\infty)$ 严格减少到 0。负半轴由偶对称得到。$x=\pm1$ 为单侧性态不同的间断点，$y=0$ 为无穷远水平渐近线。
+
+  \item
+  \[
+    y=\frac{x^4}{(1+x)^3},\qquad x\ne-1.
+  \]
+  有
+  \[
+    y'=\frac{x^3(x+4)}{(x+1)^4},
+    \qquad
+    y''=\frac{12x^2}{(x+1)^5}.
+  \]
+  故 $x=-4$ 为局部极大值点，值为 $-256/27$；$x=0$ 为局部极小值点，值为 0。$x=-1$ 是垂直渐近线。长除法给出
+  \[
+    y=x-3+\frac6{x+1}-\frac4{(x+1)^2}+\frac1{(x+1)^3},
+  \]
+  故 $y=x-3$ 是斜渐近线。$(-\infty,-1)$ 上为上凸，$(-1,+\infty)$ 上为下凸（$x=0$ 处二阶导数为零但凸性不变）。
+
+  \item
+  \[
+    y=(1+x^2)\ee^{-x^2}
+  \]
+  为偶函数，
+  \[
+    y'=-2x^3\ee^{-x^2}.
+  \]
+  因而在 $(-\infty,0)$ 增加，在 $(0,+\infty)$ 减少，于 $x=0$ 取全局最大值 1，且两端趋于 0。又
+  \[
+    y''=2x^2(2x^2-3)\ee^{-x^2},
+  \]
+  拐点为 $x=\pm\sqrt{3/2}$。
+
+  \item
+  \[
+    y=\frac{\ln x}{x},\qquad x>0.
+  \]
+  有
+  \[
+    y'=\frac{1-\ln x}{x^2},
+    \qquad
+    y''=\frac{2\ln x-3}{x^3}.
+  \]
+  因而从 $x\to0+$ 时的 $-\infty$ 增加，在 $x=\ee$ 取最大值 $1/\ee$，再减少到 $0+$；零点为 $x=1$，拐点为 $x=\ee^{3/2}$。
+
+  \item
+  \[
+    y=x^{2/3}\ee^{-x},\qquad x\in\RR.
+  \]
+  在 $x\ne0$ 时
+  \[
+    y'=\ee^{-x}x^{-1/3}\left(\frac23-x\right).
+  \]
+  因而在 $(-\infty,0)$ 严格减少并由 $+\infty$ 降到 0；$x=0$ 为尖点式全局极小值点；在 $(0,2/3)$ 增加，在 $(2/3,+\infty)$ 减少，并在
+  \[
+    x=\frac23
+  \]
+  取局部极大值 $(2/3)^{2/3}\ee^{-2/3}$，最后趋于 0。
+
+  \item
+  \[
+    y=\frac{(x-1)^3}{(x+1)^2},\qquad x\ne-1.
+  \]
+  有
+  \[
+    y'=\frac{(x-1)^2(x+5)}{(x+1)^3},
+    \qquad
+    y''=\frac{24(x-1)}{(x+1)^4}.
+  \]
+  所以 $x=-5$ 为局部极大值点，值为 $-27/2$；$x=1$ 为水平拐点，值为 0。$x=-1$ 是垂直渐近线。又
+  \[
+    y=x-5+\frac{12}{x+1}-\frac8{(x+1)^2},
+  \]
+  故 $y=x-5$ 为斜渐近线。
+
+  \item
+  \[
+    y=\sqrt{\frac{x^3}{x-a}},\qquad a>0.
+  \]
+  定义域为
+  \[
+    (-\infty,0]\cup(a,+\infty).
+  \]
+  对 $y>0$，
+  \[
+    \frac{y'}y=\frac{2x-3a}{2x(x-a)}.
+  \]
+  因而左支在 $(-\infty,0]$ 严格减少到 $(0,0)$；右支在 $(a,3a/2)$ 减少，在 $(3a/2,+\infty)$ 增加，并在
+  \[
+    x=\frac{3a}{2},\qquad y=\frac{3\sqrt3}{2}a
+  \]
+  取最小值。$x=a$ 为右侧垂直渐近线；两端斜渐近线分别为
+  \[
+    y=-x-\frac a2\quad(x\to-\infty),
+    \qquad
+    y=x+\frac a2\quad(x\to+\infty).
+  \]
+
+  \item $y=x^x$，$x>0$。有
+  \[
+    y'=x^x(\ln x+1),
+  \]
+  故在 $(0,\ee^{-1})$ 减少，在 $(\ee^{-1},+\infty)$ 增加，于 $x=\ee^{-1}$ 取最小值 $\ee^{-1/\ee}$。又
+  \[
+    y''=x^x\left[(\ln x+1)^2+\frac1x\right]>0,
+  \]
+  故全程严格下凸；$x\to0+$ 时 $y\to1$，$x\to+\infty$ 时 $y\to+\infty$。
+
+  \item $y=x^{1/x}$，$x>0$。有
+  \[
+    \frac{y'}y=\frac{1-\ln x}{x^2}.
+  \]
+  所以在 $(0,\ee)$ 增加，在 $(\ee,+\infty)$ 减少，于 $x=\ee$ 取最大值 $\ee^{1/\ee}$；且
+  \[
+    \lim_{x\to0+}y=0,
+    \qquad
+    \lim_{x\to+\infty}y=1.
+  \]
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{题 4}
+\begin{xsolution}
+在第一象限中 $x,y>0$。若 $x=y$，显然得到直线
+\[
+  y=x.
+\]
+若 $x\ne y$，由 $x^y=y^x$ 得
+\[
+  \frac{\ln x}{x}=\frac{\ln y}{y}.
+\]
+令 $t=y/x>0$，$t\ne1$。则
+\[
+  x^{tx}=(tx)^x
+  \quad\Longrightarrow\quad
+  x^{t-1}=t,
+\]
+所以非对角支可参数化为
+\[
+  \boxed{x=t^{1/(t-1)},\qquad y=t^{t/(t-1)},\qquad t>0,\ t\ne1.}
+\]
+当 $t\to1$ 时 $(x,y)\to(\ee,\ee)$；$t\to0+$ 时趋向 $(+\infty,1)$；$t\to+\infty$ 时趋向 $(1,+\infty)$。交换 $t$ 与 $1/t$ 互换 $x,y$，故曲线关于 $y=x$ 对称。于是第一象限图像恰由直线 $y=x$ 与上述一条对称曲线组成。
+\end{xsolution}
+
+\paragraph{题 5}
+\begin{xsolution}
+\begin{enumerate}[label=(\arabic*)]
+  \item $x=t^2-2$，$y=t(t^2-2)$。消去 $t$ 得
+  \[
+    y^2=x^2(x+2),\qquad x\ge-2.
+  \]
+  曲线关于 $x$ 轴对称；$(-2,0)$ 处为竖直切线；原点是二重点，两支切线斜率为 $\pm\sqrt2$。这些性质即可作图。
+
+  \item $x=2t-t^2$，$y=3t-t^3$。令 $u=t-1$，则
+  \[
+    x=1-u^2,
+    \qquad
+    y=3x-1-u^3.
+  \]
+  因而
+  \[
+    y=3x-1\mp(1-x)^{3/2},\qquad x\le1.
+  \]
+  两支在 $(1,2)$ 相接并有共同切线斜率 3；在仿射坐标 $X=x-1$、$Y=y-2-3X$ 下满足 $Y^2=(-X)^3$，故为半三次尖点型曲线。
+
+  \item
+  \[
+    x=\frac{3t}{1+t^3},\qquad y=\frac{3t^2}{1+t^3}.
+  \]
+  消去 $t$ 得著名的 Descartes 叶形线
+  \[
+    x^3+y^3=3xy.
+  \]
+  第一象限有一闭叶，在原点两支切线为两坐标轴；另一支具有斜渐近线
+  \[
+    x+y+1=0.
+  \]
+
+  \item $x=t-t^3$，$y=1-t^4$。由 $t\mapsto-t$ 可知曲线关于 $y$ 轴对称。它经过 $(0,1)$ 和原点；原点对应 $t=\pm1$，两支切线斜率分别为 $\pm2$。在
+  \[
+    t=\pm\frac1{\sqrt3}
+  \]
+  有竖直切线，对应点
+  \[
+    \left(\pm\frac{2}{3\sqrt3},\frac89\right).
+  \]
+  当 $|t|\to\infty$ 时 $y\to-\infty$，上述信息确定其对称草图。
+
+  \item
+  \[
+    x=a(t-\sin t),\qquad y=a(1-\cos t)
+  \]
+  是摆线。每隔 $2\pi$ 周期平移一个拱；尖点为
+  \[
+    (2k\pi a,0),
+  \]
+  每一拱的最高点为
+  \[
+    ((2k+1)\pi a,2a).
+  \]
+  且
+  \[
+    \frac{\dd y}{\dd x}=\frac{\sin t}{1-\cos t}=\cot\frac t2.
+  \]
+
+  \item
+  \[
+    x=a(\cos t+t\sin t),\qquad
+    y=a(\sin t-t\cos t)
+  \]
+  是圆的渐开线。写成极坐标关系可见
+  \[
+    r=a\sqrt{1+t^2},
+    \qquad
+    \arg(x+\ii y)=t-\arctan t.
+  \]
+  在 $t=0$ 从 $(a,0)$ 出发形成尖端，随后半径严格增加并绕圆向外展开；切线方向与 $(\cos t,\sin t)$ 同向。这些量给出标准渐开线草图。
+\end{enumerate}
+\end{xsolution}
+
+\section*{8.7.3 练习题}
+
+\paragraph{题 1}
+\begin{xsolution}
+\begin{enumerate}[label=(\arabic*)]
+  \item 对
+  \[
+    f(x)=x^3-2x^2-4x-7
+  \]
+  用 Newton 迭代
+  \[
+    x_{n+1}=x_n-\frac{x_n^3-2x_n^2-4x_n-7}{3x_n^2-4x_n-4}.
+  \]
+  取 $x_0=4$，依次得到
+  \[
+    4,\ 3.67857143,\ 3.63287255,\ 3.63198114,\ 3.63198081,\ldots
+  \]
+  因而精确到 $0.0001$ 的根为
+  \[
+    \boxed{3.6320}.
+  \]
+
+  \item 写成 $f(x)=\sin x+x-1=0$，Newton 迭代为
+  \[
+    x_{n+1}=x_n-\frac{\sin x_n+x_n-1}{\cos x_n+1}.
+  \]
+  取 $x_0=0.5$，得到
+  \[
+    0.5,\ 0.51095795,\ 0.51097343,\ldots
+  \]
+  故根的近似值为
+  \[
+    \boxed{0.5110}.
+  \]
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{题 2}
+\begin{xsolution}
+以下例子说明命题中的条件确实不能任意删去。
+
+若导数在初值处为零，例如用 Newton 法解
+\[
+  f(x)=x^3-1=0,
+\]
+却取 $x_0=0$，则第一步就因 $f'(0)=0$ 而无法定义。
+
+即使每一步都能定义，也可能不收敛。例如
+\[
+  f(x)=x^3-2x+2,\qquad x_0=0.
+\]
+Newton 映射为
+\[
+  N(x)=x-\frac{x^3-2x+2}{3x^2-2}.
+\]
+直接算得
+\[
+  N(0)=1,\qquad N(1)=0,
+\]
+故迭代在 $0,1$ 之间形成二周期而失败。这说明没有合适的单调性、凸性与初值控制时，即使方程有实根，Newton 法也可能不收敛到根。
+\end{xsolution}
+
+\paragraph{题 3}
+\begin{xsolution}
+二分法每一步把当前含根区间的长度减半。若以区间半长作为误差上界 $\varepsilon_n$，则
+\[
+  \varepsilon_{n+1}=\frac12\varepsilon_n.
+\]
+因此
+\[
+  \lim_{n\to\infty}\frac{\varepsilon_{n+1}}{\varepsilon_n}=\frac12\ne0,
+\]
+按本节定义二分法是一阶算法。
+\end{xsolution}
+
+\paragraph{题 4}
+% CHECK-SOLUTION: 当前 ch08 只交叉引用“2.6.3 小节的题 9”，未给出该算法的递推公式；按用户要求只读本章，无法可靠重建并证明其三阶收敛性。
+\begin{xsolution}
+本题所需的具体迭代公式不在本章题面中。为避免猜测算法，保留待由整合者在允许读取 2.6.3 题 9 后补全。
+\end{xsolution}
+
+\paragraph{题 5}
+\begin{xsolution}
+令 $r=\sqrt[3]A>0$，并设 $t_n=x_n/r$。递推式化为
+\[
+  t_{n+1}=T(t_n),
+  \qquad
+  T(t)=\frac{t(t^3+2)}{2t^3+1}.
+\]
+直接因式分解：
+\[
+  T(t)-1=\frac{(t-1)^3(t+1)}{2t^3+1},
+  \qquad
+  T(t)-t=\frac{t(1-t^3)}{2t^3+1}.
+\]
+因此若 $t>1$，则 $1<T(t)<t$；若 $0<t<1$，则 $t<T(t)<1$。故从任意 $t_0>0$ 出发，数列单调有界并收敛，极限只能是 $1$。所以
+\[
+  \boxed{x_n\to r=\sqrt[3]A}.
+\]
+
+再令 $e_n=x_n-r$。由上面的精确因式分解，
+\[
+  e_{n+1}
+  =r\frac{(e_n/r)^3(2+e_n/r)}{2(1+e_n/r)^3+1},
+\]
+故
+\[
+  \lim_{n\to\infty}\frac{e_{n+1}}{e_n^3}
+  =\frac{2}{3r^2}\ne0.
+\]
+所以该算法为三阶收敛。
+\end{xsolution}
+
+\paragraph{题 6}
+\begin{xsolution}
+取
+\[
+  f(x)=x^k-A,
+\]
+Newton 公式给出
+\[
+  \boxed{x_{n+1}
+  =x_n-\frac{x_n^k-A}{kx_n^{k-1}}
+  =\frac1k\left((k-1)x_n+\frac{A}{x_n^{k-1}}\right)}.
+\]
+这里按通常实数 $k$ 次根问题取 $k>1$；$k=1$ 时一步即得精确值。令 $r=A^{1/k}$，$e_n=x_n-r$。Newton 法的标准 Taylor 误差式给出
+\[
+  e_{n+1}
+  =\frac{f''(r)}{2f'(r)}e_n^2+\littleo(e_n^2)
+  =\frac{k-1}{2r}e_n^2+\littleo(e_n^2).
+\]
+故当初值取在 $r$ 的充分小正邻域内时迭代收敛，且收敛阶为二阶。
+\end{xsolution}
+
+\paragraph{题 7}
+\begin{xsolution}
+要求 $1/A$，对方程
+\[
+  f(x)=\frac1x-A=0
+\]
+应用 Newton 法：
+\[
+  x_{n+1}
+  =x_n-\frac{1/x_n-A}{-1/x_n^2}
+  =\boxed{x_n(2-Ax_n)}.
+\]
+这个公式只含加法与乘法。
+
+令
+\[
+  \delta_n=1-Ax_n.
+\]
+则有精确递推关系
+\[
+  \delta_{n+1}=\delta_n^2.
+\]
+若初值满足 $0<Ax_0<2$，即 $|\delta_0|<1$，则 $\delta_n\to0$，故 $x_n\to1/A$。又令 $e_n=x_n-1/A$，则
+\[
+  e_{n+1}=-A e_n^2,
+\]
+因此收敛恰为二阶。
+\end{xsolution}
+
+\section*{8.8.2 第一组参考题}
+
+\paragraph{第一组参考题 1}
+\begin{xsolution}
+\begin{enumerate}[label=(\arabic*)]
+  \item 记 $h(x)=f(x)+f'(x)$。给定 $\varepsilon>0$，存在 $X$，当 $x\ge X$ 时 $|h(x)|<\varepsilon$。于是
+  \[
+    [\ee^x(f(x)-\varepsilon)]'
+    =\ee^x(h(x)-\varepsilon)<0,
+  \]
+  \[
+    [\ee^x(f(x)+\varepsilon)]'
+    =\ee^x(h(x)+\varepsilon)>0.
+  \]
+  对 $x\ge X$ 积分意义等价的单调性比较给出
+  \[
+    -\varepsilon+C_1\ee^{-x}\le f(x)
+    \le\varepsilon+C_2\ee^{-x},
+  \]
+  其中常数由 $X$ 处的值决定。令 $x\to+\infty$，得
+  \[
+    -\varepsilon\le\liminf f(x)\le\limsup f(x)\le\varepsilon.
+  \]
+  再令 $\varepsilon\downarrow0$，即得 $f(x)\to0$。
+
+  \item 设反面存在 $x_0$ 使 $f(x_0)>1$。由
+  \[
+    f+f'\le1
+  \]
+  得 $\ee^x(f-1)$ 单调不增。因此对 $x<x_0$，
+  \[
+    f(x)-1\ge\ee^{x_0-x}[f(x_0)-1]\to+\infty
+    \quad(x\to-\infty),
+  \]
+  与 $f$ 有界矛盾。若存在 $f(x_0)<-1$，由 $f+f'\ge-1$ 知 $\ee^x(f+1)$ 单调不减，于 $x<x_0$ 得 $f(x)\to-\infty$，同样矛盾。故
+  \[
+    |f(x)|\le1\qquad(\forall x\in\RR).
+  \]
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{第一组参考题 2}
+\begin{xsolution}
+由题设
+\[
+  \frac1x\ln\left(1+x+\frac{f(x)}x\right)\to3.
+\]
+有限两侧极限迫使括号趋于 1。若 $f(0)\ne0$，则 $f(x)/x$ 无界，不可能成立，故 $f(0)=0$。写 Taylor 展开
+\[
+  f(x)=f'(0)x+\frac12f''(0)x^2+\littleo(x^2).
+\]
+于是括号的极限为 $1+f'(0)$，故还必须有 $f'(0)=0$。此时
+\[
+  1+x+\frac{f(x)}x
+  =1+\left(1+\frac12f''(0)\right)x+\littleo(x).
+\]
+因此
+\[
+  3=1+\frac12f''(0),
+  \qquad f''(0)=4.
+\]
+最后
+\[
+  1+\frac{f(x)}x=1+2x+\littleo(x),
+\]
+故
+\[
+  \boxed{f(0)=0,\quad f'(0)=0,\quad f''(0)=4,\quad
+  \lim_{x\to0}\left(1+\frac{f(x)}x\right)^{1/x}=\ee^2}.
+\]
+\end{xsolution}
+
+\paragraph{第一组参考题 3}
+\begin{xsolution}
+由正数列 $x_n\to0$ 且
+\[
+  x_{n+1}=x_n+Ax_n^k+\littleo(x_n^k),
+\]
+必有 $A<0$；否则在充分大的 $n$ 上 $x_{n+1}>x_n$，与正数列趋于 0 矛盾。
+
+令
+\[
+  y_n=x_n^{-(k-1)}\to+\infty.
+\]
+则
+\begin{align*}
+  y_{n+1}-y_n
+  &=x_n^{-(k-1)}
+  \left[
+    \left(1+Ax_n^{k-1}+\littleo(x_n^{k-1})\right)^{-(k-1)}-1
+  \right]\\
+  &\to-(k-1)A>0.
+\end{align*}
+由 Stolz 定理，
+\[
+  \frac{y_n}{n}\to-(k-1)A.
+\]
+因此应取
+\[
+  \boxed{\alpha=k-1},
+\]
+且
+\[
+  \boxed{\lim_{n\to\infty}n x_n^{k-1}
+  =-\frac1{(k-1)A}>0}.
+\]
+\end{xsolution}
+
+\paragraph{第一组参考题 4}
+\begin{xsolution}
+严格单调函数显然没有内点极值。
+
+反之，设 $f$ 在 $(a,b)$ 内没有极值点。先证 $f$ 为一一函数。若存在 $x<y$ 使 $f(x)=f(y)$，则连续函数在 $[x,y]$ 上取得最大、最小值。若 $f$ 在该区间恒定，则任一内点都是极值点；若不恒定，则最大值或最小值中至少有一个与端点公共值不同，从而必在 $(x,y)$ 内取得，仍产生极值点。均矛盾。因此 $f$ 一一。
+
+连续的一一实函数在区间上必严格单调，故 $f$ 在 $[a,b]$ 上严格单调。
+\end{xsolution}
+
+\paragraph{第一组参考题 5}
+\begin{xsolution}
+只需证明对 $u,v\ge0$，
+\[
+  (u+v)^p\le u^p+v^p,
+  \qquad0<p<1.
+\]
+若 $u=0$ 或 $v=0$ 显然。设 $u>0$，令 $t=v/u\ge0$，只需证
+\[
+  (1+t)^p\le1+t^p.
+\]
+令 $F(t)=1+t^p-(1+t)^p$，则 $F(0)=0$，且
+\[
+  F'(t)=p[t^{p-1}-(1+t)^{p-1}]>0
+\]
+因为 $p-1<0$。故 $F(t)\ge0$。取 $u=|a|$、$v=|b|$，再用三角不等式，
+\[
+  |a+b|^p\le(|a|+|b|)^p\le|a|^p+|b|^p.
+\]
+\end{xsolution}
+
+\paragraph{第一组参考题 6}
+\begin{xsolution}
+令 $t=1/n>0$，并记
+\[
+  r=1-\frac{\ln(1+t)}t>0.
+\]
+则
+\[
+  \frac1\ee\left[\ee-(1+t)^{1/t}\right]=1-\ee^{-r}.
+\]
+先证上界。由 $1-\ee^{-r}<r$ 以及例题 8.5.1 的强化式
+\[
+  \ln(1+t)>\frac{2t}{2+t}
+\]
+得
+\[
+  r<\frac{t}{2+t},
+\]
+所以
+\[
+  1-\ee^{-r}<\frac{t}{2+t}=\frac1{2n+1}.
+\]
+
+再证下界。要证
+\[
+  1-\ee^{-r}>\frac{t}{2(1+t)},
+\]
+等价于
+\[
+  r>\ln\frac{1+t}{1+t/2}.
+\]
+令
+\[
+  H(t)=1+\ln(1+t/2)-\left(1+\frac1t\right)\ln(1+t).
+\]
+有 $H(0+)=0$，并且
+\[
+  H'(t)=\frac{(t+2)\ln(1+t)-2t}{t^2(t+2)}>0,
+\]
+最后一步仍由 $\ln(1+t)>2t/(2+t)$。故 $H(t)>0$，下界成立。恢复 $t=1/n$，得到
+\[
+  \boxed{
+  \frac{\ee}{2n+2}<\ee-\left(1+\frac1n\right)^n
+  <\frac{\ee}{2n+1}}.
+\]
+\end{xsolution}
+
+\paragraph{第一组参考题 7}
+\begin{xsolution}
+令
+\[
+  F(x)=3\ln\frac{\sin x}{x}-\ln\cos x,
+  \qquad0<x<\frac\pi2.
+\]
+有 $F(0+)=0$。化简导数：
+\[
+  F'(x)=
+  \frac{x(1+2\cos^2x)-3\sin x\cos x}{x\sin x\cos x}.
+\]
+记分子为 $N(x)$。则 $N(0)=0$，且
+\[
+  N'(x)=4\sin x(\sin x-x\cos x).
+\]
+而 $G(x)=\sin x-x\cos x$ 满足 $G(0)=0$、$G'(x)=x\sin x>0$，故 $G(x)>0$，从而 $N'(x)>0$。所以 $F'(x)>0$、$F(x)>0$。指数化即得
+\[
+  \left(\frac{\sin x}{x}\right)^3>\cos x.
+\]
+\end{xsolution}
+
+\paragraph{第一组参考题 8}
+\begin{xsolution}
+令
+\[
+  F(x)=2\sin x+\tan x-3x.
+\]
+则 $F(0)=0$，且
+\begin{align*}
+  F'(x)
+  &=2\cos x+\operatorname{sec}^2x-3\\
+  &=\frac{(1-\cos x)^2(2\cos x+1)}{\cos^2x}>0
+\end{align*}
+对 $0<x<\pi/2$ 成立。因此 $F(x)>0$，即所证不等式。
+\end{xsolution}
+
+\paragraph{第一组参考题 9}
+\begin{xsolution}
+先证下界。令
+\[
+  h(x)=\sin\pi x-\pi x(1-x).
+\]
+函数关于 $x=1/2$ 对称，只需看 $0<x<1/2$。此时
+\[
+  h'(x)=\pi[\cos\pi x-1+2x].
+\]
+因 $\cos t$ 在 $[0,\pi/2]$ 上严格上凸，图像严格高于连接端点的弦
+\[
+  \cos t>1-\frac{2t}{\pi},
+\]
+故 $h'(x)>0$，于是 $h(x)>h(0)=0$，即
+\[
+  \frac{\sin\pi x}{x(1-x)}>\pi.
+\]
+
+再证上界，令
+\[
+  H(x)=4x(1-x)-\sin\pi x.
+\]
+仍只需看 $[0,1/2]$。有 $H(0)=H(1/2)=0$，
+\[
+  H'=4-8x-\pi\cos\pi x,
+  \quad H''=-8+\pi^2\sin\pi x,
+  \quad H'''=\pi^3\cos\pi x>0.
+\]
+故 $H''$ 严格增加并只变号一次，$H'$ 先减后增；结合 $H'(0)=4-\pi>0$、$H'(1/2)=0$ 以及 $H(1/2)-H(0)=0$，可知 $H'$ 在内部只从正变负一次，故 $H$ 先增后减并保持非负。于是
+\[
+  \sin\pi x\le4x(1-x).
+\]
+等号在 $x=1/2$ 成立。综上即得题中双边不等式。
+\end{xsolution}
+
+\paragraph{第一组参考题 10}
+\begin{xsolution}
+记
+\[
+  F(x)=\sin x-\frac2\pi x-\frac1{12\pi}x(\pi^2-4x^2).
+\]
+直接验证 $F(0)=F(\pi/2)=0$，而
+\[
+  F''(x)=\frac{2x}{\pi}-\sin x\le0
+\]
+由 Jordan 不等式成立。因此 $F$ 在 $[0,\pi/2]$ 上为上凸函数。上凸函数的图像在连接两个端点的弦之上，而该弦就是 $y=0$，故 $F(x)\ge0$，即得所证强化不等式。
+\end{xsolution}
+
+\paragraph{第一组参考题 11}
+\begin{xsolution}
+记
+\[
+  S=x_1+\cdots+x_n,
+  \quad y_i=\frac{x_i}{S},
+  \quad z_i=\frac{1+x_i}{n+S}.
+\]
+则 $\sum y_i=\sum z_i=1$，且
+\[
+  z_i=\frac{S}{n+S}y_i+\frac{n}{n+S}\frac1n.
+\]
+由于 $\ln$ 为上凸函数，
+\[
+  \sum\ln z_i
+  \ge\frac{S}{n+S}\sum\ln y_i
+   +\frac{n}{n+S}\,n\ln\frac1n.
+\]
+而 AM--GM 给出
+\[
+  \sum\ln y_i\le n\ln\frac1n.
+\]
+因此右端不小于 $\sum\ln y_i$，从而
+\[
+  \prod z_i\ge\prod y_i.
+\]
+展开定义正是题中不等式。两处等号同时成立当且仅当
+\[
+  x_1=x_2=\cdots=x_n.
+\]
+\end{xsolution}
+
+\paragraph{第一组参考题 12}
+\begin{xsolution}
+两边取对数。所需比较等价于
+\[
+  \frac{\ln\sin x}{\sin x}
+  \quad\text{与}\quad
+  \frac{\ln\cos x}{\cos x}
+\]
+的大小。令
+\[
+  \phi(t)=\frac{\ln t}{t},\qquad0<t\le1.
+\]
+则
+\[
+  \phi'(t)=\frac{1-\ln t}{t^2}>0,
+\]
+所以 $\phi$ 严格增加。当 $0<x<\pi/4$ 时 $\sin x<\cos x$，故
+\[
+  \frac{\ln\sin x}{\sin x}<\frac{\ln\cos x}{\cos x},
+\]
+等价于 $(\sin x)^{\cos x}<(\cos x)^{\sin x}$。当 $\pi/4<x<\pi/2$ 时次序反向，故不等式也反向。
+\end{xsolution}
+
+\paragraph{第一组参考题 13}
+\begin{xsolution}
+\begin{enumerate}[label=(\arabic*)]
+  \item 对两个正数
+  \[
+    X=t^{1/p-1}a,
+    \qquad Y=t^{1/p}b
+  \]
+  应用权分别为 $1/p$ 和 $1-1/p$ 的加权 AM--GM：
+  \[
+    \frac Xp+\left(1-\frac1p\right)Y
+    \ge X^{1/p}Y^{1-1/p}.
+  \]
+  右端的 $t$ 次幂恰相消，故得到题中 (1)。
+
+  \item 令
+  \[
+    F(t)=\frac{a^p}{t^{p-1}}+
+          \frac{b^p}{(1-t)^{p-1}},\qquad0<t<1.
+  \]
+  有
+  \[
+    F'(t)=-(p-1)\frac{a^p}{t^p}
+    +(p-1)\frac{b^p}{(1-t)^p}.
+  \]
+  唯一驻点为 $t=a/(a+b)$，且 $F$ 在其左侧减少、右侧增加，所以该点为全局最小值点。代入得到
+  \[
+    F_{\min}=(a+b)^p.
+  \]
+  这就是题中 (2)。
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{第一组参考题 14}
+\begin{xsolution}
+写成
+\[
+  p(x)=C(x-a)(x-b)(x-c),\qquad C\ne0,
+\]
+其中第三个根 $c$ 为实数。$p$ 在 $[a,b]$ 上不变号，当且仅当第三个根不在开区间 $(a,b)$ 中，即
+\[
+  (a-c)(b-c)\ge0.
+\]
+另一方面
+\[
+  p'(a)p'(b)
+  =-C^2(a-b)^2(a-c)(b-c).
+\]
+故
+\[
+  p'(a)p'(b)\le0
+  \quad\Longleftrightarrow\quad
+  (a-c)(b-c)\ge0,
+\]
+恰与不变号条件等价。
+\end{xsolution}
+
+\paragraph{第一组参考题 15}
+\begin{xsolution}
+设右端多项式统一记为 $P$。若 $P=g\circ g$，则必有交换关系
+\[
+  g(P(x))=P(g(x)).
+\]
+因此 $g$ 把 $P$ 的不动点映到 $P$ 的不动点。
+\begin{enumerate}[label=(\arabic*)]
+  \item $P(x)=-x^3+x+1$ 的唯一不动点为 $1$。故 $g(1)=1$。链式法则给出
+  \[
+    P'(1)=[g'(1)]^2\ge0,
+  \]
+  但 $P'(1)=-2$，矛盾。
+
+  \item $P(x)=-x^3+x^2+1$ 的唯一不动点仍为 $1$，同理应有 $P'(1)=[g'(1)]^2\ge0$，但 $P'(1)=-1$，矛盾。
+
+  \item $P(x)=x^2-3x+3$ 的不动点为 $1,3$。若 $g(1)=1$，则 $P'(1)=[g'(1)]^2\ge0$，但 $P'(1)=-1$，矛盾。因此 $g(1)=3$，又由 $g(g(1))=P(1)=1$ 得 $g(3)=1$。于是
+  \[
+    P'(1)=g'(3)g'(1)=P'(3),
+  \]
+  但 $P'(1)=-1$、$P'(3)=3$，矛盾。
+\end{enumerate}
+故三式均不存在全实轴可微解。
+\end{xsolution}
+
+\paragraph{第一组参考题 16}
+\begin{xsolution}
+因端点值均为 0 而最小值为 $-1$，存在 $c\in(0,1)$ 使
+\[
+  f(c)=-1,\qquad f'(c)=0.
+\]
+对区间 $[0,c]$ 在 $c$ 点作二阶 Taylor 公式，存在 $\xi_1\in(0,c)$ 使
+\[
+  0=f(0)=f(c)+\frac12f''(\xi_1)c^2,
+\]
+故
+\[
+  f''(\xi_1)=\frac2{c^2}.
+\]
+同理存在 $\xi_2\in(c,1)$ 使
+\[
+  f''(\xi_2)=\frac2{(1-c)^2}.
+\]
+$c$ 与 $1-c$ 至少一个不超过 $1/2$，所以相应的二阶导数至少为 8。故存在所需 $\xi$。
+\end{xsolution}
+
+\paragraph{第一组参考题 17}
+% CHECK-SOLUTION: 原书扫描页 275（物理页 292）明确写作“存在 ξ 使 f''(ξ)=3”，但该命题为假。反例：f(x)=x^2+x^3（x≤0），f(x)=x^2（x≥0）是 [-1,1] 上二阶可微函数，满足全部给定值，而 f'' 在左半区为 2+6x、右半区恒为 2，从不等于 3。
+\begin{xsolution}
+原题按所印条件不能成立。取
+\[
+  f(x)=
+  \begin{cases}
+    x^2+x^3,&-1\le x\le0,\\
+    x^2,&0\le x\le1.
+  \end{cases}
+\]
+则两侧在 $0$ 处的一、二阶导数均接合，故 $f$ 在 $[-1,1]$ 上二阶可微，并且
+\[
+  f(0)=f'(0)=0,\qquad f(1)=1,\qquad f(-1)=0.
+\]
+但
+\[
+  f''(x)=
+  \begin{cases}
+    2+6x,&x<0,\\
+    2,&x\ge0,
+  \end{cases}
+\]
+在 $(-1,1)$ 内从不取值 3。因此保留为待勘误题。
+\end{xsolution}
+
+\paragraph{第一组参考题 18}
+\begin{xsolution}
+反设 $g(x)$ 在 $(a,b)$ 内无零点。由连续性，$g$ 在整个 $[a,b]$ 上除端点可能性外保持非零；且若端点有零点，结合 Wronski 条件与 $f(a)=f(b)=0$ 可先在内缩区间作以下论证并取极限。直接在 $g\ne0$ 的情形令
+\[
+  h(x)=\frac{f(x)}{g(x)}.
+\]
+由 $f(a)=f(b)=0$ 得 $h(a)=h(b)=0$，Rolle 定理给出某 $\xi\in(a,b)$ 使 $h'(\xi)=0$。然而
+\[
+  h'(x)=\frac{f'g-fg'}{g^2}=-\frac{W(f,g)}{g^2}\ne0,
+\]
+矛盾。故 $g$ 必在 $(a,b)$ 中有零点。
+\end{xsolution}
+
+\section*{8.8.2 第二组参考题}
+
+\paragraph{第二组参考题 1}
+\begin{xsolution}
+因 $f$ 单调减少且可微，有 $f'(x)\le0$；题设 $0<f(x)<|f'(x)|$ 进一步给出
+\[
+  -\frac{f'(x)}{f(x)}>1.
+\]
+当 $0<x<1$ 时，在 $[x,1/x]$ 上积分，得到
+\[
+  \ln\frac{f(x)}{f(1/x)}
+  =\int_x^{1/x}-\frac{f'(t)}{f(t)}\,\dd t
+  >\frac1x-x.
+\]
+又令
+\[
+  H(x)=\frac1x-x+2\ln x,
+  \qquad 0<x\le1.
+\]
+则 $H(1)=0$，且
+\[
+  H'(x)=-\frac{(1-x)^2}{x^2}<0\qquad(0<x<1),
+\]
+故 $H(x)>0$，即
+\[
+  \frac1x-x>-2\ln x=\ln\frac1{x^2}.
+\]
+于是
+\[
+  \frac{f(x)}{f(1/x)}>\frac1{x^2},
+\]
+也就是
+\[
+  \boxed{x f(x)>\frac1x f\left(\frac1x\right)}.
+\]
+\end{xsolution}
+
+\paragraph{第二组参考题 2}
+\begin{xsolution}
+对 $n$ 作归纳。$n=0$ 时结论就是 $g(0)=f'(0)$。设结论对 $n-1$ 已成立，则 $g^{(n-1)}$ 在 $0$ 连续。
+
+对 $x\ne0$，由 $g(x)=f(x)x^{-1}$ 的 Leibniz 公式，
+\[
+  g^{(n)}(x)
+  =\frac{n!}{x^{n+1}}
+   \sum_{k=0}^n\frac{(-1)^{n-k}}{k!}x^k f^{(k)}(x).
+\tag{1}
+\]
+由 $f^{(n+1)}(0)$ 存在，对 $0\le k\le n$ 有 Peano 展开式
+\[
+  f^{(k)}(x)
+  =\sum_{j=0}^{n+1-k}
+    \frac{f^{(k+j)}(0)}{j!}x^j
+   +\littleo(x^{n+1-k}).
+\]
+代入 (1)。对 $1\le r\le n$，$x^r$ 的系数含组合和
+\[
+  \sum_{k=0}^r\frac{(-1)^{n-k}}{k!(r-k)!}=0,
+\]
+而常数项因 $f(0)=0$ 也为 0。对 $r=n+1$，由于求和只到 $k=n$，系数为
+\[
+  \sum_{k=0}^n\frac{(-1)^{n-k}}{k!(n+1-k)!}
+  =\frac1{(n+1)!}.
+\]
+故
+\[
+  g^{(n)}(x)
+  =\frac1{n+1}f^{(n+1)}(0)+\littleo(1)
+  \qquad(x\to0,\ x\ne0).
+\]
+因此 $g^{(n)}(x)$ 在穿孔邻域中有有限极限
+\[
+  L=\frac1{n+1}f^{(n+1)}(0).
+\]
+由归纳假设 $g^{(n-1)}$ 在 $0$ 连续，再应用导数极限定理，$g^{(n-1)}$ 在 $0$ 可微且其导数等于 $L$。于是
+\[
+  \boxed{g^{(n)}(0)=\frac1{n+1}f^{(n+1)}(0)},
+\]
+并且 $g^{(n)}(x)\to g^{(n)}(0)$，即 $g^{(n)}$ 在 $0$ 连续。归纳完成。
+\end{xsolution}
+
+\paragraph{第二组参考题 3}
+\begin{xsolution}
+把
+\[
+  F(x)=f(x)^n
+\]
+看成 $n$ 个因子 $f(x)$ 的乘积。对 $0\le k\le n-1$，用 Leibniz 公式求 $F^{(k)}(a)$。每一项都是形如
+\[
+  C\,f^{(j_1)}(a)f^{(j_2)}(a)\cdots f^{(j_n)}(a),
+  \qquad j_1+\cdots+j_n=k
+\]
+的乘积。因为 $k<n$，至少有一个 $j_i=0$，故该项含因子 $f(a)=0$。所以所有项均为 0，即
+\[
+  \boxed{F^{(k)}(a)=0,\qquad k=0,1,\ldots,n-1.}
+\]
+
+若完全去掉 $f^{(n)}(a)$ 存在这一正则性条件，结论可能连“导数存在”都失效。例如 $n\ge2$、$a=0$ 时取
+\[
+  f(x)=|x|^{1/n}.
+\]
+则 $f(0)=0$，但
+\[
+  F(x)=f(x)^n=|x|
+\]
+在 $0$ 处连一阶导数都不存在，故原条件不能无条件删去。
+\end{xsolution}
+
+\paragraph{第二组参考题 4}
+\begin{xsolution}
+记
+\[
+  P_n(x)=\sum_{k=0}^n\frac{x^k}{k!}.
+\]
+先注意 Taylor 公式给出：对任意 $x$，存在介于 $0$ 与 $x$ 之间的 $\xi$，使
+\[
+  \ee^x=P_n(x)+\frac{\ee^\xi x^{n+1}}{(n+1)!}.
+\]
+因此当 $x<0$ 时，
+\[
+  P_{2m}(x)>\ee^x>P_{2m+1}(x).
+\tag{1}
+\]
+
+\begin{enumerate}[label=(\arabic*)]
+  \item 若 $x\ge0$，$P_{2m}(x)>0$ 显然；若 $x<0$，由 (1) 有
+  \[
+    P_{2m}(x)>\ee^x>0.
+  \]
+
+  \item
+  \[
+    P_{2m+1}'(x)=P_{2m}(x)>0,
+  \]
+  故 $P_{2m+1}$ 在 $\RR$ 上严格增加。又其首项次数为奇数且首项系数为正，所以
+  \[
+    P_{2m+1}(-\infty)=-\infty,
+    \qquad P_{2m+1}(+\infty)=+\infty.
+  \]
+  因而恰有一个实零点。
+
+  \item 记 $P_{2n+1}$ 的唯一零点为 $x_n<0$，令 $z_n=-x_n>0$。Taylor 的积分余项写成
+  \[
+    \ee^{-z}
+    =P_{2n+1}(-z)
+     +\frac{z^{2n+2}}{(2n+1)!}
+      \int_0^1(1-t)^{2n+1}\ee^{-tz}\,\dd t.
+  \]
+  令 $z=z_n$ 并乘以 $\ee^{z_n}$，得到
+  \[
+    1=\frac{z_n^{2n+2}}{(2n+1)!}
+      \int_0^1(1-t)^{2n+1}\ee^{(1-t)z_n}\,\dd t
+    >\frac{z_n^{2n+2}}{(2n+2)!}.
+  \]
+  因而 $z_n<2n+3$。于是
+  \begin{align*}
+    P_{2n+3}(x_n)
+    &=\frac{x_n^{2n+2}}{(2n+2)!}
+      \left(1+\frac{x_n}{2n+3}\right)>0.
+  \end{align*}
+  而 $P_{2n+3}$ 严格增加，故其零点满足
+  \[
+    x_{n+1}<x_n.
+  \]
+  所以 $\{x_n\}$ 严格减少。若它有有限下界，则 $x_n\to L\in\RR$；但 $P_m\to\ee^x$ 在每个有界闭区间上一致成立，故
+  \[
+    0=P_{2n+1}(x_n)\to\ee^L>0,
+  \]
+  矛盾。因此
+  \[
+    \boxed{x_n\to-\infty}.
+  \]
+
+  \item 这正是 (1)。
+
+  \item 当 $x>0$ 时 Taylor 余项为正，故
+  \[
+    \ee^x>P_n(x).
+  \]
+  又由二项式定理
+  \[
+    \left(1+\frac xn\right)^n
+    =\sum_{k=0}^n\binom nk\frac{x^k}{n^k}
+    \le\sum_{k=0}^n\frac{x^k}{k!}=P_n(x),
+  \]
+  因为
+  \[
+    \frac1{n^k}\binom nk
+    =\frac1{k!}\prod_{j=0}^{k-1}\left(1-\frac jn\right)
+    \le\frac1{k!}.
+  \]
+
+  \item Taylor 余项满足
+  \[
+    |\ee^x-P_n(x)|
+    \le \ee^{|x|}\frac{|x|^{n+1}}{(n+1)!}\to0,
+  \]
+  因而对每个固定 $x\in\RR$，
+  \[
+    \boxed{P_n(x)\to\ee^x}.
+  \]
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{第二组参考题 5}
+\begin{xsolution}
+令
+\[
+  d_n=x_n-x_{n-1}\qquad(n\ge1).
+\]
+由递推式
+\[
+  x_{n+1}=\frac{(2n-1)x_n+x_{n-1}}{2n}
+\]
+得到
+\[
+  d_{n+1}=x_{n+1}-x_n=-\frac1{2n}d_n.
+\]
+因为 $d_1=b-a$，故
+\[
+  d_n=\frac{(-1)^{n-1}}{2^{n-1}(n-1)!}(b-a).
+\]
+于是
+\begin{align*}
+  \lim_{n\to\infty}x_n
+  &=a+\sum_{n=1}^\infty d_n\\
+  &=a+(b-a)\sum_{j=0}^\infty\frac{(-1)^j}{2^j j!}\\
+  &=\boxed{a+(b-a)\ee^{-1/2}}.
+\end{align*}
+\end{xsolution}
+
+\paragraph{第二组参考题 6}
+\begin{xsolution}
+对任意初值 $z_0\in(0,\pi/2]$，递推 $z_{n+1}=\sin z_n$ 产生严格减少并趋于 0 的正数列。例题 8.1.10 已证明其共同的渐近式
+\[
+  z_n\sim\sqrt{\frac3n}.
+\]
+分别应用于 $\{x_n\}$ 与 $\{y_n\}$，有
+\[
+  x_n\sim\sqrt{\frac3n},
+  \qquad
+  y_n\sim\sqrt{\frac3n}.
+\]
+因此
+\[
+  \boxed{\lim_{n\to\infty}\frac{x_n}{y_n}=1}.
+\]
+\end{xsolution}
+
+\paragraph{第二组参考题 7}
+\begin{xsolution}
+设
+\[
+  y=\frac{p(x)}{q(x)},
+  \quad
+  p(x)=ax^2+2bx+c,
+  \quad
+  q(x)=\alpha x^2+2\beta x+\gamma.
+\]
+若 $\alpha=0$，直接约去多项式部分后，剩余部分至多是常数除以一次式，其二阶导数至多有一个零点；故存在三个拐点时必有 $\alpha\ne0$。作横坐标平移 $t=x+\beta/\alpha$，并从 $y$ 中减去常数 $a/\alpha$，可把函数化成
+\[
+  Y(t)=\frac{mt+n}{t^2+d}
+\]
+的形式。若 $d=0$，直接求导可见 $Y''$ 的分子至多一次，仍不可能有三个拐点；因此在题设情形 $d\ne0$。
+
+计算
+\[
+  Y''(t)=
+  \frac{2\{m(t^3-3dt)+n(3t^2-d)\}}{(t^2+d)^3}.
+\]
+记分子花括号内的三次多项式为
+\[
+  S(t)=m(t^3-3dt)+n(3t^2-d).
+\]
+有恒等式
+\[
+  mt+n
+  =\frac{mt+3n}{4d}(t^2+d)-\frac1{4d}S(t).
+\]
+因此在每一个拐点参数 $t_i$（即 $S(t_i)=0$）处，
+\[
+  Y(t_i)=\frac{mt_i+3n}{4d}.
+\]
+这说明三个拐点都落在同一直线
+\[
+  Y=\frac{m}{4d}t+\frac{3n}{4d}
+\]
+上。平移坐标不改变共线性，故原函数的三个拐点必共线。
+\end{xsolution}
+
+\paragraph{第二组参考题 8}
+\begin{xsolution}
+§8.4 的下凸定义显然推出 Jensen 中点不等式，只需证明反向。
+
+设 $f$ 连续且满足
+\[
+  f\left(\frac{x+y}{2}\right)\le\frac{f(x)+f(y)}2.
+\]
+反复使用中点不等式，可归纳得到：对每个二进有理数
+\[
+  \lambda=\frac{k}{2^m}\in[0,1],
+\]
+都有
+\[
+  f(\lambda x+(1-\lambda)y)
+  \le\lambda f(x)+(1-\lambda)f(y).
+\]
+对任意 $\lambda\in[0,1]$，取二进有理数列 $\lambda_j\to\lambda$。由 $f$ 的连续性令 $j\to\infty$，即得
+\[
+  f(\lambda x+(1-\lambda)y)
+  \le\lambda f(x)+(1-\lambda)f(y).
+\]
+这正是 §8.4 的下凸定义。
+\end{xsolution}
+
+\paragraph{第二组参考题 9}
+\begin{xsolution}
+只需证明每一点都连续。固定 $c\in(a,b)$。题设保证左右极限
+\[
+  L_-=f(c-),\qquad L_+=f(c+)
+\]
+存在且有限。Jensen 不等式用于 $c-h,c+h$，令 $h\to0+$，得
+\[
+  f(c)\le\frac{L_-+L_+}{2}.
+\tag{1}
+\]
+再用于 $c$ 与 $c+2h$，有
+\[
+  f(c+h)\le\frac{f(c)+f(c+2h)}2.
+\]
+令 $h\to0+$，得到
+\[
+  L_+\le\frac{f(c)+L_+}{2},
+  \qquad L_+\le f(c).
+\]
+同理 $L_-\le f(c)$。代入 (1) 即知
+\[
+  f(c)\le\frac{L_-+L_+}{2}\le f(c),
+\]
+故
+\[
+  L_-=L_+=f(c).
+\]
+所以 $f$ 在 $c$ 连续。$c$ 任意，故 $f$ 在 $(a,b)$ 上连续。
+\end{xsolution}
+
+\paragraph{第二组参考题 10}
+\begin{xsolution}
+固定 $c\in(a,b)$，取 $r>0$ 使 $[c-r,c+r]\subset(a,b)$。由题设存在 $M>0$，使
+\[
+  |f(x)|\le M\qquad(c-r\le x\le c+r).
+\]
+由 Jensen 中点不等式反复迭代，对任意整数 $m\ge0$ 有
+\[
+  f\left((1-2^{-m})c+2^{-m}y\right)
+  \le(1-2^{-m})f(c)+2^{-m}f(y).
+\tag{1}
+\]
+给定充分小的 $h\ne0$，选 $m$ 使
+\[
+  \frac r2<2^m|h|\le r,
+\]
+并取 $y=c+2^m h$。由 (1)，
+\[
+  f(c+h)-f(c)
+  \le2^{-m}[f(y)-f(c)]
+  \le2M\,2^{-m}
+  \le\frac{4M}{r}|h|.
+\]
+对 $-h$ 同样成立。再由
+\[
+  f(c)\le\frac{f(c+h)+f(c-h)}2
+\]
+可把上界转成相应下界，从而得到
+\[
+  |f(c+h)-f(c)|\le C|h|
+\]
+（$h$ 充分小时），其中 $C$ 与 $c,r,M$ 有关。因此 $f$ 在 $c$ 连续。$c$ 任意，故 $f$ 在 $(a,b)$ 上连续。
+\end{xsolution}
+
+\paragraph{第二组参考题 11}
+\begin{xsolution}
+先在 $[0,1)$ 上证明。令
+\[
+  H(x)=\int_0^x\bigl(|f(t)|+|f'(t)|\bigr)\,\dd t.
+\]
+由 $f(0)=f'(0)=0$ 与题设，
+\[
+  |f'(x)|
+  =\left|\int_0^x f''(t)\,\dd t\right|
+  \le H(x),
+\]
+而
+\[
+  |f(x)|
+  =\left|\int_0^x f'(t)\,\dd t\right|
+  \le H(x).
+\]
+故
+\[
+  H'(x)=|f(x)|+|f'(x)|\le2H(x),
+  \qquad H(0)=0.
+\]
+于是
+\[
+  (\ee^{-2x}H(x))'\le0.
+\]
+又 $H\ge0$，所以只能有 $H\equiv0$，从而 $f\equiv0$ 于 $[0,1)$。对 $(-1,0]$ 作同样的反向积分论证，即得
+\[
+  \boxed{f(x)\equiv0\quad(-1<x<1)}.
+\]
+\end{xsolution}
+
+\paragraph{第二组参考题 12}
+\begin{xsolution}
+反设 $f$ 不单调。连续函数在区间上不单调时，可找到 $x_1<x_2<x_3$，使例如
+\[
+  f(x_2)>\max\{f(x_1),f(x_3)\}.
+\]
+取
+\[
+  y\in\bigl(\max\{f(x_1),f(x_3)\},f(x_2)\bigr).
+\]
+令 $u$ 为 $[x_1,x_2]$ 上第一次达到值 $y$ 的点，$v$ 为 $[x_2,x_3]$ 上最后一次达到值 $y$ 的点。由第一次、最后一次达到的性质，利用单侧差商并结合可微性，有
+\[
+  f'(u)\ge0,
+  \qquad
+  f'(v)\le0.
+\]
+但 $f(u)=f(v)=y$，故微分方程给出
+\[
+  f'(u)=g(y)=f'(v),
+\]
+于是二者都等于 0。对上述 $y$ 所在开区间内的每个值重复这一论证，得到 $g(y)=0$。因此当 $f(x)$ 的值落在该开区间内时均有 $f'(x)=0$，由中值定理 $f$ 不可能从端点值上升到 $f(x_2)$，矛盾。故 $f$ 必为单调函数。
+\end{xsolution}
+
+\paragraph{第二组参考题 13}
+\begin{xsolution}
+反设三式对所有 $x\in\RR$ 同时成立。固定 $x_0$。由于 $f''<0$，$f'$ 严格减少；又 $f'(x_0)>0$，所以对每个 $x<x_0$，
+\[
+  f'(x)>f'(x_0)>0.
+\]
+于是
+\[
+  f(x_0)-f(x)
+  =\int_x^{x_0}f'(t)\,\dd t
+  >(x_0-x)f'(x_0),
+\]
+即
+\[
+  f(x)<f(x_0)-(x_0-x)f'(x_0)\to-\infty
+  \qquad(x\to-\infty),
+\]
+与 $f(x)>0$ 矛盾。
+\end{xsolution}
+
+\paragraph{第二组参考题 14}
+\begin{xsolution}
+反设对每个 $x$ 都有
+\[
+  f(x)f'(x)f''(x)f'''(x)<0.
+\]
+则四个因子都处处非零，并由连续性或导数的 Darboux 性质各自保持定号。把 $f$ 换成 $-f$ 不改变乘积符号，把 $x$ 换成 $-x$ 也不改变该乘积符号，因此不妨设
+\[
+  f>0,\qquad f'>0.
+\]
+于是 $f''$ 与 $f'''$ 异号。
+
+若 $f''>0$、$f'''<0$，则 $f''$ 严格减少。对 $x<0$ 有 $f''(x)>f''(0)>0$，所以
+\[
+  f'(x)<f'(0)+x f''(0),
+\]
+右端在 $x\to-\infty$ 时趋于 $-\infty$，与 $f'>0$ 矛盾。
+
+若 $f''<0$、$f'''>0$，则 $f'$ 严格减少。对 $x<0$ 有 $f'(x)>f'(0)>0$，从而
+\[
+  f(x)<f(0)+x f'(0)\to-\infty
+  \qquad(x\to-\infty),
+\]
+与 $f>0$ 矛盾。
+
+故反设不成立，必存在 $a\in\RR$ 使
+\[
+  \boxed{f(a)f'(a)f''(a)f'''(a)\ge0}.
+\]
+\end{xsolution}
+
+\paragraph{第二组参考题 15}
+\begin{xsolution}
+记微分算子为 $D$。有因式分解
+\[
+  D^3-D^2-D+1=(D-1)^2(D+1).
+\]
+先用两个简单引理：若多项式 $h$ 满足 $h'+h\ge0$ 于全实轴，则 $h\ge0$；若 $h'-h\ge0$，则 $h\le0$。例如第一条中，$h'+h$ 与 $h$ 有相同最高次项；若它非零且处处非负，则 $h$ 也有偶数次数和正首项系数，从而有全局最小值。若该最小值为负，在最小点 $h'=0$，便有 $h'+h<0$，矛盾。第二条同理在全局最大点证明。相反号的不等式也相应反向。
+
+令
+\[
+  q=(D-1)^2(D+1)p\ge0,
+  \quad r=(D-1)(D+1)p,
+  \quad s=(D+1)p.
+\]
+由
+\[
+  r'-r=q\ge0
+\]
+得 $r\le0$；再由
+\[
+  s'-s=r\le0
+\]
+得 $s\ge0$；最后由
+\[
+  p'+p=s\ge0
+\]
+得
+\[
+  \boxed{p(x)\ge0\qquad(\forall x\in\RR)}.
+\]
+\end{xsolution}
+
+\paragraph{第二组参考题 16}
+\begin{xsolution}
+首先因式分解
+\[
+  Q(x)=\bigl(P(x)+xP'(x)\bigr)\bigl(xP(x)+P'(x)\bigr).
+\]
+将 $P$ 的 $n$ 个大于 1 的互异实根按大小记为
+\[
+  1<r_1<r_2<\cdots<r_n,
+\]
+并可取它们为这些根中的相邻根。
+
+第一因子
+\[
+  P+xP'=(xP)'.
+\]
+函数 $xP(x)$ 在 $0,r_1,\ldots,r_n$ 处均为 0，因此 Rolle 定理在
+\[
+  (0,r_1),(r_1,r_2),\ldots,(r_{n-1},r_n)
+\]
+中各给出至少一个第一因子的零点，共至少 $n$ 个。
+
+第二因子
+\[
+  xP+P'=\ee^{-x^2/2}\bigl(\ee^{x^2/2}P(x)\bigr)'.
+\]
+函数 $\ee^{x^2/2}P(x)$ 在 $r_1,\ldots,r_n$ 处为 0，因此在每个 $(r_i,r_{i+1})$ 中至少有一个第二因子的零点，共至少 $n-1$ 个。
+
+还需说明这些零点不会在同一开区间内重合。若某个 $x>1$ 同时满足
+\[
+  P+xP'=0,\qquad xP+P'=0,
+\]
+则因系数矩阵行列式 $1-x^2\ne0$，必有 $P(x)=P'(x)=0$，即 $x$ 是 $P$ 的重根。若 $r_i,r_{i+1}$ 取为相邻的互异实根，则区间内不存在这样的根；若原多项式还有额外实根，只需把所有大于 1 的互异根先排序后从中取连续的 $n$ 个即可。因此上述两类零点互异。
+
+故 $Q$ 至少有
+\[
+  n+(n-1)=\boxed{2n-1}
+\]
+个互异实根。
+\end{xsolution}
+
+\paragraph{第二组参考题 17}
+\begin{xsolution}
+不动点方程为
+\[
+  a^x=x.
+\]
+由于 $a>1$，解必有 $x>1$。取对数得到
+\[
+  \frac{\ln x}{x}=\ln a.
+\]
+令
+\[
+  \phi(x)=\frac{\ln x}{x},\qquad x>1.
+\]
+则
+\[
+  \phi'(x)=\frac{1-\ln x}{x^2},
+\]
+故 $\phi$ 在 $(1,\ee)$ 增加、在 $(\ee,+\infty)$ 减少，唯一最大值为
+\[
+  \phi(\ee)=\frac1\ee.
+\]
+因此：若 $\ln a>1/\ee$，无解；若 $\ln a=1/\ee$，恰有一解 $x=\ee$；若 $0<\ln a<1/\ee$，恰有两解。即
+\begin{enumerate}[label=(\arabic*)]
+  \item $a>\ee^{1/\ee}$ 时无不动点；
+  \item $a=\ee^{1/\ee}$ 时恰有一个不动点；
+  \item $1<a<\ee^{1/\ee}$ 时有两个不动点。
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{第二组参考题 18}
+\begin{xsolution}
+令
+\[
+  b=-\ln a>0.
+\]
+则
+\[
+  g(x)=a^{a^x}=\exp(-b\ee^{-bx}).
+\]
+不动点必须满足 $x>0$，取对数后等价于
+\[
+  F(x):=\ln x+b\ee^{-bx}=0.
+\]
+其导数为
+\[
+  F'(x)=\frac{1-b^2x\ee^{-bx}}x.
+\]
+令 $y=bx>0$，则临界点条件为
+\[
+  y\ee^{-y}=\frac1b.
+\]
+函数 $y\ee^{-y}$ 在 $y=1$ 处取唯一最大值 $1/\ee$。
+
+若 $b<\ee$，则 $F'(x)>0$ 对所有 $x>0$ 成立；又 $F(0+)=-\infty$、$F(+\infty)=+\infty$，故只有一个零点。$b=\ee$ 时导数仅在 $y=1$ 处为 0，$F$ 仍单调增加，仍只有一个零点。
+
+若 $b>\ee$，则有两个临界参数
+\[
+  0<y_1<1<y_2.
+\]
+在临界点，利用 $b=e^y/y$ 得
+\[
+  F\left(\frac yb\right)
+  =2\ln y-y+\frac1y=:H(y).
+\]
+而
+\[
+  H'(y)=-\frac{(y-1)^2}{y^2}\le0,
+  \qquad H(1)=0.
+\]
+故 $H(y_1)>0$、$H(y_2)<0$。于是 $F$ 从 $-\infty$ 上升到正的极大值，再下降到负的极小值，最后上升到 $+\infty$，恰有三个零点。
+
+恢复 $b=-\ln a$：
+\[
+  b\le\ee\iff a\ge\ee^{-\ee}.
+\]
+因此
+\begin{enumerate}[label=(\arabic*)]
+  \item $\ee^{-\ee}\le a<1$ 时 $g$ 只有一个不动点；
+  \item $0<a<\ee^{-\ee}$ 时 $g$ 恰有三个不动点。
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{第二组参考题 19}
+\begin{xsolution}
+记
+\[
+  F(\theta)=a\sin\theta+b\cos\theta-\sin\theta\cos\theta.
+\]
+根数只有在出现重根时才可能改变。重根满足
+\[
+  F(\theta)=0,
+  \qquad
+  F'(\theta)=a\cos\theta-b\sin\theta-\cos2\theta=0.
+\]
+联立解出参数
+\[
+  a=\cos^3\theta,
+  \qquad
+  b=\sin^3\theta.
+\]
+故参数平面中的判别曲线是星形线
+\[
+  |a|^{2/3}+|b|^{2/3}=1.
+\]
+在这条曲线之外所有根均为单根，因此根数在每个连通区域内保持不变。
+
+在星形线内部取 $(a,b)=(0,0)$，方程化为
+\[
+  \sin\theta\cos\theta=0,
+\]
+在 $[0,2\pi)$ 有 4 个根，所以内部处处有 4 个互异实根。
+
+在外部取 $(a,b)=(2,0)$，方程为
+\[
+  \sin\theta(2-\cos\theta)=0,
+\]
+只有 $0,\pi$ 两根，所以外部处处有 2 个互异实根。
+
+在星形线的光滑部分，即 $ab\ne0$，重根处
+\[
+  F''(\theta)=3\sin\theta\cos\theta\ne0,
+\]
+故恰有一个二重根，其余两根保持为单根，于是共有 3 个互异实根。在四个尖点 $(\pm1,0),(0,\pm1)$，例如 $(1,0)$ 时
+\[
+  F(\theta)=\sin\theta(1-\cos\theta),
+\]
+只有 $0,\pi$ 两个互异根，其中 $0$ 为三重根；其余尖点同理。
+
+综上，令
+\[
+  \rho=|a|^{2/3}+|b|^{2/3},
+\]
+则互异实根数为
+\[
+  \boxed{
+  \begin{cases}
+    4,&\rho<1,\\
+    3,&\rho=1,\ ab\ne0,\\
+    2,&\rho>1,\\
+    2,&\rho=1,\ ab=0.
+  \end{cases}}
+\]
+\end{xsolution}
+
+\paragraph{第二组参考题 20}
+\begin{xsolution}
+设椭圆为
+\[
+  \frac{x^2}{A^2}+\frac{y^2}{B^2}=1,
+  \qquad A>B>0,
+\]
+定点为 $(u,v)$，椭圆上的接触点参数化为
+\[
+  (A\cos\theta,B\sin\theta).
+\]
+该点的切向量为 $(-A\sin\theta,B\cos\theta)$。从 $(u,v)$ 到接触点的连线为法线，当且仅当它与切向量垂直，即
+\[
+  (u-A\cos\theta)(-A\sin\theta)
+  +(v-B\sin\theta)(B\cos\theta)=0.
+\]
+令 $d=A^2-B^2>0$，整理为
+\[
+  \frac{Au}{d}\sin\theta
+  -\frac{Bv}{d}\cos\theta
+  -\sin\theta\cos\theta=0.
+\]
+这正是上一题，其中
+\[
+  a=\frac{Au}{d},
+  \qquad
+  b=-\frac{Bv}{d}.
+\]
+因此判别曲线为
+\[
+  \left|\frac{u}{d/A}\right|^{2/3}
+  +\left|\frac{v}{d/B}\right|^{2/3}=1,
+\]
+也就是椭圆的渐屈线（星形线）
+\[
+  u=\frac dA\cos^3\theta,
+  \qquad
+  v=-\frac dB\sin^3\theta.
+\]
+
+所以，从定点到椭圆的法线接触点个数为：渐屈线内部 4 个；外部 2 个；光滑边界上 3 个；四个尖点上 2 个互异接触点（其中一个对应高重数法线）。因此
+\[
+  \boxed{\text{法线条数最多为 }4,\text{ 且在椭圆渐屈线的内部区域达到。}}
+\]
+这里“条数”按不同接触点所确定的法线计数。
+\end{xsolution}
