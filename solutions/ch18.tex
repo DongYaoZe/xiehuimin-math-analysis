@@ -100,16 +100,19 @@
 
 \textbf{(1)}
 \begin{xsolution}
-当 $xy\ne0$ 时，
+令
 \[
-  \frac{\sin xy}{x}=y\frac{\sin xy}{xy}.
+  s(t)=
+  \begin{cases}
+    \dfrac{\sin t}{t}, & t\ne0,\\[4pt]
+    1, & t=0.
+  \end{cases}
 \]
-当 $(x,y)\to(0,a)$ 时，$xy\to0$，且
+由基本极限知 $s$ 在 $t=0$ 连续。对题中函数的定义域 $x\ne0$，无论 $y$ 是否为 $0$，均有
 \[
-  \frac{\sin xy}{xy}\to1,
-  \qquad y\to a.
+  \frac{\sin xy}{x}=y s(xy).
 \]
-因此
+当 $(x,y)\to(0,a)$ 时，$xy\to0$，故 $s(xy)\to1$，同时 $y\to a$。因此
 \[
   \boxed{\displaystyle
   \lim_{(x,y)\to(0,a)}\frac{\sin xy}{x}=a}.
@@ -138,28 +141,27 @@
 
 \textbf{(3)}
 \begin{xsolution}
-当 $x\ne0$ 时，
+在 $t=0$ 的邻近定义
 \[
-  f(x,y)
-  =y\frac{\ln(1+xy)}{xy}.
+  \ell(t)=
+  \begin{cases}
+    \dfrac{\ln(1+t)}{t}, & t\ne0,\\[4pt]
+    1, & t=0.
+  \end{cases}
 \]
-由于
+由基本极限知 $\ell$ 在 $0$ 连续。于是对 $x\ne0$ 且 $1+xy>0$，包括 $y=0$ 的情形，都有
 \[
-  \lim_{t\to0}\frac{\ln(1+t)}t=1,
+  f(x,y)=y\ell(xy).
 \]
-故当 $(x,y)\to(0,0)$ 时
+当 $(x,y)\to(0,0)$ 时，$xy\to0$，故 $\ell(xy)$ 在充分小邻域内有界：存在 $C>0$ 使
 \[
-  \frac{\ln(1+xy)}{xy}\to1.
+  \abs{\ell(xy)}\le C.
 \]
-所以在充分小邻域内存在常数 $C>0$，使 $x\ne0$ 时
-\[
-  \abs{f(x,y)}\le C\abs{y}.
-\]
-而 $x=0$ 时 $\abs{f(0,y)}=\abs{y}$。取 $C_1\ge\max\{C,1\}$，则原点附近统一有
+因此 $x\ne0$ 时 $\abs{f(x,y)}\le C\abs{y}$；而 $x=0$ 时 $\abs{f(0,y)}=\abs{y}$。取 $C_1\ge\max\{C,1\}$，则原点附近统一有
 \[
   \abs{f(x,y)}\le C_1\abs{y}\to0.
 \]
-因此
+所以
 \[
   \boxed{\displaystyle
   \lim_{(x,y)\to(0,0)}f(x,y)=0}.
@@ -373,6 +375,12 @@
   \boxed{\displaystyle
   \lim_{(x,y)\to(t,t)}g(x,y)=f'(t)}.
 \]
+
+\textbf{另解。} 对 $x\ne y$，由一元函数的中值定理，存在介于 $x$ 与 $y$ 之间的点 $\xi$，使
+\[
+  g(x,y)=\frac{f(x)-f(y)}{x-y}=f'(\xi).
+\]
+当 $(x,y)\to(t,t)$ 时，$\xi\to t$。由 $f'$ 连续，立即得到 $g(x,y)\to f'(t)$。
 \end{xsolution}
 
 \paragraph{5. 叙述并证明二元函数极限的惟一性、局部有界性与局部保号性}
@@ -443,44 +451,64 @@
 \end{xsolution}
 
 \paragraph{6. 由 $\varphi(y)$ 与 $\psi(x)$ 的控制证明重极限}
+% SOURCE-ERR: 按通常的二元函数极限定义，原题条件不足；沿直线 $y=y_0$ 或 $x=x_0$ 时，一元极限条件并不控制 $\varphi(y_0)$、$\psi(x_0)$。
 \begin{xsolution}
-给定 $\varepsilon>0$。由
+按题面现有条件，结论不成立。取 $x_0=y_0=0$、$A=0$，定义
 \[
-  \lim_{y\to y_0}\varphi(y)=A
+  \varphi(y)=
+  \begin{cases}
+    0, & y\ne0,\\
+    1, & y=0,
+  \end{cases}
+  \qquad
+  \psi(x)=
+  \begin{cases}
+    0, & x\ne0,\\
+    1, & x=0,
+  \end{cases}
 \]
-可取 $\delta_1>0$，使
+以及
 \[
-  0<\abs{y-y_0}<\delta_1
-  \Longrightarrow
-  \abs{\varphi(y)-A}<\frac\varepsilon2.
+  f(x,y)=\varphi(y).
 \]
-由
+则
 \[
-  \lim_{x\to x_0}\psi(x)=0
+  \lim_{y\to0}\varphi(y)=0,
+  \qquad
+  \lim_{x\to0}\psi(x)=0,
 \]
-可取 $\delta_2>0$，使
+而且处处有
 \[
-  0<\abs{x-x_0}<\delta_2
-  \Longrightarrow
-  \abs{\psi(x)}<\frac\varepsilon2.
+  \abs{f(x,y)-\varphi(y)}=0\le\psi(x).
 \]
-题设
+但沿 $y=0$、$x\to0$ 有 $f(x,0)=1$，所以
 \[
-  \abs{f(x,y)-\varphi(y)}\le\psi(x)
+  \lim_{(x,y)\to(0,0)}f(x,y)
 \]
-还说明在所讨论邻域内 $\psi(x)\ge0$。于是当两变量同时充分接近相应极限点时，
+不存在，更不等于 $A=0$。
+
+若补充
+\[
+  \varphi(y_0)=A,
+  \qquad
+  \psi(x_0)=0,
+\]
+则原结论成立。事实上，给定 $\varepsilon>0$，由两个一元极限分别取 $\delta_1,\delta_2>0$，使在相应邻域内
+\[
+  \abs{\varphi(y)-A}<\frac\varepsilon2,
+  \qquad
+  0\le\psi(x)<\frac\varepsilon2,
+\]
+其中 $y=y_0$ 与 $x=x_0$ 的情形由补充条件保证。于是当 $(x,y)$ 充分接近 $(x_0,y_0)$ 时，
 \[
   \abs{f(x,y)-A}
-  \le
-  \abs{f(x,y)-\varphi(y)}+\abs{\varphi(y)-A}
-  \le
-  \psi(x)+\abs{\varphi(y)-A}
+  \le\abs{f(x,y)-\varphi(y)}+\abs{\varphi(y)-A}
+  \le\psi(x)+\abs{\varphi(y)-A}
   <\varepsilon.
 \]
-所以
+因此在上述补充条件下才有
 \[
-  \boxed{\displaystyle
-  \lim_{(x,y)\to(x_0,y_0)}f(x,y)=A}.
+  \lim_{(x,y)\to(x_0,y_0)}f(x,y)=A.
 \]
 \end{xsolution}
 
@@ -524,7 +552,7 @@
   \le\abs{f(x,y)-h(y)}+\abs{h(y)-A}
   <\varepsilon.
 \]
-补充的定义域条件保证这一矩形去心邻域中的点均在函数的定义域内，因此
+题设的补充条件说明函数在点 $(x_0,y_0)$ 邻近除两条直线 $x=x_0$、$y=y_0$ 外均有定义；上面的估计覆盖了定义域中所有充分接近 $(x_0,y_0)$ 的点，因此
 \[
   \lim_{(x,y)\to(x_0,y_0)}f(x,y)=A.
 \]
@@ -1494,9 +1522,9 @@ $\Omega$ 有界闭，故紧；$h$ 连续，所以存在 $\vect{x}_*\in\Omega$ �
 \paragraph{8. Tietze（蒂策）扩张定理}
 
 \textbf{(1)}
-% CHECK-SOLUTION: 扫描原题中的 g_k 公式确实缺少因子 M，且写成 d(x,A_k)-d(x,B_k)，与 A_k 对应正残差、B_k 对应负残差的定义方向相反；按原式一般不能推出 g|_D=f。以下明确给出必要修正后的完整证明，原题公式本身不能被伪证。
+% SOURCE-ERR: 原题的 g_k 公式缺少因子 M，且距离项顺序应为 d(x,B_k)-d(x,A_k)；否则不能得到 g|_D=f。
 \begin{xsolution}
-先说明原题公式的矛盾。按题面，
+题面所列递推式需要两处校正。若按题面原式，
 \[
   \abs{g_k(\vect{x})}\le\frac{2^{k-1}}{3^k},
 \]
@@ -1686,6 +1714,8 @@ $f$ 在 $U$ 上连续。若存在连续扩张 $F\colon\RR\to\RR$，则由 $x\to0
 
 现在 $\RR\setminus\overline U$ 是若干互不相交开区间的并。在每个有限空隙 $(a,b)$ 上，用连接 $\widetilde f(a)$ 与 $\widetilde f(b)$ 的线性函数定义扩张；在无界空隙 $(-\infty,a)$ 或 $(a,+\infty)$ 上取相邻端点值的常值函数。每个空隙内部的连续性直接成立，在空隙端点处也与 $\widetilde f$ 的端点值吻合。若有若干空隙的端点向 $x_0\in\overline U$ 聚集，则 $\widetilde f$ 在 $\overline U$ 上仍一致连续；足够靠近 $x_0$ 的空隙两端函数值都靠近 $\widetilde f(x_0)$，而线性插值位于两端函数值之间，故这些空隙内部的值也靠近 $\widetilde f(x_0)$。因此所得函数在全 $\RR$ 上连续，并在 $U$ 上与 $f$ 一致。
 
+\textbf{另解（一致连续情形）。} 仍先由一致连续性把 $f$ 惟一连续扩张到闭集 $\overline U$。由于 $\overline U\subset\RR$ 是闭集，再应用上一题的 Tietze 扩张定理，即可把 $\widetilde f$ 连续扩张到整个 $\RR$。这直接得到所需的全空间连续扩张。
+
 所以在 $\RR$ 中：一般连续函数的答案是否定的；一致连续函数的答案是肯定的。
 \end{xsolution}
 
@@ -1734,7 +1764,13 @@ $f$ 在 $U$ 上连续。若存在连续扩张 $F\colon\RR\to\RR$，则由 $x\to0
 \]
 故 $F$ 是扩张。
 
-再证连续性，事实上 $F$ 仍一致连续。给定 $\varepsilon>0$，取原函数一致连续性对应的 $\delta>0$。若
+再证连续性，事实上 $F$ 仍一致连续。给定 $\varepsilon>0$，由原函数的一致连续性取 $\delta>0$，使对任意有理点 $\vect{u},\vect{v}$，
+\[
+  \abs{\vect{u}-\vect{v}}<\delta
+  \Longrightarrow
+  \abs{f(\vect{u})-f(\vect{v})}<\frac\varepsilon2.
+\]
+若
 \[
   \abs{\vect{x}-\vect{y}}<\frac\delta3,
 \]
@@ -1744,11 +1780,11 @@ $f$ 在 $U$ 上连续。若存在连续扩张 $F\colon\RR\to\RR$，则由 $x\to0
 \]
 故
 \[
-  \abs{f(\vect{q}_m)-f(\vect{r}_m)}<\varepsilon.
+  \abs{f(\vect{q}_m)-f(\vect{r}_m)}<\frac\varepsilon2.
 \]
 令 $m\to\infty$ 得
 \[
-  \abs{F(\vect{x})-F(\vect{y})}\le\varepsilon.
+  \abs{F(\vect{x})-F(\vect{y})}\le\frac\varepsilon2<\varepsilon.
 \]
 所以 $F$ 一致连续。
 
