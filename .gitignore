@@ -1,5 +1,6 @@
-# Local source scans rendered as page images. Reproducible; do not commit.
+# Local source/answer materials rendered as page images. Reproducible; do not commit.
 /source-pages/
+/answer-pages/
 
 # Build outputs
 /build/*
