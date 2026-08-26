@@ -1,0 +1,1992 @@
+% 第23章《含参变量积分》习题解答
+% 按 chapters/ch23.tex 中题目出现顺序编排。
+
+\section*{第23章 含参变量积分习题解答}
+
+\subsection*{23.1.3 练习题}
+
+\paragraph{第1题}
+求
+\[
+F(\theta)=\int_0^\pi\ln(1+\theta\cos x)\,\dd x,
+\qquad |\theta|<1.
+\]
+
+\begin{xsolution}
+当 $|\theta|<1$ 时，被积函数及其关于 $\theta$ 的偏导数在任意内闭参数区间上一致连续，故可在积分号下求导。对 $\theta\neq0$，
+\[
+\begin{aligned}
+F'(\theta)
+&=\int_0^\pi\frac{\cos x}{1+\theta\cos x}\,\dd x\\
+&=\frac1\theta\left(\pi-\int_0^\pi\frac{\dd x}{1+\theta\cos x}\right).
+\end{aligned}
+\]
+令 $u=\tan(x/2)$，则
+\[
+\int_0^\pi\frac{\dd x}{1+\theta\cos x}
+=2\int_0^{+\infty}\frac{\dd u}{(1+\theta)+(1-\theta)u^2}
+=\frac\pi{\sqrt{1-\theta^2}}.
+\]
+于是
+\[
+F'(\theta)=\frac\pi\theta\left(1-\frac1{\sqrt{1-\theta^2}}\right)
+=\pi\frac{\dd}{\dd\theta}\ln\left(1+\sqrt{1-\theta^2}\right).
+\]
+又 $F(0)=0$，故
+\[
+\boxed{F(\theta)=\pi\ln\frac{1+\sqrt{1-\theta^2}}2},
+\qquad |\theta|<1.
+\]
+该公式在 $\theta=0$ 处由连续性成立。
+\end{xsolution}
+
+\paragraph{第2题}
+设 $f(s,t)$ 为可微函数，
+\[
+F(x)=\int_0^x\dd t\int_{t^2}^{x^2}f(t,s)\,\dd s,
+\]
+求 $F'(x)$。
+
+\begin{xsolution}
+记
+\[
+G(x,t)=\int_{t^2}^{x^2}f(t,s)\,\dd s.
+\]
+由 Leibniz 公式，
+\[
+\frac{\partial G}{\partial x}(x,t)=2x f(t,x^2).
+\]
+又 $G(x,x)=0$，所以
+\[
+\begin{aligned}
+F'(x)
+&=G(x,x)+\int_0^x\frac{\partial G}{\partial x}(x,t)\,\dd t\\
+&=2x\int_0^x f(t,x^2)\,\dd t.
+\end{aligned}
+\]
+因此
+\[
+\boxed{F'(x)=2x\int_0^x f(t,x^2)\,\dd t}.
+\]
+\end{xsolution}
+
+\paragraph{第3题}
+设 $f(x,y)$ 在 $(a,b)\times(c,d)$ 上连续有界，证明
+\[
+I(x)=\int_c^d f(x,y)\,\dd y
+\]
+在 $(a,b)$ 上连续。
+
+\begin{xsolution}
+设 $|f(x,y)|\leqslant M$。任取 $x_0\in(a,b)$ 与 $\varepsilon>0$。取 $\eta>0$ 充分小，使
+\[
+4M\eta<\frac\varepsilon2,
+\]
+并取 $\delta_0>0$ 使 $[x_0-\delta_0,x_0+\delta_0]\subset(a,b)$。在紧集
+\[
+K=[x_0-\delta_0,x_0+\delta_0]\times[c+\eta,d-\eta]
+\]
+上，$f$ 一致连续，所以存在 $0<\delta<\delta_0$，当 $|x-x_0|<\delta$ 时，
+\[
+|f(x,y)-f(x_0,y)|<\frac{\varepsilon}{2(d-c)}
+\qquad(c+\eta\leqslant y\leqslant d-\eta).
+\]
+于是
+\[
+\begin{aligned}
+|I(x)-I(x_0)|
+&\leqslant\int_c^{c+\eta}|f(x,y)-f(x_0,y)|\,\dd y\\
+&\quad+\int_{c+\eta}^{d-\eta}|f(x,y)-f(x_0,y)|\,\dd y
++\int_{d-\eta}^{d}|f(x,y)-f(x_0,y)|\,\dd y\\
+&\leqslant4M\eta+\frac{\varepsilon}{2(d-c)}(d-c-2\eta)<\varepsilon.
+\end{aligned}
+\]
+故 $I$ 在任意 $x_0\in(a,b)$ 连续，从而 $I$ 在 $(a,b)$ 上连续。
+\end{xsolution}
+
+\paragraph{第4题}
+设
+\[
+I(a)=\int_0^{2\pi}\ln(R^2+a^2-2aR\cos\theta)\,\dd\theta,
+\qquad |a|<R,
+\]
+证明 $I'(a)=0$。
+
+\begin{xsolution}
+令 $q=a/R$，则 $|q|<1$，且
+\[
+I(a)=4\pi\ln R+J(q),
+\qquad
+J(q)=\int_0^{2\pi}\ln(1-2q\cos\theta+q^2)\,\dd\theta.
+\]
+在任意 $|q|\leqslant q_0<1$ 上可在积分号下求导，故
+\[
+J'(q)=2\int_0^{2\pi}\frac{q-\cos\theta}{1-2q\cos\theta+q^2}\,\dd\theta.
+\]
+记
+\[
+A(q)=\int_0^{2\pi}\frac{\dd\theta}{1-2q\cos\theta+q^2}.
+\]
+用 $u=\tan(\theta/2)$ 分别处理 $[0,\pi]$ 与 $[\pi,2\pi]$，或直接应用 Poisson 核的初等积分，可得
+\[
+A(q)=\frac{2\pi}{1-q^2}.
+\]
+再由
+\[
+(1+q^2)A(q)-2q\int_0^{2\pi}
+\frac{\cos\theta}{1-2q\cos\theta+q^2}\,\dd\theta=2\pi
+\]
+得
+\[
+\int_0^{2\pi}\frac{\cos\theta}{1-2q\cos\theta+q^2}\,\dd\theta
+=\frac{2\pi q}{1-q^2}.
+\]
+所以 $J'(q)=0$。当 $q=0$ 时结论由连续性同样成立。因 $q=a/R$，故
+\[
+\boxed{I'(a)=0\qquad(|a|<R)}.
+\]
+事实上 $I(a)=4\pi\ln R$。
+\end{xsolution}
+
+\paragraph{第5题}
+设 $a,b>0$，求
+\[
+\int_0^1\frac{x^b-x^a}{\ln x}\sin\left(\ln\frac1x\right)\dd x.
+\]
+
+\begin{xsolution}
+令 $x=\ee^{-t}$，则 $t\in(0,+\infty)$，并有
+\[
+\begin{aligned}
+I
+&=\int_0^{+\infty}\frac{\ee^{-(a+1)t}-\ee^{-(b+1)t}}{t}\sin t\,\dd t.
+\end{aligned}
+\]
+对 $c>0$ 定义
+\[
+\Phi(c)=\int_0^{+\infty}\ee^{-ct}\frac{\sin t}{t}\,\dd t.
+\]
+可在 $c>0$ 时求导：
+\[
+\Phi'(c)=-\int_0^{+\infty}\ee^{-ct}\sin t\,\dd t=-\frac1{1+c^2}.
+\]
+又 $\Phi(c)\to0$（$c\to+\infty$），所以
+\[
+\Phi(c)=\int_c^{+\infty}\frac{\dd u}{1+u^2}=\arctan\frac1c.
+\]
+因此
+\[
+\boxed{I=\arctan\frac1{a+1}-\arctan\frac1{b+1}}.
+\]
+\end{xsolution}
+
+\paragraph{第6题}
+设
+\[
+F(t)=\int_0^a\dd x\int_0^a f(x+y+t)\,\dd y,
+\]
+其中 $f$ 为连续函数。证明
+\[
+F''(t)=f(t+2a)-2f(t+a)+f(t).
+\]
+
+\begin{xsolution}
+取 $f$ 的一个原函数 $H$。先对 $y$ 积分，得
+\[
+F(t)=\int_0^a[H(t+x+a)-H(t+x)]\,\dd x.
+\]
+由于 $f$ 连续，右端关于 $t$ 可微，且
+\[
+F'(t)=\int_0^a[f(t+x+a)-f(t+x)]\,\dd x.
+\]
+再取 $f$ 的原函数并直接计算上述两个积分，
+\[
+F'(t)=H(t+2a)-2H(t+a)+H(t).
+\]
+再求一次导数便得
+\[
+\boxed{F''(t)=f(t+2a)-2f(t+a)+f(t)}.
+\]
+这里仅使用了 $f$ 的连续性。
+\end{xsolution}
+
+\paragraph{第7题}
+设
+\[
+f(t)=\left(\int_0^t\ee^{-x^2}\,\dd x\right)^2,
+\qquad
+g(t)=\int_0^1\frac{\ee^{-t^2(1+x^2)}}{1+x^2}\,\dd x.
+\]
+证明 $f(t)+g(t)\equiv\pi/4$，并由此计算
+$\int_0^{+\infty}\ee^{-x^2}\,\dd x$。
+
+\begin{xsolution}
+记
+\[
+A(t)=\int_0^t\ee^{-x^2}\,\dd x.
+\]
+则
+\[
+f'(t)=2A(t)\ee^{-t^2}.
+\]
+另一方面，积分区间有限，可直接在积分号下求导：
+\[
+\begin{aligned}
+g'(t)
+&=-2t\ee^{-t^2}\int_0^1\ee^{-t^2x^2}\,\dd x\\
+&=-2\ee^{-t^2}\int_0^t\ee^{-u^2}\,\dd u
+=-2A(t)\ee^{-t^2}.
+\end{aligned}
+\]
+上式对 $t<0$ 也成立，因为代换 $u=tx$ 保留定向。因此
+\[
+(f+g)'(t)=0.
+\]
+在 $t=0$ 时，
+\[
+f(0)=0,
+\qquad
+g(0)=\int_0^1\frac{\dd x}{1+x^2}=\frac\pi4,
+\]
+故
+\[
+\boxed{f(t)+g(t)\equiv\frac\pi4}.
+\]
+又
+\[
+0\leqslant g(t)\leqslant\ee^{-t^2}\int_0^1\frac{\dd x}{1+x^2}
+=\frac\pi4\ee^{-t^2}\to0
+\qquad(t\to+\infty).
+\]
+令 $t\to+\infty$，得到
+\[
+\left(\int_0^{+\infty}\ee^{-x^2}\,\dd x\right)^2=\frac\pi4.
+\]
+积分为正，因此
+\[
+\boxed{\int_0^{+\infty}\ee^{-x^2}\,\dd x=\frac{\sqrt\pi}{2}}.
+\]
+\end{xsolution}
+
+\subsection*{23.2.3 练习题}
+
+\paragraph{第1题：讨论下列广义积分的一致收敛性}
+
+\begin{xsolution}
+\textbf{(1)}
+\[
+\int_0^{+\infty}\ee^{-(1+a^2)t}\sin t\,\dd t,
+\qquad a\in\RR.
+\]
+有
+\[
+|\ee^{-(1+a^2)t}\sin t|\leqslant\ee^{-t},
+\]
+而 $\int_0^{+\infty}\ee^{-t}\,\dd t$ 收敛。故由 M-判别法，该积分在 $a\in\RR$ 上\textbf{一致且绝对收敛}。
+
+\textbf{(2)}
+\[
+\int_0^{+\infty}\frac{\cos xy}{\sqrt{x+y}}\,\dd x,
+\qquad y\in[y_0,+\infty),\quad y_0>0.
+\]
+对任意 $A>0$，
+\[
+\left|\int_0^A\cos xy\,\dd x\right|
+=\left|\frac{\sin Ay}{y}\right|\leqslant\frac1{y_0}.
+\]
+对每个 $y\geqslant y_0$，$(x+y)^{-1/2}$ 关于 $x$ 单调下降，且
+\[
+0<\frac1{\sqrt{x+y}}\leqslant\frac1{\sqrt{x+y_0}}\to0
+\]
+关于 $y$ 一致。由 Dirichlet 判别法，积分在 $[y_0,+\infty)$ 上\textbf{一致收敛}。
+
+\textbf{(3)}
+\[
+\int_0^{+\infty}\ee^{-tx^2}\,\dd x,
+\qquad t\in(0,+\infty).
+\]
+对每个 $t>0$ 积分收敛，但不一致收敛。事实上取任意 $A>1$，令 $t=A^{-2}$，则
+\[
+\int_A^{+\infty}\ee^{-tx^2}\,\dd x
+=A\int_1^{+\infty}\ee^{-u^2}\,\dd u,
+\]
+不但不能一致趋于 $0$，反而随 $A\to\infty$ 发散。因此在 $(0,+\infty)$ 上\textbf{不一致收敛}。
+
+\textbf{(4)}
+\[
+\int_1^{+\infty}\ee^{-\alpha x}\frac{\cos x}{\sqrt x}\,\dd x,
+\qquad \alpha\in[0,+\infty).
+\]
+对任意 $A\geqslant1$，$\int_1^A\cos x\,\dd x$ 一致有界。函数
+\[
+g_\alpha(x)=\frac{\ee^{-\alpha x}}{\sqrt x}
+\]
+关于 $x$ 单调下降，且
+\[
+0\leqslant g_\alpha(x)\leqslant x^{-1/2}\to0
+\]
+关于 $\alpha\geqslant0$ 一致。故由 Dirichlet 判别法，积分在 $[0,+\infty)$ 上\textbf{一致收敛}。
+
+\textbf{(5)}
+\[
+\int_0^{+\infty}\ee^{-(x-y)^2}\,\dd x,
+\qquad y\in\RR.
+\]
+不一致收敛。取 $A>2$，令 $y=2A$，则区间 $[2A-1,2A+1]\subset[A,+\infty)$，故
+\[
+\int_A^{+\infty}\ee^{-(x-y)^2}\,\dd x
+\geqslant\int_{2A-1}^{2A+1}\ee^{-(x-2A)^2}\,\dd x
+=\int_{-1}^1\ee^{-u^2}\,\dd u>0.
+\]
+尾积分不能关于 $y$ 一致趋于 $0$，所以在 $\RR$ 上\textbf{不一致收敛}。
+
+\textbf{(6)}
+\[
+\int_0^{+\infty}x\ln x\,\ee^{-t\sqrt x}\,\dd x.
+\]
+若 $t\in[t_0,+\infty)$，$t_0>0$，则
+\[
+|x\ln x|\ee^{-t\sqrt x}\leqslant |x\ln x|\ee^{-t_0\sqrt x},
+\]
+右端在 $(0,+\infty)$ 可积，故在 $[t_0,+\infty)$ 上\textbf{一致且绝对收敛}。
+
+若 $t\in(0,+\infty)$，则不一致收敛。取 $A>1$，令 $t=A^{-1/2}$，在 $x\in[A,4A]$ 上有 $t\sqrt x\in[1,2]$，从而
+\[
+\int_A^{4A}x\ln x\,\ee^{-t\sqrt x}\,\dd x
+\geqslant \ee^{-2}\ln A\int_A^{4A}x\,\dd x,
+\]
+右端随 $A\to\infty$ 趋于 $+\infty$。故在 $(0,+\infty)$ 上\textbf{不一致收敛}。
+
+\textbf{(7)}
+\[
+\int_1^{+\infty}\frac{1-\ee^{-ut}}t\cos t\,\dd t,
+\qquad u\in[0,1].
+\]
+$\int_1^{+\infty}\cos t/t\,\dd t$ 收敛，且可看作关于 $u$ 的恒定含参积分，因而一致收敛。对每个 $u\in[0,1]$，$1-\ee^{-ut}$ 关于 $t$ 单调且有界于 $[0,1]$。由 Abel 判别法，原积分在 $u\in[0,1]$ 上\textbf{一致收敛}。
+
+\textbf{(8)}
+\[
+\int_0^{+\infty}\frac{\alpha t}{1+\alpha^2+t^2}
+\ee^{-\alpha^2t^2}\cos(\alpha^2t^2)\,\dd t,
+\qquad \alpha>0.
+\]
+令 $s=\alpha t$。由于
+\[
+0\leqslant s\ee^{-s^2}\leqslant\frac1{\sqrt{2\ee}},
+\]
+故
+\[
+\left|
+\frac{\alpha t}{1+\alpha^2+t^2}
+\ee^{-\alpha^2t^2}\cos(\alpha^2t^2)
+\right|
+\leqslant\frac1{\sqrt{2\ee}}\frac1{1+t^2}.
+\]
+右端在 $(0,+\infty)$ 可积，所以在 $\alpha\in(0,+\infty)$ 上\textbf{一致且绝对收敛}。
+
+\textbf{(9)}
+\[
+\int_0^{+\infty}\ee^{-x^2(1+y^2)}\sin y\,\dd y,
+\qquad x>0.
+\]
+每个 $x>0$ 时绝对收敛，但在 $(0,+\infty)$ 上不一致收敛。取 $A=2n\pi$，令 $x=A^{-2}$。在 $y\in[A,A+\pi]$ 上，
+\[
+x^2(1+y^2)\leqslant\frac{1+(A+\pi)^2}{A^4}\to0,
+\]
+故当 $A$ 足够大时
+\[
+\int_A^{A+\pi}\ee^{-x^2(1+y^2)}\sin y\,\dd y
+\geqslant\frac12\int_A^{A+\pi}\sin y\,\dd y=1.
+\]
+因此 Cauchy 一致收敛准则不成立，故\textbf{不一致收敛}。
+
+\textbf{(10)}
+\[
+\int_0^{+\infty}\frac{\alpha\,\dd x}{1+\alpha^2x^2},
+\qquad \alpha\in(0,1).
+\]
+对每个 $\alpha>0$，积分等于 $\pi/2$。但尾积分
+\[
+\int_A^{+\infty}\frac{\alpha\,\dd x}{1+\alpha^2x^2}
+=\int_{\alpha A}^{+\infty}\frac{\dd u}{1+u^2}.
+\]
+对任意 $A$，令 $\alpha\to0^+$，右端趋于 $\pi/2$。故尾积分不能一致趋于 $0$，所以在 $(0,1)$ 上\textbf{不一致收敛}。
+
+\textbf{(11)}
+\[
+\int_0^2\frac{x^t}{\sqrt[3]{(x-1)(x-2)}}\,\dd x,
+\qquad |t|<\frac12.
+\]
+只需检查 $0,1,2$ 三个可能的瑕点。对 $0<x\leqslant1$，
+\[
+x^t\leqslant x^{-1/2}.
+\]
+在 $x=1$ 与 $x=2$ 的邻域中，$x^t$ 关于 $|t|<1/2$ 一致有界，而分母分别只产生 $|x-1|^{-1/3}$、$|x-2|^{-1/3}$ 型奇性。因此可用三个可积函数分段控制被积函数绝对值，M-判别法给出在 $|t|<1/2$ 上\textbf{一致且绝对收敛}。
+
+\textbf{(12)}
+\[
+\int_0^1(1-x)^{u-1}\,\dd x.
+\]
+若 $u\in[a,+\infty)$，$a>0$，则
+\[
+0<(1-x)^{u-1}\leqslant(1-x)^{a-1},
+\]
+且右端可积，故在 $[a,+\infty)$ 上\textbf{一致且绝对收敛}。
+
+若 $u\in(0,+\infty)$，则不一致收敛。对 $0<\delta<1$，
+\[
+\int_{1-\delta}^1(1-x)^{u-1}\,\dd x=\frac{\delta^u}{u}.
+\]
+令 $u\to0^+$，该尾积分无界，故在 $(0,+\infty)$ 上\textbf{不一致收敛}。
+\end{xsolution}
+
+\paragraph{第2题}
+设 $\int_0^{+\infty}x^\lambda f(x)\,\dd x$ 当 $\lambda=a,b$ 时收敛，$a<b$。证明该积分关于 $\lambda\in[a,b]$ 一致收敛。
+
+\begin{xsolution}
+把积分分成 $(0,1]$ 与 $[1,+\infty)$ 两段。
+
+在 $(0,1]$ 上写成
+\[
+x^\lambda f(x)=x^a f(x)\,x^{\lambda-a}.
+\]
+由假设 $\int_0^1x^a f(x)\,\dd x$ 收敛。对每个 $\lambda\in[a,b]$，$x^{\lambda-a}$ 关于 $x\in(0,1]$ 单调，且
+\[
+0<x^{\lambda-a}\leqslant1.
+\]
+由 Abel 判别法的瑕积分形式，$\int_0^1x^\lambda f(x)\,\dd x$ 关于 $\lambda\in[a,b]$ 一致收敛。
+
+在 $[1,+\infty)$ 上写成
+\[
+x^\lambda f(x)=x^b f(x)\,x^{\lambda-b}.
+\]
+$\int_1^{+\infty}x^b f(x)\,\dd x$ 收敛，而对每个 $\lambda\in[a,b]$，$x^{\lambda-b}$ 关于 $x$ 单调且绝对值不超过 $1$。再次由 Abel 判别法，后一段关于 $\lambda\in[a,b]$ 一致收敛。
+
+两段相加，得到
+\[
+\boxed{\int_0^{+\infty}x^\lambda f(x)\,\dd x
+\text{ 关于 }\lambda\in[a,b]\text{ 一致收敛}}.
+\]
+\end{xsolution}
+
+\paragraph{第3题}
+证明积分
+\[
+\int_0^{+\infty}x\ee^{-xy}\,\dd y
+\]
+在 $x\in(0,+\infty)$ 上不一致收敛。
+
+\begin{xsolution}
+对每个 $x>0$，
+\[
+\int_0^{+\infty}x\ee^{-xy}\,\dd y=1.
+\]
+但对任意 $A>0$，其尾积分为
+\[
+\int_A^{+\infty}x\ee^{-xy}\,\dd y=\ee^{-xA}.
+\]
+因此
+\[
+\sup_{x>0}\int_A^{+\infty}x\ee^{-xy}\,\dd y=1
+\]
+对所有 $A$ 都成立，尾积分不可能关于 $x$ 一致趋于 $0$。故该积分在 $(0,+\infty)$ 上\textbf{不一致收敛}。
+\end{xsolution}
+
+\subsection*{23.2.6 练习题}
+
+\paragraph{第1题}
+设题中各条件成立，证明
+\[
+\left.\frac{\dd}{\dd x}\left(\int_a^{+\infty}f(x,y)\,\dd y\right)\right|_{x=x_0}
+=\int_a^{+\infty}f_x(x_0,y)\,\dd y.
+\]
+
+\begin{xsolution}
+记
+\[
+\Phi(x)=\int_a^{+\infty}f(x,y)\,\dd y.
+\]
+对 $x\neq x_0$，由微积分基本定理，
+\[
+\frac{f(x,y)-f(x_0,y)}{x-x_0}
+=\int_0^1 f_x(x_0+s(x-x_0),y)\,\dd s.
+\]
+因此
+\[
+\frac{\Phi(x)-\Phi(x_0)}{x-x_0}
+=\int_a^{+\infty}\dd y\int_0^1 f_x(x_0+s(x-x_0),y)\,\dd s.
+\]
+下面证明右端可令 $x\to x_0$。任给 $\varepsilon>0$。由
+$\int_a^{+\infty}f_x(x,y)\,\dd y$ 在 $U(x_0)$ 上一致收敛，存在 $A>a$，使对所有 $z\in U(x_0)$，
+\[
+\left|\int_A^{A'}f_x(z,y)\,\dd y\right|<\varepsilon
+\qquad(A'>A).
+\]
+因而对 $x$ 充分接近 $x_0$，差商积分在 $[A,+\infty)$ 上的尾部由上述一致估计控制。另一方面，在有限区间 $[a,A]$ 上，题设给出
+\[
+f_x(x,y)\to f_x(x_0,y)
+\]
+关于 $y$ 一致，故
+\[
+\int_a^A\dd y\int_0^1 f_x(x_0+s(x-x_0),y)\,\dd s
+\to\int_a^A f_x(x_0,y)\,\dd y.
+\]
+先取 $A$ 控制尾部，再令 $x\to x_0$，即得
+\[
+\lim_{x\to x_0}\frac{\Phi(x)-\Phi(x_0)}{x-x_0}
+=\int_a^{+\infty}f_x(x_0,y)\,\dd y.
+\]
+故结论成立。
+\end{xsolution}
+
+\paragraph{第2题}
+设
+\[
+F(\alpha)=\int_0^{+\infty}\frac{\sin(1-\alpha^2)x}{x}\,\dd x.
+\]
+证明 $F$ 在 $(-\infty,-1)\cup(-1,1)\cup(1,+\infty)$ 上连续，在 $\alpha=\pm1$ 处间断。
+
+\begin{xsolution}
+由 Dirichlet 积分
+\[
+\int_0^{+\infty}\frac{\sin cx}{x}\,\dd x
+=\frac\pi2\operatorname{sgn}c
+\qquad(c\neq0),
+\]
+而 $c=0$ 时积分为 $0$。取 $c=1-\alpha^2$，得到
+\[
+F(\alpha)=
+\begin{cases}
+\dfrac\pi2,&|\alpha|<1,\\
+0,&|\alpha|=1,\\
+-\dfrac\pi2,&|\alpha|>1.
+\end{cases}
+\]
+所以 $F$ 在三个开区间上均为常函数，因而连续；在 $\alpha=1$ 与 $\alpha=-1$ 两处左右极限分别为 $\pi/2$ 与 $-\pi/2$，且函数值为 $0$，故两点均为跳跃间断点。
+\end{xsolution}
+
+\paragraph{第3题}
+证明
+\[
+F(\alpha)=\int_0^{+\infty}\frac{\sin(\alpha x^2)}x\,\dd x,
+\qquad \alpha>0,
+\]
+在 $(0,+\infty)$ 上不一致收敛，但连续。
+
+\begin{xsolution}
+对固定 $\alpha>0$，令 $u=\sqrt\alpha x$，再令 $v=u^2$，得
+\[
+F(\alpha)=\int_0^{+\infty}\frac{\sin u^2}{u}\,\dd u
+=\frac12\int_0^{+\infty}\frac{\sin v}{v}\,\dd v
+=\frac\pi4.
+\]
+因此
+\[
+\boxed{F(\alpha)\equiv\frac\pi4\quad(\alpha>0)},
+\]
+故 $F$ 在 $(0,+\infty)$ 上连续。
+
+下面证不一致收敛。若积分关于 $\alpha>0$ 一致收敛，则由于被积函数在每个有限 $x$ 区间上当 $\alpha\to0^+$ 一致趋于 $0$，可交换极限与广义积分，得到
+\[
+\lim_{\alpha\to0^+}F(\alpha)
+=\int_0^{+\infty}\lim_{\alpha\to0^+}
+\frac{\sin(\alpha x^2)}x\,\dd x=0,
+\]
+这与 $F(\alpha)\equiv\pi/4$ 矛盾。因此该积分在 $(0,+\infty)$ 上不一致收敛。
+\end{xsolution}
+
+\paragraph{第4题}
+设
+\[
+F(x)=\int_1^{+\infty}\frac{x\ee^{-yx}}y\,\dd y,
+\qquad x\geqslant0.
+\]
+证明 $F$ 在 $[0,+\infty)$ 上连续，在 $(0,+\infty)$ 上可导，并可在积分号下求导。
+
+\begin{xsolution}
+当 $x=0$ 时 $F(0)=0$。对 $x>0$，令 $u=xy$，得
+\[
+F(x)=x\int_x^{+\infty}\frac{\ee^{-u}}u\,\dd u.
+\]
+于是当 $x\to0^+$ 时，把积分分为 $[x,1]$ 与 $[1,+\infty)$，有
+\[
+0\leqslant x\int_x^1\frac{\ee^{-u}}u\,\dd u
+\leqslant x\ln\frac1x\to0,
+\]
+且
+\[
+0\leqslant x\int_1^{+\infty}\frac{\ee^{-u}}u\,\dd u\to0.
+\]
+故 $F(x)\to0=F(0)$，即在 $0$ 处连续。对任意 $x_0>0$，取 $0<\delta<x_0/2$。当 $x\in[x_0-\delta,x_0+\delta]$ 时，
+\[
+\left|\frac{x\ee^{-yx}}y\right|
+\leqslant C\frac{\ee^{-(x_0/2)y}}y,
+\]
+右端在 $[1,+\infty)$ 可积，所以 $F$ 在 $x_0$ 连续。
+
+又
+\[
+\frac{\partial}{\partial x}\left(\frac{x}{y}\ee^{-yx}\right)
+=\ee^{-yx}\left(\frac1y-x\right).
+\]
+在同一闭邻域内，
+\[
+\left|\ee^{-yx}\left(\frac1y-x\right)\right|
+\leqslant \ee^{-(x_0/2)y}\left(1+x_0+\delta\right),
+\]
+右端可积，故偏导积分一致收敛，从而
+\[
+\boxed{
+F'(x)=\int_1^{+\infty}
+\frac{\partial}{\partial x}\left(\frac{x}{y}\ee^{-yx}\right)\dd y,
+\qquad x>0.}
+\]
+\end{xsolution}
+
+\paragraph{第5题}
+设
+\[
+F(\alpha)=\int_0^\pi\frac{\sin x}{x^\alpha(\pi-x)^{2-\alpha}}\,\dd x.
+\]
+证明 $F$ 在 $(0,2)$ 中连续。
+
+\begin{xsolution}
+任取 $\alpha_0\in(0,2)$。取 $\delta>0$ 使
+\[
+0<\alpha_0-\delta<\alpha_0+\delta<2.
+\]
+当 $\alpha\in[\alpha_0-\delta,\alpha_0+\delta]$ 时，在 $0<x\leqslant\pi/2$ 上，由 $\sin x\leqslant x$ 且 $\pi-x\geqslant\pi/2$，有
+\[
+\left|\frac{\sin x}{x^\alpha(\pi-x)^{2-\alpha}}\right|
+\leqslant Cx^{1-(\alpha_0+\delta)},
+\]
+右端因 $\alpha_0+\delta<2$ 而在 $0$ 附近可积。类似地，在 $\pi/2\leqslant x<\pi$ 上，令 $s=\pi-x$，利用 $\sin x=\sin s\leqslant s$，得到
+\[
+\left|\frac{\sin x}{x^\alpha(\pi-x)^{2-\alpha}}\right|
+\leqslant Cs^{\alpha_0-\delta-1},
+\]
+右端因 $\alpha_0-\delta>0$ 而可积。
+
+因此在 $\alpha_0$ 的这个闭邻域内可用同一个可积函数控制被积函数，且被积函数对 $\alpha$ 点态连续。由控制收敛定理，$F$ 在 $\alpha_0$ 连续。由 $\alpha_0$ 任意，$F$ 在 $(0,2)$ 连续。
+\end{xsolution}
+
+\paragraph{第6题}
+设
+\[
+F(y)=\int_0^{+\infty}y\ee^{-x^2y^2}\cos[x(1-y)]\,\dd x,
+\]
+求 $\lim_{y\to1}F(y)$。
+
+\begin{xsolution}
+当 $y$ 在 $1$ 的充分小邻域内时 $y>0$。令 $t=xy$，得
+\[
+F(y)=\int_0^{+\infty}\ee^{-t^2}
+\cos\left(t\frac{1-y}{y}\right)\dd t.
+\]
+当 $y\to1$ 时，被积函数点态趋于 $\ee^{-t^2}$，并且其绝对值不超过 $\ee^{-t^2}$。由控制收敛定理，
+\[
+\boxed{
+\lim_{y\to1}F(y)
+=\int_0^{+\infty}\ee^{-t^2}\,\dd t
+=\frac{\sqrt\pi}{2}.}
+\]
+\end{xsolution}
+
+\paragraph{第7题：利用 Dirichlet 积分或 Euler--Poisson 积分求值}
+
+\begin{xsolution}
+\textbf{(1)} 由偶性及分部积分，
+\[
+\begin{aligned}
+\int_{-\infty}^{+\infty}\left(\frac{\sin x}{x}\right)^2\dd x
+&=2\int_0^{+\infty}\frac{\sin^2x}{x^2}\,\dd x\\
+&=2\int_0^{+\infty}\frac{\sin2x}{x}\,\dd x=\pi.
+\end{aligned}
+\]
+边界项为零，因为 $\sin^2x/x\to0$ 在 $0^+$ 与 $+\infty$ 均成立。因此
+\[
+\boxed{\displaystyle\int_{-\infty}^{+\infty}
+\left(\frac{\sin x}{x}\right)^2\dd x=\pi}.
+\]
+
+\textbf{(2)} 利用
+\[
+\sin^3x=\frac{3\sin x-\sin3x}{4}
+\]
+以及 Dirichlet 积分，
+\[
+\boxed{
+\int_0^{+\infty}\frac{\sin^3x}{x}\,\dd x
+=\frac14\left(3\frac\pi2-\frac\pi2\right)=\frac\pi4.}
+\]
+
+\textbf{(3)} 从
+\[
+P(\alpha)=\int_0^{+\infty}\ee^{-\alpha x^2}\,\dd x
+=\frac{\sqrt\pi}{2\sqrt\alpha},
+\qquad\alpha>0,
+\]
+在积分号下对 $\alpha$ 求导，得到
+\[
+-P'(\alpha)=\int_0^{+\infty}x^2\ee^{-\alpha x^2}\,\dd x.
+\]
+故
+\[
+\boxed{
+\int_0^{+\infty}x^2\ee^{-\alpha x^2}\,\dd x
+=\frac{\sqrt\pi}{4\alpha^{3/2}}.}
+\]
+
+\textbf{(4)} 配方：
+\[
+ax^2+bx+c=a\left(x+\frac b{2a}\right)^2+c-\frac{b^2}{4a}.
+\]
+因此
+\[
+\boxed{
+\int_{-\infty}^{+\infty}\ee^{-(ax^2+bx+c)}\,\dd x
+=\sqrt{\frac\pi a}\exp\left(\frac{b^2}{4a}-c\right),
+\qquad a>0.}
+\]
+\end{xsolution}
+
+\paragraph{第8题：利用积分号下求导的方法求下列积分}
+
+\begin{xsolution}
+\textbf{(1)} 令
+\[
+I(a)=\int_0^{+\infty}\ee^{-ax}\frac{\sin x}{x}\,\dd x.
+\]
+对 $a>0$ 可在积分号下求导，
+\[
+I'(a)=-\int_0^{+\infty}\ee^{-ax}\sin x\,\dd x=-\frac1{1+a^2}.
+\]
+又 $I(a)\to0$（$a\to+\infty$），所以
+\[
+I(a)=\int_a^{+\infty}\frac{\dd s}{1+s^2}
+=\frac\pi2-\arctan a,
+\qquad a>0.
+\]
+由 $a\to0^+$ 的连续性，
+\[
+\boxed{I(a)=\frac\pi2-\arctan a\qquad(a\geqslant0)}.
+\]
+
+\textbf{(2)} 令
+\[
+I(\alpha)=\int_0^{+\infty}
+\frac{\arctan(\alpha x)}{x(1+x^2)}\,\dd x,
+\qquad \alpha\geqslant0.
+\]
+对 $\alpha$ 在任意有界闭区间上可在积分号下求导，
+\[
+I'(\alpha)=\int_0^{+\infty}
+\frac{\dd x}{(1+x^2)(1+\alpha^2x^2)}.
+\]
+当 $\alpha\neq1$ 时作部分分式，
+\[
+\frac1{(1+x^2)(1+\alpha^2x^2)}
+=\frac1{1-\alpha^2}\left(\frac1{1+x^2}-\frac{\alpha^2}{1+\alpha^2x^2}\right),
+\]
+所以
+\[
+I'(\alpha)=\frac\pi{2(1+\alpha)}.
+\]
+$\alpha=1$ 时由连续性同样成立。又 $I(0)=0$，故
+\[
+\boxed{I(\alpha)=\frac\pi2\ln(1+\alpha)}.
+\]
+
+\textbf{(3)} 对
+\[
+f(x)=\int_1^{+\infty}\frac{x\ee^{-yx}}y\,\dd y,
+\qquad x\geqslant0,
+\]
+第4题已证明在 $x>0$ 可在积分号下求导。直接令 $u=xy$ 可把函数写为
+\[
+\boxed{
+f(0)=0,
+\qquad
+f(x)=x\int_x^{+\infty}\frac{\ee^{-u}}u\,\dd u\quad(x>0).}
+\]
+这个积分一般不能化为初等函数。若记
+\[
+E_1(x)=\int_x^{+\infty}\frac{\ee^{-u}}u\,\dd u,
+\]
+则 $f(x)=xE_1(x)$。并且由积分号下求导或上式均得
+\[
+f'(x)=\int_1^{+\infty}\ee^{-xy}\left(\frac1y-x\right)\dd y
+=E_1(x)-\ee^{-x}.
+\]
+\end{xsolution}
+
+\paragraph{第9题：利用积分号下求积分的方法求下列积分}
+
+\begin{xsolution}
+\textbf{(1)} 由题给提示，对 $\alpha\geqslant0$，
+\[
+\frac{\arctan(\alpha x)}x
+=\int_0^\alpha\frac{\dd y}{1+y^2x^2}.
+\]
+因被积函数非负，可交换积分次序：
+\[
+\begin{aligned}
+I(\alpha)
+&=\int_0^\alpha\dd y\int_0^{+\infty}
+\frac{\dd x}{(1+x^2)(1+y^2x^2)}\\
+&=\int_0^\alpha\frac\pi{2(1+y)}\,\dd y
+=\frac\pi2\ln(1+\alpha).
+\end{aligned}
+\]
+故
+\[
+\boxed{I(\alpha)=\frac\pi2\ln(1+\alpha)}.
+\]
+
+\textbf{(2)} 设 $\alpha>0,\beta\in\RR$。由提示及 Fubini 定理，
+\[
+\begin{aligned}
+K(\alpha,\beta)
+&=\int_0^{+\infty}\frac{\cos\beta x}{x^2+\alpha^2}\,\dd x\\
+&=\int_0^{+\infty}\ee^{-\alpha^2t}\,\dd t
+\int_0^{+\infty}\ee^{-tx^2}\cos\beta x\,\dd x.
+\end{aligned}
+\]
+Gaussian Fourier 积分为
+\[
+\int_0^{+\infty}\ee^{-tx^2}\cos\beta x\,\dd x
+=\frac{\sqrt\pi}{2\sqrt t}\ee^{-\beta^2/(4t)}.
+\]
+因此
+\[
+K=\frac{\sqrt\pi}{2}\int_0^{+\infty}
+t^{-1/2}\exp\left(-\alpha^2t-\frac{\beta^2}{4t}\right)\dd t.
+\]
+令 $t=u^2$，再令 $v=\alpha u$，得到
+\[
+K=\frac{\sqrt\pi}{\alpha}
+\int_0^{+\infty}\exp\left(-v^2-\frac{(\alpha|\beta|/2)^2}{v^2}\right)\dd v.
+\]
+利用本章例题 23.3.3 的积分公式
+\[
+\int_0^{+\infty}\ee^{-(v^2+c^2/v^2)}\,\dd v
+=\frac{\sqrt\pi}{2}\ee^{-2c},
+\]
+得
+\[
+\boxed{
+K(\alpha,\beta)=\frac\pi{2\alpha}\ee^{-\alpha|\beta|},
+\qquad \alpha>0,\ \beta\in\RR.}
+\]
+\end{xsolution}
+
+\paragraph{第10题}
+求
+\[
+I(\alpha)=\int_0^1\frac{\ln(1-\alpha^2x^2)}{\sqrt{1-x^2}}\,\dd x,
+\qquad |\alpha|\leqslant1.
+\]
+
+\begin{xsolution}
+令 $x=\sin t$，则
+\[
+I(\alpha)=\int_0^{\pi/2}\ln(1-\alpha^2\sin^2t)\,\dd t.
+\]
+再令 $u=\pi/2-t$，得
+\[
+I(\alpha)=\int_0^{\pi/2}
+\ln\left(\sin^2u+(1-\alpha^2)\cos^2u\right)\dd u.
+\]
+当 $|\alpha|<1$ 时，直接应用本章例题 23.1.3 的结论，取
+$x=\sqrt{1-\alpha^2}$，得到
+\[
+I(\alpha)=\pi\ln\frac{1+\sqrt{1-\alpha^2}}2.
+\]
+当 $|\alpha|=1$ 时，右端趋于 $-\pi\ln2$，而原积分化为
+$2\int_0^{\pi/2}\ln\cos t\,\dd t=-\pi\ln2$，故端点也成立。因此
+\[
+\boxed{
+I(\alpha)=\pi\ln\frac{1+\sqrt{1-\alpha^2}}2,
+\qquad |\alpha|\leqslant1.}
+\]
+\end{xsolution}
+
+\paragraph{第11题}
+计算
+\[
+I(y)=\int_0^{+\infty}\ee^{-x^2}\cos(2yx)\,\dd x,
+\qquad y\in\RR.
+\]
+
+\begin{xsolution}
+对 $y$ 在任意有界区间内可在积分号下求导：
+\[
+I'(y)=-2\int_0^{+\infty}x\ee^{-x^2}\sin(2yx)\,\dd x.
+\]
+注意 $\dd(\ee^{-x^2})=-2x\ee^{-x^2}\,\dd x$，故分部积分得
+\[
+\begin{aligned}
+I'(y)
+&=\int_0^{+\infty}\sin(2yx)\,\dd(\ee^{-x^2})\\
+&=-2y\int_0^{+\infty}\ee^{-x^2}\cos(2yx)\,\dd x
+=-2yI(y).
+\end{aligned}
+\]
+所以 $I(y)=C\ee^{-y^2}$。由
+\[
+I(0)=\int_0^{+\infty}\ee^{-x^2}\,\dd x=\frac{\sqrt\pi}{2}
+\]
+得到
+\[
+\boxed{I(y)=\frac{\sqrt\pi}{2}\ee^{-y^2},\qquad y\in\RR}.
+\]
+\end{xsolution}
+
+\subsection*{23.3.5 练习题}
+
+\paragraph{第1题：计算}
+
+\begin{xsolution}
+\textbf{(1)}
+\[
+I_1=\int_0^1\frac{\dd x}{\sqrt{x\ln(1/x)}}.
+\]
+令 $t=\ln(1/x)$，即 $x=\ee^{-t}$，则
+\[
+\begin{aligned}
+I_1
+&=\int_0^{+\infty}\ee^{-t/2}t^{-1/2}\,\dd t\\
+&=\sqrt2\int_0^{+\infty}\ee^{-u}u^{-1/2}\,\dd u
+=\sqrt2\,\Gamma\left(\frac12\right).
+\end{aligned}
+\]
+故
+\[
+\boxed{I_1=\sqrt{2\pi}}.
+\]
+
+\textbf{(2)}
+\[
+I_2=\int_0^{+\infty}\frac{x^{1/4}}{(1+x)^2}\,\dd x.
+\]
+由 B 函数的无穷区间表示，
+\[
+I_2=\mathrm{B}\left(\frac54,\frac34\right)
+=\Gamma\left(\frac54\right)\Gamma\left(\frac34\right).
+\]
+再用 $\Gamma(5/4)=\frac14\Gamma(1/4)$ 及余元公式，
+\[
+\Gamma\left(\frac14\right)\Gamma\left(\frac34\right)
+=\frac\pi{\sin(\pi/4)}=\pi\sqrt2.
+\]
+于是
+\[
+\boxed{I_2=\frac{\pi\sqrt2}{4}=\frac\pi{2\sqrt2}}.
+\]
+\end{xsolution}
+
+\paragraph{第2题：试用 $\Gamma$ 函数或 B 函数表示}
+
+\begin{xsolution}
+\textbf{(1)} 对 $|\alpha|<1$，
+\[
+\begin{aligned}
+\int_0^{\pi/2}\tan^\alpha x\,\dd x
+&=\int_0^{\pi/2}\sin^\alpha x\cos^{-\alpha}x\,\dd x\\
+&=\frac12\mathrm{B}\left(\frac{\alpha+1}{2},\frac{1-\alpha}{2}\right).
+\end{aligned}
+\]
+两个 B 参数之和为 $1$，由余元公式
+\[
+\boxed{
+\int_0^{\pi/2}\tan^\alpha x\,\dd x
+=\frac\pi{2\cos(\pi\alpha/2)},
+\qquad |\alpha|<1.}
+\]
+
+\textbf{(2)} 令 $x=2t-1$，则
+\[
+\begin{aligned}
+\int_{-1}^1(1+x)^a(1-x)^b\,\dd x
+&=2^{a+b+1}\int_0^1t^a(1-t)^b\,\dd t\\
+&=2^{a+b+1}\mathrm{B}(a+1,b+1).
+\end{aligned}
+\]
+因此
+\[
+\boxed{
+\int_{-1}^1(1+x)^a(1-x)^b\,\dd x
+=2^{a+b+1}\frac{\Gamma(a+1)\Gamma(b+1)}{\Gamma(a+b+2)}.}
+\]
+\end{xsolution}
+
+\paragraph{第3题}
+$n$ 为正整数，$p>0$，证明
+\[
+\mathrm{B}(p,n)=\frac{(n-1)!}{p(p+1)\cdots(p+n-1)}.
+\]
+
+\begin{xsolution}
+由 B 函数递推公式
+\[
+\mathrm{B}(p,q+1)=\frac q{p+q}\mathrm{B}(p,q)
+\]
+以及
+\[
+\mathrm{B}(p,1)=\int_0^1x^{p-1}\,\dd x=\frac1p,
+\]
+反复递推得到
+\[
+\begin{aligned}
+\mathrm{B}(p,n)
+&=\frac{n-1}{p+n-1}\frac{n-2}{p+n-2}\cdots
+\frac1{p+1}\mathrm{B}(p,1)\\
+&=\frac{(n-1)!}{p(p+1)\cdots(p+n-1)}.
+\end{aligned}
+\]
+即得所证。
+\end{xsolution}
+
+\paragraph{第4题}
+证明 $\ln\Gamma(x)$ 是下凸函数。
+
+\begin{xsolution}
+任取 $x,y>0$ 与 $0<\lambda<1$。由 $\Gamma$ 函数积分表示，
+\[
+\begin{aligned}
+\Gamma(\lambda x+(1-\lambda)y)
+&=\int_0^{+\infty}
+t^{\lambda(x-1)+(1-\lambda)(y-1)}\ee^{-t}\,\dd t\\
+&=\int_0^{+\infty}
+\left(t^{x-1}\ee^{-t}\right)^\lambda
+\left(t^{y-1}\ee^{-t}\right)^{1-\lambda}\dd t.
+\end{aligned}
+\]
+对指数 $1/\lambda$ 与 $1/(1-\lambda)$ 应用 Hölder 不等式，得
+\[
+\Gamma(\lambda x+(1-\lambda)y)
+\leqslant \Gamma(x)^\lambda\Gamma(y)^{1-\lambda}.
+\]
+两边取对数，
+\[
+\ln\Gamma(\lambda x+(1-\lambda)y)
+\leqslant\lambda\ln\Gamma(x)+(1-\lambda)\ln\Gamma(y).
+\]
+这正是 $\ln\Gamma$ 的下凸性。若 $x\neq y$，Hölder 等号条件不成立，故事实上为严格下凸。
+\end{xsolution}
+
+\paragraph{第5题}
+按照题中步骤证明
+\[
+\mathrm{B}(p,q)=\frac{\Gamma(p)\Gamma(q)}{\Gamma(p+q)},
+\qquad p,q>0.
+\]
+
+\begin{xsolution}
+\textbf{(1)} 在 $\Gamma(p)$ 的定义中令 $t=u^2$，则
+\[
+\Gamma(p)=\int_0^{+\infty}t^{p-1}\ee^{-t}\,\dd t
+=2\int_0^{+\infty}u^{2p-1}\ee^{-u^2}\,\dd u.
+\]
+
+\textbf{(2)} 因被积函数非负，由 Tonelli 定理及单调收敛，
+\[
+\begin{aligned}
+\Gamma(p)\Gamma(q)
+&=4\int_0^{+\infty}\int_0^{+\infty}
+ u^{2p-1}v^{2q-1}\ee^{-(u^2+v^2)}\,\dd u\dd v\\
+&=\lim_{A\to+\infty}4\iint_{G(A)}f(u,v)\,\dd u\dd v.
+\end{aligned}
+\]
+
+\textbf{(3)} 在第一象限极坐标中，$u=r\cos\theta,v=r\sin\theta$。因此
+\[
+\begin{aligned}
+\iint_{D(R)}f(u,v)\,\dd u\dd v
+&=\int_0^{\pi/2}\cos^{2p-1}\theta\sin^{2q-1}\theta\,\dd\theta\\
+&\quad\times\int_0^R r^{2p+2q-1}\ee^{-r^2}\,\dd r\\
+&=\frac14\mathrm{B}(p,q)
+\int_0^{R^2}s^{p+q-1}\ee^{-s}\,\dd s.
+\end{aligned}
+\]
+令 $R\to+\infty$，得到
+\[
+\lim_{R\to+\infty}\iint_{D(R)}f
+=\frac14\mathrm{B}(p,q)\Gamma(p+q).
+\]
+特别地，取 $R=A$ 或 $R=\sqrt2A$ 都得到题中两式。
+
+\textbf{(4)} 几何上有
+\[
+D(A)\subset G(A)\subset D(\sqrt2A).
+\]
+又 $f\geqslant0$，所以
+\[
+\iint_{D(A)}f\leqslant\iint_{G(A)}f
+\leqslant\iint_{D(\sqrt2A)}f.
+\]
+令 $A\to+\infty$，左右两端均趋于
+$\frac14\mathrm{B}(p,q)\Gamma(p+q)$。由夹逼定理，
+\[
+\lim_{A\to+\infty}4\iint_{G(A)}f
+=\mathrm{B}(p,q)\Gamma(p+q).
+\]
+结合第 (2) 步，
+\[
+\Gamma(p)\Gamma(q)=\mathrm{B}(p,q)\Gamma(p+q),
+\]
+故
+\[
+\boxed{\mathrm{B}(p,q)=\frac{\Gamma(p)\Gamma(q)}{\Gamma(p+q)}}.
+\]
+\end{xsolution}
+
+\subsection*{23.4.2 参考题}
+
+\paragraph{参考题1}
+设
+\[
+u(x,t)=\frac1{2a}\int_0^t\dd\tau
+\int_{x-a(t-\tau)}^{x+a(t-\tau)}f(\xi,\tau)\,\dd\xi,
+\]
+其中 $a>0$，证明
+\[
+\frac{\partial^2u}{\partial t^2}
+=a^2\frac{\partial^2u}{\partial x^2}+f(x,t).
+\]
+
+\begin{xsolution}
+记
+\[
+A=x-a(t-\tau),\qquad B=x+a(t-\tau).
+\]
+由 Leibniz 公式，注意当 $\tau=t$ 时 $A=B=x$，有
+\[
+\begin{aligned}
+u_t(x,t)
+&=\frac12\int_0^t[f(B,\tau)+f(A,\tau)]\,\dd\tau.
+\end{aligned}
+\]
+再对 $t$ 求导，
+\[
+\begin{aligned}
+u_{tt}(x,t)
+&=f(x,t)+\frac a2\int_0^t
+[f_x(B,\tau)-f_x(A,\tau)]\,\dd\tau.
+\end{aligned}
+\]
+另一方面，对 $x$ 求导，
+\[
+u_x(x,t)=\frac1{2a}\int_0^t[f(B,\tau)-f(A,\tau)]\,\dd\tau,
+\]
+故
+\[
+u_{xx}(x,t)=\frac1{2a}\int_0^t
+[f_x(B,\tau)-f_x(A,\tau)]\,\dd\tau.
+\]
+于是
+\[
+u_{tt}(x,t)=f(x,t)+a^2u_{xx}(x,t),
+\]
+即得所证。
+\end{xsolution}
+
+\paragraph{参考题2}
+设 $n$ 为正整数，证明
+\[
+J_n(x)=\frac1\pi\int_0^\pi\cos(n\varphi-x\sin\varphi)\,\dd\varphi
+\]
+满足
+\[
+x^2J_n''(x)+xJ_n'(x)+(x^2-n^2)J_n(x)=0.
+\]
+
+\begin{xsolution}
+令
+\[
+\Theta=n\varphi-x\sin\varphi.
+\]
+因积分区间有限，可逐次在积分号下求导：
+\[
+J_n'(x)=\frac1\pi\int_0^\pi\sin\Theta\sin\varphi\,\dd\varphi,
+\]
+\[
+J_n''(x)=-\frac1\pi\int_0^\pi\cos\Theta\sin^2\varphi\,\dd\varphi.
+\]
+于是
+\[
+\begin{aligned}
+&\pi[x^2J_n''+xJ_n'+(x^2-n^2)J_n]\\
+&=\int_0^\pi
+\left[(x^2\cos^2\varphi-n^2)\cos\Theta
++x\sin\varphi\sin\Theta\right]\dd\varphi.
+\end{aligned}
+\]
+而
+\[
+\begin{aligned}
+\frac{\dd}{\dd\varphi}[(n+x\cos\varphi)\sin\Theta]
+&=(n^2-x^2\cos^2\varphi)\cos\Theta
+-x\sin\varphi\sin\Theta.
+\end{aligned}
+\]
+故上面的被积函数恰为该导数的负值。因此
+\[
+\begin{aligned}
+\pi[x^2J_n''+xJ_n'+(x^2-n^2)J_n]
+&=-[(n+x\cos\varphi)\sin\Theta]_0^\pi=0,
+\end{aligned}
+\]
+因为 $\sin\Theta=0$ 在 $\varphi=0,\pi$ 均成立。所证方程成立。
+\end{xsolution}
+
+\paragraph{参考题3}
+设 $f\in C^1[0,1]$ 且 $f(0)=0$，定义
+\[
+\varphi(x)=\int_0^x\frac{f(t)}{\sqrt{x-t}}\,\dd t,
+\quad0<x\leqslant1,
+\qquad\varphi(0)=0.
+\]
+
+\begin{xsolution}
+\textbf{(1)} 由 $f(0)=0$，
+\[
+f(t)=\int_0^t f'(s)\,\dd s.
+\]
+代入并交换有限区域上的积分次序：
+\[
+\begin{aligned}
+\varphi(x)
+&=\int_0^x\frac{\dd t}{\sqrt{x-t}}
+\int_0^t f'(s)\,\dd s\\
+&=\int_0^x f'(s)\,\dd s
+\int_s^x\frac{\dd t}{\sqrt{x-t}}\\
+&=2\int_0^x f'(s)\sqrt{x-s}\,\dd s.
+\end{aligned}
+\]
+故对 $x>0$，
+\[
+\boxed{
+\varphi'(x)=\int_0^x\frac{f'(s)}{\sqrt{x-s}}\,\dd s.}
+\]
+若 $M=\max_{[0,1]}|f'|$，则
+\[
+|\varphi'(x)|\leqslant2M\sqrt x\to0,
+\]
+所以可定义 $\varphi'(0)=0$。对 $x_0>0$，把上式令 $s=xu$ 可写成
+\[
+\varphi'(x)=\sqrt x\int_0^1\frac{f'(xu)}{\sqrt{1-u}}\,\dd u,
+\]
+由控制收敛定理知其关于 $x$ 连续。结合 $x=0$ 的极限，$\varphi\in C^1[0,1]$。
+
+\textbf{(2)} 将上式代入题中右端，
+\[
+\begin{aligned}
+\int_0^x\frac{\varphi'(t)}{\sqrt{x-t}}\,\dd t
+&=\int_0^x\frac{\dd t}{\sqrt{x-t}}
+\int_0^t\frac{f'(s)}{\sqrt{t-s}}\,\dd s\\
+&=\int_0^x f'(s)\,\dd s
+\int_s^x\frac{\dd t}{\sqrt{(t-s)(x-t)}}.
+\end{aligned}
+\]
+内层令 $t=s+(x-s)u$，得到
+\[
+\int_s^x\frac{\dd t}{\sqrt{(t-s)(x-t)}}
+=\int_0^1\frac{\dd u}{\sqrt{u(1-u)}}=\pi.
+\]
+故
+\[
+\int_0^x\frac{\varphi'(t)}{\sqrt{x-t}}\,\dd t
+=\pi\int_0^x f'(s)\,\dd s=\pi f(x),
+\]
+即
+\[
+\boxed{
+f(x)=\frac1\pi\int_0^x\frac{\varphi'(t)}{\sqrt{x-t}}\,\dd t.}
+\]
+\end{xsolution}
+
+\paragraph{参考题4}
+设 $f$ 在 $[0,A]$ 上单调，证明
+\[
+\lim_{\alpha\to+\infty}
+\int_0^A f(x)\frac{\sin\alpha x}{x}\,\dd x
+=\frac\pi2f(0^+).
+\]
+
+\begin{xsolution}
+记 $L=f(0^+)$，并令 $g(x)=f(x)-L$。则 $g$ 单调且 $g(0^+)=0$。分解
+\[
+\int_0^A f(x)\frac{\sin\alpha x}{x}\,\dd x
+=L\int_0^A\frac{\sin\alpha x}{x}\,\dd x
++\int_0^A g(x)\frac{\sin\alpha x}{x}\,\dd x.
+\]
+第一项令 $u=\alpha x$ 后，由 Dirichlet 积分得
+\[
+\int_0^A\frac{\sin\alpha x}{x}\,\dd x
+=\int_0^{\alpha A}\frac{\sin u}{u}\,\dd u\to\frac\pi2.
+\]
+只需证明第二项趋于 $0$。
+
+任给 $\varepsilon>0$，由 $g(0^+)=0$ 可取 $0<\delta<A$，使
+$|g(x)|<\varepsilon$ 对 $0<x<\delta$ 成立。记
+\[
+S_\alpha(x)=\int_0^x\frac{\sin\alpha t}{t}\,\dd t.
+\]
+Dirichlet 积分的部分积分一致有界，即存在常数 $C$ 使
+$|S_\alpha(x)|\leqslant C$ 对所有 $\alpha,x>0$ 成立。由于 $g$ 单调，在 $[0,\delta]$ 上作 Riemann--Stieltjes 分部积分可得
+\[
+\left|\int_0^\delta g(x)\frac{\sin\alpha x}{x}\,\dd x\right|
+\leqslant2C|g(\delta)|\leqslant2C\varepsilon.
+\]
+在 $[\delta,A]$ 上，$g(x)/x$ 为有界可积函数，由 Riemann--Lebesgue 引理
+\[
+\int_\delta^A\frac{g(x)}x\sin\alpha x\,\dd x\to0.
+\]
+先令 $\alpha\to\infty$，再令 $\varepsilon\to0$，便得第二项趋于 $0$。于是
+\[
+\boxed{
+\lim_{\alpha\to+\infty}
+\int_0^A f(x)\frac{\sin\alpha x}{x}\,\dd x
+=\frac\pi2f(0^+).}
+\]
+\end{xsolution}
+
+\paragraph{参考题5}
+设
+\[
+F(t)=t\int_0^{+\infty}\ee^{-tx}f(x)\,\dd x,
+\]
+其中 $f$ 在每个 $[0,b]$ 上有界可积，且 $f(x)\to\alpha$（$x\to+\infty$）。证明
+$F(t)\to\alpha$（$t\to0^+$）。
+
+\begin{xsolution}
+由于 $f(x)\to\alpha$，$f$ 在充分大的半轴上有界；再结合它在有限闭区间上有界，知存在 $M$ 使
+\[
+|f(x)|\leqslant M\qquad(x\geqslant0).
+\]
+令 $u=tx$，则
+\[
+F(t)=\int_0^{+\infty}\ee^{-u}f(u/t)\,\dd u.
+\]
+对每个固定 $u>0$，当 $t\to0^+$ 时 $u/t\to+\infty$，故
+$f(u/t)\to\alpha$。并且
+\[
+|\ee^{-u}f(u/t)|\leqslant M\ee^{-u},
+\]
+右端可积。由控制收敛定理，
+\[
+\boxed{
+\lim_{t\to0^+}F(t)
+=\alpha\int_0^{+\infty}\ee^{-u}\,\dd u=\alpha.}
+\]
+\end{xsolution}
+
+\paragraph{参考题6}
+设 $f$ 连续且 $\int_{-\infty}^{+\infty}f^2(x)\,\dd x$ 收敛。
+
+\begin{xsolution}
+\textbf{(1)} 记
+\[
+q(t)=\int_{-\infty}^{+\infty}f(t+u)f(u)\,\dd u.
+\]
+由 Cauchy--Schwarz 不等式及平移不改变 $L^2$ 范数，
+\[
+|q(t)|\leqslant
+\left(\int_{-\infty}^{+\infty}f^2(t+u)\,\dd u\right)^{1/2}
+\left(\int_{-\infty}^{+\infty}f^2(u)\,\dd u\right)^{1/2}
+=\|f\|_2^2.
+\]
+故 $q$ 有界。
+
+又
+\[
+|q(t+h)-q(t)|
+\leqslant\|f\|_2\,
+\|f(\cdot+t+h)-f(\cdot+t)\|_2.
+\]
+只需用到 $L^2$ 中平移的连续性。这里可直接证明：先取 $R$ 使
+$\int_{|x|>R}f^2(x)\,\dd x$ 足够小；在紧区间 $[-R-1,R+1]$ 上 $f$ 一致连续，所以当 $h$ 足够小时，中央部分的平方积分足够小；两端由所选尾积分控制。因此
+\[
+\|f(\cdot+h)-f\|_2\to0.
+\]
+所以 $q$ 在 $\RR$ 上连续。
+
+\textbf{(2)} 原书扫描页第二问写作 $g(t)$，但本题只有第一问定义了 $q(t)$；结合右端及题意，第二问应理解为对 $q(t)$ 的结论。记
+\[
+K_\varepsilon(t)=\frac1{2\sqrt{\varepsilon\pi}}
+\ee^{-t^2/(4\varepsilon)}.
+\]
+则 $K_\varepsilon\geqslant0$ 且
+\[
+\int_{-\infty}^{+\infty}K_\varepsilon(t)\,\dd t=1.
+\]
+由第一问，$q$ 连续有界，且
+\[
+q(0)=\int_{-\infty}^{+\infty}f^2(x)\,\dd x.
+\]
+任给 $\eta>0$，由 $q$ 在 $0$ 连续，取 $\delta>0$ 使
+$|q(t)-q(0)|<\eta$ 当 $|t|<\delta$。于是
+\[
+\begin{aligned}
+\left|\int K_\varepsilon(t)q(t)\,\dd t-q(0)\right|
+&\leqslant\eta
++2\|q\|_\infty\int_{|t|\geqslant\delta}K_\varepsilon(t)\,\dd t.
+\end{aligned}
+\]
+当 $\varepsilon\to0^+$ 时，Gaussian 尾积分趋于 $0$。再令 $\eta\to0$，得到
+\[
+\boxed{
+\lim_{\varepsilon\to0^+}\frac1{2\sqrt{\varepsilon\pi}}
+\int_{-\infty}^{+\infty}\ee^{-t^2/(4\varepsilon)}q(t)\,\dd t
+=\int_{-\infty}^{+\infty}f^2(x)\,\dd x.}
+\]
+\end{xsolution}
+
+\paragraph{参考题7}
+讨论题中两个函数在 $(0,1)$ 上的连续性。
+
+\begin{xsolution}
+\textbf{(1)}
+\[
+F(\alpha)=\int_0^{+\infty}\frac{\ee^{-t}}{|\sin t|^\alpha}\,\dd t,
+\qquad0<\alpha<1.
+\]
+任取 $\alpha_0\in(0,1)$，选 $\beta$ 使 $\alpha_0<\beta<1$，并把参数限制在 $0<\alpha\leqslant\beta$ 的一个邻域。由于 $|\sin t|\leqslant1$，
+\[
+\frac{\ee^{-t}}{|\sin t|^\alpha}
+\leqslant\frac{\ee^{-t}}{|\sin t|^\beta}.
+\]
+右端在每个 $k\pi$ 附近只有 $|t-k\pi|^{-\beta}$ 型可积奇性。更具体地，在长度为 $\pi$ 的相邻区间上
+\[
+\int\frac{\dd t}{|\sin t|^\beta}=C_\beta<+\infty
+\]
+与 $k$ 无关，而因子 $\ee^{-t}$ 使这些区间的贡献按 $\ee^{-k\pi}$ 几何衰减。因此右端在 $(0,+\infty)$ 可积。被积函数对 $\alpha$ 点态连续，故由控制收敛定理，$F$ 在每个 $\alpha_0\in(0,1)$ 连续。
+
+\textbf{(2)}
+\[
+G(\alpha)=\int_0^1\frac{f(t)}{\sqrt{|t-\alpha|}}\,\dd t,
+\qquad0<\alpha<1,
+\]
+其中 $f$ 有界可积。设 $|f(t)|\leqslant M$。只需证明核
+\[
+k_\alpha(t)=|t-\alpha|^{-1/2}
+\]
+在 $L^1(0,1)$ 中关于 $\alpha$ 连续。固定 $\alpha_0\in(0,1)$，令 $h=|\alpha-\alpha_0|$ 足够小。把积分分成
+$|t-\alpha_0|<2h$ 与其补集。前一部分中两个核的积分均为 $\bigO(\sqrt h)$。在补集上利用中值定理，
+\[
+|k_\alpha(t)-k_{\alpha_0}(t)|
+\leqslant C h|t-\alpha_0|^{-3/2},
+\]
+从而
+\[
+\int_{|t-\alpha_0|\geqslant2h}
+|k_\alpha-k_{\alpha_0}|\,\dd t
+\leqslant Ch\int_{2h}^1s^{-3/2}\,\dd s
+=\bigO(\sqrt h).
+\]
+故
+\[
+\|k_\alpha-k_{\alpha_0}\|_1\to0.
+\]
+于是
+\[
+|G(\alpha)-G(\alpha_0)|
+\leqslant M\|k_\alpha-k_{\alpha_0}\|_1\to0.
+\]
+所以 $G$ 在 $(0,1)$ 上连续。
+\end{xsolution}
+
+\paragraph{参考题8}
+求曲面
+\[
+(x^2+y^2)^2+z^4=y
+\]
+所围立体的体积。
+
+\begin{xsolution}
+用柱坐标
+\[
+x=r\cos\theta,\qquad y=r\sin\theta.
+\]
+立体内部满足
+\[
+r^4+z^4\leqslant r\sin\theta.
+\]
+因此必须 $0\leqslant\theta\leqslant\pi$，且
+\[
+0\leqslant r\leqslant(\sin\theta)^{1/3},
+\qquad
+|z|\leqslant[r(\sin\theta-r^3)]^{1/4}.
+\]
+故体积为
+\[
+\begin{aligned}
+V
+&=2\int_0^\pi\dd\theta
+\int_0^{(\sin\theta)^{1/3}}
+r[r(\sin\theta-r^3)]^{1/4}\,\dd r\\
+&=2\int_0^\pi\dd\theta
+\int_0^{(\sin\theta)^{1/3}}
+r^{5/4}(\sin\theta-r^3)^{1/4}\,\dd r.
+\end{aligned}
+\]
+对固定 $\theta$ 令
+\[
+u=\frac{r^3}{\sin\theta}.
+\]
+则
+\[
+\int_0^{(\sin\theta)^{1/3}}
+r^{5/4}(\sin\theta-r^3)^{1/4}\,\dd r
+=\frac13\sin\theta\,
+\mathrm{B}\left(\frac34,\frac54\right).
+\]
+于是
+\[
+V=\frac23\mathrm{B}\left(\frac34,\frac54\right)
+\int_0^\pi\sin\theta\,\dd\theta
+=\frac43\mathrm{B}\left(\frac34,\frac54\right).
+\]
+利用余元公式，
+\[
+\mathrm{B}\left(\frac34,\frac54\right)
+=\Gamma\left(\frac34\right)\Gamma\left(\frac54\right)
+=\frac14\Gamma\left(\frac34\right)\Gamma\left(\frac14\right)
+=\frac{\pi\sqrt2}{4}.
+\]
+所以
+\[
+\boxed{V=\frac{\pi\sqrt2}{3}}.
+\]
+\end{xsolution}
+
+\paragraph{参考题9}
+求立体
+\[
+\left(\frac xa\right)^{1/n}
++\left(\frac yb\right)^{1/n}
++\left(\frac zc\right)^{1/n}\leqslant1,
+\qquad x,y,z\geqslant0
+\]
+的质心的 $x$ 坐标。
+
+\begin{xsolution}
+令
+\[
+x=au^n,\qquad y=bv^n,\qquad z=cw^n,
+\]
+则 $u,v,w\geqslant0$ 且 $u+v+w\leqslant1$，Jacobi 行列式为
+\[
+abc\,n^3u^{n-1}v^{n-1}w^{n-1}.
+\]
+记标准三维单纯形为 $\Delta$。体积
+\[
+V=abc\,n^3\iiint_\Delta
+u^{n-1}v^{n-1}w^{n-1}\,\dd u\dd v\dd w.
+\]
+利用 Dirichlet 积分公式
+\[
+\iiint_\Delta
+u^{\alpha-1}v^{\beta-1}w^{\gamma-1}\,\dd u\dd v\dd w
+=\frac{\Gamma(\alpha)\Gamma(\beta)\Gamma(\gamma)}
+{\Gamma(\alpha+\beta+\gamma+1)},
+\]
+得到
+\[
+V=abc\,n^3\frac{\Gamma(n)^3}{\Gamma(3n+1)}.
+\]
+关于 $yz$ 平面的静矩为
+\[
+\begin{aligned}
+M_{yz}
+&=a^2bc\,n^3\iiint_\Delta
+u^{2n-1}v^{n-1}w^{n-1}\,\dd u\dd v\dd w\\
+&=a^2bc\,n^3
+\frac{\Gamma(2n)\Gamma(n)^2}{\Gamma(4n+1)}.
+\end{aligned}
+\]
+因此
+\[
+\boxed{
+\bar x=\frac{M_{yz}}V
+=a\frac{\Gamma(2n)\Gamma(3n+1)}
+{\Gamma(n)\Gamma(4n+1)}.}
+\]
+若 $n$ 为正整数，也可写成
+\[
+\boxed{
+\bar x
+=a\frac{(2n-1)!(3n)!}{(n-1)!(4n)!}.}
+\]
+\end{xsolution}
+
+\paragraph{参考题10}
+求星形线
+\[
+x^{2/3}+y^{2/3}=R^{2/3}
+\]
+所包围的面积对 $x$ 轴的惯性矩。
+
+\begin{xsolution}
+由对称性，在 $y\geqslant0$ 时
+\[
+x_{\max}(y)=\left(R^{2/3}-y^{2/3}\right)^{3/2},
+\qquad0\leqslant y\leqslant R.
+\]
+故
+\[
+I_x=4\int_0^R y^2
+\left(R^{2/3}-y^{2/3}\right)^{3/2}\,\dd y.
+\]
+令 $y=Rt^{3/2}$，则
+\[
+\begin{aligned}
+I_x
+&=6R^4\int_0^1t^{7/2}(1-t)^{3/2}\,\dd t\\
+&=6R^4\mathrm{B}\left(\frac92,\frac52\right).
+\end{aligned}
+\]
+而
+\[
+\mathrm{B}\left(\frac92,\frac52\right)
+=\frac{\Gamma(9/2)\Gamma(5/2)}{\Gamma(7)}
+=\frac{7\pi}{1024}.
+\]
+因此
+\[
+\boxed{I_x=\frac{21\pi}{512}R^4}.
+\]
+\end{xsolution}
+
+\paragraph{参考题11}
+设 $f$ 在 $[0,1]$ 中连续，证明
+\[
+\lim_{t\to+\infty}
+\int_0^1t\ee^{-t^2x^2}f(x)\,\dd x
+=\frac{\sqrt\pi}{2}f(0).
+\]
+
+\begin{xsolution}
+令 $u=tx$，则
+\[
+\int_0^1t\ee^{-t^2x^2}f(x)\,\dd x
+=\int_0^t\ee^{-u^2}f(u/t)\,\dd u.
+\]
+把右端写成
+\[
+\int_0^{+\infty}\ee^{-u^2}f(u/t)\mathbf{1}_{[0,t]}(u)\,\dd u.
+\]
+因 $f$ 在 $[0,1]$ 上有界，设 $|f|\leqslant M$，则绝对值不超过
+$M\ee^{-u^2}$。对每个固定 $u\geqslant0$，当 $t\to\infty$ 时
+$u/t\to0$ 且最终 $u<t$，故被积函数趋于 $\ee^{-u^2}f(0)$。由控制收敛定理，
+\[
+\boxed{
+\lim_{t\to+\infty}
+\int_0^1t\ee^{-t^2x^2}f(x)\,\dd x
+=f(0)\int_0^{+\infty}\ee^{-u^2}\,\dd u
+=\frac{\sqrt\pi}{2}f(0).}
+\]
+\end{xsolution}
+
+\paragraph{参考题12}
+设 $\int_0^{+\infty}f(x)\,\dd x$ 收敛，证明
+\[
+\lim_{y\to0^+}\int_0^{+\infty}\ee^{-xy}f(x)\,\dd x
+=\int_0^{+\infty}f(x)\,\dd x.
+\]
+
+\begin{xsolution}
+令
+\[
+F(X)=\int_0^X f(x)\,\dd x,
+\qquad
+L=\int_0^{+\infty}f(x)\,\dd x.
+\]
+由假设 $F(X)\to L$，故 $F$ 有界。对 $y>0$，分部积分得
+\[
+\begin{aligned}
+\int_0^{+\infty}\ee^{-xy}f(x)\,\dd x
+&=[\ee^{-xy}F(x)]_0^{+\infty}
++y\int_0^{+\infty}\ee^{-xy}F(x)\,\dd x\\
+&=y\int_0^{+\infty}\ee^{-xy}F(x)\,\dd x.
+\end{aligned}
+\]
+令 $u=xy$，得到
+\[
+\int_0^{+\infty}\ee^{-xy}f(x)\,\dd x
+=\int_0^{+\infty}\ee^{-u}F(u/y)\,\dd u.
+\]
+对每个 $u>0$，$y\to0^+$ 时 $F(u/y)\to L$，且 $F$ 有界，所以由控制收敛定理
+\[
+\lim_{y\to0^+}\int_0^{+\infty}\ee^{-xy}f(x)\,\dd x
+=L\int_0^{+\infty}\ee^{-u}\,\dd u=L.
+\]
+即得所证。
+\end{xsolution}
+
+\paragraph{参考题13}
+求
+\[
+\int_0^{+\infty}\cos x^p\,\dd x,
+\qquad p>1.
+\]
+
+\begin{xsolution}
+令 $t=x^p$，并记 $s=1/p\in(0,1)$，则
+\[
+I=\frac1p\int_0^{+\infty}t^{s-1}\cos t\,\dd t.
+\]
+先加收敛因子 $\ee^{-\varepsilon t}$，$\varepsilon>0$。由 Gamma 积分的 Laplace 形式，
+\[
+\int_0^{+\infty}t^{s-1}\ee^{-(\varepsilon-\ii)t}\,\dd t
+=\Gamma(s)(\varepsilon-\ii)^{-s}.
+\]
+取实部，
+\[
+\int_0^{+\infty}t^{s-1}\ee^{-\varepsilon t}\cos t\,\dd t
+=\Gamma(s)(1+\varepsilon^2)^{-s/2}
+\cos\left(s\arctan\frac1\varepsilon\right).
+\]
+因为 $0<s<1$，原振荡积分由 Dirichlet 判别法收敛，并由 Abel 极限定理可令
+$\varepsilon\to0^+$，得到
+\[
+\int_0^{+\infty}t^{s-1}\cos t\,\dd t
+=\Gamma(s)\cos\frac{\pi s}{2}.
+\]
+所以
+\[
+\boxed{
+\int_0^{+\infty}\cos x^p\,\dd x
+=\frac1p\Gamma\left(\frac1p\right)
+\cos\frac\pi{2p}
+=\Gamma\left(1+\frac1p\right)\cos\frac\pi{2p}.}
+\]
+\end{xsolution}
+
+\paragraph{参考题14}
+求
+\[
+\int_0^1\ln\Gamma(x)\,\dd x.
+\]
+
+\begin{xsolution}
+由余元公式，对 $0<x<1$，
+\[
+\ln\Gamma(x)+\ln\Gamma(1-x)
+=\ln\pi-\ln\sin\pi x.
+\]
+积分并在第二项中令 $u=1-x$，得到
+\[
+2I=\ln\pi-\int_0^1\ln\sin\pi x\,\dd x.
+\]
+下面计算最后一个积分。记
+\[
+A=\int_0^{\pi/2}\ln\sin t\,\dd t.
+\]
+由 $t\mapsto\pi/2-t$，
+\[
+A=\int_0^{\pi/2}\ln\cos t\,\dd t.
+\]
+于是
+\[
+\begin{aligned}
+2A
+&=\int_0^{\pi/2}\ln(\sin t\cos t)\,\dd t\\
+&=-\frac\pi2\ln2+
+\int_0^{\pi/2}\ln\sin2t\,\dd t\\
+&=-\frac\pi2\ln2+A,
+\end{aligned}
+\]
+故 $A=-\frac\pi2\ln2$。因此
+\[
+\int_0^1\ln\sin\pi x\,\dd x
+=\frac1\pi\int_0^\pi\ln\sin t\,\dd t=-\ln2.
+\]
+所以
+\[
+2I=\ln(2\pi),
+\qquad
+\boxed{I=\frac12\ln(2\pi)}.
+\]
+\end{xsolution}
+
+\paragraph{参考题15：Laplace 积分}
+设
+\[
+I_k=\int_0^{+\infty}\frac{\cos bx}{(a^2+x^2)^k}\,\dd x,
+\qquad
+J_k=\int_0^{+\infty}\frac{x\sin bx}{(a^2+x^2)^k}\,\dd x,
+\]
+其中 $a,b>0$，$k\in\NN_+$。
+
+\begin{xsolution}
+先由 23.2.6 练习题 9(2) 的结果得到
+\[
+I_1=\frac\pi{2a}\ee^{-ab}.
+\]
+对 $a$ 求导，
+\[
+\frac{\partial I_k}{\partial a}
+=-2kaI_{k+1},
+\]
+故递推公式为
+\[
+\boxed{I_{k+1}=-\frac1{2ka}\frac{\partial I_k}{\partial a}}.
+\]
+因此
+\[
+\boxed{
+I_k=\frac{(-1)^{k-1}}{2^{k-1}(k-1)!}
+\left(\frac1a\frac{\partial}{\partial a}\right)^{k-1}
+\left(\frac\pi{2a}\ee^{-ab}\right).}
+\]
+展开可得有限和
+\[
+\boxed{
+I_k=
+\frac{\pi\ee^{-ab}b^{k-1}}{2^k(k-1)!a^k}
+\sum_{j=0}^{k-1}
+\frac{(k-1+j)!}{j!(k-1-j)!(2ab)^j}.}
+\]
+
+另一方面，对 $b$ 求导有
+\[
+\boxed{J_k=-\frac{\partial I_k}{\partial b}}.
+\]
+特别地
+\[
+\boxed{J_1=\frac\pi2\ee^{-ab}}.
+\]
+当 $k\geqslant2$ 时，也可直接利用
+\[
+\frac{x}{(a^2+x^2)^k}\,\dd x
+=-\frac1{2(k-1)}\dd\left[(a^2+x^2)^{-(k-1)}\right]
+\]
+分部积分，得到更简单的递推关系
+\[
+\boxed{J_k=\frac b{2(k-1)}I_{k-1}\qquad(k\geqslant2)}.
+\]
+因而
+\[
+\boxed{
+J_k=
+\frac{\pi\ee^{-ab}b^{k-1}}{2^k(k-1)!a^{k-1}}
+\sum_{j=0}^{k-2}
+\frac{(k-2+j)!}{j!(k-2-j)!(2ab)^j},
+\quad k\geqslant2.}
+\]
+这些公式连同 $J_1$ 给出了全部 $I_k,J_k$。
+\end{xsolution}
+
+\paragraph{参考题16}
+应用 $\Gamma$ 函数的 Gauss 乘积分解公式证明
+\[
+\gamma=\lim_{n\to\infty}\left(1+\frac12+\cdots+\frac1n-\ln n\right)
+=-\Gamma'(1).
+\]
+
+\begin{xsolution}
+Gauss 公式为
+\[
+\Gamma(x)=\lim_{n\to\infty}
+\frac{n!n^x}{x(x+1)\cdots(x+n)}.
+\]
+在 $x=1$ 的小闭邻域内，对数导数可逐项取极限，故
+\[
+\frac{\Gamma'(x)}{\Gamma(x)}
+=\lim_{n\to\infty}
+\left(\ln n-\sum_{k=0}^n\frac1{x+k}\right).
+\]
+令 $x=1$，利用 $\Gamma(1)=1$，
+\[
+\Gamma'(1)
+=\lim_{n\to\infty}
+\left(\ln n-\sum_{k=1}^{n+1}\frac1k\right).
+\]
+记 $H_n=\sum_{k=1}^n1/k$，则
+\[
+\begin{aligned}
+-\Gamma'(1)
+&=\lim_{n\to\infty}(H_{n+1}-\ln n)\\
+&=\lim_{n\to\infty}(H_n-\ln n)
++\lim_{n\to\infty}\frac1{n+1}
+=\gamma.
+\end{aligned}
+\]
+故
+\[
+\boxed{\gamma=-\Gamma'(1)}.
+\]
+\end{xsolution}
+
+\paragraph{参考题17}
+
+\begin{xsolution}
+\textbf{(1)} $n$ 次单位根为
+\[
+1,\ee^{2\pi\ii/n},\ldots,\ee^{2(n-1)\pi\ii/n}.
+\]
+因此
+\[
+x^n-1=(x-1)\prod_{k=1}^{n-1}
+\left(x-\ee^{2k\pi\ii/n}\right).
+\]
+除以 $x-1$，得到
+\[
+\boxed{
+1+x+\cdots+x^{n-1}
+=\prod_{k=1}^{n-1}
+\left(x-\ee^{2k\pi\ii/n}\right).}
+\]
+
+\textbf{(2)} 在 (1) 中令 $x=1$ 并取绝对值：
+\[
+n=\prod_{k=1}^{n-1}
+\left|1-\ee^{2k\pi\ii/n}\right|.
+\]
+而
+\[
+\left|1-\ee^{2\ii\theta}\right|=2|\sin\theta|,
+\]
+且 $0<k\pi/n<\pi$，故
+\[
+n=2^{n-1}\prod_{k=1}^{n-1}\sin\frac{k\pi}{n}.
+\]
+所以
+\[
+\boxed{
+\prod_{k=1}^{n-1}\sin\frac{k\pi}{n}
+=\frac n{2^{n-1}}.}
+\]
+
+\textbf{(3)} 令
+\[
+P=\prod_{k=1}^{n-1}\Gamma\left(\frac kn\right).
+\]
+因 $\{n-k:1\leqslant k\leqslant n-1\}$ 只是同一指标集合的排列，
+\[
+P^2=\prod_{k=1}^{n-1}
+\Gamma\left(\frac kn\right)
+\Gamma\left(1-\frac kn\right).
+\]
+由余元公式，
+\[
+P^2=\prod_{k=1}^{n-1}
+\frac\pi{\sin(k\pi/n)}
+=\frac{\pi^{n-1}}
+{\prod_{k=1}^{n-1}\sin(k\pi/n)}.
+\]
+利用 (2)，
+\[
+P^2=\frac{(2\pi)^{n-1}}n.
+\]
+因 $0<k/n<1$ 时 $\Gamma(k/n)>0$，故 $P>0$，取正平方根得
+\[
+\boxed{
+\Gamma\left(\frac1n\right)
+\Gamma\left(\frac2n\right)\cdots
+\Gamma\left(\frac{n-1}{n}\right)
+=\frac{(2\pi)^{(n-1)/2}}{\sqrt n}.}
+\]
+\end{xsolution}
