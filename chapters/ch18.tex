@@ -50,27 +50,30 @@
 \begin{enumerate}[label=(\arabic*)]
   \item
   \[
+  \begin{aligned}
     \lim_{(x,y)\to(\infty,\infty)}f(x,y)=A
-    \Longleftrightarrow
-    \forall\varepsilon>0,\ \exists M>0,\quad
-    \abs{x}>M,\ \abs{y}>M
-    \Longrightarrow \abs{f(x,y)-A}<\varepsilon;
-  \]
-  \item
-  \[
-    \lim_{(x,y)\to(x_0,+\infty)}f(x,y)=A
-    \Longleftrightarrow
-    \forall\varepsilon>0,\ \exists\delta,M>0,\quad
-    0<\abs{x-x_0}<\delta,\ y>M
-    \Longrightarrow \abs{f(x,y)-A}<\varepsilon;
-  \]
-  \item
-  \[
-    \lim_{(x,y)\to(-\infty,y_0)}f(x,y)=A
-    \Longleftrightarrow
-    \forall\varepsilon>0,\ \exists\delta,M>0,\quad
-    x<-M,\ 0<\abs{y-y_0}<\delta
+    &\Longleftrightarrow \forall\varepsilon>0,\ \exists M>0,\\
+    &\qquad \abs{x}>M,\ \abs{y}>M
     \Longrightarrow \abs{f(x,y)-A}<\varepsilon.
+  \end{aligned}
+  \]
+  \item
+  \[
+  \begin{aligned}
+    \lim_{(x,y)\to(x_0,+\infty)}f(x,y)=A
+    &\Longleftrightarrow \forall\varepsilon>0,\ \exists\delta,M>0,\\
+    &\qquad 0<\abs{x-x_0}<\delta,\ y>M
+    \Longrightarrow \abs{f(x,y)-A}<\varepsilon.
+  \end{aligned}
+  \]
+  \item
+  \[
+  \begin{aligned}
+    \lim_{(x,y)\to(-\infty,y_0)}f(x,y)=A
+    &\Longleftrightarrow \forall\varepsilon>0,\ \exists\delta,M>0,\\
+    &\qquad x<-M,\ 0<\abs{y-y_0}<\delta
+    \Longrightarrow \abs{f(x,y)-A}<\varepsilon.
+  \end{aligned}
   \]
 \end{enumerate}
 还有其他一些情形，在此不一一列举。此外当 $A$ 为 $\pm\infty$ 或 $\infty$ 时，与一元函数类似，我们称之为广义极限或极限不存在（参见上册 98 页）。

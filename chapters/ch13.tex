@@ -252,13 +252,23 @@ c=\lim_{n\to\infty}\frac{b_n}{a_n},
 
 现在我们将上述几种判别法的使用方法列表如下。以下设 $\sum_{n=1}^{\infty}a_n$ 为正项级数。
 \[
-\begin{array}{lll}
-\text{Cauchy 根值判别法：}&\displaystyle \lim_{n\to\infty}\sqrt[n]{a_n}=c,&c<1\text{ 时级数收敛，}\ c>1\text{ 时级数发散};\\[6pt]
-\text{d'Alembert 判别法：}&\displaystyle \lim_{n\to\infty}\frac{a_{n+1}}{a_n}=d,&d<1\text{ 时级数收敛，}\ d>1\text{ 时级数发散};\\[6pt]
-\text{Raabe 判别法：}&\displaystyle \lim_{n\to\infty}n\left(\frac{a_n}{a_{n+1}}-1\right)=r,&r>1\text{ 时级数收敛，}\ r<1\text{ 时级数发散};\\[6pt]
-\text{Bertrand 判别法：}&\displaystyle \lim_{n\to\infty}\ln n\left[n\left(\frac{a_n}{a_{n+1}}-1\right)-1\right]=b,&b>1\text{ 时级数收敛，}\ b<1\text{ 时级数发散};\\[6pt]
-\text{Gauss 判别法：}&\displaystyle \frac{a_n}{a_{n+1}}=1+\frac{\mu}{n}+\bigO\left(\frac1{n^{1+\varepsilon}}\right),\ \varepsilon>0,&\mu>1\text{ 时级数收敛，}\ \mu\leq1\text{ 时级数发散}.
-\end{array}
+\begin{aligned}
+\text{Cauchy 根值判别法：}\quad
+&\lim_{n\to\infty}\sqrt[n]{a_n}=c,\\[-2pt]
+&c<1\text{ 时级数收敛，}\quad c>1\text{ 时级数发散};\\[4pt]
+\text{d'Alembert 判别法：}\quad
+&\lim_{n\to\infty}\frac{a_{n+1}}{a_n}=d,\\[-2pt]
+&d<1\text{ 时级数收敛，}\quad d>1\text{ 时级数发散};\\[4pt]
+\text{Raabe 判别法：}\quad
+&\lim_{n\to\infty}n\left(\frac{a_n}{a_{n+1}}-1\right)=r,\\[-2pt]
+&r>1\text{ 时级数收敛，}\quad r<1\text{ 时级数发散};\\[4pt]
+\text{Bertrand 判别法：}\quad
+&\lim_{n\to\infty}\ln n\left[n\left(\frac{a_n}{a_{n+1}}-1\right)-1\right]=b,\\[-2pt]
+&b>1\text{ 时级数收敛，}\quad b<1\text{ 时级数发散};\\[4pt]
+\text{Gauss 判别法：}\quad
+&\frac{a_n}{a_{n+1}}=1+\frac{\mu}{n}+\bigO\left(\frac1{n^{1+\varepsilon}}\right),\quad \varepsilon>0,\\[-2pt]
+&\mu>1\text{ 时级数收敛，}\quad \mu\leq1\text{ 时级数发散}.
+\end{aligned}
 \]
 
 \begin{xremark}

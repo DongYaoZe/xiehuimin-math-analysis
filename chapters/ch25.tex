@@ -545,8 +545,12 @@ I&=\iint_\Sigma z\,\dd S
 \begin{xexercise}[1]
 设曲面 $\Sigma$ 的方程为 $z=z(x,y),(x,y)\in D$，且 $z(x,y)$ 在 $\overline D$ 中连续可微，证明：
 \[
-  \iint_\Sigma P(x,y,z)\,\dd y\,\dd z+Q(x,y,z)\,\dd z\,\dd x+R(x,y,z)\,\dd x\,\dd y
-  =\pm\iint_D(-Pz_x-Qz_y+R)\big|_{z=z(x,y)}\,\dd x\,\dd y.
+\begin{aligned}
+  &\iint_\Sigma P(x,y,z)\,\dd y\,\dd z
+  +Q(x,y,z)\,\dd z\,\dd x\\
+  &\qquad+R(x,y,z)\,\dd x\,\dd y\\
+  &\quad=\pm\iint_D(-Pz_x-Qz_y+R)\big|_{z=z(x,y)}\,\dd x\,\dd y.
+\end{aligned}
 \]
 当 $\Sigma$ 取上侧时符号取“$+$”；当 $\Sigma$ 取下侧时符号取“$-$”。
 \end{xexercise}
@@ -963,13 +967,16 @@ I&=\oiint_\Sigma\left(\frac{\partial R}{\partial y}-\frac{\partial Q}{\partial z
 \]
 因 $\Sigma_1,\Sigma_2$ 分居 $C$ 两侧，故 $C_1,C_2$ 为同一条曲线 $C$，只是它们的定向相反。若记 $C_1$ 为 $C_+$，则 $C_2$ 为 $C_-$，从而
 \[
-  I=\left(\iint_{\Sigma_1}+\iint_{\Sigma_2}\right)
+\begin{aligned}
+  I&=\left(\iint_{\Sigma_1}+\iint_{\Sigma_2}\right)
   \begin{vmatrix}
   \cos(\vect n,x)&\cos(\vect n,y)&\cos(\vect n,z)\\
   \dfrac\partial{\partial x}&\dfrac\partial{\partial y}&\dfrac\partial{\partial z}\\
   P&Q&R
-  \end{vmatrix}\,\dd S
-  =\left(\oint_{C_+}+\oint_{C_-}\right)P\,\dd x+Q\,\dd y+R\,\dd z=0.
+  \end{vmatrix}\,\dd S\\
+  &=\left(\oint_{C_+}+\oint_{C_-}\right)
+  \left(P\,\dd x+Q\,\dd y+R\,\dd z\right)=0.
+\end{aligned}
 \]
 \end{xproof}
 
@@ -1800,9 +1807,13 @@ $A^{\mathsf T}$ 为 $A$ 的转置。曲面 $\Sigma$ 是曲面 $S$ 在正交变�
 \]
 注意这里 $\alpha_1,\alpha_2,\alpha_3$ 都是 $\varphi,\theta$ 的函数，则 (25.23) 可改写为
 \begin{equation}
+\begin{aligned}
   \oiint_{\partial B_r(M_0)}f(x,y,z)\,\dd S_r
-  =\oiint_{\partial B_r(0)}f(x_0+r\alpha_1,y_0+r\alpha_2,z_0+r\alpha_3)\,\dd S_r
-  =r^2\oiint_{\partial B_1(0)}f(x_0+r\alpha_1,y_0+r\alpha_2,z_0+r\alpha_3)\,\dd S_1.
+  &=\oiint_{\partial B_r(0)}
+  f(x_0+r\alpha_1,y_0+r\alpha_2,z_0+r\alpha_3)\,\dd S_r\\
+  &=r^2\oiint_{\partial B_1(0)}
+  f(x_0+r\alpha_1,y_0+r\alpha_2,z_0+r\alpha_3)\,\dd S_1.
+\end{aligned}
   \tag{25.27}
 \end{equation}
 另一方面，$(\alpha_1,\alpha_2,\alpha_3)$ 恰是球面 $\partial B_r(0)$（也是 $\partial B_1(0)$）上的单位法向量 $\vect n$，方向指向球面的外部，因此上述表达式又可以简写为
@@ -1839,7 +1850,9 @@ $A^{\mathsf T}$ 为 $A$ 的转置。曲面 $\Sigma$ 是曲面 $S$ 在正交变�
 \begin{align*}
 \iiint_{B_r(M_0)}f(x,y,z)\,\dd x\,\dd y\,\dd z
 &=\int_0^r\int_0^\pi\int_0^{2\pi}
- f(x_0+\rho\sin\varphi\cos\theta,y_0+\rho\sin\varphi\sin\theta,z_0+\rho\cos\varphi)
+ f(x_0+\rho\sin\varphi\cos\theta,
+   y_0+\rho\sin\varphi\sin\theta,\\
+&\qquad z_0+\rho\cos\varphi)
  \rho^2\sin\varphi\,\dd\theta\,\dd\varphi\,\dd\rho\\
 &=\int_0^r\oiint_{\partial B_\rho(M_0)}f(x,y,z)\,\dd S_\rho\,\dd\rho.
 \end{align*}

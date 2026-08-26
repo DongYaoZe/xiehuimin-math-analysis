@@ -2156,9 +2156,11 @@ $\cdots\cdots$。
   \begin{enumerate}[label=(\arabic*)]
     \item 计算极限
     \begin{align*}
-      \lim_{n\to\infty}\left[\frac1{(n+1)^2}+\frac1{(n+2)^2}+\cdots+\frac1{(2n)^2}\right]
-      &=\lim_{n\to\infty}\frac1{(n+1)^2}+\lim_{n\to\infty}\frac1{(n+2)^2}+\cdots+\lim_{n\to\infty}\frac1{(2n)^2}\\
-      &=0+0+\cdots+0=0
+      &\lim_{n\to\infty}\left[\frac1{(n+1)^2}+\frac1{(n+2)^2}+\cdots+\frac1{(2n)^2}\right]\\
+      &\quad=\lim_{n\to\infty}\frac1{(n+1)^2}
+      +\lim_{n\to\infty}\frac1{(n+2)^2}+\cdots\\
+      &\qquad+\lim_{n\to\infty}\frac1{(2n)^2}
+      =0+0+\cdots+0=0.
     \end{align*}
     （错用收敛数列的四则运算法则）；
     \item 设 $\displaystyle\lim_{n\to\infty}b_n=b$，则 $\displaystyle\lim_{n\to\infty}\frac{b_{n+1}}{b_n}=1$（没有考虑 $b=0$ 的可能性）；
