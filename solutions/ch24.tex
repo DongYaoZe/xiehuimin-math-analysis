@@ -103,7 +103,7 @@
 \paragraph{2. 求空间曲线的弧长。}
 \begin{xsolution}
 \begin{enumerate}[label=(\arabic*)]
-\item 以 $x$ 为参数。由
+\item 以 $x$ 为参数。由题面中的反正弦和对数可知端点必须满足 $\abs{x_0}<a$。由
 \[
   y=a\arcsin\frac xa,
   \qquad
@@ -122,13 +122,17 @@
       +\frac{a^4}{4(a^2-x^2)^2}}\\
   &=1+\frac{a^2}{2(a^2-x^2)}.
 \end{align*}
-故
+弧长微元应取非负值，因此
 \begin{align*}
   L
-  &=\int_0^{x_0}\left(1+\frac{a^2}{2(a^2-x^2)}\right)\,\dd x\\
-  &=x_0+\frac a4\ln\frac{a+x_0}{a-x_0}
-   =x_0-z_0.
+  &=\abs{\int_0^{x_0}\left(1+\frac{a^2}{2(a^2-x^2)}\right)\,\dd x}\\
+  &=\abs{x_0+\frac a4\ln\frac{a+x_0}{a-x_0}}
+   =\abs{x_0-z_0}.
 \end{align*}
+又 $z_0$ 与 $x_0$ 异号，故也可写成
+\[
+  L=\abs{x_0}+\abs{z_0}.
+\]
 
 \item 令
 \[
@@ -148,9 +152,10 @@
   \dd s^2=\dd\rho^2+\rho^2\,\dd\theta^2+\dd z^2
   =2a^2\operatorname{sech}^2\theta\,\dd\theta^2.
 \]
-因此从 $(a,0,0)$ 到给定点的弧长为
+因此从 $(a,0,0)$ 到给定点的弧长为（此时 $\abs z<a$）
 \[
   L=\sqrt2a\abs{\int_0^{\theta_0}\operatorname{sech}\theta\,\dd\theta}
+  =\sqrt2a\arctan\frac{\abs z}{\sqrt{a^2-z^2}}
   =\sqrt2a\arcsin\frac{\abs z}{a}.
 \]
 \end{enumerate}
@@ -1068,7 +1073,7 @@ $u=x^2+y^2$，故
 \]
 其中 $\vect{e}$ 是线段的单位方向向量。因此 $\abs{\nabla f(p_1)}\ge c$。
 
-再证明存在内点 $p_2$ 使 $\abs{\nabla f(p_2)}\le c$。若已有临界点，则可取该点。否则假设在 $\operatorname{int}D$ 上处处
+再证明存在内点 $p_2$ 使 $\abs{\nabla f(p_2)}\le c$。若在 $\operatorname{int}D$ 内已有临界点，则可取该点。否则假设在 $\operatorname{int}D$ 上处处
 \[
   \abs{\nabla f}>c.
 \]
@@ -1078,7 +1083,7 @@ $u=x^2+y^2$，故
   \quad\text{与}\quad
   -\frac{\nabla f}{\abs{\nabla f}}
 \]
-的积分曲线前进，直到第一次到达球面，终点分别记为 $q_+,q_-$。两条曲线从球心到球面的弧长 $l_+,l_-$ 都至少为 $r$。沿正梯度曲线有 $\dd f/\dd s=\abs{\nabla f}$，沿负梯度曲线有 $\dd f/\dd s=-\abs{\nabla f}$，故
+的积分曲线前进，直到第一次到达球面，终点分别记为 $q_+,q_-$。这里两条曲线必在有限弧长内到达球面；否则它们若一直留在紧球内，由 $\abs{\nabla f}>c$ 可知 $f$ 将沿正梯度曲线以速率大于 $c$ 增长（或沿负梯度曲线以速率大于 $c$ 减少），与 $f$ 在 $D$ 上有界矛盾。两条曲线从球心到球面的弧长 $l_+,l_-$ 都至少为 $r$。沿正梯度曲线有 $\dd f/\dd s=\abs{\nabla f}$，沿负梯度曲线有 $\dd f/\dd s=-\abs{\nabla f}$，故
 \begin{align*}
   f(q_+)-f(q_-)
   &=\int_0^{l_+}\abs{\nabla f}\,\dd s
@@ -1301,6 +1306,7 @@ $u=x^2+y^2$，故
 
 Brouwer 不动点定理的典型应用包括：
 \begin{itemize}
+  \item 把一只圆形碗中的粥视为圆盘，并连续搅动后让每一粒米对应到它的新位置；只要米粒始终留在碗内，这个连续自映射至少有一个不动点，即至少有一粒米最终回到原来的位置；
   \item 对有限状态 Markov 链，概率单纯形上的映射 $p\mapsto pP$ 是连续自映射，固定点就是平稳分布；
   \item 在连续的价格调整模型中，把归一化价格向量映到下一轮价格向量的连续自映射若保持价格单纯形不变，则固定点给出一个稳定价格状态；
   \item 对具有紧致凸不变截面的动力系统，Poincar\'e 返回映射的固定点对应一条周期轨道；
