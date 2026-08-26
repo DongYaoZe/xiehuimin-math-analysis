@@ -1,0 +1,2784 @@
+% 第14章 函数项级数与幂级数——题目解答
+% 覆盖：79 道主问题；含所有明确编号小问共 130 个编号项。
+% 仅解答原章中的练习、思考题与参考题；原书已有解答的普通例题不重复。
+
+\section*{第14章题目解答}
+
+\subsection*{14.1.3 练习题}
+
+\paragraph{14.1.3 练习题 1}
+\begin{xsolution}
+逐小题讨论极限函数以及误差的上确界。
+
+\textbf{(1)} 对每个固定的 $x$，
+\[
+  S_n(x)=\frac{x}{1+n^2x^2}\to0.
+\]
+令 $y=n\abs{x}$，则
+\[
+  \sup_{x\in\RR}\abs{S_n(x)}
+  =\frac1n\sup_{y\geqslant0}\frac{y}{1+y^2}
+  =\frac1{2n}\to0.
+\]
+故在 $(-\infty,+\infty)$ 上一致收敛于 $0$。
+
+\textbf{(2)} 对每个固定的 $x$，仍有 $S_n(x)\to0$。但
+\[
+  \sup_{x\in\RR}\abs{S_n(x)}
+  =\sup_{y\geqslant0}\frac{y}{1+y^2}=\frac12,
+  \qquad y=n\abs{x}.
+\]
+故不一致收敛。
+
+\textbf{(3)}
+\[
+  S_n(x)=\frac{n+x^2}{nx}=\frac1x+\frac{x}{n},\qquad x>0,
+\]
+故逐点收敛于 $S(x)=1/x$。但
+\[
+  \sup_{x>0}\abs{S_n(x)-S(x)}
+  =\sup_{x>0}\frac{x}{n}=+\infty,
+\]
+所以在 $(0,+\infty)$ 上不一致收敛。
+
+\textbf{(4)} 对固定 $x>0$，令 $y=x/n$，则 $y\to0+$，且
+\[
+  S_n(x)=y\ln y\to0.
+\]
+在 $x\in(0,1)$ 时，充分大的 $n$ 满足 $0<y<1/n<\ee^{-1}$，函数 $-y\ln y$ 在该区间递增，因而
+\[
+  \sup_{0<x<1}\abs{S_n(x)}
+  =\frac{\ln n}{n}\to0.
+\]
+故在 $(0,1)$ 上一致收敛。若 $x\in(0,+\infty)$，则对任意固定 $n$，$\abs{(x/n)\ln(x/n)}$ 随 $x\to+\infty$ 无界，因此不可能一致收敛于 $0$。
+
+\textbf{(5)} 对固定 $x\geqslant0$，由 $\sin u/u\to1$ 得
+\[
+  n\sin\frac{x}{n}\to x.
+\]
+在 $[0,a]$ 上利用 $0\leqslant u-\sin u\leqslant u^3/6$，得到
+\[
+  \sup_{0\leqslant x\leqslant a}
+  \abs{n\sin\frac{x}{n}-x}
+  \leqslant\frac{a^3}{6n^2}\to0,
+\]
+故一致收敛于 $x$。在 $(0,+\infty)$ 上取 $x_n=n\pi$，则
+\[
+  \abs{n\sin(x_n/n)-x_n}=n\pi,
+\]
+故不一致收敛。
+
+\textbf{(6)} 当 $x\geqslant0$ 时，极限函数为 $0$，且
+\[
+  0\leqslant \frac1n\ln(1+\ee^{-nx})\leqslant\frac{\ln2}{n},
+\]
+故在 $[0,+\infty)$ 上一致收敛于 $0$。当 $x<0$ 时，
+\[
+  \frac1n\ln(1+\ee^{-nx})
+  =-x+\frac1n\ln(1+\ee^{nx}),
+\]
+而 $0<\ee^{nx}<1$，故
+\[
+  \sup_{x<0}\abs{S_n(x)+x}\leqslant\frac{\ln2}{n}\to0.
+\]
+所以在 $(-\infty,0)$ 上一致收敛于 $-x$。
+
+\textbf{(7)} 当 $1/t\leqslant\abs{x}\leqslant t$ 时，
+\[
+  \abs{x^n+x^{-n}}\leqslant2t^n.
+\]
+于是通项绝对值不超过
+\[
+  M_n=\frac{2n^8t^n}{\sqrt{n!}}.
+\]
+并且
+\[
+  \frac{M_{n+1}}{M_n}
+  =t\left(1+\frac1n\right)^8\frac1{\sqrt{n+1}}\to0.
+\]
+故 $\sum M_n$ 收敛，由 Weierstrass 判别法知原级数在给定集合上绝对一致收敛。
+
+\textbf{(8)} 先考察
+\[
+  B_N(x)=\sum_{k=1}^N\sin x\sin kx.
+\]
+当 $x$ 不是 $2\pi$ 的整数倍时，
+\[
+  \sum_{k=1}^N\sin kx
+  =\frac{\cos(x/2)-\cos((N+1/2)x)}{2\sin(x/2)},
+\]
+从而
+\[
+  \abs{B_N(x)}
+  \leqslant2.
+\]
+在 $x=2m\pi$ 时 $B_N(x)=0$，故上述一致有界性对一切 $x>0$ 成立。另一方面
+\[
+  a_n(x)=\frac1{\sqrt{n+x}}
+\]
+关于 $n$ 单调减少，且
+\[
+  \sup_{x>0}a_n(x)\leqslant\frac1{\sqrt n}\to0.
+\]
+由一致 Dirichlet 判别法，原级数在 $(0,+\infty)$ 上一致收敛。
+
+\textbf{(9)} 设 $0\leqslant x\leqslant b$。利用
+\[
+  \ln(1+u)\geqslant u-\frac{u^2}{2}\qquad(u\geqslant0),
+\]
+有
+\[
+  \left(1+\frac xn\right)^n
+  =\exp\left(n\ln\left(1+\frac xn\right)\right)
+  \geqslant \ee^{x-x^2/(2n)}.
+\]
+故
+\[
+  0\leqslant \ee^x-\left(1+\frac xn\right)^n
+  \leqslant \ee^x\left(1-\ee^{-x^2/(2n)}\right)
+  \leqslant \frac{\ee^b b^2}{2n}.
+\]
+因此级数通项满足
+\[
+  0\leqslant \frac1n\left[\ee^x-\left(1+\frac xn\right)^n\right]
+  \leqslant\frac{\ee^b b^2}{2n^2},
+\]
+故在任意有限闭区间 $[0,b]$ 上一致收敛。对 $[0,+\infty)$，固定 $n$ 时
+\[
+  \frac1n\left[\ee^x-\left(1+\frac xn\right)^n\right]\to+\infty
+  \qquad(x\to+\infty),
+\]
+所以通项甚至不一致趋于 $0$，级数在 $[0,+\infty)$ 上不一致收敛。
+\end{xsolution}
+
+\paragraph{14.1.3 练习题 2}
+\begin{xsolution}
+记
+\[
+  u_n(x)=\frac{x^n}{1+x^{2n}}.
+\]
+若 $\abs{x}<1$，则 $\abs{u_n(x)}\leqslant\abs{x}^n$；若 $\abs{x}>1$，则
+\[
+  \abs{u_n(x)}\leqslant\abs{x}^{-n}.
+\]
+故在 $\abs{x}\ne1$ 时绝对收敛。$x=1$ 时 $u_n=1/2$，$x=-1$ 时 $u_n=(-1)^n/2$，通项都不趋于 $0$，故发散。因此收敛域为
+\[
+  \RR\setminus\{-1,1\}.
+\]
+
+若 $0<r<1$，则在 $\abs{x}\leqslant r$ 上有 $\abs{u_n(x)}\leqslant r^n$；若 $R>1$，则在 $\abs{x}\geqslant R$ 上有 $\abs{u_n(x)}\leqslant R^{-n}$。因此在任何与 $\{\pm1\}$ 保持正距离的闭子集上均一致收敛，特别是在
+\[
+  [-r,r],\qquad (-\infty,-R]\cup[R,+\infty)
+\]
+上绝对一致收敛。
+
+另一方面，在三个最大连通收敛区间 $(-\infty,-1)$、$(-1,1)$、$(1,+\infty)$ 上均不一致收敛，因为令 $x$ 从相应一侧趋于 $\pm1$ 时，$\abs{u_n(x)}$ 的上确界均为 $1/2$。所以不存在把某个 $\pm1$ 作为边界而又不与它保持正距离的最大一致收敛区间。
+\end{xsolution}
+
+\paragraph{14.1.3 练习题 3}
+\begin{xsolution}
+对每个固定 $x$，这是公比为 $-1/(1+x^2)$ 的几何级数；当 $x=0$ 时每项均为 $0$，当 $x\ne0$ 时绝对收敛。因此在整个实轴上处处绝对收敛。
+
+原级数从第 $N+1$ 项起的余项为
+\[
+  R_N(x)=\frac{(-1)^N x^2}{x^2+2}\frac1{(1+x^2)^N}.
+\]
+令 $t=x^2\geqslant0$，则
+\[
+  \abs{R_N(x)}
+  =\frac{t}{t+2}(1+t)^{-N}
+  \leqslant\frac{t}{(1+t)^{N+1}}.
+\]
+右端在 $t=1/N$ 附近取得最大量级，且
+\[
+  \sup_{t\geqslant0}\frac{t}{(1+t)^{N+1}}
+  =\frac1N\left(1+\frac1N\right)^{-N-1}\to0.
+\]
+故原级数在 $\RR$ 上一致收敛。
+
+取绝对值后的级数在 $x\ne0$ 时的和为
+\[
+  x^2\sum_{n=1}^{\infty}\frac1{(1+x^2)^n}=1,
+\]
+而在 $x=0$ 时和为 $0$。其和函数在 $0$ 处不连续，而各项连续，所以绝对值级数不可能在 $\RR$ 上一致收敛。故原级数绝对收敛且一致收敛，但不绝对一致收敛。
+\end{xsolution}
+
+\paragraph{14.1.3 练习题 4}
+\begin{xsolution}
+令
+\[
+  q=\frac{a}{2\ln^2 2}<1.
+\]
+对 $\abs{x}<a$ 及 $n\geqslant2$，有
+\[
+  \abs{\frac{x}{n\ln^2n}}\leqslant q<1.
+\]
+对 $\abs{u}\leqslant q$，由中值定理
+\[
+  \abs{\ln(1+u)}\leqslant\frac{\abs{u}}{1-q}.
+\]
+于是
+\[
+  \abs{\ln\left(1+\frac{x}{n\ln^2n}\right)}
+  \leqslant\frac{a}{1-q}\frac1{n\ln^2n}.
+\]
+而 $\sum_{n=2}^{\infty}1/(n\ln^2n)$ 收敛，故由 Weierstrass 判别法，所给函数项级数在 $(-a,a)$ 上一致收敛。
+\end{xsolution}
+
+\paragraph{14.1.3 练习题 5}
+\begin{xsolution}
+固定 $x>0$，由 $\abs{\sin u}\leqslant\abs{u}$，
+\[
+  \abs{2^n\sin\frac1{3^nx}}
+  \leqslant\frac1x\left(\frac23\right)^n,
+\]
+故级数绝对收敛。
+
+但取
+\[
+  x_n=\frac{2}{\pi3^n}>0,
+\]
+则第 $n$ 项为
+\[
+  2^n\sin\frac1{3^n x_n}=2^n.
+\]
+因此通项不一致趋于 $0$，原级数在 $(0,+\infty)$ 上不一致收敛。
+\end{xsolution}
+
+\paragraph{14.1.3 练习题 6}
+\begin{xsolution}
+对 $0\leqslant t\leqslant1$，有
+\[
+  0\leqslant\sin\pi t\leqslant\pi(1-t).
+\]
+故对 $x\in[0,1]$，
+\[
+  \abs{\int_0^x t^n\sin\pi t\,\dd t}
+  \leqslant\pi\int_0^1 t^n(1-t)\,\dd t
+  =\frac{\pi}{(n+1)(n+2)}.
+\]
+右端关于 $n$ 的级数收敛，所以由 Weierstrass 判别法，原函数项级数在 $[0,1]$ 上一致收敛。
+\end{xsolution}
+
+\paragraph{14.1.3 练习题 7}
+\begin{xsolution}
+由于 $\{f_n\}$ 在 $(a,b)$ 上一致收敛，它在该区间上一致满足 Cauchy 条件。给定 $\varepsilon>0$，存在 $N$，使对 $n,m\geqslant N$ 和所有 $x\in(a,b)$，有
+\[
+  \abs{f_n(x)-f_m(x)}<\varepsilon.
+\]
+令 $x\to a+$，利用 $f_n,f_m$ 在 $a$ 处连续，得
+\[
+  \abs{f_n(a)-f_m(a)}\leqslant\varepsilon.
+\]
+所以数列 $\{f_n(a)\}$ 为 Cauchy 数列，因而收敛。同理 $\{f_n(b)\}$ 也收敛。
+
+再把上面的不等式分别取极限 $x\to a+$、$x\to b-$，可知对 $n,m\geqslant N$，在端点也有同样的 Cauchy 估计。因此
+\[
+  \sup_{x\in[a,b]}\abs{f_n(x)-f_m(x)}\leqslant\varepsilon,
+\]
+故 $\{f_n\}$ 在 $[a,b]$ 上一致收敛。
+\end{xsolution}
+
+\paragraph{14.1.3 练习题 8}
+\begin{xsolution}
+对任意固定 $x\in(a,b)$，当 $n$ 充分大时 $x\pm1/n\in(a,b)$，且由微分中值定理
+\[
+  F_n(x)
+  =\frac{f(x+1/n)-f(x-1/n)}{2/n}\to f'(x).
+\]
+所以函数列逐点收敛于 $f'$。
+
+现取任意内闭区间 $[\alpha,\beta]\subset(a,b)$。取 $\eta>0$ 使
+\[
+  [\alpha-\eta,\beta+\eta]\subset(a,b).
+\]
+当 $n>1/\eta$ 时，
+\[
+  F_n(x)=\frac n2\int_{x-1/n}^{x+1/n}f'(t)\,\dd t.
+\]
+因为 $f'$ 在闭区间 $[\alpha-\eta,\beta+\eta]$ 上一致连续，若记其连续模为 $\omega(\delta)$，则
+\[
+  \abs{F_n(x)-f'(x)}
+  \leqslant\frac n2\int_{x-1/n}^{x+1/n}\abs{f'(t)-f'(x)}\,\dd t
+  \leqslant\omega(1/n)\to0,
+\]
+且估计与 $x\in[\alpha,\beta]$ 无关。因此在每个内闭区间上一致收敛，即在 $(a,b)$ 上内闭一致收敛。
+
+题面所给表达式在靠近端点处对较小的 $n$ 可能没有定义；上述结论只涉及充分大的尾列，这不影响点态极限与内闭一致收敛的结论。
+\end{xsolution}
+
+\paragraph{14.1.3 练习题 9}
+\begin{xsolution}
+不妨设所有 $u_n$ 都单调增加；单调减少时完全相同。对任意 $x\in[a,b]$，
+\[
+  \abs{u_n(x)}\leqslant\max\{\abs{u_n(a)},\abs{u_n(b)}\}
+  \leqslant\abs{u_n(a)}+\abs{u_n(b)}.
+\]
+由题设，两端点处的两个绝对值级数都收敛，故
+\[
+  \sum_{n=1}^{\infty}\bigl(\abs{u_n(a)}+\abs{u_n(b)}\bigr)<\infty.
+\]
+由 Weierstrass 判别法，$\sum u_n(x)$ 在 $[a,b]$ 上绝对一致收敛，因而一致收敛。
+\end{xsolution}
+
+\paragraph{14.1.3 练习题 10}
+\begin{xsolution}
+由连续函数列的一致极限仍连续，$f\in C[a,b]$。题设 $f$ 在 $[a,b]$ 上无零点，所以
+\[
+  m=\min_{x\in[a,b]}\abs{f(x)}>0.
+\]
+由 $f_n\to f$ 一致，存在 $N$，使 $n\geqslant N$ 时
+\[
+  \sup_{[a,b]}\abs{f_n-f}<\frac m2.
+\]
+于是 $\abs{f_n(x)}\geqslant m/2$，从而对 $n\geqslant N$，
+\[
+  \abs{\frac1{f_n(x)}-\frac1{f(x)}}
+  =\frac{\abs{f_n(x)-f(x)}}{\abs{f_n(x)f(x)}}
+  \leqslant\frac2{m^2}\abs{f_n(x)-f(x)}.
+\]
+右端一致趋于 $0$，所以倒数函数列的尾列一致收敛于 $1/f$。题面写作“函数列 $\{1/f_n\}$”时已隐含各 $1/f_n$ 有定义；即使只由已给条件出发，也至少能保证充分大的 $n$ 时 $f_n$ 无零点，而有限项不影响一致收敛问题。
+\end{xsolution}
+
+\paragraph{14.1.3 练习题 11}
+\begin{xsolution}
+由一致收敛知函数列一致满足 Cauchy 条件。取 $N$ 使
+\[
+  \sup_{x\in I}\abs{f_n(x)-f_N(x)}<1,
+  \qquad n\geqslant N.
+\]
+因 $f_N$ 有界，设 $\sup_I\abs{f_N}\leqslant M_N$，则对 $n\geqslant N$，
+\[
+  \abs{f_n(x)}\leqslant M_N+1.
+\]
+而前 $N-1$ 个函数各自有界。令
+\[
+  M=\max\{M_1,\ldots,M_{N-1},M_N+1\},
+\]
+即可得到 $\abs{f_n(x)}\leqslant M$ 对一切 $n$ 和 $x\in I$ 成立。因此函数列在 $I$ 上一致有界。
+\end{xsolution}
+
+\paragraph{14.1.3 练习题 12}
+\begin{xsolution}
+设 $f_n\to f$、$g_n\to g$ 均一致。由上一题，$\{f_n\}$ 与 $\{g_n\}$ 都一致有界；于是存在 $M>0$，使 $\abs{f_n(x)}\leqslant M$。同时 $g$ 也有界，设 $\abs{g(x)}\leqslant M$，必要时增大 $M$ 即可。于是
+\[
+\begin{aligned}
+  \abs{f_ng_n-fg}
+  &\leqslant\abs{f_n}\abs{g_n-g}+\abs{g}\abs{f_n-f}\\
+  &\leqslant M\bigl(\abs{g_n-g}+\abs{f_n-f}\bigr).
+\end{aligned}
+\]
+取上确界后右端趋于 $0$，故 $f_ng_n\to fg$ 一致。
+\end{xsolution}
+
+\paragraph{14.1.3 练习题 13}
+\begin{xsolution}
+对固定 $x$，$S_n(x)$ 是函数 $t\mapsto f(x+t)$ 在 $[0,1]$ 上的右端点 Riemann 和，因此
+\[
+  S_n(x)\to S(x):=\int_0^1f(x+t)\,\dd t.
+\]
+
+取任意闭区间 $[A,B]$。函数 $f$ 在 $[A,B+1]$ 上一致连续。记其连续模为
+\[
+  \omega(\delta)=\sup\{\abs{f(u)-f(v)}:\ u,v\in[A,B+1],\ \abs{u-v}\leqslant\delta\}.
+\]
+则 $\omega(\delta)\to0$。把积分按长度 $1/n$ 分段，有
+\[
+\begin{aligned}
+  \abs{S_n(x)-S(x)}
+  &\leqslant\sum_{k=1}^n\int_{(k-1)/n}^{k/n}
+    \abs{f(x+k/n)-f(x+t)}\,\dd t\\
+  &\leqslant\omega(1/n),
+\end{aligned}
+\]
+该估计对所有 $x\in[A,B]$ 同时成立。因此在任意有界闭区间上一致收敛，即在 $(-\infty,+\infty)$ 上内闭一致收敛。
+\end{xsolution}
+
+\paragraph{14.1.3 练习题 14}
+\begin{xsolution}
+因 $S_1\in R[a,b]$，存在 $M>0$ 使 $\abs{S_1(x)}\leqslant M$。归纳证明
+\[
+  \abs{S_n(x)}\leqslant M\frac{\abs{x-a}^{n-1}}{(n-1)!},
+  \qquad n\geqslant1.
+\]
+$n=1$ 时成立。若对 $n$ 成立，则
+\[
+\begin{aligned}
+  \abs{S_{n+1}(x)}
+  &\leqslant\int_a^x\abs{S_n(t)}\,\abs{\dd t}\\
+  &\leqslant M\int_0^{\abs{x-a}}\frac{u^{n-1}}{(n-1)!}\,\dd u
+  =M\frac{\abs{x-a}^n}{n!}.
+\end{aligned}
+\]
+令 $L=b-a$，则
+\[
+  \sup_{x\in[a,b]}\abs{S_n(x)}
+  \leqslant M\frac{L^{n-1}}{(n-1)!}\to0.
+\]
+故 $S_n$ 在 $[a,b]$ 上一致收敛于 $0$。
+\end{xsolution}
+
+\subsection*{14.2.4 练习题}
+
+\paragraph{14.2.4 练习题 1}
+\begin{xsolution}
+对 $x\geqslant0$，有
+\[
+  0<\frac1{2^n n^x}\leqslant\frac1{2^n},
+\]
+且 $\sum 2^{-n}$ 收敛，所以原级数在 $x\geqslant0$ 上一致收敛。因而可以交换 $x\to0+$ 与求和次序：
+\[
+  \lim_{x\to0+}\sum_{n=1}^{\infty}\frac1{2^n n^x}
+  =\sum_{n=1}^{\infty}\frac1{2^n}=1.
+\]
+\end{xsolution}
+
+\paragraph{14.2.4 练习题 2}
+\begin{xsolution}
+对 $x\ne0$，
+\[
+  \abs{\left(x+\frac1n\right)^n}
+  =\abs{x}^n\abs{1+\frac1{nx}}^n
+  \sim\abs{x}^n\ee^{1/x}.
+\]
+故当 $\abs{x}<1$ 时收敛，当 $\abs{x}>1$ 时发散。$x=0$ 时为 $\sum n^{-n}$，收敛；$x=1$ 时通项趋于 $\ee$，$x=-1$ 时通项绝对值趋于 $\ee^{-1}$，均发散。因此定义域为
+\[
+  (-1,1).
+\]
+
+任取 $0<r<1$，再取 $q$ 使 $r<q<1$。充分大的 $n$ 满足对 $\abs{x}\leqslant r$ 有
+\[
+  \abs{x+1/n}\leqslant q,
+\]
+故级数尾项由几何级数 $\sum q^n$ 控制，于 $[-r,r]$ 一致收敛。因此 $S$ 在 $(-1,1)$ 上连续。
+
+逐项求导得到
+\[
+  \frac{\dd}{\dd x}\left(x+\frac1n\right)^n
+  =n\left(x+\frac1n\right)^{n-1}.
+\]
+在同一闭区间 $[-r,r]$ 上，充分大的 $n$ 时其绝对值不超过 $nq^{n-1}$，而 $\sum nq^{n-1}$ 收敛。因此导数级数在任意内闭区间上一致收敛，故
+\[
+  S'(x)=\sum_{n=1}^{\infty}n\left(x+\frac1n\right)^{n-1},
+  \qquad -1<x<1.
+\]
+所以 $S$ 在定义域内连续且可微，事实上同理可知它在 $(-1,1)$ 内无限次可微。
+\end{xsolution}
+
+\paragraph{14.2.4 练习题 3}
+\begin{xsolution}
+把通项分为
+\[
+  \frac{x+n(-1)^n}{x^2+n^2}
+  =\frac{x}{x^2+n^2}+(-1)^n\frac{n}{x^2+n^2}.
+\]
+固定 $M>0$。在 $\abs{x}\leqslant M$ 上，第一部分满足
+\[
+  \abs{\frac{x}{x^2+n^2}}\leqslant\frac{M}{n^2},
+\]
+故绝对一致收敛。对第二部分，当 $n>M$ 时
+\[
+  a_n(x)=\frac{n}{x^2+n^2}
+\]
+关于 $n$ 单调减少，且 $\sup_{\abs{x}\leqslant M}a_n(x)\leqslant1/n\to0$。由一致的交错级数判别法，第二部分也一致收敛。因此原级数在任意有界闭区间上一致收敛。
+
+通项导数为
+\[
+  \frac{n^2-x^2-2nx(-1)^n}{(x^2+n^2)^2}.
+\]
+当 $\abs{x}\leqslant M$ 且 $n>M$ 时，
+\[
+  \abs{\frac{n^2-x^2-2nx(-1)^n}{(x^2+n^2)^2}}
+  \leqslant\frac{1}{n^2}+\frac{M^2}{n^4}+\frac{2M}{n^3}.
+\]
+右端可求和，故导数级数在任意有界闭区间上一致收敛。由逐项求导定理，和函数在 $\RR$ 上可导，并且
+\[
+  S'(x)=\sum_{n=1}^{\infty}
+  \frac{n^2-x^2-2nx(-1)^n}{(x^2+n^2)^2}.
+\]
+\end{xsolution}
+
+\paragraph{14.2.4 练习题 4}
+\begin{xsolution}
+设 $S_n\to S$ 在 $\RR$ 上一致。给定 $\varepsilon>0$，取 $N$ 使
+\[
+  \sup_{x\in\RR}\abs{S_N(x)-S(x)}<\frac\varepsilon3.
+\]
+由于 $S_N$ 一致连续，存在 $\delta>0$，使 $\abs{x-y}<\delta$ 时
+\[
+  \abs{S_N(x)-S_N(y)}<\frac\varepsilon3.
+\]
+于是
+\[
+\begin{aligned}
+  \abs{S(x)-S(y)}
+  &\leqslant\abs{S(x)-S_N(x)}+\abs{S_N(x)-S_N(y)}+\abs{S_N(y)-S(y)}\\
+  &<\varepsilon.
+\end{aligned}
+\]
+故 $S$ 在 $(-\infty,+\infty)$ 上一致连续。
+\end{xsolution}
+
+\paragraph{14.2.4 练习题 5}
+\begin{xsolution}
+记 $f(x)=\lim_{n\to\infty}f_n(x)$。由局部一致收敛知 $f$ 在 $[a,b)$ 上连续；在端点 $b$ 处即使可能不连续，也不影响 Riemann 可积性。又由 $\abs{f_n(x)}\leqslant g(x)$ 取极限得 $\abs{f(x)}\leqslant g(x)$。因此 $f$ 有界且除至多端点 $b$ 外连续，从而 $f\in R[a,b]$。
+
+设 $M=\sup_{[a,b]}g<\infty$。给定 $\varepsilon>0$，先取 $\delta>0$ 使
+\[
+  2M\delta<\frac\varepsilon2.
+\]
+在闭区间 $[a,b-\delta]$ 上 $f_n\to f$ 一致，因此存在 $N$，使 $n\geqslant N$ 时
+\[
+  \sup_{x\in[a,b-\delta]}\abs{f_n(x)-f(x)}
+  <\frac{\varepsilon}{2(b-a)}.
+\]
+于是
+\[
+\begin{aligned}
+  \abs{\int_a^b(f_n-f)\,\dd x}
+  &\leqslant\int_a^{b-\delta}\abs{f_n-f}\,\dd x
+  +\int_{b-\delta}^b\abs{f_n-f}\,\dd x\\
+  &\leqslant\frac\varepsilon2+2M\delta<\varepsilon.
+\end{aligned}
+\]
+故
+\[
+  \lim_{n\to\infty}\int_a^b f_n(x)\,\dd x
+  =\int_a^b f(x)\,\dd x.
+\]
+\end{xsolution}
+
+\paragraph{14.2.4 练习题 6}
+\begin{xsolution}
+先证必要性。若 $f$ 在 $x_0$ 连续，给定 $\varepsilon>0$。由 $f_n(x_0)\to f(x_0)$，可取 $N$ 使
+\[
+  \abs{f_N(x_0)-f(x_0)}<\frac\varepsilon3.
+\]
+又由 $f_N$ 和 $f$ 在 $x_0$ 连续，可取 $\delta>0$，使 $x\in O_\delta(x_0)$ 时
+\[
+  \abs{f_N(x)-f_N(x_0)}<\frac\varepsilon3,
+  \qquad
+  \abs{f(x)-f(x_0)}<\frac\varepsilon3.
+\]
+故
+\[
+  \abs{f_N(x)-f(x)}<\varepsilon.
+\]
+
+再证充分性。给定 $\varepsilon>0$，由题设取 $\delta_1>0$ 和 $N$，使
+\[
+  \abs{f_N(x)-f(x)}<\frac\varepsilon3,
+  \qquad x\in O_{\delta_1}(x_0).
+\]
+特别在 $x=x_0$ 时也有
+\[
+  \abs{f_N(x_0)-f(x_0)}<\frac\varepsilon3.
+\]
+又因 $f_N$ 在 $x_0$ 连续，可取 $\delta_2>0$，使 $\abs{x-x_0}<\delta_2$ 时
+\[
+  \abs{f_N(x)-f_N(x_0)}<\frac\varepsilon3.
+\]
+取 $\delta=\min(\delta_1,\delta_2)$，则
+\[
+  \abs{f(x)-f(x_0)}<\varepsilon.
+\]
+故 $f$ 在 $x_0$ 连续。
+\end{xsolution}
+
+\paragraph{14.2.4 练习题 7}
+\begin{xsolution}
+若 $f_n\to f$ 一致，且 $x_n\to x_0$，则
+\[
+  \abs{f_n(x_n)-f(x_0)}
+  \leqslant\sup_{[a,b]}\abs{f_n-f}+\abs{f(x_n)-f(x_0)}\to0,
+\]
+其中使用了 $f\in C[a,b]$。故条件必要。
+
+反之，假设不一致收敛，则存在 $\varepsilon_0>0$、严格递增的指标 $n_k$ 和点 $y_k\in[a,b]$，使
+\[
+  \abs{f_{n_k}(y_k)-f(y_k)}\geqslant\varepsilon_0.
+\]
+由 $[a,b]$ 紧致，可取子列仍记为 $y_k$，使 $y_k\to x_0\in[a,b]$。构造数列
+\[
+  x_n=
+  \begin{cases}
+    y_k,&n=n_k,\\
+    x_0,&n\ne n_k.
+  \end{cases}
+\]
+则 $x_n\to x_0$。由题设应有 $f_n(x_n)\to f(x_0)$。特别
+\[
+  f_{n_k}(y_k)\to f(x_0).
+\]
+另一方面 $f(y_k)\to f(x_0)$，故
+\[
+  \abs{f_{n_k}(y_k)-f(y_k)}\to0,
+\]
+与其始终不小于 $\varepsilon_0$ 矛盾。因此必一致收敛。
+\end{xsolution}
+
+\paragraph{14.2.4 练习题 8}
+\begin{xsolution}
+对每个 $n$ 取 $f_n$ 的一个原函数 $F_n$，并用加常数的方法令
+\[
+  F_n(a)=0.
+\]
+由 $f_n\to f$ 一致，导函数列 $\{f_n\}$ 一致满足 Cauchy 条件。对任意 $m,n$，由微分中值定理，
+\[
+  \abs{F_n(x)-F_m(x)}
+  \leqslant(b-a)\sup_{t\in[a,b]}\abs{f_n(t)-f_m(t)}.
+\]
+所以 $\{F_n\}$ 在 $[a,b]$ 上一致 Cauchy，存在一致极限 $F$。
+
+下面证明 $F'=f$。给定 $\varepsilon>0$，取一个固定的 $N$，使
+\[
+  \sup_{[a,b]}\abs{f-f_N}<\varepsilon.
+\]
+对任意 $x,y\in[a,b]$，由中值定理及 $F_m\to F$，
+\[
+\begin{aligned}
+  \abs{[F(y)-F_N(y)]-[F(x)-F_N(x)]}
+  &=\lim_{m\to\infty}\abs{[F_m(y)-F_N(y)]-[F_m(x)-F_N(x)]}\\
+  &\leqslant\varepsilon\abs{y-x}.
+\end{aligned}
+\]
+因此对 $y\ne x$，
+\[
+  \abs{\frac{F(y)-F(x)}{y-x}-\frac{F_N(y)-F_N(x)}{y-x}}
+  \leqslant\varepsilon.
+\]
+令 $y\to x$，并利用 $F_N'(x)=f_N(x)$，再结合 $\abs{f_N(x)-f(x)}<\varepsilon$，可得
+\[
+  \limsup_{y\to x}\abs{\frac{F(y)-F(x)}{y-x}-f(x)}\leqslant2\varepsilon.
+\]
+因 $\varepsilon$ 任意，$F'(x)=f(x)$。故 $f$ 在 $[a,b]$ 上有原函数 $F$。
+\end{xsolution}
+
+\subsection*{14.3.2 思考题}
+
+\paragraph{14.3.2 思考题 1}
+\begin{xsolution}
+设幂级数中心为 $x_0$。既然在 $a,b$ 两点都收敛，则它的收敛区间必包含 $[a,b]$。对任意 $x\in(a,b)$，总可找到端点 $c\in\{a,b\}$ 使
+\[
+  \abs{x-x_0}<\abs{c-x_0},
+\]
+而级数在 $c$ 收敛。由 Abel 第一定理，级数在 $x$ 绝对收敛。因此在 $(a,b)$ 上处处绝对收敛；端点 $a,b$ 处只由题设保证收敛，可能是条件收敛。
+
+再证一致收敛。若 $x_0\in[a,b]$，分别在 $[a,x_0]$ 和 $[x_0,b]$ 应用 Abel 判别法，可得两边均一致收敛；若 $x_0$ 在 $[a,b]$ 外，则取离 $x_0$ 较远的那个端点，级数在从 $x_0$ 到该端点的整个线段上一致收敛，从而在其子区间 $[a,b]$ 上一致收敛。故该级数在 $[a,b]$ 上收敛且一致收敛，并在开区间 $(a,b)$ 上绝对收敛。
+\end{xsolution}
+
+\paragraph{14.3.2 思考题 2}
+\begin{xsolution}
+记
+\[
+  \rho_a=\limsup_{n\to\infty}\sqrt[n]{\abs{a_n}}=\frac1{R_1},
+  \qquad
+  \rho_b=\limsup_{n\to\infty}\sqrt[n]{\abs{b_n}}=\frac1{R_2}.
+\]
+
+对和系数，有
+\[
+  \limsup\sqrt[n]{\abs{a_n+b_n}}
+  \leqslant\max(\rho_a,\rho_b),
+\]
+故
+\[
+  R_{a+b}\geqslant\min(R_1,R_2).
+\]
+若 $R_1\ne R_2$，则实际上必有
+\[
+  R_{a+b}=\min(R_1,R_2).
+\]
+例如若 $R_1<R_2$ 而 $R_{a+b}>R_1$，则
+\[
+  \sum a_nx^n=\sum(a_n+b_n)x^n-\sum b_nx^n
+\]
+将在某个半径大于 $R_1$ 的圆内收敛，矛盾。当 $R_1=R_2$ 时可能发生系数抵消，故半径可以严格增大，甚至变成 $+\infty$，如取 $b_n=-a_n$。
+
+对逐项乘积系数，
+\[
+  \limsup\sqrt[n]{\abs{a_nb_n}}
+  \leqslant\rho_a\rho_b.
+\]
+因此在 $0<R_1,R_2<+\infty$ 时
+\[
+  R_{ab}\geqslant R_1R_2.
+\]
+等号不一定成立。例如令 $a_n$ 只在偶数 $n$ 非零，$b_n$ 只在奇数 $n$ 非零，则 $a_nb_n\equiv0$，乘积幂级数的收敛半径为 $+\infty$。若两个根值极限都存在而不是只有上极限，则通常可直接得到 $R_{ab}=R_1R_2$。当某个半径为 $0$ 或 $+\infty$ 时，应以 $\rho=1/R$ 的上极限形式理解上述结论，避免 $0\cdot\infty$ 的歧义。
+\end{xsolution}
+
+\paragraph{14.3.2 思考题 3}
+\begin{xsolution}
+设 $0<R<+\infty$。已知级数在整个开区间 $(x_0-R,x_0+R)$ 上一致收敛。由一致 Cauchy 条件，对任意 $\varepsilon>0$，存在 $N$，使 $m>n\geqslant N$ 时
+\[
+  \abs{\sum_{k=n}^{m}a_k(x-x_0)^k}<\varepsilon
+\]
+对所有 $\abs{x-x_0}<R$ 同时成立。固定 $m,n$，令 $x\to x_0+R$，由有限和的连续性得
+\[
+  \abs{\sum_{k=n}^{m}a_kR^k}\leqslant\varepsilon.
+\]
+所以 $\sum a_kR^k$ 满足 Cauchy 准则，在右端点收敛。同理令 $x\to x_0-R$，得
+\[
+  \abs{\sum_{k=n}^{m}a_k(-R)^k}\leqslant\varepsilon,
+\]
+故左端点也收敛。因此两个端点 $x=x_0\pm R$ 均收敛。
+\end{xsolution}
+
+\paragraph{14.3.2 思考题 4}
+\begin{xsolution}
+可以。设幂级数的收敛半径为 $R>0$，任取 $0<r<R$。再取 $\rho$ 满足 $r<\rho<R$。因为级数在 $x=x_0+\rho$ 收敛，所以数列 $\{a_n\rho^n\}$ 有界，即存在 $M>0$ 使
+\[
+  \abs{a_n}\rho^n\leqslant M.
+\]
+当 $\abs{x-x_0}\leqslant r$ 时，
+\[
+  \abs{a_n(x-x_0)^n}
+  \leqslant M\left(\frac r\rho\right)^n.
+\]
+右边是收敛几何级数，故由 Weierstrass 判别法，幂级数在每个内闭区间 $[x_0-r,x_0+r]$ 上绝对一致收敛。这正是 Abel 第二定理中“内闭一致收敛”的结论。
+
+若还要处理某个恰好属于收敛域的端点并证明到该端点的一侧一致收敛或和函数连续，则单纯的上述优级数估计一般不够，需要 Abel 变换等更精细的论证。
+\end{xsolution}
+
+\paragraph{14.3.2 思考题 5}
+\begin{xsolution}
+\textbf{(1)} 一般不能无条件写成给出的等式。对 $0<r<R$，逐项积分当然成立：
+\[
+  \int_0^r\left(\sum_{n=0}^{\infty}a_nx^n\right)\dd x
+  =\sum_{n=0}^{\infty}\frac{a_n}{n+1}r^{n+1}.
+\]
+但令 $r\to R-$ 时，左、右两边未必有有限极限。例如取 $a_n=R^{-n}$，则和函数为
+\[
+  \frac1{1-x/R},
+\]
+其在 $[0,R)$ 上的广义积分发散，同时右边变成 $R\sum_{n=0}^{\infty}1/(n+1)$，也发散。因此不能把 $r=R$ 的等式视为无条件成立的有限等式。
+
+\textbf{(2)} 若
+\[
+  \sum_{n=0}^{\infty}\frac{a_n}{n+1}R^{n+1}
+\]
+收敛，则答案为肯定。令
+\[
+  F(r)=\sum_{n=0}^{\infty}\frac{a_n}{n+1}r^{n+1},\qquad 0\leqslant r<R.
+\]
+对 $r<R$ 有
+\[
+  F(r)=\int_0^r\left(\sum_{n=0}^{\infty}a_nx^n\right)\dd x.
+\]
+把 $F$ 看成一个幂级数，其在 $r=R$ 处收敛。由 Abel 第二定理，
+\[
+  \lim_{r\to R-}F(r)
+  =\sum_{n=0}^{\infty}\frac{a_n}{n+1}R^{n+1}.
+\]
+左边正是和函数在 $[0,R)$ 上广义积分的极限。因此此时
+\[
+  \int_0^R\left(\sum_{n=0}^{\infty}a_nx^n\right)\dd x
+  =\sum_{n=0}^{\infty}\frac{a_n}{n+1}R^{n+1}.
+\]
+\end{xsolution}
+
+\paragraph{14.3.2 思考题 6}
+\begin{xsolution}
+令 $y=x^2$。级数
+\[
+  \sum_{n=0}^{\infty}a_nx^{2n}
+  =\sum_{n=0}^{\infty}a_ny^n
+\]
+收敛的条件为 $\abs{y}<R$，即 $\abs{x}<\sqrt R$。故作为关于 $x$ 的幂级数，其收敛半径为
+\[
+  \sqrt R,
+\]
+其中约定 $\sqrt0=0$、$\sqrt{+\infty}=+\infty$。
+\end{xsolution}
+
+\paragraph{14.3.2 思考题 7}
+\begin{xsolution}
+不能由 $\sum a_n$ 发散推出 $\lim_{x\to1-}S(x)$ 不存在。反例取
+\[
+  a_n=(-1)^n.
+\]
+则 $\sum(-1)^n$ 发散，但在 $\abs{x}<1$ 时
+\[
+  S(x)=\sum_{n=0}^{\infty}(-1)^nx^n=\frac1{1+x},
+\]
+所以
+\[
+  \lim_{x\to1-}S(x)=\frac12.
+\]
+
+若 $a_n\geqslant0$ 且 $\sum a_n$ 发散，则
+\[
+  \lim_{x\to1-}S(x)=+\infty.
+\]
+证明如下：给定任意 $M>0$，可取 $N$ 使 $\sum_{n=0}^Na_n>2M$。当 $x$ 充分接近 $1$ 时，$x^n>1/2$ 对 $0\leqslant n\leqslant N$ 同时成立，于是
+\[
+  S(x)\geqslant\sum_{n=0}^Na_nx^n>M.
+\]
+故极限为 $+\infty$，特别不存在有限极限。
+\end{xsolution}
+
+\subsection*{14.3.4 练习题}
+
+\paragraph{14.3.4 练习题 1}
+\begin{xsolution}
+令
+\[
+  y=\frac{1-x}{1+x},
+  \qquad
+  A_n=\frac{1^n+2^n+\cdots+k^n}{n^2}.
+\]
+因为
+\[
+  k^n\leqslant1^n+2^n+\cdots+k^n\leqslant k\,k^n,
+\]
+故
+\[
+  \lim_{n\to\infty}\sqrt[n]{A_n}=k.
+\]
+所以关于 $y$ 的幂级数收敛半径为 $1/k$。当 $y=\pm1/k$ 时，
+\[
+  \abs{A_ny^n}
+  \leqslant\frac{k}{n^2},
+\]
+故两个端点都绝对收敛。因此条件为
+\[
+  \abs{\frac{1-x}{1+x}}\leqslant\frac1k.
+\]
+因 $k>1$，平方化简得
+\[
+  (k^2-1)x^2-2(k^2+1)x+(k^2-1)\leqslant0.
+\]
+两个根为
+\[
+  \frac{k-1}{k+1},\qquad \frac{k+1}{k-1}.
+\]
+故收敛域为
+\[
+  \boxed{\left[\frac{k-1}{k+1},\frac{k+1}{k-1}\right]}.
+\]
+\end{xsolution}
+
+\paragraph{14.3.4 练习题 2}
+\begin{xsolution}
+等差数列可写成
+\[
+  a_n=a_0+nd.
+\]
+若 $d=0$，则 $\sqrt[n]{\abs{a_n}}\to1$；若 $d\ne0$，仍有
+\[
+  \sqrt[n]{\abs{a_0+nd}}\to1.
+\]
+因为 $a_0\ne0$，级数不是恒为零的退化情形。由 Cauchy--Hadamard 公式，
+\[
+  R=\frac1{\limsup\sqrt[n]{\abs{a_n}}}=1.
+\]
+\end{xsolution}
+
+\paragraph{14.3.4 练习题 3}
+\begin{xsolution}
+系数为
+\[
+  c_n=\frac{a^n}{1+a^{2n}}.
+\]
+若 $0<a<1$，则 $c_n\sim a^n$，故 $R=1/a$；若 $a=1$，则 $c_n=1/2$，故 $R=1$；若 $a>1$，则 $c_n\sim a^{-n}$，故 $R=a$。统一写成
+\[
+  \boxed{R=\max\left\{a,\frac1a\right\}}.
+\]
+\end{xsolution}
+
+\paragraph{14.3.4 练习题 4}
+\begin{xsolution}
+记
+\[
+  c_n=\frac{(n!)^k}{(kn)!}.
+\]
+则
+\[
+  \frac{c_n}{c_{n+1}}
+  =\frac{(kn+1)(kn+2)\cdots(kn+k)}{(n+1)^k}	o k^k.
+\]
+所以收敛半径为
+\[
+  R=k^k.
+\]
+
+还需讨论端点。由 Stirling 公式，
+\[
+\begin{aligned}
+  c_n(k^k)^n
+  &=\frac{(n!)^k k^{kn}}{(kn)!}\\
+  &\sim\frac{(2\pi n)^{k/2}(n/\ee)^{kn}k^{kn}}
+  {\sqrt{2\pi kn}(kn/\ee)^{kn}}
+  =\frac{(2\pi n)^{k/2}}{\sqrt{2\pi kn}}.
+\end{aligned}
+\]
+当 $k=1$ 时该量恒为 $1$；当 $k>1$ 时它甚至趋于 $+\infty$。因此在 $x=k^k$ 时通项不趋于 $0$；在 $x=-k^k$ 时通项绝对值相同，也不趋于 $0$。两个端点均发散，故收敛域为
+\[
+  \boxed{(-k^k,k^k)}.
+\]
+\end{xsolution}
+
+\paragraph{14.3.4 练习题 5}
+\begin{xsolution}
+\textbf{(1)} 系数 $a_n=(1+1/n)^{n^2}$ 满足
+\[
+  \sqrt[n]{a_n}=\left(1+\frac1n\right)^n\to\ee,
+\]
+故 $R=\ee^{-1}$。在 $x=\pm\ee^{-1}$ 时，通项绝对值为
+\[
+  \left[\frac{(1+1/n)^n}{\ee}\right]^n.
+\]
+由
+\[
+  n\ln\left(1+\frac1n\right)=1-\frac1{2n}+\bigO\left(\frac1{n^2}\right)
+\]
+知上式趋于 $\ee^{-1/2}\ne0$。故两端点发散，收敛域为
+\[
+  \boxed{(-\ee^{-1},\ee^{-1})}.
+\]
+
+\textbf{(2)} 令
+\[
+  b_n=\frac1{n!}\left(\frac n\ee\right)^n.
+\]
+由 Stirling 公式 $b_n\sim1/\sqrt{2\pi n}$，故收敛半径为 $1$。在 $x=1$ 时原级数为 $\sum(-1)^n b_n$。又
+\[
+  \frac{b_{n+1}}{b_n}=\frac1\ee\left(1+\frac1n\right)^n<1,
+\]
+且 $b_n\to0$，故在 $x=1$ 条件收敛。在 $x=-1$ 时通项变成 $b_n>0$，与 $1/\sqrt n$ 同阶，故发散。因此收敛域为
+\[
+  \boxed{(-1,1]}.
+\]
+
+\textbf{(3)} 系数为
+\[
+  c_n=\frac{a^n+(-b)^n}{n},\qquad a,b>0.
+\]
+无论 $a=b$ 与否，
+\[
+  \limsup\sqrt[n]{\abs{c_n}}=\max(a,b),
+\]
+故 $R=1/\max(a,b)$。
+
+若 $a>b$，在 $x=1/a$ 时通项含有 $1/n$ 的主部，发散；在 $x=-1/a$ 时主部为 $(-1)^n/n$，其余部分绝对收敛，所以条件收敛。故
+\[
+  \boxed{[-1/a,1/a)}.
+\]
+若 $b>a$，结论对称，得到
+\[
+  \boxed{(-1/b,1/b]}.
+\]
+若 $a=b$，系数在偶数项为 $2a^n/n$、奇数项为 $0$，两个端点都含调和子级数而发散，故
+\[
+  \boxed{(-1/a,1/a)}.
+\]
+
+\textbf{(4)}
+\[
+  a_n=\frac{3^{-\sqrt n}}{\sqrt{1+n^2}}
+\]
+满足 $\sqrt[n]{a_n}\to1$，故 $R=1$。在 $x=\pm1$ 时绝对值级数为
+\[
+  \sum_{n=0}^{\infty}\frac{3^{-\sqrt n}}{\sqrt{1+n^2}}.
+\]
+按 $m^2\leqslant n<(m+1)^2$ 分组，每组至多 $2m+1$ 项，且每项为 $\bigO(3^{-m}/m^2)$，所以第 $m$ 组为 $\bigO(3^{-m}/m)$，可求和。因此两端点均绝对收敛，收敛域为
+\[
+  \boxed{[-1,1]}.
+\]
+
+\textbf{(5)} 令 $H_n=1+1/2+\cdots+1/n$。有 $\sqrt[n]{H_n}\to1$，故 $R=1$。在 $x=\pm1$ 时通项绝对值为 $H_n\not\to0$，故两端点发散。因此收敛域为
+\[
+  \boxed{(-1,1)}.
+\]
+
+\textbf{(6)} 通项绝对值为
+\[
+  n^{n^2}\abs{x}^{n^3}
+  =\left(n^{1/n}\abs{x}\right)^{n^3}.
+\]
+因为 $n^{1/n}\to1$，当 $\abs{x}<1$ 时充分大 $n$ 后有 $n^{1/n}\abs{x}<q<1$，故级数快速收敛；当 $\abs{x}\geqslant1$ 时通项不趋于 $0$。故收敛域为
+\[
+  \boxed{(-1,1)}.
+\]
+
+\textbf{(7)} 令 $y=x^2+x+1$。因为
+\[
+  \sin\frac1{3n}\sim\frac1{3n},
+\]
+关于 $y$ 的幂级数收敛半径为 $1$。在 $y=1$ 时与调和级数同阶而发散；在 $y=-1$ 时为交错型而收敛。但对实数 $x$，
+\[
+  y=\left(x+\frac12\right)^2+\frac34>0,
+\]
+所以只需 $y<1$，即
+\[
+  x(x+1)<0.
+\]
+因此收敛域为
+\[
+  \boxed{(-1,0)}.
+\]
+
+\textbf{(8)} 令
+\[
+  y=\frac{x}{3x+1},
+  \qquad
+  c_n=\frac{n-1}{n^2+1}.
+\]
+有 $c_n\sim1/n$，故关于 $y$ 的级数半径为 $1$。$y=1$ 时发散，$y=-1$ 时为交错级数而收敛。于是要求
+\[
+  \abs{\frac{x}{3x+1}}<1
+\]
+或取边界值 $-1$。前一不等式等价于
+\[
+  8x^2+6x+1>0,
+\]
+即 $x<-1/2$ 或 $x>-1/4$。其中 $x=-1/2$ 对应 $y=1$，应排除；$x=-1/4$ 对应 $y=-1$，应加入。因此收敛域为
+\[
+  \boxed{(-\infty,-1/2)\cup[-1/4,+\infty)}.
+\]
+\end{xsolution}
+
+\paragraph{14.3.4 练习题 6}
+\begin{xsolution}
+\textbf{(1)} 级数半径为 $1$，且在 $x=\pm1$ 时由 $1/(n^2-1)$ 的可和性知均绝对收敛，所以收敛域为 $[-1,1]$。利用
+\[
+  \frac1{n^2-1}=\frac12\left(\frac1{n-1}-\frac1{n+1}\right),
+\]
+在 $-1<x\leqslant1$ 内计算
+\[
+\begin{aligned}
+  S(x)
+  &=\frac12x^2\sum_{k=1}^{\infty}\frac{(-1)^{k+1}x^k}{k}
+   -\frac12\sum_{j=3}^{\infty}\frac{(-1)^{j-1}x^j}{j}\\
+  &=\frac12\left[(x^2-1)\ln(1+x)+x-\frac{x^2}{2}\right].
+\end{aligned}
+\]
+该表达式在 $x=-1$ 处取右极限 $-3/4$。因此
+\[
+  \boxed{S(x)=\frac12\left[(x^2-1)\ln(1+x)+x-\frac{x^2}{2}\right]}
+\]
+对 $-1<x\leqslant1$ 成立，并规定 $S(-1)=-3/4$。
+
+\textbf{(2)} 半径为 $1$，且两个端点都绝对收敛，故收敛域为 $[-1,1]$。分解
+\[
+  \frac1{n(2n-1)}=-\frac1n+\frac2{2n-1},
+\]
+得
+\[
+\begin{aligned}
+  S(x)
+  &=-\sum_{n=1}^{\infty}\frac{(-1)^{n-1}x^{2n}}n
+  +2x\sum_{n=1}^{\infty}\frac{(-1)^{n-1}x^{2n-1}}{2n-1}\\
+  &=-\ln(1+x^2)+2x\arctan x.
+\end{aligned}
+\]
+故
+\[
+  \boxed{S(x)=2x\arctan x-\ln(1+x^2),\quad -1\leqslant x\leqslant1}.
+\]
+
+\textbf{(3)} 令 $y=x^2$。级数为
+\[
+  2\sum_{n=1}^{\infty}(-1)^{n-1}y^n
+  +\sum_{n=1}^{\infty}\frac{(-1)^{n-1}y^n}{n}.
+\]
+当 $\abs{x}<1$ 时
+\[
+  \boxed{S(x)=\frac{2x^2}{1+x^2}+\ln(1+x^2)}.
+\]
+在 $x=\pm1$ 时原通项不趋于 $0$，故收敛域为 $(-1,1)$。
+
+\textbf{(4)} 利用
+\[
+  \sum_{n=1}^{\infty}n^2z^n=\frac{z(1+z)}{(1-z)^3},\qquad \abs z<1,
+\]
+取 $z=-x$，得
+\[
+  \boxed{S(x)=-\frac{x(1-x)}{(1+x)^3}},\qquad \abs{x}<1.
+\]
+在 $x=\pm1$ 时通项 $n^2(\pm1)^n$ 不趋于 $0$，故收敛域为 $(-1,1)$。
+
+\textbf{(5)} 当 $\abs{x}<1/\sqrt2$ 时
+\[
+\begin{aligned}
+  S(x)
+  &=4\sum_{n=0}^{\infty}(2x^2)^n-\sum_{n=0}^{\infty}(x^2)^n\\
+  &=\frac4{1-2x^2}-\frac1{1-x^2}
+  =\boxed{\frac{3-2x^2}{(1-2x^2)(1-x^2)}}.
+\end{aligned}
+\]
+在 $x=\pm1/\sqrt2$ 时通项不趋于 $0$，故收敛域为 $(-1/\sqrt2,1/\sqrt2)$。
+
+\textbf{(6)} 令 $y=x-1$。当 $\abs y<1$ 时
+\[
+  \sum_{n=1}^{\infty}ny^n=\frac{y}{(1-y)^2}.
+\]
+故
+\[
+  \boxed{S(x)=\frac{x-1}{(2-x)^2}},
+  \qquad 0<x<2.
+\]
+两个端点处通项不趋于 $0$，所以收敛域恰为 $(0,2)$。
+\end{xsolution}
+
+\paragraph{14.3.4 练习题 7}
+\begin{xsolution}
+级数的收敛半径为 $+\infty$，所以可以在整个实轴上逐项求导四次。得到
+\[
+\begin{aligned}
+  u^{(4)}(x)
+  &=\sum_{n=1}^{\infty}\frac{(4n)(4n-1)(4n-2)(4n-3)}{(4n)!}x^{4n-4}\\
+  &=\sum_{n=1}^{\infty}\frac{x^{4n-4}}{(4n-4)!}
+  =\sum_{m=0}^{\infty}\frac{x^{4m}}{(4m)!}=u(x).
+\end{aligned}
+\]
+故 $u^{(4)}=u$ 在 $(-\infty,+\infty)$ 上成立。
+\end{xsolution}
+
+\paragraph{14.3.4 练习题 8}
+\begin{xsolution}
+记
+\[
+  a_n=\frac{(-1)^n}{(n!)^2 2^{2n}},
+  \qquad J_0(x)=\sum_{n=0}^{\infty}a_nx^{2n}.
+\]
+该幂级数收敛半径为 $+\infty$，故可逐项求导。于是
+\[
+  xJ_0''(x)+J_0'(x)
+  =\sum_{n=1}^{\infty}(2n)^2a_nx^{2n-1}.
+\]
+另一方面
+\[
+  xJ_0(x)=\sum_{n=1}^{\infty}a_{n-1}x^{2n-1}.
+\]
+而
+\[
+  a_{n-1}=-4n^2a_n=-(2n)^2a_n.
+\]
+故每个 $x^{2n-1}$ 的系数相消，得到
+\[
+  xJ_0''+J_0'+xJ_0=0.
+\]
+\end{xsolution}
+
+\paragraph{14.3.4 练习题 9}
+\begin{xsolution}
+\textbf{(1)} 在 $[-1,1]$ 上有
+\[
+  \abs{\frac{x^n}{n^2\ln(1+n)}}
+  \leqslant\frac1{n^2\ln(1+n)}.
+\]
+右端级数收敛，故原级数在 $[-1,1]$ 上绝对一致收敛。每项连续，所以
+\[
+  S\in C[-1,1].
+\]
+
+\textbf{(2)} 在 $(-1,1)$ 内可逐项求导：
+\[
+  S'(x)=\sum_{n=1}^{\infty}\frac{x^{n-1}}{n\ln(1+n)}.
+\]
+在 $x=-1$，右端成为
+\[
+  \sum_{n=1}^{\infty}\frac{(-1)^{n-1}}{n\ln(1+n)},
+\]
+其正项绝对值单调趋于 $0$，故交错收敛。由 Abel 第二定理用于导数幂级数，$S'(x)$ 当 $x\to-1+$ 时有有限极限。于是
+\[
+  S'_+(-1)=\sum_{n=1}^{\infty}\frac{(-1)^{n-1}}{n\ln(1+n)}
+\]
+有限。
+
+在 $x=1$ 的左差商为
+\[
+\begin{aligned}
+  \frac{S(1)-S(x)}{1-x}
+  &=\sum_{n=1}^{\infty}
+    \frac{1-x^n}{(1-x)n^2\ln(1+n)}\\
+  &=\sum_{n=1}^{\infty}
+    \frac{1+x+\cdots+x^{n-1}}{n^2\ln(1+n)}.
+\end{aligned}
+\]
+当 $x\to1-$ 时，各项非负并递增到
+\[
+  \frac1{n\ln(1+n)}.
+\]
+而 $\sum1/[n\ln(1+n)]$ 发散，所以由单调性，对任意 $M$ 均可先取有限个项使极限和超过 $M$，再令 $x$ 足够接近 $1$。因此
+\[
+  S'_-(1)=+\infty.
+\]
+\end{xsolution}
+
+\paragraph{14.3.4 练习题 10}
+\begin{xsolution}
+令 $y=2x$，则
+\[
+  f(x)=\sum_{n=1}^{\infty}\frac{y^n}{n^2}.
+\]
+在 $\abs y\leqslant1$ 上由 $\sum1/n^2$ 控制，故在 $[-1/2,1/2]$ 上绝对一致收敛，从而连续。
+
+在 $\abs{x}<1/2$ 时可逐项求导：
+\[
+  f'(x)=\sum_{n=1}^{\infty}\frac{2^n}{n}x^{n-1}.
+\]
+在 $x=-1/2$ 处导数级数为
+\[
+  2\sum_{n=1}^{\infty}\frac{(-1)^{n-1}}n=2\ln2,
+\]
+由 Abel 定理可知右导数存在且等于 $2\ln2$。故 $f$ 在 $[-1/2,1/2)$ 上可导。
+
+在 $x=1/2$ 处，左差商为
+\[
+  \frac{f(1/2)-f(x)}{1/2-x}
+  =2\sum_{n=1}^{\infty}\frac{1-(2x)^n}{(1-2x)n^2}.
+\]
+当 $x\to1/2-$ 时第 $n$ 项增至 $2/n$，而调和级数发散。因此
+\[
+  f'_-(1/2)=+\infty,
+\]
+故在 $x=1/2$ 处不存在有限导数。
+\end{xsolution}
+
+\paragraph{14.3.4 练习题 11}
+\begin{xsolution}
+在 $0<x<1$，逐项求导得
+\[
+  f'(x)=\sum_{n=1}^{\infty}\frac{x^{n-1}}n
+  =-\frac{\ln(1-x)}x.
+\]
+令
+\[
+  F(x)=f(x)+f(1-x)+\ln x\ln(1-x).
+\]
+则
+\[
+\begin{aligned}
+  F'(x)
+  &=-\frac{\ln(1-x)}x
+  +\frac{\ln x}{1-x}
+  +\frac{\ln(1-x)}x-\frac{\ln x}{1-x}=0.
+\end{aligned}
+\]
+故 $F$ 在 $(0,1)$ 上为常数。令 $x\to0+$，利用
+\[
+  f(0)=0,\qquad f(1)=\sum_{n=1}^{\infty}\frac1{n^2}=\frac{\pi^2}{6},
+  \qquad \ln x\ln(1-x)\to0,
+\]
+得到该常数为 $\pi^2/6$。因此
+\[
+  \boxed{f(x)+f(1-x)+\ln x\ln(1-x)=\frac{\pi^2}{6}},
+  \qquad0<x<1.
+\]
+\end{xsolution}
+
+\paragraph{14.3.4 练习题 12}
+\begin{xsolution}
+任取有界闭区间 $K=[-M,M]$。由于原幂级数收敛半径为 $+\infty$，部分和 $S_n\to S$ 在 $K$ 上一致。于是存在 $L>0$ 和 $N$，使对 $n\geqslant N$ 及 $x\in K$，
+\[
+  \abs{S_n(x)}\leqslant L,
+  \qquad \abs{S(x)}\leqslant L.
+\]
+函数 $S$ 在整个实轴连续，故在 $[-L,L]$ 上一致连续。于是给定 $\varepsilon>0$，可取 $\delta>0$，使 $u,v\in[-L,L]$ 且 $\abs{u-v}<\delta$ 时
+\[
+  \abs{S(u)-S(v)}<\varepsilon.
+\]
+再由 $S_n\to S$ 在 $K$ 上一致，充分大 $n$ 时
+\[
+  \sup_{x\in K}\abs{S_n(x)-S(x)}<\delta.
+\]
+因此
+\[
+  \sup_{x\in K}\abs{S(S_n(x))-S(S(x))}<\varepsilon.
+\]
+所以 $S\circ S_n\to S\circ S$ 在任意有界闭区间上一致，即在 $\RR$ 上内闭一致收敛。
+\end{xsolution}
+
+\paragraph{14.3.4 练习题 13}
+\begin{xsolution}
+记
+\[
+  A(x)=\sum_{n=0}^{\infty}a_nx^n,
+  \qquad
+  B(x)=\sum_{n=0}^{\infty}S_nx^n,
+  \qquad S_n=\sum_{k=0}^na_k.
+\]
+
+\textbf{(1)} 由 $a_n=S_n-S_{n-1}$（约定 $S_{-1}=0$），形式上有
+\[
+  A(x)=(1-x)B(x).
+\]
+若 $B$ 在 $\abs{x}<r$ 收敛，则 $A=(1-x)B$ 也在那里收敛，所以 $R_A\geqslant R_B$。
+
+反过来，因为 $\sum a_n$ 在 $x=1$ 发散，所以 $R_A\leqslant1$；否则若 $R_A>1$，则在 $x=1$ 绝对收敛，矛盾。对任意 $\abs{x}<R_A\leqslant1$，
+\[
+  \frac{A(x)}{1-x}=A(x)\sum_{j=0}^{\infty}x^j
+\]
+为两个绝对收敛级数的 Cauchy 乘积，其 $x^n$ 系数正是 $S_n$。因此 $B$ 在 $\abs{x}<R_A$ 收敛，故 $R_B\geqslant R_A$。综上
+\[
+  \boxed{R_A=R_B}.
+\]
+
+\textbf{(2)} 现设 $a_n\geqslant0$ 且 $a_n/S_n\to0$。由 $\sum a_n$ 发散，$S_n\to+\infty$。并且
+\[
+  \frac{S_n}{S_{n-1}}
+  =\frac1{1-a_n/S_n}\to1.
+\]
+因此
+\[
+  \sqrt[n]{S_n}\to1.
+\]
+例如取对数后用 Cesàro 平均即可得到这一结论。又 $0\leqslant a_n\leqslant S_n$，所以
+\[
+  \limsup\sqrt[n]{a_n}\leqslant1,
+\]
+从而 $R_A\geqslant1$。另一方面，若 $R_A>1$，则 $\sum a_n$ 在 $x=1$ 收敛，与题设矛盾。因此
+\[
+  \boxed{R_A=1}.
+\]
+\end{xsolution}
+
+\subsection*{14.4.4 练习题}
+
+\paragraph{14.4.4 练习题 1}
+\begin{xsolution}
+分别作几何级数展开。
+
+按 $x$ 的乘幂展开：
+\[
+  \frac1{a-x}=\frac1a\frac1{1-x/a}
+  =\sum_{n=0}^{\infty}\frac{x^n}{a^{n+1}},
+  \qquad \abs{x}<\abs a.
+\]
+
+按 $x-b$ 的乘幂展开。若 $a\ne b$，则
+\[
+  \frac1{a-x}
+  =\frac1{a-b}\frac1{1-(x-b)/(a-b)}
+  =\sum_{n=0}^{\infty}\frac{(x-b)^n}{(a-b)^{n+1}},
+\]
+成立范围为
+\[
+  \abs{x-b}<\abs{a-b}.
+\]
+若 $a=b$，函数在展开点有极点，不存在通常意义下关于 $x-b$ 的幂级数展开式。
+
+按 $1/x$ 的乘幂展开：
+\[
+  \frac1{a-x}
+  =-\frac1x\frac1{1-a/x}
+  =-\sum_{n=0}^{\infty}\frac{a^n}{x^{n+1}},
+  \qquad \abs{x}>\abs a.
+\]
+\end{xsolution}
+
+\paragraph{14.4.4 练习题 2}
+\begin{xsolution}
+令
+\[
+  z=\frac{x-1}{x+1}.
+\]
+则
+\[
+  x=\frac{1+z}{1-z}.
+\]
+对于 $x>0$ 有 $\abs z<1$，于是
+\[
+\begin{aligned}
+  \ln x
+  &=\ln(1+z)-\ln(1-z)\\
+  &=2\sum_{n=0}^{\infty}\frac{z^{2n+1}}{2n+1}.
+\end{aligned}
+\]
+所以
+\[
+  \boxed{
+  \ln x=2\sum_{n=0}^{\infty}\frac1{2n+1}
+  \left(\frac{x-1}{x+1}\right)^{2n+1}},
+  \qquad x>0.
+\]
+\end{xsolution}
+
+\paragraph{14.4.4 练习题 3}
+\begin{xsolution}
+由导函数序列在 $(-a,a)$ 上一致有界，存在 $M>0$，使
+\[
+  \abs{f^{(n)}(x)}\leqslant M,
+  \qquad x\in(-a,a),\quad n=0,1,2,\ldots.
+\]
+固定 $x\in(-a,a)$。在 $0$ 与 $x$ 之间应用 Taylor 公式的 Lagrange 余项，
+\[
+  f(x)=\sum_{k=0}^{n}\frac{f^{(k)}(0)}{k!}x^k+r_n(x),
+\]
+且
+\[
+  \abs{r_n(x)}
+  \leqslant M\frac{\abs{x}^{n+1}}{(n+1)!}\to0.
+\]
+因此对每个 $x\in(-a,a)$，
+\[
+  f(x)=\sum_{k=0}^{\infty}\frac{f^{(k)}(0)}{k!}x^k.
+\]
+故 $f$ 在 $(-a,a)$ 上可展开为其 Maclaurin 级数。
+\end{xsolution}
+
+\paragraph{14.4.4 练习题 4}
+\begin{xsolution}
+由导函数列在整个实轴上一致有界，存在 $M>0$，使
+\[
+  \abs{f^{(n)}(x)}\leqslant M
+\]
+对一切 $x\in\RR$ 和 $n\geqslant0$ 成立。与上一题相同，Taylor 余项满足
+\[
+  \abs{r_n(x)}\leqslant M\frac{\abs{x}^{n+1}}{(n+1)!}\to0,
+\]
+所以 $f$ 在整个实轴上等于其 Maclaurin 级数：
+\[
+  f(x)=\sum_{m=0}^{\infty}c_mx^m,
+  \qquad c_m=\frac{f^{(m)}(0)}{m!}.
+\]
+
+若 $f$ 不恒为 $0$，设 $m$ 是最小的使 $c_m\ne0$ 的整数，则
+\[
+  f(x)=x^m\bigl(c_m+xg(x)\bigr)
+\]
+在 $0$ 的某个邻域成立，其中 $g$ 连续。于是可取 $\delta>0$，使 $0<\abs{x}<\delta$ 时
+\[
+  \abs{xg(x)}<\frac{\abs{c_m}}2,
+\]
+从而 $c_m+xg(x)\ne0$，即 $f(x)\ne0$。这与存在正数列 $x_n\to0$ 且 $f(x_n)=0$ 矛盾。因此
+\[
+  \boxed{f(x)\equiv0}.
+\]
+\end{xsolution}
+
+\paragraph{14.4.4 练习题 5}
+\begin{xsolution}
+\textbf{(1)}
+\[
+  \sqrt{4-x}=2\left(1-\frac x4\right)^{1/2}
+  =2\sum_{n=0}^{\infty}{1/2\choose n}\left(-\frac x4\right)^n.
+\]
+二项式级数在本题中于两端点也收敛，因此成立范围为
+\[
+  \boxed{-4\leqslant x\leqslant4}.
+\]
+
+\textbf{(2)} 对 $a>0$，
+\[
+  a^x=\ee^{x\ln a}
+  =\boxed{\sum_{n=0}^{\infty}\frac{(\ln a)^n}{n!}x^n},
+  \qquad x\in\RR.
+\]
+
+\textbf{(3)} 因
+\[
+  1+3x+2x^2=(1+x)(1+2x),
+\]
+所以在两展开式同时成立的范围内
+\[
+\begin{aligned}
+  \ln(1+3x+2x^2)
+  &=\ln(1+x)+\ln(1+2x)\\
+  &=\sum_{n=1}^{\infty}\frac{(-1)^{n-1}(1+2^n)}n x^n.
+\end{aligned}
+\]
+收敛半径由较近的奇点 $x=-1/2$ 决定，为 $1/2$。在 $x=1/2$ 时两对数级数均收敛，在 $x=-1/2$ 时函数本身无定义。因此成立范围为
+\[
+  \boxed{-\frac12<x\leqslant\frac12}.
+\]
+
+\textbf{(4)} 对 $\abs{x}<1$，利用正切倍角公式，
+\[
+  \arctan\frac{2x}{1-x^2}=2\arctan x,
+\]
+因为两边均在 $x=0$ 处取 $0$ 且在 $(-1,1)$ 上连续。故
+\[
+  \boxed{
+  \arctan\frac{2x}{1-x^2}
+  =2\sum_{n=0}^{\infty}\frac{(-1)^n}{2n+1}x^{2n+1}},
+  \qquad -1<x<1.
+\]
+端点 $x=\pm1$ 处原函数中的分式无定义。
+
+\textbf{(5)}
+\[
+  1+x+x^2+x^3+x^4=\frac{1-x^5}{1-x},
+\]
+所以
+\[
+  \frac1{1+x+x^2+x^3+x^4}
+  =\frac{1-x}{1-x^5}
+  =\boxed{\sum_{n=0}^{\infty}(x^{5n}-x^{5n+1})},
+\]
+成立于
+\[
+  \boxed{\abs{x}<1}.
+\]
+在 $x=\pm1$ 时右边级数的通项不趋于 $0$。
+
+\textbf{(6)} 由 Cauchy 乘积，
+\[
+\begin{aligned}
+  \frac{\ee^{x^2}}{1-x^2}
+  &=\left(\sum_{k=0}^{\infty}\frac{x^{2k}}{k!}\right)
+    \left(\sum_{j=0}^{\infty}x^{2j}\right)\\
+  &=\boxed{\sum_{n=0}^{\infty}\left(\sum_{k=0}^{n}\frac1{k!}\right)x^{2n}},
+\end{aligned}
+\]
+成立范围由 $1/(1-x^2)$ 的极点决定，为
+\[
+  \boxed{\abs{x}<1}.
+\]
+
+\textbf{(7)} 先有
+\[
+  \frac{\ee^x-1}{x}=\sum_{n=0}^{\infty}\frac{x^n}{(n+1)!},
+\]
+整个实轴上成立。逐项求导得
+\[
+  \boxed{
+  \frac{\dd}{\dd x}\left(\frac{\ee^x-1}{x}\right)
+  =\sum_{n=0}^{\infty}\frac{n+1}{(n+2)!}x^n},
+  \qquad x\in\RR,
+\]
+其中左边在 $x=0$ 按可去间断的延拓理解。
+
+\textbf{(8)}
+\[
+  \frac{1-\cos t}{t^2}
+  =\sum_{n=1}^{\infty}\frac{(-1)^{n+1}}{(2n)!}t^{2n-2},
+\]
+该级数处处收敛。逐项积分得到
+\[
+  \boxed{
+  \int_0^x\frac{1-\cos t}{t^2}\,\dd t
+  =\sum_{n=1}^{\infty}
+  \frac{(-1)^{n+1}}{(2n)!(2n-1)}x^{2n-1}},
+  \qquad x\in\RR.
+\]
+\end{xsolution}
+
+\paragraph{14.4.4 练习题 6}
+\begin{xsolution}
+\textbf{(1)} 令 $y=x-2$，则
+\[
+  \frac1{3+x}=\frac1{5+y}
+  =\boxed{\frac15\sum_{n=0}^{\infty}\left(-\frac y5\right)^n},
+  \qquad \abs{y}<5.
+\]
+即 $\abs{x-2}<5$。
+
+\textbf{(2)} 令 $y=x+1$。有
+\[
+  3+2x+x^2=2+y^2,
+\]
+故
+\[
+\begin{aligned}
+  \ln\frac1{3+2x+x^2}
+  &=-\ln(2+y^2)\\
+  &=-\ln2-\ln\left(1+\frac{y^2}{2}\right)\\
+  &=\boxed{-\ln2+
+  \sum_{n=1}^{\infty}\frac{(-1)^n}{n2^n}y^{2n}}.
+\end{aligned}
+\]
+在 $y=\pm\sqrt2$ 时是交错调和型级数，也收敛，故成立范围为
+\[
+  \boxed{\abs{x+1}\leqslant\sqrt2}.
+\]
+
+\textbf{(3)} 令 $y=x-3$。则
+\[
+  \ln x=\ln3+\ln\left(1+\frac y3\right)
+  =\boxed{\ln3+
+  \sum_{n=1}^{\infty}\frac{(-1)^{n-1}}{n3^n}y^n}.
+\]
+在 $y=3$ 即 $x=6$ 时收敛，在 $y=-3$ 即 $x=0$ 时函数无定义且级数发散，故成立范围为
+\[
+  \boxed{0<x\leqslant6}.
+\]
+
+\textbf{(4)} 令 $y=x-1$。则
+\[
+  \frac{x-1}{x+1}=\frac y{2+y}
+  =\frac y2\frac1{1+y/2}
+  =\boxed{\sum_{n=1}^{\infty}(-1)^{n-1}\frac{y^n}{2^n}},
+\]
+成立于
+\[
+  \boxed{\abs{x-1}<2}.
+\]
+
+\textbf{(5)} 令 $y=x-\pi/6$。利用加法公式，
+\[
+  \sin x=\frac12\cos y+\frac{\sqrt3}{2}\sin y.
+\]
+所以
+\[
+  \boxed{
+  \sin x=
+  \frac12\sum_{n=0}^{\infty}\frac{(-1)^n y^{2n}}{(2n)!}
+  +\frac{\sqrt3}{2}\sum_{n=0}^{\infty}\frac{(-1)^n y^{2n+1}}{(2n+1)!}},
+\]
+对所有 $y\in\RR$ 成立，即成立范围为整个实轴。
+\end{xsolution}
+
+\subsection*{14.5.2 第一组参考题}
+
+\paragraph{第一组参考题 1}
+\begin{xsolution}
+取 Dirichlet 函数
+\[
+  D(x)=
+  \begin{cases}
+    1,&x\in\QQ,\\
+    0,&x\notin\QQ,
+  \end{cases}
+  \qquad x\in[0,1],
+\]
+并令
+\[
+  S_n(x)=\frac1nD(x).
+\]
+由于有理数与无理数在任一区间中都稠密，每个 $S_n$ 在 $[0,1]$ 上处处不连续。但
+\[
+  \sup_{x\in[0,1]}\abs{S_n(x)}=\frac1n\to0,
+\]
+所以 $S_n$ 在 $[0,1]$ 上一致收敛于连续函数 $0$。
+\end{xsolution}
+
+\paragraph{第一组参考题 2}
+\begin{xsolution}
+对任意整数 $k\geqslant0$，形式逐项求导得到
+\[
+  \boxed{
+  \zeta^{(k)}(x)=(-1)^k
+  \sum_{n=1}^{\infty}\frac{(\ln n)^k}{n^x}},
+  \qquad x>1.
+\]
+下面证明逐项求导合法。任取内闭区间 $[1+\delta,M]\subset(1,+\infty)$，其中 $\delta>0$。对 $x$ 在该区间中，
+\[
+  \frac{(\ln n)^k}{n^x}
+  \leqslant\frac{(\ln n)^k}{n^{1+\delta}}.
+\]
+而级数
+\[
+  \sum_{n=2}^{\infty}\frac{(\ln n)^k}{n^{1+\delta}}
+\]
+由积分判别法收敛。因此任意阶导数所成级数都在每个内闭区间上一致收敛。逐次使用函数项级数逐项求导定理，即得上述公式，并说明 $\zeta$ 在 $(1,+\infty)$ 上无限次可微。
+\end{xsolution}
+
+\paragraph{第一组参考题 3}
+\begin{xsolution}
+设 Dirichlet 级数
+\[
+  \sum_{n=1}^{\infty}\frac{a_n}{n^x}
+\]
+在 $x=x_2$ 收敛。若 $x>x_2$，写成
+\[
+  \sum_{n=1}^{\infty}\left(\frac{a_n}{n^{x_2}}\right)
+  \frac1{n^{x-x_2}}.
+\]
+第一因子所成级数收敛，第二因子关于 $n$ 单调趋于 $0$，故由 Dirichlet--Abel 判别法，该级数在每个 $x>x_2$ 也收敛。
+
+同理，若级数在 $x=x_1$ 发散，则它不可能在任何 $x<x_1$ 收敛；否则由上一段会推出它在 $x_1$ 收敛。
+
+因此收敛点集具有“向右封闭”的形状。定义
+\[
+  r=\inf\left\{x\in\RR:\sum_{n=1}^{\infty}\frac{a_n}{n^x}
+  \text{ 收敛}\right\}.
+\]
+题设给出了一个发散点 $x_1$ 和一个收敛点 $x_2$，故 $r$ 为有限实数，并有
+\[
+  x<r\Longrightarrow\text{发散},
+  \qquad
+  x>r\Longrightarrow\text{收敛}.
+\]
+在边界点 $x=r$ 本题不作断言，既可能收敛也可能发散。
+\end{xsolution}
+
+\paragraph{第一组参考题 4}
+\begin{xsolution}
+若 $S_n(x)=x^nf(x)$ 在 $[0,1]$ 上一致收敛，则其极限函数连续。对 $0\leqslant x<1$，有 $x^nf(x)\to0$；而在 $x=1$ 处极限为 $f(1)$。连续性迫使 $f(1)=0$。
+
+反过来设 $f(1)=0$。给定 $\varepsilon>0$。由 $f$ 在 $1$ 处连续，可取 $\delta\in(0,1)$，使 $1-\delta<x\leqslant1$ 时
+\[
+  \abs{f(x)}<\varepsilon.
+\]
+在 $[0,1-\delta]$ 上，设 $\abs{f(x)}\leqslant M$，则
+\[
+  \abs{x^nf(x)}\leqslant M(1-\delta)^n\to0
+\]
+一致成立。故充分大的 $n$ 时，在前一段误差小于 $\varepsilon$，后一段由 $\abs{x^nf(x)}\leqslant\abs{f(x)}<\varepsilon$。所以 $S_n\to0$ 在 $[0,1]$ 上一致收敛。
+
+因此充分必要条件是
+\[
+  \boxed{f(1)=0}.
+\]
+\end{xsolution}
+
+\paragraph{第一组参考题 5}
+\begin{xsolution}
+各项函数
+\[
+  f_n(x)=\frac{\abs{x-r_n}}{3^n}
+\]
+满足 $\abs{f_n(x)}\leqslant3^{-n}$，故级数在 $[0,1]$ 上一致收敛。每项连续，所以和函数 $f$ 处处连续。
+
+若 $x_0$ 为无理数，则 $x_0\ne r_n$ 对所有 $n$。对 $h\ne0$，
+\[
+  \abs{
+  \frac{\abs{x_0+h-r_n}-\abs{x_0-r_n}}h}
+  \leqslant1.
+\]
+因此差商级数的第 $n$ 项绝对值不超过 $3^{-n}$。对每个固定 $n$，当 $h\to0$ 时差商趋于
+\[
+  \operatorname{sgn}(x_0-r_n).
+\]
+由一致控制可交换极限与求和，得到
+\[
+  f'(x_0)=\sum_{n=1}^{\infty}
+  \frac{\operatorname{sgn}(x_0-r_n)}{3^n}.
+\]
+故每个无理点处可微。
+
+若 $x_0=r_m$ 为有理点，把第 $m$ 项分离：
+\[
+  f(x)=\frac{\abs{x-r_m}}{3^m}+g(x).
+\]
+由上述同样的控制论证，$g$ 在 $r_m$ 可微。于是
+\[
+  f'_+(r_m)=g'(r_m)+3^{-m},
+  \qquad
+  f'_-(r_m)=g'(r_m)-3^{-m}.
+\]
+左右导数不同，因此在每个有理点处不可微。
+\end{xsolution}
+
+\paragraph{第一组参考题 6}
+\begin{xsolution}
+因为 $f$ 不恒为 $0$，存在 $x_0\in(0,1]$ 使 $f(x_0)\ne0$。由
+\[
+  f^{(j)}(0)=0,
+  \qquad j=0,1,2,\ldots,
+\]
+对每个正整数 $n$ 在 $0$ 与 $x_0$ 之间使用 Taylor 公式的 Lagrange 余项，可得某个 $\xi_n\in(0,x_0)$，使
+\[
+  f(x_0)=\frac{f^{(n)}(\xi_n)}{n!}x_0^n.
+\]
+因此
+\[
+  \sup_{x\in[0,1]}\abs{f^{(n)}(x)}
+  \geqslant\frac{n!\abs{f(x_0)}}{x_0^n}
+  \geqslant n!\abs{f(x_0)}.
+\]
+由 $a_nf^{(n)}\to0$ 在 $[0,1]$ 上一致，
+\[
+  \abs{a_n}\sup_{[0,1]}\abs{f^{(n)}}\to0.
+\]
+故
+\[
+  n!\abs{a_n}\abs{f(x_0)}\to0,
+\]
+即
+\[
+  \boxed{n!a_n\to0}.
+\]
+\end{xsolution}
+
+\paragraph{第一组参考题 7}
+\begin{xsolution}
+定义在 $\abs{x}<1$ 上的幂级数
+\[
+  A(x)=\sum_{n=1}^{\infty}a_nx^n,
+  \qquad
+  B(x)=\sum_{n=1}^{\infty}b_nx^n.
+\]
+由于原数项级数收敛，系数序列有界，所以这两个幂级数在 $\abs{x}<1$ 绝对收敛。其乘积可按 Cauchy 乘积计算：
+\[
+  A(x)B(x)=\sum_{n=1}^{\infty}c_nx^n=:C(x),
+  \qquad \abs{x}<1.
+\]
+题设又知数项级数 $\sum c_n$ 收敛。由 Abel 第二定理，
+\[
+  \lim_{x\to1-}A(x)=A,
+  \qquad
+  \lim_{x\to1-}B(x)=B,
+  \qquad
+  \lim_{x\to1-}C(x)=C.
+\]
+在恒等式 $C(x)=A(x)B(x)$ 中令 $x\to1-$，得到
+\[
+  \boxed{C=AB}.
+\]
+\end{xsolution}
+
+\paragraph{第一组参考题 8}
+\begin{xsolution}
+\textbf{(1)} 先记
+\[
+  F(x)=\frac12(\arcsin x)^2.
+\]
+由 $F'(x)=\arcsin x/\sqrt{1-x^2}$ 可直接验证
+\[
+  (1-x^2)F''(x)-xF'(x)=1.
+\]
+设 $F(x)=\sum_{n=1}^{\infty}c_nx^{2n}$。比较系数可得
+\[
+  c_1=\frac12,
+  \qquad
+  c_n=\frac{(2n-2)^2}{(2n)(2n-1)}c_{n-1},\quad n\geqslant2.
+\]
+归纳得到
+\[
+  c_n=\frac{4^{n-1}}{n^2{2n\choose n}}.
+\]
+因此
+\[
+  \frac12(\arcsin x)^2
+  =\frac14\sum_{n=1}^{\infty}
+  \frac{4^n}{n^2{2n\choose n}}x^{2n}.
+\]
+逐项求导，得到
+\[
+  \boxed{
+  \frac{\arcsin x}{\sqrt{1-x^2}}
+  =\sum_{n=1}^{\infty}
+  \frac{2^{2n-1}}{n{2n\choose n}}x^{2n-1}},
+  \qquad \abs{x}<1.
+\]
+这就是第 (1) 式。
+
+\textbf{(2)} 再令
+\[
+  G(x)=\frac12\operatorname{arsinh}^2x
+  =\frac12\ln^2(x+\sqrt{1+x^2}).
+\]
+因 $G'(x)=\operatorname{arsinh}x/\sqrt{1+x^2}$，可验证
+\[
+  (1+x^2)G''(x)+xG'(x)=1.
+\]
+相同的系数递推只多出交错符号，故
+\[
+  G(x)=\frac14\sum_{n=1}^{\infty}
+  (-1)^{n-1}\frac{4^n}{n^2{2n\choose n}}x^{2n}.
+\]
+逐项求导得到第 (2) 式：
+\[
+  \boxed{
+  \frac{\ln(x+\sqrt{1+x^2})}{\sqrt{1+x^2}}
+  =\sum_{n=1}^{\infty}
+  (-1)^{n-1}\frac{2^{2n-1}}{n{2n\choose n}}x^{2n-1}},
+  \qquad \abs{x}<1.
+\]
+
+\textbf{(3)} 第 (3) 式由 $2F(x)/x^2$ 直接得到：
+\[
+  \boxed{
+  \left(\frac{\arcsin x}{x}\right)^2
+  =\frac12\sum_{n=1}^{\infty}
+  \frac{4^n}{n^2{2n\choose n}}x^{2n-2}}.
+\]
+利用 ${2n\choose n}\sim4^n/\sqrt{\pi n}$，端点 $x=\pm1$ 时系数绝对值为 $\bigO(n^{-3/2})$，故该展开式在 $[-1,1]$ 上成立；$x=0$ 取极限值 $1$。
+\end{xsolution}
+
+\paragraph{第一组参考题 9}
+\begin{xsolution}
+由于 $a_n\to L$，数列 $\{a_n\}$ 有界，所以
+\[
+  f(x)=\sum_{n=1}^{\infty}a_nx^n
+\]
+在 $\abs{x}<1$ 绝对收敛。
+
+写 $a_n=L+b_n$，其中 $b_n\to0$。则
+\[
+  (1-x)f(x)=Lx+(1-x)\sum_{n=1}^{\infty}b_nx^n.
+\]
+只需证明后一项趋于 $0$。给定 $\varepsilon>0$，取 $N$ 使 $n>N$ 时 $\abs{b_n}<\varepsilon$。于是
+\[
+\begin{aligned}
+  (1-x)\abs{\sum_{n=1}^{\infty}b_nx^n}
+  &\leqslant(1-x)\sum_{n=1}^{N}\abs{b_n}x^n
+  +(1-x)\sum_{n>N}\varepsilon x^n\\
+  &\leqslant(1-x)C_N+\varepsilon x^{N+1}.
+\end{aligned}
+\]
+令 $x\to1-$，右端上极限不超过 $\varepsilon$。因 $\varepsilon$ 任意，第二项趋于 $0$。故
+\[
+  \boxed{\lim_{x\to1-}(1-x)f(x)=L}.
+\]
+\end{xsolution}
+
+\paragraph{第一组参考题 10}
+\begin{xsolution}
+由在整个实轴上一致收敛，$\{P_n\}$ 一致满足 Cauchy 条件。因此存在 $N$，使 $n,m\geqslant N$ 时
+\[
+  \sup_{x\in\RR}\abs{P_n(x)-P_m(x)}<1.
+\]
+于是多项式 $P_n-P_m$ 在整个实轴上有界。非恒定多项式在实轴上必无界，所以 $P_n-P_m$ 必为常数。
+
+固定 $m=N$，可写
+\[
+  P_n(x)=P_N(x)+c_n,
+  \qquad n\geqslant N.
+\]
+任取一个 $x_0$，由 $P_n(x_0)$ 收敛可知常数数列 $c_n$ 收敛于某个 $c$。因此
+\[
+  P(x)=P_N(x)+c,
+\]
+故 $P$ 是多项式。
+\end{xsolution}
+
+\paragraph{第一组参考题 11}
+\begin{xsolution}
+任选 $D+1$ 个互异点
+\[
+  0\leqslant x_0<x_1<\cdots<x_D\leqslant1.
+\]
+写
+\[
+  P_n(x)=\sum_{j=0}^{D}a_{n,j}x^j.
+\]
+由逐点收敛，向量
+\[
+  \bigl(P_n(x_0),\ldots,P_n(x_D)\bigr)
+\]
+收敛。它与系数向量 $\bigl(a_{n,0},\ldots,a_{n,D}\bigr)$ 之间由固定的 Vandermonde 矩阵联系。该矩阵可逆，因此每个系数数列 $a_{n,j}$ 都收敛于某个 $a_j$。
+
+令
+\[
+  P(x)=\sum_{j=0}^{D}a_jx^j.
+\]
+则
+\[
+  \sup_{x\in[0,1]}\abs{P_n(x)-P(x)}
+  \leqslant\sum_{j=0}^{D}\abs{a_{n,j}-a_j}\to0.
+\]
+所以 $P_n$ 在 $[0,1]$ 上一致收敛。
+\end{xsolution}
+
+\paragraph{第一组参考题 12}
+\begin{xsolution}
+设
+\[
+  f(x)=\sum_{n=0}^{\infty}a_nx^n
+\]
+在整个实轴上成立，其部分和记为 $P_N(x)$。若该幂级数在 $\RR$ 上一致收敛，则多项式序列 $\{P_N\}$ 在 $\RR$ 上一致收敛于 $f$。由上一题的同类结论（更直接地用第一组参考题 10），$f$ 必为多项式。
+
+反之，若 $f$ 是多项式，则由 Maclaurin 展开的惟一性，只有有限个 $a_n$ 非零。此时部分和从某项起恒等于 $f$，当然在整个实轴上一致收敛。
+
+故充分必要条件为
+\[
+  \boxed{f\text{ 是多项式}}.
+\]
+\end{xsolution}
+
+\paragraph{第一组参考题 13}
+\begin{xsolution}
+由二项式系数
+\[
+  C(a)={a\choose2003}.
+\]
+因为 $2003$ 为奇数，
+\[
+\begin{aligned}
+  C(-y-1)
+  &={-y-1\choose2003}\\
+  &=-\frac{(y+1)(y+2)\cdots(y+2003)}{2003!}.
+\end{aligned}
+\]
+记
+\[
+  P(y)=\frac{(y+1)(y+2)\cdots(y+2003)}{2003!}.
+\]
+则
+\[
+  \frac{P'(y)}{P(y)}
+  =\sum_{j=1}^{2003}\frac1{y+j}.
+\]
+所以被积函数正好为 $-P'(y)$。于是
+\[
+\begin{aligned}
+  \int_0^1 C(-y-1)
+  \left(\sum_{j=1}^{2003}\frac1{y+j}\right)\dd y
+  &=-\int_0^1P'(y)\,\dd y\\
+  &=P(0)-P(1).
+\end{aligned}
+\]
+而
+\[
+  P(0)=1,
+  \qquad
+  P(1)=\frac{2\cdot3\cdots2004}{2003!}=2004.
+\]
+故积分值为
+\[
+  \boxed{-2003}.
+\]
+\end{xsolution}
+
+\paragraph{第一组参考题 14}
+\begin{xsolution}
+记
+\[
+  T_{m,n}=\frac{m^2n}{3^m(n3^m+m3^n)}.
+\]
+交换 $m,n$ 后
+\[
+  T_{n,m}=\frac{n^2m}{3^n(m3^n+n3^m)}.
+\]
+两式分母中的括号相同，因此
+\[
+  T_{m,n}+T_{n,m}
+  =\frac{mn}{3^{m+n}}.
+\]
+所有项均为正，可以自由交换与配对双重求和。设所求和为 $S$，则
+\[
+\begin{aligned}
+  2S
+  &=\sum_{m=1}^{\infty}\sum_{n=1}^{\infty}
+    \frac{mn}{3^{m+n}}\\
+  &=\left(\sum_{m=1}^{\infty}\frac m{3^m}\right)^2.
+\end{aligned}
+\]
+而
+\[
+  \sum_{m=1}^{\infty}mr^m=\frac r{(1-r)^2},
+  \qquad r=\frac13,
+\]
+故该一维级数之和为 $3/4$。所以
+\[
+  \boxed{S=\frac12\left(\frac34\right)^2=\frac9{32}}.
+\]
+\end{xsolution}
+
+\paragraph{第一组参考题 15}
+\begin{xsolution}
+甲第一次掷出六点的概率为 $1/6$。若前两次都没有六点，则重新回到“轮到甲”的同一状态，其概率为 $(5/6)^2$。因此甲首先掷出六点的概率为
+\[
+  \sum_{k=0}^{\infty}
+  \left(\frac56\right)^{2k}\frac16
+  =\frac{1/6}{1-25/36}
+  =\boxed{\frac6{11}}.
+\]
+\end{xsolution}
+
+\paragraph{第一组参考题 16}
+\begin{xsolution}
+设年利率
+\[
+  r=\frac a{100}>0.
+\]
+存款当日发放 $1$ 万元，第二年发放 $2$ 万元，依此类推，因此以存款当日为时点，所需本金的现值为
+\[
+  10000\sum_{n=1}^{\infty}\frac{n}{(1+r)^{n-1}}.
+\]
+令 $q=(1+r)^{-1}$，则
+\[
+  \sum_{n=1}^{\infty}nq^{n-1}=\frac1{(1-q)^2}.
+\]
+故最少本金为
+\[
+\begin{aligned}
+  P
+  &=10000\frac1{(1-q)^2}\\
+  &=10000\frac{(1+r)^2}{r^2}
+  =\boxed{10000\frac{(100+a)^2}{a^2}\ \text{元}}.
+\end{aligned}
+\]
+这个本金恰好使每次发放后剩余资金继续按年利率 $a\%$ 增值并支付后续全部奖学金；更少的本金其现值不足，故不能永久维持该发放规律。
+\end{xsolution}
+
+\subsection*{14.5.2 第二组参考题}
+
+\paragraph{第二组参考题 1}
+\begin{xsolution}
+设函数列一致有界，即存在 $M>0$，使
+\[
+  \abs{f_n(x)}\leqslant M,
+  \qquad x\in[a,b],\quad n\geqslant1.
+\]
+要证明积分数列收敛，只需证明它满足 Cauchy 准则。
+
+给定 $\varepsilon>0$。由于 $f_n(x)$ 对每个 $x$ 收敛，定义下降数集
+\[
+  A_N=\{x\in[a,b]\mid
+  \exists n,m\geqslant N,
+  \ \abs{f_n(x)-f_m(x)}\geqslant\varepsilon\}.
+\]
+则 $A_1\supset A_2\supset\cdots$，且
+\[
+  \bigcap_{N=1}^{\infty}A_N=\varnothing.
+\]
+按命题 14.2.5（Lewin 引理），若
+\[
+  \alpha_N=\sup\{m(E)\mid E\subset A_N,\ E\text{ 为初等集}\},
+\]
+则 $\alpha_N\to0$。因此可取 $N$，使 $\alpha_N<\varepsilon$。
+
+固定 $n,m\geqslant N$。函数 $\abs{f_n-f_m}$ 可积。对任意满足
+\[
+  0\leqslant s(x)\leqslant\abs{f_n(x)-f_m(x)}
+\]
+的阶梯函数 $s$，令
+\[
+  E=\{x\in[a,b]\mid s(x)\geqslant\varepsilon\}.
+\]
+则 $E$ 是初等集且 $E\subset A_N$，所以 $m(E)<\varepsilon$。在 $E$ 上有 $s\leqslant2M$，在补集上有 $s<\varepsilon$，于是
+\[
+  \int_a^b s(x)\,\dd x
+  \leqslant2M\varepsilon+(b-a)\varepsilon.
+\]
+利用 Riemann 积分的 Darboux 下积分刻画，得到
+\[
+  \int_a^b\abs{f_n-f_m}\,\dd x
+  \leqslant(2M+b-a)\varepsilon.
+\]
+因此
+\[
+  \abs{\int_a^bf_n-\int_a^bf_m}
+  \leqslant(2M+b-a)\varepsilon.
+\]
+因 $\varepsilon$ 任意，积分数列为 Cauchy 数列，故必有有限极限。
+\end{xsolution}
+
+\paragraph{第二组参考题 2}
+\begin{xsolution}
+先证 $f\in R[a,b]$。给定 $\varepsilon>0$，由一致收敛可取 $N$，使
+\[
+  \sup_{[a,b]}\abs{f-f_N}
+  <\frac{\varepsilon}{4(b-a)}.
+\]
+因 $f_N\in R[a,b]$，存在分划 $P$，使 $f_N$ 关于 $P$ 的 Darboux 上、下和之差小于 $\varepsilon/2$。在每个小区间 $I$ 上，
+\[
+  \operatorname{osc}_I f
+  \leqslant\operatorname{osc}_I f_N
+  +2\sup_{[a,b]}\abs{f-f_N}.
+\]
+乘以区间长度并求和，得
+\[
+  U(f,P)-L(f,P)<\frac\varepsilon2+rac\varepsilon2=\varepsilon.
+\]
+所以 $f$ Riemann 可积。
+
+再由
+\[
+  \abs{\int_a^bf_n(x)\,\dd x-
+  \int_a^bf(x)\,\dd x}
+  \leqslant(b-a)\sup_{[a,b]}\abs{f_n-f}
+\]
+以及右端趋于 $0$，得到
+\[
+  \boxed{
+  \lim_{n\to\infty}\int_a^bf_n(x)\,\dd x
+  =\int_a^bf(x)\,\dd x}.
+\]
+\end{xsolution}
+
+\paragraph{第二组参考题 3}
+\begin{xsolution}
+不妨设所有 $f_n$ 都在 $[a,b]$ 上单调增加；单调减少时把不等号反向即可。逐点极限 $f$ 也单调增加，并且题设 $f\in C[a,b]$，故 $f$ 一致连续。
+
+给定 $\varepsilon>0$，取分划
+\[
+  a=x_0<x_1<\cdots<x_m=b
+\]
+足够细，使
+\[
+  f(x_i)-f(x_{i-1})<\frac\varepsilon3,
+  \qquad i=1,\ldots,m.
+\]
+因分点只有有限个且 $f_n(x_i)\to f(x_i)$，存在 $N$，使 $n\geqslant N$ 时对所有 $i$ 都有
+\[
+  \abs{f_n(x_i)-f(x_i)}<\frac\varepsilon3.
+\]
+任取 $x\in[x_{i-1},x_i]$。由单调性，
+\[
+  f_n(x_{i-1})\leqslant f_n(x)\leqslant f_n(x_i),
+\]
+且
+\[
+  f(x_{i-1})\leqslant f(x)\leqslant f(x_i).
+\]
+于是
+\[
+  f_n(x)-f(x)
+  \leqslant f_n(x_i)-f(x_{i-1})
+  <\frac{2\varepsilon}{3},
+\]
+同理
+\[
+  f(x)-f_n(x)<\frac{2\varepsilon}{3}.
+\]
+因此 $\sup_{[a,b]}\abs{f_n-f}\to0$，即一致收敛。
+\end{xsolution}
+
+\paragraph{第二组参考题 4}
+\begin{xsolution}
+设对每个固定 $x$，数列 $f_n(x)$ 单调增加并收敛于 $f(x)$。令
+\[
+  m_n=\min_{x\in[a,b]}f_n(x).
+\]
+因为 $f_n\leqslant f_{n+1}$，所以 $m_n$ 单调增加。又对任意固定 $x_0\in[a,b]$，
+\[
+  m_n\leqslant f_n(x_0)\leqslant f(x_0),
+\]
+故 $\{m_n\}$ 有上界，从而 $m_n\to m$。
+
+对每个 $n$ 取 $x_n\in[a,b]$ 使 $f_n(x_n)=m_n$。由紧致性可取子列 $x_{n_k}\to x_*\in[a,b]$。固定任意 $j$，当 $n_k\geqslant j$ 时
+\[
+  f_j(x_{n_k})\leqslant f_{n_k}(x_{n_k})=m_{n_k}.
+\]
+令 $k\to\infty$，利用 $f_j$ 连续，得到
+\[
+  f_j(x_*)\leqslant m.
+\]
+再令 $j\to\infty$，得 $f(x_*)\leqslant m$。另一方面对每个 $n$，
+\[
+  m_n\leqslant f_n(x_*)\leqslant f(x_*),
+\]
+令 $n\to\infty$ 得 $m\leqslant f(x_*)$。故
+\[
+  f(x_*)=m,
+\]
+所以 $f$ 在 $[a,b]$ 上必有最小值。
+
+若把“最小值”换成“最大值”，结论不成立。例如在 $[0,1]$ 上令
+\[
+  f_n(x)=\min\{x,n(1-x)\}.
+\]
+每个 $f_n$ 连续，并且对每个 $x$ 随 $n$ 单调增加。极限函数为
+\[
+  f(x)=
+  \begin{cases}
+    x,&0\leqslant x<1,\\
+    0,&x=1.
+  \end{cases}
+\]
+它的上确界为 $1$，但不取得最大值。
+
+若把 $[a,b]$ 换成开区间 $(a,b)$，即使最小值结论也不成立。例如在 $(0,1)$ 上取
+\[
+  f_n(x)=x-\frac1n.
+\]
+对每个固定 $x$，数列 $\{f_n(x)\}$ 严格单调增加并收敛于 $f(x)=x$，而 $f$ 在 $(0,1)$ 上没有最小值。
+\end{xsolution}
+
+\paragraph{第二组参考题 5}
+\begin{xsolution}
+设
+\[
+  f_n'\to g
+\]
+在 $[a,b]$ 上一致。由一致收敛，导函数列一致有界：存在 $M>0$，使
+\[
+  \abs{f_n'(x)}\leqslant M
+\]
+对所有 $n$ 和 $x\in[a,b]$ 成立。
+
+由 $x_n\in[a,b]$ 的紧致性，存在子列 $x_{n_k}\to x_0\in[a,b]$。
+
+\textbf{(1)} 对任意 $x\in[a,b]$，由中值定理和 $f_{n_k}(x_{n_k})=x_{n_k}$，
+\[
+  \abs{f_{n_k}(x)-x_{n_k}}
+  \leqslant M\abs{x-x_{n_k}}.
+\]
+特别
+\[
+  \abs{f_{n_k}(x_0)-x_0}
+  \leqslant(M+1)\abs{x_{n_k}-x_0}\to0.
+\]
+因此锚点值 $f_{n_k}(x_0)$ 收敛。
+
+又因 $f_n'$ 一致收敛，它一致满足 Cauchy 条件。对 $k,\ell$，
+\[
+\begin{aligned}
+  \abs{f_{n_k}(x)-f_{n_\ell}(x)}
+  &\leqslant\abs{f_{n_k}(x_0)-f_{n_\ell}(x_0)}\\
+  &\quad +(b-a)\sup_{t\in[a,b]}
+    \abs{f_{n_k}'(t)-f_{n_\ell}'(t)}.
+\end{aligned}
+\]
+右端与 $x$ 无关并趋于 $0$，所以 $\{f_{n_k}\}$ 在 $[a,b]$ 上一致 Cauchy，从而一致收敛于某函数 $f$。
+
+\textbf{(2)} 由
+\[
+  \abs{f_{n_k}(x_0)-x_0}\to0
+\]
+和一致收敛，直接得到
+\[
+  \boxed{f(x_0)=x_0}.
+\]
+
+\textbf{(3)} 函数 $g$ 是连续函数列 $f_n'$ 的一致极限，所以 $g\in C[a,b]$。对任意 $x\in[a,b]$，
+\[
+  f_{n_k}(x)-f_{n_k}(x_0)
+  =\int_{x_0}^{x}f_{n_k}'(t)\,\dd t.
+\]
+令 $k\to\infty$，利用两边的一致收敛，得到
+\[
+  f(x)-f(x_0)=\int_{x_0}^{x}g(t)\,\dd t.
+\]
+故
+\[
+  f\in C^1[a,b],
+  \qquad
+  f'(x)=g(x)=\lim_{n\to\infty}f_n'(x).
+\]
+\end{xsolution}
+
+\paragraph{第二组参考题 6}
+\begin{xsolution}
+由
+\[
+  \abs{u_n(x)}\leqslant v_n(x)
+\]
+可知 $v_n(x)\geqslant0$。设
+\[
+  V_N(x)=\sum_{n=1}^{N}v_n(x),
+  \qquad
+  V(x)=\sum_{n=1}^{\infty}v_n(x).
+\]
+每个 $V_N$ 连续，并且 $V_N(x)$ 对 $N$ 单调增加，逐点收敛于连续函数 $V$。由 Dini 定理，$V_N\to V$ 在 $[a,b]$ 上一致。因此
+\[
+  \sup_{x\in[a,b]}
+  \sum_{n=N+1}^{\infty}v_n(x)\to0.
+\]
+于是
+\[
+  \sup_{x\in[a,b]}
+  \sum_{n=N+1}^{\infty}\abs{u_n(x)}
+  \leqslant
+  \sup_{x\in[a,b]}
+  \sum_{n=N+1}^{\infty}v_n(x)\to0.
+\]
+所以 $\sum u_n(x)$ 在 $[a,b]$ 上绝对一致收敛。各 $u_n$ 连续，故其和函数也连续。
+\end{xsolution}
+
+\paragraph{第二组参考题 7}
+\begin{xsolution}
+由于和式关于 $x$ 是 $2\pi$ 周期函数，并且取绝对值后关于 $x\mapsto2\pi-x$ 对称，只需考察 $0\leqslant x\leqslant\pi$。$x=0$ 时和为 $0$。设 $0<x\leqslant\pi$。
+
+若 $nx\leqslant\sqrt\pi$，则
+\[
+  \abs{\sum_{k=1}^{n}\frac{\sin kx}{k}}
+  \leqslant\sum_{k=1}^{n}\frac{kx}{k}
+  =nx\leqslant\sqrt\pi.
+\]
+
+下面设 $nx>\sqrt\pi$，令
+\[
+  m=\left\lfloor\frac{\sqrt\pi}{x}\right\rfloor.
+\]
+若 $m\geqslant1$，前 $m$ 项满足
+\[
+  \abs{\sum_{k=1}^{m}\frac{\sin kx}{k}}
+  \leqslant mx\leqslant\sqrt\pi.
+\]
+对尾和使用 Abel 变换。任意 $q\geqslant p$ 时，
+\[
+  \abs{\sum_{k=p}^{q}\sin kx}
+  \leqslant\frac1{\sin(x/2)}
+  \leqslant\frac\pi x,
+\]
+其中最后一步用了 Jordan 不等式。由于 $1/k$ 单调下降，故
+\[
+  \abs{\sum_{k=m+1}^{n}\frac{\sin kx}{k}}
+  \leqslant\frac{\pi}{x(m+1)}.
+\]
+而 $m+1>\sqrt\pi/x$，所以右端小于 $\sqrt\pi$。因此
+\[
+  \abs{\sum_{k=1}^{n}\frac{\sin kx}{k}}<2\sqrt\pi.
+\]
+
+若 $m=0$，则 $x>\sqrt\pi$。直接对全和应用同一 Abel 估计，
+\[
+  \abs{\sum_{k=1}^{n}\frac{\sin kx}{k}}
+  \leqslant\frac\pi x<\sqrt\pi<2\sqrt\pi.
+\]
+故对任意 $n$ 和实数 $x$ 均有
+\[
+  \boxed{
+  \abs{\sum_{k=1}^{n}\frac{\sin kx}{k}}\leqslant2\sqrt\pi}.
+\]
+\end{xsolution}
+
+\paragraph{第二组参考题 8}
+\begin{xsolution}
+对 $0<x<1$，由
+\[
+  \frac12\ln\frac{1+x}{1-x}
+  =x+\frac{x^3}{3}+\frac{x^5}{5}+\cdots
+\]
+得到
+\[
+  \frac12\ln\frac{1+x}{1-x}-x
+  =\sum_{k=1}^{\infty}\frac{x^{2k+1}}{2k+1}>0.
+\]
+又因 $2k+1\geqslant3$，
+\[
+  \sum_{k=1}^{\infty}\frac{x^{2k+1}}{2k+1}
+  <\frac13\sum_{k=1}^{\infty}x^{2k+1}
+  =\frac{x^3}{3(1-x^2)}.
+\]
+故
+\[
+  \boxed{
+  0<\frac12\ln\frac{1+x}{1-x}-x
+  <\frac{x^3}{3(1-x^2)}},
+  \qquad0<x<1.
+\]
+\end{xsolution}
+
+\paragraph{第二组参考题 9}
+% CHECK-SOLUTION: 题面声称末个严格不等式对“一切实数 x”成立，但 x=0 时两边均为 0，严格不等式 0<0 不成立。下面证明修正后的结论：第一不等式对所有实数 x 成立；末个不等式对 x\ne0 严格成立，x=0 时取等号。
+\begin{xsolution}
+令 $t=\abs{x}$。由幂级数展开，
+\[
+  \ee^x-\left(1+\frac xn\right)^n
+  =\sum_{k=2}^{\infty}c_{n,k}x^k,
+\]
+其中当 $2\leqslant k\leqslant n$ 时
+\[
+  c_{n,k}
+  =\frac1{k!}\left[1-\prod_{j=0}^{k-1}\left(1-\frac jn\right)\right]\geqslant0,
+\]
+而当 $k>n$ 时 $c_{n,k}=1/k!>0$。因此
+\[
+  \abs{\ee^x-\left(1+\frac xn\right)^n}
+  \leqslant\sum_{k=2}^{\infty}c_{n,k}t^k
+  =\ee^t-\left(1+\frac tn\right)^n.
+\]
+这证明了第一不等式。
+
+对 $2\leqslant k\leqslant n$，利用 $0\leqslant j/n\leqslant1$ 以及
+\[
+  1-\prod_{j=0}^{k-1}(1-u_j)
+  \leqslant\sum_{j=0}^{k-1}u_j,
+\]
+得到
+\[
+  c_{n,k}
+  \leqslant\frac1{k!}\frac{k(k-1)}{2n}
+  =\frac1{2n(k-2)!}.
+\]
+当 $k>n$ 时，也有
+\[
+  c_{n,k}=\frac1{k!}
+  \leqslant\frac1{2n(k-2)!},
+\]
+因为 $k(k-1)\geqslant2n$。所以
+\[
+\begin{aligned}
+  \ee^t-\left(1+\frac tn\right)^n
+  &=\sum_{k=2}^{\infty}c_{n,k}t^k\\
+  &\leqslant\frac1{2n}\sum_{k=2}^{\infty}
+    \frac{t^k}{(k-2)!}
+  =\frac{t^2\ee^t}{2n}.
+\end{aligned}
+\]
+当 $t>0$ 时，由于至少有一个系数估计为严格不等式，故末式严格；当 $t=0$ 时取等号。因此正确结论为
+\[
+  \boxed{
+  \abs{\ee^x-\left(1+\frac xn\right)^n}
+  \leqslant \ee^{\abs{x}}-
+  \left(1+\frac{\abs{x}}n\right)^n
+  \leqslant\frac{x^2\ee^{\abs{x}}}{2n}},
+\]
+且最后一个“$\leqslant$”在 $x\ne0$ 时可以写成“$<$”。
+\end{xsolution}
+
+\paragraph{第二组参考题 10}
+\begin{xsolution}
+记
+\[
+  S_n=a_0+a_1+\cdots+a_n,
+  \qquad
+  \sigma_n=\frac{S_0+S_1+\cdots+S_{n-1}}n,
+  \qquad n\geqslant1,
+\]
+且 $\sigma_n\to S$。
+
+\textbf{(1)} 由
+\[
+  S_n=(n+1)\sigma_{n+1}-n\sigma_n
+\]
+以及 $\{\sigma_n\}$ 有界，可知 $S_n=\bigO(n)$，进而
+\[
+  a_n=S_n-S_{n-1}=\bigO(n).
+\]
+所以对 $\abs{x}<1$，级数
+\[
+  \sum_{n=0}^{\infty}a_nx^n
+\]
+绝对收敛。
+
+\textbf{(2)} 在 $\abs{x}<1$，由绝对收敛可作级数运算。先有
+\[
+\begin{aligned}
+  \sum_{n=0}^{\infty}a_nx^n
+  &=(1-x)\sum_{n=0}^{\infty}S_nx^n.
+\end{aligned}
+\]
+另一方面令
+\[
+  T_n=S_0+S_1+\cdots+S_n=(n+1)\sigma_{n+1},
+\]
+则
+\[
+  \sum_{n=0}^{\infty}S_nx^n
+  =(1-x)\sum_{n=0}^{\infty}T_nx^n
+  =(1-x)\sum_{n=0}^{\infty}(n+1)\sigma_{n+1}x^n.
+\]
+因此
+\[
+  \boxed{
+  \sum_{n=0}^{\infty}a_nx^n
+  =(1-x)^2\sum_{n=0}^{\infty}(n+1)\sigma_{n+1}x^n},
+  \qquad \abs{x}<1.
+\]
+
+\textbf{(3)} 写
+\[
+  \sigma_{n+1}=S+\varepsilon_n,
+  \qquad \varepsilon_n\to0.
+\]
+由 (2)，
+\[
+\begin{aligned}
+  S(x)
+  &=(1-x)^2\sum_{n=0}^{\infty}(n+1)(S+\varepsilon_n)x^n\\
+  &=S+(1-x)^2\sum_{n=0}^{\infty}(n+1)\varepsilon_nx^n,
+\end{aligned}
+\]
+其中用了
+\[
+  (1-x)^2\sum_{n=0}^{\infty}(n+1)x^n=1.
+\]
+给定 $\varepsilon>0$，取 $N$ 使 $n\geqslant N$ 时 $\abs{\varepsilon_n}<\varepsilon$。则尾项满足
+\[
+  (1-x)^2\sum_{n=N}^{\infty}(n+1)\abs{\varepsilon_n}x^n
+  \leqslant\varepsilon.
+\]
+有限的前 $N$ 项乘以 $(1-x)^2$ 后在 $x\to1-$ 时趋于 $0$。故
+\[
+  \boxed{\lim_{x\to1-}S(x)=S}.
+\]
+\end{xsolution}
+
+\paragraph{第二组参考题 11}
+\begin{xsolution}
+记
+\[
+  A(x)=\sum_{n=0}^{\infty}a_nx^n,
+  \qquad
+  B(x)=\sum_{n=0}^{\infty}b_nx^n.
+\]
+因 $a_n>0$ 且 $\sum a_n$ 在 $x=1$ 发散，所以
+\[
+  A(x)\to+\infty,
+  \qquad x\to1-.
+\]
+
+给定 $\varepsilon>0$，由 $b_n/a_n\to A$，可取 $N$，使 $n\geqslant N$ 时
+\[
+  \abs{b_n-Aa_n}\leqslant\varepsilon a_n.
+\]
+于是
+\[
+\begin{aligned}
+  \abs{B(x)-AA(x)}
+  &\leqslant\sum_{n=0}^{N-1}\abs{b_n-Aa_n}x^n
+  +\varepsilon\sum_{n=N}^{\infty}a_nx^n.
+\end{aligned}
+\]
+除以 $A(x)>0$，得到
+\[
+  \abs{\frac{B(x)}{A(x)}-A}
+  \leqslant\frac{C_N}{A(x)}+\varepsilon.
+\]
+令 $x\to1-$，第一项趋于 $0$，故上极限不超过 $\varepsilon$。因 $\varepsilon$ 任意，
+\[
+  \boxed{
+  \lim_{x\to1-}\frac{B(x)}{A(x)}=A}.
+\]
+\end{xsolution}
+
+\paragraph{第二组参考题 12}
+\begin{xsolution}
+设 $c_n\geqslant0$ 且
+\[
+  \sum_{n=0}^{\infty}c_n=A<\infty.
+\]
+对 $0\leqslant x<1$，
+\[
+  0\leqslant\sum_{n=0}^{\infty}c_nx^n\leqslant A.
+\]
+给定 $\varepsilon>0$，取 $N$ 使
+\[
+  \sum_{n>N}c_n<\varepsilon.
+\]
+则
+\[
+\begin{aligned}
+  0\leqslant
+  A-\sum_{n=0}^{\infty}c_nx^n
+  &=\sum_{n=0}^{N}c_n(1-x^n)
+   +\sum_{n>N}c_n(1-x^n)\\
+  &\leqslant\sum_{n=0}^{N}c_n(1-x^n)+\varepsilon.
+\end{aligned}
+\]
+令 $x\to1-$，有限和趋于 $0$，所以极限差不超过 $\varepsilon$。故
+\[
+  \boxed{
+  \lim_{x\to1-}\sum_{n=0}^{\infty}c_nx^n=A}.
+\]
+\end{xsolution}
+
+\paragraph{第二组参考题 13}
+\begin{xsolution}
+固定 $x\in[0,r)$，再取 $y$ 使
+\[
+  x<y<r.
+\]
+由 Taylor 公式的积分余项，
+\[
+  f(x)=\sum_{k=0}^{n}\frac{f^{(k)}(0)}{k!}x^k+R_n(x),
+\]
+其中
+\[
+  R_n(x)=\frac1{n!}\int_0^x f^{(n+1)}(t)(x-t)^n\,\dd t\geqslant0.
+\]
+
+对 $0\leqslant t\leqslant x$，在点 $t$ 对 $f(y)$ 作 Taylor 展开。由于 $f$ 及各阶导数均非负，保留第 $n+1$ 项即可得
+\[
+  f(y)\geqslant
+  \frac{f^{(n+1)}(t)}{(n+1)!}(y-t)^{n+1}.
+\]
+所以
+\[
+  f^{(n+1)}(t)
+  \leqslant\frac{(n+1)!f(y)}{(y-t)^{n+1}}.
+\]
+代入余项，得到
+\[
+\begin{aligned}
+  0\leqslant R_n(x)
+  &\leqslant(n+1)f(y)
+  \int_0^x\frac{(x-t)^n}{(y-t)^{n+1}}\,\dd t.
+\end{aligned}
+\]
+令
+\[
+  u=\frac{x-t}{y-t}.
+\]
+则 $0\leqslant u\leqslant x/y$，并可算得
+\[
+  \int_0^x\frac{(x-t)^n}{(y-t)^{n+1}}\,\dd t
+  =\int_0^{x/y}\frac{u^n}{1-u}\,\dd u
+  \leqslant\frac1{1-x/y}\frac{(x/y)^{n+1}}{n+1}.
+\]
+因此
+\[
+  0\leqslant R_n(x)
+  \leqslant\frac{f(y)}{1-x/y}\left(\frac xy\right)^{n+1}\to0.
+\]
+故对每个 $x\in[0,r)$，
+\[
+  \boxed{
+  f(x)=\sum_{n=0}^{\infty}\frac{f^{(n)}(0)}{n!}x^n}.
+\]
+\end{xsolution}
+
+\paragraph{第二组参考题 14}
+\begin{xsolution}
+定义生成函数
+\[
+  f(x)=\sum_{n=0}^{\infty}a_nx^n,
+  \qquad a_0=a_1=1,
+  \qquad a_n=a_{n-1}+a_{n-2}\ (n\geqslant2).
+\]
+在收敛半径内，
+\[
+\begin{aligned}
+  f(x)-1-x
+  &=\sum_{n=2}^{\infty}a_nx^n\\
+  &=x\sum_{n=2}^{\infty}a_{n-1}x^{n-1}
+   +x^2\sum_{n=2}^{\infty}a_{n-2}x^{n-2}\\
+  &=x(f(x)-1)+x^2f(x).
+\end{aligned}
+\]
+故
+\[
+  \boxed{f(x)=\frac1{1-x-x^2}}.
+\]
+
+令
+\[
+  \varphi=\frac{1+\sqrt5}{2},
+  \qquad
+  \psi=\frac{1-\sqrt5}{2}.
+\]
+因为
+\[
+  1-x-x^2=(1-\varphi x)(1-\psi x),
+\]
+作部分分式展开得
+\[
+  \frac1{1-x-x^2}
+  =\frac1{\sqrt5}
+  \left(\frac{\varphi}{1-\varphi x}
+       -\frac{\psi}{1-\psi x}\right).
+\]
+比较 $x^n$ 的系数，
+\[
+  \boxed{
+  a_n=\frac{\varphi^{n+1}-\psi^{n+1}}{\sqrt5}}.
+\]
+由于 $\abs{\psi}<1<\varphi$，
+\[
+  \frac{a_{n+1}}{a_n}
+  =\varphi\,
+  \frac{1-(\psi/\varphi)^{n+2}}
+       {1-(\psi/\varphi)^{n+1}}
+  \to\boxed{\varphi=\frac{1+\sqrt5}{2}}.
+\]
+这就是该数列的增长数。
+\end{xsolution}
+
+\paragraph{第二组参考题 15}
+\begin{xsolution}
+利用广义二项式展开，在 $\abs{x}<1$ 内有
+\[
+  (1+x)^\alpha
+  =\sum_{k=0}^{\infty}{\alpha\choose k}x^k,
+  \qquad
+  (1+x)^\beta
+  =\sum_{j=0}^{\infty}{\beta\choose j}x^j.
+\]
+两级数绝对收敛，可以作 Cauchy 乘积：
+\[
+  (1+x)^\alpha(1+x)^\beta
+  =\sum_{n=0}^{\infty}
+  \left(\sum_{k=0}^{n}{\alpha\choose k}{\beta\choose n-k}\right)x^n.
+\]
+另一方面
+\[
+  (1+x)^\alpha(1+x)^\beta=(1+x)^{\alpha+\beta}
+  =\sum_{n=0}^{\infty}{\alpha+\beta\choose n}x^n.
+\]
+由幂级数展开的惟一性，比较 $x^n$ 系数得到 Vandermonde 恒等式
+\[
+  \boxed{
+  \sum_{k=0}^{n}{\alpha\choose k}{\beta\choose n-k}
+  ={\alpha+\beta\choose n}}.
+\]
+
+令 $\alpha=\beta=n$，并利用
+\[
+  {n\choose n-k}={n\choose k},
+\]
+便得到
+\[
+  \boxed{
+  \sum_{k=0}^{n}{n\choose k}^2={2n\choose n}}.
+\]
+\end{xsolution}
