@@ -704,7 +704,7 @@ $n=1$ 时成立。若对 $n$ 成立，则
 \[
   R_{ab}\geqslant R_1R_2.
 \]
-等号不一定成立。例如令 $a_n$ 只在偶数 $n$ 非零，$b_n$ 只在奇数 $n$ 非零，则 $a_nb_n\equiv0$，乘积幂级数的收敛半径为 $+\infty$。若两个根值极限都存在而不是只有上极限，则通常可直接得到 $R_{ab}=R_1R_2$。当某个半径为 $0$ 或 $+\infty$ 时，应以 $\rho=1/R$ 的上极限形式理解上述结论，避免 $0\cdot\infty$ 的歧义。
+等号不一定成立。例如令 $a_n$ 只在偶数 $n$ 非零，$b_n$ 只在奇数 $n$ 非零，则 $a_nb_n\equiv0$，乘积幂级数的收敛半径为 $+\infty$。若 $0<R_1,R_2<+\infty$，并且两个根值极限都存在，即 $\sqrt[n]{\abs{a_n}}\to1/R_1$、$\sqrt[n]{\abs{b_n}}\to1/R_2$，则 $\sqrt[n]{\abs{a_nb_n}}\to1/(R_1R_2)$，从而必有 $R_{ab}=R_1R_2$。当某个半径为 $0$ 或 $+\infty$ 时，应以 $\rho=1/R$ 的上极限形式理解上述结论，避免 $0\cdot\infty$ 的歧义。
 \end{xsolution}
 
 \paragraph{14.3.2 思考题 3}
@@ -726,51 +726,76 @@ $n=1$ 时成立。若对 $n$ 成立，则
 
 \paragraph{14.3.2 思考题 4}
 \begin{xsolution}
-可以。设幂级数的收敛半径为 $R>0$，任取 $0<r<R$。再取 $\rho$ 满足 $r<\rho<R$。因为级数在 $x=x_0+\rho$ 收敛，所以数列 $\{a_n\rho^n\}$ 有界，即存在 $M>0$ 使
+不能仅靠 Weierstrass 判别法证明 Abel 第二定理关于收敛端点的完整结论。
+
+事实上，若只考察严格位于收敛半径内部的闭区间，则 Weierstrass 判别法当然有效。设收敛半径为 $R>0$，任取 $0<r<\rho<R$。因为幂级数在 $x=x_0+\rho$ 处收敛，所以数列 $\{a_n\rho^n\}$ 有界，即存在 $M>0$ 使
 \[
   \abs{a_n}\rho^n\leqslant M.
 \]
-当 $\abs{x-x_0}\leqslant r$ 时，
+于是当 $\abs{x-x_0}\leqslant r$ 时，
 \[
   \abs{a_n(x-x_0)^n}
-  \leqslant M\left(\frac r\rho\right)^n.
+  \leqslant M\left(\frac r\rho\right)^n,
 \]
-右边是收敛几何级数，故由 Weierstrass 判别法，幂级数在每个内闭区间 $[x_0-r,x_0+r]$ 上绝对一致收敛。这正是 Abel 第二定理中“内闭一致收敛”的结论。
+右边为收敛的几何级数。因此 M-判别法可以证明幂级数在每个严格内闭区间上绝对一致收敛。
 
-若还要处理某个恰好属于收敛域的端点并证明到该端点的一侧一致收敛或和函数连续，则单纯的上述优级数估计一般不够，需要 Abel 变换等更精细的论证。
+但若某个端点属于收敛域而级数在那里只是条件收敛，则 M-判别法一般失效。例如
+\[
+  \sum_{n=1}^{\infty}\frac{(-1)^{n-1}}n x^n
+\]
+在 $x=1$ 处收敛，并且由 Abel 判别法可知它在 $[0,1]$ 上一致收敛；可是
+\[
+  \sum_{n=1}^{\infty}\sup_{0\leqslant x\leqslant1}
+  \abs{\frac{(-1)^{n-1}}n x^n}
+  =\sum_{n=1}^{\infty}\frac1n
+\]
+发散，因而不存在由这些逐项上确界构成的 Weierstrass 优级数。故 M-判别法只能直接处理收敛半径内部的绝对一致收敛，不能替代 Abel 定理在条件收敛端点处的论证。
 \end{xsolution}
 
 \paragraph{14.3.2 思考题 5}
 \begin{xsolution}
-\textbf{(1)} 一般不能无条件写成给出的等式。对 $0<r<R$，逐项积分当然成立：
+\textbf{(1)} 一般不成立。取 $R=1$，并令
 \[
-  \int_0^r\left(\sum_{n=0}^{\infty}a_nx^n\right)\dd x
-  =\sum_{n=0}^{\infty}\frac{a_n}{n+1}r^{n+1}.
+  a_n=(n+1)(-1)^n,\qquad n=0,1,2,\ldots.
 \]
-但令 $r\to R-$ 时，左、右两边未必有有限极限。例如取 $a_n=R^{-n}$，则和函数为
+相应幂级数的收敛半径为 $1$，且当 $\abs{x}<1$ 时
 \[
-  \frac1{1-x/R},
+  \sum_{n=0}^{\infty}a_nx^n
+  =\sum_{n=0}^{\infty}(n+1)(-x)^n
+  =\frac1{(1+x)^2}.
 \]
-其在 $[0,R)$ 上的广义积分发散，同时右边变成 $R\sum_{n=0}^{\infty}1/(n+1)$，也发散。因此不能把 $r=R$ 的等式视为无条件成立的有限等式。
+因此
+\[
+  \int_0^1\left(\sum_{n=0}^{\infty}a_nx^n\right)\dd x
+  =\int_0^1\frac{\dd x}{(1+x)^2}
+  =\frac12,
+\]
+而题中右端变为
+\[
+  \sum_{n=0}^{\infty}\frac{a_n}{n+1}
+  =\sum_{n=0}^{\infty}(-1)^n,
+\]
+它发散。故不能无条件把逐项积分公式直接延伸到收敛半径端点。
 
 \textbf{(2)} 若
 \[
   \sum_{n=0}^{\infty}\frac{a_n}{n+1}R^{n+1}
 \]
-收敛，则答案为肯定。令
+收敛，则等式成立。令
 \[
-  F(r)=\sum_{n=0}^{\infty}\frac{a_n}{n+1}r^{n+1},\qquad 0\leqslant r<R.
+  F(r)=\sum_{n=0}^{\infty}\frac{a_n}{n+1}r^{n+1},
+  \qquad 0\leqslant r<R.
 \]
-对 $r<R$ 有
+在 $r<R$ 时可以逐项积分，故
 \[
   F(r)=\int_0^r\left(\sum_{n=0}^{\infty}a_nx^n\right)\dd x.
 \]
-把 $F$ 看成一个幂级数，其在 $r=R$ 处收敛。由 Abel 第二定理，
+又因为作为幂级数的 $F$ 在 $r=R$ 处收敛，由 Abel 第二定理，
 \[
   \lim_{r\to R-}F(r)
   =\sum_{n=0}^{\infty}\frac{a_n}{n+1}R^{n+1}.
 \]
-左边正是和函数在 $[0,R)$ 上广义积分的极限。因此此时
+所以
 \[
   \int_0^R\left(\sum_{n=0}^{\infty}a_nx^n\right)\dd x
   =\sum_{n=0}^{\infty}\frac{a_n}{n+1}R^{n+1}.
@@ -1401,7 +1426,7 @@ $n=1$ 时成立。若对 $n$ 成立，则
 由导函数序列在 $(-a,a)$ 上一致有界，存在 $M>0$，使
 \[
   \abs{f^{(n)}(x)}\leqslant M,
-  \qquad x\in(-a,a),\quad n=0,1,2,\ldots.
+  \qquad x\in(-a,a),\quad n=1,2,\ldots.
 \]
 固定 $x\in(-a,a)$。在 $0$ 与 $x$ 之间应用 Taylor 公式的 Lagrange 余项，
 \[
@@ -1423,27 +1448,29 @@ $n=1$ 时成立。若对 $n$ 成立，则
 \begin{xsolution}
 由导函数列在整个实轴上一致有界，存在 $M>0$，使
 \[
-  \abs{f^{(n)}(x)}\leqslant M
+  \abs{f^{(n)}(x)}\leqslant M,
+  \qquad x\in\RR,\quad n=1,2,\ldots.
 \]
-对一切 $x\in\RR$ 和 $n\geqslant0$ 成立。与上一题相同，Taylor 余项满足
+因此与上一题相同，对每个固定 $x\in\RR$，Taylor 公式的余项满足
 \[
-  \abs{r_n(x)}\leqslant M\frac{\abs{x}^{n+1}}{(n+1)!}\to0,
+  \abs{r_n(x)}
+  \leqslant M\frac{\abs{x}^{n+1}}{(n+1)!}\to0,
 \]
-所以 $f$ 在整个实轴上等于其 Maclaurin 级数：
-\[
-  f(x)=\sum_{m=0}^{\infty}c_mx^m,
-  \qquad c_m=\frac{f^{(m)}(0)}{m!}.
-\]
+从而 $f$ 在整个实轴上等于其 Maclaurin 级数。
 
-若 $f$ 不恒为 $0$，设 $m$ 是最小的使 $c_m\ne0$ 的整数，则
+下面证明所有 Maclaurin 系数都为 $0$。从正数列 $x_n\to0$ 中可取一个严格递减子列，仍记为 $x_n$。由连续性，
 \[
-  f(x)=x^m\bigl(c_m+xg(x)\bigr)
+  f(0)=\lim_{n\to\infty}f(x_n)=0.
 \]
-在 $0$ 的某个邻域成立，其中 $g$ 连续。于是可取 $\delta>0$，使 $0<\abs{x}<\delta$ 时
+对每个 $n$，由 Rolle 定理，在 $(x_{n+1},x_n)$ 中存在 $y_n$，使
 \[
-  \abs{xg(x)}<\frac{\abs{c_m}}2,
+  f'(y_n)=0.
 \]
-从而 $c_m+xg(x)\ne0$，即 $f(x)\ne0$。这与存在正数列 $x_n\to0$ 且 $f(x_n)=0$ 矛盾。因此
+显然 $y_n\to0$，故由 $f'$ 连续得到 $f'(0)=0$。再对 $\{y_n\}$ 重复同一论证，可得到趋于 $0$ 的 $f''$ 的零点列，从而 $f''(0)=0$。如此递推，
+\[
+  f^{(m)}(0)=0,\qquad m=0,1,2,\ldots.
+\]
+于是 $f$ 的 Maclaurin 级数恒为零，而该级数在整个实轴上等于 $f$，故
 \[
   \boxed{f(x)\equiv0}.
 \]
@@ -1512,7 +1539,11 @@ $n=1$ 时成立。若对 $n$ 成立，则
 \[
   \boxed{\abs{x}<1}.
 \]
-在 $x=\pm1$ 时右边级数的通项不趋于 $0$。
+把它按通常的幂级数写成 $\sum_{m=0}^{\infty}a_mx^m$，则
+\[
+  a_{5n}=1,\qquad a_{5n+1}=-1,
+\]
+其余系数为 $0$。因此在 $x=1$ 或 $x=-1$ 时，通项序列都含有绝对值为 $1$ 的无穷多个项，不能趋于 $0$，故两个端点均不属于成立范围。
 
 \textbf{(6)} 由 Cauchy 乘积，
 \[
@@ -1866,8 +1897,20 @@ $n=1$ 时成立。若对 $n$ 成立，则
   \boxed{
   \frac{\ln(x+\sqrt{1+x^2})}{\sqrt{1+x^2}}
   =\sum_{n=1}^{\infty}
-  (-1)^{n-1}\frac{2^{2n-1}}{n{2n\choose n}}x^{2n-1}},
-  \qquad \abs{x}<1.
+  (-1)^{n-1}\frac{2^{2n-1}}{n{2n\choose n}}x^{2n-1}}.
+\]
+记
+\[
+  d_n=\frac{2^{2n-1}}{n{2n\choose n}}.
+\]
+则
+\[
+  \frac{d_{n+1}}{d_n}=\frac{2n}{2n+1}<1,
+  \qquad d_n\sim\frac{\sqrt\pi}{2\sqrt n}\to0.
+\]
+所以在 $x=\pm1$ 时级数均为条件收敛的交错级数。由 Abel 第二定理，等式在两个端点仍成立，因此第 (2) 式的成立范围为
+\[
+  \boxed{-1\leqslant x\leqslant1}.
 \]
 
 \textbf{(3)} 第 (3) 式由 $2F(x)/x^2$ 直接得到：
@@ -2429,9 +2472,8 @@ $n=1$ 时成立。若对 $n$ 成立，则
 \end{xsolution}
 
 \paragraph{第二组参考题 9}
-% CHECK-SOLUTION: 题面声称末个严格不等式对“一切实数 x”成立，但 x=0 时两边均为 0，严格不等式 0<0 不成立。下面证明修正后的结论：第一不等式对所有实数 x 成立；末个不等式对 x\ne0 严格成立，x=0 时取等号。
 \begin{xsolution}
-令 $t=\abs{x}$。由幂级数展开，
+当 $x=0$ 时三个量都等于 $0$，所以末个不等式在 $x=0$ 只能取等号。下面证明：第一不等式对所有实数 $x$ 成立；第二个上界对所有实数 $x$ 成立，并且当 $x\ne0$ 时为严格不等式。令 $t=\abs{x}$。由幂级数展开，
 \[
   \ee^x-\left(1+\frac xn\right)^n
   =\sum_{k=2}^{\infty}c_{n,k}x^k,
@@ -2635,53 +2677,38 @@ $n=1$ 时成立。若对 $n$ 成立，则
 
 \paragraph{第二组参考题 13}
 \begin{xsolution}
-固定 $x\in[0,r)$，再取 $y$ 使
+固定 $x\in[0,r)$。当 $x=0$ 时结论显然，以下设 $0<x<r$，并取 $y$ 使
 \[
   x<y<r.
 \]
 由 Taylor 公式的积分余项，
 \[
   f(x)=\sum_{k=0}^{n}\frac{f^{(k)}(0)}{k!}x^k+R_n(x),
+  \qquad
+  R_n(x)=\frac1{n!}\int_0^x f^{(n+1)}(t)(x-t)^n\,\dd t.
 \]
-其中
+因所有导函数非负，$R_n(x)\geqslant0$。作代换 $t=ux$，得到
 \[
-  R_n(x)=\frac1{n!}\int_0^x f^{(n+1)}(t)(x-t)^n\,\dd t\geqslant0.
+  \frac{R_n(x)}{x^{n+1}}
+  =\frac1{n!}\int_0^1 f^{(n+1)}(ux)(1-u)^n\,\dd u.
 \]
-
-对 $0\leqslant t\leqslant x$，在点 $t$ 对 $f(y)$ 作 Taylor 展开。由于 $f$ 及各阶导数均非负，保留第 $n+1$ 项即可得
+又因 $f^{(n+2)}\geqslant0$，函数 $f^{(n+1)}$ 单调增加；而 $ux<uy$，故
 \[
-  f(y)\geqslant
-  \frac{f^{(n+1)}(t)}{(n+1)!}(y-t)^{n+1}.
+  \frac{R_n(x)}{x^{n+1}}
+  \leqslant
+  \frac1{n!}\int_0^1 f^{(n+1)}(uy)(1-u)^n\,\dd u
+  =\frac{R_n(y)}{y^{n+1}}.
 \]
-所以
+同时 Taylor 公式中的各项均非负，所以
 \[
-  f^{(n+1)}(t)
-  \leqslant\frac{(n+1)!f(y)}{(y-t)^{n+1}}.
-\]
-代入余项，得到
-\[
-\begin{aligned}
-  0\leqslant R_n(x)
-  &\leqslant(n+1)f(y)
-  \int_0^x\frac{(x-t)^n}{(y-t)^{n+1}}\,\dd t.
-\end{aligned}
-\]
-令
-\[
-  u=\frac{x-t}{y-t}.
-\]
-则 $0\leqslant u\leqslant x/y$，并可算得
-\[
-  \int_0^x\frac{(x-t)^n}{(y-t)^{n+1}}\,\dd t
-  =\int_0^{x/y}\frac{u^n}{1-u}\,\dd u
-  \leqslant\frac1{1-x/y}\frac{(x/y)^{n+1}}{n+1}.
+  0\leqslant R_n(y)\leqslant f(y).
 \]
 因此
 \[
   0\leqslant R_n(x)
-  \leqslant\frac{f(y)}{1-x/y}\left(\frac xy\right)^{n+1}\to0.
+  \leqslant f(y)\left(\frac xy\right)^{n+1}\to0.
 \]
-故对每个 $x\in[0,r)$，
+于是对每个 $x\in[0,r)$，
 \[
   \boxed{
   f(x)=\sum_{n=0}^{\infty}\frac{f^{(n)}(0)}{n!}x^n}.
