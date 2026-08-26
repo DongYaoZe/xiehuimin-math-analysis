@@ -163,7 +163,15 @@ $h$ 是连续的 $2\pi$ 周期函数，且 $h(2\pi-x)=-h(x)$，所以一周期�
   \ln\frac{x^2}{x^2-1}=-\ln\left(1-\frac1{x^2}\right)
   \sim\frac1{x^2}.
 \]
-被积函数为正，故积分绝对收敛。
+被积函数为正，故积分绝对收敛。进一步，
+\[
+  \int \ln\frac{x^2}{x^2-1}\,\dd x
+  =x\ln\frac{x^2}{x^2-1}+\ln(x-1)-\ln(x+1)+C,
+\]
+而右边无常数项部分在 $x\to+\infty$ 时趋于 $0$，在 $x\to1+$ 时趋于 $-\ln4$，所以
+\[
+  \int_1^{+\infty}\ln\frac{x^2}{x^2-1}\,\dd x=\boxed{\ln4}.
+\]
 
 \textbf{(5)} 当 $x\to+\infty$ 时，令 $u=1/x$，则
 \[
@@ -214,12 +222,15 @@ $h$ 是连续的 $2\pi$ 周期函数，且 $h(2\pi-x)=-h(x)$，所以一周期�
   \boxed{p>1\text{ 时绝对收敛； }0<p\leq1\text{ 时条件收敛}.}
 \]
 
-\textbf{(3)} 在 $x=0$ 及 $x=1$ 邻近，局部可积的共同条件为 $p>-1$。无穷远处
+\textbf{(3)} 在 $x=0$ 邻近，$\sin x/x\to1$，且对任意实数 $p$，作 $t=-\ln x$ 可知
 \[
-  \frac{|\ln x|^p}{x}\to0
+  \int_0^{1/2}|\ln x|^p\,\dd x
+  =\int_{\ln2}^{+\infty}t^p\ee^{-t}\,\dd t<+\infty,
 \]
-且最终单调减少，因此带 $\sin x$ 的积分由 Dirichlet 判别法收敛。绝对值积分在无穷远处要与
-$\int (\ln x)^p\,\dd x/x$ 比较，它收敛需 $p<-1$，与局部条件不相容。故
+所以 $x=0$ 不产生额外限制。在 $x=1$ 邻近，$|\ln x|^p\sim|x-1|^p$，故局部可积当且仅当 $p>-1$。
+
+当 $x\to+\infty$ 时，$(\ln x)^p/x\to0$ 且最终单调减少，因此在 $p>-1$ 时尾积分由 Dirichlet 判别法收敛。另一方面，绝对值积分在无穷远处与
+$\int (\ln x)^p\,\dd x/x$ 同敛散，后者仅在 $p<-1$ 时收敛，这与 $x=1$ 处的局部条件不相容。故
 \[
   \boxed{p>-1\text{ 时条件收敛； }p\leq-1\text{ 时发散}.}
 \]
@@ -310,7 +321,21 @@ $\int (\ln x)^p\,\dd x/x$ 比较，它收敛需 $p<-1$，与局部条件不相�
   \ln\left(1+\frac1x\right)-\frac1{1+x}
   =\frac1{2x^2}+\bigO(x^{-3}).
 \]
-所以原积分绝对收敛。
+所以原积分绝对收敛。又因为
+\[
+  \frac{\dd}{\dd x}\left[x\ln\left(1+\frac1x\right)\right]
+  =\ln\left(1+\frac1x\right)-\frac1{1+x},
+\]
+且
+\[
+  \lim_{x\to0+}x\ln\left(1+\frac1x\right)=0,
+  \qquad
+  \lim_{x\to+\infty}x\ln\left(1+\frac1x\right)=1,
+\]
+故还可得到
+\[
+  \int_0^{+\infty}\left[\ln\left(1+\frac1x\right)-\frac1{1+x}\right]\,\dd x=\boxed{1}.
+\]
 
 \paragraph{5.}
 令
@@ -1069,19 +1094,45 @@ $f(x)\geq f(A)+\varepsilon(x-A)$；若 $f'\leq-\varepsilon$，则相反方向线
 \]
 
 \paragraph{9.}
-\textbf{(1)} 因 $p,q,r>0$，$0$ 点有
+\textbf{(1)} 题中 $p,q,r>0$。在 $x\to0+$ 时，
 \[
-  \frac{x^p}{1+x^q}|\sin x|^r\sim x^{p+r},
+  \frac{x^p}{1+x^q|\sin x|^r}\sim x^p,
 \]
-总可积。无穷远处与 $x^{p-q}|\sin x|^r$ 同型。函数 $|\sin x|^r$ 的周期平均值严格为正，因此积分收敛当且仅当
+故 $0$ 端总可积。以下只讨论无穷远处。由于 $|\sin x|\leq1$，
 \[
-  p-q<-1,
+  \frac{x^p}{1+x^q|\sin x|^r}\geq\frac{x^p}{1+x^q},
 \]
-即
+所以若 $q\leq p+1$，原积分必发散。
+
+再设 $q>p+1$，并把 $[\pi,+\infty)$ 分成 $[k\pi,(k+1)\pi]$。在每段令 $x=k\pi+t$；利用 $x\asymp k$、关于 $\pi/2$ 的对称性以及 Jordan 不等式 $\sin t\geq2t/\pi$（$0\leq t\leq\pi/2$），存在与 $k$ 无关的正常数 $C_1,C_2$，使
 \[
-  \boxed{q>p+1\text{ 时绝对收敛； }q\leq p+1\text{ 时发散}.}
+  \int_{k\pi}^{(k+1)\pi}\frac{x^p}{1+x^q|\sin x|^r}\,\dd x
+  \leq C_1 k^p\int_0^{\pi/2}\frac{\dd t}{1+C_2k^q t^r}.
 \]
-被积函数非负，无条件收敛。
+令 $u=C_2^{1/r}k^{q/r}t$。若 $r>1$，则 $\int_0^{+\infty}(1+u^r)^{-1}\,\dd u<+\infty$，故第 $k$ 段为 $\bigO(k^{p-q/r})$；因而在
+\[
+  q>r(p+1)
+\]
+时级数收敛。反过来，在 $0\leq t\leq\pi/2$ 上用 $\sin t\leq t$ 可得相反方向的下界
+\[
+  \int_{k\pi}^{(k+1)\pi}\frac{x^p}{1+x^q|\sin x|^r}\,\dd x
+  \geq c k^{p-q/r}
+\]
+（$k$ 充分大），所以当 $q\leq r(p+1)$ 时发散。
+
+若 $r=1$，上面的缩放积分为 $\bigO(k^{-q}\ln k)$，于是 $q>p+1$ 时各段之和收敛；若 $0<r<1$，则
+\[
+  \int_0^A\frac{\dd u}{1+u^r}=\bigO(A^{1-r}),
+\]
+故第 $k$ 段为 $\bigO(k^{p-q})$，同样在 $q>p+1$ 时收敛。结合前面的必要条件，得到
+\[
+  \boxed{
+  \begin{cases}
+    q>(p+1)\max\{1,r\},&\text{绝对收敛},\\
+    q\leq(p+1)\max\{1,r\},&\text{发散}.
+  \end{cases}}
+\]
+被积函数非负，因此没有条件收敛情形。
 
 \textbf{(2)} 因
 \[
