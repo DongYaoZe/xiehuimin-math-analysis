@@ -417,11 +417,19 @@ x^2(1+y^2)\leqslant\frac{1+(A+\pi)^2}{A^4}\to0,
 \int_0^2\frac{x^t}{\sqrt[3]{(x-1)(x-2)}}\,\dd x,
 \qquad |t|<\frac12.
 \]
-只需检查 $0,1,2$ 三个可能的瑕点。对 $0<x\leqslant1$，
+只需检查 $0,1,2$ 三个可能的瑕点。对 $0<x<1$ 且 $|t|<1/2$，有
 \[
-x^t\leqslant x^{-1/2}.
+\left|\frac{x^t}{\sqrt[3]{(x-1)(x-2)}}\right|
+\leqslant
+\frac{x^{-1/2}}{\sqrt[3]{(1-x)(2-x)}}.
 \]
-在 $x=1$ 与 $x=2$ 的邻域中，$x^t$ 关于 $|t|<1/2$ 一致有界，而分母分别只产生 $|x-1|^{-1/3}$、$|x-2|^{-1/3}$ 型奇性。因此可用三个可积函数分段控制被积函数绝对值，M-判别法给出在 $|t|<1/2$ 上\textbf{一致且绝对收敛}。
+右端在 $(0,1)$ 上可积。对 $1<x<2$，有
+\[
+\left|\frac{x^t}{\sqrt[3]{(x-1)(x-2)}}\right|
+\leqslant
+\frac{\sqrt{x}}{\sqrt[3]{(x-1)(2-x)}},
+\]
+右端在 $(1,2)$ 上也可积。因此由 M-判别法，原瑕积分在 $|t|<1/2$ 上\textbf{一致且绝对收敛}。
 
 \textbf{(12)}
 \[
@@ -767,7 +775,7 @@ I(a)=\int_a^{+\infty}\frac{\dd s}{1+s^2}
 =\frac\pi2-\arctan a,
 \qquad a>0.
 \]
-由 $a\to0^+$ 的连续性，
+当 $a=0$ 时，由 Dirichlet 积分直接有 $I(0)=\pi/2$，故
 \[
 \boxed{I(a)=\frac\pi2-\arctan a\qquad(a\geqslant0)}.
 \]
@@ -1269,15 +1277,25 @@ f(t)=\int_0^t f'(s)\,\dd s.
 \boxed{
 \varphi'(x)=\int_0^x\frac{f'(s)}{\sqrt{x-s}}\,\dd s.}
 \]
-若 $M=\max_{[0,1]}|f'|$，则
+若 $M=\max_{[0,1]}|f'|$，则由
+\[
+\varphi(x)=2\int_0^x f'(s)\sqrt{x-s}\,\dd s
+\]
+可得
+\[
+\left|\frac{\varphi(x)-\varphi(0)}x\right|
+\leqslant\frac{2M}{x}\int_0^x\sqrt{x-s}\,\dd s
+=\frac{4M}{3}\sqrt x\to0.
+\]
+故 $\varphi$ 在 $0$ 处可导，且 $\varphi'(0)=0$。另一方面，对 $x>0$，
 \[
 |\varphi'(x)|\leqslant2M\sqrt x\to0,
 \]
-所以可定义 $\varphi'(0)=0$。对 $x_0>0$，把上式令 $s=xu$ 可写成
+所以 $\varphi'$ 在 $0$ 处连续。对 $x_0>0$，把上式令 $s=xu$ 可写成
 \[
-\varphi'(x)=\sqrt x\int_0^1\frac{f'(xu)}{\sqrt{1-u}}\,\dd u,
+\varphi'(x)=\sqrt x\int_0^1\frac{f'(xu)}{\sqrt{1-u}}\,\dd u.
 \]
-由控制收敛定理知其关于 $x$ 连续。结合 $x=0$ 的极限，$\varphi\in C^1[0,1]$。
+由 $f'$ 在 $[0,1]$ 上一致连续，且 $(1-u)^{-1/2}$ 在 $(0,1)$ 上可积，右端关于 $x$ 连续。因此 $\varphi\in C^1[0,1]$。
 
 \textbf{(2)} 将上式代入题中右端，
 \[
@@ -1412,7 +1430,8 @@ $\int_{|x|>R}f^2(x)\,\dd x$ 足够小；在紧区间 $[-R-1,R+1]$ 上 $f$ 一致
 \]
 所以 $q$ 在 $\RR$ 上连续。
 
-\textbf{(2)} 原书扫描页第二问写作 $g(t)$，但本题只有第一问定义了 $q(t)$；结合右端及题意，第二问应理解为对 $q(t)$ 的结论。记
+% SOURCE-ERR: 题面第二问的 g(t) 未定义；按第一问定义及右端结论应为 q(t)。
+\textbf{(2)} 记
 \[
 K_\varepsilon(t)=\frac1{2\sqrt{\varepsilon\pi}}
 \ee^{-t^2/(4\varepsilon)}.
@@ -1737,24 +1756,66 @@ L=\int_0^{+\infty}f(x)\,\dd x.
 \[
 I=\frac1p\int_0^{+\infty}t^{s-1}\cos t\,\dd t.
 \]
-先加收敛因子 $\ee^{-\varepsilon t}$，$\varepsilon>0$。由 Gamma 积分的 Laplace 形式，
+由 $\Gamma$ 函数的定义，对 $t>0$ 有
 \[
-\int_0^{+\infty}t^{s-1}\ee^{-(\varepsilon-\ii)t}\,\dd t
-=\Gamma(s)(\varepsilon-\ii)^{-s}.
+\int_0^{+\infty}u^{-s}\ee^{-ut}\,\dd u
+=\Gamma(1-s)t^{s-1},
 \]
-取实部，
+即
 \[
-\int_0^{+\infty}t^{s-1}\ee^{-\varepsilon t}\cos t\,\dd t
-=\Gamma(s)(1+\varepsilon^2)^{-s/2}
-\cos\left(s\arctan\frac1\varepsilon\right).
+t^{s-1}=\frac1{\Gamma(1-s)}
+\int_0^{+\infty}u^{-s}\ee^{-ut}\,\dd u.
 \]
-因为 $0<s<1$，原振荡积分由 Dirichlet 判别法收敛，并由 Abel 极限定理可令
-$\varepsilon\to0^+$，得到
+对任意 $R>0$，由于
+\[
+\int_0^R\dd t\int_0^{+\infty}u^{-s}\ee^{-ut}\,\dd u
+=\Gamma(1-s)\int_0^R t^{s-1}\,\dd t<+\infty,
+\]
+可以交换积分次序，得到
+\[
+\int_0^R t^{s-1}\cos t\,\dd t
+=\frac1{\Gamma(1-s)}
+\int_0^{+\infty}u^{-s}
+\left(\int_0^R\ee^{-ut}\cos t\,\dd t\right)\dd u.
+\]
+而
+\[
+\int_0^R\ee^{-ut}\cos t\,\dd t
+=\frac{u+\ee^{-uR}(-u\cos R+\sin R)}{1+u^2},
+\]
+故其绝对值不超过
+\[
+\frac{2u+1}{1+u^2}.
+\]
+因为 $0<s<1$，函数
+\[
+u^{-s}\frac{2u+1}{1+u^2}
+\]
+在 $(0,+\infty)$ 上可积，所以可令 $R\to+\infty$，得到
+\[
+\int_0^{+\infty}t^{s-1}\cos t\,\dd t
+=\frac1{\Gamma(1-s)}
+\int_0^{+\infty}\frac{u^{1-s}}{1+u^2}\,\dd u.
+\]
+令 $u=\tan\theta$，则
+\[
+\begin{aligned}
+\int_0^{+\infty}\frac{u^{1-s}}{1+u^2}\,\dd u
+&=\int_0^{\pi/2}\tan^{1-s}\theta\,\dd\theta\\
+&=\frac12\mathrm{B}\left(\frac s2,1-\frac s2\right)
+=\frac{\pi}{2\sin(\pi s/2)}.
+\end{aligned}
+\]
+再由余元公式
+\[
+\Gamma(s)\Gamma(1-s)=\frac\pi{\sin\pi s}
+\]
+以及 $\sin\pi s=2\sin(\pi s/2)\cos(\pi s/2)$，可得
 \[
 \int_0^{+\infty}t^{s-1}\cos t\,\dd t
 =\Gamma(s)\cos\frac{\pi s}{2}.
 \]
-所以
+因此
 \[
 \boxed{
 \int_0^{+\infty}\cos x^p\,\dd x
@@ -1887,34 +1948,49 @@ J_k=
 \]
 
 \begin{xsolution}
-Gauss 公式为
+记 Gauss 公式中的有限乘积为
 \[
-\Gamma(x)=\lim_{n\to\infty}
-\frac{n!n^x}{x(x+1)\cdots(x+n)}.
+G_n(x)=\frac{n!n^x}{x(x+1)\cdots(x+n)},
+\qquad G_n(x)\to\Gamma(x).
 \]
-在 $x=1$ 的小闭邻域内，对数导数可逐项取极限，故
+其对数导数为
 \[
-\frac{\Gamma'(x)}{\Gamma(x)}
-=\lim_{n\to\infty}
-\left(\ln n-\sum_{k=0}^n\frac1{x+k}\right).
+h_n(x)=\frac{G_n'(x)}{G_n(x)}
+=\ln n-\sum_{k=0}^n\frac1{x+k}.
 \]
-令 $x=1$，利用 $\Gamma(1)=1$，
+在 $x\in[1/2,3/2]$ 上写成
 \[
-\Gamma'(1)
-=\lim_{n\to\infty}
-\left(\ln n-\sum_{k=1}^{n+1}\frac1k\right).
+h_n(x)=\ln n-H_{n+1}
++\sum_{k=0}^n\left(\frac1{k+1}-\frac1{x+k}\right),
 \]
-记 $H_n=\sum_{k=1}^n1/k$，则
+其中 $H_n=\sum_{k=1}^n1/k$。对 $k\geqslant1$，
 \[
-\begin{aligned}
--\Gamma'(1)
-&=\lim_{n\to\infty}(H_{n+1}-\ln n)\\
-&=\lim_{n\to\infty}(H_n-\ln n)
-+\lim_{n\to\infty}\frac1{n+1}
-=\gamma.
-\end{aligned}
+\left|\frac1{k+1}-\frac1{x+k}\right|
+=\frac{|x-1|}{(k+1)(x+k)}
+\leqslant\frac{C}{(k+1)^2},
 \]
-故
+故后一项所成级数在 $[1/2,3/2]$ 上一致收敛；又
+$\ln n-H_{n+1}\to-\gamma$。因此 $h_n$ 在该区间上一致收敛于某连续函数 $h$。
+
+另一方面，$G_n(1)=n/(n+1)\to1$，并且
+\[
+\ln G_n(x)-\ln G_n(1)=\int_1^x h_n(t)\,\dd t.
+\]
+令 $n\to\infty$，利用 Gauss 公式和 $h_n$ 的一致收敛，得到
+\[
+\ln\Gamma(x)=\int_1^x h(t)\,\dd t,
+\qquad \frac12\leqslant x\leqslant\frac32.
+\]
+从而
+\[
+\frac{\Gamma'(x)}{\Gamma(x)}=h(x).
+\]
+特别地，
+\[
+\frac{\Gamma'(1)}{\Gamma(1)}
+=h(1)=\lim_{n\to\infty}(\ln n-H_{n+1})=-\gamma.
+\]
+由于 $\Gamma(1)=1$，故
 \[
 \boxed{\gamma=-\Gamma'(1)}.
 \]
