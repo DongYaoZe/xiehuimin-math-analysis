@@ -106,7 +106,12 @@
 \[
   \int_0^1x^{\alpha}\ln x\,\dd x=-\frac1{(\alpha+1)^2}\qquad(\alpha>-1).
 \]
-因此逐项积分得
+把负号提出后，
+\[
+  \frac{-\ln x}{1-x^2}=\sum_{n=0}^{\infty}x^{2n}(-\ln x),
+  \qquad 0<x<1,
+\]
+右边各项非负。因此可对非负级数使用单调收敛（等价地，先在 $[0,r]$ 上逐项积分再令 $r\to1^-$），得到
 \[
   \int_0^1\frac{\ln x}{1-x^2}\,\dd x
   =-\sum_{n=0}^{\infty}\frac1{(2n+1)^2}.
@@ -906,28 +911,49 @@ S&=\frac16\int_0^1\frac{(1-x)^3}{1-x^3}\,\dd x
 
 \paragraph{参考题 2}
 \begin{xsolution}
-令
+记
 \[
-  \eta(s)=\sum_{n=1}^{\infty}\frac{(-1)^{n-1}}{n^s}
-  =(1-2^{1-s})\zeta(s),\qquad s>0,
+  S_N=\sum_{k=1}^{N}(-1)^{k-1}\frac{\ln k}{k}.
 \]
-其中在 $s=1$ 附近按 Abel--Dirichlet 方法理解。所求级数收敛（$\ln n/n$ 从充分大的 $n$ 起单调趋于 0），并且
+由于 $\ln k/k$ 从充分大的 $k$ 起单调趋于 $0$，原级数由 Leibniz 判别法收敛。考察偶数部分和：
 \[
-  \sum_{n=1}^{\infty}(-1)^{n-1}\frac{\ln n}{n}=-\eta'(1).
+\begin{aligned}
+  S_{2n}
+  &=\sum_{k=1}^{2n}\frac{\ln k}{k}
+    -2\sum_{k=1}^{n}\frac{\ln(2k)}{2k}\\
+  &=\sum_{k=n+1}^{2n}\frac{\ln k}{k}
+    -\ln2\sum_{k=1}^{n}\frac1k.
+\end{aligned}
 \]
-设 $h=s-1$。利用
+把第一项写成 Riemann 和：
 \[
-  1-2^{-h}=h\ln2-\frac{h^2(\ln2)^2}{2}+\bigO(h^3),
+\begin{aligned}
+  \sum_{k=n+1}^{2n}\frac{\ln k}{k}
+  &=\frac1n\sum_{j=1}^{n}
+    \frac{\ln(1+j/n)}{1+j/n}
+    +\ln n\sum_{j=1}^{n}\frac1{n+j}.
+\end{aligned}
 \]
-以及
+于是
 \[
-  \zeta(1+h)=\frac1h+\gamma+\bigO(h),
+\begin{aligned}
+  S_{2n}
+  &=\frac1n\sum_{j=1}^{n}
+    \frac{\ln(1+j/n)}{1+j/n}\\
+  &\quad+\ln n\left(H_{2n}-H_n-\ln2\right)
+    +\ln2\left(\ln n-H_n\right),
+\end{aligned}
 \]
-其中 $\gamma$ 为 Euler 常数，得到
+其中 $H_n=\sum_{k=1}^n1/k$。第一项趋于
 \[
-  \eta(1+h)=\ln2+h\left(\gamma\ln2-\frac{(\ln2)^2}{2}\right)+\bigO(h^2).
+  \int_0^1\frac{\ln(1+x)}{1+x}\,\dd x
+  =\frac{(\ln2)^2}{2}.
 \]
-故
+又由 $H_n-\ln n\to\gamma$，以及
+\[
+  H_{2n}-H_n-\ln2=\bigO\left(\frac1n\right),
+\]
+可知第二项趋于 $0$，第三项趋于 $-\gamma\ln2$。因此
 \[
   \boxed{\displaystyle
   \sum_{n=1}^{\infty}(-1)^{n-1}\frac{\ln n}{n}
