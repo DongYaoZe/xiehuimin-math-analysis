@@ -1,0 +1,2186 @@
+% 第5章《连续函数》题目解答
+% 对应 chapters/ch05.tex；按原章顺序排列。
+
+\section*{第5章 连续函数题目解答}
+
+\subsection*{5.1 连续性概念}
+
+\subsubsection*{5.1.2 思考题}
+
+\paragraph{思考题 1}
+\begin{xsolution}
+若 $f$ 在 $a$ 连续，则由连续函数的四则运算以及绝对值函数的连续性，$f^2$ 与 $|f|$ 都在 $a$ 连续。
+
+反之均不成立。例如令
+\[
+ f(x)=\begin{cases}
+  1,&x\ge a,\\
+  -1,&x<a.
+ \end{cases}
+\]
+则 $f$ 在 $a$ 不连续，而 $f^2\equiv1$、$|f|\equiv1$ 均在 $a$ 连续。因此仅由 $f^2$ 或 $|f|$ 在 $a$ 连续不能推出 $f$ 在 $a$ 连续。
+\end{xsolution}
+
+\paragraph{思考题 2}
+\begin{xsolution}
+不能由“$f,g$ 在 $a$ 都不连续”唯一判断 $f+g$ 或 $fg$ 是否连续。
+
+例如取 Dirichlet 函数 $D$，令 $f=D,g=1-D$，则 $f,g$ 处处不连续，但
+\[
+ f+g\equiv1,\qquad fg\equiv0
+\]
+处处连续。另一方面，若取 $f=g=D$，则 $f+g=2D$、$fg=D$ 都处处不连续。因此和与积既可能连续，也可能不连续。
+\end{xsolution}
+
+\paragraph{思考题 3}
+\begin{xsolution}
+任取 $x_0\in(a,b)$。可取 $c,d$ 使
+\[
+ a<c<x_0<d<b.
+\]
+由题设，$f$ 在闭区间 $[c,d]$ 上连续，特别地在其内点 $x_0$ 连续。由于 $x_0$ 任意，$f$ 在 $(a,b)$ 上处处连续，即 $f\in C(a,b)$。
+\end{xsolution}
+
+\paragraph{思考题 4}
+\begin{xsolution}
+\begin{enumerate}[label=(\arabic*)]
+ \item 当 $x\to0^-$ 时，$1/x\to-\infty$，故 $\ee^{1/x}\to0$；当 $x\to0^+$ 时，$x^2\to0$，且 $f(0)=0$。所以 $f$ 在 $0$ 连续。其余各点由初等函数连续性知均连续。因此 $f$ 在 $\RR$ 上连续。
+ \item 除 $0$ 外均连续。在 $0$ 处
+ \[
+  \lim_{x\to0^-}\ee^{1/x}=0,\qquad
+  \lim_{x\to0^+}\ee^{1/x}=+\infty,
+ \]
+ 两个单侧极限不能同时作为有限实数存在，故 $0$ 为第二类间断点。
+ \item 对 $x\ne0$，
+ \[
+  \frac{\ln(1+x^2)}x
+  =x\,\frac{\ln(1+x^2)}{x^2}\longrightarrow0
+  \qquad(x\to0),
+ \]
+ 因为 $\ln(1+u)/u\to1$。而 $f(0)=2$，所以 $0$ 为可去间断点；在 $(-1,0)\cup(0,1)$ 上函数连续。
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{思考题 5}
+\begin{xsolution}
+\begin{enumerate}[label=(\arabic*)]
+ \item $\operatorname{sgn}x$ 只在 $x=0$ 间断，且
+ \[
+  f(0^-)=-1,\qquad f(0^+)=1,
+ \]
+ 故 $0$ 为跳跃间断点。
+
+ \item $g(x)=x-[x]$ 为小数部分函数。对每个 $m\in\ZZ$，
+ \[
+  g(m^-)=1,\qquad g(m^+)=g(m)=0,
+ \]
+ 故所有整数都是跳跃间断点；其余点连续。
+
+ \item 由 $g(x)\in[0,1)$，且 $g(x)=0$ 当且仅当 $x\in\ZZ$，有
+ \[
+  f(g(x))=\begin{cases}0,&x\in\ZZ,\\1,&x\notin\ZZ.
+  \end{cases}
+ \]
+ 对任意整数 $m$，$\lim_{x\to m}f(g(x))=1$ 而函数值为 $0$，故每个整数都是可去间断点；其余点连续。
+
+ \item 因为 $f(x)\in\{-1,0,1\}\subset\ZZ$，而 $g(k)=0$ 对每个整数 $k$ 成立，所以
+ \[
+  g(f(x))\equiv0,
+ \]
+ 因而处处连续。
+
+ \item 原式定义域排除 $x=-1,0,1$。在定义域内可化为
+ \[
+  h(x)=\frac{x-1}{x+1}.
+ \]
+ 因此 $x=0,1$ 均为可去间断点；在 $x=-1$ 处函数无界，故为第二类间断点。
+
+ \item 定义域为
+ \[
+  (-\infty,0)\cup(0,1],
+ \]
+ 因为当 $x>1$ 时 $[1/x]=0$。在每个使 $1/x$ 不越过整数的开区间内函数为常数。对 $n\in\NN_+$，点 $x=-1/n$ 的左右函数值分别趋于 $-1/n$ 与 $-1/(n+1)$，故都是跳跃点；对 $n\ge2$，点 $x=1/n$ 的左右函数值分别为 $1/n$ 与 $1/(n-1)$，故也是跳跃点。点 $x=1$ 按定义域的左侧连续。因此全部间断点为
+ \[
+  \left\{-\frac1n:n\in\NN_+\right\}
+  \cup
+  \left\{\frac1n:n\ge2\right\},
+ \]
+ 且均为跳跃间断点。
+\end{enumerate}
+\end{xsolution}
+
+\subsubsection*{5.1.4 练习题}
+
+\paragraph{练习题 1}
+\begin{xsolution}
+\begin{enumerate}[label=(\arabic*)]
+ \item 连续性第一定义的否定可写成：存在 $\varepsilon_0>0$，使对每个 $\delta>0$，总存在定义域中的 $x$ 满足
+ \[
+  0<|x-a|<\delta,\qquad |f(x)-f(a)|\ge\varepsilon_0.
+ \]
+ 连续性第二定义的否定可写成：存在数列 $\{x_n\}$，$x_n\to a$，但 $f(x_n)\not\to f(a)$。等价地，可在取子列后写成存在 $\varepsilon_0>0$ 及 $x_n\to a$，使
+ \[
+  |f(x_n)-f(a)|\ge\varepsilon_0,\qquad n\in\NN_+.
+ \]
+
+ \item 先设第一定义成立。若 $x_n\to a$，则对任意 $\varepsilon>0$，由连续性可取 $\delta>0$，使 $|x-a|<\delta$ 时 $|f(x)-f(a)|<\varepsilon$。当 $n$ 充分大时 $|x_n-a|<\delta$，故 $|f(x_n)-f(a)|<\varepsilon$，于是 $f(x_n)\to f(a)$。
+
+ 反过来，若第一定义不成立，则由 (1) 存在 $\varepsilon_0>0$，对每个 $n$ 可取 $x_n$ 使
+ \[
+  0<|x_n-a|<\frac1n,
+  \qquad |f(x_n)-f(a)|\ge\varepsilon_0.
+ \]
+ 于是 $x_n\to a$，但 $f(x_n)\not\to f(a)$，与第二定义矛盾。因此两定义等价。
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{练习题 2}
+\begin{xsolution}
+\begin{enumerate}[label=(\arabic*)]
+ \item $[x]$ 在每个非整数点连续；对 $m\in\ZZ$，有
+ \[
+  [x]_{x\to m^-}=m-1,\qquad [m]=[x]_{x\to m^+}=m,
+ \]
+ 所以所有整数均为跳跃间断点。
+
+ \item 当 $x\to0$ 时
+ \[
+  \frac{\ee^{\sin x}-1}{x}
+  =\frac{\ee^{\sin x}-1}{\sin x}\frac{\sin x}{x}\longrightarrow1=f(0).
+ \]
+ 其余点处由初等函数连续性可知连续，故该函数处处连续。
+
+ \item 若 $x\notin\ZZ$，则 $[x]+[-x]=-1$；若 $x\in\ZZ$，则该值为 $0$。所以每个整数处的极限均为 $-1$，函数值为 $0$，故所有整数都是可去间断点，其余点连续。
+
+ \item 当 $x\ne0,\pm1$ 时
+ \[
+  \frac{x^2-x}{|x|(x^2-1)}
+  =\frac{x}{|x|(x+1)}
+  =\frac{\operatorname{sgn}x}{x+1}.
+ \]
+ 因而在 $x=0$，左右极限分别为 $-1,1$，是跳跃点；在 $x=1$，极限为 $1/2$ 而函数值为 $1$，是可去间断点；在 $x=-1$，两侧分别无界，是第二类间断点。
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{练习题 3}
+\begin{xsolution}
+数列 $\{x_n\}\subset[a,b]$ 有收敛子列 $x_{n_k}\to\xi\in[a,b]$。由 $f$ 在 $\xi$ 连续，
+\[
+ f(x_{n_k})\to f(\xi).
+\]
+另一方面原数列满足 $f(x_n)\to A$，故其任意子列也趋于 $A$。由极限唯一性，$f(\xi)=A$。
+\end{xsolution}
+
+\paragraph{练习题 4}
+\begin{xsolution}
+若 $0<x<1$，则反复使用 $f(x)=f(x^2)$ 得
+\[
+ f(x)=f(x^{2^n}),
+\]
+而 $x^{2^n}\to0$，由 $f$ 在 $0$ 连续知 $f(x)=f(0)$。
+
+若 $x>1$，令 $y_n=x^{1/2^n}$。由 $f(y)=f(y^2)$ 逐次反推得 $f(x)=f(y_n)$，而 $y_n\to1$，故由 $f$ 在 $1$ 连续，$f(x)=f(1)$。
+
+又令 $x\to1^-$，前一结论给出 $f(x)=f(0)$，连续性于是推出 $f(1)=f(0)$。最后，对 $x<0$，有 $x^2>0$，故
+\[
+ f(x)=f(x^2)=f(0).
+\]
+所以 $f$ 在 $\RR$ 上为常值函数。
+\end{xsolution}
+
+\paragraph{练习题 5}
+\begin{xsolution}
+利用恒等式
+\[
+ \max\{f,g\}=\frac{f+g+|f-g|}{2},
+ \qquad
+ \min\{f,g\}=\frac{f+g-|f-g|}{2}.
+\]
+因为 $f,g$ 连续，所以 $f\pm g$ 连续，进而 $|f-g|$ 连续。因此上面两个函数均连续，即属于 $C(I)$。
+\end{xsolution}
+
+\paragraph{练习题 6}
+\begin{xsolution}
+记
+\[
+ M(x)=\max\{f_1(x),f_2(x),f_3(x)\},
+ \qquad
+ m(x)=\min\{f_1(x),f_2(x),f_3(x)\}.
+\]
+由上一题反复应用于两个函数可知 $M,m\in C[a,b]$。三个数的中间值等于三数之和减去最大值和最小值，所以
+\[
+ f(x)=f_1(x)+f_2(x)+f_3(x)-M(x)-m(x).
+\]
+右端为连续函数之和差，故 $f\in C[a,b]$。
+\end{xsolution}
+
+\paragraph{练习题 7}
+\begin{xsolution}
+若 $f$ 连续，则
+\[
+ f_n(x)=\max\{-n,\min\{f(x),n\}\}
+\]
+由连续函数的最大、最小运算仍连续，故每个 $f_n$ 连续。
+
+反之，设每个 $f_n$ 连续。固定 $x_0$，取正整数 $n>|f(x_0)|+1$。此时 $f_n(x_0)=f(x_0)$。由 $f_n$ 在 $x_0$ 连续，存在 $x_0$ 的一个邻域，使
+\[
+ |f_n(x)-f(x_0)|<1.
+\]
+于是该邻域内 $|f_n(x)|<n$。若某点有 $f(x)\ge n$ 或 $f(x)\le-n$，则 $f_n(x)$ 必等于 $n$ 或 $-n$，与 $|f_n(x)|<n$ 矛盾。因此在此邻域内 $f_n(x)=f(x)$。故 $f$ 在 $x_0$ 附近与连续函数 $f_n$ 相同，从而在 $x_0$ 连续。$x_0$ 任意，所以 $f$ 连续。
+\end{xsolution}
+
+\paragraph{练习题 8}
+\begin{xsolution}
+设 Dirichlet 函数
+\[
+ D(x)=\begin{cases}1,&x\in\QQ,\\0,&x\notin\QQ.
+ \end{cases}
+\]
+任意点 $a$ 的任意邻域中都有有理数和无理数。取有理数列 $r_n\to a$ 与无理数列 $s_n\to a$，则
+\[
+ D(r_n)=1,\qquad D(s_n)=0.
+\]
+所以 $D(x)$ 在 $a$ 处极限不存在。故 $D$ 处处不连续，并且每个间断点都是第二类间断点。
+\end{xsolution}
+
+\paragraph{练习题 9}
+\begin{xsolution}
+给定指定点 $a$，令
+\[
+ f(x)=|x-a|D(x),
+\]
+其中 $D$ 为 Dirichlet 函数。在 $x=a$ 处，
+\[
+ |f(x)|\le|x-a|\to0=f(a),
+\]
+故 $f$ 在 $a$ 连续。
+
+若 $x_0\ne a$，沿有理数列趋于 $x_0$ 时函数值趋于 $|x_0-a|>0$，沿无理数列趋于 $x_0$ 时函数值恒为 $0$，故极限不存在。因此除 $a$ 外处处不连续。
+\end{xsolution}
+
+\paragraph{练习题 10}
+\begin{xsolution}
+令 $y=0$，得 $f(x)=f(x)f(0)$。若存在 $x$ 使 $f(x)\ne0$，则 $f(0)=1$；若不存在，则 $f\equiv0$。
+
+以下设 $f\not\equiv0$。由
+\[
+ f(x)=f(x/2)^2\ge0.
+\]
+若存在 $x_0$ 使 $f(x_0)=0$，则
+\[
+ 1=f(0)=f(x_0)f(-x_0)=0,
+\]
+矛盾，故 $f(x)>0$ 对所有 $x$ 成立。定义
+\[
+ g(x)=\ln f(x).
+\]
+则 $g$ 连续且
+\[
+ g(x+y)=g(x)+g(y).
+\]
+连续的加法函数必为线性函数，故 $g(x)=cx$，其中 $c=g(1)$。于是
+\[
+ f(x)=\ee^{cx}=a^x,
+ \qquad a=\ee^c=f(1)>0.
+\]
+反之 $f\equiv0$ 与任意 $a>0$ 的 $f(x)=a^x$ 都满足原方程。
+\end{xsolution}
+
+\paragraph{练习题 11}
+\begin{xsolution}
+令
+\[
+ g(x)=f(x)-f(0).
+\]
+则 $g$ 连续、$g(0)=0$，且同样满足中点等式
+\[
+ g\left(\frac{x+y}{2}\right)=\frac{g(x)+g(y)}2.
+\]
+取 $y=0$ 得 $g(x/2)=g(x)/2$，等价于 $g(2u)=2g(u)$。于是
+\[
+ g(x+y)=2g\left(\frac{x+y}{2}\right)=g(x)+g(y).
+\]
+所以 $g$ 是连续加法函数，故 $g(x)=g(1)x$。因此
+\[
+ f(x)=[f(1)-f(0)]x+f(0).
+\]
+\end{xsolution}
+
+\paragraph{练习题 12}
+\begin{xsolution}
+若 $f$ 在 $a$ 连续，则给定 $\varepsilon>0$，可取 $\delta>0$，使当 $x\in O_\delta(a)$ 时
+\[
+ |f(x)-f(a)|<\frac\varepsilon2.
+\]
+于是任意 $x,y\in O_\delta(a)$ 有
+\[
+ |f(x)-f(y)|\le|f(x)-f(a)|+|f(y)-f(a)|<\varepsilon.
+\]
+所以 $\omega_f(a,\delta)\le\varepsilon$，令 $\delta\to0^+$ 得 $\omega_f(a)=0$。
+
+反之，若 $\omega_f(a)=0$，则对任意 $\varepsilon>0$，存在 $\delta>0$ 使
+\[
+ \omega_f(a,\delta)<\varepsilon.
+\]
+因为 $a,x\in O_\delta(a)$ 时
+\[
+ |f(x)-f(a)|\le
+ \sup_{O_\delta(a)}f-\inf_{O_\delta(a)}f
+ =\omega_f(a,\delta)<\varepsilon,
+\]
+故 $f$ 在 $a$ 连续。
+\end{xsolution}
+
+\subsection*{5.2 零点存在定理与介值定理}
+
+\paragraph{5.2.1 思考题}
+\begin{xsolution}
+可以构造一个在每个非退化区间上都取遍 $\RR$ 的函数。把 $\RR$ 按等价关系
+\[
+ x\sim y\quad\Longleftrightarrow\quad x-y\in\QQ
+\]
+分成陪集。每个陪集 $x+\QQ$ 都在 $\RR$ 中稠密，而且陪集全体的势与 $\RR$ 相同。取一个双射
+\[
+ \Phi\colon \RR/\QQ\to\RR,
+\]
+并定义 $f(x)=\Phi(x+\QQ)$。
+
+任意非退化区间都与每个陪集相交，所以它在 $f$ 下的像就是整个 $\RR$。因此 $f$ 具有介值性质。另一方面，任意点的任意邻域内 $f$ 都取遍 $\RR$，故 $f$ 在每一点都不连续。
+\end{xsolution}
+
+\subsubsection*{5.2.3 练习题}
+
+\paragraph{练习题 1}
+\begin{xsolution}
+设
+\[
+ m=\min_{1\le i\le n}f(x_i),\qquad
+ M=\max_{1\le i\le n}f(x_i).
+\]
+算术平均数
+\[
+ A=\frac1n\sum_{i=1}^n f(x_i)
+\]
+满足 $m\le A\le M$。取达到 $m,M$ 的两个点，它们都属于 $[x_1,x_n]$。由连续函数的介值定理，$f$ 在连接这两点的区间上取遍 $[m,M]$，故存在 $\xi\in[x_1,x_n]$ 使 $f(\xi)=A$。
+\end{xsolution}
+
+\paragraph{练习题 2}
+\begin{xsolution}
+用参数 $\theta$ 表示圆周上的点，令 $F(\theta)$ 表示函数在该点的值。所谓圆周上的连续，是指 $F$ 为 $2\pi$ 周期连续函数。定义
+\[
+ h(\theta)=F(\theta)-F(\theta+\pi).
+\]
+则 $h$ 连续，且
+\[
+ h(\theta+\pi)=-h(\theta).
+\]
+若 $h(\theta_0)=0$，则以 $\theta_0$ 与 $\theta_0+\pi$ 为端点的直径即满足要求。否则 $h(\theta_0)$ 与 $h(\theta_0+\pi)$ 异号，由零点存在定理，在二者之间必有 $\xi$ 使 $h(\xi)=0$。故必存在所求直径。
+\end{xsolution}
+
+\paragraph{练习题 3}
+\begin{xsolution}
+按原书及当前章文本，条件确实写为
+\[
+ \sum_{k=1}^{n-1}|a_k|<a_n,
+\]
+并未限制常数项 $a_0$。在这一条件下原命题不成立。例如取 $n=2$，令
+\[
+ a_2=1,\qquad a_1=0,\qquad a_0=2.
+\]
+则题设条件 $|a_1|<a_2$ 成立，但
+\[
+ C_2(x)=2+\cos2x\ge1>0,
+\]
+在 $[0,2\pi)$ 中没有零点，更不可能有 $4$ 个零点。
+
+若原题本意是常见的较强条件
+\[
+ \sum_{k=0}^{n-1}|a_k|<|a_n|,
+\]
+则在 $x_j=j\pi/n$ 处最高次项为 $a_n(-1)^j$，其绝对值严格大于其余项之和，故 $C_n(x_j)$ 的符号随 $j$ 交替；对相邻的 $2n$ 个小区间应用零点存在定理即可得到至少 $2n$ 个零点。但这不是原书当前印出的条件。
+\end{xsolution}
+
+\paragraph{练习题 4}
+\begin{xsolution}
+记
+\[
+ F(x)=\frac{a_1}{x-b_1}+\frac{a_2}{x-b_2}+\frac{a_3}{x-b_3}.
+\]
+在每个不含 $b_i$ 的区间内 $F$ 连续。若 $x<y$ 且二者同处于 $(b_1,b_2)$ 或 $(b_2,b_3)$，则对每个 $i$，函数 $1/(x-b_i)$ 随 $x$ 严格减少；因 $a_i>0$，故 $F$ 在这两个区间上都严格减少。
+
+在 $(b_1,b_2)$ 上，
+\[
+ \lim_{x\to b_1^+}F(x)=+\infty,
+ \qquad
+ \lim_{x\to b_2^-}F(x)=-\infty.
+\]
+由介值定理至少有一根，由严格单调性至多有一根，故恰有一根。同理，在 $(b_2,b_3)$ 上
+\[
+ \lim_{x\to b_2^+}F(x)=+\infty,
+ \qquad
+ \lim_{x\to b_3^-}F(x)=-\infty,
+\]
+也恰有一根。
+\end{xsolution}
+
+\paragraph{练习题 5}
+\begin{xsolution}
+\begin{enumerate}[label=(\arabic*)]
+ \item 奇数次首一多项式满足
+ \[
+  \lim_{x\to+\infty}f(x)=+\infty,
+  \qquad
+  \lim_{x\to-\infty}f(x)=-\infty.
+ \]
+ 因此可取 $A<0<B$ 使 $f(A)<0<f(B)$。由零点存在定理，$f$ 至少有一个实根。
+
+ \item 偶数次多项式可以没有实根，例如 $x^2+1=0$。若常数项 $a_{2n}<0$，则 $f(0)<0$，而
+ \[
+  \lim_{x\to\pm\infty}f(x)=+\infty.
+ \]
+ 因而可取 $A<0<B$ 使 $f(A)>0,f(B)>0$。分别在 $[A,0]$ 和 $[0,B]$ 上应用零点存在定理，各得到一个实根；两根一负一正，故互异。
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{练习题 6}
+\begin{xsolution}
+令
+\[
+ F(x)=x^{17}+\frac{215}{1+\cos^2 3x}-18.
+\]
+$F$ 在 $\RR$ 上连续。因
+\[
+ F(0)=\frac{215}{2}-18>0,
+\]
+而
+\[
+ F(-2)\le -2^{17}+215-18<0,
+\]
+故由零点存在定理，$F$ 在 $(-2,0)$ 内有零点，即原方程必有实根。
+\end{xsolution}
+
+\paragraph{练习题 7}
+\begin{xsolution}
+连续函数把区间映成区间，所以 $f([a,b])$ 是 $\RR$ 中的区间。另一方面题设说该值域只含有理数。若值域中有两个不同的数 $p<q$，则区间性质要求它包含 $p,q$ 之间的所有实数，其中必有无理数，矛盾。因此值域只能退化为一个点，故 $f$ 是常值函数。
+\end{xsolution}
+
+\paragraph{练习题 8}
+\begin{xsolution}
+先证明一般事实：区间上的连续一一映射必严格单调。否则存在 $x_1<x_2<x_3$，使 $f(x_2)$ 不严格位于 $f(x_1),f(x_3)$ 之间。若例如
+\[
+ f(x_2)>\max\{f(x_1),f(x_3)\},
+\]
+取 $c$ 严格介于 $\max\{f(x_1),f(x_3)\}$ 与 $f(x_2)$ 之间，则由介值定理，在 $(x_1,x_2)$ 与 $(x_2,x_3)$ 各有一点取值 $c$，与一一性矛盾。其余情形同理。因此 $f$ 严格单调。
+
+若 $f(a)<f(b)$，严格单调不可能为减少，只能严格增加；若 $f(a)>f(b)$，则只能严格减少。这就得到 (1)、(2)。
+\end{xsolution}
+
+\paragraph{练习题 9}
+\begin{xsolution}
+给定 $c\in(A,B)$。由
+\[
+ \lim_{x\to-\infty}f(x)=A<c,
+ \qquad
+ \lim_{x\to+\infty}f(x)=B>c,
+\]
+可取 $u<v$，使
+\[
+ f(u)<c<f(v).
+\]
+函数 $f-c$ 在 $[u,v]$ 连续且两端异号，由零点存在定理存在 $\xi\in(u,v)$ 使 $f(\xi)=c$。
+\end{xsolution}
+
+\paragraph{练习题 10}
+\begin{xsolution}
+不妨设 $A<\eta<B$。由 $f(x_n)\to A$、$f(y_n)\to B$，当 $n$ 充分大时有
+\[
+ f(x_n)<\eta<f(y_n).
+\]
+对连接 $x_n,y_n$ 的闭区间应用介值定理，可取位于二者之间的 $z_n$，使
+\[
+ f(z_n)=\eta.
+\]
+对有限个较小的 $n$ 任意补取 $z_n\in[a,b)$ 即可。因为 $x_n\to b,y_n\to b$，而 $z_n$ 位于 $x_n,y_n$ 之间，所以夹逼得 $z_n\to b$；同时 $f(z_n)=\eta$ 对充分大的 $n$ 恒成立，故 $f(z_n)\to\eta$。
+\end{xsolution}
+
+\subsection*{5.3 有界性定理与最值定理}
+
+\subsubsection*{5.3.3 练习题}
+
+\paragraph{练习题 1}
+\begin{xsolution}
+任取 $x_0\in[a,b]$。若 $x_0\in(a,b)$，题设保证 $f(x_0^-),f(x_0^+)$ 都是有限数；由单侧极限的局部有界性，存在 $x_0$ 的一个邻域，使 $f$ 在去掉 $x_0$ 后有界，再把有限的函数值 $f(x_0)$ 加入即可知 $f$ 在该邻域内有界。端点处只需使用相应的单侧极限，同样得到局部有界性。
+
+于是 $[a,b]$ 的每一点都有一个邻域，在该邻域与 $[a,b]$ 的交上 $f$ 有界。这些邻域构成 $[a,b]$ 的开覆盖。由有限覆盖定理可取有限子覆盖。有限多个局部界的最大值给出整个 $[a,b]$ 上的统一界，故 $f$ 有界。
+\end{xsolution}
+
+\paragraph{练习题 2}
+\begin{xsolution}
+设
+\[
+ \lim_{x\to+\infty}f(x)=A\in\RR.
+\]
+取 $M>a$，使 $x>M$ 时 $|f(x)-A|<1$，于是尾部 $[M,+\infty)$ 上
+\[
+ |f(x)|\le |A|+1.
+\]
+在闭区间 $[a,M]$ 上，$f$ 连续，故由有界性定理有界。合并两部分即可知 $f$ 在 $[a,+\infty)$ 上有界。
+\end{xsolution}
+
+\paragraph{练习题 3}
+\begin{xsolution}
+\begin{enumerate}[label=(\arabic*)]
+ \item 存在。例如
+ \[
+  f(x)=\tan\pi\left(x-\frac12\right),\qquad 0<x<1,
+ \]
+ 连续且值域为 $\RR$。
+
+ \item 不存在。若 $f\in C[0,1]$，由有界性定理 $f([0,1])$ 有界，不可能等于 $\RR$。
+
+ \item 存在。例如
+ \[
+  f(x)=\frac{\sin(1/x)}x,\qquad 0<x\le1.
+ \]
+ 它在 $(0,1]$ 连续。取使 $\sin(1/x)=1$ 与 $-1$ 的两列点趋于 $0$，可见函数在 $0$ 附近既无上界又无下界。连续像是区间，而该值域同时向上、向下无界，因此只能是整个 $\RR$。
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{练习题 4}
+\begin{xsolution}
+不一定。以 $[0,1]$ 为例，定义
+\[
+ f(x)=\begin{cases}
+  x,&0<x<1,\\
+  1,&x=0,\\
+  0,&x=1.
+ \end{cases}
+\]
+则 $f([0,1])=[0,1]$，确为闭区间，但 $f$ 在 $0,1$ 都不连续。因此“值域为闭区间”不能推出连续性。
+\end{xsolution}
+
+\paragraph{练习题 5}
+\begin{xsolution}
+设 $\lim_{x\to+\infty}f(x)=L$。若 $f\equiv L$，则最大值、最小值都能取到。以下设 $f$ 非常值。
+
+若存在 $x_0$ 使 $f(x_0)>L$，取
+\[
+ \varepsilon=\frac{f(x_0)-L}{2}>0.
+\]
+可取 $M>x_0$，使 $x>M$ 时
+\[
+ f(x)<L+\varepsilon=\frac{L+f(x_0)}2<f(x_0).
+\]
+因此全局最大值只能出现在闭区间 $[a,M]$ 上，而连续函数在该闭区间上取到最大值，所以 $f$ 在 $[a,+\infty)$ 上取到最大值。
+
+若不存在这样的 $x_0$，则 $f(x)\le L$ 对所有 $x$。因为 $f$ 非常值，存在 $x_0$ 使 $f(x_0)<L$。完全类似地可证明 $f$ 取到全局最小值。故至少最大值或最小值之一能够取到。
+\end{xsolution}
+
+\paragraph{练习题 6}
+\begin{xsolution}
+任取 $x_0\in(a,b)$。由
+\[
+ f(a^+)=f(b^-)=+\infty,
+\]
+存在 $\delta>0$，使在 $(a,a+\delta)$ 与 $(b-\delta,b)$ 上都有
+\[
+ f(x)>f(x_0)+1.
+\]
+可令 $a+\delta<b-\delta$。在闭区间 $[a+\delta,b-\delta]$ 上，$f$ 由最值定理取到最小值 $m$。因为 $x_0$ 可取在这个闭区间中，所以 $m\le f(x_0)$；而两端邻近部分函数值均大于 $f(x_0)+1>m$。因此这个 $m$ 也是整个 $(a,b)$ 上的最小值。
+\end{xsolution}
+
+\paragraph{练习题 7}
+\begin{xsolution}
+记共同的端点极限为 $L$。
+
+若 $L\in\RR$，定义
+\[
+ F(a)=F(b)=L,\qquad F(x)=f(x)\quad(a<x<b).
+\]
+则 $F\in C[a,b]$，故取到最大值和最小值。若 $f\equiv L$，结论当然成立；否则存在一点函数值大于 $L$ 或小于 $L$。前一种情况下 $F$ 的最大值必在 $(a,b)$ 取得，后一种情况下最小值必在 $(a,b)$ 取得。
+
+若 $L=+\infty$，由上一题 $f$ 取到最小值；若 $L=-\infty$，对 $-f$ 应用上一题，得到 $f$ 取到最大值。故各种情况下至少能取到最大值或最小值中的一个。
+\end{xsolution}
+
+\paragraph{练习题 8}
+\begin{xsolution}
+设 $m=f(a)$ 是 $f$ 的全局最小值，且 $m<a$。因为 $f(x)\to+\infty$ 当 $x\to\pm\infty$，连续函数的值域为
+\[
+ f(\RR)=[m,+\infty).
+\]
+特别地 $a\in[m,+\infty)=f(\RR)$。对复合函数 $F=f\circ f$，其取值为 $f$ 在 $[m,+\infty)$ 上的取值。由于 $a\in[m,+\infty)$ 且 $f(a)=m$ 是 $f$ 的全局最小值，故
+\[
+ \min_{x\in\RR}F(x)=m,
+\]
+而 $F(x)=m$ 当且仅当 $f(x)$ 是 $f$ 的某个最小值点；特别地，只要 $f(x)=a$ 就有 $F(x)=m$。
+
+由 $f(a)=m<a$，再利用 $f(x)\to+\infty$ 当 $x\to-\infty$ 与 $x\to+\infty$，分别在 $a$ 的左、右两侧用介值定理，可得到
+\[
+ x_1<a<x_2,
+ \qquad f(x_1)=f(x_2)=a.
+\]
+于是
+\[
+ F(x_1)=F(x_2)=f(a)=m,
+\]
+所以复合函数至少在两个不同点取到它的最小值。
+\end{xsolution}
+
+\paragraph{练习题 9}
+\begin{xsolution}
+对 Dirichlet 函数 $D$，有 $0\le D\le1$。每个有理点的函数值为 $1$，故每个有理点都是极大值点，同时也是最大值点；每个无理点函数值为 $0$，故每个无理点都是极小值点，同时也是最小值点。所有这些极值均非严格极值。
+
+对 Riemann 函数 $R$，有 $R\ge0$。每个无理点函数值为 $0$，因此每个无理点都是极小值点和最小值点。若 $x_0=p/q$ 为既约有理数，$q>0$，则 $R(x_0)=1/q$。在 $x_0$ 的充分小邻域内，除 $x_0$ 外不存在分母不超过 $q$ 的既约有理数，所以邻域内其余点均有
+\[
+ R(x)<\frac1q=R(x_0).
+\]
+因此每个有理点都是严格极大值点。Riemann 函数的全局最大值为 $1$，恰在分母 $q=1$ 的有理点，即所有整数处取得；全局最小值为 $0$，在所有无理点取得。
+\end{xsolution}
+
+\subsection*{5.4 一致连续性与 Cantor 定理}
+
+\subsubsection*{5.4.2 思考题}
+
+\paragraph{思考题 1}
+\begin{xsolution}
+正面叙述为：存在 $\varepsilon_0>0$，使得对每个 $\delta>0$，总能找到 $x',x''\in I$ 满足
+\[
+ |x'-x''|<\delta,
+ \qquad
+ |f(x')-f(x'')|\ge\varepsilon_0.
+\]
+等价地，存在 $\varepsilon_0>0$ 与两列点 $x_n',x_n''\in I$，使
+\[
+ |x_n'-x_n''|\to0,
+ \qquad
+ |f(x_n')-f(x_n'')|\ge\varepsilon_0.
+\]
+\end{xsolution}
+
+\paragraph{思考题 2}
+\begin{xsolution}
+错误。例如在 $[0,1)$ 上取
+\[
+ f(x)=\frac1{1-x}.
+\]
+它在 $[0,1)$ 上连续，但当 $x\to1^-$ 时无界。若它一致连续，则有界半开区间上的一致连续函数应有界，矛盾。也可直接取 $x_n=1-1/n$、$y_n=1-1/(2n)$ 构造反例。
+\end{xsolution}
+
+\paragraph{思考题 3}
+\begin{xsolution}
+错误。函数 $f(x)=1/x$ 在 $(0,1)$ 内每个闭子区间上都连续，但在 $(0,1)$ 上不一致连续。
+\end{xsolution}
+
+\paragraph{思考题 4}
+\begin{xsolution}
+正确。因为 $a<c<d<b$，$f$ 在闭区间 $[c,d]\subset(a,b)$ 上连续。由 Cantor 定理，$f$ 在 $[c,d]$ 上一致连续，所以其限制在 $(c,d)$ 上也一致连续。
+\end{xsolution}
+
+\subsubsection*{5.4.5 练习题}
+
+\paragraph{练习题 1}
+\begin{xsolution}
+给定 $\varepsilon>0$。若 $L>0$，取
+\[
+ \delta=\frac\varepsilon L.
+\]
+当 $x_1,x_2\in I$ 且 $|x_1-x_2|<\delta$ 时，由 Lipschitz 条件
+\[
+ |f(x_1)-f(x_2)|\le L|x_1-x_2|<\varepsilon.
+\]
+所以 $f$ 在 $I$ 上一致连续。
+\end{xsolution}
+
+\paragraph{练习题 2}
+\begin{xsolution}
+这里 $a,b$ 为有限端点。取 $\varepsilon=1$。由一致连续性存在 $\delta>0$，使 $x,y\in(a,b)$ 且 $|x-y|<\delta$ 时
+\[
+ |f(x)-f(y)|<1.
+\]
+把有限区间 $(a,b)$ 分成有限个长度小于 $\delta$ 的小区间，并在每个非空小区间中选一点 $\xi_j$。若 $x$ 落在第 $j$ 个小区间，则
+\[
+ |f(x)|\le |f(\xi_j)|+1.
+\]
+有限个数 $|f(\xi_j)|+1$ 的最大值就是 $f$ 的一个全局界。因此 $f$ 有界。
+
+若把端点允许为无穷，则结论一般不成立，例如 $f(x)=x$ 在 $\RR$ 上一致连续但无界。
+\end{xsolution}
+
+\paragraph{练习题 3}
+\begin{xsolution}
+\begin{enumerate}[label=(\arabic*)]
+ \item 线性组合一定一致连续。事实上，给定 $\varepsilon>0$，分别利用 $f,g$ 的一致连续性使
+ \[
+  |a|\,|f(x)-f(y)|<\frac\varepsilon2,
+  \qquad
+  |b|\,|g(x)-g(y)|<\frac\varepsilon2
+ \]
+ （系数为零时相应项忽略），再取两个 $\delta$ 的较小者即可。
+
+ 乘积在一般区间上不一定一致连续。例如在 $I=\RR$ 上 $f(x)=g(x)=x$ 都一致连续，但 $fg=x^2$ 不一致连续。若另外知道 $I$ 有界，则 $f,g$ 因一致连续而有界，此时由
+ \[
+  |f(x)g(x)-f(y)g(y)|
+  \le |f(x)|\,|g(x)-g(y)|+|g(y)|\,|f(x)-f(y)|
+ \]
+ 可知乘积也一致连续。
+
+ \item 一定一致连续。给定 $\varepsilon>0$，由 $g$ 在 $I_2$ 上一致连续，存在 $\eta>0$，使 $u,v\in I_2$ 且 $|u-v|<\eta$ 时
+ \[
+  |g(u)-g(v)|<\varepsilon.
+ \]
+ 再由 $f$ 在 $I_1$ 上一致连续，存在 $\delta>0$，使 $x,y\in I_1$ 且 $|x-y|<\delta$ 时
+ \[
+  |f(x)-f(y)|<\eta.
+ \]
+ 因 $f(I_1)\subset I_2$，故此时
+ \[
+  |g(f(x))-g(f(y))|<\varepsilon.
+ \]
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{练习题 4}
+\begin{xsolution}
+设 $T>0$ 是 $f$ 的一个周期。由 Cantor 定理，$f$ 在闭区间 $[0,3T]$ 上一致连续。给定 $\varepsilon>0$，取相应的 $\delta>0$，并可令 $\delta<T$。
+
+任取 $x,y\in\RR$ 且 $|x-y|<\delta$。可取整数 $k$，使
+\[
+ x-kT\in[T,2T).
+\]
+于是因为 $|x-y|<T$，有
+\[
+ y-kT\in(0,3T).
+\]
+利用周期性与 $[0,3T]$ 上的一致连续性，
+\[
+ |f(x)-f(y)|
+ =|f(x-kT)-f(y-kT)|<\varepsilon.
+\]
+所以 $f$ 在整个 $\RR$ 上一致连续。
+\end{xsolution}
+
+\paragraph{练习题 5}
+\begin{xsolution}
+\begin{enumerate}[label=(\arabic*)]
+ \item 写成
+ \[
+  f(x)=ax+b+r(x),
+  \qquad r(x)=f(x)-(ax+b).
+ \]
+ 则 $r\in C[0,+\infty)$ 且 $r(x)\to0$。由例题 5.4.6，$r$ 在 $[0,+\infty)$ 上一致连续；线性函数 $ax+b$ 满足 Lipschitz 条件，也一致连续。因此二者之和 $f$ 一致连续。
+
+ \item 一般不成立。取 $f(x)=x^2$，则
+ \[
+  f(x)-(x^2)=0,
+ \]
+ 完全满足相应的渐近条件，但 $x^2$ 在 $[0,+\infty)$ 上不一致连续。
+
+ \item 若要求“对每个满足 $f(x)-g(x)\to0$ 的连续函数 $f$，都能推出 $f$ 一致连续”，则 $g$ 在 $[0,+\infty)$ 上一致连续正是自然的充分必要条件（这里也假定 $g$ 连续）。充分性如下：令 $r=f-g$，则 $r\in C[0,+\infty)$ 且 $r(x)\to0$，由例题 5.4.6，$r$ 一致连续；若 $g$ 也一致连续，则 $f=g+r$ 一致连续。必要性则取特殊情形 $f=g$，此时余项恒为 $0$，若结论对所有这样的 $f$ 都成立，便必须有 $g$ 一致连续。
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{练习题 6}
+\begin{xsolution}
+取
+\[
+ x_m=m,
+ \qquad
+ y_m=m+\frac1{m^{n-1}}.
+\]
+则 $|y_m-x_m|=m^{1-n}\to0$。另一方面，由二项式展开，
+\[
+ y_m^n-x_m^n
+ =\left(m+\frac1{m^{n-1}}\right)^n-m^n
+ \ge n m^{n-1}\frac1{m^{n-1}}=n.
+\]
+所以两点距离趋于零而函数值之差始终至少为 $n>0$，与一致连续性的序列判据矛盾。因此 $x^n$ 在 $[0,+\infty)$ 上不一致连续。
+\end{xsolution}
+
+\paragraph{练习题 7}
+\begin{xsolution}
+在 $(1,+\infty)$ 上，设 $1<x<y$。由基本不等式 $\ln(1+t)\le t\ (t>-1)$，
+\[
+ 0<\ln y-\ln x
+ =\ln\left(1+\frac{y-x}{x}\right)
+ \le\frac{y-x}{x}<y-x.
+\]
+故 $\ln x$ 在 $(1,+\infty)$ 上满足 Lipschitz 常数 $1$ 的估计，因而一致连续。
+
+在 $(0,1)$ 上取
+\[
+ x_n=\frac1n,
+ \qquad y_n=\frac1{2n}.
+\]
+则 $|x_n-y_n|\to0$，但
+\[
+ |\ln x_n-\ln y_n|=\ln2.
+\]
+故不一致连续。
+\end{xsolution}
+
+\paragraph{练习题 8}
+\begin{xsolution}
+\begin{enumerate}[label=(\arabic*)]
+ \item 在 $(0,1)$ 上
+ \[
+  f(x)=\frac{|\sin x|}{x}=\frac{\sin x}{x}\longrightarrow1
+  \qquad(x\to0^+),
+ \]
+ 因而可连续延拓到 $[0,1]$；在 $(-1,0)$ 上
+ \[
+  f(x)=\frac{|\sin x|}{x}=-\frac{\sin x}{x}\longrightarrow-1
+  \qquad(x\to0^-),
+ \]
+ 也可连续延拓到 $[-1,0]$。由 Cantor 定理，两侧分别一致连续。
+
+ 但取 $x_n=-1/n,y_n=1/n$，则 $|x_n-y_n|\to0$，而
+ \[
+  f(x_n)\to-1,
+  \qquad f(y_n)\to1,
+ \]
+ 故在并集 $(-1,0)\cup(0,1)$ 上不一致连续。
+
+ \item 不一定。令
+ \[
+  f(x)=\begin{cases}0,&a<x<b,\\1,&b\le x<c.
+  \end{cases}
+ \]
+ 则 $f$ 在 $(a,b)$ 与 $[b,c)$ 上分别为常值函数，故分别一致连续，但在 $b$ 处不连续，所以在 $(a,c)$ 上不可能一致连续。这里关键在于第一段不包含公共点 $b$；这与例题 5.4.4 的 $(a,b]$、$[b,c)$ 情形不同。
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{练习题 9}
+\begin{xsolution}
+\begin{enumerate}[label=(\arabic*)]
+ \item $x\sin(1/x)$ 在 $x\to0^+$ 时趋于 $0$，故令 $f(0)=0$ 后可连续延拓到 $[0,1]$。由 Cantor 定理，它在 $(0,1)$ 上一致连续。
+
+ \item 令 $f(0)=1$，则 $\sin x/x$ 连续延拓到 $[0,+\infty)$，而且 $f(x)\to0$ 当 $x\to+\infty$。由例题 5.4.6，它在 $[0,+\infty)$ 上一致连续，故在 $(0,+\infty)$ 上也一致连续。
+
+ \item 不一致连续。取
+ \[
+  x_n=n\pi,
+  \qquad y_n=n\pi+\frac1n.
+ \]
+ 则 $|x_n-y_n|=1/n\to0$，而
+ \[
+  x_n\sin x_n=0,
+ \]
+ 且
+ \[
+  |y_n\sin y_n|
+  =\left(n\pi+\frac1n\right)\sin\frac1n
+  \longrightarrow\pi.
+ \]
+ 因此函数值之差不趋于 $0$，故 $x\sin x$ 在 $[0,+\infty)$ 上不一致连续。
+\end{enumerate}
+\end{xsolution}
+
+\subsection*{5.5 单调函数}
+
+\subsubsection*{5.5.2 练习题}
+
+\paragraph{练习题 1}
+\begin{xsolution}
+任取 $x<y$，其中 $x,y\in(a,b)$。对每个 $t\in[x,y]$，题设给出一个邻域 $O(t)$，使 $f$ 在其中单调增加。这些邻域覆盖紧区间 $[x,y]$。由 Lebesgue 数性质，存在 $\delta>0$，使 $[x,y]$ 中距离小于 $\delta$ 的任意两点都落在某一个这样的邻域内。
+
+取分点
+\[
+ x=t_0<t_1<\cdots<t_N=y,
+ \qquad t_i-t_{i-1}<\delta.
+\]
+每对相邻分点同属某个 $O(t)$，而 $f$ 在该邻域单调增加，故
+\[
+ f(t_{i-1})\le f(t_i),\qquad i=1,\ldots,N.
+\]
+连锁得到 $f(x)\le f(y)$。由于 $x<y$ 任意，$f$ 在 $(a,b)$ 上单调增加。
+\end{xsolution}
+
+\paragraph{练习题 2}
+\begin{xsolution}
+任取 $x<y$。可取有理数列 $r_n\to x$、$s_n\to y$，并使对充分大的 $n$ 有
+\[
+ r_n<s_n,
+ \qquad r_n,s_n\in[a,b].
+\]
+由题设
+\[
+ f(r_n)\le f(s_n).
+\]
+令 $n\to\infty$，利用 $f$ 在 $x,y$ 的连续性，得到
+\[
+ f(x)\le f(y).
+\]
+故 $f$ 在 $[a,b]$ 上单调增加。
+\end{xsolution}
+
+\paragraph{练习题 3}
+\begin{xsolution}
+只证 $f$ 单调增加的情形；单调减少完全类似。此时
+\[
+ g(x)=f(x^+)=\inf_{t>x}f(t),
+\]
+且 $g$ 也单调增加。固定 $x_0$。给定 $\varepsilon>0$，由 $f(x_0^+)$ 的定义，可取 $y>x_0$ 使
+\[
+ f(y)<g(x_0)+\varepsilon.
+\]
+若 $x_0<x<y$，由单调性
+\[
+ g(x_0)\le g(x)\le f(y)<g(x_0)+\varepsilon.
+\]
+于是
+\[
+ \lim_{x\to x_0^+}g(x)=g(x_0),
+\]
+即 $g$ 在每一点右连续。
+\end{xsolution}
+
+\paragraph{练习题 4}
+\begin{xsolution}
+由加法方程先得
+\[
+ f(0)=0,
+ \qquad f(-x)=-f(x),
+ \qquad f(nx)=nf(x)\quad(n\in\ZZ).
+\]
+若 $f$ 单调增加，则对 $0<x<1/n$ 有
+\[
+ 0=f(0)\le f(x)\le f(1/n)=\frac{f(1)}n\to0.
+\]
+若 $f$ 单调减少，同样得到
+\[
+ |f(x)|\le\frac{|f(1)|}{n}\qquad(0<x<1/n).
+\]
+所以无论哪一种单调性都有 $f(x)\to0$ 当 $x\to0$，即 $f$ 在 $0$ 连续。由
+\[
+ f(x+h)-f(x)=f(h)
+\]
+可知 $f$ 处处连续。连续加法函数满足
+\[
+ f(x)=f(1)x,
+\]
+故结论成立。
+\end{xsolution}
+
+
+\subsection*{5.7.2 参考题}
+
+\subsubsection*{第一组参考题}
+
+\paragraph{第一组参考题 1}
+\begin{xsolution}
+固定 $a\in(0,1)$，在 $[0,1-a]$ 上定义
+\[
+ g(x)=f(x+a)-f(x).
+\]
+则 $g$ 连续。由 $f\ge0$ 及 $f(0)=f(1)=0$，
+\[
+ g(0)=f(a)\ge0,
+ \qquad
+ g(1-a)=f(1)-f(1-a)=-f(1-a)\le0.
+\]
+若其中一个等于 $0$ 已得结论；否则由零点存在定理存在 $x_0\in(0,1-a)$ 使 $g(x_0)=0$，即
+\[
+ f(x_0)=f(x_0+a).
+\]
+
+去掉非负条件后结论一般不成立。例如取 $a=3/4$，定义连续函数
+\[
+ f(x)=\begin{cases}
+  -x,&0\le x\le1/4,\\
+  x-1/2,&1/4\le x\le3/4,\\
+  1-x,&3/4\le x\le1.
+ \end{cases}
+\]
+它满足 $f(0)=f(1)=0$。但对任意 $x\in[0,1/4]$，
+\[
+ f(x+3/4)-f(x)
+ =\left(\frac14-x\right)-(-x)=\frac14>0,
+\]
+故不存在 $f(x)=f(x+3/4)$ 的点。
+\end{xsolution}
+
+\paragraph{第一组参考题 2}
+\begin{xsolution}
+固定 $n\in\NN_+$。若 $n=1$，取 $\xi=0$ 即可。以下设 $n\ge2$，在 $[0,1-1/n]$ 上定义
+\[
+ g(x)=f\left(x+\frac1n\right)-f(x).
+\]
+若 $g$ 有零点即得结论。若无零点，由连续性知 $g$ 在整个区间恒正或恒负。但
+\[
+ \sum_{k=0}^{n-1}g\left(\frac{k}{n}\right)
+ =\sum_{k=0}^{n-1}
+ \left[f\left(\frac{k+1}{n}\right)-f\left(\frac{k}{n}\right)\right]
+ =f(1)-f(0)=0,
+\]
+这与所有项同号矛盾。因此 $g$ 必有零点 $\xi$。
+\end{xsolution}
+
+\paragraph{第一组参考题 3}
+\begin{xsolution}
+令
+\[
+ F(x)=f(x)-x.
+\]
+由 $f([0,1])\subset[0,1]$，
+\[
+ F(0)=f(0)\ge0,
+ \qquad F(1)=f(1)-1\le0.
+\]
+故存在 $x_1\in[0,1]$ 使 $F(x_1)=0$，即图像与 $y=x$ 相交。
+
+再令
+\[
+ G(x)=f(x)+x-1.
+\]
+则
+\[
+ G(0)=f(0)-1\le0,
+ \qquad G(1)=f(1)\ge0.
+\]
+故存在 $x_2\in[0,1]$ 使 $G(x_2)=0$，即 $f(x_2)=1-x_2$，图像与 $y=1-x$ 相交。
+\end{xsolution}
+
+\paragraph{第一组参考题 4}
+\begin{xsolution}
+这里把“极限存在”理解为存在有限实数极限。结论为：
+\begin{enumerate}[label=(\arabic*)]
+ \item $\lim_{x\to+\infty}f(x)$ 存在的充分必要条件是 $f$ 在某个尾区间 $[A,+\infty)$ 上有界；
+ \item $\lim_{x\to0^+}f(x)$ 存在的充分必要条件是 $f$ 在某个 $(0,A]$ 上有界。
+\end{enumerate}
+必要性由有限极限的局部有界性立即得到。只证第一条的充分性，第二条完全类似。
+
+设 $f$ 在 $[A,+\infty)$ 上有界。若 $f(x)$ 在 $+\infty$ 处没有有限极限，则其尾部下极限与上极限满足
+\[
+ \alpha=\varliminf_{x\to+\infty}f(x)
+ <
+ \beta=\varlimsup_{x\to+\infty}f(x).
+\]
+取 $c\in(\alpha,\beta)$。于是无论把起点取得多大，后面总能找到函数值小于 $c$ 的点和函数值大于 $c$ 的点。可归纳取严格递增的点列
+\[
+ u_1<v_1<u_2<v_2<\cdots\to+\infty
+\]
+使 $f(u_j)<c<f(v_j)$（必要时交换两类点的次序）。由连续性，每个 $[u_j,v_j]$ 中都有一点 $z_j$ 满足 $f(z_j)=c$。这使方程 $f(x)=c$ 有无限多个实根，与题设矛盾。因此 $\alpha=\beta$，有限极限存在。
+
+在 $x\to0^+$ 的情形，把“任意远处”改为“任意靠近 $0$”并取趋于 $0$ 的互不相交小区间即可得到同样结论。
+\end{xsolution}
+
+\paragraph{第一组参考题 5}
+\begin{xsolution}
+\begin{enumerate}[label=(\arabic*)]
+ \item 对 $x<y$，由题设
+ \[
+  f(y)-f(x)\le |f(y)-f(x)|\le k(y-x),
+ \]
+ 故
+ \[
+  [ky-f(y)]-[kx-f(x)]
+  =k(y-x)-[f(y)-f(x)]\ge0.
+ \]
+ 因此 $kx-f(x)$ 单调增加。
+
+ \item 令 $F(x)=f(x)-x$。对 $x<y$，
+ \[
+  F(y)-F(x)=f(y)-f(x)-(y-x)
+  \le -(1-k)(y-x)<0,
+ \]
+ 所以 $F$ 严格减少，零点至多一个。
+
+ 又由 Lipschitz 条件
+ \[
+  f(x)\le f(0)+kx\quad(x>0),
+ \]
+ 从而
+ \[
+  F(x)\le f(0)-(1-k)x\to-\infty
+  \qquad(x\to+\infty).
+ \]
+ 对 $x<0$，
+ \[
+  f(x)\ge f(0)-k|x|=f(0)+kx,
+ \]
+ 故
+ \[
+  F(x)\ge f(0)+(k-1)x\to+\infty
+  \qquad(x\to-\infty).
+ \]
+ $F$ 连续，因此由零点存在定理有且仅有一个 $\xi$ 满足 $F(\xi)=0$，即 $f(\xi)=\xi$。
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{第一组参考题 6}
+\begin{xsolution}
+\begin{enumerate}[label=(\arabic*)]
+ \item 对 $n>1$，函数 $f_n(x)=x^n+x$ 在 $(0,+\infty)$ 上严格增加。并且
+ \[
+  f_n(1/2)=2^{-n}+\frac12<1,
+  \qquad f_n(1)=2>1.
+ \]
+ 由零点存在定理，$f_n(x)=1$ 在 $(1/2,1)$ 内有根；严格增加性又保证根唯一。
+
+ \item 记唯一根为 $c_n$。因 $0<c_n<1$，有
+ \[
+  f_{n+1}(c_n)=c_n^{n+1}+c_n<c_n^n+c_n=1.
+ \]
+ 而 $f_{n+1}$ 严格增加，所以
+ \[
+  c_{n+1}>c_n.
+ \]
+ 因此 $\{c_n\}$ 单调增加且以 $1$ 为上界，故存在极限 $L\le1$。若 $L<1$，取 $q$ 使 $L<q<1$，则充分大时 $c_n<q$，从而 $c_n^n\le q^n\to0$。由方程
+ \[
+  c_n^n=1-c_n
+ \]
+ 令 $n\to\infty$ 得 $0=1-L$，矛盾。因此
+ \[
+  \boxed{\lim_{n\to\infty}c_n=1}.
+ \]
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{第一组参考题 7}
+\begin{xsolution}
+固定 $a\in[0,1]$ 与 $\varepsilon>0$。取 $N$ 使 $1/N<\varepsilon$。有限并
+\[
+ E=A_1\cup\cdots\cup A_N
+\]
+仍为有限集。可取 $\delta>0$，使去心邻域
+\[
+ 0<|x-a|<\delta
+\]
+中没有 $E$ 的点。于是这样的 $x$ 若属于某个 $A_n$，必有 $n>N$，从而
+\[
+ |f(x)|=\frac1n<\frac1N<\varepsilon;
+\]
+若不属于任何 $A_n$，则 $f(x)=0$。所以
+\[
+ \boxed{\lim_{x\to a}f(x)=0}
+\]
+对每个 $a\in[0,1]$ 都成立。
+\end{xsolution}
+
+\paragraph{第一组参考题 8}
+\begin{xsolution}
+记
+\[
+ g(x)=\lim_{t\to x}f(t).
+\]
+固定 $x_0\in I$。给定 $\varepsilon>0$，由 $f(t)\to g(x_0)$ 当 $t\to x_0$，可取 $\delta>0$，使
+\[
+ 0<|t-x_0|<\delta
+ \quad\Longrightarrow\quad
+ |f(t)-g(x_0)|<\frac\varepsilon2.
+\]
+若 $|x-x_0|<\delta/2$，则取 $t\to x$ 且 $t\ne x$ 时，可令 $t$ 同时落在 $O_\delta(x_0)$ 内。于是
+\[
+ |f(t)-g(x_0)|<\frac\varepsilon2.
+\]
+令 $t\to x$，得到
+\[
+ |g(x)-g(x_0)|\le\frac\varepsilon2<\varepsilon.
+\]
+所以 $g$ 在 $x_0$ 连续。$x_0$ 任意，故 $g\in C(I)$。
+\end{xsolution}
+
+\paragraph{第一组参考题 9}
+\begin{xsolution}
+若 $\lambda=0$，任取 $x_n\to+\infty$ 即可。先设 $\lambda>0$。对于 $\lambda<0$，令 $\mu=-\lambda>0$；若已对 $\mu$ 找到 $y_n\to+\infty$ 使 $f(y_n+\mu)-f(y_n)\to0$，再取 $x_n=y_n+\mu$，便有
+\[
+ f(x_n+\lambda)-f(x_n)=f(y_n)-f(y_n+\mu)\to0.
+\]
+因此只需证明 $\lambda>0$ 的情形。
+
+令
+\[
+ g(x)=f(x+\lambda)-f(x).
+\]
+若结论不成立，则存在 $\varepsilon_0>0$ 和 $M$，使对所有 $x>M$ 都有
+\[
+ |g(x)|\ge\varepsilon_0.
+\]
+因为 $g$ 连续且在连通区间 $(M,+\infty)$ 上不取 $0$，它在该区间恒正或恒负。若 $g(x)\ge\varepsilon_0$，则对固定 $x>M$，
+\[
+ f(x+n\lambda)-f(x)
+ =\sum_{j=0}^{n-1}g(x+j\lambda)
+ \ge n\varepsilon_0,
+\]
+与 $f$ 有界矛盾；若 $g\le-\varepsilon_0$ 同理矛盾。因此对每个 $n$ 都能取 $x_n>n$ 使
+\[
+ |f(x_n+\lambda)-f(x_n)|<\frac1n.
+\]
+于是 $x_n\to+\infty$ 且所要求的差趋于 $0$。
+\end{xsolution}
+
+\paragraph{第一组参考题 10}
+\begin{xsolution}
+任取 $x<y$，把 $[x,y]$ 等分为 $n$ 段，分点记为
+\[
+ x=x_0<x_1<\cdots<x_n=y,
+ \qquad x_j-x_{j-1}=\frac{y-x}{n}.
+\]
+由题设及三角不等式，
+\[
+ \begin{aligned}
+ |f(y)-f(x)|
+ &\le\sum_{j=1}^n|f(x_j)-f(x_{j-1})|\\
+ &\le nM\left(\frac{y-x}{n}\right)^\alpha
+ =M(y-x)^\alpha n^{1-\alpha}.
+ \end{aligned}
+\]
+若 $\alpha>1$，令 $n\to\infty$，右端趋于 $0$，故 $f(y)=f(x)$。任意两点函数值相同，所以 $f$ 为常值函数。
+\end{xsolution}
+
+\paragraph{第一组参考题 11}
+\begin{xsolution}
+先定义
+\[
+ h(x)=\begin{cases}
+ x,&x\in\QQ,\\
+ 1-x,&x\notin\QQ,
+ \end{cases}
+ \qquad 0\le x\le1.
+\]
+$h$ 的值域恰为 $[0,1]$，并且除 $x=1/2$ 外处处不连续；在 $1/2$ 处两类趋近的函数值都趋于 $1/2$。
+
+现只交换 $h$ 在 $0$ 与 $1/2$ 的两个函数值，定义
+\[
+ f(0)=\frac12,
+ \qquad f\left(\frac12\right)=0,
+\]
+其余点令 $f(x)=h(x)$。交换两个值不改变值域，所以 $f([0,1])=[0,1]$。对 $x_0\ne1/2$，有理、无理数列趋于 $x_0$ 时函数值分别趋于 $x_0$ 与 $1-x_0$，两者不同，故不连续；在 $x_0=1/2$，极限为 $1/2$ 而函数值为 $0$，也不连续。因此 $f$ 处处不连续而值域为区间。
+\end{xsolution}
+
+\paragraph{第一组参考题 12}
+\begin{xsolution}
+由 Cantor 定理，$f$ 在 $[a,b]$ 上一致连续。给定 $\varepsilon>0$，取 $\delta>0$，使
+\[
+ |x-y|<\delta
+ \quad\Longrightarrow\quad
+ |f(x)-f(y)|<\varepsilon.
+\]
+取分点
+\[
+ a=x_0<x_1<\cdots<x_N=b
+\]
+使每段长度小于 $\delta$，并令 $L$ 在每个 $[x_{j-1},x_j]$ 上为连接
+\[
+ (x_{j-1},f(x_{j-1})),\qquad (x_j,f(x_j))
+\]
+的线性函数。若 $x\in[x_{j-1},x_j]$，则存在 $0\le\theta\le1$ 使
+\[
+ L(x)=(1-\theta)f(x_{j-1})+\theta f(x_j).
+\]
+于是
+\[
+ \begin{aligned}
+ |f(x)-L(x)|
+ &\le(1-\theta)|f(x)-f(x_{j-1})|
+   +\theta|f(x)-f(x_j)|\\
+ &<\varepsilon.
+ \end{aligned}
+\]
+故得到所要求的分段线性函数。
+\end{xsolution}
+
+\paragraph{第一组参考题 13}
+\begin{xsolution}
+原题使用无符号的“$\infty$”。若按本题自然的无符号无穷大意义，即
+\[
+ |f(f(x))|\to+\infty,
+\]
+则结论应理解为 $|f(x)|\to+\infty$。证明如下。
+
+若 $|f(x)|$ 不趋于 $+\infty$，则存在 $x_n\to+\infty$ 使 $\{f(x_n)\}$ 有界。取收敛子列
+\[
+ f(x_{n_k})\to y_0\in\RR.
+\]
+由 $f$ 连续，
+\[
+ f(f(x_{n_k}))\to f(y_0),
+\]
+右端为有限数，这与 $|f(f(x))|\to+\infty$ 矛盾。因此 $|f(x)|\to+\infty$。
+
+若把原式中的“$\infty$”强行解释成 $+\infty$，则“$f(x)\to+\infty$”这一结论并不成立：反例 $f(x)=-x$ 满足
+\[
+ f(f(x))=x\to+\infty,
+\]
+但 $f(x)\to-\infty$。因此原题的无符号记号必须按无符号无穷大理解，或需另加排除该反例的条件。
+\end{xsolution}
+
+\paragraph{第一组参考题 14}
+\begin{xsolution}
+题设立即给出一一性：若 $f(x_1)=f(x_2)$，则
+\[
+ 0\ge k|x_1-x_2|,
+\]
+故 $x_1=x_2$。连续的一一函数在区间 $\RR$ 上严格单调。
+
+又取 $x_2=0$ 得
+\[
+ |f(x)-f(0)|\ge k|x|,
+\]
+从而
+\[
+ |f(x)|\ge k|x|-|f(0)|\to+\infty
+ \qquad(|x|\to\infty).
+\]
+若 $f$ 严格增加，则不可能在 $+\infty$ 方向趋于 $-\infty$，也不可能在 $-\infty$ 方向趋于 $+\infty$，故
+\[
+ \lim_{x\to-\infty}f(x)=-\infty,
+ \qquad
+ \lim_{x\to+\infty}f(x)=+\infty.
+\]
+若严格减少则两式符号相反。两种情况下由介值定理都得到
+\[
+ f(\RR)=\RR.
+\]
+\end{xsolution}
+
+\paragraph{第一组参考题 15}
+\begin{xsolution}
+设 $P$ 为 $f$ 的所有正周期组成的集合。先证
+\[
+ \tau=\inf P>0.
+\]
+若不然，可取周期 $T_n\downarrow0$。任取 $x,y\in\RR$，对每个 $n$ 取整数 $m_n$，使
+\[
+ |x+m_nT_n-y|\le\frac{T_n}{2}.
+\]
+由周期性 $f(x+m_nT_n)=f(x)$，而 $x+m_nT_n\to y$。连续性给出
+\[
+ f(x)=\lim_{n\to\infty}f(x+m_nT_n)=f(y).
+\]
+这会使 $f$ 成为常值函数，与题设矛盾。因此 $\tau>0$。
+
+按下确界定义可取 $T_n\in P$ 使 $T_n\to\tau$。对任意 $x$，
+\[
+ f(x+\tau)
+ =\lim_{n\to\infty}f(x+T_n)
+ =f(x),
+\]
+故 $\tau$ 本身也是周期。由定义它就是最小正周期。
+
+若去掉连续性，结论不成立。Dirichlet 函数 $D$ 的每个正有理数都是周期，因为平移有理数不改变一个数的有理性；但正有理数没有最小元，所以 $D$ 没有最小正周期。
+\end{xsolution}
+
+\paragraph{第一组参考题 16}
+\begin{xsolution}
+设 $f$ 的 Lipschitz 常数为 $L$。对 $x\ge a$，
+\[
+ |f(x)|\le |f(a)|+L(x-a)\le Lx+B,
+ \qquad B=|f(a)|+La.
+\]
+令 $g(x)=f(x)/x$。对 $x,y\ge a$，
+\[
+ \begin{aligned}
+ |g(x)-g(y)|
+ &\le\frac{|f(x)-f(y)|}{x}
+ +|f(y)|\left|\frac1x-\frac1y\right|\\
+ &\le\frac{L}{a}|x-y|
+ +(Ly+B)\frac{|x-y|}{xy}\\
+ &\le\left[\frac{L}{a}+\frac{L+B/a}{a}\right]|x-y|.
+ \end{aligned}
+\]
+所以 $g$ 本身满足 Lipschitz 条件，从而在 $[a,+\infty)$ 上一致连续。
+\end{xsolution}
+
+\paragraph{第一组参考题 17}
+\begin{xsolution}
+若 $f$ 一致连续，而 $x_n-y_n\to0$，则给定 $\varepsilon>0$，取一致连续性中的 $\delta$。充分大时 $|x_n-y_n|<\delta$，于是
+\[
+ |f(x_n)-f(y_n)|<\varepsilon,
+\]
+故差趋于 $0$。
+
+反之，若 $f$ 不一致连续，则存在 $\varepsilon_0>0$，对每个 $n$ 可取 $x_n,y_n\in I$ 使
+\[
+ |x_n-y_n|<\frac1n,
+ \qquad
+ |f(x_n)-f(y_n)|\ge\varepsilon_0.
+\]
+于是 $x_n-y_n\to0$，但函数值之差不趋于 $0$，与题设的序列条件矛盾。因此该条件也充分。
+\end{xsolution}
+
+\paragraph{第一组参考题 18}
+\begin{xsolution}
+若 $f$ 一致连续，设 $\{x_n\}\subset I$ 为基本数列。给定 $\varepsilon>0$，取一致连续性中的 $\delta$；再由 $\{x_n\}$ 为基本数列，取 $N$ 使 $m,n>N$ 时 $|x_m-x_n|<\delta$。于是
+\[
+ |f(x_m)-f(x_n)|<\varepsilon,
+\]
+故 $\{f(x_n)\}$ 也是基本数列。
+
+反之，若 $f$ 不一致连续，则存在 $\varepsilon_0>0$ 以及 $x_n,y_n\in I$，使
+\[
+ |x_n-y_n|<\frac1n,
+ \qquad |f(x_n)-f(y_n)|\ge\varepsilon_0.
+\]
+因 $I$ 有界，$\{x_n\}$ 有收敛子列 $x_{n_k}\to\xi$；相应地 $y_{n_k}\to\xi$。交错排列
+\[
+ z_{2k}=x_{n_k},
+ \qquad z_{2k+1}=y_{n_k}
+\]
+得到一个 $I$ 中的基本数列。但
+\[
+ |f(z_{2k})-f(z_{2k+1})|
+ \ge\varepsilon_0,
+\]
+所以 $\{f(z_n)\}$ 不是基本数列，矛盾。故 $f$ 必一致连续。
+\end{xsolution}
+
+\paragraph{第一组参考题 19}
+\begin{xsolution}
+给定 $\varepsilon>0$。由 $f$ 在 $[0,+\infty)$ 上一致连续，存在 $\delta>0$，使
+\[
+ |u-v|<\delta
+ \Longrightarrow
+ |f(u)-f(v)|<\frac\varepsilon2.
+\]
+在 $[0,1]$ 中选有限个点 $t_1,\ldots,t_m$，使每个 $t\in[0,1]$ 与某个 $t_j$ 的距离小于 $\delta$。对每个 $j$，由
+\[
+ f(t_j+n)\to0
+\]
+可取同一个足够大的整数 $N$，使当 $n\ge N$ 时
+\[
+ |f(t_j+n)|<\frac\varepsilon2,
+ \qquad j=1,\ldots,m.
+\]
+任取充分大的 $x$，写成 $x=n+t$，其中 $n\in\NN$、$t\in[0,1)$，并令 $n\ge N$。选 $t_j$ 使 $|t-t_j|<\delta$，则
+\[
+ |f(x)|
+ \le |f(n+t)-f(n+t_j)|+|f(n+t_j)|
+ <\varepsilon.
+\]
+所以 $f(x)\to0$ 当 $x\to+\infty$。
+\end{xsolution}
+
+\paragraph{第一组参考题 20}
+\begin{xsolution}
+由一致连续性，对 $\varepsilon=1$ 可取 $\delta>0$，使
+\[
+ |u-v|<\delta
+ \Longrightarrow
+ |f(u)-f(v)|<1.
+\]
+固定 $x\in\RR$。把从 $0$ 到 $x$ 的线段分成 $N$ 段，使每段长度小于 $\delta$，并可取
+\[
+ N\le\frac{2|x|}{\delta}+1.
+\]
+沿分点逐段使用三角不等式，得到
+\[
+ |f(x)-f(0)|<N
+ \le\frac{2|x|}{\delta}+1.
+\]
+因此
+\[
+ |f(x)|
+ \le \frac{2}{\delta}|x|+|f(0)|+1.
+\]
+取
+\[
+ a=\frac2\delta\ge0,
+ \qquad b=|f(0)|+1\ge0,
+\]
+即得所需估计。
+\end{xsolution}
+
+
+\subsubsection*{第二组参考题}
+
+\paragraph{第二组参考题 1}
+\begin{xsolution}
+下面都只使用题目允许的朴素几何观点，并把面积随直线位置、方向连续变化这一事实作为连续性工具。
+
+\begin{enumerate}[label=(\arabic*)]
+ \item 固定一个方向，让一条与该方向垂直的直线从煎饼一侧平行移动到另一侧。记直线某一侧的面积减去另一侧的面积为 $F(t)$。当直线在煎饼一侧之外时，$F$ 的符号为负；移到另一侧之外时，符号为正。$F(t)$ 连续，故由零点存在定理存在位置使 $F(t)=0$，即一刀把面积二等分。
+
+ \item 对每个方向 $\theta$，先取一条方向为 $\theta$ 的直线 $L_\theta$，使第一个煎饼被二等分。若这样的直线不唯一，可在所有二等分位置组成的区间中取中点，从而使选择随 $\theta$ 连续。令
+ \[
+  H(\theta)=\text{第二个煎饼在 }L_\theta\text{ 两侧的面积差}.
+ \]
+ 当方向反转为 $\theta+\pi$ 时，同一条无向直线的两侧互换，故
+ \[
+  H(\theta+\pi)=-H(\theta).
+ \]
+ $H$ 连续，因此在 $[\theta,\theta+\pi]$ 中必有 $H=0$ 的方向。相应直线同时二等分两个煎饼。
+
+ \item 一般不能。取三个互不共线的圆盘。任何把一个圆盘面积二等分的直线必须经过圆心，因此若一条直线同时二等分三个圆盘，它必须同时经过三个不共线圆心，这是不可能的。
+
+ \item 可以。对每个方向 $\theta$，分别取方向为 $\theta$ 和 $\theta+\pi/2$ 的两条面积二等分线 $L_\theta,M_\theta$；若某方向的二等分线不唯一，就取所有二等分位置组成区间的中点。这样两条线可随 $\theta$ 连续选取。它们把平面分成四个象限，按逆时针记煎饼落在四个象限中的面积为 $A_1,A_2,A_3,A_4$。因为 $L_\theta$、$M_\theta$ 各自都二等分总面积，
+ \[
+  A_1+A_2=A_3+A_4,
+  \qquad
+  A_2+A_3=A_4+A_1.
+ \]
+ 因而 $A_1=A_3$、$A_2=A_4$。令
+ \[
+  G(\theta)=A_1-A_2.
+ \]
+ 当 $\theta$ 增加 $\pi/2$ 时，两条互相垂直的二等分线交换角色，四个象限循环移动一格，因此
+ \[
+  G\left(\theta+\frac\pi2\right)=A_2-A_3=-G(\theta).
+ \]
+ 面积对方向连续，所以 $G$ 连续。由零点存在定理存在 $\theta_0$ 使 $G(\theta_0)=0$。这时 $A_1=A_2=A_3=A_4$，而四者之和为总面积，故每块面积均为总面积的 $1/4$。
+
+ \item 设运动员在时刻 $t$ 已跑过的路程为 $s(t)$。则 $s$ 连续，$s(0)=0,s(10)=100$。在 $[0,9]$ 上令
+ \[
+  g(t)=s(t+1)-s(t)-10.
+ \]
+ 若不存在 $g(t)=0$，因 $g$ 连续，它必在整个 $[0,9]$ 上恒正或恒负。但
+ \[
+  \sum_{k=0}^{9}g(k)
+  =s(10)-s(0)-100=0,
+ \]
+ 与所有项同号矛盾。所以存在 $t_0\in[0,9]$ 使
+ \[
+  s(t_0+1)-s(t_0)=10,
+ \]
+ 即有一段 $10\,\mathrm m$ 的路程恰用 $1\,\mathrm s$ 完成。
+
+ \item 固定方台中心位置，只让方台绕竖直轴转动。把一条对角线两端两只脚的“着地高度和”减去另一条对角线两端两只脚的“着地高度和”，记为 $H(\theta)$。地面高度连续时，$H$ 随转角连续。转过 $\pi/2$ 后两条对角线交换，故
+ \[
+  H\left(\theta+\frac\pi2\right)=-H(\theta).
+ \]
+ 因而某个角度有 $H=0$。此时四个脚点共面，刚性方台四脚可同时接触地面，于是不再摇晃。
+
+ \item 对每个方向 $\theta$，作两条方向为 $\theta$ 的平行支撑线夹住闭曲线，记两线距离即该方向的宽度为 $w(\theta)$。光滑闭曲线的支撑线与曲线相切，且 $w(\theta)$ 连续。考虑
+ \[
+  H(\theta)=w(\theta)-w\left(\theta+\frac\pi2\right).
+ \]
+ 则
+ \[
+  H\left(\theta+\frac\pi2\right)
+  =-H(\theta).
+ \]
+ 故存在 $\theta_0$ 使 $H(\theta_0)=0$。于是方向 $\theta_0$ 与垂直方向的两对支撑线距离相等，四条支撑线围成一个正方形，并且四边都与曲线相切。
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{第二组参考题 2}
+\begin{xsolution}
+把 $f$ 以周期 $n$ 连续延拓到 $\RR$，记延拓仍为 $f$。对整数 $k=1,\ldots,n-1$ 定义
+\[
+ h_k(x)=f(x+k)-f(x).
+\]
+令 $r=n/\gcd(n,k)$。由于在模 $n$ 意义下
+\[
+ x,x+k,\ldots,x+(r-1)k
+\]
+构成一个循环，有
+\[
+ \sum_{j=0}^{r-1}h_k(x+jk)=0.
+\]
+因此若 $h_k$ 不恒为零，它必取正值和负值，故在一个周期圆周上至少有两个零点；若恒为零，则零点当然更多。
+
+现在只取
+\[
+ 1\le k<\frac n2.
+\]
+对每个这样的 $k$，至少可得到两个不同的无序点对 $\{x,x+k\}$（模 $n$），其两点函数值相同。不同 $k$ 对应的圆周短距离不同，所以这些点对互不相同。若 $n$ 为偶数，再取 $k=n/2$。这时
+\[
+ h_{n/2}\left(x+\frac n2\right)=-h_{n/2}(x),
+\]
+故至少得到一个这样的点对。
+
+于是当 $n$ 为奇数时得到
+\[
+ 2\cdot\frac{n-1}{2}=n-1
+\]
+对；当 $n$ 为偶数时得到
+\[
+ 2\left(\frac n2-1\right)+1=n-1
+\]
+对。把圆周上的各点取在 $[0,n)$ 的代表元中，每一对的两个代表元之差为非零整数。最后再加入端点对 $(0,n)$，由 $f(0)=f(n)$，总共至少得到 $n$ 对不同的 $(x,y)$。
+\end{xsolution}
+
+\paragraph{第二组参考题 3}
+\begin{xsolution}
+记
+\[
+ L(x)=\lim_{t\to x}f(t).
+\]
+由第一组参考题 8 的结论，$L\in C[a,b]$。
+
+\begin{enumerate}[label=(\arabic*)]
+ \item 固定 $\varepsilon>0$。若满足
+ \[
+  |L(x)-f(x)|>\varepsilon
+ \]
+ 的点有无限多个，则可取互异点列 $x_n$，由闭区间的凝聚性再取子列（仍记为 $x_n$）使 $x_n\to x_0\in[a,b]$。
+
+ 因为 $f$ 在 $x_0$ 处有极限，且 $x_n\ne x_0$，所以
+ \[
+  f(x_n)\to L(x_0).
+ \]
+ 又因 $L$ 连续，
+ \[
+  L(x_n)\to L(x_0).
+ \]
+ 因此
+ \[
+  |L(x_n)-f(x_n)|\to0,
+ \]
+ 与它始终大于 $\varepsilon$ 矛盾。故这样的点至多有限个。
+
+ \item 点 $x$ 是可去间断点当且仅当 $f(x)\ne L(x)$。于是全部间断点集合为
+ \[
+  \bigcup_{m=1}^\infty
+  \left\{x\in[a,b]:|L(x)-f(x)|>\frac1m\right\}.
+ \]
+ 由 (1)，每个括号中的集合有限，故该并集至多可列。
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{第二组参考题 4}
+\begin{xsolution}
+若区间 $I$ 的每一点都是 $f$ 的可去间断点，记
+\[
+ L(x)=\lim_{t\to x}f(t).
+\]
+对任意有界闭子区间 $[c,d]\subset I$，由上一题，集合
+\[
+ E_m=\left\{x\in[c,d]:|L(x)-f(x)|>\frac1m\right\}
+\]
+都是有限集。而每一点都是可去间断点，故 $f(x)\ne L(x)$，从而
+\[
+ [c,d]=\bigcup_{m=1}^\infty E_m.
+\]
+右边是可列集，左边却不可列，矛盾。因此不存在这样的函数。
+\end{xsolution}
+
+\paragraph{第二组参考题 5}
+\begin{xsolution}
+\begin{enumerate}[label=(\arabic*)]
+ \item 不存在。反设连续函数 $f\colon\RR\to\RR$ 对每个 $c$ 恰有两个原像。取某个 $c$，设两个原像为 $a<b$。在 $(a,b)$ 上 $f-c$ 不取零值，故恒正或恒负。
+
+ 若 $f>c$ 于 $(a,b)$，在 $[a,b]$ 上取最大值 $M>c$。取 $d\in(c,M)$。由介值定理，方程 $f(x)=d$ 在 $(a,b)$ 至少有两个解，因此按题设恰有这两个解。若在 $(-\infty,a)$ 或 $(b,+\infty)$ 中某处有 $f>d$，从该点到 $a$ 或 $b$ 再用介值定理会产生第三个 $d$ 的原像，矛盾。因此区间外有 $f<d$，而区间内 $f\le M$，所以 $f$ 在 $\RR$ 上有上界。这与每个任意大的实数都应成为某个函数值矛盾。若 $f<c$ 于 $(a,b)$，同理得到全局下界，也矛盾。
+
+ \item 存在。定义连续分段线性函数 $F$，使对每个 $m\in\ZZ$，
+ \[
+  F(3m)=m,
+  \quad F(3m+1)=m+1,
+  \quad F(3m+2)=m,
+  \quad F(3m+3)=m+1,
+ \]
+ 并在相邻整数间线性插值。若 $c\in(m,m+1)$，水平线 $y=c$ 恰与区间
+ \[
+  (3m,3m+1),\quad(3m+1,3m+2),\quad(3m+2,3m+3)
+ \]
+ 上的三条线段各交一次，所以恰有三个解。若 $c=m$ 是整数，则原像恰为
+ \[
+  3m-2,\quad3m,\quad3m+2,
+ \]
+ 仍恰有三个。因此所求函数存在。
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{第二组参考题 6}
+\begin{xsolution}
+方程为
+\[
+ f(x+y^n)=f(x)+(f(y))^n,
+ \qquad x,y\in\RR.
+\]
+令 $y=0$ 得 $f(0)=0$；再令 $x=0$ 得
+\[
+ f(y^n)=f(y)^n.
+\]
+于是
+\[
+ f(x+y^n)=f(x)+f(y^n).
+\]
+
+若 $n$ 为奇数，则 $y^n$ 遍历 $\RR$，故 $f$ 是加法函数。若 $n$ 为偶数，则上式先给出
+\[
+ f(x+t)=f(x)+f(t),\qquad t\ge0.
+\]
+取 $x=-t$ 得 $f(-t)=-f(t)$，于是同样可推广到任意实数增量，故 $f$ 仍是加法函数。
+
+当 $n=1$ 时，原方程正是 Cauchy 加法方程，因此所有加法函数均为解。
+
+以下设 $n>1$。利用恒等式
+\[
+ n!x_1\cdots x_n
+ =\sum_{S\subset\{1,\ldots,n\}}
+ (-1)^{n-|S|}
+ \left(\sum_{i\in S}x_i\right)^n,
+\]
+对两边应用加法函数 $f$，并利用 $f(u^n)=f(u)^n$，得到
+\[
+ f(x_1\cdots x_n)=f(x_1)\cdots f(x_n).
+\]
+令 $c=f(1)$，则
+\[
+ c=c^n.
+\]
+若 $c=0$，在上式中令 $x_2=\cdots=x_n=1$ 即得 $f(x)=0$。
+
+若 $c=1$，则 $f$ 是保持乘法的含幺实数域自同态。特别地，对 $u\ge0$，写 $u=v^2$，有
+\[
+ f(u)=f(v)^2\ge0.
+\]
+因此 $x<y$ 时 $f(y)-f(x)=f(y-x)\ge0$，故 $f$ 单调。单调加法函数连续，从而
+\[
+ f(x)=x.
+\]
+
+当 $n$ 为奇数且 $c=-1$ 时，令 $g=-f$。因为 $n$ 为奇数，$g$ 仍为加法且满足 $g(u^n)=g(u)^n$，并有 $g(1)=1$，由上一段 $g(x)=x$，故 $f(x)=-x$。
+
+综上：
+\[
+\begin{cases}
+ n=1:& f\text{ 为任意加法函数};\\
+ n\ge2\text{ 为偶数}:& f\equiv0\text{ 或 }f(x)=x;\\
+ n\ge3\text{ 为奇数}:& f\equiv0,\ f(x)=x\text{ 或 }f(x)=-x.
+\end{cases}
+\]
+直接代入可验证这些函数均满足原方程。
+\end{xsolution}
+
+\paragraph{第二组参考题 7}
+\begin{xsolution}
+由
+\[
+ f(f(x))=x
+\]
+可知 $f$ 是一一映射。连续的一一函数在区间 $[0,1]$ 上必严格单调。又 $f(0)=0<f(1)=1$，所以 $f$ 严格增加。
+
+若存在 $x$ 使 $f(x)>x$，由严格增加性，
+\[
+ f(f(x))>f(x),
+\]
+即 $x>f(x)$，矛盾。若 $f(x)<x$，则同理
+\[
+ f(f(x))<f(x),
+\]
+即 $x<f(x)$，仍矛盾。因此对每个 $x$ 只能有
+\[
+ f(x)=x.
+\]
+\end{xsolution}
+
+\paragraph{第二组参考题 8}
+\begin{xsolution}
+若 $k=0$，取 $f\equiv0$ 即有连续解。
+
+设 $k\ne0$ 且存在连续解。函数 $kx^9$ 为一一函数，所以若 $f(x_1)=f(x_2)$，再作用一次 $f$ 得
+\[
+ kx_1^9=kx_2^9,
+\]
+从而 $x_1=x_2$。故 $f$ 连续且一一，因而严格单调。不论 $f$ 严格增加还是严格减少，复合函数 $f\circ f$ 都严格增加。因此 $kx^9$ 必严格增加，只能有
+\[
+ k>0.
+\]
+
+反之，对任意 $k>0$，令
+\[
+ c=k^{1/4}>0,
+ \qquad f(x)=cx^3.
+\]
+则
+\[
+ f(f(x))=c(cx^3)^3=c^4x^9=kx^9.
+\]
+故连续解存在。综上，充分必要条件为
+\[
+ \boxed{k\ge0}.
+\]
+\end{xsolution}
+
+\paragraph{第二组参考题 9}
+\begin{xsolution}
+由
+\[
+ f(2x-f(x))=x
+\]
+知 $f$ 是满射；题设又说 $f$ 一一，所以 $f$ 是双射，并且
+\[
+ f^{-1}(x)=2x-f(x).
+\]
+若 $f$ 严格减少，则 $f^{-1}$ 也严格减少，而 $2x-f(x)$ 却严格增加，矛盾。因此连续一一函数 $f$ 必严格增加。
+
+将上式中的 $x$ 换成 $f(t)$，得到
+\[
+ t=2f(t)-f(f(t)),
+\]
+即
+\[
+ f(f(t))-f(t)=f(t)-t.
+\]
+记
+\[
+ T(t)=f(t)-t,
+\]
+则
+\[
+ T(f(t))=T(t).
+\]
+因为 $f$ 为双射，这个等式可沿正、负方向迭代，所以若 $T(x)=c$，则对所有整数 $m$ 都有
+\[
+ f^m(x)=x+mc.
+\]
+
+设 $a$ 是题设给出的不动点。若 $x>a$，由 $f$ 严格增加及 $f(a)=a$，所有正、负整数次迭代 $f^m(x)$ 都应保持大于 $a$。若 $c\ne0$，数列 $x+mc$ 当 $m$ 遍历整数时必有一项小于 $a$，矛盾。因此 $c=0$。对 $x<a$ 同理。于是每个 $x$ 都满足 $T(x)=0$，即
+\[
+ f(x)\equiv x.
+\]
+\end{xsolution}
+
+\paragraph{第二组参考题 10}
+\begin{xsolution}
+只证 $M$ 连续，$m$ 可对 $-f$ 使用同一论证。固定 $x_0\in[a,b]$。由 $f$ 在 $x_0$ 连续，对任意 $\varepsilon>0$ 可取 $\delta>0$，使当 $u,v$ 都在 $x_0$ 的 $\delta$ 邻域内时
+\[
+ |f(u)-f(v)|<\varepsilon.
+\]
+
+先设 $x>x_0$ 且 $x-x_0<\delta$。因为
+\[
+ M(x)=\max\left\{M(x_0),\max_{x_0\le y\le x}f(y)\right\},
+\]
+若 $M(x)>M(x_0)$，则最大值由某个 $y\in[x_0,x]$ 取得。此时
+\[
+ 0<M(x)-M(x_0)
+ \le f(y)-f(x_0)<\varepsilon,
+\]
+因为 $M(x_0)\ge f(x_0)$。所以 $|M(x)-M(x_0)|<\varepsilon$。
+
+再设 $x<x_0$ 且 $x_0-x<\delta$。若 $M(x)=M(x_0)$ 无事可证；否则 $M(x_0)$ 的一个最大值点 $y$ 必在 $[x,x_0]$ 中。又 $M(x)\ge f(x)$，故
+\[
+ 0<M(x_0)-M(x)
+ \le f(y)-f(x)<\varepsilon.
+\]
+所以 $M$ 在 $x_0$ 连续。端点只需作单侧论证。故 $M\in C[a,b]$；同理 $m\in C[a,b]$。
+\end{xsolution}
+
+\paragraph{第二组参考题 11}
+\begin{xsolution}
+令
+\[
+ S=\{x\in[a,b]:f(x)>x\}.
+\]
+因为 $f(a)>a$ 且 $f$ 单调增加，所以对充分靠近 $a$ 的 $x>a$，有
+\[
+ f(x)\ge f(a)>x,
+\]
+故 $S$ 非空且含有大于 $a$ 的点。又因 $f(b)<b$，对充分靠近 $b$ 的 $x<b$，有
+\[
+ f(x)\le f(b)<x,
+\]
+所以 $S$ 在 $b$ 附近为空。于是
+\[
+ c=\sup S
+\]
+满足 $a<c<b$。
+
+取 $x_n\in S$ 且 $x_n\uparrow c$。由单调性
+\[
+ f(c)\ge f(x_n)>x_n,
+\]
+令 $n\to\infty$ 得 $f(c)\ge c$。
+
+另一方面，对每个 $y>c$ 都有 $y\notin S$，故 $f(y)\le y$。取 $y_n\downarrow c$，由单调性
+\[
+ f(c)\le f(y_n)\le y_n.
+\]
+令 $n\to\infty$ 得 $f(c)\le c$。因此
+\[
+ f(c)=c,
+\]
+且 $c\in(a,b)$。
+\end{xsolution}
+
+\paragraph{第二组参考题 12}
+\begin{xsolution}
+令
+\[
+ h=f+g.
+\]
+题设说 $h$ 在 $[0,1]$ 上单调增加，而 $g$ 连续，所以 $f=h-g$。
+
+反设 $f$ 在 $(0,1)$ 中没有零点。由 $f(0)>0$ 与 $g$ 连续、$h$ 单调可知 $f$ 在 $0$ 的右侧某邻域仍为正；同理由 $f(1)<0$ 知 $f$ 在 $1$ 左侧某邻域为负。令
+\[
+ c=\inf\{x\in[0,1]:f(x)<0\}.
+\]
+则 $0<c<1$。存在 $x_n\uparrow c$ 使 $f(x_n)>0$，也存在 $y_n\downarrow c$ 使 $f(y_n)<0$。
+
+单调函数 $h$ 的单侧极限存在，并有
+\[
+ h(c^-)\le h(c)\le h(c^+).
+\]
+由于 $g$ 连续，减去 $g(c)$ 得
+\[
+ f(c^-)\le f(c)\le f(c^+).
+\]
+而由上述两列点及单侧极限，
+\[
+ f(c^-)\ge0,
+ \qquad f(c^+)\le0.
+\]
+因此只能有
+\[
+ f(c^-)=f(c)=f(c^+)=0,
+\]
+这与假定无零点矛盾。所以 $f$ 在 $(0,1)$ 中必有零点。
+\end{xsolution}
+
+\paragraph{第二组参考题 13}
+\begin{xsolution}
+这里“$T_1,T_2$ 不可公约”即 $T_1/T_2\notin\QQ$。反设
+\[
+ F=f_1+f_2
+\]
+有正周期 $T$。定义
+\[
+ h(x)=f_1(x+T)-f_1(x)
+ =-[f_2(x+T)-f_2(x)].
+\]
+从左式可知 $h$ 以 $T_1$ 为周期，从右式可知 $h$ 以 $T_2$ 为周期。由于 $T_1/T_2$ 为无理数，整数线性组合 $mT_1+nT_2$ 在 $\RR$ 中稠密。连续函数 $h$ 具有这一稠密周期群，只能为常值函数，设 $h\equiv c$。
+
+于是
+\[
+ f_1(x+nT)=f_1(x)+nc.
+\]
+连续周期函数 $f_1$ 有界，故只能有 $c=0$。所以 $T$ 也是 $f_1$ 的周期。同理 $T$ 也是 $f_2$ 的周期。
+
+非常值连续周期函数若有两个正周期，其比若为无理数，则同样因为整数线性组合形成稠密周期群而必须成为常值函数。因此
+\[
+ \frac{T}{T_1}\in\QQ,
+ \qquad
+ \frac{T}{T_2}\in\QQ.
+\]
+相除得到 $T_1/T_2\in\QQ$，矛盾。故 $f_1+f_2$ 不是周期函数。
+\end{xsolution}
+
+\paragraph{第二组参考题 14}
+\begin{xsolution}
+设 $T>0$ 是 $f$ 的一个周期，$S>0$ 是 $g$ 的一个周期。先证明 $S$ 也是 $f$ 的周期。固定 $x$，利用 $f$ 的周期性，对任意正整数 $n$，
+\[
+ \begin{aligned}
+ |f(x+S)-f(x)|
+ &=|f(x+nT+S)-f(x+nT)|\\
+ &\le |f(x+nT+S)-g(x+nT+S)|\\
+ &\quad+|g(x+nT+S)-g(x+nT)|\\
+ &\quad+|g(x+nT)-f(x+nT)|.
+ \end{aligned}
+\]
+中间一项因 $S$ 是 $g$ 的周期而为 $0$，其余两项当 $n\to\infty$ 时都趋于 $0$。故
+\[
+ f(x+S)=f(x).
+\]
+所以 $S$ 是 $f$ 的周期。同理 $T$ 也是 $g$ 的周期。
+
+于是 $h=f-g$ 以 $T$ 为周期。任取 $x$，
+\[
+ h(x)=h(x+nT)\to0
+ \qquad(n\to\infty),
+\]
+所以 $h(x)=0$。故
+\[
+ f(x)\equiv g(x).
+\]
+整个证明没有使用连续性。
+\end{xsolution}
+
+\paragraph{第二组参考题 15}
+\begin{xsolution}
+先设 $f$ 一致连续。给定 $\varepsilon>0$，取 $\delta>0$ 使
+\[
+ |x-y|<\delta\Longrightarrow |f(x)-f(y)|<\varepsilon.
+\]
+还可由一致连续性对数值 $1$ 取 $\rho>0$，使
+\[
+ |u-v|<\rho\Longrightarrow |f(u)-f(v)|<1.
+\]
+把任意 $[x,y]$ 分成长度小于 $\rho/2$ 的若干小段，可得全局估计
+\[
+ |f(x)-f(y)|
+ \le \frac{2}{\rho}|x-y|+1.
+\]
+因此当 $|x-y|\ge\delta$ 时
+\[
+ \left|\frac{f(x)-f(y)}{x-y}\right|
+ \le\frac2\rho+\frac1\delta.
+\]
+取
+\[
+ N>\frac2\rho+\frac1\delta.
+\]
+若差商绝对值大于 $N$，便只能有 $|x-y|<\delta$，从而 $|f(x)-f(y)|<\varepsilon$。
+
+反过来，设题述差商条件成立。给定 $\varepsilon>0$，取相应的 $N>0$，令
+\[
+ \delta=\frac\varepsilon{N+1}.
+\]
+若 $0<|x-y|<\delta$，分两种情况：若
+\[
+ \left|\frac{f(x)-f(y)}{x-y}\right|>N,
+\]
+由题设直接有 $|f(x)-f(y)|<\varepsilon$；若差商不超过 $N$，则
+\[
+ |f(x)-f(y)|\le N|x-y|<N\delta<\varepsilon.
+\]
+$x=y$ 时更无需讨论。因此 $f$ 一致连续。
+\end{xsolution}
+
+\paragraph{第二组参考题 16}
+\begin{xsolution}
+只讨论每点都是极大值点；每点都是极小值点时对 $-f$ 使用同一证明。
+
+任取有界闭区间 $[c,d]\subset I$。由最值定理，$f$ 在 $[c,d]$ 上取到最小值 $m$，设 $f(x_0)=m$。因为 $x_0$ 又是 $f$ 的局部极大值点，所以存在 $x_0$ 的一个相对邻域 $U$，使
+\[
+ f(x)\le f(x_0)=m,
+ \qquad x\in U.
+\]
+但 $m$ 是整个 $[c,d]$ 的最小值，又有 $f(x)\ge m$。因此 $f\equiv m$ 于 $U$。
+
+令
+\[
+ A=\{x\in[c,d]:f(x)=m\}.
+\]
+由连续性 $A$ 是闭集；上面的论证对 $A$ 中每一点都成立，故 $A$ 在 $[c,d]$ 中也是开集。$A$ 非空，而 $[c,d]$ 连通，所以 $A=[c,d]$。因此 $f$ 在任意闭子区间上恒定，进而在整个开区间 $I$ 上恒定。
+\end{xsolution}
+
+\paragraph{第二组参考题 17}
+\begin{xsolution}
+反设 $f$ 不是常值函数。可取 $a<b$ 使
+\[
+ f(a)<f(b).
+\]
+对每个 $c\in(f(a),f(b))$，由介值定理，水平集
+\[
+ E_c=\{x\in[a,b]:f(x)=c\}
+\]
+非空。
+
+我们断言每个 $E_c$ 都含有一个非退化区间。令
+\[
+ A_c=\{x\in[a,b]:f(x)<c\},
+ \qquad x_c=\sup A_c.
+\]
+因为 $f(a)<c$，$A_c$ 非空；又因 $f(b)>c$ 且 $f$ 在 $b$ 连续，$b$ 的某个左邻域中都有 $f>c$，所以 $x_c<b$。由上确界性质可取 $u_n\in A_c$ 使 $u_n\to x_c$。连续性给出 $f(x_c)\le c$。若 $f(x_c)<c$，则由连续性在 $x_c$ 右侧仍有 $f<c$，这与 $x_c$ 是 $A_c$ 的上界矛盾。因此
+\[
+ f(x_c)=c.
+\]
+由于有 $u_n\to x_c$ 且 $f(u_n)<c=f(x_c)$，点 $x_c$ 不可能是局部极小值点。题设说每一点都取到极值，所以 $x_c$ 必是局部极大值点。故存在 $\eta>0$，使
+\[
+ f(x)\le c,
+ \qquad x\in(x_c-\eta,x_c+\eta)\cap I.
+\]
+另一方面，由 $x_c=\sup A_c$，对每个 $x>x_c$ 都不可能有 $f(x)<c$。于是
+\[
+ f(x)=c,
+ \qquad x_c<x<x_c+\eta
+\]
+（缩小 $\eta$ 使该区间仍在 $I$ 内）。因此 $E_c$ 确实含有非退化区间。
+
+所以，对每个 $c\in(f(a),f(b))$，可在 $E_c$ 中选一个非退化开区间 $J_c$。不同的 $c$ 所对应的 $J_c$ 两两不交。每个 $J_c$ 含一个有理数，于是可把不可列集 $(f(a),f(b))$ 单射到可列集 $\QQ$，矛盾。故 $f$ 只能是常值函数。
+\end{xsolution}
+
+\paragraph{第二组参考题 18}
+\begin{xsolution}
+先讨论严格极大值点。若 $x$ 是严格极大值点，可取有理数 $p_x< x<q_x$，使
+\[
+ f(t)<f(x),
+ \qquad t\in(p_x,q_x),\ t\ne x.
+\]
+按某个固定规则从所有这样的有理数对中选一对 $(p_x,q_x)$。
+
+若两个不同的严格极大值点 $x\ne y$ 被选到同一有理数对 $(p,q)$，则 $x,y\in(p,q)$。由 $x$ 的严格极大性有 $f(y)<f(x)$，由 $y$ 的严格极大性又有 $f(x)<f(y)$，矛盾。因此
+\[
+ x\longmapsto(p_x,q_x)
+\]
+是从严格极大值点集合到 $\QQ^2$ 的单射。$\QQ^2$ 可列，故严格极大值点至多可列。严格极小值点同理。
+
+例如
+\[
+ f(x)=\cos2\pi x
+\]
+的所有整数都是严格极大值点，所有半整数 $n+1/2$ 都是严格极小值点，两类点都为可列无穷集。
+\end{xsolution}
+
+\paragraph{第二组参考题 19}
+\begin{xsolution}
+固定 $\varepsilon>0$。在完备度量空间 $[1,2]$ 上，对每个正整数 $N$ 定义闭集
+\[
+ E_N=\left\{x\in[1,2]:|f(nx)|\le\varepsilon
+ \text{ 对所有整数 }n\ge N\right\}.
+\]
+每个 $E_N$ 是闭集，因为它是闭集
+\[
+ \{x:|f(nx)|\le\varepsilon\}
+\]
+的可列交。由题设，对每个固定 $x\in[1,2]$ 都有 $f(nx)\to0$，所以
+\[
+ [1,2]=\bigcup_{N=1}^\infty E_N.
+\]
+下面只用闭区间套定理证明：必有某个 $E_N$ 含非退化开区间。若每个 $E_N$ 都没有内点，因为 $E_N$ 闭，则它的补集在任意非退化闭区间中都含有一个非退化开区间。于是可以归纳构造闭区间
+\[
+ J_1\supset J_2\supset\cdots,
+\]
+使
+\[
+ J_N\cap E_N=\varnothing,
+ \qquad |J_N|<\frac1N.
+\]
+由闭区间套定理存在唯一一点 $x_*\in\bigcap_NJ_N$。但对每个 $N$ 都有 $x_*\notin E_N$，这与 $[1,2]=\bigcup_NE_N$ 矛盾。因此某个 $E_N$ 必有内点，从而可取
+\[
+ [\alpha,\beta]\subset E_N,
+ \qquad 1\le\alpha<\beta\le2.
+\]
+于是对所有整数 $n\ge N$，
+\[
+ |f(t)|\le\varepsilon,
+ \qquad t\in[n\alpha,n\beta].
+\]
+当 $n$ 足够大时
+\[
+ (n+1)\alpha\le n\beta,
+\]
+所以这些区间从某处起彼此重叠，并覆盖一个尾区间 $[M,+\infty)$。因此
+\[
+ |f(t)|\le\varepsilon,
+ \qquad t\ge M.
+\]
+由于 $\varepsilon>0$ 任意，得到
+\[
+ \lim_{x\to+\infty}f(x)=0.
+\]
+\end{xsolution}
+
+\paragraph{第二组参考题 20}
+\begin{xsolution}
+必要性显然：若 $x_n\to\xi$，则
+\[
+ x_{n+1}-x_n\to\xi-\xi=0.
+\]
+
+现证充分性。设
+\[
+ x_{n+1}-x_n\to0.
+\]
+由于 $x_n\in[a,b]$，数列有界。记
+\[
+ \alpha=\varliminf_{n\to\infty}x_n,
+ \qquad
+ \beta=\varlimsup_{n\to\infty}x_n.
+\]
+若 $\alpha=\beta$，数列即收敛。反设 $\alpha<\beta$。
+
+任取
+\[
+ c\in(\alpha,\beta).
+\]
+数列有任意靠后的项低于 $c$，也有任意靠后的项高于 $c$。在一次从 $c$ 下方向 $c$ 上方的越过过程中，取第一次越过的相邻两项。由于相邻项之差趋于 $0$，可由这样的越过选出子列 $x_{n_k}$，使
+\[
+ x_{n_k}\to c,
+ \qquad x_{n_k+1}\to c.
+\]
+而 $x_{n_k+1}=f(x_{n_k})$，由 $f$ 连续得到
+\[
+ f(c)=c.
+\]
+因此区间 $(\alpha,\beta)$ 中每一点都是 $f$ 的不动点。
+
+另一方面，由 $\alpha<\beta$，数列必有充分靠后的项落在 $(\alpha,\beta)$ 中；事实上，若它总只在该开区间两侧，而相邻差又趋于 $0$，就不可能无限次从接近 $\alpha$ 的区域走到接近 $\beta$ 的区域。设某个 $x_N\in(\alpha,\beta)$，则
+\[
+ x_{N+1}=f(x_N)=x_N,
+\]
+以后数列恒等于 $x_N$，这与 $\alpha<\beta$ 矛盾。因此只能有 $\alpha=\beta$，故 $\{x_n\}$ 收敛。
+\end{xsolution}
