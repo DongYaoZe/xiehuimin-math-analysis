@@ -1,0 +1,1833 @@
+% C06 solutions
+% Based on chapters/ch06.tex from main b4628dd
+
+\section*{第6章 导数与微分——题目解答}
+
+\subsection*{6.1.2 思考题}
+
+\paragraph{思考题 1}
+\begin{xsolution}
+应补充定义
+\[
+  g(x_0)=f'(x_0).
+\]
+事实上，由 $f$ 在 $x_0$ 处可导，
+\[
+  \lim_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}=f'(x_0),
+\]
+故如此定义后 $g$ 在 $x_0$ 处连续；而在 $x\ne x_0$ 处，$g$ 是连续函数的商，分母不为零，所以 $g$ 连续。因此 $g\in C(a,b)$。
+\end{xsolution}
+
+\paragraph{思考题 2}
+\begin{xsolution}
+$f'_+(x_0)$ 是 $f$ 在点 $x_0$ 的右导数：
+\[
+  f'_+(x_0)=\lim_{h\to0^+}\frac{f(x_0+h)-f(x_0)}h.
+\]
+而 $f'(x_0^+)$ 表示导函数 $f'$ 在 $x_0$ 的右极限：
+\[
+  f'(x_0^+)=\lim_{x\to x_0^+}f'(x),
+\]
+它要求 $f$ 在 $x_0$ 右侧邻域内可导。
+
+二者是不同概念。例如令
+\[
+  f(x)=
+  \begin{cases}
+    x^2\sin\dfrac1x,&x\ne0,\\
+    0,&x=0.
+  \end{cases}
+\]
+则 $f'_+(0)=0$，但
+\[
+  f'(x)=2x\sin\frac1x-\cos\frac1x\qquad(x\ne0),
+\]
+所以 $f'(0^+)$ 不存在。
+
+若 $f'_+(x_0)$ 与有限极限 $f'(x_0^+)$ 都存在，则二者不能取不同的有限数值；在通常的单侧导数极限定理条件下必有 $f'_+(x_0)=f'(x_0^+)$。因此本题所要强调的是“概念不同”，而不是在二者都存在时可以有两个不同的有限值。
+\end{xsolution}
+
+\paragraph{思考题 3}
+\begin{xsolution}
+有区别。$f'(x_0)$ 是函数 $f$ 在点 $x_0$ 的导数；而 $f(x_0)$ 是一个固定常数。若把 $(f(x_0))'$ 理解为对变量 $x$ 求导，则其值为 $0$。因此一般有
+\[
+  (f(x_0))'=0,
+\]
+而 $f'(x_0)$ 未必为零。
+\end{xsolution}
+
+\paragraph{思考题 4}
+\begin{xsolution}
+逐一求导：
+\[
+  (\sin^2x)'=2\sin x\cos x=\sin2x,
+\]
+\[
+  (-\cos^2x)'=2\sin x\cos x=\sin2x,
+\]
+以及
+\[
+  \left(-\frac12\cos2x\right)'=\sin2x.
+\]
+三者导函数相同。原因也可由恒等式看出：
+\[
+  \sin^2x=-\frac12\cos2x+\frac12,
+  \qquad
+  -\cos^2x=-\frac12\cos2x-\frac12.
+\]
+三函数彼此只相差常数，而常数的导数为零。
+\end{xsolution}
+
+\paragraph{思考题 5}
+\begin{xsolution}
+令 $h=-\Delta x$，则当 $\Delta x\to0$ 时 $h\to0$，且
+\[
+  \frac{f(x_0-\Delta x)-f(x_0)}{\Delta x}
+  =-\frac{f(x_0+h)-f(x_0)}h.
+\]
+故
+\[
+  \lim_{\Delta x\to0}\frac{f(x_0-\Delta x)-f(x_0)}{\Delta x}
+  =-f'(x_0).
+\]
+\end{xsolution}
+
+\paragraph{思考题 6}
+% SOURCE-CHECK: 回看原页确认题设为 [f(x^2)]'=[f^2(x)]'；当前 chapters/ch06.tex 漏录了 x^2 中的平方。本解答按原书题意作答，不修改章节文件。
+\begin{xsolution}
+由题设
+\[
+  [f(x^2)]'=[f^2(x)]'.
+\]
+按复合函数求导法则与乘方求导法则，
+\[
+  2x f'(x^2)=2f(x)f'(x).
+\]
+令 $x=1$，得到
+\[
+  2f'(1)=2f(1)f'(1),
+\]
+即
+\[
+  [1-f(1)]f'(1)=0.
+\]
+因此必有
+\[
+  \boxed{f(1)=1\quad\text{或}\quad f'(1)=0}.
+\]
+\end{xsolution}
+
+\paragraph{思考题 7}
+\begin{xsolution}
+\begin{enumerate}[label=(\arabic*)]
+  \item 半径由 $r$ 增加到 $r+\Delta r$ 时，圆面积增量为
+  \[
+    \Delta S=\pi(r+\Delta r)^2-\pi r^2
+    =2\pi r\,\Delta r+\pi(\Delta r)^2.
+  \]
+  其线性主部为 $2\pi r\,\Delta r=l(r)\Delta r$，因此
+  \[
+    S'(r)=2\pi r=l(r).
+  \]
+  几何上，薄圆环的面积在一阶近似下等于“圆周长 $\times$ 厚度”。
+
+  \item 同理，
+  \[
+    \Delta V=\frac43\pi(r+\Delta r)^3-\frac43\pi r^3
+    =4\pi r^2\Delta r+\bigO((\Delta r)^2),
+  \]
+  所以
+  \[
+    V'(r)=4\pi r^2=A(r).
+  \]
+  即薄球壳体积的一阶主部等于“球面积 $\times$ 厚度”。
+
+  \item 例如固定高 $h$ 的圆柱体
+  \[
+    V(r)=\pi r^2h,
+  \]
+  对半径求导得到
+  \[
+    V'(r)=2\pi rh,
+  \]
+  正好等于圆柱的侧面积。又如矩形面积 $A(x)=xh$ 对边长 $x$ 求导得 $A'(x)=h$，即等于随 $x$ 移动的那条边的长度。
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{思考题 8}
+\begin{xsolution}
+两问的答案都是否定的。
+\begin{enumerate}[label=(\arabic*)]
+  \item 取
+  \[
+    f(x)=\frac1{x-a}\qquad(x>a).
+  \]
+  则 $x\to a^+$ 时 $f(x)\to+\infty$，但
+  \[
+    f'(x)=-\frac1{(x-a)^2}\to-\infty,
+  \]
+  并非趋于 $+\infty$。
+
+  \item 取
+  \[
+    f(x)=\sqrt{x-a}\qquad(x>a).
+  \]
+  则
+  \[
+    f'(x)=\frac1{2\sqrt{x-a}}\to+\infty,
+  \]
+  但 $f(x)\to0$，并不趋于 $+\infty$。
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{思考题 9}
+\begin{xsolution}
+\begin{enumerate}[label=(\arabic*)]
+  \item 假。取 $f(x)=x$，则 $f(0)=0$ 而 $f'(0)=1$。反过来也假，例如 $f(x)=x^2+1$ 有 $f'(0)=0$ 而 $f(0)=1$。
+
+  \item 假。取 $x_0=0$，$f(x)=1-x$。在 $0$ 的充分小邻域内 $f(x)>0$，但 $f'(0)=-1<0$。
+
+  \item 真。偶性给出 $f(h)=f(-h)$，故
+  \[
+    f'(0)=\lim_{h\to0}\frac{f(h)-f(0)}h
+    =-\lim_{h\to0}\frac{f(-h)-f(0)}{-h}=-f'(0),
+  \]
+  从而 $f'(0)=0$。
+
+  \item 假。$f(x)=x$ 是奇函数，但 $f'(0)=1$。
+
+  \item 两个方向都不成立。正向反例为 $f(x)=x$、$x_0=0$：$f$ 可导，但 $\abs{f(x)}=\abs{x}$ 在 $0$ 不可导。反向可取
+  \[
+    f(x)=
+    \begin{cases}
+      1,&x\in\QQ,\\
+      -1,&x\notin\QQ.
+    \end{cases}
+  \]
+  则 $\abs{f(x)}\equiv1$ 处处可导，而 $f$ 处处不连续，因而处处不可导。
+
+  \item “存在所给对称差商极限 $\Rightarrow$ 可导”是假。取 $f(x)=\abs{x}$，$x_0=0$，有
+  \[
+    \frac{f(h)-f(-h)}h=0,
+  \]
+  但 $f$ 在 $0$ 不可导。反之若 $f$ 在 $x_0$ 可导，则
+  \begin{align*}
+    \frac{f(x_0+h)-f(x_0-h)}h
+    &=\frac{f(x_0+h)-f(x_0)}h
+      +\frac{f(x_0)-f(x_0-h)}h\\
+    &\longrightarrow f'(x_0)+f'(x_0)=2f'(x_0),
+  \end{align*}
+  因而反向成立。
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{思考题 10}
+\begin{xsolution}
+\begin{enumerate}[label=(\arabic*)]
+  \item 是。左连续与右连续分别给出
+  \[
+    \lim_{x\to x_0^-}f(x)=f(x_0),
+    \qquad
+    \lim_{x\to x_0^+}f(x)=f(x_0),
+  \]
+  两个单侧极限相等，因此 $f$ 在 $x_0$ 连续。
+
+  \item 未必。只有当左导数与右导数存在且相等时才可导。反例为 $f(x)=\abs{x}$ 在 $0$ 处：
+  \[
+    f'_-(0)=-1,\qquad f'_+(0)=1,
+  \]
+  两个单侧导数都存在，但不相等，所以 $f'(0)$ 不存在。
+\end{enumerate}
+\end{xsolution}
+
+\subsection*{6.1.4 练习题}
+
+\paragraph{练习题 1}
+\begin{xsolution}
+\begin{enumerate}[label=(\arabic*)]
+  \item 若 $f$ 为偶函数，则 $f(-x)=f(x)$。对 $x$ 求导，
+  \[
+    -f'(-x)=f'(x),
+  \]
+  即 $f'(-x)=-f'(x)$，所以 $f'$ 为奇函数。
+
+  \item 若 $f$ 为奇函数，则 $f(-x)=-f(x)$。求导得
+  \[
+    -f'(-x)=-f'(x),
+  \]
+  因而 $f'(-x)=f'(x)$，所以 $f'$ 为偶函数。
+
+  \item 若 $f(x+T)=f(x)$，其中 $T$ 是周期，则两边对 $x$ 求导，得到
+  \[
+    f'(x+T)=f'(x),
+  \]
+  故 $f'$ 仍以 $T$ 为周期。
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{练习题 2}
+\begin{xsolution}
+由思考题 9(3)，可导偶函数在原点的导数必为零。因此
+\[
+  f'(0)=0.
+\]
+\end{xsolution}
+
+\paragraph{练习题 3}
+\begin{xsolution}
+设两曲线在 $x=x_0>0$ 处相切，则函数值和导数都相等：
+\[
+  ax_0^2=\ln x_0,
+  \qquad
+  2ax_0=\frac1{x_0}.
+\]
+第二式给出
+\[
+  a=\frac1{2x_0^2}.
+\]
+代入第一式得
+\[
+  \frac12=\ln x_0,
+\]
+故 $x_0=\sqrt{\ee}$，进而
+\[
+  \boxed{a=\frac1{2\ee}}.
+\]
+\end{xsolution}
+
+\paragraph{练习题 4}
+\begin{xsolution}
+先设
+\[
+  f(x)-g(x)=\littleo(x-x_0)\qquad(x\to x_0).
+\]
+由于 $f,g$ 可导，因而连续，令 $x\to x_0$ 可得 $f(x_0)=g(x_0)$。再除以 $x-x_0$ 并取极限：
+\[
+  \lim_{x\to x_0}\frac{[f(x)-g(x)]-[f(x_0)-g(x_0)]}{x-x_0}=0,
+\]
+故 $f'(x_0)=g'(x_0)$。于是两曲线在 $(x_0,f(x_0))$ 处有相同切线。
+
+反之，若两曲线在 $x=x_0$ 处相切，则
+\[
+  f(x_0)=g(x_0),\qquad f'(x_0)=g'(x_0).
+\]
+对 $h=f-g$ 使用无穷小增量公式，
+\[
+  h(x)=h(x_0)+h'(x_0)(x-x_0)+\littleo(x-x_0)
+  =\littleo(x-x_0),
+\]
+即得所需条件。
+\end{xsolution}
+
+\paragraph{练习题 5}
+\begin{xsolution}
+交点满足
+\[
+  f(x)=f(x)\sin x.
+\]
+因 $f(x)$ 无零点，必有 $\sin x=1$，即
+\[
+  x=\frac\pi2+2k\pi,\qquad k\in\ZZ.
+\]
+设 $g(x)=f(x)\sin x$，则
+\[
+  g'(x)=f'(x)\sin x+f(x)\cos x.
+\]
+在交点处 $\sin x=1,\cos x=0$，故
+\[
+  g'(x)=f'(x).
+\]
+两曲线在交点处函数值和导数均相同，所以相切。
+\end{xsolution}
+
+\paragraph{练习题 6}
+\begin{xsolution}
+将多项式写成
+\[
+  p(x)=C\prod_{i=1}^k(x-x_i)^{n_i},\qquad C\ne0.
+\]
+当 $x\ne x_i$ 时取对数求导：
+\[
+  \frac{p'(x)}{p(x)}=\sum_{i=1}^k\frac{n_i}{x-x_i}.
+\]
+于是
+\[
+  p'(x)=p(x)\sum_{i=1}^k\frac{n_i}{x-x_i}.
+\]
+右端在约去相应因子后实际上是一个多项式；上式在 $x\ne x_i$ 的稠密集合上成立，因此作为多项式恒等式延拓到所有 $x$。特别地，在根处应理解为约分后的连续延拓值。
+\end{xsolution}
+
+\paragraph{练习题 7}
+\begin{xsolution}
+当 $x\ne0$ 时，$f$ 是初等函数，故可导。只需考察 $x=0$。
+
+先看连续性。若 $x\to0^+$，则
+\[
+  0\le \frac{x}{1+\ee^{1/x}}\le x\ee^{-1/x}\to0.
+\]
+若 $x\to0^-$，则 $\ee^{1/x}\to0$，从而
+\[
+  \frac{x}{1+\ee^{1/x}}\sim x\to0.
+\]
+故 $f$ 在 $0$ 连续。
+
+导数差商为
+\[
+  \frac{f(x)-f(0)}x=\frac1{1+\ee^{1/x}}.
+\]
+于是
+\[
+  \lim_{x\to0^+}\frac{f(x)}x=0,
+  \qquad
+  \lim_{x\to0^-}\frac{f(x)}x=1.
+\]
+左右导数不相等，所以 $f'(0)$ 不存在。故 $f$ 恰在 $\RR\setminus\{0\}$ 上可导。
+\end{xsolution}
+
+\paragraph{练习题 8}
+\begin{xsolution}
+$n$ 为正整数。
+
+(1) 因
+\[
+  \abs{x^n\sin\frac1x}\le\abs{x}^n\to0,
+\]
+所以对每个 $n\ge1$，$f$ 都在 $0$ 连续。
+
+(2) 差商为
+\[
+  \frac{f(x)-f(0)}x=x^{n-1}\sin\frac1x.
+\]
+当 $n\ge2$ 时其极限为 $0$；当 $n=1$ 时极限不存在。因此在 $0$ 可导当且仅当
+\[
+  \boxed{n\ge2},\qquad f'(0)=0.
+\]
+
+(3) 对 $x\ne0$，
+\[
+  f'(x)=n x^{n-1}\sin\frac1x-x^{n-2}\cos\frac1x.
+\]
+当 $n\ge3$ 时两项都趋于 $0=f'(0)$，故 $f'$ 在 $0$ 连续；$n=2$ 时第二项为 $-\cos(1/x)$，极限不存在。因此导函数在 $0$ 连续当且仅当
+\[
+  \boxed{n\ge3}.
+\]
+\end{xsolution}
+
+\paragraph{练习题 9}
+\begin{xsolution}
+由函数方程取 $x=y=0$，得 $f(0)=f(0)^2$。又因 $f'(0)=1$，$f$ 不可能恒为零，所以 $f(0)=1$。
+
+对任意固定 $x$，有
+\[
+  \frac{f(x+h)-f(x)}h
+  =\frac{f(x)f(h)-f(x)}h
+  =f(x)\frac{f(h)-1}h.
+\]
+令 $h\to0$，由 $f'(0)=1$ 得
+\[
+  f'(x)=f(x)f'(0)=f(x).
+\]
+因此 $f$ 处处可导，且 $f'(x)=f(x)$。
+\end{xsolution}
+
+\paragraph{练习题 10}
+\begin{xsolution}
+对
+\[
+  f(x)=\begin{cases}0,&x\notin\QQ,\\x,&x\in\QQ,
+  \end{cases}
+\]
+若 $x_0\ne0$，沿有理数趋于 $x_0$ 时函数值趋于 $x_0$，沿无理数趋于 $x_0$ 时函数值趋于 $0$，故不连续。只有在 $x_0=0$ 时两类序列都使 $f(x)\to0$，所以 $f$ 仅在 $0$ 连续。其在 $0$ 的差商为
+\[
+  \frac{f(h)}h=\begin{cases}0,&h\notin\QQ,\\1,&h\in\QQ,
+  \end{cases}
+\]
+极限不存在，故 $f$ 处处不可导。
+
+对
+\[
+  g(x)=\begin{cases}0,&x\notin\QQ,\\x^2,&x\in\QQ,
+  \end{cases}
+\]
+同理，$g$ 仅在 $0$ 连续。且
+\[
+  \frac{g(h)-g(0)}h=
+  \begin{cases}
+    0,&h\notin\QQ,\\
+    h,&h\in\QQ,
+  \end{cases}
+  \longrightarrow0.
+\]
+故 $g'(0)=0$；在其他点因不连续而不可导。因此 $g$ 恰在 $0$ 可导。
+\end{xsolution}
+
+\paragraph{练习题 11}
+\begin{xsolution}
+(1) 设 $x_0\ne0$。沿有理数 $x\to x_0$，$f(x)\to x_0$；沿无理数 $x\to x_0$，$f(x)\to x_0^2+x_0$。两极限相等要求 $x_0^2=0$，与 $x_0\ne0$ 矛盾。因此 $x_0\ne0$ 时 $f$ 不连续。
+
+(2) $f(0)=0$。当 $h\ne0$ 时
+\[
+  \frac{f(h)-f(0)}h=
+  \begin{cases}
+    1,&h\in\QQ,\\
+    1+h,&h\notin\QQ.
+  \end{cases}
+\]
+两种情形在 $h\to0$ 时都趋于 $1$，故
+\[
+  \boxed{f'(0)=1}.
+\]
+\end{xsolution}
+
+\paragraph{练习题 12}
+\begin{xsolution}
+由 $g(0)=0$ 和 $\abs{f(0)}\le\abs{g(0)}$ 得 $f(0)=0$。又因 $g'(0)=0$，
+\[
+  \lim_{x\to0}\frac{g(x)}x=0.
+\]
+于是对 $x\ne0$，
+\[
+  \abs{\frac{f(x)-f(0)}x}
+  =\abs{\frac{f(x)}x}
+  \le\abs{\frac{g(x)}x}\to0.
+\]
+由夹逼定理，
+\[
+  \boxed{f'(0)=0}.
+\]
+\end{xsolution}
+
+\subsection*{6.2.4 练习题}
+
+\paragraph{练习题 1}
+\begin{xsolution}
+令 $y=\arctan x$，则 $(1+x^2)y'=1$。记 $a_m=y^{(m)}(0)$。对上式求 $n$ 阶导数并令 $x=0$，当 $n\ge1$ 时得到
+\[
+  a_{n+1}+n(n-1)a_{n-1}=0.
+\]
+又 $a_1=1,a_2=0$。递推可得
+\[
+  \boxed{
+  y^{(n)}(0)=
+  \begin{cases}
+    0,&n\text{ 为偶数},\\
+    (-1)^{(n-1)/2}(n-1)!,&n\text{ 为奇数}.
+  \end{cases}}
+\]
+\end{xsolution}
+
+\paragraph{练习题 2}
+\begin{xsolution}
+令 $u=(\arctan x)^2$。由于 $u$ 为偶函数，所有奇数阶导数在 $0$ 处均为零。由
+\[
+  (1+x^2)u'=2\arctan x
+\]
+出发。记 $b_m=u^{(m)}(0)$，并使用上一题的
+\[
+  a_{2m-1}=(\arctan x)^{(2m-1)}\big|_{x=0}
+  =(-1)^{m-1}(2m-2)!.
+\]
+对 $(1+x^2)u'=2\arctan x$ 求 $2m-1$ 阶导数并令 $x=0$，得到
+\[
+  b_{2m}+(2m-1)(2m-2)b_{2m-2}
+  =2(-1)^{m-1}(2m-2)!.
+\]
+从 $b_2=2$ 开始归纳。若
+\[
+  b_{2m-2}=2(-1)^{m-2}(2m-3)!
+  \sum_{j=0}^{m-2}\frac1{2j+1},
+\]
+则代入递推式即得
+\[
+  b_{2m}=2(-1)^{m-1}(2m-1)!
+  \left(\sum_{j=0}^{m-2}\frac1{2j+1}+\frac1{2m-1}\right).
+\]
+因此
+\[
+  \boxed{
+  u^{(n)}(0)=
+  \begin{cases}
+    0,&n\text{ 为奇数},\\[3pt]
+    \displaystyle 2(-1)^{m-1}(2m-1)!\sum_{j=0}^{m-1}\frac1{2j+1},&n=2m.
+  \end{cases}}
+\]
+\end{xsolution}
+
+\paragraph{练习题 3}
+\begin{xsolution}
+令 $u=(\arcsin x)^2$。直接计算得到
+\[
+  (1-x^2)u''-xu'=2.
+\]
+$u$ 为偶函数，所以奇数阶导数在 $0$ 处全为零。记 $b_m=u^{(m)}(0)$。对上式求 $n$ 阶导数并令 $x=0$，当 $n\ge1$ 时有
+\[
+  b_{n+2}=n^2b_n.
+\]
+又 $b_2=2$，故
+\[
+  b_{2m}=2\bigl(2\cdot4\cdots(2m-2)\bigr)^2
+  =2^{2m-1}[(m-1)!]^2.
+\]
+即
+\[
+  \boxed{
+  u^{(n)}(0)=
+  \begin{cases}
+    0,&n\text{ 为奇数},\\
+    2^{2m-1}[(m-1)!]^2,&n=2m.
+  \end{cases}}
+\]
+\end{xsolution}
+
+\paragraph{练习题 4}
+\begin{xsolution}
+记 $F_n(x)=x^{n-1}\ee^{1/x}$。对 $n$ 归纳证明
+\[
+  F_n^{(n)}(x)=(-1)^nx^{-n-1}\ee^{1/x}.
+\]
+$n=1$ 时直接成立。若对 $n$ 成立，则 $F_{n+1}=xF_n$，由 Leibniz 公式
+\[
+  F_{n+1}^{(n+1)}=xF_n^{(n+1)}+(n+1)F_n^{(n)}.
+\]
+而
+\[
+  F_n^{(n+1)}=(-1)^n\ee^{1/x}
+  \left(-(n+1)x^{-n-2}-x^{-n-3}\right).
+\]
+代入后第一类项抵消，得到
+\[
+  F_{n+1}^{(n+1)}=(-1)^{n+1}x^{-n-2}\ee^{1/x},
+\]
+归纳完成。
+\end{xsolution}
+
+\paragraph{练习题 5}
+\begin{xsolution}
+\begin{enumerate}[label=(\arabic*)]
+  \item 由 $\sin^3x=(3\sin x-\sin3x)/4$，
+  \[
+    \boxed{y^{(n)}=\frac14\left[3\sin\left(x+\frac{n\pi}{2}\right)-3^n\sin\left(3x+\frac{n\pi}{2}\right)\right]}.
+  \]
+  \item
+  \[
+    \boxed{y^{(n)}=2^{n/2}\ee^x\sin\left(x+\frac{n\pi}{4}\right)}.
+  \]
+  \item
+  \[
+    \boxed{y^{(n)}=\frac{(n-1)!}{x}},\qquad x>0.
+  \]
+  \item
+  \[
+    \boxed{y^{(n)}=\ee^x\left[x^3+3nx^2+3n(n-1)x+n(n-1)(n-2)\right]}.
+  \]
+  \item 由 $x^n/(1-x)=1/(1-x)-(1+x+\cdots+x^{n-1})$，
+  \[
+    \boxed{y^{(n)}=\frac{n!}{(1-x)^{n+1}}},\qquad x\ne1.
+  \]
+  \item 利用
+  \[
+    \frac{x^n}{(1+x)^2}=n\frac{x^{n-1}}{1+x}-\left(\frac{x^n}{1+x}\right)',
+  \]
+  以及对 $x^{n-1}/(1+x)$、$x^n/(1+x)$ 作多项式除法后只保留其有理余项，可得
+  \[
+    \boxed{y^{(n)}=\frac{n!(1-nx)}{(1+x)^{n+2}}},\qquad x\ne-1.
+  \]
+  \item 由积化和差公式，
+  \[
+    \boxed{y^{(n)}=\frac12\left[(a-b)^n\cos\left((a-b)x+\frac{n\pi}{2}\right)-(a+b)^n\cos\left((a+b)x+\frac{n\pi}{2}\right)\right]}.
+  \]
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{练习题 6}
+\begin{xsolution}
+逐项求导：
+\[
+  y'=C_1\lambda_1\ee^{\lambda_1x}+C_2\lambda_2\ee^{\lambda_2x},
+  \quad
+  y''=C_1\lambda_1^2\ee^{\lambda_1x}+C_2\lambda_2^2\ee^{\lambda_2x}.
+\]
+代入方程左端后，$C_i\ee^{\lambda_i x}$ 的系数均为
+\[
+  \lambda_i^2-(\lambda_1+\lambda_2)\lambda_i+\lambda_1\lambda_2=0
+  \qquad(i=1,2),
+\]
+故方程成立。
+\end{xsolution}
+
+\paragraph{练习题 7}
+\begin{xsolution}
+令 $\theta=\omega t+\varphi$，则
+\[
+  y'=\omega C_1\cos\theta-\omega C_2\sin\theta,
+\]
+\[
+  y''=-\omega^2C_1\sin\theta-\omega^2C_2\cos\theta=-\omega^2y.
+\]
+因此 $y''+\omega^2y=0$。
+\end{xsolution}
+
+\paragraph{练习题 8}
+\begin{xsolution}
+由参数方程
+\[
+  x=f(\theta)\cos\theta,\qquad y=f(\theta)\sin\theta
+\]
+得
+\[
+  x'_\theta=f'(\theta)\cos\theta-f(\theta)\sin\theta,
+\]
+\[
+  y'_\theta=f'(\theta)\sin\theta+f(\theta)\cos\theta.
+\]
+所以在 $x'_\theta\ne0$ 时
+\[
+  \boxed{y'(x)=\frac{f'(\theta)\sin\theta+f(\theta)\cos\theta}{f'(\theta)\cos\theta-f(\theta)\sin\theta}}.
+\]
+\end{xsolution}
+
+\paragraph{练习题 9}
+\begin{xsolution}
+对极坐标曲线 $\rho=\rho(\theta)$，若切线与径向的夹角为 $\psi$，由参数方程可得
+\[
+  \tan\psi=\frac{\rho}{\rho'}.
+\]
+对 $\rho=a\theta$ 有 $\tan\psi_1=\theta$；对 $\rho=a\theta^{-1}$ 有 $\tan\psi_2=-\theta$。通常取正半径时，两曲线相交要求 $a\theta=a/\theta$，故 $\theta=1$。于是
+\[
+  \psi_1=\frac\pi4,\qquad \psi_2=-\frac\pi4,
+\]
+两切线夹角为 $\pi/2$，故正交。
+\end{xsolution}
+
+\paragraph{练习题 10}
+\begin{xsolution}
+以下均在 $x'_t\ne0$ 的参数区间上计算。
+\begin{enumerate}[label=(\arabic*)]
+  \item
+  \[
+    \boxed{y'=-\sqrt{\frac{1+t}{1-t}}},
+    \qquad
+    \boxed{y''=-\frac2{(1-t)^{3/2}}}.
+  \]
+  第二式也可由 $x^2+y^2=2$ 两次隐式求导得到。
+  \item
+  \[
+    \boxed{y'=\frac{\sin t+t\cos t}{\cos t-t\sin t}},
+    \qquad
+    \boxed{y''=\frac{t^2+2}{a(\cos t-t\sin t)^3}}.
+  \]
+  \item
+  \[
+    \boxed{y'=-\tan t},
+    \qquad
+    \boxed{y''=\frac1{3a\cos^4t\sin t}}.
+  \]
+  \item 因 $x'_t=f''(t)$，$y'_t=tf''(t)$，当 $f''(t)\ne0$ 时
+  \[
+    \boxed{y'=t},\qquad \boxed{y''=\frac1{f''(t)}}.
+  \]
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{练习题 11}
+\begin{xsolution}
+隐式求导得
+\[
+  y'=\frac{ay-x^2}{y^2-ax}.
+\]
+非奇异点有水平切线时 $ay-x^2=0$，即 $y=x^2/a$。代回原方程，
+\[
+  x^3\left(\frac{x^3}{a^3}-2\right)=0.
+\]
+非零解为
+\[
+  (x,y)=(a\sqrt[3]{2},a\sqrt[3]{4}).
+\]
+原点是奇点；由参数式
+\[
+  x=\frac{3at}{1+t^3},\qquad y=\frac{3at^2}{1+t^3}
+\]
+在 $t=0$ 的分支可见其切线为 $y=0$。因此在通常 $a\ne0$ 的情形，水平切线所在点为
+\[
+  \boxed{(0,0),\quad(a\sqrt[3]{2},a\sqrt[3]{4})}.
+\]
+\end{xsolution}
+
+\paragraph{练习题 12}
+\begin{xsolution}
+三个正弦因子都是奇函数，故 $y$ 是奇函数。于是 $y'$ 为偶函数，$y''$ 为奇函数，所以
+\[
+  \boxed{y''(0)=0}.
+\]
+可以只利用奇偶性完成计算。
+\end{xsolution}
+
+\paragraph{练习题 13}
+\begin{xsolution}
+可以。$y$ 是 6 次多项式，$y^{(5)}(0)=5![x^5]y$。最高次项系数为 $45$，六个根（计重数）为
+\[
+  -\frac65,\quad-\frac43,-\frac43,\quad-2,-2,-2,
+\]
+根之和为 $-148/15$。由 Vieta 公式，$x^5$ 的系数为
+\[
+  -45\left(-\frac{148}{15}\right)=444.
+\]
+所以
+\[
+  \boxed{y^{(5)}(0)=120\cdot444=53280}.
+\]
+\end{xsolution}
+
+\paragraph{练习题 14}
+\begin{xsolution}
+由整除条件，
+\[
+  f(1)=-1,\quad f'(1)=f''(1)=f'''(1)=0,
+\]
+\[
+  f(-1)=1,\quad f'(-1)=f''(-1)=f'''(-1)=0.
+\]
+故 $f'$ 为至多 6 次多项式，并在 $\pm1$ 各有至少三重零点，于是
+\[
+  f'(x)=C(x^2-1)^3.
+\]
+由 $f(1)-f(-1)=-2$，
+\[
+  -2=C\int_{-1}^1(x^2-1)^3\,\dd x
+  =-\frac{32}{35}C,
+\]
+故 $C=35/16$。积分并由 $f(1)=-1,f(-1)=1$ 定出常数，得到
+\[
+  \boxed{f(x)=\frac1{16}(5x^7-21x^5+35x^3-35x)}.
+\]
+\end{xsolution}
+
+\subsection*{6.3.4 练习题}
+
+\paragraph{练习题 1}
+\begin{xsolution}
+由可导性，
+\[
+  \Delta y=f'(x_0)\Delta x+\littleo(\Delta x).
+\]
+而
+\[
+  \dd y=f'(x_0)\dd x=f'(x_0)\Delta x.
+\]
+因 $f'(x_0)\ne0$，故当 $\Delta x\ne0$ 且充分小时 $\dd y\ne0$，于是
+\[
+  \frac{\Delta y}{\dd y}
+  =1+\frac{\littleo(\Delta x)}{f'(x_0)\Delta x}
+  \longrightarrow1.
+\]
+因此
+\[
+  \boxed{\lim_{\Delta x\to0}\frac{\Delta y}{\dd y}=1}.
+\]
+\end{xsolution}
+
+\paragraph{练习题 2}
+\begin{xsolution}
+利用一阶微分的形式不变性，记 $\dd u=u'\dd x$，$\dd v=v'\dd x$，$\dd w=w'\dd x$。
+\begin{enumerate}[label=(\arabic*)]
+  \item
+  \[
+    \boxed{\dd y=vw\,\dd u+uw\,\dd v+uv\,\dd w}.
+  \]
+  \item
+  \[
+    \boxed{\dd y=\frac{\dd u}{v^2}-\frac{2u}{v^3}\,\dd v}
+  \]
+  （要求 $v\ne0$）。
+  \item 令 $z=u/(vw)$。则
+  \[
+    \dd z=\frac{vw\,\dd u-uw\,\dd v-uv\,\dd w}{v^2w^2},
+  \]
+  从而
+  \[
+    \boxed{\dd y=
+    \frac{vw\,\dd u-uw\,\dd v-uv\,\dd w}{u^2+v^2w^2}}
+  \]
+  （在原函数有定义的范围内）。
+  \item
+  \[
+    \boxed{\dd y=-\frac{u\,\dd u+v\,\dd v+w\,\dd w}{(u^2+v^2+w^2)^{3/2}}}
+  \]
+  （分母非零）。
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{练习题 3}
+\begin{xsolution}
+令
+\[
+  F(u)=u^{1/n}.
+\]
+在 $u_0=a^n$ 处，
+\[
+  F'(a^n)=\frac1{na^{n-1}}.
+\]
+对小增量 $x$，一次近似给出
+\[
+  \boxed{\sqrt[n]{a^n+x}\approx a+\frac{x}{na^{n-1}}},\qquad a>0,
+\]
+其适用条件是 $\abs{x}/a^n$ 足够小。
+
+分别选取邻近的完全幂：
+\begin{enumerate}[label=(\arabic*)]
+  \item $9=2^3+1$，故
+  \[
+    \sqrt[3]{9}\approx2+\frac1{3\cdot2^2}=\frac{25}{12}\approx2.08333.
+  \]
+  \item $80=3^4-1$，故
+  \[
+    \sqrt[4]{80}\approx3-\frac1{4\cdot3^3}=3-\frac1{108}\approx2.99074.
+  \]
+  \item $100=2^7-28$，故
+  \[
+    \sqrt[7]{100}\approx2-\frac{28}{7\cdot2^6}=2-\frac1{16}=1.9375.
+  \]
+  此处相对增量 $28/128$ 较前两项大，因此一次近似相对粗糙。
+  \item $1000=2^{10}-24$，故
+  \[
+    \sqrt[10]{1000}\approx2-\frac{24}{10\cdot2^9}=2-\frac3{640}=1.9953125.
+  \]
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{练习题 4}
+\begin{xsolution}
+由
+\[
+  g=4\pi^2lT^{-2}
+\]
+取微分，
+\[
+  \dd g=4\pi^2T^{-2}\dd l-8\pi^2lT^{-3}\dd T.
+\]
+除以 $g$ 得相对微分
+\[
+  \boxed{\frac{\dd g}{g}=\frac{\dd l}{l}-2\frac{\dd T}{T}}.
+\]
+因此：
+\begin{enumerate}[label=(\arabic*)]
+  \item 若只考虑摆长测量误差，则 $g$ 的相对误差近似等于 $l$ 的相对误差；
+  \item 若只考虑周期测量误差，则 $g$ 的相对误差的绝对值近似为 $T$ 的相对误差的两倍，符号相反。
+\end{enumerate}
+若两种测量误差同时存在，则在最坏情形下可用
+\[
+  \frac{\abs{\dd g}}g\lesssim \frac{\abs{\dd l}}l+2\frac{\abs{\dd T}}T
+\]
+估计一阶相对误差。
+\end{xsolution}
+
+\paragraph{练习题 5}
+\begin{xsolution}
+令 $y=\log_{10}x=\ln x/\ln10$，$x>0$。则
+\[
+  \dd y=\frac1{x\ln10}\,\dd x.
+\]
+所以若 $\dd x/x$ 表示 $x$ 的相对测量误差，则常用对数结果的绝对误差的一阶近似为
+\[
+  \boxed{\abs{\dd y}\approx\frac1{\ln10}\frac{\abs{\dd x}}x}.
+\]
+若还要写成 $y$ 本身的相对误差，则在 $\log_{10}x\ne0$ 时
+\[
+  \boxed{\frac{\dd y}{y}=\frac{\dd x}{x\ln x}}.
+\]
+\end{xsolution}
+
+\subsection*{6.4.2 第一组参考题}
+
+\paragraph{第一组参考题 1}
+\begin{xsolution}
+令
+\[
+  F(x)=(1+\tan x)^{10}-(1-\sin x)^{10}.
+\]
+有 $F(0)=0$，而 $\sin0=0$。利用导数定义，
+\[
+  \lim_{x\to0}\frac{F(x)}{\sin x}
+  =\frac{F'(0)}{(\sin x)'\rvert_{x=0}}.
+\]
+计算
+\[
+  F'(0)=10+10=20,
+\]
+故
+\[
+  \boxed{20}.
+\]
+\end{xsolution}
+
+\paragraph{第一组参考题 2}
+\begin{xsolution}
+先作部分分式分解：
+\[
+  f(x)=\frac1{(x+1)(x+2)}=\frac1{x+1}-\frac1{x+2}.
+\]
+因此
+\[
+  f^{(100)}(0)
+  =100!\left(1-\frac1{2^{101}}\right).
+\]
+这是精确值。若只取
+\[
+  f^{(100)}(0)\approx100!,
+\]
+相对误差为
+\[
+  \frac{2^{-101}}{1-2^{-101}}<10^{-30}\ll1\%,
+\]
+故已远满足题目的精度要求。
+\end{xsolution}
+
+\paragraph{第一组参考题 3}
+\begin{xsolution}
+由 $f$ 在 $a$ 可导且 $f(a)\ne0$，
+\[
+  f\left(a+\frac1n\right)
+  =f(a)+\frac{f'(a)}n+\littleo\left(\frac1n\right).
+\]
+故
+\[
+  \frac{f(a+1/n)}{f(a)}
+  =1+\frac{f'(a)}{nf(a)}+\littleo\left(\frac1n\right).
+\]
+当 $n$ 充分大时括号内为正，应用基本指数极限得
+\[
+  \boxed{
+  \lim_{n\to\infty}\left[\frac{f(a+1/n)}{f(a)}\right]^n
+  =\exp\frac{f'(a)}{f(a)}}.
+\]
+\end{xsolution}
+
+\paragraph{第一组参考题 4}
+\begin{xsolution}
+利用和差化积，
+\[
+  \sin x+\sin(x+a)=2\sin\left(x+\frac a2\right)\cos\frac a2,
+\]
+\[
+  \cos x-\cos(x+a)=2\sin\left(x+\frac a2\right)\sin\frac a2.
+\]
+若 $\sin(a/2)\ne0$，则在原函数有定义的点上
+\[
+  f(x)=\cot\frac a2,
+\]
+因此
+\[
+  \boxed{f'(x)=0}.
+\]
+这说明原式虽然看似依赖 $x$，实际上在每个定义域分支上都是常数。若 $a=2k\pi$，则分母恒为零，原式根本不定义；所以题面仅写 $a\ne0$ 时还需排除非零的 $2\pi$ 整数倍。
+\end{xsolution}
+
+\paragraph{第一组参考题 5}
+\begin{xsolution}
+由 $f(0)=0$、$f'(0)$ 存在，写成
+\[
+  f(t)=f'(0)t+r(t),\qquad r(t)=\littleo(t)\quad(t\to0).
+\]
+于是
+\[
+  x_n=\frac{f'(0)}{n^2}\sum_{k=1}^n k+\sum_{k=1}^n r\left(\frac{k}{n^2}\right).
+\]
+第一项趋于 $f'(0)/2$。对余项，给定 $\varepsilon>0$，当 $n$ 足够大时所有 $k/n^2\le1/n$ 都落在充分小邻域内，故
+\[
+  \left|r\left(\frac{k}{n^2}\right)\right|
+  \le\varepsilon\frac{k}{n^2}.
+\]
+因此
+\[
+  \left|\sum_{k=1}^n r\left(\frac{k}{n^2}\right)\right|
+  \le\varepsilon\frac{n(n+1)}{2n^2}\le\varepsilon.
+\]
+余项和趋于零，所以
+\[
+  \boxed{\lim_{n\to\infty}x_n=\frac12f'(0)}.
+\]
+\end{xsolution}
+
+\paragraph{第一组参考题 6}
+\begin{xsolution}
+\begin{enumerate}[label=(\arabic*)]
+  \item 取上一题中的 $f(t)=\sin t$，有 $f(0)=0,f'(0)=1$，故
+  \[
+    \boxed{\frac12}.
+  \]
+  \item 令
+  \[
+    P_n=\prod_{k=1}^n\left(1+\frac{k}{n^2}\right).
+  \]
+  取对数：
+  \[
+    \ln P_n=\sum_{k=1}^n\ln\left(1+\frac{k}{n^2}\right).
+  \]
+  对 $f(t)=\ln(1+t)$ 应用上一题，$f(0)=0,f'(0)=1$，得
+  \[
+    \ln P_n\to\frac12.
+  \]
+  所以
+  \[
+    \boxed{P_n\to\ee^{1/2}=\sqrt{\ee}}.
+  \]
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{第一组参考题 7}
+\begin{xsolution}
+先改写
+\[
+  y=\frac{1+x}{\sqrt{1-x}}=2(1-x)^{-1/2}-(1-x)^{1/2}.
+\]
+对 $n\ge1$，
+\[
+  \frac{\dd^n}{\dd x^n}(1-x)^{-1/2}
+  =\frac{(2n-1)!!}{2^n}(1-x)^{-n-1/2},
+\]
+\[
+  \frac{\dd^n}{\dd x^n}(1-x)^{1/2}
+  =-\frac{(2n-3)!!}{2^n}(1-x)^{1/2-n}.
+\]
+合并得
+\[
+  \boxed{
+  y^{(n)}(x)=\frac{(2n-3)!!\,(4n-1-x)}{2^n(1-x)^{n+1/2}}},
+  \qquad x<1.
+\]
+这里采用 $(-1)!!=1$，所以公式也覆盖 $n=1$。
+\end{xsolution}
+
+\paragraph{第一组参考题 8}
+\begin{xsolution}
+记
+\[
+  T_n(x)=x^{n-1}f\left(\frac1x\right).
+\]
+对 $n$ 归纳。$n=1$ 时
+\[
+  T_1'(x)=-\frac1{x^2}f'\left(\frac1x\right),
+\]
+正是结论。设
+\[
+  T_n^{(n)}=(-1)^nx^{-n-1}f^{(n)}\left(\frac1x\right).
+\]
+因 $T_{n+1}=xT_n$，
+\[
+  T_{n+1}^{(n+1)}=xT_n^{(n+1)}+(n+1)T_n^{(n)}.
+\]
+对归纳式求导再代入，上式中含 $f^{(n)}$ 的两项抵消，只剩
+\[
+  T_{n+1}^{(n+1)}
+  =(-1)^{n+1}x^{-n-2}f^{(n+1)}\left(\frac1x\right).
+\]
+故对所有正整数 $n$，
+\[
+  \boxed{
+  \frac1{x^{n+1}}f^{(n)}\left(\frac1x\right)
+  =(-1)^n\left[x^{n-1}f\left(\frac1x\right)\right]^{(n)}}
+\]
+成立（$x\ne0$）。
+\end{xsolution}
+
+\paragraph{第一组参考题 9}
+\begin{xsolution}
+令
+\[
+  S_n(x)=1+x+\cdots+x^n=\frac{1-x^{n+1}}{1-x}\qquad(x\ne1).
+\]
+\begin{enumerate}[label=(\arabic*)]
+  \item 所求为 $S_n'(x)$，故
+  \[
+    \boxed{1+2x+\cdots+nx^{n-1}
+    =\frac{1-(n+1)x^n+nx^{n+1}}{(1-x)^2}}.
+  \]
+  \item 所求为 $(xS_n'(x))'$，化简得
+  \[
+    \boxed{
+    1^2+2^2x+\cdots+n^2x^{n-1}
+    =\frac{1+x-(n+1)^2x^n+(2n^2+2n-1)x^{n+1}-n^2x^{n+2}}{(1-x)^3}}.
+  \]
+\end{enumerate}
+当 $x=1$ 时分别为 $n(n+1)/2$ 与 $n(n+1)(2n+1)/6$。
+
+不用微分学也能求。对第一式设 $A=1+2x+\cdots+nx^{n-1}$，直接计算 $(1-x)A$ 即可得到一阶等差型系数；第二式同理计算 $(1-x)B$，其系数差为奇数，再利用第一式作纯代数化简即可得到同一结果。
+\end{xsolution}
+
+\paragraph{第一组参考题 10}
+\begin{xsolution}
+由二项式定理
+\[
+  (1+x)^n=\sum_{k=0}^n\binom nkx^k.
+\]
+求导并令 $x=1$：
+\[
+  n2^{n-1}=\sum_{k=1}^n k\binom nk.
+\]
+再求一次导数：
+\[
+  n(n-1)2^{n-2}=\sum_{k=2}^n k(k-1)\binom nk.
+\]
+由于 $k^2=k(k-1)+k$，两式相加得
+\[
+  \sum_{k=1}^n k^2\binom nk
+  =n(n-1)2^{n-2}+n2^{n-1}
+  =\boxed{n(n+1)2^{n-2}}.
+\]
+\end{xsolution}
+
+\paragraph{第一组参考题 11}
+\begin{xsolution}
+取标准抛物线
+\[
+  y^2=4px\qquad(p>0),
+\]
+焦点为 $F=(p,0)$。以参数 $t$ 表示抛物线上点
+\[
+  P=(pt^2,2pt).
+\]
+切线方程为
+\[
+  ty=x+pt^2,
+\]
+故切线与 $x$ 轴夹角 $\alpha$ 满足 $\tan\alpha=1/t$。
+
+直线 $FP$ 的斜率为
+\[
+  \frac{2pt}{pt^2-p}=\frac{2t}{t^2-1}.
+\]
+而由正切倍角公式
+\[
+  \tan2\alpha=\frac{2/t}{1-1/t^2}=\frac{2t}{t^2-1}.
+\]
+因此焦点射线 $FP$ 与轴的夹角是切线与轴夹角的两倍，切线恰好平分焦点射线与轴方向之间的角。按反射定律，入射角等于反射角，所以从焦点射向抛物线的光线反射后平行于对称轴。
+\end{xsolution}
+
+\paragraph{第一组参考题 12}
+\begin{xsolution}
+椭圆上任一点 $P$ 到两焦点 $F_1,F_2$ 的距离之和为常数：
+\[
+  r_1+r_2=2a,
+  \qquad r_i=\abs{P-F_i}.
+\]
+沿椭圆切线方向取一个切向量 $T$。对距离和沿切线作方向变化，有
+\[
+  \left(\frac{P-F_1}{r_1}+\frac{P-F_2}{r_2}\right)\cdot T=0.
+\]
+故向量
+\[
+  N=\frac{P-F_1}{r_1}+\frac{P-F_2}{r_2}
+\]
+垂直于切线，是法线方向。
+
+记两条焦线的单位方向向量为
+\[
+  u_1=\frac{P-F_1}{r_1},\qquad u_2=\frac{P-F_2}{r_2}.
+\]
+因 $N=u_1+u_2$，
+\[
+  N\cdot u_1=1+u_1\cdot u_2=N\cdot u_2,
+\]
+所以法线与两条焦线夹角相等，从而切线也与两条焦线夹角相等。根据反射定律，从一个焦点射出的射线经椭圆反射后必经过另一个焦点。
+\end{xsolution}
+
+\paragraph{第一组参考题 13}
+\begin{xsolution}
+参数方程为
+\[
+  x=a\left(\ln\tan\frac t2+\cos t\right),
+  \qquad y=a\sin t.
+\]
+利用
+\[
+  \frac{\dd}{\dd t}\ln\tan\frac t2=\frac1{\sin t},
+\]
+得
+\[
+  x'_t=a\left(\frac1{\sin t}-\sin t\right)
+  =a\frac{\cos^2t}{\sin t},
+  \qquad
+  y'_t=a\cos t.
+\]
+所以切线斜率
+\[
+  \frac{\dd y}{\dd x}=\tan t.
+\]
+设切线与 $x$ 轴交于 $Q=(X,0)$，则
+\[
+  0-a\sin t=\tan t\,(X-x),
+\]
+即
+\[
+  X-x=-a\cos t.
+\]
+于是
+\[
+  PQ=\sqrt{(X-x)^2+y^2}
+  =a\sqrt{\cos^2t+\sin^2t}
+  =\boxed{a}.
+\]
+故该长度为常数。
+\end{xsolution}
+
+\paragraph{第一组参考题 14}
+\begin{xsolution}
+必要性：若 $f$ 在 $x_0$ 可微（在一元情形等价于可导），定义
+\[
+  \varphi(x)=
+  \begin{cases}
+    \dfrac{f(x)-f(x_0)}{x-x_0},&x\ne x_0,\\[6pt]
+    f'(x_0),&x=x_0.
+  \end{cases}
+\]
+由导数定义，$\varphi(x)\to f'(x_0)=\varphi(x_0)$，故 $\varphi$ 在 $x_0$ 连续，且显然
+\[
+  f(x)=f(x_0)+\varphi(x)(x-x_0).
+\]
+
+充分性：若存在这样的 $\varphi$ 且在 $x_0$ 连续，则对 $x\ne x_0$，
+\[
+  \frac{f(x)-f(x_0)}{x-x_0}=\varphi(x)\to\varphi(x_0).
+\]
+故 $f'(x_0)$ 存在，且
+\[
+  f'(x_0)=\varphi(x_0).
+\]
+因此 $f$ 在 $x_0$ 可微。
+\end{xsolution}
+
+\paragraph{第一组参考题 15}
+\begin{xsolution}
+对 $1\le m\le n-1$，由 Leibniz 公式可得
+\[
+  f^{(m)}(x)=(x-x_0)\varphi^{(m)}(x)+m\varphi^{(m-1)}(x).
+\]
+特别地，
+\[
+  f^{(n-1)}(x)
+  =(x-x_0)\varphi^{(n-1)}(x)+(n-1)\varphi^{(n-2)}(x).
+\]
+在 $x=x_0$ 时
+\[
+  f^{(n-1)}(x_0)=(n-1)\varphi^{(n-2)}(x_0).
+\]
+因此
+\begin{align*}
+  \frac{f^{(n-1)}(x)-f^{(n-1)}(x_0)}{x-x_0}
+  &=\varphi^{(n-1)}(x)\\
+  &\quad +(n-1)\frac{\varphi^{(n-2)}(x)-\varphi^{(n-2)}(x_0)}{x-x_0}.
+\end{align*}
+令 $x\to x_0$，第一项由连续性趋于 $\varphi^{(n-1)}(x_0)$，第二项趋于 $(n-1)\varphi^{(n-1)}(x_0)$。故
+\[
+  \boxed{f^{(n)}(x_0)=n\varphi^{(n-1)}(x_0)}
+\]
+存在。
+\end{xsolution}
+
+\paragraph{第一组参考题 16}
+\begin{xsolution}
+设 $m$ 是满足 $a_m\ne0$ 的最大下标。若 $m=0$，则 $a_0f\equiv0$，从而 $f\equiv0$，结论显然。
+
+设 $m\ge1$。原关系可写成
+\[
+  f^{(m)}(x)=-\frac1{a_m}\sum_{j=0}^{m-1}a_jf^{(j)}(x).
+\]
+右端各项都有一阶导数，因为最高只需用到 $f^{(m)}$。因此右端可导，从而 $f^{(m)}$ 可导，即 $f^{(m+1)}$ 存在。得到 $m+1$ 阶导数后，又可对同一恒等式再求导一次，得到 $m+2$ 阶导数。如此反复，即可递推得到所有更高阶导数。因此 $f$ 在 $(a,b)$ 上存在任意阶导数。
+\end{xsolution}
+
+\paragraph{第一组参考题 17}
+\begin{xsolution}
+设
+\[
+  p(x)=C\prod_{i=1}^k(x-x_i)^{m_i},
+\]
+其中 $x_i$ 为互异实根，$m_i\ge1$。在 $p(x)\ne0$ 处，
+\[
+  \frac{p'}p=\sum_{i=1}^k\frac{m_i}{x-x_i}.
+\]
+求导得到
+\[
+  \frac{p''}p-\left(\frac{p'}p\right)^2
+  =-\sum_{i=1}^k\frac{m_i}{(x-x_i)^2}.
+\]
+故
+\[
+  [p'(x)]^2-p(x)p''(x)
+  =p(x)^2\sum_{i=1}^k\frac{m_i}{(x-x_i)^2}\ge0.
+\]
+左端是连续多项式，所以在根 $x=x_i$ 处也由极限保持非负。于是结论对所有 $x\in\RR$ 成立。
+\end{xsolution}
+
+\paragraph{第一组参考题 18}
+\begin{xsolution}
+反设 $f$ 在 $[0,1]$ 有无穷多个零点。由区间的有界紧性，这些零点存在聚点 $x_*\in[0,1]$。取互异零点序列 $x_n\to x_*$。由连续性，
+\[
+  f(x_*)=\lim_{n\to\infty}f(x_n)=0.
+\]
+又
+\[
+  \frac{f(x_n)-f(x_*)}{x_n-x_*}=0.
+\]
+令 $n\to\infty$。若 $x_*$ 在内部，得到普通导数 $f'(x_*)=0$；若 $x_*=0$ 或 $1$，同样由相应单侧导数得到 $f'(x_*)=0$。于是
+\[
+  f(x_*)=0=f'(x_*),
+\]
+与题设集合为空矛盾。因此零点只能有有限个。
+\end{xsolution}
+
+\paragraph{第一组参考题 19}
+\begin{xsolution}
+令 $y=\arctan x$，则 $x=\tan y$，从而
+\[
+  y'=\cos^2y.
+\]
+记 $z=y+\pi/2$，则 $\cos y=\sin z$。
+
+\begin{enumerate}[label=(\arabic*)]
+  \item 对 $n$ 归纳。$n=1$ 时
+  \[
+    \cos y\sin\left(y+\frac\pi2\right)=\cos^2y=y'.
+  \]
+  若
+  \[
+    y^{(n)}=(n-1)!\sin^nz\sin nz,
+  \]
+  则 $\dd/\dd x=\sin^2z\,\dd/\dd z$，于是
+  \begin{align*}
+    y^{(n+1)}
+    &=(n-1)!\sin^2z\frac{\dd}{\dd z}(\sin^nz\sin nz)\\
+    &=n!\sin^{n+1}z\sin((n+1)z).
+  \end{align*}
+  故
+  \[
+    \boxed{y^{(n)}(x)=(n-1)!\cos^ny\sin n\left(y+\frac\pi2\right)}.
+  \]
+
+  \item 也可直接归纳。$n=1$ 时 $P_0=1$。若
+  \[
+    y^{(n)}=\frac{P_{n-1}(x)}{(1+x^2)^n},
+  \]
+  则
+  \[
+    y^{(n+1)}=
+    \frac{(1+x^2)P'_{n-1}(x)-2nxP_{n-1}(x)}{(1+x^2)^{n+1}}.
+  \]
+  因而可定义
+  \[
+    P_n=(1+x^2)P'_{n-1}-2nxP_{n-1}.
+  \]
+  若 $P_{n-1}$ 的次数为 $n-1$，最高次项系数为 $c=(-1)^{n-1}n!$，则 $P_n$ 的最高次项系数为
+  \[
+    [(n-1)-2n]c=-(n+1)c=(-1)^n(n+1)!.
+  \]
+  归纳得题设结论。
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{第一组参考题 20}
+\begin{xsolution}
+先证多项式次数。$f_0=1$。若 $f_n$ 是首项为 $x^n$ 的 $n$ 次多项式，则
+\[
+  f_{n+1}=xf_n-f_n'
+\]
+的首项为 $x^{n+1}$，故 $f_{n+1}$ 是 $n+1$ 次首一多项式。因此 (1) 成立。
+
+再证实根。先注意递推式还给出奇偶性
+\[
+  f_n(-x)=(-1)^nf_n(x),
+\]
+所以只要实根存在，它们关于原点对称。
+
+下面归纳证明 $f_n$ 有 $n$ 个互异实根。$f_1=x$ 显然。设 $f_n$ 有互异实根
+\[
+  r_1<r_2<\cdots<r_n.
+\]
+在这些根处
+\[
+  f_{n+1}(r_i)=-f_n'(r_i).
+\]
+由于首一多项式在相邻简单根处导数符号交替，$f_{n+1}(r_i)$ 也交替变号，因此在每个 $(r_i,r_{i+1})$ 中至少有一个根，共 $n-1$ 个。
+
+又因 $f_n'(r_n)>0$，故 $f_{n+1}(r_n)<0$，而 $f_{n+1}(x)\to+\infty$ 当 $x\to+\infty$，所以 $(r_n,+\infty)$ 中还有一根。类似地，$f_{n+1}(r_1)$ 与 $f_{n+1}(x)$ 在 $x\to-\infty$ 时符号相反，所以 $(-\infty,r_1)$ 中还有一根。总计得到 $n+1$ 个不同实根，恰等于次数。因此 (2) 成立，且由奇偶性这些根关于原点对称。
+\end{xsolution}
+
+\subsection*{6.4.2 第二组参考题}
+
+\paragraph{第二组参考题 1}
+\begin{xsolution}
+当 $x\notin2\pi\ZZ$ 时，由有限几何级数的实部与虚部可得
+\[
+  \boxed{\sum_{k=1}^n\sin kx
+  =\frac{\sin\frac{nx}{2}\,\sin\frac{(n+1)x}{2}}{\sin\frac x2}},
+\]
+\[
+  \boxed{\sum_{k=1}^n\cos kx
+  =\frac{\sin\frac{nx}{2}\,\cos\frac{(n+1)x}{2}}{\sin\frac x2}}.
+\]
+
+对加权和，利用
+\[
+  \sum_{k=1}^n kz^k
+  =\frac{z[1-(n+1)z^n+nz^{n+1}]}{(1-z)^2},
+\]
+令 $z=\ee^{\ii x}$ 并取虚部、实部，得到
+\[
+  \boxed{\sum_{k=1}^n k\sin kx
+  =\frac{(n+1)\sin nx-n\sin(n+1)x}{4\sin^2(x/2)}},
+\]
+\[
+  \boxed{\sum_{k=1}^n k\cos kx
+  =\frac{-1+(n+1)\cos nx-n\cos(n+1)x}{4\sin^2(x/2)}}.
+\]
+当 $x\in2\pi\ZZ$ 时应直接取值：
+\[
+  \sum\sin kx=0,\quad \sum\cos kx=n,
+\]
+\[
+  \sum k\sin kx=0,\quad \sum k\cos kx=\frac{n(n+1)}2.
+\]
+\end{xsolution}
+
+\paragraph{第二组参考题 2}
+% CHECK-SOLUTION: 本章题面只引用“例题 5.1.4 中的 Riemann 函数 R(x)”而未给出 R(x) 的定义；按本任务限制不得读取其他章节或猜测定义，因此无法可靠给出逐点不可导证明。
+\begin{xsolution}
+本题所需的 $R(x)$ 定义不在第6章题面中。由于不同教材中“Riemann 函数”可能指不同函数，而不可导性的证明取决于具体定义，本解答不作猜测。
+\end{xsolution}
+
+\paragraph{第二组参考题 3}
+\begin{xsolution}
+设抛物线
+\[
+  q(x)=ax^2+bx+c,\qquad a\ne0.
+\]
+在横坐标 $t$ 处的切线为
+\[
+  y=(2at+b)(x-t)+at^2+bt+c
+  =(2at+b)x-at^2+c.
+\]
+该切线经过 $(x_0,y_0)$ 的条件为
+\[
+  at^2-2ax_0t+y_0-bx_0-c=0.
+\]
+这是关于切点横坐标 $t$ 的二次方程，其判别式
+\[
+  \Delta=4a\,[q(x_0)-y_0].
+\]
+因此：
+\begin{itemize}
+  \item 若 $a[q(x_0)-y_0]>0$，有两个不同实根，可作两条切线；
+  \item 若 $a[q(x_0)-y_0]=0$，只有一个重根，即点本身在抛物线上，只能作一条切线；
+  \item 若 $a[q(x_0)-y_0]<0$，无实根，不能作切线。
+\end{itemize}
+特别地，当 $a>0$ 时，点在抛物线下方可作两条，在抛物线上作一条，在上方不能作；$a<0$ 时上下关系相反。
+\end{xsolution}
+
+\paragraph{第二组参考题 4}
+\begin{xsolution}
+记 $Q=x^2-1$。由 Rodrigues 公式
+\[
+  P_n=\frac1{2^nn!}\frac{\dd^n}{\dd x^n}Q^n.
+\]
+对 $n\ge1$，
+\begin{align*}
+  P'_{n+1}-P'_{n-1}
+  &=\frac1{2^{n+1}(n+1)!}\frac{\dd^n}{\dd x^n}
+  \left[\frac{\dd^2}{\dd x^2}Q^{n+1}-4n(n+1)Q^{n-1}\right].
+\end{align*}
+直接计算
+\[
+  \frac{\dd^2}{\dd x^2}Q^{n+1}
+  =2(n+1)Q^{n-1}[(2n+1)x^2-1],
+\]
+故括号内等于
+\[
+  2(n+1)(2n+1)Q^n.
+\]
+于是
+\[
+  P'_{n+1}-P'_{n-1}
+  =\frac{2(n+1)(2n+1)}{2^{n+1}(n+1)!}
+   \frac{\dd^n}{\dd x^n}Q^n
+  =(2n+1)P_n.
+\]
+证毕。
+\end{xsolution}
+
+\paragraph{第二组参考题 5}
+\begin{xsolution}
+仍记 $Q=(x^2-1)^n$。有恒等式
+\[
+  (x^2-1)Q'=2nxQ.
+\]
+对两边求 $n+1$ 阶导数。左边用 Leibniz 公式，只有 $x^2-1$ 的前两阶导数出现：
+\[
+  (x^2-1)Q^{(n+2)}+2(n+1)xQ^{(n+1)}+n(n+1)Q^{(n)}.
+\]
+右边为
+\[
+  2n\left[xQ^{(n+1)}+(n+1)Q^{(n)}\right].
+\]
+移项整理得
+\[
+  (x^2-1)Q^{(n+2)}+2xQ^{(n+1)}-n(n+1)Q^{(n)}=0.
+\]
+除以 $2^nn!$，即
+\[
+  (x^2-1)P_n''+2xP_n'-n(n+1)P_n=0.
+\]
+乘以 $-1$ 得
+\[
+  \boxed{(1-x^2)P_n''-2xP_n'+n(n+1)P_n=0}.
+\]
+\end{xsolution}
+
+\paragraph{第二组参考题 6}
+\begin{xsolution}
+三项式展开中，$u^iv^jw^k$（$i+j+k=n$）的系数是多项式系数
+\[
+  \binom{n}{i,j,k}=\frac{n!}{i!j!k!}.
+\]
+对应地，三函数乘积的 $n$ 阶导数为
+\[
+  \boxed{
+  (uvw)^{(n)}
+  =\sum_{\substack{i,j,k\ge0\\i+j+k=n}}
+  \frac{n!}{i!j!k!}
+  u^{(i)}v^{(j)}w^{(k)}}.
+\]
+证明可将 $uvw$ 看成 $(uv)w$，先用二函数 Leibniz 公式：
+\[
+  (uvw)^{(n)}=\sum_{r=0}^n\binom nr(uv)^{(r)}w^{(n-r)},
+\]
+再对 $(uv)^{(r)}$ 使用 Leibniz 公式
+\[
+  (uv)^{(r)}=\sum_{i=0}^r\binom ri u^{(i)}v^{(r-i)}.
+\]
+令 $j=r-i,k=n-r$，系数满足
+\[
+  \binom nr\binom ri=\frac{n!}{i!j!k!},
+\]
+即得到所述公式。
+\end{xsolution}
+
+\paragraph{第二组参考题 7}
+\begin{xsolution}
+用节点 $-1,0,1$ 作二次 Lagrange 插值（对二次多项式这是恒等式）：
+\[
+  f(x)=\frac{x(x-1)}2f(-1)+(1-x^2)f(0)+\frac{x(x+1)}2f(1).
+\]
+求导得
+\[
+  f'(x)=\left(x-\frac12\right)f(-1)-2xf(0)+\left(x+\frac12\right)f(1).
+\]
+由题设 $\abs{f(-1)},\abs{f(0)},\abs{f(1)}\le1$，故
+\[
+  \abs{f'(x)}\le\abs{x-\tfrac12}+2\abs{x}+\abs{x+\tfrac12}.
+\]
+右端关于 $x$ 是偶函数。对 $0\le x\le1/2$，其值为 $1+2x\le2$；对 $1/2\le x\le1$，其值为 $4x\le4$。所以
+\[
+  \boxed{\abs{f'(x)}\le4\qquad(\abs{x}\le1)}.
+\]
+\end{xsolution}
+
+\paragraph{第二组参考题 8}
+\begin{xsolution}
+令前向差分算子
+\[
+  \Delta q(x)=q(x+1)-q(x).
+\]
+归纳可得
+\[
+  \Delta^n q(0)=\sum_{k=0}^n(-1)^{n-k}\binom nk q(k).
+\]
+取 $q(x)=x^m$，于是题中左端等于
+\[
+  (-1)^n\Delta^n(x^m)\big|_{x=0}.
+\]
+每作一次差分，多项式次数降低 1；若 $m<n$，$n$ 次差分为零。若 $m=n$，每次差分把最高次项系数依次乘以 $n,n-1,\ldots,1$，故
+\[
+  \Delta^n(x^n)=n!.
+\]
+因此
+\[
+  \boxed{
+  \sum_{k=0}^n(-1)^k\binom nk k^m=
+  \begin{cases}
+    0,&0\le m\le n-1,\\
+    (-1)^nn!,&m=n.
+  \end{cases}}
+\]
+成立。
+\end{xsolution}
+
+\paragraph{第二组参考题 9}
+\begin{xsolution}
+对参数 $\alpha$ 使用恒等式
+\[
+  \frac{\dd^n}{\dd x^n}x^{n+\alpha}
+  =\prod_{j=1}^n(\alpha+j)x^\alpha.
+\]
+对 $\alpha$ 求导并令 $\alpha=0$，左边变成 $(x^n\ln x)^{(n)}$，右边得到
+\[
+  n!\left(\ln x+\sum_{j=1}^n\frac1j\right).
+\]
+因此若 $H_n=1+1/2+\cdots+1/n$，
+\[
+  f^{(n)}(x)=n!(\ln x+H_n).
+\]
+取 $x=1/n$：
+\[
+  \frac{f^{(n)}(1/n)}{n!}=H_n-\ln n.
+\]
+由 Euler 常数的定义，
+\[
+  \boxed{\lim_{n\to\infty}\frac{f^{(n)}(1/n)}{n!}=\gamma}.
+\]
+\end{xsolution}
+
+\paragraph{第二组参考题 10}
+\begin{xsolution}
+设
+\[
+  g(x)=f(2x)-f(x).
+\]
+题设即
+\[
+  g(x)=Ax+r(x),\qquad r(x)=\littleo(x).
+\]
+对固定小 $x$，利用连续性 $f(x/2^m)\to f(0)$，有望远镜分解
+\[
+  f(x)-f(0)
+  =\sum_{k=1}^{\infty}
+  \left[f\left(\frac{x}{2^{k-1}}\right)-f\left(\frac{x}{2^k}\right)\right]
+  =\sum_{k=1}^{\infty}g\left(\frac{x}{2^k}\right).
+\]
+故
+\[
+  \frac{f(x)-f(0)}x
+  =A\sum_{k=1}^{\infty}\frac1{2^k}
+   +\sum_{k=1}^{\infty}\frac{r(x/2^k)}x.
+\]
+第一项等于 $A$。给定 $\varepsilon>0$，当 $x$ 足够小时，对所有 $k\ge1$ 都有
+\[
+  \abs{r(x/2^k)}\le\varepsilon\frac{\abs{x}}{2^k},
+\]
+所以第二个级数的绝对值不超过 $\varepsilon$。于是
+\[
+  \lim_{x\to0}\frac{f(x)-f(0)}x=A,
+\]
+即
+\[
+  \boxed{f'(0)=A}.
+\]
+\end{xsolution}
+
+\paragraph{第二组参考题 11}
+\begin{xsolution}
+记
+\[
+  Y(x)=(1+\sqrt{x})^{2n+2}.
+\]
+先对一般的 $m$ 考虑 $Y=(1+\sqrt{x})^m$。直接消去 $\sqrt{x}$ 可验证它满足
+\[
+  x(1-x)Y''+\left[\frac12+\left(m-\frac32\right)x\right]Y'
+  -\frac{m(m-1)}4Y=0.
+\]
+记 $A_r=Y^{(r)}(1)$。将此方程求 $r$ 阶导数并令 $x=1$。因为 $x(1-x)$ 的三阶及以上导数为零，整理得
+\[
+  (m-1-r)A_{r+1}
+  -\frac{(2r-m)(2r-m+1)}4A_r=0.
+\]
+现在令 $m=2n+2$。对 $r=0,1,\ldots,n-1$，
+\[
+  \frac{A_{r+1}}{A_r}
+  =\frac{(n+1-r)(2n+1-2r)}{2(2n+1-r)}.
+\]
+又
+\[
+  A_0=Y(1)=2^{2n+2}.
+\]
+令 $j=n-r$，连乘得
+\begin{align*}
+  A_n
+  &=2^{2n+2}
+    \prod_{j=1}^{n}\frac{(j+1)(2j+1)}{2(n+j+1)}\\
+  &=2^{2n+2}
+    \frac{(n+1)!^2}{2^{2n}n!}
+   =4(n+1)^2n!.
+\end{align*}
+因此
+\[
+  \boxed{y^{(n)}(1)=4(n+1)^2n!}.
+\]
+\end{xsolution}
+
+\paragraph{第二组参考题 12}
+\begin{xsolution}
+以下各式均在有关函数的导数不为零、Schwarz 导数有定义的区间内理解。
+\begin{enumerate}[label=(\arabic*)]
+  \item 令 $D=ad-bc\ne0$，$f=(ax+b)/(cx+d)$。则
+  \[
+    f'=\frac{D}{(cx+d)^2},\quad
+    f''=-\frac{2cD}{(cx+d)^3},\quad
+    f'''=\frac{6c^2D}{(cx+d)^4}.
+  \]
+  因而
+  \[
+    \frac{f'''}{f'}=\frac{6c^2}{(cx+d)^2},
+    \qquad
+    \frac32\left(\frac{f''}{f'}\right)^2
+    =\frac{6c^2}{(cx+d)^2},
+  \]
+  所以 $\boxed{S(f,x)=0}$。
+
+  \item 令 $q=p'$。设 $q$ 的互异实根为 $r_1,\ldots,r_m$。由题设这些根都是简单根，故在 $q(x)\ne0$ 时
+  \[
+    \frac{q'}q=\sum_{j=1}^m\frac1{x-r_j}.
+  \]
+  因此
+  \[
+    S(p,x)=\left(\frac{q'}q\right)'-\frac12\left(\frac{q'}q\right)^2
+    =-\sum_{j=1}^m\frac1{(x-r_j)^2}
+     -\frac12\left(\sum_{j=1}^m\frac1{x-r_j}\right)^2<0.
+  \]
+
+  \item 令 $h=f\circ g$。有
+  \[
+    \frac{h''}{h'}
+    =\frac{f''(g)}{f'(g)}g'+\frac{g''}{g'}.
+  \]
+  对上式求导并代入
+  \[
+    S(h,x)=\left(\frac{h''}{h'}\right)'-\frac12\left(\frac{h''}{h'}\right)^2.
+  \]
+  展开后，含
+  \[
+    \frac{f''(g)}{f'(g)}g''
+  \]
+  的交叉项恰好抵消，得到
+  \[
+    \boxed{S(f\circ g,x)=S(f,g(x))(g'(x))^2+S(g,x)}.
+  \]
+
+  \item 若 $S(f,\cdot)<0,S(g,\cdot)<0$，且 Schwarz 导数有定义，则 $g'(x)\ne0$，从而 $(g'(x))^2>0$。由 (3)，两项均为负，故
+  \[
+    \boxed{S(f\circ g,x)<0}.
+  \]
+
+  \item 对迭代次数归纳。$n=1$ 成立。若 $S(f^n,x)<0$，则由 (4)
+  \[
+    f^{n+1}=f\circ f^n
+  \]
+  仍有
+  \[
+    S(f^{n+1},x)<0.
+  \]
+  所以只要各次迭代的 Schwarz 导数均有定义，
+  \[
+    \boxed{S(f^n,x)<0\quad(n\in\NN_+)}.
+  \]
+\end{enumerate}
+\end{xsolution}
+
+% END C06 SOLUTIONS
