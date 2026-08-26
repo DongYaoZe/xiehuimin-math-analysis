@@ -490,7 +490,7 @@ $\pi(b-a)/2$。
   \frac{2n[1-(-1)^n\ee^{-2\pi}]}{\pi(n^2+4)}\sin nx,
   \qquad0<x<\pi }.
 \]
-由于奇延拓在 $x=0$ 有跳跃，正弦级数在 $x=0$ 的和为 $0$；在 $0<x<\pi$ 收敛于原函数。
+由于作奇延拓后在 $x=0$ 与 $x=\pi$ 都有第一类间断点，正弦级数在两端点的和均为左右极限的平均值 $0$；在 $0<x<\pi$ 收敛于原函数。
 
 (2) 区间长度为 $2$，故正弦基为 $\sin(n\pi x/2)$。有
 \[
@@ -513,7 +513,7 @@ $\pi(b-a)/2$。
   \frac{2[n-\sin(n\pi/2)]}{\pi(n^2-1)}
   \sin\frac{n\pi x}{2} }.
 \]
-在 $0<x<2$ 的连续点处收敛于 $f$。
+在 $0<x<2$ 的连续点处收敛于 $f$。在端点处，正弦级数的和均为 $0$；因此在 $x=2$ 与题设函数值一致，而在 $x=0$ 收敛于奇延拓左右极限的平均值 $0$，不等于题设的 $f(0)=1$。
 \end{xsolution}
 
 \paragraph{练习题 6.}
@@ -583,24 +583,32 @@ $\pi(b-a)/2$。
 
 \paragraph{练习题 8.}
 \begin{xsolution}
-先取连续函数 $g$，使
+先取连续的 $2\pi$ 周期函数 $g$，使
 \[
   \int_{-\pi}^{\pi}\abs{f(x)-g(x)}\,\dd x<\frac\varepsilon2.
 \]
-这可由可积且绝对可积函数的连续函数 $L^1$ 逼近得到。再由 Weierstrass 第二逼近定理，存在三角多项式 $P_n$ 使
+这样的 $g$ 总能取得：先用连续函数在 $L^1$ 意义下逼近 $f$，再只在端点的任意小邻域内作线性连接，使两端值相等；由于修改区间可以任意短，增加的 $L^1$ 误差也可任意小。记 $g$ 的 Fourier 部分和为 $S_0,S_1,\ldots$，并令其 Fejér 平均为
 \[
-  \max_{[-\pi,\pi]}\abs{g(x)-P_n(x)}
+  \sigma_n(x)=\frac{S_0(x)+S_1(x)+\cdots+S_n(x)}{n+1}.
+\]
+每个 $\sigma_n$ 都是三角多项式。由一致收敛形式的 Fejér 定理，
+\[
+  \sigma_n\to g
+\]
+在 $[-\pi,\pi]$ 上一致收敛，故可取 $n$ 充分大，使
+\[
+  \max_{[-\pi,\pi]}\abs{g(x)-\sigma_n(x)}
   <\frac{\varepsilon}{4\pi}.
 \]
 于是
 \begin{align*}
-  \int_{-\pi}^{\pi}\abs{f(x)-P_n(x)}\,\dd x
+  \int_{-\pi}^{\pi}\abs{f(x)-\sigma_n(x)}\,\dd x
   &\le\int_{-\pi}^{\pi}\abs{f-g}\,\dd x
-   +\int_{-\pi}^{\pi}\abs{g-P_n}\,\dd x\\
+   +\int_{-\pi}^{\pi}\abs{g-\sigma_n}\,\dd x\\
   &<\frac\varepsilon2+2\pi\cdot\frac{\varepsilon}{4\pi}
   =\varepsilon.
 \end{align*}
-故所求三角多项式存在。
+取 $P_n=\sigma_n$ 即得所求三角多项式。
 \end{xsolution}
 
 \paragraph{练习题 9.}
@@ -687,25 +695,20 @@ Parseval 等式给出
 
 \paragraph{参考题 2.}
 \begin{xsolution}
-下凸函数在闭区间上连续并绝对连续，其导函数几乎处处存在且单调增加，并且
-\[
-  f(x)=f(0)+\int_0^xf'(t)\,\dd t.
-\]
-因此对 $n\ge1$ 可作分部积分：
+端点的单点取值不影响积分，因此必要时可把 $f(0),f(2\pi)$ 改为相应的单侧极限。这样可把 $f$ 看成闭区间上的连续下凸函数。下凸函数在任意内闭区间上绝对连续，其导函数几乎处处存在且有一个单调增加的代表；令端点趋近即可得到分部积分公式
 \[
   \int_0^{2\pi}f(x)\cos nx\,\dd x
   =-\frac1n\int_0^{2\pi}f'(x)\sin nx\,\dd x.
 \]
-$-f'$ 单调减少。参考题 1(1) 的证明只用到了单调性，故同样适用于这里的几乎处处定义的单调代表，从而
+这里 $-f'$ 单调减少。参考题 1(1) 的证明只用到了单调性，故同样适用于 $-f'$，于是
 \[
   \int_0^{2\pi}[-f'(x)]\sin nx\,\dd x\ge0.
 \]
-故
+因此
 \[
   \boxed{\displaystyle
   \int_0^{2\pi}f(x)\cos nx\,\dd x\ge0,\qquad n\ge1 }.
 \]
-也可先用分段线性下凸函数一致逼近 $f$，对逼近函数证明后再取极限，避开不可导点。
 \end{xsolution}
 
 \paragraph{参考题 3.}
@@ -1352,8 +1355,18 @@ $\sum_{k\ge1}(2k-1)^{-2}=\pi^2/8$，
 \[
   \sum_{n=1}^{\infty}\frac{(-1)^{n-1}}n\sin nx
 \]
-本身就是区间 $(-\pi,\pi)$ 上函数 $x/2$ 的 Fourier 级数。因此 $f$ 的非零频率 Fourier 系数正是给定的 $a_n,b_n$。常数项由原级数中的 $a_0/2$ 决定，所以 $f$ 的全部 Fourier 系数就是
-$a_0,a_n,b_n$。故原三角级数确为其和函数 $f$ 的 Fourier 级数，并且在 $\varphi$ 的连续点有 $f'=\varphi$。
+本身就是区间 $(-\pi,\pi)$ 上函数 $x/2$ 的 Fourier 级数。因此 $f$ 的非零频率 Fourier 系数正是给定的 $a_n,b_n$。
+
+再看常数项。由上面的分解，原三角级数的和函数就是
+\[
+  f(x)=\frac{a_0}{2}+H(x)
+  +c\sum_{n=1}^{\infty}\frac{(-1)^{n-1}}n\sin nx.
+\]
+一致收敛级数 $H$ 的常数 Fourier 系数为 $0$，而最后的正弦级数也有零平均值，所以
+\[
+  \frac1\pi\int_{-\pi}^{\pi}f(x)\,\dd x=a_0.
+\]
+故 $f$ 的全部 Fourier 系数确为 $a_0,a_n,b_n$，原三角级数就是 $f$ 的 Fourier 级数，并且在 $\varphi$ 的连续点有 $f'=\varphi$。
 \end{xsolution}
 
 \paragraph{参考题 17.}
@@ -1384,19 +1397,19 @@ $a_0,a_n,b_n$。故原三角级数确为其和函数 $f$ 的 Fourier 级数，�
   \varphi(x)=-\frac12+\cos x+
   \sum_{n=2}^{\infty}\frac{(-1)^n}{n^2-1}\cos nx.
 \]
-后一个级数绝对一致收敛，所以 $\varphi$ 连续。由参考题 16，原三角级数处处收敛，并且在 $(-\pi,\pi)$ 内其和函数可导，导函数为 $\varphi$；同时该三角级数是这个和函数的 Fourier 级数。端点处的函数值不影响 Fourier 系数，因此求出开区间内的表达式后，可按连续极限重新定义端点，从而得到题目所要求的连续可微函数。
+后一个级数绝对一致收敛，所以 $\varphi$ 连续。由参考题 16，原三角级数处处收敛，并且在 $(-\pi,\pi)$ 内其和函数可导，导函数为 $\varphi$；同时该三角级数是这个和函数的 Fourier 级数。
 
-现在直接确定这个连续延拓。令
+现在求与该 Fourier 级数对应的连续可微代表函数。令
 \[
   \boxed{\displaystyle
-  f(x)=\frac{x\cos x}{2}+\frac{\sin x}{4},
+  F(x)=\frac{x\cos x}{2}+\frac{\sin x}{4},
   \qquad -\pi\le x\le\pi }.
 \]
-这是连续可微函数，并且
+则 $F$ 在 $[-\pi,\pi]$ 上连续可微，并且
 \[
-  f''(x)+f(x)=-\sin x.
+  F''(x)+F(x)=-\sin x.
 \]
-下面核对其 Fourier 系数。$f$ 为奇函数，所以所有余弦系数及常数项均为 $0$。对 $n\ge2$，利用
+下面核对其 Fourier 系数。$F$ 为奇函数，所以所有余弦系数及常数项均为 $0$。对 $n\ge2$，利用
 \[
   \sin nx\cos x=\frac12[\sin(n+1)x+\sin(n-1)x]
 \]
@@ -1406,10 +1419,16 @@ $a_0,a_n,b_n$。故原三角级数确为其和函数 $f$ 的 Fourier 级数，�
 \]
 可得
 \[
-  b_n=\frac2\pi\int_0^\pi f(x)\sin nx\,\dd x
+  b_n=\frac2\pi\int_0^\pi F(x)\sin nx\,\dd x
   =\frac{(-1)^n n}{n^2-1}.
 \]
-当 $n=1$ 时，$x\cos x/2$ 对 $b_1$ 的贡献为 $-1/4$，而 $\sin x/4$ 的贡献为 $1/4$，故 $b_1=0$。因此它的 Fourier 级数正是题给级数。
+当 $n=1$ 时，$x\cos x/2$ 对 $b_1$ 的贡献为 $-1/4$，而 $\sin x/4$ 的贡献为 $1/4$，故 $b_1=0$。因此 $F$ 的 Fourier 级数正是题给级数。
+
+需要注意，题给三角级数本身在 $x=\pm\pi$ 处每项都为 $0$，故其逐点和在这两个点为 $0$；而连续函数 $F$ 满足
+\[
+  F(\pi)=-\frac\pi2,\qquad F(-\pi)=\frac\pi2.
+\]
+单点取值不影响 Fourier 系数，所以题给级数仍是这个连续可微函数 $F$ 的 Fourier 级数；这里要求的是“某个连续可微函数的 Fourier 级数”，并不要求该级数在端点逐点收敛到该函数的端点值。
 \end{xsolution}
 
 \paragraph{参考题 18.}
