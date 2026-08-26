@@ -169,31 +169,56 @@ S_5\approx3.139350203,\qquad S_6\approx3.141031951,
 
 这一小节的思考题主要用于对级数定义进行复习，对于其中的是非题，若回答“是”，则要作出证明，若回答“不是”，则要举出反例。
 
-\begin{xthought}
-\begin{enumerate}[label=\arabic*.]
-\item （例题 13.1.2 之续）设比赛开始时，乌龟在 Achilles 之前 $1000\,\mathrm m$，Achilles 的速度为 $10\,\mathrm{m/s}$，乌龟的爬行速度为 $0.1\,\mathrm{m/s}$。试将 Zeno 悖论中的论点转化为无穷级数求和问题，并计算出 Achilles 赶上乌龟所需要的时间。（本题表明：有了无穷级数的工具之后，Zeno 的这个悖论就不再是悖论了。）
-\item 设级数 $\sum a_n$ 与 $\sum b_n$ 均收敛（或发散），讨论下列级数的敛散性：
+\begin{xthought}[1]
+（例题 13.1.2 之续）设比赛开始时，乌龟在 Achilles 之前 $1000\,\mathrm m$，Achilles 的速度为 $10\,\mathrm{m/s}$，乌龟的爬行速度为 $0.1\,\mathrm{m/s}$。试将 Zeno 悖论中的论点转化为无穷级数求和问题，并计算出 Achilles 赶上乌龟所需要的时间。（本题表明：有了无穷级数的工具之后，Zeno 的这个悖论就不再是悖论了。）
+\end{xthought}
+
+\begin{xthought}[2]
+设级数 $\sum a_n$ 与 $\sum b_n$ 均收敛（或发散），讨论下列级数的敛散性：
 \[
 \sum(a_n\pm b_n),\qquad \sum a_nb_n,\qquad \sum\frac{a_n}{b_n}\quad(b_n\neq0),
 \]
 又对于 $\sum a_n$ 和 $\sum b_n$ 均为正项级数情况讨论同样的问题。
-\item 对于级数 $\sum\max\{a_n,b_n\}$，$\sum\min\{a_n,b_n\}$ 继续上题的讨论。
-\item 如果级数 $\sum(a_n+a_{n+1})$ 收敛，是否必可推出 $\sum a_n$ 收敛？在 $\sum a_n$ 是正项级数时，答案又是什么？
-\item 记 $S=1-1+1-1+\cdots$，并作以下计算：
+\end{xthought}
+
+\begin{xthought}[3]
+对于级数 $\sum\max\{a_n,b_n\}$，$\sum\min\{a_n,b_n\}$ 继续上题的讨论。
+\end{xthought}
+
+\begin{xthought}[4]
+如果级数 $\sum(a_n+a_{n+1})$ 收敛，是否必可推出 $\sum a_n$ 收敛？在 $\sum a_n$ 是正项级数时，答案又是什么？
+\end{xthought}
+
+\begin{xthought}[5]
+记 $S=1-1+1-1+\cdots$，并作以下计算：
 \[
 S=1-(1-1+1-1+\cdots)=1-S\Rightarrow S=\frac12,
 \]
 问：其中有何错误？又可在阅读第二组参考题 18 后再做此题。
-\item 讨论级数 $a_1-a_1+a_2-a_2+\cdots+a_n-a_n+\cdots$ 的敛散性。
-\item 如果对每个正整数 $p$ 均成立
+\end{xthought}
+
+\begin{xthought}[6]
+讨论级数 $a_1-a_1+a_2-a_2+\cdots+a_n-a_n+\cdots$ 的敛散性。
+\end{xthought}
+
+\begin{xthought}[7]
+如果对每个正整数 $p$ 均成立
 \[
 \lim_{n\to\infty}(a_{n+1}+a_{n+2}+\cdots+a_{n+p})=0,
 \]
 问：是否能由此推出级数 $\sum a_n$ 一定收敛？
-\item 设 $a_n<c_n<b_n$，$n=1,2,\ldots$，若已知级数 $\sum a_n$ 和 $\sum b_n$ 同时收敛（或发散），问：能否推出级数 $\sum c_n$ 收敛（或发散）？并请将你的结论与数列的夹逼定理（见上册 20 页）作比较。
-\item 设 $\sum a_n$ 收敛于和 $S$，若对于每个 $n$ 将 $a_{2n-1}$ 和 $a_{2n}$ 两项作交换，证明所得的新级数收敛，并求其和。
-\item 设有收敛正项级数 $\sum a_n$，且对于每个正整数 $n$ 成立 $a_n\leq a_nR_n$，其中 $R_n$ 为第 $n$ 个余项，证明：$\sum a_n$ 实际上是有限和。
-\end{enumerate}
+\end{xthought}
+
+\begin{xthought}[8]
+设 $a_n<c_n<b_n$，$n=1,2,\ldots$，若已知级数 $\sum a_n$ 和 $\sum b_n$ 同时收敛（或发散），问：能否推出级数 $\sum c_n$ 收敛（或发散）？并请将你的结论与数列的夹逼定理（见上册 20 页）作比较。
+\end{xthought}
+
+\begin{xthought}[9]
+设 $\sum a_n$ 收敛于和 $S$，若对于每个 $n$ 将 $a_{2n-1}$ 和 $a_{2n}$ 两项作交换，证明所得的新级数收敛，并求其和。
+\end{xthought}
+
+\begin{xthought}[10]
+设有收敛正项级数 $\sum a_n$，且对于每个正整数 $n$ 成立 $a_n\leq a_nR_n$，其中 $R_n$ 为第 $n$ 个余项，证明：$\sum a_n$ 实际上是有限和。
 \end{xthought}
 
 \section{正项级数}
@@ -718,15 +743,20 @@ b_1+b_2+\cdots+b_n\leq a_1+a_2+\cdots+a_n.
 
 \subsection{练习题}
 
-\begin{xexercise}
-\begin{enumerate}[label=\arabic*.]
-\item 设正项级数 $\sum_{n=1}^{\infty}a_n$ 和 $\sum_{n=1}^{\infty}b_n$ 的通项为等价量：$a_n\sim b_n$，又记两个级数的部分和为 $S_n$ 和 $S'_n$，余项为 $R_n$ 和 $R'_n$，$n=1,2,\ldots$，证明：
+\begin{xexercise}[1]
+设正项级数 $\sum_{n=1}^{\infty}a_n$ 和 $\sum_{n=1}^{\infty}b_n$ 的通项为等价量：$a_n\sim b_n$，又记两个级数的部分和为 $S_n$ 和 $S'_n$，余项为 $R_n$ 和 $R'_n$，$n=1,2,\ldots$，证明：
 \begin{enumerate}[label=(\arabic*)]
 \item 若两个级数均收敛，则 $R_n\sim R'_n$；
 \item 若两个级数均发散，则 $S_n\sim S'_n$。
 \end{enumerate}
-\item 设 $\sum a_n$ 为正项级数，证明：任意改变其中各项的顺序和加括号后得到的级数与原来的级数具有相同的敛散性，且在收敛时级数的和不变。（这表明，如果无限项求和时每项为非负数，或至多只有有限项为负数，则有限项求和时的结合律和交换律对于无限项求和都依然成立。）
-\item 讨论下列各级数的敛散性：
+\end{xexercise}
+
+\begin{xexercise}[2]
+设 $\sum a_n$ 为正项级数，证明：任意改变其中各项的顺序和加括号后得到的级数与原来的级数具有相同的敛散性，且在收敛时级数的和不变。（这表明，如果无限项求和时每项为非负数，或至多只有有限项为负数，则有限项求和时的结合律和交换律对于无限项求和都依然成立。）
+\end{xexercise}
+
+\begin{xexercise}[3]
+讨论下列各级数的敛散性：
 \[
 \begin{array}{ll}
 (1)\ \displaystyle\sum_{n=1}^{\infty}\frac1{3^{\sqrt n}};&
@@ -739,36 +769,71 @@ b_1+b_2+\cdots+b_n\leq a_1+a_2+\cdots+a_n.
 (8)\ \displaystyle\sum_{n=1}^{\infty}\left(1-\frac{\ln n}{n}\right)^n.
 \end{array}
 \]
-\item 从例题 13.2.6 和 13.2.7 知道，若从收敛正项级数 $\sum_{n=1}^{\infty}a_n$ 作出 $\{u_n\}$，其中 $u_n$ 为 $a_1,a_2,\ldots,a_n$ 的调和平均值或几何平均值，则 $\sum_{n=1}^{\infty}u_n$ 收敛。但是若 $u_n$ 为算术平均值，则情况大不一样。证明：若正项级数 $\sum_{n=1}^{\infty}a_n$ 收敛，则除了一种特殊情况之外，级数 $\sum_{n=1}^{\infty}\frac{a_1+a_2+\cdots+a_n}{n}$ 必定发散。
-\item 试用 Sapagof 判别法（即命题 13.2.3）或其他方法证明下列数列收敛于 0：
+\end{xexercise}
+
+\begin{xexercise}[4]
+从例题 13.2.6 和 13.2.7 知道，若从收敛正项级数 $\sum_{n=1}^{\infty}a_n$ 作出 $\{u_n\}$，其中 $u_n$ 为 $a_1,a_2,\ldots,a_n$ 的调和平均值或几何平均值，则 $\sum_{n=1}^{\infty}u_n$ 收敛。但是若 $u_n$ 为算术平均值，则情况大不一样。证明：若正项级数 $\sum_{n=1}^{\infty}a_n$ 收敛，则除了一种特殊情况之外，级数 $\sum_{n=1}^{\infty}\frac{a_1+a_2+\cdots+a_n}{n}$ 必定发散。
+\end{xexercise}
+
+\begin{xexercise}[5]
+试用 Sapagof 判别法（即命题 13.2.3）或其他方法证明下列数列收敛于 0：
 \[
 (1)\ \left\{\frac{(2n)!}{4^n(n!)^2}\right\};\qquad
 (2)\ \left\{\frac{n^n}{\ee^n n!}\right\};\qquad
 (3)\ \left\{\frac{n!}{(x+1)(x+2)\cdots(x+n)}\right\}\ (x>0).
 \]
-\item 举出一个收敛的正项级数 $\sum a_n$ 的例子，使它满足条件 $\limsup_{n\to\infty}na_n=1$。
-\item 已知正项级数 $\sum a_n$ 收敛，$p>1$，证明：级数 $\sum a_n^p$ 一定收敛。又若去掉 $\sum a_n$ 为正项级数的条件，结论是否还成立？
-\item 设数列 $\{a_n\}$ 单调减少收敛于 0，且 $b_n=a_n-2a_{n+1}+a_{n+2}>0$，$n=1,2,\ldots$；证明：级数 $\sum_{n=1}^{\infty}nb_n$ 收敛，且其和为 $a_1$。
-\item 设对于每个正整数 $n$ 都有 $0<a_n<a_{2n}+a_{2n+1}$，证明：级数 $\sum_{n=1}^{\infty}a_n$ 发散。
-\item 设 $x>0$，证明：级数
+\end{xexercise}
+
+\begin{xexercise}[6]
+举出一个收敛的正项级数 $\sum a_n$ 的例子，使它满足条件 $\limsup_{n\to\infty}na_n=1$。
+\end{xexercise}
+
+\begin{xexercise}[7]
+已知正项级数 $\sum a_n$ 收敛，$p>1$，证明：级数 $\sum a_n^p$ 一定收敛。又若去掉 $\sum a_n$ 为正项级数的条件，结论是否还成立？
+\end{xexercise}
+
+\begin{xexercise}[8]
+设数列 $\{a_n\}$ 单调减少收敛于 0，且 $b_n=a_n-2a_{n+1}+a_{n+2}>0$，$n=1,2,\ldots$；证明：级数 $\sum_{n=1}^{\infty}nb_n$ 收敛，且其和为 $a_1$。
+\end{xexercise}
+
+\begin{xexercise}[9]
+设对于每个正整数 $n$ 都有 $0<a_n<a_{2n}+a_{2n+1}$，证明：级数 $\sum_{n=1}^{\infty}a_n$ 发散。
+\end{xexercise}
+
+\begin{xexercise}[10]
+设 $x>0$，证明：级数
 \[
 \sum_{n=1}^{\infty}\frac{x^n}{(1+x)(1+x^2)\cdots(1+x^n)}
 \]
 收敛。
-\item 设 $x>0$，讨论级数
+\end{xexercise}
+
+\begin{xexercise}[11]
+设 $x>0$，讨论级数
 \[
 \sum_{n=1}^{\infty}(2-x)(2-x^{1/2})(2-x^{1/3})\cdots(2-x^{1/n})
 \]
 的敛散性。
-\item 设 $\sum_{n=1}^{\infty}a_n$ 为正项级数，证明：
+\end{xexercise}
+
+\begin{xexercise}[12]
+设 $\sum_{n=1}^{\infty}a_n$ 为正项级数，证明：
 \begin{enumerate}[label=(\arabic*)]
 \item 若在 Raabe 判别法中的极限 $\lim_{n\to\infty}n\left(\frac{a_n}{a_{n+1}}-1\right)$ 存在，则在对数判别法 (13.15) 中的极限 $\lim_{n\to\infty}\frac{\ln(1/a_n)}{\ln n}$ 也存在，且极限值相同；
 \item 若在 Bertrand 判别法中的极限 $\lim_{n\to\infty}\ln n\left[n\left(\frac{a_n}{a_{n+1}}-1\right)-1\right]$ 存在，则在对数判别法 (13.16) 中的极限 $\lim_{n\to\infty}\frac{\ln[1/(na_n)]}{\ln\ln n}$ 也存在，且极限值相同。
 \end{enumerate}
-\item 设 $\sum_{n=1}^{\infty}a_n$ 为正项级数，$k$ 为一正整数，如果 $\lim_{n\to\infty}\frac{a_{n+k}}{a_n}=l$，证明：$l<1$ 时，$\sum a_n$ 收敛；$l>1$ 时，$\sum a_n$ 发散。（本题如取 $k=1$，就是 d'Alembert 判别法。因此本题可看作为 d'Alembert 判别法的一个推广。）
-\item （Dini（迪尼））设正项级数 $\sum_{n=1}^{\infty}a_n$ 收敛，其余项为 $R_n=\sum_{k=n+1}^{\infty}a_k$，$n=0,1,\ldots$。证明：$\sum_{n=1}^{\infty}\frac{a_n}{R_{n-1}}$ 发散，但对任意 $p>0$，$\sum_{n=1}^{\infty}\frac{a_n}{R_{n-1}^{1-p}}$ 收敛。
-\item 设 $0<a_1<\frac\pi2$，然后用迭代公式 $a_n=\sin a_{n-1}$ 生成数列 $\{a_n\}$，讨论级数 $\sum_{n=1}^{\infty}a_n^p$ 的敛散性（参考上册 233 页的例题 8.1.10）。
-\end{enumerate}
+\end{xexercise}
+
+\begin{xexercise}[13]
+设 $\sum_{n=1}^{\infty}a_n$ 为正项级数，$k$ 为一正整数，如果 $\lim_{n\to\infty}\frac{a_{n+k}}{a_n}=l$，证明：$l<1$ 时，$\sum a_n$ 收敛；$l>1$ 时，$\sum a_n$ 发散。（本题如取 $k=1$，就是 d'Alembert 判别法。因此本题可看作为 d'Alembert 判别法的一个推广。）
+\end{xexercise}
+
+\begin{xexercise}[14]
+（Dini（迪尼））设正项级数 $\sum_{n=1}^{\infty}a_n$ 收敛，其余项为 $R_n=\sum_{k=n+1}^{\infty}a_k$，$n=0,1,\ldots$。证明：$\sum_{n=1}^{\infty}\frac{a_n}{R_{n-1}}$ 发散，但对任意 $p>0$，$\sum_{n=1}^{\infty}\frac{a_n}{R_{n-1}^{1-p}}$ 收敛。
+\end{xexercise}
+
+\begin{xexercise}[15]
+设 $0<a_1<\frac\pi2$，然后用迭代公式 $a_n=\sin a_{n-1}$ 生成数列 $\{a_n\}$，讨论级数 $\sum_{n=1}^{\infty}a_n^p$ 的敛散性（参考上册 233 页的例题 8.1.10）。
 \end{xexercise}
 
 \section{一般项级数}
@@ -1046,9 +1111,8 @@ S_n&=[\ln(2p_n)+\gamma+\littleo(1)]-\frac12[\ln p_n+\gamma+\littleo(1)]-\frac12[
 
 \subsection{练习题}
 
-\begin{xexercise}
-\begin{enumerate}[label=\arabic*.]
-\item 讨论下列级数的绝对收敛性与条件收敛性：
+\begin{xexercise}[1]
+讨论下列级数的绝对收敛性与条件收敛性：
 \[
 \begin{array}{ll}
 (1)\ \displaystyle\sum_{n=2}^{\infty}\frac{\sin(n\pi/12)}{\ln n};&
@@ -1065,49 +1129,93 @@ S_n&=[\ln(2p_n)+\gamma+\littleo(1)]-\frac12[\ln p_n+\gamma+\littleo(1)]-\frac12[
 (12)\ \displaystyle\sum_{n=1}^{\infty}(-1)^n(n^{1/n}-1).
 \end{array}
 \]
-\item 将调和级数 $\sum_{n=1}^{\infty}1/n$ 的各项改变符号，其规则是每 $p$ 个正项后为 $q$ 个负项，然后再如此重复，但不改变各项原有的顺序。证明：所得级数当且仅当 $p=q$ 时收敛。
-\item 设 $0<a<1$，将级数 $\sum_{n=1}^{\infty}\frac{(-1)^{n-1}}{n^a}$ 按照每 $p$ 个正项后为 $q$ 个负项的规则进行重排，但保持正项之间和负项之间的原有顺序，证明：重排后的级数当且仅当 $p=q$ 时收敛。
-\item 设 $p,q>0$，讨论下列级数的绝对收敛性与条件收敛性：
+\end{xexercise}
+
+\begin{xexercise}[2]
+将调和级数 $\sum_{n=1}^{\infty}1/n$ 的各项改变符号，其规则是每 $p$ 个正项后为 $q$ 个负项，然后再如此重复，但不改变各项原有的顺序。证明：所得级数当且仅当 $p=q$ 时收敛。
+\end{xexercise}
+
+\begin{xexercise}[3]
+设 $0<a<1$，将级数 $\sum_{n=1}^{\infty}\frac{(-1)^{n-1}}{n^a}$ 按照每 $p$ 个正项后为 $q$ 个负项的规则进行重排，但保持正项之间和负项之间的原有顺序，证明：重排后的级数当且仅当 $p=q$ 时收敛。
+\end{xexercise}
+
+\begin{xexercise}[4]
+设 $p,q>0$，讨论下列级数的绝对收敛性与条件收敛性：
 \[
 \text{(1) }1-\frac1{2^q}+\frac1{3^p}-\frac1{4^q}+\cdots+\frac1{(2n-1)^p}-\frac1{(2n)^q}+\cdots;
 \]
 \[
 \text{(2) }\sum_{n=1}^{\infty}\frac{(-1)^n(1+p)(2+p)\cdots(n+p)}{n!\,n^q}.
 \]
-\item 研究级数 $\sum_{n=1}^{\infty}\frac1{1+nx^n}$（若分母为零则去掉该项）的条件收敛性和绝对收敛性。
-\item 设数列 $\{a_n\}$ 严格单调减少且趋于零，证明下列级数收敛：
+\end{xexercise}
+
+\begin{xexercise}[5]
+研究级数 $\sum_{n=1}^{\infty}\frac1{1+nx^n}$（若分母为零则去掉该项）的条件收敛性和绝对收敛性。
+\end{xexercise}
+
+\begin{xexercise}[6]
+设数列 $\{a_n\}$ 严格单调减少且趋于零，证明下列级数收敛：
 \[
 \sum_{n=1}^{\infty}(-1)^n\frac{a_1+a_2+\cdots+a_n}{n}.
 \]
-\item 证明下列级数收敛：
+\end{xexercise}
+
+\begin{xexercise}[7]
+证明下列级数收敛：
 \[
 1-\frac13\left(1+\frac12\right)+\frac15\left(1+\frac12+\frac13\right)-\frac17\left(1+\frac12+\frac13+\frac14\right)+\cdots.
 \]
-\item （Du Bois-Reymond 判别法）设级数 $\sum_{n=2}^{\infty}(a_n-a_{n-1})$ 绝对收敛，级数 $\sum_{n=1}^{\infty}b_n$ 收敛，证明：$\sum_{n=1}^{\infty}a_nb_n$ 收敛。
-\item （Dedekind 判别法）设级数 $\sum_{n=2}^{\infty}(a_n-a_{n-1})$ 绝对收敛，$\lim_{n\to\infty}a_n=0$，级数 $\sum_{n=1}^{\infty}b_n$ 的部分和数列有界，证明：$\sum_{n=1}^{\infty}a_nb_n$ 收敛。
-\item 已知级数 $\sum_{n=1}^{\infty}a_n$ 发散，证明：级数 $\sum_{n=1}^{\infty}(1+1/n)a_n$ 也发散。
-\item 证明：当 $|q|<1$ 时，成立
+\end{xexercise}
+
+\begin{xexercise}[8]
+（Du Bois-Reymond 判别法）设级数 $\sum_{n=2}^{\infty}(a_n-a_{n-1})$ 绝对收敛，级数 $\sum_{n=1}^{\infty}b_n$ 收敛，证明：$\sum_{n=1}^{\infty}a_nb_n$ 收敛。
+\end{xexercise}
+
+\begin{xexercise}[9]
+（Dedekind 判别法）设级数 $\sum_{n=2}^{\infty}(a_n-a_{n-1})$ 绝对收敛，$\lim_{n\to\infty}a_n=0$，级数 $\sum_{n=1}^{\infty}b_n$ 的部分和数列有界，证明：$\sum_{n=1}^{\infty}a_nb_n$ 收敛。
+\end{xexercise}
+
+\begin{xexercise}[10]
+已知级数 $\sum_{n=1}^{\infty}a_n$ 发散，证明：级数 $\sum_{n=1}^{\infty}(1+1/n)a_n$ 也发散。
+\end{xexercise}
+
+\begin{xexercise}[11]
+证明：当 $|q|<1$ 时，成立
 \[
 \left(\sum_{n=0}^{\infty}q^n\right)\left(\sum_{n=0}^{\infty}q^n\right)=\sum_{n=0}^{\infty}(n+1)q^n.
 \]
-\item 证明：级数 $\sum_{n=0}^{\infty}\frac{(-1)^n}{n+1}$ 与自身的 Cauchy 乘积是收敛级数。
-\item 设
+\end{xexercise}
+
+\begin{xexercise}[12]
+证明：级数 $\sum_{n=0}^{\infty}\frac{(-1)^n}{n+1}$ 与自身的 Cauchy 乘积是收敛级数。
+\end{xexercise}
+
+\begin{xexercise}[13]
+设
 \[
 S(x)=\sum_{n=0}^{\infty}\frac{(-1)^nx^{2n+1}}{(2n+1)!},\qquad C(x)=\sum_{n=0}^{\infty}\frac{(-1)^nx^{2n}}{(2n)!},
 \]
 证明：$2S(x)C(x)=S(2x)$。
-\item 设级数 $\sum a_n/b_n$、$\sum(a_n/b_n)^2$ 均收敛，又对每个 $n$ 有 $b_n(a_n+b_n)\neq0$，证明：级数 $\sum\frac{a_n}{a_n+b_n}$ 收敛。
-\item 两个发散级数的 Cauchy 乘积可以是收敛的，试验证下列两个发散级数
+\end{xexercise}
+
+\begin{xexercise}[14]
+设级数 $\sum a_n/b_n$、$\sum(a_n/b_n)^2$ 均收敛，又对每个 $n$ 有 $b_n(a_n+b_n)\neq0$，证明：级数 $\sum\frac{a_n}{a_n+b_n}$ 收敛。
+\end{xexercise}
+
+\begin{xexercise}[15]
+两个发散级数的 Cauchy 乘积可以是收敛的，试验证下列两个发散级数
 \[
 1-\sum_{n=1}^{\infty}\left(\frac32\right)^n,
 \qquad
 1+\sum_{n=1}^{\infty}\left(\frac32\right)^{n-1}\left(2^n+\frac1{2^{n+1}}\right)
 \]
 的 Cauchy 乘积是绝对收敛级数。
-\item \begin{enumerate}[label=(\arabic*)]
+\end{xexercise}
+
+\begin{xexercise}[16]
+\begin{enumerate}[label=(\arabic*)]
 \item 举例说明收敛级数与发散级数的乘积既可能收敛，也可能发散。
 \item 证明：对于正项收敛级数和正项发散级数，其乘积一定发散（假定其中的正项收敛级数的和大于 0）。
-\end{enumerate}
 \end{enumerate}
 \end{xexercise}
 
@@ -1365,9 +1473,8 @@ V_m=\prod_{k=m+1}^{n}\left(1-\frac{\sin^2\frac{x}{2n+1}}{\sin^2\frac{k\pi}{2n+1}
 
 \subsection{练习题}
 
-\begin{xexercise}
-\begin{enumerate}[label=\arabic*.]
-\item 讨论下列无穷乘积的敛散性：
+\begin{xexercise}[1]
+讨论下列无穷乘积的敛散性：
 \[
 \begin{array}{ll}
 (1)\ \displaystyle\prod_{n=1}^{\infty}\sqrt{\frac{n+1}{n+2}};&
@@ -1378,43 +1485,69 @@ V_m=\prod_{k=m+1}^{n}\left(1-\frac{\sin^2\frac{x}{2n+1}}{\sin^2\frac{k\pi}{2n+1}
 (6)\ \displaystyle\prod_{n=1}^{\infty}\left[\frac1\ee\left(1+\frac1n\right)^n\right].
 \end{array}
 \]
-\item 设 $a,b>0$，求 $\lim_{n\to\infty}\frac{(a+1)(a+2)\cdots(a+n)}{(b+1)(b+2)\cdots(b+n)}$。
-\item 设数列 $\{a_n\}$ 的每一项满足条件 $0<a_n<\pi/2$，证明：级数 $\sum_{n=1}^{\infty}a_n^2$ 收敛的充分必要条件是无穷乘积 $\prod_{n=1}^{\infty}\cos a_n$ 收敛。
-\item 如果对正数数列 $\{a_n\}$ 存在极限
+\end{xexercise}
+
+\begin{xexercise}[2]
+设 $a,b>0$，求 $\lim_{n\to\infty}\frac{(a+1)(a+2)\cdots(a+n)}{(b+1)(b+2)\cdots(b+n)}$。
+\end{xexercise}
+
+\begin{xexercise}[3]
+设数列 $\{a_n\}$ 的每一项满足条件 $0<a_n<\pi/2$，证明：级数 $\sum_{n=1}^{\infty}a_n^2$ 收敛的充分必要条件是无穷乘积 $\prod_{n=1}^{\infty}\cos a_n$ 收敛。
+\end{xexercise}
+
+\begin{xexercise}[4]
+如果对正数数列 $\{a_n\}$ 存在极限
 \[
 \lim_{n\to\infty}n\left(\frac{a_n}{a_{n+1}}-1\right)=r>0,
 \]
 证明：级数 $\sum_{n=1}^{\infty}(-1)^{n-1}a_n$ 收敛。（可利用例题 13.4.2。）
-\item 讨论无穷乘积
+\end{xexercise}
+
+\begin{xexercise}[5]
+讨论无穷乘积
 \[
 \prod_{n=n_0}^{\infty}\frac{(\alpha+n)(\beta+n)}{(1+n)(\gamma+n)}
 \]
 的敛散性，其中 $\alpha,\beta,\gamma$ 为参数，且设 $n_0$ 已足够大，使得乘积中出现的所有因子均大于 0。
-\item （Euler）对于 $0<x<1$，证明：
+\end{xexercise}
+
+\begin{xexercise}[6]
+（Euler）对于 $0<x<1$，证明：
 \[
 (1+x)(1+x^2)(1+x^3)\cdots=\frac1{(1-x)(1-x^3)(1-x^5)\cdots}.
 \]
-\item （Stirling）证明：若级数
+\end{xexercise}
+
+\begin{xexercise}[7]
+（Stirling）证明：若级数
 \[
 \sum_{n=1}^{\infty}a_n(x^2-1^2)(x^2-2^2)\cdots(x^2-n^2)
 \]
 于某个 $x$ 值收敛，则级数对任何 $x$ 值都收敛。
-\item （Landau（兰道））证明：级数
+\end{xexercise}
+
+\begin{xexercise}[8]
+（Landau（兰道））证明：级数
 \[
 \sum_{n=1}^{\infty}\frac{n!a_n}{x(x+1)\cdots(x+n)}\qquad(x\neq0,-1,-2,\ldots)
 \]
 与 Dirichlet 级数 $\sum_{n=1}^{\infty}\frac{a_n}{n^x}$ 对同样的 $x$ 值收敛。
-\item 设正数数列 $\{a_n\}$ 满足条件
+\end{xexercise}
+
+\begin{xexercise}[9]
+设正数数列 $\{a_n\}$ 满足条件
 \[
 \frac{a_n}{a_{n+1}}=1+\frac1n+\bigO(b_n),
 \]
 并已知级数 $\sum_{n=1}^{\infty}b_n$ 绝对收敛，证明：级数 $\sum_{n=1}^{\infty}a_n$ 发散。（可参考第 8 页的 Gauss 判别法。）
-\item （Stirling 公式的又一证明）用无穷乘积方法证明：数列
+\end{xexercise}
+
+\begin{xexercise}[10]
+（Stirling 公式的又一证明）用无穷乘积方法证明：数列
 \[
 \left\{\frac{n!\ee^n}{n^{n+1/2}}\right\}
 \]
 有非零极限，并求出此极限。\footnote{题 (6) 对于 $\lim_{n\to\infty}\frac{n^n}{n!\ee^n}=0$ 又提供了一个证明。}
-\end{enumerate}
 \end{xexercise}
 
 \section{对于教学的建议}
@@ -1444,23 +1577,37 @@ V_m=\prod_{k=m+1}^{n}\left(1-\frac{\sin^2\frac{x}{2n+1}}{\sin^2\frac{k\pi}{2n+1}
 
 \subsubsection*{第一组参考题}
 
-\begin{xreferenceproblem}
-\begin{enumerate}[label=\arabic*.]
-\item 试用两种方法证明：对于正数数列 $\{a_n\}$，必有
+\begin{xreferenceproblem}[1]
+试用两种方法证明：对于正数数列 $\{a_n\}$，必有
 \[
 \lim_{n\to\infty}\frac{a_n}{(1+a_1)(1+a_2)\cdots(1+a_n)}=0.
 \]
-\item （Abel-Pringsheim（普林斯海姆）定理）设正项级数 $\sum a_n$ 的通项单调减少，且已知级数收敛，证明：$\lim_{n\to\infty}na_n=0$。（举例说明，若通项非单调，则结论不成立。）
-\item 设正项级数 $\sum_{n=1}^{\infty}a_n$ 的通项单调减少，又已知级数 $\sum_{n=1}^{\infty}\frac{a_n}{\sqrt n}$ 收敛，证明：级数 $\sum_{n=1}^{\infty}a_n^2$ 收敛。
-\item 设正项级数 $\sum_{n=1}^{\infty}a_n$ 的通项单调减少收敛于 0。(1) 证明：级数 $\sum_{n=1}^{\infty}a_n$ 与级数 $\sum_{n=1}^{\infty}n(a_n-a_{n+1})$ 同敛散，且在收敛时具有相同的和。(2) 对于通项不是单调减少的情况，试举例说明上述“同敛散”的结论不再成立。
-\item 由于数列 $\{a_n\}$ 与无穷级数 $\sum_{n=1}^{\infty}(a_{n+1}-a_n)$ 具有相同的敛散性，试用级数理论讨论下列数列的敛散性：
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[2]
+（Abel-Pringsheim（普林斯海姆）定理）设正项级数 $\sum a_n$ 的通项单调减少，且已知级数收敛，证明：$\lim_{n\to\infty}na_n=0$。（举例说明，若通项非单调，则结论不成立。）
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[3]
+设正项级数 $\sum_{n=1}^{\infty}a_n$ 的通项单调减少，又已知级数 $\sum_{n=1}^{\infty}\frac{a_n}{\sqrt n}$ 收敛，证明：级数 $\sum_{n=1}^{\infty}a_n^2$ 收敛。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[4]
+设正项级数 $\sum_{n=1}^{\infty}a_n$ 的通项单调减少收敛于 0。(1) 证明：级数 $\sum_{n=1}^{\infty}a_n$ 与级数 $\sum_{n=1}^{\infty}n(a_n-a_{n+1})$ 同敛散，且在收敛时具有相同的和。(2) 对于通项不是单调减少的情况，试举例说明上述“同敛散”的结论不再成立。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[5]
+由于数列 $\{a_n\}$ 与无穷级数 $\sum_{n=1}^{\infty}(a_{n+1}-a_n)$ 具有相同的敛散性，试用级数理论讨论下列数列的敛散性：
 \begin{enumerate}[label=(\arabic*)]
 \item $a_n=1+\frac12+\cdots+\frac1n-\ln n$，$n=1,2,\ldots$；
 \item $a_n=1+\frac1{\sqrt2}+\cdots+\frac1{\sqrt n}-2\sqrt n$，$n=1,2,\ldots$；
 \item $a_n=\frac1{2\ln2}+\frac1{3\ln3}+\cdots+\frac1{n\ln n}-\ln\ln n$，$n=2,3,\ldots$。
 \end{enumerate}
 （题 (1) 即上册 43 页命题 2.5.6，题 (2) 见上册 56 页参考题 14，又可以与上册 371 页参考题 10 作比较。）
-\item 证明：(1) 若 $f$ 是 $[1,+\infty)$ 上的非负单调减少函数，则存在极限
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[6]
+证明：(1) 若 $f$ 是 $[1,+\infty)$ 上的非负单调减少函数，则存在极限
 \[
 \lim_{n\to\infty}\left(\sum_{k=1}^{n}f(k)-\int_1^n f(x)\,\dd x\right)=A,
 \]
@@ -1468,35 +1615,74 @@ V_m=\prod_{k=m+1}^{n}\left(1-\frac{\sin^2\frac{x}{2n+1}}{\sin^2\frac{k\pi}{2n+1}
 \[
 \lim_{x\to+\infty}\sum_{n=1}^{\infty}\frac{x}{x^2+n^2}=\frac\pi2.
 \]
-\item 若函数 $f$ 在 $[-1,1]$ 上定义，且存在 $f''(0)$，证明：级数 $\sum_{n=1}^{\infty}f(1/n)$ 绝对收敛的充分必要条件是 $f(0)=f'(0)=0$。
-\item 设函数 $f$ 在 $[1,+\infty)$ 上单调增加且有极限 $f(+\infty)=A$。证明：(1) $\sum_{n=1}^{\infty}[f(n+1)-f(n)]$ 收敛，并求其和；(2) 又若 $f$ 在 $[1,+\infty)$ 上二次可微，且 $f''(x)<0$，则 $\sum_{n=1}^{\infty}f'(n)$ 也收敛。
-\item （二重正项级数的求和顺序交换定理）设对每个正整数 $n$，正项级数 $\sum_{k=1}^{\infty}a_{n,k}$ 收敛，且其和为 $a_n$；若级数 $\sum_{n=1}^{\infty}a_n$ 收敛，证明：
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[7]
+若函数 $f$ 在 $[-1,1]$ 上定义，且存在 $f''(0)$，证明：级数 $\sum_{n=1}^{\infty}f(1/n)$ 绝对收敛的充分必要条件是 $f(0)=f'(0)=0$。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[8]
+设函数 $f$ 在 $[1,+\infty)$ 上单调增加且有极限 $f(+\infty)=A$。证明：(1) $\sum_{n=1}^{\infty}[f(n+1)-f(n)]$ 收敛，并求其和；(2) 又若 $f$ 在 $[1,+\infty)$ 上二次可微，且 $f''(x)<0$，则 $\sum_{n=1}^{\infty}f'(n)$ 也收敛。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[9]
+（二重正项级数的求和顺序交换定理）设对每个正整数 $n$，正项级数 $\sum_{k=1}^{\infty}a_{n,k}$ 收敛，且其和为 $a_n$；若级数 $\sum_{n=1}^{\infty}a_n$ 收敛，证明：
 \[
 \sum_{n=1}^{\infty}a_n=\sum_{n=1}^{\infty}\sum_{k=1}^{\infty}a_{n,k}=\sum_{k=1}^{\infty}\sum_{n=1}^{\infty}a_{n,k}.
 \]
-\item 对正整数 $m\geq2$，用 $s_m$ 表示级数 $\sum_{n=2}^{\infty}\frac1{n^m}$ 的和，证明：$\sum_{m=2}^{\infty}s_m=1$。
-\item 设正项级数 $\sum_{n=1}^{\infty}a_n$ 的通项单调减少趋于 0，且已知数列
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[10]
+对正整数 $m\geq2$，用 $s_m$ 表示级数 $\sum_{n=2}^{\infty}\frac1{n^m}$ 的和，证明：$\sum_{m=2}^{\infty}s_m=1$。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[11]
+设正项级数 $\sum_{n=1}^{\infty}a_n$ 的通项单调减少趋于 0，且已知数列
 \[
 \left\{\sum_{k=1}^{n}(a_k-a_n)\right\}
 \]
 有界，证明：$\sum_{n=1}^{\infty}a_n$ 收敛。
-\item 设正项级数 $\sum_{n=1}^{\infty}a_n$ 收敛，且数列 $\{a_n-a_{n+1}\}$ 严格单调减少，证明：
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[12]
+设正项级数 $\sum_{n=1}^{\infty}a_n$ 收敛，且数列 $\{a_n-a_{n+1}\}$ 严格单调减少，证明：
 \[
 \lim_{n\to\infty}\left(\frac1{a_{n+1}}-\frac1{a_n}\right)=+\infty.
 \]
-\item 设正项级数 $\sum_{n=1}^{\infty}a_n$ 收敛，数列 $\{na_n\}$ 单调，证明：$\lim_{n\to\infty}na_n\ln n=0$。
-\item 设 $a_1=1$，$a_2=2$，$a_n=a_{n-1}+a_{n-2}$，$n=3,4,\ldots$，证明：$\sum_{n=1}^{\infty}1/a_n$ 收敛。（Fibonacci 数列的倒数所成级数收敛。）
-\item 设 $0<p<1$，$a_1>0$，$a_{n+1}=\frac{a_n}{1+a_n^p}$，$n=1,2,\ldots$，证明：$\sum_{n=1}^{\infty}a_n$ 收敛。
-\item 设正项级数 $\sum_{n=1}^{\infty}a_n$ 收敛，则对于 $p>\frac12$，证明：级数 $\sum_{n=1}^{\infty}\frac{\sqrt{a_n}}{n^p}$ 收敛。举例说明 $p=\frac12$ 时级数 $\sum_{n=1}^{\infty}\frac{\sqrt{a_n}}{n^{1/2}}$ 可能发散。
-\item 证明下列两个级数发散：(1) $\sum_{n=1}^{\infty}\sin n$；(2) $\sum_{n=1}^{\infty}\sin n^2$。
-\item 设正项级数 $\sum_{n=1}^{\infty}a_n$ 发散，讨论下列级数的敛散性：
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[13]
+设正项级数 $\sum_{n=1}^{\infty}a_n$ 收敛，数列 $\{na_n\}$ 单调，证明：$\lim_{n\to\infty}na_n\ln n=0$。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[14]
+设 $a_1=1$，$a_2=2$，$a_n=a_{n-1}+a_{n-2}$，$n=3,4,\ldots$，证明：$\sum_{n=1}^{\infty}1/a_n$ 收敛。（Fibonacci 数列的倒数所成级数收敛。）
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[15]
+设 $0<p<1$，$a_1>0$，$a_{n+1}=\frac{a_n}{1+a_n^p}$，$n=1,2,\ldots$，证明：$\sum_{n=1}^{\infty}a_n$ 收敛。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[16]
+设正项级数 $\sum_{n=1}^{\infty}a_n$ 收敛，则对于 $p>\frac12$，证明：级数 $\sum_{n=1}^{\infty}\frac{\sqrt{a_n}}{n^p}$ 收敛。举例说明 $p=\frac12$ 时级数 $\sum_{n=1}^{\infty}\frac{\sqrt{a_n}}{n^{1/2}}$ 可能发散。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[17]
+证明下列两个级数发散：(1) $\sum_{n=1}^{\infty}\sin n$；(2) $\sum_{n=1}^{\infty}\sin n^2$。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[18]
+设正项级数 $\sum_{n=1}^{\infty}a_n$ 发散，讨论下列级数的敛散性：
 \[
 (1)\ \sum_{n=1}^{\infty}\frac{a_n}{1+n^2a_n^2};\qquad
 (2)\ \sum_{n=1}^{\infty}\frac{a_n}{1+na_n};\qquad
 (3)\ \sum_{n=1}^{\infty}\frac{a_n}{1+a_n};\qquad
 (4)\ \sum_{n=1}^{\infty}\frac{a_n}{1+a_n^2}.
 \]
-\item 设有收敛级数 $\sum_{n=1}^{\infty}a_n=S$，证明：(1)
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[19]
+设有收敛级数 $\sum_{n=1}^{\infty}a_n=S$，证明：(1)
 \[
 \lim_{n\to\infty}\frac{a_1+2a_2+\cdots+na_n}{n}=0;
 \]
@@ -1505,77 +1691,135 @@ V_m=\prod_{k=m+1}^{n}\left(1-\frac{\sin^2\frac{x}{2n+1}}{\sin^2\frac{k\pi}{2n+1}
 \sum_{n=1}^{\infty}\frac{a_1+2a_2+\cdots+na_n}{n(n+1)}
 \]
 收敛，且其和也是 $S$。
-\item 设级数 $\sum_{n=1}^{\infty}a_n=s$ 为条件收敛，$\sum_{n=1}^{\infty}a_{f(n)}=t$ 是 $\sum_{n=1}^{\infty}a_n$ 的一个重排。若 $t\neq s$，证明：对于任意 $N$，存在 $n$，使 $|n-f(n)|>N$。（这表明，对于条件收敛级数作重排时，如果每一项的新位置与原有位置之差不超过某个界限的话，则级数的和不会改变。）
-\end{enumerate}
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[20]
+设级数 $\sum_{n=1}^{\infty}a_n=s$ 为条件收敛，$\sum_{n=1}^{\infty}a_{f(n)}=t$ 是 $\sum_{n=1}^{\infty}a_n$ 的一个重排。若 $t\neq s$，证明：对于任意 $N$，存在 $n$，使 $|n-f(n)|>N$。（这表明，对于条件收敛级数作重排时，如果每一项的新位置与原有位置之差不超过某个界限的话，则级数的和不会改变。）
 \end{xreferenceproblem}
 
 \subsubsection*{第二组参考题}
 
-\begin{xreferenceproblem}
-\begin{enumerate}[label=\arabic*.]
-\item 设正项级数 $\sum_{n=1}^{\infty}\frac1{a_n}$ 收敛，证明：级数
+\begin{xreferenceproblem}[1]
+设正项级数 $\sum_{n=1}^{\infty}\frac1{a_n}$ 收敛，证明：级数
 \[
 \sum_{n=1}^{\infty}\frac{n^2a_n}{(a_1+a_2+\cdots+a_n)^2}
 \]
 收敛。
-\item 设 $a>0$，$a_n>0$，$n=1,2,\ldots$，证明：级数
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[2]
+设 $a>0$，$a_n>0$，$n=1,2,\ldots$，证明：级数
 \[
 \sum_{n=1}^{\infty}\frac{a_n}{(a+a_1+\cdots+a_n)^{3/2}}
 \]
 收敛，且其和 $S\leq2/\sqrt a$。
-\item 设正项级数 $\sum_{n=1}^{\infty}a_n$ 收敛且存在 $M>0$，使对每个正整数 $n$ 成立
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[3]
+设正项级数 $\sum_{n=1}^{\infty}a_n$ 收敛且存在 $M>0$，使对每个正整数 $n$ 成立
 \[
 a_k\leq Ma_n,\qquad n\leq k\leq2n,
 \]
 证明：$\lim_{n\to\infty}na_n=0$。
-\item 试构造两个发散的正项级数 $\sum a_n$ 与 $\sum b_n$，它们的通项都单调减少，但级数 $\sum_{n=1}^{\infty}\min\{a_n,b_n\}$ 收敛。
-\item （Frink（弗林克）判别法）设对正项级数 $\sum_{n=1}^{\infty}a_n$ 存在极限
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[4]
+试构造两个发散的正项级数 $\sum a_n$ 与 $\sum b_n$，它们的通项都单调减少，但级数 $\sum_{n=1}^{\infty}\min\{a_n,b_n\}$ 收敛。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[5]
+（Frink（弗林克）判别法）设对正项级数 $\sum_{n=1}^{\infty}a_n$ 存在极限
 \[
 \lim_{n\to\infty}\left(\frac{a_{n+1}}{a_n}\right)^n=\lambda,
 \]
 则当 $\lambda<\ee^{-1}$ 时级数收敛，而当 $\lambda>\ee^{-1}$ 时级数发散。
-\item （Ermakov（叶尔马科夫）判别法）设 $f$ 在 $[a,+\infty)$ 上单调减少且大于 0，又知存在极限
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[6]
+（Ermakov（叶尔马科夫）判别法）设 $f$ 在 $[a,+\infty)$ 上单调减少且大于 0，又知存在极限
 \[
 \lim_{x\to+\infty}\frac{\ee^xf(\ee^x)}{f(x)}=p,
 \]
 则正项级数 $\sum_{n=1}^{\infty}f(n)$ 当 $p<1$ 时收敛，而当 $p>1$ 时发散。
-\item （Lobachevski（罗巴切夫斯基）判别法）通项单调趋于 0 的正项级数 $\sum_{n=1}^{\infty}a_n$ 与级数 $\sum_{n=1}^{\infty}b_n2^{-n}$ 同敛散，其中 $b_n=\max\{k\mid a_k\geq2^{-n}\}$。
-\item 证明：下列两个无穷乘积收敛于自然对数的底 $\ee$：
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[7]
+（Lobachevski（罗巴切夫斯基）判别法）通项单调趋于 0 的正项级数 $\sum_{n=1}^{\infty}a_n$ 与级数 $\sum_{n=1}^{\infty}b_n2^{-n}$ 同敛散，其中 $b_n=\max\{k\mid a_k\geq2^{-n}\}$。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[8]
+证明：下列两个无穷乘积收敛于自然对数的底 $\ee$：
 \begin{enumerate}[label=(\arabic*)]
 \item $\displaystyle\prod_{n=1}^{\infty}\left(1+\frac1{a_n}\right)$，其中 $a_1=1$，$a_n=n(a_{n-1}+1)$，$\forall n\geq2$；
 \item $\displaystyle 2\left(\frac21\right)^{1/2}\left(\frac23\cdot\frac43\right)^{1/4}\left(\frac45\cdot\frac65\cdot\frac67\cdot\frac87\right)^{1/8}\cdots$。
 \end{enumerate}
 （题 (2) 来自《美国数学月刊》(1980) 第 87 卷 391 页。）
-\item 证明：若 $p\leq1$，则级数 $\sum_{n=1}^{\infty}\frac{\cos(\ln n)}{n^p}$ 发散。
-\item 设级数 $\sum_{n=1}^{\infty}na_n$ 收敛，证明：(1) 对任一正整数 $k$，级数 $\sum_{n=1}^{\infty}na_{n+k}$ 收敛；(2)
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[9]
+证明：若 $p\leq1$，则级数 $\sum_{n=1}^{\infty}\frac{\cos(\ln n)}{n^p}$ 发散。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[10]
+设级数 $\sum_{n=1}^{\infty}na_n$ 收敛，证明：(1) 对任一正整数 $k$，级数 $\sum_{n=1}^{\infty}na_{n+k}$ 收敛；(2)
 \[
 \lim_{k\to\infty}\sum_{n=1}^{\infty}na_{n+k}=0.
 \]
-\item 若对每一个满足 $\lim_{n\to\infty}b_n=0$ 的数列 $\{b_n\}$，级数 $\sum_{n=1}^{\infty}a_nb_n$ 收敛，证明：级数 $\sum_{n=1}^{\infty}a_n$ 绝对收敛。
-\item 若对每一个收敛级数 $\sum_{n=1}^{\infty}b_n$，级数 $\sum_{n=1}^{\infty}a_nb_n$ 收敛，证明：级数 $\sum_{n=1}^{\infty}|a_n-a_{n+1}|$ 必定收敛。
-\item 举出一个收敛级数 $\sum_{n=1}^{\infty}a_n$，使得级数 $\sum_{n=1}^{\infty}a_n^3$ 发散。
-\item 设函数 $f$ 在 $[1,+\infty)$ 上连续可微，且 $\int_1^{+\infty}|f'(x)|\,\dd x$ 收敛，证明：广义积分 $\int_1^{+\infty}f(x)\,\dd x$ 与无穷级数 $\sum_{n=1}^{\infty}f(n)$ 同敛散。
-\item 设 $p>0$，证明：交错级数 $\sum_{n=1}^{\infty}\frac{(-1)^{n-1}}{n^p}$ 的和 $S$ 满足估计 $\frac12<S<1$。
-\item 设级数 $\sum_{n=1}^{\infty}a_nb_n$ 收敛，又知 $\{b_n\}$ 单调减少收敛于 0，证明：
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[11]
+若对每一个满足 $\lim_{n\to\infty}b_n=0$ 的数列 $\{b_n\}$，级数 $\sum_{n=1}^{\infty}a_nb_n$ 收敛，证明：级数 $\sum_{n=1}^{\infty}a_n$ 绝对收敛。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[12]
+若对每一个收敛级数 $\sum_{n=1}^{\infty}b_n$，级数 $\sum_{n=1}^{\infty}a_nb_n$ 收敛，证明：级数 $\sum_{n=1}^{\infty}|a_n-a_{n+1}|$ 必定收敛。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[13]
+举出一个收敛级数 $\sum_{n=1}^{\infty}a_n$，使得级数 $\sum_{n=1}^{\infty}a_n^3$ 发散。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[14]
+设函数 $f$ 在 $[1,+\infty)$ 上连续可微，且 $\int_1^{+\infty}|f'(x)|\,\dd x$ 收敛，证明：广义积分 $\int_1^{+\infty}f(x)\,\dd x$ 与无穷级数 $\sum_{n=1}^{\infty}f(n)$ 同敛散。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[15]
+设 $p>0$，证明：交错级数 $\sum_{n=1}^{\infty}\frac{(-1)^{n-1}}{n^p}$ 的和 $S$ 满足估计 $\frac12<S<1$。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[16]
+设级数 $\sum_{n=1}^{\infty}a_nb_n$ 收敛，又知 $\{b_n\}$ 单调减少收敛于 0，证明：
 \[
 \lim_{n\to\infty}(a_1+a_2+\cdots+a_n)b_n=0.
 \]
 （第一组参考题 19 之 (1) 为本题之特例。）
-\item 设级数 $\sum_{n=1}^{\infty}\frac{a_n}{n^p}$ 收敛，其中 $p>0$，证明：
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[17]
+设级数 $\sum_{n=1}^{\infty}\frac{a_n}{n^p}$ 收敛，其中 $p>0$，证明：
 \[
 \lim_{n\to\infty}\frac{a_1+a_2+\cdots+a_n}{n^p}=0.
 \]
-\item 设级数 $\sum_{n=1}^{\infty}a_n$ 的部分和数列为 $\{S_n\}$，并令
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[18]
+设级数 $\sum_{n=1}^{\infty}a_n$ 的部分和数列为 $\{S_n\}$，并令
 \[
 \sigma_n=\frac{S_1+S_2+\cdots+S_n}{n},\qquad n=1,2,\ldots.
 \]
 定义：若存在极限 $\lim_{n\to\infty}\sigma_n=\sigma$，则称级数 $\sum_{n=1}^{\infty}a_n$ 可以 Cesàro（切萨罗）求和（或称级数在 Cesàro 意义下可求和），并将极限值 $\sigma$ 称为级数的 Cesàro 和。证明：收敛级数一定可以 Cesàro 求和，且其 Cesàro 和与收敛级数在通常意义下的和相等，但反之不真。
-\item 证明：级数 $\sum_{n=1}^{\infty}a_n$ 可以 Cesàro 求和的必要条件是
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[19]
+证明：级数 $\sum_{n=1}^{\infty}a_n$ 可以 Cesàro 求和的必要条件是
 \[
 \lim_{n\to\infty}\frac{a_n}{n}=0.
 \]
 （这个条件比通常意义下级数 $\sum a_n$ 收敛时通项必须为无穷小量的必要条件弱得多。）
-\item 下列级数是否可以 Cesàro 求和？如果可以，试求出它们的 Cesàro 和。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[20]
+下列级数是否可以 Cesàro 求和？如果可以，试求出它们的 Cesàro 和。
 \[
 \text{(1) }1-1+1-1+\cdots;\qquad
 \text{(2) }1-2^2+3^2-4^2+\cdots;
@@ -1584,10 +1828,15 @@ a_k\leq Ma_n,\qquad n\leq k\leq2n,
 \text{(3) }1+0-1+1+0-1+\cdots;\qquad
 \text{(4) }\sin x+\sin2x+\sin3x+\cdots.
 \]
-\item 设级数 $\sum_{n=1}^{\infty}a_n$ 的通项满足条件 $\lim_{n\to\infty}na_n=0$，证明：该级数在通常意义下收敛的充分必要条件是级数可以 Cesàro 求和。
-\item 设级数 $\sum_{n=1}^{\infty}a_n$ 可以 Cesàro 求和，证明：该级数在通常意义下收敛的充分必要条件是
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[21]
+设级数 $\sum_{n=1}^{\infty}a_n$ 的通项满足条件 $\lim_{n\to\infty}na_n=0$，证明：该级数在通常意义下收敛的充分必要条件是级数可以 Cesàro 求和。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[22]
+设级数 $\sum_{n=1}^{\infty}a_n$ 可以 Cesàro 求和，证明：该级数在通常意义下收敛的充分必要条件是
 \[
 \lim_{n\to\infty}\frac{a_1+2a_2+\cdots+na_n}{n}=0.
 \]
-\end{enumerate}
 \end{xreferenceproblem}

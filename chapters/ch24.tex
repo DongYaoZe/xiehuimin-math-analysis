@@ -196,7 +196,8 @@ $\RR^n$ 中以点 $A$ 为始点、点 $B$ 为终点的连续不自交的曲线�
 
 \subsection{练习题}
 
-1. 计算下列第一型曲线积分：
+\begin{xexercise}[1]
+计算下列第一型曲线积分：
 \begin{enumerate}[label=(\arabic*)]
   \item $\displaystyle\int_C(x^{4/3}+y^{4/3})\,\dd s$，其中 $C$ 为星形线 $x^{2/3}+y^{2/3}=a^{2/3}$；
   \item $\displaystyle\int_C \ee^{\sqrt{x^2+y^2}}\,\dd s$，其中 $C$ 为由曲线 $r=a,\ \varphi=0,\ \varphi=\frac\pi4$（$r$ 和 $\varphi$ 为极坐标）所界的凸围线；
@@ -204,16 +205,16 @@ $\RR^n$ 中以点 $A$ 为始点、点 $B$ 为终点的连续不自交的曲线�
   \item $\displaystyle\int_C\frac{\dd s}{y^2}$，其中 $C$ 为悬链线 $y=a\operatorname{ch}\frac xa$；
   \item $\displaystyle\int_C z\,\dd s$，其中 $C$ 为曲线 $x^2+y^2=z^2,\ y^2=ax$ 从 $(0,0,0)$ 到 $(a,a,\sqrt2a)$ 的弧。
 \end{enumerate}
-
-2. 求下列空间曲线的弧长：
+\end{xexercise}\begin{xexercise}[2]
+求下列空间曲线的弧长：
 \begin{enumerate}[label=(\arabic*)]
   \item $y=a\arcsin\frac xa,\ z=\frac a4\ln\frac{a-x}{a+x}$ 从 $(0,0,0)$ 到 $(x_0,y_0,z_0)$；
   \item $x^2+y^2+z^2=a^2,\ \sqrt{x^2+y^2}\operatorname{ch}\left(\arctan\frac yx\right)=a$ 从 $(a,0,0)$ 到 $(x,y,z)$。
 \end{enumerate}
-
-3. 计算均匀的曲线 $y=a\operatorname{ch}\frac xa$ 从 $(0,a)$ 到 $(b,h)$ 的弧的质心坐标。
-
-4. 设 $\Gamma=\wideparen{AB}$ 是 $\RR^n$ 中的简单可求长曲线，$\Gamma$ 的弧长记为 $L$。对每一个 $s\in[0,L]$，存在惟一的 $\vect{x}\in\Gamma$，$\vect{x}=(x_1,x_2,\ldots,x_n)$，使得 $\Gamma$ 上从 $A$ 到 $\vect{x}$ 的曲线段 $\wideparen{A\vect{x}}$ 的弧长等于 $s$，由此定义了一个 $[0,L]$ 上的函数
+\end{xexercise}\begin{xexercise}[3]
+计算均匀的曲线 $y=a\operatorname{ch}\frac xa$ 从 $(0,a)$ 到 $(b,h)$ 的弧的质心坐标。
+\end{xexercise}\begin{xexercise}[4]
+设 $\Gamma=\wideparen{AB}$ 是 $\RR^n$ 中的简单可求长曲线，$\Gamma$ 的弧长记为 $L$。对每一个 $s\in[0,L]$，存在惟一的 $\vect{x}\in\Gamma$，$\vect{x}=(x_1,x_2,\ldots,x_n)$，使得 $\Gamma$ 上从 $A$ 到 $\vect{x}$ 的曲线段 $\wideparen{A\vect{x}}$ 的弧长等于 $s$，由此定义了一个 $[0,L]$ 上的函数
 \begin{equation}
   \vect{x}=\vect{x}(s),\qquad 0\le s\le L.
   \tag{24.4}
@@ -223,6 +224,7 @@ $\RR^n$ 中以点 $A$ 为始点、点 $B$ 为终点的连续不自交的曲线�
 \[
   \int_\Gamma f(\vect{x})\,\dd s=\int_0^L f\bigl(\vect{x}(s)\bigr)\,\dd s.
 \]
+\end{xexercise}
 
 \section{第二型曲线积分}
 
@@ -471,22 +473,23 @@ $\Gamma$ 的起点为原点，终点为 $(x(T),y(T))$。由曲线积分公式得
 
 \subsection{练习题}
 
-1. 计算 $\displaystyle\int_Lxy\,\dd x+(y-x)\,\dd y$，其中 $L$ 为曲线，$\wideparen{AB}$ 方向为由 $A$ 到 $B$，$A=(1,1),\ B=(2,3)$：
+\begin{xexercise}[1]
+计算 $\displaystyle\int_Lxy\,\dd x+(y-x)\,\dd y$，其中 $L$ 为曲线，$\wideparen{AB}$ 方向为由 $A$ 到 $B$，$A=(1,1),\ B=(2,3)$：
 \begin{enumerate}[label=(\arabic*)]
   \item $\wideparen{AB}$ 是直线 $AB$；
   \item $\wideparen{AB}$ 的方程是 $y=2(x-1)^2+1$；
   \item $\wideparen{AB}$ 是折线 $ADB$，$D=(2,1)$。
 \end{enumerate}
-
-2. 求 $\displaystyle\int_C\frac{x}{y}\,\dd x+\frac1{y-a}\,\dd y$，其中 $C$ 是旋轮线 $x=a(t-\sin t),\ y=a(1-\cos t)$ 对应于 $t=\frac\pi6$ 到 $t=\frac\pi3$ 的一段。
-
-3. 求 $\displaystyle\int_C(x+y)^2\,\dd x+(x^2-y^2)\,\dd y$，其中 $C$ 是以 $A(1,1),B(3,2),D(3,1)$ 为顶点的三角形，取顺时针方向。
-
-4. 求 $\displaystyle\int_C4xy^2\,\dd x-3x^4\,\dd y$，其中 $C$ 是抛物线 $y=\frac12x^2$ 自 $(0,0)$ 到 $(2,2)$ 的一段。
-
-5. 求 $\displaystyle\oint_C(y^2+z^2)\,\dd x+(z^2+x^2)\,\dd y+(x^2+y^2)\,\dd z$，其中 $C$ 是曲面 $x^2+y^2+z^2=2Rx,\ x^2+y^2=2ax$ 的交线（$0<a<R,z>0$），且由 $z$ 轴正向看是逆时针方向。
-
-6. 求 $\displaystyle\int_C y\,\dd x+z\,\dd y+x\,\dd z$，其中 $C$ 为球面上的曲线：
+\end{xexercise}\begin{xexercise}[2]
+求 $\displaystyle\int_C\frac{x}{y}\,\dd x+\frac1{y-a}\,\dd y$，其中 $C$ 是旋轮线 $x=a(t-\sin t),\ y=a(1-\cos t)$ 对应于 $t=\frac\pi6$ 到 $t=\frac\pi3$ 的一段。
+\end{xexercise}\begin{xexercise}[3]
+求 $\displaystyle\int_C(x+y)^2\,\dd x+(x^2-y^2)\,\dd y$，其中 $C$ 是以 $A(1,1),B(3,2),D(3,1)$ 为顶点的三角形，取顺时针方向。
+\end{xexercise}\begin{xexercise}[4]
+求 $\displaystyle\int_C4xy^2\,\dd x-3x^4\,\dd y$，其中 $C$ 是抛物线 $y=\frac12x^2$ 自 $(0,0)$ 到 $(2,2)$ 的一段。
+\end{xexercise}\begin{xexercise}[5]
+求 $\displaystyle\oint_C(y^2+z^2)\,\dd x+(z^2+x^2)\,\dd y+(x^2+y^2)\,\dd z$，其中 $C$ 是曲面 $x^2+y^2+z^2=2Rx,\ x^2+y^2=2ax$ 的交线（$0<a<R,z>0$），且由 $z$ 轴正向看是逆时针方向。
+\end{xexercise}\begin{xexercise}[6]
+求 $\displaystyle\int_C y\,\dd x+z\,\dd y+x\,\dd z$，其中 $C$ 为球面上的曲线：
 \[
   x=R\sin\varphi\cos\theta,\qquad y=R\sin\varphi\sin\theta,\qquad z=R\cos\varphi,
 \]
@@ -494,16 +497,17 @@ $\Gamma$ 的起点为原点，终点为 $(x(T),y(T))$。由曲线积分公式得
   R>0,\quad0\le\varphi\le\pi,\quad0\le\theta<2\pi,
 \]
 并且使 (1) $R,\varphi$ 为常数；或 (2) $R,\theta$ 为常数。
-
-7. 求 $\displaystyle\int_C(x^2+5y+3yz)\,\dd x+(5x+3xy-2)\,\dd y+(3xy-4z)\,\dd z$，其中 $C$ 为
+\end{xexercise}\begin{xexercise}[7]
+求 $\displaystyle\int_C(x^2+5y+3yz)\,\dd x+(5x+3xy-2)\,\dd y+(3xy-4z)\,\dd z$，其中 $C$ 为
 \begin{enumerate}[label=(\arabic*)]
   \item $x=a\cos t,y=a\sin t,z=\dfrac{bt}{2\pi}$ 自 $t=0$ 到 $2\pi$ 的一段；
   \item 直线段 $AB$，起点 $A=(a,0,0)$，终点 $B=(a,0,b)$。
 \end{enumerate}
-
-8. 已知力场 $\vect{F}(x,y,z)=y\vect{i}-x\vect{j}+(x+y+z)\vect{k}$，求质点沿曲线 $x=a\cos t,\ y=a\sin t,\ z=\dfrac{bt}{2\pi}$ 从点 $A(a,0,0)$ 运动到点 $B(a,0,b)$ 时，力场 $\vect{F}$ 对质点所做的功。
-
-9. 质点在力场 $\vect{F}=\dfrac{\ee^x}{1+y^2}\vect{i}+\dfrac{2y(1-\ee^x)}{(1+y^2)^2}\vect{j}$ 作用下，沿 $x^2+(y-1)^2=1$ 由点 $(0,0)$ 沿顺时针方向运动到点 $(1,1)$，求力场所做的功。
+\end{xexercise}\begin{xexercise}[8]
+已知力场 $\vect{F}(x,y,z)=y\vect{i}-x\vect{j}+(x+y+z)\vect{k}$，求质点沿曲线 $x=a\cos t,\ y=a\sin t,\ z=\dfrac{bt}{2\pi}$ 从点 $A(a,0,0)$ 运动到点 $B(a,0,b)$ 时，力场 $\vect{F}$ 对质点所做的功。
+\end{xexercise}\begin{xexercise}[9]
+质点在力场 $\vect{F}=\dfrac{\ee^x}{1+y^2}\vect{i}+\dfrac{2y(1-\ee^x)}{(1+y^2)^2}\vect{j}$ 作用下，沿 $x^2+(y-1)^2=1$ 由点 $(0,0)$ 沿顺时针方向运动到点 $(1,1)$，求力场所做的功。
+\end{xexercise}
 
 \section{Green 公式}
 
@@ -826,56 +830,58 @@ $C$ 为抛物线 $2x=\pi y^2$ 自 $(0,0)$ 到 $(\frac\pi2,1)$ 的弧段，求
 
 \subsection{练习题}
 
-1. 应用 Green 公式求下列第二型曲线积分：
+\begin{xexercise}[1]
+应用 Green 公式求下列第二型曲线积分：
 \begin{enumerate}[label=(\arabic*)]
   \item $\displaystyle\oint_C(x^2+xy)\,\dd x+(x^2+y^2)\,\dd y$，$C$ 为由 $x=\pm1,y=\pm1$ 围成的正方形，取正向；
   \item 求 $\displaystyle\oint_C\ln\frac{2+y}{1+x^2}\,\dd x+\frac{x(y+1)}{2+y}\,\dd y$，$C$ 的定义同 (1)；
   \item 求 $\displaystyle\oint_C(x^2-y^2)\,\dd x-2xy\,\dd y$，$C$ 是由 $x^2+y^2=1,x=y$ 及 $y$ 轴围成的曲边三角形，取正向；
   \item 求 $\displaystyle\int_C\frac1{x^2+y^2}(x\,\dd y-y\,\dd x)$，其中 $C$ 是：(a) 旋轮线 $x=a(t-\sin t)-a\pi,\ y=a(1-\cos t)$ 对应于 $t=0$ 到 $t=2\pi$ 的一拱；(b) $(x-1)^2+(y-1)^2=1$ 从 $(2,1)$ 经上半圆到 $(0,1)$ 的一段弧。
 \end{enumerate}
-
-2. 设 $f(x)$ 连续可微，$L$ 为逐段光滑闭曲线，证明：
+\end{xexercise}\begin{xexercise}[2]
+设 $f(x)$ 连续可微，$L$ 为逐段光滑闭曲线，证明：
 \begin{enumerate}[label=(\arabic*)]
   \item $\displaystyle\oint_Lf(xy)(y\,\dd x+x\,\dd y)=0$；
   \item $\displaystyle\oint_Lf(x^2+y^2)(x\,\dd x+y\,\dd y)=0$。
 \end{enumerate}
-
-3. 求 $\displaystyle\oint_C\frac{\partial u}{\partial n}\,\dd s$，其中 $u=x^2+y^2$，$C$ 为 $x^2+y^2=6x$，$n$ 为 $C$ 上的单位外法向量。
-
-4. 设 $C$ 为逐段光滑的简单闭曲线，$l$ 为给定方向，证明：
+\end{xexercise}\begin{xexercise}[3]
+求 $\displaystyle\oint_C\frac{\partial u}{\partial n}\,\dd s$，其中 $u=x^2+y^2$，$C$ 为 $x^2+y^2=6x$，$n$ 为 $C$ 上的单位外法向量。
+\end{xexercise}\begin{xexercise}[4]
+设 $C$ 为逐段光滑的简单闭曲线，$l$ 为给定方向，证明：
 \[
   \oint_C\cos(l,n)\,\dd s=0,
 \]
 其中 $n$ 为 $C$ 上的单位外法向量。
-
-5. 设 $C$ 为包围原点的逐段光滑的简单闭曲线，$a_{ij}\ (i,j=1,2)$ 均为常数，$X=a_{11}x+a_{12}y,\ Y=a_{21}x+a_{22}y$，$a_{11}a_{22}-a_{12}a_{21}\ne0$，证明：
+\end{xexercise}\begin{xexercise}[5]
+设 $C$ 为包围原点的逐段光滑的简单闭曲线，$a_{ij}\ (i,j=1,2)$ 均为常数，$X=a_{11}x+a_{12}y,\ Y=a_{21}x+a_{22}y$，$a_{11}a_{22}-a_{12}a_{21}\ne0$，证明：
 \[
   \oint_C\frac{X\,\dd Y-Y\,\dd X}{X^2+Y^2}=2\pi\operatorname{sgn}(a_{11}a_{22}-a_{12}a_{21}).
 \]
-
-6. 设 $L$ 是单位圆周 $x^2+y^2=1$，方向为逆时针，求积分
+\end{xexercise}\begin{xexercise}[6]
+设 $L$ 是单位圆周 $x^2+y^2=1$，方向为逆时针，求积分
 \[
   \oint_L\frac{(x-y)\,\dd x+(x+4y)\,\dd y}{x^2+4y^2}.
 \]
-
-7. 利用曲线积分求下述曲线所围区域的面积：
+\end{xexercise}\begin{xexercise}[7]
+利用曲线积分求下述曲线所围区域的面积：
 \begin{enumerate}[label=(\arabic*)]
   \item $x=a\cos^3t,\ y=b\sin^3t,\ 0\le t\le2\pi$；
   \item $x^3+y^3=3axy$；
   \item $\left(\dfrac xa\right)^{2n+1}+\left(\dfrac yb\right)^{2n+1}=C\left(\dfrac xa\right)^n\left(\dfrac yb\right)^n$，$a,b,C>0$，$n$ 为正整数。
 \end{enumerate}
-
-8. 先证明曲线积分与路径无关，然后计算积分值：
+\end{xexercise}\begin{xexercise}[8]
+先证明曲线积分与路径无关，然后计算积分值：
 \begin{enumerate}[label=(\arabic*)]
   \item $\displaystyle\int_{(1,2)}^{(3,4)}\varphi(x)\,\dd x+\psi(y)\,\dd y$，其中 $\varphi(x),\psi(y)$ 是连续函数；
   \item $\displaystyle\int_{(1,0)}^{(6,8)}\frac{x\,\dd x+y\,\dd y}{x^2+y^2}$，沿不通过原点的路径。
 \end{enumerate}
-
-9. 对于以下一阶微分形式 $w$，求函数 $M(x,y)\ne0$，使得在适当的区域内 $Mw$ 为全微分，并求其原函数：
+\end{xexercise}\begin{xexercise}[9]
+对于以下一阶微分形式 $w$，求函数 $M(x,y)\ne0$，使得在适当的区域内 $Mw$ 为全微分，并求其原函数：
 \begin{enumerate}[label=(\arabic*)]
   \item $w=[-y\sqrt{x^2+y^2+1}-x(x^2+y^2)]\,\dd x+[x\sqrt{x^2+y^2+1}-y(x^2+y^2)]\,\dd y$；
   \item $w=x[(ay+bx)^3+ay^3]\,\dd x+y[(ay+bx)^3+bx^3]\,\dd y$。
 \end{enumerate}
+\end{xexercise}
 
 \subsection{等周定理}
 
@@ -1241,7 +1247,8 @@ $\vect{F}$ 是 $\RR^2$ 上的 $n$ 次多项式映射。$P_n(z)$ 在复域上有�
 
 \subsubsection*{第一组参考题}
 
-1. 证明不等式
+\begin{xreferenceproblem}[1]
+证明不等式
 \[
   \abs{\int_CP(x,y)\,\dd x+Q(x,y)\,\dd y}\le ML,
 \]
@@ -1249,14 +1256,14 @@ $\vect{F}$ 是 $\RR^2$ 上的 $n$ 次多项式映射。$P_n(z)$ 在复域上有�
 \[
   I_R=\oint_{x^2+y^2=R^2}\frac{y\,\dd x-x\,\dd y}{(x^2+xy+y^2)^2}.
 \]
-
-2. 求第一型曲线积分
+\end{xreferenceproblem}\begin{xreferenceproblem}[2]
+求第一型曲线积分
 \begin{enumerate}[label=(\arabic*)]
   \item $\displaystyle\int_{x^2+y^2=R^2}\ln\sqrt{(x-a)^2+y^2}\,\dd s\quad(\abs a\ne R)$；
   \item $\displaystyle\int_{x^2+y^2=R^2}\ln\sqrt{(x-a)^2+(y-b)^2}\,\dd s\quad(a^2+b^2\ne R^2)$。
 \end{enumerate}
-
-3. 设 $f(x,y)$ 在 $L$ 上连续，$L$ 是逐段光滑的简单闭曲线，证明：
+\end{xreferenceproblem}\begin{xreferenceproblem}[3]
+设 $f(x,y)$ 在 $L$ 上连续，$L$ 是逐段光滑的简单闭曲线，证明：
 \[
   u(x,y)=\oint_Lf(\xi,\eta)\ln\sqrt{(x-\xi)^2+(y-\eta)^2}\,\dd s
 \]
@@ -1264,8 +1271,8 @@ $\vect{F}$ 是 $\RR^2$ 上的 $n$ 次多项式映射。$P_n(z)$ 在复域上有�
 \[
   \oint_Lf(\xi,\eta)\,\dd s=0.
 \]
-
-4. 设 $u(x,y)$ 在 $\RR^2$ 上连续，证明：
+\end{xreferenceproblem}\begin{xreferenceproblem}[4]
+设 $u(x,y)$ 在 $\RR^2$ 上连续，证明：
 \[
   u(x,y)=\frac1{\pi r^2}\iint_{(x-\xi)^2+(y-\eta)^2\le r^2}u(\xi,\eta)\,\dd\xi\,\dd\eta
 \]
@@ -1274,23 +1281,25 @@ $\forall r>0$ 都成立的充分必要条件是
   u(x,y)=\frac1{2\pi r}\oint_{(x-\xi)^2+(y-\eta)^2=r^2}u(\xi,\eta)\,\dd s
 \]
 $\forall r>0$ 都成立。
-
-5. 设 $f(x,y)$ 在 $G$ 上一阶连续可微，在 $\partial G$ 上 $f(x,y)=0$，$G=\{x^2+y^2\le a^2\}$。证明：
+\end{xreferenceproblem}\begin{xreferenceproblem}[5]
+设 $f(x,y)$ 在 $G$ 上一阶连续可微，在 $\partial G$ 上 $f(x,y)=0$，$G=\{x^2+y^2\le a^2\}$。证明：
 \[
   \abs{\iint_Gf(x,y)\,\dd x\,\dd y}\le\frac\pi3a^3\max_G\{(f_x^2+f_y^2)^{1/2}\}.
 \]
-
-6. 设 $P(x,y),Q(x,y)$ 在平面上有连续偏导数，而且对于以 $\forall(x_0,y_0)\in\RR^2$ 为心，以 $\forall r>0$ 为半径的上半圆 $C\colon x=x_0+r\cos\theta,y=y_0+r\sin\theta\ (0\le\theta\le\pi)$ 都有
+\end{xreferenceproblem}\begin{xreferenceproblem}[6]
+设 $P(x,y),Q(x,y)$ 在平面上有连续偏导数，而且对于以 $\forall(x_0,y_0)\in\RR^2$ 为心，以 $\forall r>0$ 为半径的上半圆 $C\colon x=x_0+r\cos\theta,y=y_0+r\sin\theta\ (0\le\theta\le\pi)$ 都有
 \[
   \int_CP(x,y)\,\dd x+Q(x,y)\,\dd y=0.
 \]
 证明：$P(x,y)=\dfrac{\partial Q}{\partial x}(x,y)=0\quad(\forall(x,y)\in\RR^2)$。
+\end{xreferenceproblem}
 
 \subsubsection*{第二组参考题}
 
-1. 给出旋转度性质 2 的一个不用曲线积分的证明。
-
-2. 证明如下形式的\textbf{高维中值定理}：设 $f(\vect{x})$ 为定义在以 $r$ 为半径的球
+\begin{xreferenceproblem}[1]
+给出旋转度性质 2 的一个不用曲线积分的证明。
+\end{xreferenceproblem}\begin{xreferenceproblem}[2]
+证明如下形式的\textbf{高维中值定理}：设 $f(\vect{x})$ 为定义在以 $r$ 为半径的球
 \[
   D=\{\vect{x}=(x_1,x_2,\ldots,x_n)\mid x_1^2+x_2^2+\cdots+x_n^2\le r^2\}
 \]
@@ -1298,18 +1307,18 @@ $\forall r>0$ 都成立。
 \[
   \max_{\vect{x}\in D}\{f(\vect{x})\}-\min_{\vect{x}\in D}\{f(\vect{x})\}=\abs{\nabla f(p_0)}\cdot2r.
 \]
-
-3. 设 $(a_1,b_1),(a_2,b_2),\ldots,(a_n,b_n)$ 是 $n$ 边形的 $n$ 个顶点，而且原点在其内部，证明：存在正实数 $x$ 和 $y$，使得
+\end{xreferenceproblem}\begin{xreferenceproblem}[3]
+设 $(a_1,b_1),(a_2,b_2),\ldots,(a_n,b_n)$ 是 $n$ 边形的 $n$ 个顶点，而且原点在其内部，证明：存在正实数 $x$ 和 $y$，使得
 \[
   (a_1,b_1)x^{a_1}y^{b_1}+(a_2,b_2)x^{a_2}y^{b_2}+\cdots+(a_n,b_n)x^{a_n}y^{b_n}=(0,0).
 \]
-
-4. 设 $D$ 是半径为 $r$ 的一个圆所围成的平面区域，对 $D$ 内的点 $(x,y)$，用 $l(x,y)$ 表示以 $(x,y)$ 为圆心，$\delta$ 为半径的圆在 $D$ 外边的那段弧的长度。试求
+\end{xreferenceproblem}\begin{xreferenceproblem}[4]
+设 $D$ 是半径为 $r$ 的一个圆所围成的平面区域，对 $D$ 内的点 $(x,y)$，用 $l(x,y)$ 表示以 $(x,y)$ 为圆心，$\delta$ 为半径的圆在 $D$ 外边的那段弧的长度。试求
 \[
   \lim_{\delta\to0}\frac1{\delta^2}\iint_Dl(x,y)\,\dd x\,\dd y.
 \]
-
-5. 设 $B$ 是 $\RR^2$ 中的单位圆盘，$C$ 是单位圆周。$g\colon B\to\RR^2\setminus\{0\}$ 是二阶连续可微映射。
+\end{xreferenceproblem}\begin{xreferenceproblem}[5]
+设 $B$ 是 $\RR^2$ 中的单位圆盘，$C$ 是单位圆周。$g\colon B\to\RR^2\setminus\{0\}$ 是二阶连续可微映射。
 \begin{enumerate}[label=(\arabic*)]
   \item 用 Green 公式把 $\displaystyle\iint_B\frac{\partial(g_1,g_2)}{\partial(x_1,x_2)}\,\dd x_1\,\dd x_2$ 表示成 $C$ 上的第二型曲线积分；
   \item 如果 $g$ 在 $C$ 上的限制是恒等映射，即 $g(x)=x,\ \forall x\in C$，证明：
@@ -1334,3 +1343,4 @@ $\forall r>0$ 都成立。
   \item 证明 (1) 中的 $g$ 满足 $g(x)=x,\ x\in C$ 及 $g(B)\subset C$；
   \item 结合上题证明满足 (1) 的 $f$ 是不存在的，即若 $f\colon B\to B$ 是二阶连续可微映射时，则 $\exists\xi\in B$，使 $f(\xi)=\xi$。我们得到了 Brouwer 不动点定理的另一个证明。你能否举几个运用 Brouwer 不动点定理的实际例子。
 \end{enumerate}
+\end{xreferenceproblem}

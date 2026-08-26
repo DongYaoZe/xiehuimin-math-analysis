@@ -295,31 +295,41 @@ $\left\{(1+x^2/n)^{-n}\right\}$ 单调减少收敛于极限函数 $\ee^{-x^2}$�
 
 \subsection{练习题}
 
-\begin{xexercise}
-\begin{enumerate}[label=\arabic*.]
-\item （广义积分的控制收敛定理）设函数列 $\{S_n(x)\}$ 在 $(-\infty,+\infty)$ 上内闭可积，且内闭一致收敛于函数 $S$，如果存在函数 $F$，使 $|S_n(x)|\leqslant F(x)$ 对于每个 $n$ 和每个 $x$ 都成立，且广义积分 $\int_{-\infty}^{+\infty}F(x)\,\dd x$ 收敛，证明：
+\begin{xexercise}[1]
+（广义积分的控制收敛定理）设函数列 $\{S_n(x)\}$ 在 $(-\infty,+\infty)$ 上内闭可积，且内闭一致收敛于函数 $S$，如果存在函数 $F$，使 $|S_n(x)|\leqslant F(x)$ 对于每个 $n$ 和每个 $x$ 都成立，且广义积分 $\int_{-\infty}^{+\infty}F(x)\,\dd x$ 收敛，证明：
 \[
   \lim_{n\to\infty}\int_{-\infty}^{+\infty}S_n(x)\,\dd x
   =\int_{-\infty}^{+\infty}S(x)\,\dd x.
 \]
-\item 设 $\sum_{n=0}^{\infty}a_nx^n$ 的系数均非负，收敛半径为 $+\infty$，和函数为 $S(x)$。证明：如果 $\sum_{n=0}^{\infty}a_nn!$ 收敛，则广义积分 $\int_0^{+\infty}\ee^{-x}S(x)\,\dd x$ 也收敛，且等于 $\sum_{n=0}^{\infty}a_nn!$。
+\end{xexercise}
+
+\begin{xexercise}[2]
+设 $\sum_{n=0}^{\infty}a_nx^n$ 的系数均非负，收敛半径为 $+\infty$，和函数为 $S(x)$。证明：如果 $\sum_{n=0}^{\infty}a_nn!$ 收敛，则广义积分 $\int_0^{+\infty}\ee^{-x}S(x)\,\dd x$ 也收敛，且等于 $\sum_{n=0}^{\infty}a_nn!$。
 
 （去掉系数非负条件后本题结论仍成立，这时可以利用命题 16.1.2 后的注。）
-\item 证明下列结果：
+\end{xexercise}
+
+\begin{xexercise}[3]
+证明下列结果：
 \begin{enumerate}[label=(\arabic*)]
 \item $\displaystyle \int_0^1\frac{\ln(1-x)}x\,\dd x=-\sum_{n=1}^{\infty}\frac1{n^2}$；
 \item $\displaystyle \int_0^1\frac{\ln x}{1-x^2}\,\dd x=-\frac{\pi^2}{8}$；
 \item $\displaystyle \int_0^1\ln x\ln(1-x)\,\dd x=2-\frac{\pi^2}{6}$；
 \item $\displaystyle \int_0^{+\infty}\frac{x}{\ee^x-\ee^{-x}}\,\dd x=\frac{\pi^2}{8}$。
 \end{enumerate}
-\item 证明：$\displaystyle \int_0^1x^{-x}\,\dd x=\sum_{n=1}^{\infty}n^{-n}$。
-\item 证明：
+\end{xexercise}
+
+\begin{xexercise}[4]
+证明：$\displaystyle \int_0^1x^{-x}\,\dd x=\sum_{n=1}^{\infty}n^{-n}$。
+\end{xexercise}
+
+\begin{xexercise}[5]
+证明：
 \[
   \int_0^{+\infty}x\ee^{-x^2/2}
   \left(1+\frac{x^2}{2^2}+\frac{x^4}{2^2 4^2}+\cdots
   +\frac{x^{2n}}{[(2n)!!]^2}+\cdots\right)\dd x=\ee^{1/2}.
 \]
-\end{enumerate}
 \end{xexercise}
 
 \section{级数求和计算}
@@ -726,38 +736,81 @@ Abel 方法也有可能解决某些函数项级数的求和问题。
 
 \subsection{练习题}
 
-\begin{xexercise}
-\begin{enumerate}[label=\arabic*.]
-\item 设已知 $\sum_{n=1}^{\infty}(-1)^{n-1}a_n=A$，$\sum_{n=1}^{\infty}a_{2n-1}=B$，证明：$\sum_{n=1}^{\infty}a_n$ 收敛并求其和。
-\item 设 $P(x)=a_0+a_1x+\cdots+a_mx^m$ 为 $m$ 次多项式，求级数 $\sum_{n=0}^{\infty}P(n)/n!$ 的和。
-\item 求 $\displaystyle 1-\frac{2^3}{1!}+\frac{3^3}{2!}-\frac{4^3}{3!}+\cdots$ 的和。
-\item 求下列级数和：
+\begin{xexercise}[1]
+设已知 $\sum_{n=1}^{\infty}(-1)^{n-1}a_n=A$，$\sum_{n=1}^{\infty}a_{2n-1}=B$，证明：$\sum_{n=1}^{\infty}a_n$ 收敛并求其和。
+\end{xexercise}
+
+\begin{xexercise}[2]
+设 $P(x)=a_0+a_1x+\cdots+a_mx^m$ 为 $m$ 次多项式，求级数 $\sum_{n=0}^{\infty}P(n)/n!$ 的和。
+\end{xexercise}
+
+\begin{xexercise}[3]
+求 $\displaystyle 1-\frac{2^3}{1!}+\frac{3^3}{2!}-\frac{4^3}{3!}+\cdots$ 的和。
+\end{xexercise}
+
+\begin{xexercise}[4]
+求下列级数和：
 \begin{enumerate}[label=(\arabic*)]
 \item $\displaystyle\sum_{n=1}^{\infty}\arctan\frac1{2n^2}$；
 \item $\displaystyle\sum_{n=1}^{\infty}\arctan\frac2{n^2}$。
 \end{enumerate}
-\item 设 $a>1$，求 $\displaystyle\sum_{n=0}^{\infty}\frac{2^n}{a^{2^n}+1}$ 的和。
-\item 求 $\displaystyle 1+\frac13-\frac15-\frac17+\frac19+\frac1{11}-\cdots$ 的和。
-\item 求 $\displaystyle 1-\frac17+\frac19-\frac1{15}+\frac1{17}-\frac1{23}+\cdots$ 的和。
-\item 求 $\displaystyle 1-\frac14+\frac17-\frac1{10}+\cdots$ 的和。
-\item 设 $a_n=1+\frac12+\cdots+\frac1n$，$n=1,2,\ldots$，求 $\displaystyle\sum_{n=1}^{\infty}\frac{a_n}{n(n+1)}$ 的和。
-\item 求 $\displaystyle\sum_{n=0}^{\infty}\left(\frac1{4n+1}+\frac1{4n+3}-\frac1{2n+2}\right)$ 的和。
-\item 求 $\displaystyle 1-\frac14+\frac16-\frac19+\frac1{11}-\frac1{14}+\cdots$ 的和。
-\item 求 $\displaystyle \frac{x^3}{3!}+\frac{x^9}{9!}+\frac{x^{15}}{15!}+\cdots$ 的和函数。
-\item 求 $\displaystyle\sum_{n=1}^{\infty}\frac{[(n-1)!!]^2}{(2n)!}(2x)^{2n}$ 的和函数。
-\item 求 $\displaystyle\sum_{n=1}^{\infty}\frac{x^{n+1}}{(1-x^n)(1-x^{n+1})}$ 的和函数。
-\item 设 $\sum_{n=1}^{\infty}1/a_n$ 为发散的正项级数，$x>0$，求
+\end{xexercise}
+
+\begin{xexercise}[5]
+设 $a>1$，求 $\displaystyle\sum_{n=0}^{\infty}\frac{2^n}{a^{2^n}+1}$ 的和。
+\end{xexercise}
+
+\begin{xexercise}[6]
+求 $\displaystyle 1+\frac13-\frac15-\frac17+\frac19+\frac1{11}-\cdots$ 的和。
+\end{xexercise}
+
+\begin{xexercise}[7]
+求 $\displaystyle 1-\frac17+\frac19-\frac1{15}+\frac1{17}-\frac1{23}+\cdots$ 的和。
+\end{xexercise}
+
+\begin{xexercise}[8]
+求 $\displaystyle 1-\frac14+\frac17-\frac1{10}+\cdots$ 的和。
+\end{xexercise}
+
+\begin{xexercise}[9]
+设 $a_n=1+\frac12+\cdots+\frac1n$，$n=1,2,\ldots$，求 $\displaystyle\sum_{n=1}^{\infty}\frac{a_n}{n(n+1)}$ 的和。
+\end{xexercise}
+
+\begin{xexercise}[10]
+求 $\displaystyle\sum_{n=0}^{\infty}\left(\frac1{4n+1}+\frac1{4n+3}-\frac1{2n+2}\right)$ 的和。
+\end{xexercise}
+
+\begin{xexercise}[11]
+求 $\displaystyle 1-\frac14+\frac16-\frac19+\frac1{11}-\frac1{14}+\cdots$ 的和。
+\end{xexercise}
+
+\begin{xexercise}[12]
+求 $\displaystyle \frac{x^3}{3!}+\frac{x^9}{9!}+\frac{x^{15}}{15!}+\cdots$ 的和函数。
+\end{xexercise}
+
+\begin{xexercise}[13]
+求 $\displaystyle\sum_{n=1}^{\infty}\frac{[(n-1)!!]^2}{(2n)!}(2x)^{2n}$ 的和函数。
+\end{xexercise}
+
+\begin{xexercise}[14]
+求 $\displaystyle\sum_{n=1}^{\infty}\frac{x^{n+1}}{(1-x^n)(1-x^{n+1})}$ 的和函数。
+\end{xexercise}
+
+\begin{xexercise}[15]
+设 $\sum_{n=1}^{\infty}1/a_n$ 为发散的正项级数，$x>0$，求
 \[
   \sum_{n=1}^{\infty}\frac{a_1a_2\cdots a_n}{(a_2+x)(a_3+x)\cdots(a_{n+1}+x)}
 \]
 的和函数。
-\item 设 $x>1$，求
+\end{xexercise}
+
+\begin{xexercise}[16]
+设 $x>1$，求
 \[
   \frac{x}{x+1}+\frac{x^2}{(x+1)(x^2+1)}
   +\frac{x^4}{(x+1)(x^2+1)(x^4+1)}+\cdots
 \]
 的和函数。
-\end{enumerate}
 \end{xexercise}
 
 \section{连续函数的逼近定理}
@@ -1267,10 +1320,12 @@ Weierstrass 逼近定理的证法很多，在这里我们将浏览一下其他�
 
 \subsection{练习题}
 
-\begin{xexercise}
-\begin{enumerate}[label=\arabic*.]
-\item 设 $f$ 在 $[a,b]$ 上有定义，且对每个 $\varepsilon>0$，存在多项式 $P$，使得满足条件 $|f(x)-P(x)|<\varepsilon,\ \forall x\in[a,b]$，证明：$f\in C[a,b]$。
-\item 设 $f\in C[a,b]$，证明：
+\begin{xexercise}[1]
+设 $f$ 在 $[a,b]$ 上有定义，且对每个 $\varepsilon>0$，存在多项式 $P$，使得满足条件 $|f(x)-P(x)|<\varepsilon,\ \forall x\in[a,b]$，证明：$f\in C[a,b]$。
+\end{xexercise}
+
+\begin{xexercise}[2]
+设 $f\in C[a,b]$，证明：
 \begin{enumerate}[label=(\arabic*)]
 \item $f$ 可以在 $[a,b]$ 上展开为一致收敛的多项式级数，且在级数中除第一项之外均为在 $[a,b]$ 上非负的多项式；
 \item $f$ 可以在 $[a,b]$ 上展开为绝对一致收敛的多项式级数；
@@ -1280,21 +1335,37 @@ Weierstrass 逼近定理的证法很多，在这里我们将浏览一下其他�
   \qquad \forall n=1,2,\ldots.
 \]
 \end{enumerate}
-\item 设 $f\in R[a,b]$，则对于每个 $\varepsilon>0$，存在两个多项式 $p(x)$ 和 $P(x)$，使得满足条件：
+\end{xexercise}
+
+\begin{xexercise}[3]
+设 $f\in R[a,b]$，则对于每个 $\varepsilon>0$，存在两个多项式 $p(x)$ 和 $P(x)$，使得满足条件：
 \begin{enumerate}[label=(\arabic*)]
 \item $p(x)\leqslant f(x)\leqslant P(x),\ \forall x\in[a,b]$；
 \item $\displaystyle\int_a^b[P(x)-p(x)]\,\dd x<\varepsilon$。
 \end{enumerate}
-\item 设 $f\in C[a,b]$，且对每个非负整数 $n$ 满足条件 $\int_a^b x^nf(x)\,\dd x=0$，证明：$f$ 为恒等于 0 的常值函数。又若条件改为对于大于某个正整数 $n_0$ 的所有 $n$ 成立，则也有相同结论。
-\item
+\end{xexercise}
+
+\begin{xexercise}[4]
+设 $f\in C[a,b]$，且对每个非负整数 $n$ 满足条件 $\int_a^b x^nf(x)\,\dd x=0$，证明：$f$ 为恒等于 0 的常值函数。又若条件改为对于大于某个正整数 $n_0$ 的所有 $n$ 成立，则也有相同结论。
+\end{xexercise}
+
+\begin{xexercise}[5]
 \begin{enumerate}[label=(\arabic*)]
 \item 设 $f\in C[-1,1]$，且对每个非负整数 $n$ 满足条件 $\int_{-1}^1x^{2n}f(x)\,\dd x=0$，则 $f$ 必为奇函数；
 \item 设 $f\in C[-1,1]$，且对每个非负整数 $n$ 满足条件 $\int_{-1}^1x^{2n+1}f(x)\,\dd x=0$，则 $f$ 必为偶函数。
 \end{enumerate}
-\item 设 $f\in C[0,1]$，证明：存在每项为奇次项的多项式序列在 $[0,1]$ 上一致收敛于 $f$ 的充分必要条件为 $f(0)=0$。
-\item 设 $f\in R[a,b]$，且对每个非负整数 $n$ 满足条件 $\int_a^b x^nf(x)\,\dd x=0$，证明：$f$ 在每个连续点上等于 0。
-\item 设函数 $f$ 在区间 $(-\infty,+\infty)$ 上可以展开为一致收敛的多项式级数，证明：$f$ 本身必是多项式。（这断定了 Weierstrass 定理不可能不作改变而推广到无限区间上去。）
-\end{enumerate}
+\end{xexercise}
+
+\begin{xexercise}[6]
+设 $f\in C[0,1]$，证明：存在每项为奇次项的多项式序列在 $[0,1]$ 上一致收敛于 $f$ 的充分必要条件为 $f(0)=0$。
+\end{xexercise}
+
+\begin{xexercise}[7]
+设 $f\in R[a,b]$，且对每个非负整数 $n$ 满足条件 $\int_a^b x^nf(x)\,\dd x=0$，证明：$f$ 在每个连续点上等于 0。
+\end{xexercise}
+
+\begin{xexercise}[8]
+设函数 $f$ 在区间 $(-\infty,+\infty)$ 上可以展开为一致收敛的多项式级数，证明：$f$ 本身必是多项式。（这断定了 Weierstrass 定理不可能不作改变而推广到无限区间上去。）
 \end{xexercise}
 
 \section{用级数构造函数}
@@ -1453,32 +1524,49 @@ Cantor 首先证明：直线上的所有点全体和平面上的所有点全体�
 
 \subsection{参考题}
 
-\begin{xreferenceproblem}
-\begin{enumerate}[label=\arabic*.]
-\item 求下列级数之和：
+\begin{xreferenceproblem}[1]
+求下列级数之和：
 \begin{enumerate}[label=(\arabic*)]
 \item $\displaystyle\frac1{1\cdot2\cdot3}+\frac1{3\cdot4\cdot5}+\frac1{5\cdot6\cdot7}+\cdots$；
 \item $\displaystyle\frac1{2\cdot3\cdot4}+\frac1{4\cdot5\cdot6}+\frac1{6\cdot7\cdot8}+\cdots$；
 \item $\displaystyle\frac1{1\cdot2\cdot3\cdot4}+\frac1{4\cdot5\cdot6\cdot7}+\frac1{7\cdot8\cdot9\cdot10}+\cdots$。
 \end{enumerate}
-\item 求 Leibniz 型级数 $\displaystyle\sum_{n=1}^{\infty}(-1)^{n-1}\frac{\ln n}{n}$ 之和。
-\item 证明：
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[2]
+求 Leibniz 型级数 $\displaystyle\sum_{n=1}^{\infty}(-1)^{n-1}\frac{\ln n}{n}$ 之和。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[3]
+证明：
 \[
   \sum_{m=1}^{\infty}\sum_{\substack{n=1\\n\ne m}}^{\infty}\frac1{m^2-n^2}=-\frac{\pi^2}{8}.
 \]
-\item （Goldbach 哥德巴赫）设 $q$ 取遍所有大于 1 的正整数的乘幂，且其指数均大于 1，证明：
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[4]
+（Goldbach 哥德巴赫）设 $q$ 取遍所有大于 1 的正整数的乘幂，且其指数均大于 1，证明：
 \[
   \sum_q\frac1{q-1}=1.
 \]
-\item 设 $a_1=2,a_2=8,a_n=4a_{n-1}-a_{n-2},\ n=3,4,5,\ldots$，证明：
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[5]
+设 $a_1=2,a_2=8,a_n=4a_{n-1}-a_{n-2},\ n=3,4,5,\ldots$，证明：
 \[
   \sum_{n=1}^{\infty}\operatorname{arccot}a_n^2=\frac\pi{12}.
 \]
-\item 证明：
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[6]
+证明：
 \[
   \pi=\sum_{n=0}^{\infty}\frac{(n!)^2 2^{2n+1}}{(2n+1)!}.
 \]
-\item 设 $\{g_n\}$ 是 $[0,1]$ 上非负连续函数列，且对每个 $x^k\ (k=0,1,\ldots)$ 存在极限
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[7]
+设 $\{g_n\}$ 是 $[0,1]$ 上非负连续函数列，且对每个 $x^k\ (k=0,1,\ldots)$ 存在极限
 \[
   \lim_{n\to\infty}\int_0^1x^kg_n(x)\,\dd x,
 \]
@@ -1486,9 +1574,18 @@ Cantor 首先证明：直线上的所有点全体和平面上的所有点全体�
 \[
   \lim_{n\to\infty}\int_0^1f(x)g_n(x)\,\dd x.
 \]
-\item 设 $f$ 在 $[a,b]$ 上有界且有原函数，$g\in C[a,b]$，证明：$f\cdot g$ 在 $[a,b]$ 上有原函数。
-\item 设 $f$ 在 $[a,b]$ 上有界且有原函数，$g\in C^1[0,1]$ 且 $g'(x)>0$，证明：复合函数 $f\circ g$ 在 $[0,1]$ 上有原函数。
-\item 题 8 中 $f$ 有界的条件不可去掉（见 [62] 的第二册 340 页）。在 $[0,1]$ 上定义
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[8]
+设 $f$ 在 $[a,b]$ 上有界且有原函数，$g\in C[a,b]$，证明：$f\cdot g$ 在 $[a,b]$ 上有原函数。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[9]
+设 $f$ 在 $[a,b]$ 上有界且有原函数，$g\in C^1[0,1]$ 且 $g'(x)>0$，证明：复合函数 $f\circ g$ 在 $[0,1]$ 上有原函数。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[10]
+题 8 中 $f$ 有界的条件不可去掉（见 [62] 的第二册 340 页）。在 $[0,1]$ 上定义
 \[
   f(x)=
   \begin{cases}
@@ -1503,16 +1600,28 @@ Cantor 首先证明：直线上的所有点全体和平面上的所有点全体�
   \end{cases}
 \]
 验证它们满足题 8 中除 $f$ 有界的所有条件，但 $f\cdot g$ 在 $[0,1]$ 上无原函数。
-\item 设函数 $f$ 在有界开区间 $(a,b)$ 上可以展开为一致收敛的多项式级数，证明：$f$ 必在 $(a,b)$ 上一致连续。
-\item 设 $f\in C[1,+\infty),\ f(+\infty)=A$，则对于每个 $\varepsilon>0$，存在多项式 $P$，使得
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[11]
+设函数 $f$ 在有界开区间 $(a,b)$ 上可以展开为一致收敛的多项式级数，证明：$f$ 必在 $(a,b)$ 上一致连续。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[12]
+设 $f\in C[1,+\infty),\ f(+\infty)=A$，则对于每个 $\varepsilon>0$，存在多项式 $P$，使得
 \[
   \left|f(x)-P\left(\frac1x\right)\right|<\varepsilon,\qquad x\in[1,+\infty).
 \]
-\item 设 $f\in C[0,+\infty),\ f(+\infty)=A$，则对于每个 $\varepsilon>0$，存在多项式 $P$，使得
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[13]
+设 $f\in C[0,+\infty),\ f(+\infty)=A$，则对于每个 $\varepsilon>0$，存在多项式 $P$，使得
 \[
   |f(x)-P(\ee^{-x})|<\varepsilon,\qquad x\in(0,+\infty).
 \]
-\item （处处连续处处不可导的函数）将 $(0,1)$ 中的数 $x$ 按照十进制小数展开为
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[14]
+（处处连续处处不可导的函数）将 $(0,1)$ 中的数 $x$ 按照十进制小数展开为
 \[
   x=\sum_{k=1}^{\infty}\frac{x_k}{10^k},
 \]
@@ -1531,8 +1640,14 @@ Cantor 首先证明：直线上的所有点全体和平面上的所有点全体�
 证明：$f$ 于 $(0,1)$ 内处处连续，但处处不可微。
 
 （本例见《美国数学月刊》(1952) 第 59 卷 222--225 页，又见 [29]。）
-\item 设对每个正整数 $n$，$u_n(x)$ 是区间 $[0,1]$ 上的非负单调增加函数且级数 $\sum_{n=1}^{\infty}u_n(1)$ 收敛。令 $S(x)=\sum_{n=1}^{\infty}u_n(x)$，则 $S(x)$ 的不连续点集等于所有 $u_n(x)$ 的不连续点集之并。
-\item （有稠密间断点的单调函数）设数列 $\{x_n\}$ 是 $(0,1)$ 内的有理数全体，又任取一个收敛的正项级数 $\sum_{n=1}^{\infty}a_n$，其中要求每个 $a_n>0$。然后对每个正整数 $n$ 定义
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[15]
+设对每个正整数 $n$，$u_n(x)$ 是区间 $[0,1]$ 上的非负单调增加函数且级数 $\sum_{n=1}^{\infty}u_n(1)$ 收敛。令 $S(x)=\sum_{n=1}^{\infty}u_n(x)$，则 $S(x)$ 的不连续点集等于所有 $u_n(x)$ 的不连续点集之并。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[16]
+（有稠密间断点的单调函数）设数列 $\{x_n\}$ 是 $(0,1)$ 内的有理数全体，又任取一个收敛的正项级数 $\sum_{n=1}^{\infty}a_n$，其中要求每个 $a_n>0$。然后对每个正整数 $n$ 定义
 \[
   u_n(x)=
   \begin{cases}
@@ -1541,7 +1656,10 @@ Cantor 首先证明：直线上的所有点全体和平面上的所有点全体�
   \end{cases}
 \]
 然后定义 $f(x)=\sum_{n=1}^{\infty}u_n(x),\ 0<x<1$，并补充定义 $f(0)=-1,\ f(1)=1+\sum_{n=1}^{\infty}a_n$。证明：$f$ 是在 $[0,1]$ 上以所有有理点为其间断点的单调函数。
-\item （有稠密间断点的导函数）已知函数
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[17]
+（有稠密间断点的导函数）已知函数
 \[
   f(x)=
   \begin{cases}
@@ -1554,5 +1672,4 @@ Cantor 首先证明：直线上的所有点全体和平面上的所有点全体�
   \sum_{n=1}^{\infty}\frac{f(x-r_n)}{2^n},
 \]
 将其和函数记为 $F$，用逐项微分定理求出导函数 $F'$，并证明：$F'$ 在 $(0,1)$ 内以每个 $r_n$ 为其第二类间断点，而在其他点上连续。
-\end{enumerate}
 \end{xreferenceproblem}

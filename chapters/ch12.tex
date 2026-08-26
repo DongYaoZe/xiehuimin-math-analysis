@@ -130,29 +130,42 @@
 
 \subsection{练习题}
 
-\begin{xexercise}
-\begin{enumerate}
-  \item 设 $f$ 在 $[0,+\infty)$ 上非负连续，且积分 $\int_0^{+\infty}f=0$，证明：$f\equiv0$。
-  \item 如果广义积分 $\int_a^b f^2$ 收敛，则称 $f$ 在 $[a,b]$ 上平方可积。分无穷限积分与无界积分两种情况讨论广义积分的平方可积性与绝对可积性之间的关系。
-  \item 设 $f\in C(0,1]$，$f(0+)=+\infty$，定义函数 $f_n(x)=\min\{f(x),n\}$，$0<x\leq1$，$n\in\NN_+$。证明：广义积分 $\int_0^1f$ 收敛的充分必要条件是存在有限极限
+\begin{xexercise}[1]
+设 $f$ 在 $[0,+\infty)$ 上非负连续，且积分 $\int_0^{+\infty}f=0$，证明：$f\equiv0$。
+\end{xexercise}
+
+\begin{xexercise}[2]
+如果广义积分 $\int_a^b f^2$ 收敛，则称 $f$ 在 $[a,b]$ 上平方可积。分无穷限积分与无界积分两种情况讨论广义积分的平方可积性与绝对可积性之间的关系。
+\end{xexercise}
+
+\begin{xexercise}[3]
+设 $f\in C(0,1]$，$f(0+)=+\infty$，定义函数 $f_n(x)=\min\{f(x),n\}$，$0<x\leq1$，$n\in\NN_+$。证明：广义积分 $\int_0^1f$ 收敛的充分必要条件是存在有限极限
   \[
     \lim_{n\to\infty}\int_0^1 f_n(x)\,\dd x.
   \]
-  \item 设 $f$ 在 $(-\infty,+\infty)$ 上内闭可积，$\int_{-\infty}^{+\infty}f^2$ 收敛，证明：对于任何实数 $a$，下列广义积分也收敛：
+\end{xexercise}
+
+\begin{xexercise}[4]
+设 $f$ 在 $(-\infty,+\infty)$ 上内闭可积，$\int_{-\infty}^{+\infty}f^2$ 收敛，证明：对于任何实数 $a$，下列广义积分也收敛：
   \[
     \int_{-\infty}^{+\infty}\abs{f(x)f(x+a)}\,\dd x.
   \]
-  \item 设 $f$ 在 $(-\infty,+\infty)$ 上内闭可积，并且 $\lim_{x\to+\infty}f(x)=A$，$\lim_{x\to-\infty}f(x)=B$ 都存在且有限。证明：对任意实数 $a>0$，广义积分
+\end{xexercise}
+
+\begin{xexercise}[5]
+设 $f$ 在 $(-\infty,+\infty)$ 上内闭可积，并且 $\lim_{x\to+\infty}f(x)=A$，$\lim_{x\to-\infty}f(x)=B$ 都存在且有限。证明：对任意实数 $a>0$，广义积分
   \[
     \int_{-\infty}^{+\infty}[f(x+a)-f(x)]\,\dd x
   \]
   收敛，并求它的值。
-  \item 找出以下广义积分计算中的错误，说明理由，并计算其主值。在积分
+\end{xexercise}
+
+\begin{xexercise}[6]
+找出以下广义积分计算中的错误，说明理由，并计算其主值。在积分
   \[
     \int_{-\frac12}^{\frac12}\frac{\dd x}{x\sqrt{1-x^2}}
   \]
   中，由于被积函数是奇函数，积分区间关于原点对称，从而所求积分为 0。
-\end{enumerate}
 \end{xexercise}
 
 \section{广义积分的敛散性判别法}
@@ -526,9 +539,8 @@
 
 \subsection{练习题}
 
-\begin{xexercise}
-\begin{enumerate}
-  \item 讨论下列广义积分的敛散性，若是收敛，还要讨论是条件收敛还是绝对收敛：
+\begin{xexercise}[1]
+讨论下列广义积分的敛散性，若是收敛，还要讨论是条件收敛还是绝对收敛：
   \begin{enumerate}[label=(\arabic*)]
     \item $\displaystyle\int_0^{+\infty}x\sin^4x\,\dd x$；
     \item $\displaystyle\int_3^{+\infty}\frac{\ln\ln x}{\ln x}\sin x\,\dd x$；
@@ -539,8 +551,10 @@
     \item $\displaystyle\int_0^{+\infty}\left[\frac1{\sqrt{x}}-\sqrt{\ln\left(1+\frac1x\right)}\right]\,\dd x$；
     \item $\displaystyle\int_0^{+\infty}\frac{\sin x}{\sqrt{x+\cos x}}\,\dd x$。
   \end{enumerate}
+\end{xexercise}
 
-  \item 对于以下含有参数的广义积分，确定出使积分绝对收敛、条件收敛和发散的参数范围：
+\begin{xexercise}[2]
+对于以下含有参数的广义积分，确定出使积分绝对收敛、条件收敛和发散的参数范围：
   \begin{enumerate}[label=(\arabic*)]
     \item $\displaystyle\int_0^{\pi/2}\frac{\dd x}{\sin^p x\cos^q x}$；
     \item $\displaystyle\int_0^{+\infty}\frac{\cos x}{1+x^p}\,\dd x\quad(p>0)$；
@@ -551,47 +565,62 @@
     \item $\displaystyle\int_0^{+\infty}\frac{\ee^{\sin x}\sin2x}{x^p}\,\dd x$；
     \item $\displaystyle\int_{\ee}^{+\infty}\frac{\dd x}{(x-\ee)^p(\ln\ln x)^q}$。
   \end{enumerate}
+\end{xexercise}
 
-  \item 设 $a_1,\ldots,a_n$ 为互不相同的实数，$p_1,\ldots,p_n>0$，讨论广义积分
+\begin{xexercise}[3]
+设 $a_1,\ldots,a_n$ 为互不相同的实数，$p_1,\ldots,p_n>0$，讨论广义积分
   \[
     \int_{-\infty}^{+\infty}\frac{\dd x}{\abs{x-a_1}^{p_1}\abs{x-a_2}^{p_2}\cdots\abs{x-a_n}^{p_n}}
   \]
   的敛散性。
+\end{xexercise}
 
-  \item 讨论广义积分
+\begin{xexercise}[4]
+讨论广义积分
   \[
     \int_0^{+\infty}\left[\ln\left(1+\frac1x\right)-\frac1{1+x}\right]\,\dd x
   \]
   的敛散性。
+\end{xexercise}
 
-  \item 判别广义积分
+\begin{xexercise}[5]
+判别广义积分
   \[
     \int_0^{+\infty}\frac{x\,\dd x}{1+x^4\sin^2x}
   \]
   的敛散性。
+\end{xexercise}
 
-  \item 求函数
+\begin{xexercise}[6]
+求函数
   \[
     F(x)=\int_0^{+\infty}\abs*{t^2-\frac1{t^2}}^x\,\dd t
   \]
   的定义域。
+\end{xexercise}
 
-  \item 设 $f'\in C[0,1]$ 且 $f'(x)$ 处处大于 0，证明：广义积分
+\begin{xexercise}[7]
+设 $f'\in C[0,1]$ 且 $f'(x)$ 处处大于 0，证明：广义积分
   \[
     \int_0^1\frac{f(x)-f(0)}{x^p}\,\dd x
   \]
   在 $p<2$ 时收敛，$p\geq2$ 时发散。
+\end{xexercise}
 
-  \item 设 $\int_a^{+\infty}f$ 为条件收敛，证明：
+\begin{xexercise}[8]
+设 $\int_a^{+\infty}f$ 为条件收敛，证明：
   \begin{enumerate}[label=(\arabic*)]
     \item 广义积分 $\int_a^{+\infty}(\abs{f}\pm f)$ 发散；
     \item $\displaystyle\lim_{x\to+\infty}\frac{\int_a^x(\abs{f}+f)}{\int_a^x(\abs{f}-f)}=1$。
   \end{enumerate}
+\end{xexercise}
 
-  \item 设 $f\in C^1[a,+\infty)$ 单调，且 $f(+\infty)=0$，证明：$\int_a^{+\infty}f'(x)\sin^2x\,\dd x$ 收敛。
+\begin{xexercise}[9]
+设 $f\in C^1[a,+\infty)$ 单调，且 $f(+\infty)=0$，证明：$\int_a^{+\infty}f'(x)\sin^2x\,\dd x$ 收敛。
+\end{xexercise}
 
-  \item 设 $f,g\in C^1[a,+\infty)$，$f'(x)$ 非负，$f(+\infty)=0$，且 $g(x)$ 在 $[a,+\infty)$ 上有界，证明：$\int_a^{+\infty}f(x)g'(x)\,\dd x$ 收敛。
-\end{enumerate}
+\begin{xexercise}[10]
+设 $f,g\in C^1[a,+\infty)$，$f'(x)$ 非负，$f(+\infty)=0$，且 $g(x)$ 在 $[a,+\infty)$ 上有界，证明：$\int_a^{+\infty}f(x)g'(x)\,\dd x$ 收敛。
 \end{xexercise}
 
 \section{广义积分的计算}
@@ -844,15 +873,16 @@
 
 \subsection{练习题}
 
-\begin{xexercise}
-\begin{enumerate}
-  \item 根据例题 12.3.1 的注，
+\begin{xexercise}[1]
+根据例题 12.3.1 的注，
   \begin{enumerate}[label=(\arabic*)]
     \item 写出命题 10.4.5 在广义积分情况下的推广，并作出证明；
     \item 推广该例题，也就是说当 $f$ 在区间 $[0,+\infty)$ 上满足什么条件时，可以利用类似的方法，或命题 10.4.5 的推广形式，证明 $f$ 在这个区间上的广义积分等于 0。
   \end{enumerate}
+\end{xexercise}
 
-  \item 计算下列广义积分：
+\begin{xexercise}[2]
+计算下列广义积分：
   \begin{enumerate}[label=(\arabic*)]
     \item $\displaystyle\int_0^{+\infty}\ee^{-x}\abs{\sin x}\,\dd x$；
     \item $\displaystyle\int_1^{+\infty}\frac{\dd x}{\ee^{x+1}+\ee^{3-x}}$；
@@ -863,8 +893,10 @@
     \item $\displaystyle\int_0^{+\infty}\frac{\ln x}{(x^2+1)(x^2+4)}\,\dd x$；
     \item $\displaystyle\int_{-1}^1\frac{\dd}{\dd x}\left(\frac1{1+2^{1/x}}\right)\,\dd x$。
   \end{enumerate}
+\end{xexercise}
 
-  \item 利用 Euler 积分（例题 12.3.4）计算下列积分：
+\begin{xexercise}[3]
+利用 Euler 积分（例题 12.3.4）计算下列积分：
   \begin{enumerate}[label=(\arabic*)]
     \item $\displaystyle\int_0^{\pi/2}\ln\tan x\,\dd x$；
     \item $\displaystyle\int_0^1\frac{\ln x}{\sqrt{1-x^2}}\,\dd x$；
@@ -875,8 +907,10 @@
     \item $\displaystyle\int_0^{+\infty}\frac{x}{\sqrt{\ee^{2x}-1}}\,\dd x$；
     \item $\displaystyle\int_0^{\pi/2}\ln\abs{\sin^2x-a^2}\,\dd x\quad(a^2\leq1)$。
   \end{enumerate}
+\end{xexercise}
 
-  \item 利用 Froullani 积分（例题 12.3.5 及其注）计算下列积分（$a,b>0$）：
+\begin{xexercise}[4]
+利用 Froullani 积分（例题 12.3.5 及其注）计算下列积分（$a,b>0$）：
   \begin{enumerate}[label=(\arabic*)]
     \item $\displaystyle\int_0^{+\infty}\frac{\arctan ax-\arctan bx}{x}\,\dd x$；
     \item $\displaystyle\int_0^{+\infty}\frac{\ee^{-ax}-\ee^{-bx}}x\,\dd x$；
@@ -885,8 +919,10 @@
     \item $\displaystyle\int_0^1\frac{x^{a-1}-x^{b-1}}{\ln x}\,\dd x$；
     \item $\displaystyle\int_0^{+\infty}\frac{b\sin ax-a\sin bx}{x^2}\,\dd x$。
   \end{enumerate}
+\end{xexercise}
 
-  \item 利用 Dirichlet 积分（例题 12.3.6）计算下列积分：
+\begin{xexercise}[5]
+利用 Dirichlet 积分（例题 12.3.6）计算下列积分：
   \begin{enumerate}[label=(\arabic*)]
     \item $\displaystyle\int_0^{+\infty}\frac{\sin^2x}{x^2}\,\dd x$；
     \item $\displaystyle\int_0^{+\infty}\frac{\sin^4x}{x^2}\,\dd x$；
@@ -895,19 +931,22 @@
     \item $\displaystyle\int_{-\infty}^{+\infty}\frac{\sin x}{x(x-\pi)}\,\dd x$；
     \item $\displaystyle\int_0^{+\infty}\frac{\sin x^2}{x}\,\dd x$。
   \end{enumerate}
+\end{xexercise}
 
-  \item 利用概率积分（例题 12.3.7）计算下列积分：
+\begin{xexercise}[6]
+利用概率积分（例题 12.3.7）计算下列积分：
   \begin{enumerate}[label=(\arabic*)]
     \item $\displaystyle\int_0^{+\infty}\frac{\ee^{-x^2}}{(x^2+\frac12)^2}\,\dd x$；
     \item $\displaystyle\int_0^{+\infty}\ee^{-a^2x^2-b^2/x^2}\,\dd x$。
   \end{enumerate}
+\end{xexercise}
 
-  \item 若 $a,b>0$，广义积分 $\int_0^{+\infty}f(ax+b/x)\,\dd x$ 收敛，证明：
+\begin{xexercise}[7]
+若 $a,b>0$，广义积分 $\int_0^{+\infty}f(ax+b/x)\,\dd x$ 收敛，证明：
   \[
     \int_0^{+\infty}f\left(ax+\frac bx\right)\,\dd x
     =\frac1a\int_0^{+\infty}f(\sqrt{t^2+4ab})\,\dd t.
   \]
-\end{enumerate}
 \end{xexercise}
 
 \section{广义积分的特殊性质}
@@ -1019,25 +1058,32 @@
 
 \subsection{练习题}
 
-\begin{xexercise}
-\begin{enumerate}
-  \item 设 $f$ 于 $[a,+\infty)$ 上可导，$f'$ 内闭可积，且广义积分 $\int_a^{+\infty}f(x)\,\dd x$ 和 $\int_a^{+\infty}f'(x)\,\dd x$ 都收敛，证明：$\lim_{x\to+\infty}f(x)=0$。
+\begin{xexercise}[1]
+设 $f$ 于 $[a,+\infty)$ 上可导，$f'$ 内闭可积，且广义积分 $\int_a^{+\infty}f(x)\,\dd x$ 和 $\int_a^{+\infty}f'(x)\,\dd x$ 都收敛，证明：$\lim_{x\to+\infty}f(x)=0$。
+\end{xexercise}
 
-  \item 设函数 $f(x)$ 在 $[a,+\infty)$ 上有有界的导函数且无穷限积分 $\int_a^{+\infty}f(x)\,\dd x$ 收敛，证明：$\lim_{x\to+\infty}f(x)=0$。
+\begin{xexercise}[2]
+设函数 $f(x)$ 在 $[a,+\infty)$ 上有有界的导函数且无穷限积分 $\int_a^{+\infty}f(x)\,\dd x$ 收敛，证明：$\lim_{x\to+\infty}f(x)=0$。
+\end{xexercise}
 
-  \item 举例说明例题 12.4.2 之逆不成立，也就是说，当函数 $f$ 在 $[a,+\infty)$ 上单调，且满足条件 $\lim_{x\to+\infty}xf(x)=0$ 时，广义积分 $\int_a^{+\infty}f(x)\,\dd x$ 仍可能发散。
+\begin{xexercise}[3]
+举例说明例题 12.4.2 之逆不成立，也就是说，当函数 $f$ 在 $[a,+\infty)$ 上单调，且满足条件 $\lim_{x\to+\infty}xf(x)=0$ 时，广义积分 $\int_a^{+\infty}f(x)\,\dd x$ 仍可能发散。
+\end{xexercise}
 
-  \item 若 $\int_a^{+\infty}f(x)\,\dd x$ 收敛，且 $xf(x)$ 单调，证明：$\lim_{x\to+\infty}xf(x)\ln x=0$。
+\begin{xexercise}[4]
+若 $\int_a^{+\infty}f(x)\,\dd x$ 收敛，且 $xf(x)$ 单调，证明：$\lim_{x\to+\infty}xf(x)\ln x=0$。
+\end{xexercise}
 
-  \item 设函数 $f$ 在 $[a,+\infty)$ 上可微且无穷限积分 $\int_a^{+\infty}f(x)\,\dd x$ 收敛，证明：存在数列 $\{x_n\}$，使 $\lim_{n\to\infty}x_n=+\infty$，$\lim_{n\to\infty}f'(x_n)=0$。
+\begin{xexercise}[5]
+设函数 $f$ 在 $[a,+\infty)$ 上可微且无穷限积分 $\int_a^{+\infty}f(x)\,\dd x$ 收敛，证明：存在数列 $\{x_n\}$，使 $\lim_{n\to\infty}x_n=+\infty$，$\lim_{n\to\infty}f'(x_n)=0$。
+\end{xexercise}
 
-  \item
-  \begin{enumerate}[label=(\arabic*)]
+\begin{xexercise}[6]
+\begin{enumerate}[label=(\arabic*)]
     \item 设 $f\in C[a,+\infty)$，且 $\int_a^{+\infty}\abs{f(x)}\,\dd x$ 收敛，证明存在数列 $\{x_n\}\subset[a,+\infty)$，满足条件 $\lim_{n\to\infty}x_n=+\infty$，$\lim_{n\to\infty}x_nf(x_n)=0$；
     \item 证明在 $f\in C[a,+\infty)$，且 $f$ 在 $[a,+\infty)$ 上的广义积分为条件收敛时有与 (1) 同样的结论；
     \item 问：在 $f$ 不满足连续条件时结论是否成立？根据 $f$ 在 $[a,+\infty)$ 上的广义积分为绝对收敛和条件收敛分别讨论。
   \end{enumerate}
-\end{enumerate}
 \end{xexercise}
 
 \section{对于教学的建议}
@@ -1062,9 +1108,8 @@
 
 \subsubsection*{第一组参考题}
 
-\begin{xreferenceproblem}
-\begin{enumerate}
-  \item 证明：对于任何实数 $\alpha$，成立恒等式
+\begin{xreferenceproblem}[1]
+证明：对于任何实数 $\alpha$，成立恒等式
   \[
     \int_0^{+\infty}\frac{\dd x}{(1+x^2)(1+x^\alpha)}
     =\int_1^{+\infty}\frac{\dd x}{1+x^2}
@@ -1075,79 +1120,109 @@
     \item $\displaystyle\int_0^{+\infty}\frac{\dd x}{(1+x^2)(1+x^6)}$；
     \item $\displaystyle\int_0^{\pi/2}\frac{\dd x}{1+\tan^{100}x}$。
   \end{enumerate}
+\end{xreferenceproblem}
 
-  \item 证明（或改进）对以下广义积分的估计：
+\begin{xreferenceproblem}[2]
+证明（或改进）对以下广义积分的估计：
   \begin{enumerate}[label=(\arabic*)]
     \item $\displaystyle\frac1{29}<\int_1^{+\infty}\frac{x^{30}+1}{x^{60}+1}\,\dd x<\frac1{29}+\frac1{59}$；
     \item $\displaystyle\frac\pi{10}<\int_0^2\frac{\dd x}{(4+\sqrt{\sin x})\sqrt{4-x^2}}<\frac\pi8$；
     \item $\displaystyle\frac1{30}<\int_2^{+\infty}\frac{\sqrt{x^3-x^2+3}}{x^5+x^2+1}\,\dd x<\frac{\sqrt2}{20}$；
     \item $\displaystyle0.0099<\int_0^{+\infty}\frac{\ee^{-x}}{x+100}\,\dd x<0.01$。
   \end{enumerate}
+\end{xreferenceproblem}
 
-  \item 设 $f$ 在 $(-\infty,+\infty)$ 上内闭可积，$p\geq1$，且 $\abs{f}^p$ 在 $(-\infty,+\infty)$ 上可积，证明：
+\begin{xreferenceproblem}[3]
+设 $f$ 在 $(-\infty,+\infty)$ 上内闭可积，$p\geq1$，且 $\abs{f}^p$ 在 $(-\infty,+\infty)$ 上可积，证明：
   \[
     \lim_{h\to0}\int_{-\infty}^{+\infty}\abs{f(x+h)-f(x)}^p\,\dd x=0.
   \]
+\end{xreferenceproblem}
 
-  \item 设 $f,g$ 在 $(-\infty,+\infty)$ 上内闭可积，$p>1$，且 $\abs{f}^p$，$\abs{g}^{p/(p-1)}$ 在 $(-\infty,+\infty)$ 上可积，证明：函数
+\begin{xreferenceproblem}[4]
+设 $f,g$ 在 $(-\infty,+\infty)$ 上内闭可积，$p>1$，且 $\abs{f}^p$，$\abs{g}^{p/(p-1)}$ 在 $(-\infty,+\infty)$ 上可积，证明：函数
   \[
     I(t)=\int_{-\infty}^{+\infty}f(x+t)g(x)\,\dd x
   \]
   在 $(-\infty,+\infty)$ 上连续。
+\end{xreferenceproblem}
 
-  \item 设 $f\in C^1[a,+\infty)$，单调减少，且 $f(+\infty)=0$，证明：广义积分 $\int_a^{+\infty}f(x)\,\dd x$ 收敛的充分必要条件是 $\int_a^{+\infty}xf'(x)\,\dd x$ 收敛。
+\begin{xreferenceproblem}[5]
+设 $f\in C^1[a,+\infty)$，单调减少，且 $f(+\infty)=0$，证明：广义积分 $\int_a^{+\infty}f(x)\,\dd x$ 收敛的充分必要条件是 $\int_a^{+\infty}xf'(x)\,\dd x$ 收敛。
+\end{xreferenceproblem}
 
-  \item 设 $f$ 在 $[a,+\infty)$ 上为内闭可积的正函数，且有 $\lim_{x\to+\infty}\frac{\ln f(x)}{\ln x}=p$，则当 $-\infty\leq p<-1$ 时，积分 $\int_a^{+\infty}f(x)\,\dd x$ 收敛，而当 $-1<p\leq+\infty$ 时，积分 $\int_a^{+\infty}f(x)\,\dd x$ 发散。
+\begin{xreferenceproblem}[6]
+设 $f$ 在 $[a,+\infty)$ 上为内闭可积的正函数，且有 $\lim_{x\to+\infty}\frac{\ln f(x)}{\ln x}=p$，则当 $-\infty\leq p<-1$ 时，积分 $\int_a^{+\infty}f(x)\,\dd x$ 收敛，而当 $-1<p\leq+\infty$ 时，积分 $\int_a^{+\infty}f(x)\,\dd x$ 发散。
+\end{xreferenceproblem}
 
-  \item 证明：
+\begin{xreferenceproblem}[7]
+证明：
   \[
     \int_1^{+\infty}\left(\frac1{[x]}-\frac1x\right)\,\dd x=\gamma,
   \]
   其中 $\gamma$ 是 Euler 常数（见 2.5.3 小节）。
+\end{xreferenceproblem}
 
-  \item 判别广义积分
+\begin{xreferenceproblem}[8]
+判别广义积分
   \[
     \int_0^{+\infty}\left[\left(1-\frac{\sin x}{x}\right)^{-1/3}-1\right]\,\dd x
   \]
   的收敛性与绝对收敛性。
+\end{xreferenceproblem}
 
-  \item 讨论以下带有参数的广义积分的敛散性，确定使得积分绝对收敛、条件收敛和发散的参数范围：
+\begin{xreferenceproblem}[9]
+讨论以下带有参数的广义积分的敛散性，确定使得积分绝对收敛、条件收敛和发散的参数范围：
   \begin{enumerate}[label=(\arabic*)]
     \item $\displaystyle\int_0^{+\infty}\frac{x^p}{1+x^q}\abs{\sin x}^r\,\dd x\quad(p,q,r>0)$；
     \item $\displaystyle\int_1^{+\infty}\frac{\sin x\cos\frac1x}{x^p}\,\dd x$。
   \end{enumerate}
+\end{xreferenceproblem}
 
-  \item 设 $f$ 在 $[a,+\infty)$ 上单调有界，广义积分 $\int_a^{+\infty}f(x)\sin px\,\dd x$ 在 $p>0$ 时收敛，证明：
+\begin{xreferenceproblem}[10]
+设 $f$ 在 $[a,+\infty)$ 上单调有界，广义积分 $\int_a^{+\infty}f(x)\sin px\,\dd x$ 在 $p>0$ 时收敛，证明：
   \[
     \lim_{p\to+\infty}\int_a^{+\infty}f(x)\sin px\,\dd x=0.
   \]
+\end{xreferenceproblem}
 
-  \item 设 $f\in C[0,+\infty)$，广义积分 $\int_0^{+\infty}\varphi(x)\,\dd x$ 绝对收敛，证明：
+\begin{xreferenceproblem}[11]
+设 $f\in C[0,+\infty)$，广义积分 $\int_0^{+\infty}\varphi(x)\,\dd x$ 绝对收敛，证明：
   \[
     \lim_{n\to\infty}\int_0^{\sqrt n}f\left(\frac xn\right)\varphi(x)\,\dd x
     =f(0)\int_0^{+\infty}\varphi(x)\,\dd x.
   \]
+\end{xreferenceproblem}
 
-  \item 设 $f$ 在 $(-\infty,+\infty)$ 上绝对可积，证明：
+\begin{xreferenceproblem}[12]
+设 $f$ 在 $(-\infty,+\infty)$ 上绝对可积，证明：
   \begin{enumerate}[label=(\arabic*)]
     \item $\displaystyle\lim_{n\to\infty}\int_{-\infty}^{+\infty}f(x)\sin nx\,\dd x=0$；
     \item $\displaystyle\lim_{n\to\infty}\int_{-\infty}^{+\infty}f(x)\abs{\sin nx}\,\dd x=\frac2\pi\int_{-\infty}^{+\infty}f(x)\,\dd x$。
   \end{enumerate}
+\end{xreferenceproblem}
 
-  \item 在常义积分的积分第二中值定理的基础上，证明广义积分第二中值定理：设广义积分 $\int_a^b g(x)\,\dd x$ 收敛（奇点为 $a$ 或 $b$，或者 $a$ 和 $b$ 都是奇点），如果 $f$ 在 $(a,b)$ 上单调有界，则存在 $\xi\in[a,b]$，使
+\begin{xreferenceproblem}[13]
+在常义积分的积分第二中值定理的基础上，证明广义积分第二中值定理：设广义积分 $\int_a^b g(x)\,\dd x$ 收敛（奇点为 $a$ 或 $b$，或者 $a$ 和 $b$ 都是奇点），如果 $f$ 在 $(a,b)$ 上单调有界，则存在 $\xi\in[a,b]$，使
   \[
     \int_a^b f(x)g(x)\,\dd x
     =f(a+)\int_a^\xi g(x)\,\dd x+f(b-)\int_\xi^b g(x)\,\dd x.
   \]
+\end{xreferenceproblem}
 
-  \item 设广义积分 $\int_1^{+\infty}f(x)\,\dd x$ 收敛。证明：存在 $\xi\in(1,+\infty)$，使得
+\begin{xreferenceproblem}[14]
+设广义积分 $\int_1^{+\infty}f(x)\,\dd x$ 收敛。证明：存在 $\xi\in(1,+\infty)$，使得
   \[
     \int_1^{+\infty}x^{-1}f(x)\,\dd x=\int_1^\xi f(x)\,\dd x.
   \]
+\end{xreferenceproblem}
 
-  \item 设 $a>0$，$f$ 在 $[a,+\infty)$ 上平方可积，证明：积分 $\int_a^{+\infty}\frac{f(x)}x\,\dd x$ 收敛。
+\begin{xreferenceproblem}[15]
+设 $a>0$，$f$ 在 $[a,+\infty)$ 上平方可积，证明：积分 $\int_a^{+\infty}\frac{f(x)}x\,\dd x$ 收敛。
+\end{xreferenceproblem}
 
-  \item 在 $x>0$ 时定义特殊函数
+\begin{xreferenceproblem}[16]
+在 $x>0$ 时定义特殊函数
   \[
     \Gamma(x)=\int_0^{+\infty}t^{x-1}\ee^{-t}\,\dd t,
   \]
@@ -1158,24 +1233,24 @@
     \item $\Gamma(1)=1$，$\Gamma(n+1)=n!$，$\forall n\in\NN_+$；
     \item $\Gamma\left(\frac12\right)=\sqrt\pi$。
   \end{enumerate}
-\end{enumerate}
 \end{xreferenceproblem}
 
 （从 (3) 可见 $\Gamma(x)$ 是阶乘 $n!$ 的连续化。这在一定条件下是唯一的，见下册 §23.3 对 $\Gamma(x)$ 的介绍和命题 23.3.1，或参见 [14, 55]。）
 
 \subsubsection*{第二组参考题}
 
-\begin{xreferenceproblem}
-\begin{enumerate}
-  \item 先证明不等式 (12.8)，然后由
+\begin{xreferenceproblem}[1]
+先证明不等式 (12.8)，然后由
   \[
     \int_0^1(1-x^2)^n\,\dd x
     \leq\int_0^{+\infty}\ee^{-nx^2}\,\dd x
     \leq\int_0^{+\infty}\frac{\dd x}{(1+x^2)^n}
   \]
   出发，用夹逼方法计算概率积分。
+\end{xreferenceproblem}
 
-  \item \textbf{（Gordon 不等式）}\quad 证明：函数
+\begin{xreferenceproblem}[2]
+\textbf{（Gordon 不等式）}\quad 证明：函数
   \[
     f(x)=\ee^{x^2/2}\int_x^{+\infty}\ee^{-t^2/2}\,\dd t
   \]
@@ -1183,15 +1258,21 @@
   \[
     \frac{x}{x^2+1}<f(x)<\frac1x.
   \]
+\end{xreferenceproblem}
 
-  \item 设 $f\in C[0,+\infty)$ 且平方可积，令 $g(x)=\int_0^x f(t)\,\dd t$，证明：$g(x)/x$ 在 $[0,+\infty)$ 上平方可积，且成立
+\begin{xreferenceproblem}[3]
+设 $f\in C[0,+\infty)$ 且平方可积，令 $g(x)=\int_0^x f(t)\,\dd t$，证明：$g(x)/x$ 在 $[0,+\infty)$ 上平方可积，且成立
   \[
     \int_0^{+\infty}\frac{g^2(x)}{x^2}\,\dd x\leq4\int_0^{+\infty}f^2(x)\,\dd x.
   \]
+\end{xreferenceproblem}
 
-  \item 设 $f$ 在 $[0,+\infty)$ 上二阶可微，$f$ 和 $f''$ 在这个区间上均平方可积，证明：$f'$ 在这个区间上也平方可积。
+\begin{xreferenceproblem}[4]
+设 $f$ 在 $[0,+\infty)$ 上二阶可微，$f$ 和 $f''$ 在这个区间上均平方可积，证明：$f'$ 在这个区间上也平方可积。
+\end{xreferenceproblem}
 
-  \item 设 $f\in C^1[0,+\infty)$，且 $xf(x)$ 和 $f'(x)$ 在这个区间上均平方可积，证明：
+\begin{xreferenceproblem}[5]
+设 $f\in C^1[0,+\infty)$，且 $xf(x)$ 和 $f'(x)$ 在这个区间上均平方可积，证明：
   \begin{enumerate}[label=(\arabic*)]
     \item $f$ 也在这个区间上平方可积；
     \item 成立不等式
@@ -1201,28 +1282,36 @@
     \]
     \item 在上述不等式中成立等号的充分必要条件是 $f(x)=a\ee^{-bx^2}$，其中 $b>0$。
   \end{enumerate}
+\end{xreferenceproblem}
 
-  \item 问 $a,b$ 是怎样的正实数时，广义积分
+\begin{xreferenceproblem}[6]
+问 $a,b$ 是怎样的正实数时，广义积分
   \[
     \int_0^{+\infty}\left(\sqrt{\sqrt{x+a}-\sqrt{x}}-\sqrt{\sqrt{x}-\sqrt{x-b}}\right)\,\dd x
   \]
   是收敛的？
+\end{xreferenceproblem}
 
-  \item 设有理函数 $f(x)=P(x)/Q(x)$ 在 $(-\infty,+\infty)$ 上可积，证明：
+\begin{xreferenceproblem}[7]
+设有理函数 $f(x)=P(x)/Q(x)$ 在 $(-\infty,+\infty)$ 上可积，证明：
   \[
     \int_{-\infty}^{+\infty}\frac{P(x)}{Q(x)}\,\dd x=2\pi\ii\sum_k A_k,
   \]
   其中 $A_k$ 是有理函数 $f$ 的部分分式分解中 $1/(x-x_k)$ 项的系数，$x_k$ 是分母 $Q(x)$ 的零点，和式只对虚部大于 0 的 $x_k$ 求和。当 $x_k$ 为单根时，有简单公式 $A_k=P(x_k)/Q'(x_k)$。
 % SOURCE-ERR: 原书作 $1/x_k$ 项；由部分分式分解及紧随其后的 $A_k=P(x_k)/Q'(x_k)$ 可确定应为 $1/(x-x_k)$ 项。
+\end{xreferenceproblem}
 
-  \item 应用上题的结果于下列各小题：
+\begin{xreferenceproblem}[8]
+应用上题的结果于下列各小题：
   \begin{enumerate}[label=(\arabic*)]
     \item 证明：对 $n\in\NN_+$，成立 $\displaystyle\int_{-\infty}^{+\infty}\frac{\dd x}{1+x^{2n}}=\frac\pi n\operatorname{csc}\frac\pi{2n}$；
     \item 证明：若 $n,m\in\NN_+$ 满足条件 $2m+1<2n$，则成立 $\displaystyle\int_{-\infty}^{+\infty}\frac{x^{2m}}{1+x^{2n}}\,\dd x=\frac\pi n\operatorname{csc}\frac{(2m+1)\pi}{2n}$；
     \item 计算积分：\textup{(a)} $\displaystyle\int_0^{+\infty}\frac{x^{50}}{x^{100}+1}\,\dd x$，\textup{(b)} $\displaystyle\int_0^{+\infty}\frac{x^{30}+1}{x^{60}+1}\,\dd x$。
   \end{enumerate}
+\end{xreferenceproblem}
 
-  \item 设 $f$ 是 $(-\infty,+\infty)$ 上的非负函数，且满足以下条件：
+\begin{xreferenceproblem}[9]
+设 $f$ 是 $(-\infty,+\infty)$ 上的非负函数，且满足以下条件：
   \[
     \int_{-\infty}^{+\infty}f(x)\,\dd x=1,\qquad
     \int_{-\infty}^{+\infty}xf(x)\,\dd x=0,\qquad
@@ -1234,8 +1323,10 @@
     \item 在 $x<0$ 时，成立 $\displaystyle\int_{-\infty}^x f(t)\,\dd t\leq\frac1{1+x^2}$。
   \end{enumerate}
   （本题是概率论中的基本不等式，且不能再改进（见 [30]）。它表明期望与方差有限的连续随机变量的分布函数（在标准化之后）所必须满足的限制。）
+\end{xreferenceproblem}
 
-  \item 设 $p>0$，定义
+\begin{xreferenceproblem}[10]
+设 $p>0$，定义
   \[
     g(x)=
     \begin{cases}
@@ -1250,5 +1341,4 @@
     \frac{\sin\left(n+\frac12\right)pt}{\sin\frac12pt}\cdot\frac{\sin xt}{t}\,\dd t
     =\frac12[g(x+)+g(x-)].
   \]
-\end{enumerate}
 \end{xreferenceproblem}

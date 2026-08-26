@@ -59,23 +59,31 @@
 
 \subsection{思考题}
 
-\begin{xthought}
-\begin{enumerate}
-  \item 下列几种叙述能否作为函数极限 $\lim_{x\to a}f(x)=A$ 的等价定义？
+\begin{xthought}[1]
+下列几种叙述能否作为函数极限 $\lim_{x\to a}f(x)=A$ 的等价定义？
   \begin{enumerate}[label=(\arabic*)]
     \item $\forall\varepsilon>0,\exists\delta>0,\forall x\in O_\delta(a)-\{a\}$，成立 $\abs{f(x)-A}\leq\varepsilon$；
     \item $\forall\varepsilon>0,\exists\delta>0,\forall x\in O_\delta(a)-\{a\}$，成立 $\abs{f(x)-A}<k\varepsilon$（$k$ 为常数）；
     \item $\forall n\in\NN_+,\exists\delta>0,\forall x\in O_\delta(a)-\{a\}$，成立 $\abs{f(x)-A}<1/n$；
     \item $\forall\varepsilon>0,\exists n,\forall x\in O_{1/n}(a)-\{a\}$，成立 $\abs{f(x)-A}<\varepsilon$。
   \end{enumerate}
-  \item 下列几种叙述能否作为函数极限 $\lim_{x\to a}f(x)=A$ 的等价定义？
+\end{xthought}
+
+\begin{xthought}[2]
+下列几种叙述能否作为函数极限 $\lim_{x\to a}f(x)=A$ 的等价定义？
   \begin{enumerate}[label=(\arabic*)]
     \item $\exists\delta>0,\forall\varepsilon>0,\forall x\in O_\delta(a)-\{a\}$，成立 $\abs{f(x)-A}<\varepsilon$；
     \item $\forall\delta>0,\exists\varepsilon>0,\forall x\in O_\delta(a)-\{a\}$，成立 $\abs{f(x)-A}<\varepsilon$；
     \item 当 $x$ 充分靠近 $a$ 时，$f(x)$ 越来越接近 $A$。
   \end{enumerate}
-  \item 用对偶法则给出：(1)“$f(x)$ 在点 $a$ 不收敛于 $A$”的正面叙述；(2)“$f(x)$ 在点 $a$ 处没有极限”的正面叙述。
-  \item 怎样用正面方式叙述下列否定性概念：
+\end{xthought}
+
+\begin{xthought}[3]
+用对偶法则给出：(1)“$f(x)$ 在点 $a$ 不收敛于 $A$”的正面叙述；(2)“$f(x)$ 在点 $a$ 处没有极限”的正面叙述。
+\end{xthought}
+
+\begin{xthought}[4]
+怎样用正面方式叙述下列否定性概念：
   \begin{enumerate}[label=(\arabic*)]
     \item $\lim_{x\to\infty}f(x)\ne A$；
     \item $\lim_{x\to-\infty}f(x)\ne A$；
@@ -83,7 +91,6 @@
     \item $\lim_{x\to a-}f(x)\ne A$；
     \item $\lim_{x\to a+}f(x)\ne+\infty$。
   \end{enumerate}
-\end{enumerate}
 \end{xthought}
 
 \subsection{例题}
@@ -288,19 +295,48 @@
 
 下列各题要求按照函数极限的定义来做：
 
-\begin{xexercise}
-\begin{enumerate}
-  \item 证明：$\displaystyle\lim_{x\to0}\frac{\sqrt{1+x}-\sqrt{1-x}}{x}=1$。
-  \item 证明：$\displaystyle\lim_{x\to1}\frac{x^2+x-2}{x(x^2-3x+2)}=-3$。
-  \item 证明：$\displaystyle\lim_{x\to+\infty}\frac{x+1}{x^2-x}=0$。
-  \item 当 $a$ 取什么数值时，$\displaystyle\lim_{x\to-1}\frac{x^3-ax^2-x+4}{x+1}$ 存在？此时极限为何？
-  \item 求 $a,b$，使 $\displaystyle\lim_{x\to2}\frac{x^2+ax+b}{x^2-x-2}=2$。
-  \item 问：使得 $\displaystyle\lim_{x\to0^+}\frac{a+\sin\frac1x}{x}=\pm\infty$ 的参数 $a$ 是什么？
-  \item 证明：$\displaystyle\lim_{x\to a}\ln x=\ln a$，其中 $a>0$。
-  \item 证明：$\displaystyle\lim_{x\to a}\ee^x=\ee^a$。
-  \item 证明 $\displaystyle\lim_{x\to0}f(x)$ 与 $\displaystyle\lim_{x\to0}f(x^3)$ 同时存在或不存在，而当它们存在时必相等。
-  \item 问 $\displaystyle\lim_{x\to0}f(x)$ 与 $\displaystyle\lim_{x\to0}f(x^2)$ 是否一定同时存在或不存在？
-  \item 证明：Dirichlet（狄利克雷）函数
+\begin{xexercise}[1]
+证明：$\displaystyle\lim_{x\to0}\frac{\sqrt{1+x}-\sqrt{1-x}}{x}=1$。
+\end{xexercise}
+
+\begin{xexercise}[2]
+证明：$\displaystyle\lim_{x\to1}\frac{x^2+x-2}{x(x^2-3x+2)}=-3$。
+\end{xexercise}
+
+\begin{xexercise}[3]
+证明：$\displaystyle\lim_{x\to+\infty}\frac{x+1}{x^2-x}=0$。
+\end{xexercise}
+
+\begin{xexercise}[4]
+当 $a$ 取什么数值时，$\displaystyle\lim_{x\to-1}\frac{x^3-ax^2-x+4}{x+1}$ 存在？此时极限为何？
+\end{xexercise}
+
+\begin{xexercise}[5]
+求 $a,b$，使 $\displaystyle\lim_{x\to2}\frac{x^2+ax+b}{x^2-x-2}=2$。
+\end{xexercise}
+
+\begin{xexercise}[6]
+问：使得 $\displaystyle\lim_{x\to0^+}\frac{a+\sin\frac1x}{x}=\pm\infty$ 的参数 $a$ 是什么？
+\end{xexercise}
+
+\begin{xexercise}[7]
+证明：$\displaystyle\lim_{x\to a}\ln x=\ln a$，其中 $a>0$。
+\end{xexercise}
+
+\begin{xexercise}[8]
+证明：$\displaystyle\lim_{x\to a}\ee^x=\ee^a$。
+\end{xexercise}
+
+\begin{xexercise}[9]
+证明 $\displaystyle\lim_{x\to0}f(x)$ 与 $\displaystyle\lim_{x\to0}f(x^3)$ 同时存在或不存在，而当它们存在时必相等。
+\end{xexercise}
+
+\begin{xexercise}[10]
+问 $\displaystyle\lim_{x\to0}f(x)$ 与 $\displaystyle\lim_{x\to0}f(x^2)$ 是否一定同时存在或不存在？
+\end{xexercise}
+
+\begin{xexercise}[11]
+证明：Dirichlet（狄利克雷）函数
   \[
     D(x)=\begin{cases}
       1,&x\text{ 是有理数},\\
@@ -310,10 +346,18 @@
   在每一点都没有极限。
 
   （试用几个不同方法证明这个结论。例如：从极限的定义出发，或者用下节中的 Cauchy 收敛准则和 Heine 归结原理。）
-  \item 试举出一个在区间 $(-\infty,+\infty)$ 上定义的函数，使得它在点 $x=1$ 处有极限，但在区间的其他点都没有极限。
-  \item 证明：若 $f$ 为周期函数，且 $\lim_{x\to+\infty}f(x)=0$，则 $f(x)\equiv0$。
-  \item 证明：任何非常值的周期函数不可能是有理分式函数。
-\end{enumerate}
+\end{xexercise}
+
+\begin{xexercise}[12]
+试举出一个在区间 $(-\infty,+\infty)$ 上定义的函数，使得它在点 $x=1$ 处有极限，但在区间的其他点都没有极限。
+\end{xexercise}
+
+\begin{xexercise}[13]
+证明：若 $f$ 为周期函数，且 $\lim_{x\to+\infty}f(x)=0$，则 $f(x)\equiv0$。
+\end{xexercise}
+
+\begin{xexercise}[14]
+证明：任何非常值的周期函数不可能是有理分式函数。
 \end{xexercise}
 
 \section{函数极限的基本性质}
@@ -468,15 +512,20 @@ Heine 归结原理还有一个变形，有时也很有用。
 
 \subsection{思考题}
 
-\begin{xthought}
-\begin{enumerate}
-  \item 试就 $\lim_{x\to+\infty}f(x)=A$ 和 $\lim_{x\to a^+}f(x)=A$ 两类极限叙述极限的唯一性定理、局部有界性定理、局部保号性定理、比较定理、夹逼定理、Heine 归结原理和 Cauchy 收敛准则。
-  \item 回答下列有关极限的四则运算法则方面的问题：
+\begin{xthought}[1]
+试就 $\lim_{x\to+\infty}f(x)=A$ 和 $\lim_{x\to a^+}f(x)=A$ 两类极限叙述极限的唯一性定理、局部有界性定理、局部保号性定理、比较定理、夹逼定理、Heine 归结原理和 Cauchy 收敛准则。
+\end{xthought}
+
+\begin{xthought}[2]
+回答下列有关极限的四则运算法则方面的问题：
   \begin{enumerate}
     \item 若 $\lim_{x\to a}[f(x)+g(x)]$ 存在，则当 $x$ 趋于 $a$ 时在 $f(x)$ 和 $g(x)$ 的敛散性之间有何联系？
     \item 若 $\lim_{x\to a}f(x)$ 存在，$\lim_{x\to a}g(x)$ 不存在，则 $\lim_{x\to a}f(x)g(x)$ 是否存在？
   \end{enumerate}
-  \item 找出下列运算中的错误：
+\end{xthought}
+
+\begin{xthought}[3]
+找出下列运算中的错误：
   \begin{enumerate}
     \item $\displaystyle\lim_{x\to2}\frac{x-2}{\sin\frac1{x-2}}
     =\frac{\lim_{x\to2}(x-2)}{\lim_{x\to2}\sin\frac1{x-2}}
@@ -485,9 +534,14 @@ Heine 归结原理还有一个变形，有时也很有用。
     =\lim_{x\to\infty}\frac1x\cdot\lim_{x\to\infty}\sin x
     =0\cdot\lim_{x\to\infty}\sin x=0$。
   \end{enumerate}
-  \item 对于极限的加法运算法则作出两个证明：(1) 用函数极限定义；(2) 用 Heine 归结原理。
-  \item 对于各种类型的函数极限中 $A=\infty$ 但不是有确定符号的无穷大量的情况，夹逼定理不成立。为什么？举出反例。
-\end{enumerate}
+\end{xthought}
+
+\begin{xthought}[4]
+对于极限的加法运算法则作出两个证明：(1) 用函数极限定义；(2) 用 Heine 归结原理。
+\end{xthought}
+
+\begin{xthought}[5]
+对于各种类型的函数极限中 $A=\infty$ 但不是有确定符号的无穷大量的情况，夹逼定理不成立。为什么？举出反例。
 \end{xthought}
 
 \subsection{例题}
@@ -554,37 +608,65 @@ Heine 归结原理的推论在这里也成立。试证之。
 
 \subsection{练习题}
 
-\begin{xexercise}
-\begin{enumerate}
-  \item 证明：
+\begin{xexercise}[1]
+证明：
   \begin{enumerate}
     \item $\displaystyle\lim_{x\to+\infty}\frac{x^k}{a^x}=0\quad(a>1,k>0)$；
     \item $\displaystyle\lim_{x\to+\infty}\frac{\ln x}{x^k}=0\quad(k>0)$；
     \item $\displaystyle\lim_{x\to\infty}\sqrt[x]{a}=1\quad(a>0)$；
     \item $\displaystyle\lim_{x\to+\infty}\sqrt[x]{x}=1$。
   \end{enumerate}
-  \item 求 $\displaystyle\lim_{y\to+\infty}\frac{\sqrt{1+y^3}}{\sqrt{y^2+y^3}+y}$。
-  \item 求 $\displaystyle\lim_{x\to+\infty}\left(\frac{x^2-1}{x^2+1}\right)^{\frac{x-1}{x+2}}$。
-  \item 求 $\displaystyle\lim_{x\to0}\frac{\sqrt[n]{1+x}-1}{x}$，其中 $n$ 为正整数。
-  \item 设已知 $\displaystyle\lim_{x\to0}\frac{f(x)}x=l,b\ne0$，求 $\displaystyle\lim_{x\to0}\frac{f(bx)}x$。
-  \item 证明：$\displaystyle\lim_{x\to0}\frac{\sqrt{1+\sin x}-\sqrt{1-\sin x}}{\sin x}=1$。
-  \item 证明：在区间 $(a,+\infty)$ 上单调有界函数 $f$ 一定存在极限 $\lim_{x\to+\infty}f(x)$。
-  \item 设 $f(x)$ 在区间 $(a,b)$ 上为单调增加函数，且存在一个数列 $\{x_n\}\subset(a,b)$，使得 $\lim_{n\to\infty}x_n=b,\lim_{n\to\infty}f(x_n)=A$。证明：(1) $f$ 在区间 $(a,b)$ 上以 $A$ 为上界；(2) $\lim_{x\to b^-}f(x)=A$。
-  \item 设 $\lim_{x\to+\infty}f(x)=A>0$。证明：对每个 $c\in(0,A)$，存在 $M>0$，当 $x>M$ 时，成立 $f(x)>c$。
+\end{xexercise}
+
+\begin{xexercise}[2]
+求 $\displaystyle\lim_{y\to+\infty}\frac{\sqrt{1+y^3}}{\sqrt{y^2+y^3}+y}$。
+\end{xexercise}
+
+\begin{xexercise}[3]
+求 $\displaystyle\lim_{x\to+\infty}\left(\frac{x^2-1}{x^2+1}\right)^{\frac{x-1}{x+2}}$。
+\end{xexercise}
+
+\begin{xexercise}[4]
+求 $\displaystyle\lim_{x\to0}\frac{\sqrt[n]{1+x}-1}{x}$，其中 $n$ 为正整数。
+\end{xexercise}
+
+\begin{xexercise}[5]
+设已知 $\displaystyle\lim_{x\to0}\frac{f(x)}x=l,b\ne0$，求 $\displaystyle\lim_{x\to0}\frac{f(bx)}x$。
+\end{xexercise}
+
+\begin{xexercise}[6]
+证明：$\displaystyle\lim_{x\to0}\frac{\sqrt{1+\sin x}-\sqrt{1-\sin x}}{\sin x}=1$。
+\end{xexercise}
+
+\begin{xexercise}[7]
+证明：在区间 $(a,+\infty)$ 上单调有界函数 $f$ 一定存在极限 $\lim_{x\to+\infty}f(x)$。
+\end{xexercise}
+
+\begin{xexercise}[8]
+设 $f(x)$ 在区间 $(a,b)$ 上为单调增加函数，且存在一个数列 $\{x_n\}\subset(a,b)$，使得 $\lim_{n\to\infty}x_n=b,\lim_{n\to\infty}f(x_n)=A$。证明：(1) $f$ 在区间 $(a,b)$ 上以 $A$ 为上界；(2) $\lim_{x\to b^-}f(x)=A$。
+\end{xexercise}
+
+\begin{xexercise}[9]
+设 $\lim_{x\to+\infty}f(x)=A>0$。证明：对每个 $c\in(0,A)$，存在 $M>0$，当 $x>M$ 时，成立 $f(x)>c$。
 
   （这是对于极限类型为 $\lim_{x\to+\infty}f(x)$ 的保号性定理。）
-  \item 设 $f(a^-)<f(a^+)$。证明：存在 $\delta>0$，当 $x\in(a-\delta,a)$ 和 $y\in(a,a+\delta)$ 时，成立 $f(x)<f(y)$。
-  \item 试用 Heine 归结原理证明单调函数的单侧极限存在定理。
+\end{xexercise}
+
+\begin{xexercise}[10]
+设 $f(a^-)<f(a^+)$。证明：存在 $\delta>0$，当 $x\in(a-\delta,a)$ 和 $y\in(a,a+\delta)$ 时，成立 $f(x)<f(y)$。
+\end{xexercise}
+
+\begin{xexercise}[11]
+试用 Heine 归结原理证明单调函数的单侧极限存在定理。
 
   （这里先要将 Heine 归结原理（命题 4.2.3）推广到单侧极限。注意这时在条件中的数列可限于单调数列。）
-\end{enumerate}
 \end{xexercise}
 
 \section{两个重要极限}
 
 本节将以命题的形式证明两个重要极限。在它们的基础上可以解决许多极限的计算问题，特别是从这两个极限出发可以导出微分学中基本初等函数的所有求导法则（见 [49]），因此是进入微分学之前的必要准备。
 
-\subsection{$\displaystyle\lim_{x\to0}\frac{\sin x}{x}=1$}
+\subsection{\texorpdfstring{$\displaystyle\lim_{x\to0}\frac{\sin x}{x}=1$}{极限 sin(x)/x = 1}}
 
 在所见的多数教科书（例如 [14]）中均利用三角形和扇形之间的面积关系得到初等不等式（即命题 1.3.6）
 \[
@@ -631,7 +713,7 @@ Heine 归结原理的推论在这里也成立。试证之。
 函数 $\frac{\sin x}{x}$ 在理论和应用（例如信号处理）方面都很重要，也是数学分析中的重要例子。它在 $x>0$ 的图像见图 4.2 (a)（又见图 8.7 (b)）。在例题 8.5.2 中研究了它的单调性。在 $x=0$ 处补充定义函数值为 1 后，可以证明函数在该点无限次可微，它的 Maclaurin（麦克劳林）公式见例题 7.2.3（参见例题 8.1.9 的注解 3）。它在积分学中还会一再出现（如例题 11.3.1, 11.3.2, 12.3.6 等）。
 \end{xremark}
 
-\subsection{$\displaystyle\lim_{x\to0}(1+x)^{1/x}=\ee$}
+\subsection{\texorpdfstring{$\displaystyle\lim_{x\to0}(1+x)^{1/x}=\ee$}{极限 (1+x)^(1/x) = e}}
 
 这是 §2.5 的极限 $\lim_{n\to\infty}(1+\frac1n)^n=\ee$ 的重要推广。
 
@@ -780,9 +862,8 @@ Heine 归结原理的推论在这里也成立。试证之。
 
 \subsection{练习题}
 
-\begin{xexercise}
-\begin{enumerate}
-  \item 计算下列极限：
+\begin{xexercise}[1]
+计算下列极限：
   \begin{enumerate}
     \item $\displaystyle\lim_{x\to+\infty}\left(\frac2\pi\arctan x\right)^x$；
     \item $\displaystyle\lim_{x\to\pi/2}(\sin x)^{\tan x}$；
@@ -791,22 +872,34 @@ Heine 归结原理的推论在这里也成立。试证之。
     \item $\displaystyle\lim_{x\to0}\frac{\sin2x-2\sin x}{x^3}$；
     \item $\displaystyle\lim_{x\to1}(1-x)\tan\left(\frac\pi2x\right)$。
   \end{enumerate}
-  \item 注意下列两个“不等式”并求出正确值：
+\end{xexercise}
+
+\begin{xexercise}[2]
+注意下列两个“不等式”并求出正确值：
   \begin{enumerate}
     \item $\displaystyle\lim_{x\to+\infty}\frac{\sin x}{x}\ne1$；
     \item $\displaystyle\lim_{x\to+\infty}(1+x)^{1/x}\ne\ee$。
   \end{enumerate}
-  \item 设 $a>0,b>0$，求极限
+\end{xexercise}
+
+\begin{xexercise}[3]
+设 $a>0,b>0$，求极限
   \[
     \lim_{n\to\infty}\left(\frac{\sqrt[n]{a}+\sqrt[n]{b}}2\right)^n.
   \]
   （本题是数列极限问题，但现在可以用函数极限知识来解决。）
-  \item 设 $a_1,\ldots,a_n$ 为正数，$n\geq2$，
+\end{xexercise}
+
+\begin{xexercise}[4]
+设 $a_1,\ldots,a_n$ 为正数，$n\geq2$，
   \[
     f(x)=\left(\frac{a_1^x+a_2^x+\cdots+a_n^x}{n}\right)^{1/x},
   \]
   求 $\displaystyle\lim_{x\to0}f(x)$。
-  \item 计算极限 $\displaystyle\lim_{n\to\infty}\prod_{k=1}^n\cos\frac{x}{2^k}$，并证明 Viète（韦达）公式
+\end{xexercise}
+
+\begin{xexercise}[5]
+计算极限 $\displaystyle\lim_{n\to\infty}\prod_{k=1}^n\cos\frac{x}{2^k}$，并证明 Viète（韦达）公式
   \[
     \frac\pi2=
     \frac{1}{
@@ -817,14 +910,13 @@ Heine 归结原理的推论在这里也成立。试证之。
   \]
 
   （这是数学家 Viète 在 1593 年发表的。它是数学史上第一次用无穷乘积来表示一个数，同时也是对于圆周率 $\pi$ 的认识上的重大突破。）
-\end{enumerate}
 \end{xexercise}
 
 \section{无穷小量、有界量、无穷大量和阶的比较}
 
 从数列开始，就已接触到无穷小量、有界量和无穷大量的概念。在本节将介绍如何将它们用于函数极限计算，其中特别是等价量代换法将成为计算函数极限的基本方法之一。
 
-\subsection{记号 $\littleo,\bigO$ 与 $\sim$}
+\subsection{\texorpdfstring{记号 $\littleo,\bigO$ 与 $\sim$}{记号 o、O 与渐近等价}}
 
 设 $f(x)$ 和 $g(x)$ 在点 $a$ 的某个去心邻域 $O(a)-\{a\}$ 上定义，并且 $g(x)\ne0$。（对于 $a$ 为无穷大量的情况和单侧极限等情况可类推。）
 
@@ -928,10 +1020,12 @@ Heine 归结原理的推论在这里也成立。试证之。
 
 \subsection{思考题}
 
-\begin{xthought}
-\begin{enumerate}
-  \item $10^{-10,000},\ee^{-10^{10}},x,\sin x$ 是否是无穷小量？$10^{10,000},\ee^{10^{10}},x^n,a^x\ (a>1)$ 是否是无穷大量？
-  \item 确定下列极限是否存在，若存在，等于什么？（观察图 4.2 中的图像。）
+\begin{xthought}[1]
+$10^{-10,000},\ee^{-10^{10}},x,\sin x$ 是否是无穷小量？$10^{10,000},\ee^{10^{10}},x^n,a^x\ (a>1)$ 是否是无穷大量？
+\end{xthought}
+
+\begin{xthought}[2]
+确定下列极限是否存在，若存在，等于什么？（观察图 4.2 中的图像。）
   \begin{enumerate}
     \item $\displaystyle\lim_{x\to0}\frac{\sin x}{x}$；
     \item $\displaystyle\lim_{x\to+\infty}\frac{\sin x}{x}$；
@@ -946,8 +1040,10 @@ Heine 归结原理的推论在这里也成立。试证之。
   \begin{center}
     \includegraphics[width=.70\linewidth]{figures/upper/ch04/fig-4-2.png}
   \end{center}
+\end{xthought}
 
-  \item 当 $x\to0$ 时，下列等式中哪些可以成立：
+\begin{xthought}[3]
+当 $x\to0$ 时，下列等式中哪些可以成立：
   \begin{enumerate}
     \item $\littleo(1)=\bigO(1)$；
     \item $\bigO(1)=\littleo(1)$；
@@ -956,8 +1052,10 @@ Heine 归结原理的推论在这里也成立。试证之。
     \item $x\cdot\littleo(x^2)=\littleo(x^3)$；
     \item $\dfrac{\bigO(x^2)}x=\littleo(x)$。
   \end{enumerate}
-  \item 作出 $y=\ee^{1/x}$ 的图形，观察：$\ee^{1/x}\to+\infty\ (x\to0^+)$ 和 $\ee^{1/x}=\littleo(1)\ (x\to0^-)$。
-\end{enumerate}
+\end{xthought}
+
+\begin{xthought}[4]
+作出 $y=\ee^{1/x}$ 的图形，观察：$\ee^{1/x}\to+\infty\ (x\to0^+)$ 和 $\ee^{1/x}=\littleo(1)\ (x\to0^-)$。
 \end{xthought}
 
 \subsection{等价量代换法}
@@ -1074,9 +1172,8 @@ Heine 归结原理的推论在这里也成立。试证之。
 
 \subsection{练习题}
 
-\begin{xexercise}
-\begin{enumerate}
-  \item 确定下列无穷小量的阶：
+\begin{xexercise}[1]
+确定下列无穷小量的阶：
   \begin{enumerate}
     \item $\sqrt{1+\tan x}-\sqrt{1-\tan x}\ (x\to0)$；
     \item $\ln x-\ln a\ (x\to a),a>0$；
@@ -1085,13 +1182,22 @@ Heine 归结原理的推论在这里也成立。试证之。
     \item $\ln\left(x+\cos\frac\pi2x\right)\ (x\to1)$；
     \item $\ln x\ln(x-1)\ (x\to1^+)$。
   \end{enumerate}
-  \item 设存在极限 $\displaystyle\lim_{x\to0}\frac{f(x)}x$，又有 $f(x)-f\left(\frac x2\right)=\littleo(x)\ (x\to0)$，证明：$f(x)=\littleo(x)\ (x\to0)$。
-  \item 与数列中的几个常见的无穷大量之间的关系 $\ln n\ll n^\varepsilon\ll a^n\ll n!\ll n^n\ (a>1,\varepsilon>0)$ 相类似，证明当 $x\to+\infty$ 时，有
+\end{xexercise}
+
+\begin{xexercise}[2]
+设存在极限 $\displaystyle\lim_{x\to0}\frac{f(x)}x$，又有 $f(x)-f\left(\frac x2\right)=\littleo(x)\ (x\to0)$，证明：$f(x)=\littleo(x)\ (x\to0)$。
+\end{xexercise}
+
+\begin{xexercise}[3]
+与数列中的几个常见的无穷大量之间的关系 $\ln n\ll n^\varepsilon\ll a^n\ll n!\ll n^n\ (a>1,\varepsilon>0)$ 相类似，证明当 $x\to+\infty$ 时，有
   \[
     \ln x\ll x^\varepsilon\ll a^x\ll x^x\quad(a>1,\varepsilon>0),
   \]
   其中 $u\ll v$ 的定义是 $\displaystyle\lim\frac uv=0$。
-  \item 用等价量代换方法计算下列极限：
+\end{xexercise}
+
+\begin{xexercise}[4]
+用等价量代换方法计算下列极限：
   \begin{enumerate}
     \item $\displaystyle\lim_{x\to0}\frac{\ln(\sin^2x+\ee^x)-x}{\ln(x^2+\ee^{2x})-2x}$；
     \item $\displaystyle\lim_{x\to+\infty}(x+1)[\ln(x^2+x)-2\ln(x+1)]$；
@@ -1100,7 +1206,6 @@ Heine 归结原理的推论在这里也成立。试证之。
     \item $\displaystyle\lim_{x\to0}\frac{(3+2\sin x)^x-3^x}{\tan^2x}$；
     \item $\displaystyle\lim_{t\to0}\left(\frac{\arcsin t}{t}\right)^{1/t^2}$。
   \end{enumerate}
-\end{enumerate}
 \end{xexercise}
 
 \section{对于教学的建议}
@@ -1115,53 +1220,91 @@ Heine 归结原理的推论在这里也成立。试证之。
 
 \subsection{参考题}
 
-\begin{xreferenceproblem}
-\begin{enumerate}
-  \item 若函数 $f$ 在区间 $(a,b)$ 上单调，且有一个数列 $\{x_n\}$ 使得 $x_n\to a^+$ 和 $\lim_{n\to\infty}f(x_n)=A$。请按照单侧极限的定义直接证明：$\lim_{x\to a^+}f(x)=A$。
-  \item 设函数 $f$ 在区间 $[a,b]$ 上严格单调增加，且有一个在区间 $[a,b]$ 内的数列 $\{x_n\}$ 使得 $f(x_n)\to f(a)$。证明：$\lim_{n\to\infty}x_n=a$。
-  \item 在 Heine 归结原理（命题 4.2.3）的条件中，
+\begin{xreferenceproblem}[1]
+若函数 $f$ 在区间 $(a,b)$ 上单调，且有一个数列 $\{x_n\}$ 使得 $x_n\to a^+$ 和 $\lim_{n\to\infty}f(x_n)=A$。请按照单侧极限的定义直接证明：$\lim_{x\to a^+}f(x)=A$。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[2]
+设函数 $f$ 在区间 $[a,b]$ 上严格单调增加，且有一个在区间 $[a,b]$ 内的数列 $\{x_n\}$ 使得 $f(x_n)\to f(a)$。证明：$\lim_{n\to\infty}x_n=a$。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[3]
+在 Heine 归结原理（命题 4.2.3）的条件中，
   \begin{enumerate}
     \item 若将“每个数列 $\{x_n\}$”改为“每个单调数列 $\{x_n\}$”，其他要求不变，则结论是否仍然成立？
     \item 若对“每个数列 $\{x_n\}$”增加要求 $\abs{x_{n+1}-a}<\abs{x_n-a},n\in\NN_+$，其他不变，则又如何？
   \end{enumerate}
   又若在它的推论（命题 4.2.4）中作这些改动，结论是否仍然成立？
-  \item 证明 $\sin\sqrt{x+1}-\sin\sqrt{x}$ 当 $x\to+\infty$ 时极限为 0，并分析其阶数。
-  \item 求 $\displaystyle\lim_{x\to+\infty}\left(\frac1x\cdot\frac{a^x-1}{a-1}\right)^{1/x}$，其中 $a>0,a\ne1$。
-  \item
-  \begin{enumerate}
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[4]
+证明 $\sin\sqrt{x+1}-\sin\sqrt{x}$ 当 $x\to+\infty$ 时极限为 0，并分析其阶数。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[5]
+求 $\displaystyle\lim_{x\to+\infty}\left(\frac1x\cdot\frac{a^x-1}{a-1}\right)^{1/x}$，其中 $a>0,a\ne1$。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[6]
+\begin{enumerate}
     \item 设函数 $f(x)=a_1\sin x+a_2\sin2x+\cdots+a_n\sin nx$，且对所有 $x$ 成立 $\abs{f(x)}\leq\abs{\sin x}$。证明：$\abs{a_1+2a_2+\cdots+na_n}\leq1$；
     \item 设函数 $f(x)=a_1\ln(1+x)+a_2\ln(1+2x)+\cdots+a_n\ln(1+nx)$，且对于所有 $x>0$ 成立 $\abs{f(x)}\leq\abs{x}$。试陈述与 (1) 相应的不等式并加以证明。
   \end{enumerate}
-  \item 对一般的正整数 $n$ 计算极限 $\displaystyle\lim_{x\to0}\frac{\sin nx-n\sin x}{x^3}$。
-  \item 证明 Dirichlet 函数（4.1.5 小节的题 11）有以下解析表达式：
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[7]
+对一般的正整数 $n$ 计算极限 $\displaystyle\lim_{x\to0}\frac{\sin nx-n\sin x}{x^3}$。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[8]
+证明 Dirichlet 函数（4.1.5 小节的题 11）有以下解析表达式：
   \[
     D(x)=\lim_{m\to\infty}\left\{\lim_{n\to\infty}[\cos(\pi m!x)]^{2n}\right\}.
   \]
-  \item
-  \begin{enumerate}
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[9]
+\begin{enumerate}
     \item 设函数 $f$ 在区间 $(0,+\infty)$ 上满足条件 $f(2x)=f(x)$，且存在有限极限 $f(+\infty)$。证明：$f$ 是常值函数。
     \item 设存在 $a>0,a\ne1$，使得函数 $f$ 在区间 $(0,+\infty)$ 上满足要求 $f(ax)=f(x)$。证明：若存在有限极限 $f(+\infty)$ 或 $f(0^+)$，则 $f$ 为常值函数。
   \end{enumerate}
-  \item 设函数 $f$ 在 $\RR$ 上定义，在 $x=0$ 邻近有界，又有 $a>1,b>1$，使得对每个 $x\in\RR$ 成立 $f(ax)=bf(x)$。证明：$\lim_{x\to0}f(x)=0$。
-  \item 设函数 $f$ 在 $(0,+\infty)$ 上单调增加，且有 $\displaystyle\lim_{x\to+\infty}\frac{f(2x)}{f(x)}=1$。证明：对每个 $a>0$，成立 $\displaystyle\lim_{x\to+\infty}\frac{f(ax)}{f(x)}=1$。
-  \item 设 $f$ 在 $(0,+\infty)$ 上定义，且在其中的每个有界子区间上有界。证明：等式
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[10]
+设函数 $f$ 在 $\RR$ 上定义，在 $x=0$ 邻近有界，又有 $a>1,b>1$，使得对每个 $x\in\RR$ 成立 $f(ax)=bf(x)$。证明：$\lim_{x\to0}f(x)=0$。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[11]
+设函数 $f$ 在 $(0,+\infty)$ 上单调增加，且有 $\displaystyle\lim_{x\to+\infty}\frac{f(2x)}{f(x)}=1$。证明：对每个 $a>0$，成立 $\displaystyle\lim_{x\to+\infty}\frac{f(ax)}{f(x)}=1$。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[12]
+设 $f$ 在 $(0,+\infty)$ 上定义，且在其中的每个有界子区间上有界。证明：等式
   \[
     \lim_{x\to+\infty}\frac{f(x)}x=\lim_{x\to+\infty}[f(x+1)-f(x)]
   \]
   在右边为有限极限或 $\pm\infty$ 时成立。
-  \item 设 $f$ 在 $(0,+\infty)$ 上定义，且在其中的每个有界子区间上有界。证明：等式
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[13]
+设 $f$ 在 $(0,+\infty)$ 上定义，且在其中的每个有界子区间上有界。证明：等式
   \[
     \lim_{x\to+\infty}\frac{f(x)}{x^{n+1}}
     =\frac1{n+1}\lim_{x\to+\infty}\frac{f(x+1)-f(x)}{x^n}
   \]
   在右边为有限极限或 $\pm\infty$ 时成立。
-  \item 设 $T$ 为正整数，若函数 $f,g$ 在 $[a,+\infty)$ 上满足条件：
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[14]
+设 $T$ 为正整数，若函数 $f,g$ 在 $[a,+\infty)$ 上满足条件：
   \begin{enumerate}
     \item $g(x+T)>g(x),x\in[a,+\infty)$；
     \item $\displaystyle\lim_{x\to+\infty}g(x)=+\infty$；$f(x),g(x)$ 在 $[a,+\infty)$ 的每个有界子区间上有界；
     \item $\displaystyle\lim_{x\to+\infty}\frac{f(x+T)-f(x)}{g(x+T)-g(x)}=l$，
   \end{enumerate}
   则 $\displaystyle\lim_{x\to+\infty}\frac{f(x)}{g(x)}=l$。
-  \item 设成立 $\displaystyle\lim_{x\to0}f(x)=0$，$f(x)-f\left(\frac x2\right)=\littleo(x)\ (x\to0)$。证明：$f(x)=\littleo(x)\ (x\to0)$。（本题比 4.4.4 小节的题 2 要难一点。）
-\end{enumerate}
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[15]
+设成立 $\displaystyle\lim_{x\to0}f(x)=0$，$f(x)-f\left(\frac x2\right)=\littleo(x)\ (x\to0)$。证明：$f(x)=\littleo(x)\ (x\to0)$。（本题比 4.4.4 小节的题 2 要难一点。）
 \end{xreferenceproblem}

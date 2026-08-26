@@ -23,10 +23,12 @@
 
 \subsection{思考题}
 
-\begin{xthought}
-\begin{enumerate}
-  \item “不定积分”与“原函数”这两个概念有什么区别？有什么联系？
-  \item 在 $x=0$ 点不连续的函数
+\begin{xthought}[1]
+“不定积分”与“原函数”这两个概念有什么区别？有什么联系？
+\end{xthought}
+
+\begin{xthought}[2]
+在 $x=0$ 点不连续的函数
   \[
     f(x)=
     \begin{cases}
@@ -35,8 +37,14 @@
     \end{cases}
   \]
   在 $(-\infty,+\infty)$ 上是否有原函数？
-  \item 在不定积分公式 $\int \operatorname{sgn}x\,\dd x=\abs{x}+C$ 和 $\int\dfrac1x\,\dd x=\ln\abs{x}+C$ 中为什么会出现绝对值号？
-  \item 下列等式是否正确？说明理由：
+\end{xthought}
+
+\begin{xthought}[3]
+在不定积分公式 $\int \operatorname{sgn}x\,\dd x=\abs{x}+C$ 和 $\int\dfrac1x\,\dd x=\ln\abs{x}+C$ 中为什么会出现绝对值号？
+\end{xthought}
+
+\begin{xthought}[4]
+下列等式是否正确？说明理由：
   \begin{enumerate}[label=(\arabic*)]
     \item $\dd\int f(x)\,\dd x=f(x)$；
     \item $\dd\int f(x)\,\dd x=f(x)\,\dd x$；
@@ -44,14 +52,16 @@
     \item $\dd\int\dd f(x)=\dd f(x)$。
   \end{enumerate}
   其中 $\dd\int f(x)\,\dd x$ 是指对于 $\int f(x)\,\dd x$ 中每一个函数求微分所得的集合。
-  \item 以下推导中有什么错误？用分部积分公式可得到以下等式：
+\end{xthought}
+
+\begin{xthought}[5]
+以下推导中有什么错误？用分部积分公式可得到以下等式：
   \[
     \int\frac{\dd x}{x}
       =x\cdot\frac1x-\int x\,\dd\left(\frac1x\right)
       =1+\int\frac{\dd x}{x},
   \]
   因此推出 $0=1$。
-\end{enumerate}
 \end{xthought}
 
 \subsection{基本计算方法}
@@ -602,9 +612,8 @@
 
 \subsection{练习题}
 
-\begin{xexercise}
-\begin{enumerate}
-  \item 计算下列不定积分：
+\begin{xexercise}[1]
+计算下列不定积分：
   \begin{enumerate}[label=(\arabic*)]
     \item $\displaystyle\int\frac{x}{1+x^4}\,\dd x$；
     \item $\displaystyle\int\frac{\dd x}{\sqrt{x(1-x)}}$；
@@ -617,16 +626,20 @@
     \item $\displaystyle\int\ln^2(x+\sqrt{1+x^2})\,\dd x$；
     \item $\displaystyle\int\frac{\ee^{\arctan x}}{(1+x^2)^{3/2}}\,\dd x$。
   \end{enumerate}
+\end{xexercise}
 
-  \item 用配对积分法计算下列不定积分：
+\begin{xexercise}[2]
+用配对积分法计算下列不定积分：
   \begin{enumerate}[label=(\arabic*)]
     \item $\displaystyle\int\frac{\dd x}{1+x^2+x^4}$；
     \item $\displaystyle\int\frac{\ee^x\,\dd x}{\ee^x+\ee^{-x}}$；
     \item $\displaystyle\int\frac{b\sin x+a\cos x}{a\sin x+b\cos x}\,\dd x\quad(a\ne b)$；
     \item $\displaystyle\int\frac{\dd x}{1+x^3}$。
   \end{enumerate}
+\end{xexercise}
 
-  \item 通过计算不定积分
+\begin{xexercise}[3]
+通过计算不定积分
   \[
     \int(\cos^4x-\sin^4x)\,\dd x
     \quad\text{与}\quad
@@ -638,22 +651,28 @@
     \quad\text{和}\quad
     \int\sin^4x\,\dd x.
   \]
+\end{xexercise}
 
-  \item 导出计算下列不定积分的递推公式：
+\begin{xexercise}[4]
+导出计算下列不定积分的递推公式：
   \begin{enumerate}[label=(\arabic*)]
     \item $\displaystyle\int\sin^nx\,\dd x$；
     \item $\displaystyle\int\tan^nx\,\dd x$；
     \item $\displaystyle\int\sec^nx\,\dd x$；
     \item $\displaystyle\int\frac{\dd x}{x^n\sqrt{1+x^2}}$。
   \end{enumerate}
+\end{xexercise}
 
-  \item 试求：
+\begin{xexercise}[5]
+试求：
   \begin{enumerate}[label=(\arabic*)]
     \item $\displaystyle\int x f''(x)\,\dd x$；
     \item $\displaystyle\int f'(2x)\,\dd x$。
   \end{enumerate}
+\end{xexercise}
 
-  \item 设对任意正整数 $m,n$，定义
+\begin{xexercise}[6]
+设对任意正整数 $m,n$，定义
   \[
     I(m,n)=\int\cos^mx\sin^nx\,\dd x,
   \]
@@ -662,7 +681,6 @@
     \item $\displaystyle I(m,n)=-\frac{\sin^{n-1}x\cos^{m+1}x}{m+n}+\frac{n-1}{m+n}\cdot I(m,n-2)$；
     \item $\displaystyle I(n,n)=-\frac{\cos2x\sin^{n-1}2x}{n\cdot2^{n+1}}+\frac{n-1}{4n}\cdot I(n-2,n-2)$。
   \end{enumerate}
-\end{enumerate}
 \end{xexercise}
 
 \section{几类可积函数}
@@ -1042,17 +1060,18 @@
 
 \subsection{练习题}
 
-\begin{xexercise}
-\begin{enumerate}
-  \item 用观察法将被积函数拆开后计算不定积分：
+\begin{xexercise}[1]
+用观察法将被积函数拆开后计算不定积分：
   \begin{enumerate}[label=(\arabic*)]
     \item $\displaystyle\int\frac{x}{(x+1)(x+2)}\,\dd x$；
     \item $\displaystyle\int\frac{x^2+x+1}{x(1+x^2)}\,\dd x$；
     \item $\displaystyle\int\frac{\dd x}{x^4(x^2+1)}$；
     \item $\displaystyle\int\frac{4x^2+3}{(x^2+1)(x^2+2)}\,\dd x$。
   \end{enumerate}
+\end{xexercise}
 
-  \item 计算下列有理函数的不定积分：
+\begin{xexercise}[2]
+计算下列有理函数的不定积分：
   \begin{enumerate}[label=(\arabic*)]
     \item $\displaystyle\int\frac{x^5-x}{1+x^8}\,\dd x$；
     \item $\displaystyle\int\frac{\dd x}{x(x^n+a)}\quad(a\ne0)$；
@@ -1063,8 +1082,10 @@
     \item $\displaystyle\int\frac{\dd x}{1+x^6}$；
     \item $\displaystyle\int\frac{x^2-x+3}{(x^2+x+1)(x-1)^2}\,\dd x$。
   \end{enumerate}
+\end{xexercise}
 
-  \item 计算下列三角函数有理式的不定积分：
+\begin{xexercise}[3]
+计算下列三角函数有理式的不定积分：
   \begin{enumerate}[label=(\arabic*)]
     \item $\displaystyle\int\frac{\dd x}{1+\cos x}$；
     \item $\displaystyle\int\frac{\dd x}{\sin x\cos^4x}$；
@@ -1075,14 +1096,18 @@
     \item $\displaystyle\int\frac{\sin x\cos x}{1+\sin^4x}\,\dd x$；
     \item $\displaystyle\int\frac{\dd x}{\sin^4x\cos^2x}$。
   \end{enumerate}
+\end{xexercise}
 
-  \item 计算 Poisson（泊松）积分
+\begin{xexercise}[4]
+计算 Poisson（泊松）积分
   \[
     \int\frac{1-r^2}{1-2r\cos x+r^2}\,\dd x
     \qquad(-1<r<1).
   \]
+\end{xexercise}
 
-  \item 计算下列无理函数的不定积分：
+\begin{xexercise}[5]
+计算下列无理函数的不定积分：
   \begin{enumerate}[label=(\arabic*)]
     \item $\displaystyle\int\frac{\dd x}{\sqrt{\sin x\cos^7x}}$；
     \item $\displaystyle\int\frac{\dd x}{x\sqrt{2x^2+3}}$；
@@ -1091,7 +1116,6 @@
     \item $\displaystyle\int\frac{\dd x}{\sqrt{(x-1)^3(x-2)}}$；
     \item $\displaystyle\int\frac{\sqrt{x}-1}{\sqrt[3]{x}+1}\,\dd x$。
   \end{enumerate}
-\end{enumerate}
 \end{xexercise}
 
 \section{对于教学的建议}
@@ -1144,11 +1168,12 @@
 
 \subsection{参考题}
 
-\begin{xreferenceproblem}
-\begin{enumerate}
-  \item 设 $f'(\sin^2x)=\cos4x+\tan^2x$，$0<x<1$，求函数 $f(x)$。
+\begin{xreferenceproblem}[1]
+设 $f'(\sin^2x)=\cos4x+\tan^2x$，$0<x<1$，求函数 $f(x)$。
+\end{xreferenceproblem}
 
-  \item 计算下列不定积分：
+\begin{xreferenceproblem}[2]
+计算下列不定积分：
   \begin{enumerate}[label=(\arabic*)]
     \item $\displaystyle\int x\arctan x\ln(1+x^2)\,\dd x$；
     \item $\displaystyle\int\frac{1-\ln x}{(x-\ln x)^2}\,\dd x$；
@@ -1157,14 +1182,18 @@
     \item $\displaystyle\int\frac{\dd x}{\sin(x+a)\sin(x+b)}$；
     \item $\displaystyle\int\frac{1-x^n}{x(1+x^n)}\,\dd x\quad(n\in\NN_+)$。
   \end{enumerate}
+\end{xreferenceproblem}
 
-  \item 对每个正整数 $n$，定义
+\begin{xreferenceproblem}[3]
+对每个正整数 $n$，定义
   \[
     I_n=\int\frac{(ax+b)^n}{\sqrt{cx+b}}\,\dd x,
   \]
   求出计算 $I_n$ 的递推公式。
+\end{xreferenceproblem}
 
-  \item 对于实数 $a\ne0$ 与正整数 $n>2$，定义
+\begin{xreferenceproblem}[4]
+对于实数 $a\ne0$ 与正整数 $n>2$，定义
   \[
     I_n=\int\left[\frac{\sin((x-a)/2)}{\sin((x+a)/2)}\right]^n\,\dd x.
   \]
@@ -1174,16 +1203,22 @@
       +\frac{2\sin a}{n-1}
       \left[\frac{\sin((x-a)/2)}{\sin((x+a)/2)}\right]^{n-1}.
   \]
+\end{xreferenceproblem}
 
-  \item 设 $Q$ 为 $n$ 次多项式，且具有 $n$ 个相异实根 $x_i$，$i=1,2,\ldots,n$。又设 $P$ 是与 $Q$ 不可约的 $m$ 次多项式，且 $m<n$，证明：
+\begin{xreferenceproblem}[5]
+设 $Q$ 为 $n$ 次多项式，且具有 $n$ 个相异实根 $x_i$，$i=1,2,\ldots,n$。又设 $P$ 是与 $Q$ 不可约的 $m$ 次多项式，且 $m<n$，证明：
   \[
     \int\frac{P(x)}{Q(x)}\,\dd x
     =\sum_{i=1}^n\frac{P(x_i)}{Q'(x_i)}\ln\abs{x-x_i}+C.
   \]
+\end{xreferenceproblem}
 
-  \item 求 $\int f(x)\,\dd x$，其中 $f(x)$ 为 $x$ 到离其最近的整数的距离。
+\begin{xreferenceproblem}[6]
+求 $\int f(x)\,\dd x$，其中 $f(x)$ 为 $x$ 到离其最近的整数的距离。
+\end{xreferenceproblem}
 
-  \item Liouville 在 19 世纪 30 年代对于初等函数的不定积分在什么条件下是初等函数进行过深入的研究（参见 [55]），他得到的一个结果是：
+\begin{xreferenceproblem}[7]
+Liouville 在 19 世纪 30 年代对于初等函数的不定积分在什么条件下是初等函数进行过深入的研究（参见 [55]），他得到的一个结果是：
 
   \begin{xtheorem}
   设 $f,g$ 为有理函数，$g$ 不是常值函数，如果 $\int f(x)\ee^{g(x)}\,\dd x$ 是初等函数，则存在有理函数 $h$，使得
@@ -1193,5 +1228,4 @@
   \end{xtheorem}
 
   试用这个定理证明：$\int\ee^{-x^2}\,\dd x$ 和 $\int\dfrac{\ee^x}{x}\,\dd x$ 都是非初等不定积分（由后者又可推出 $\int\dfrac{\dd x}{\ln x}$ 也是非初等积分）。
-\end{enumerate}
 \end{xreferenceproblem}

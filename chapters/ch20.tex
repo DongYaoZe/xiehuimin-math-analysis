@@ -192,31 +192,40 @@ $F(x,y)$ 在 $(0,0)$ 点附近满足定理所述条件，从而隐函数 $y=f(x)
 
 \subsection{思考题}
 
-\begin{enumerate}
-  \item 证明：方程 $F(x,y)=(x-y)^2=0$ 在点 $(0,0)$ 处有 $F_y(0,0)=0$，但在 $x=0$ 附近仍存在唯一解 $y=x$ 且是连续可微的。这与隐函数存在定理的结论是否矛盾？
-  \item 设有方程 $x^2+y^2+z^2-3xyz=0$，证明：
+\begin{xthought}[1]
+证明：方程 $F(x,y)=(x-y)^2=0$ 在点 $(0,0)$ 处有 $F_y(0,0)=0$，但在 $x=0$ 附近仍存在唯一解 $y=x$ 且是连续可微的。这与隐函数存在定理的结论是否矛盾？
+\end{xthought}
+
+\begin{xthought}[2]
+设有方程 $x^2+y^2+z^2-3xyz=0$，证明：
   \begin{enumerate}[label=(\arabic*)]
     \item 可确定点 $(1,1,1)$ 附近的隐函数 $z=z(x,y)$，并求 $z_x(1,1)$；
     \item 可确定点 $(1,1,1)$ 附近的隐函数 $y=y(x,z)$，并求 $y_x(1,1)$。
   \end{enumerate}
-\end{enumerate}
+\end{xthought}
 
 \subsection{练习题}
 
-\begin{enumerate}
-  \item 设 $y=y(x)$ 由下述方程确定，求 $y',y''$：
+\begin{xexercise}[1]
+设 $y=y(x)$ 由下述方程确定，求 $y',y''$：
   \begin{enumerate}[label=(\arabic*)]
     \item $\ln(x^2+y^2)=\arctan\dfrac{y}{x}$；
     \item $x^y=y^x$；
     \item $xy-2^x\ln2+2^y=0$。
   \end{enumerate}
-  \item 求在指定点的导数：
+\end{xexercise}
+
+\begin{xexercise}[2]
+求在指定点的导数：
   \begin{enumerate}[label=(\arabic*)]
     \item $y^3+y-x^2=0$，求 $y'(0)$；
     \item $x^{2/3}+y^{2/3}-4=0$，求在点 $(1,3\sqrt3)$ 处的导数 $y'$；
     \item $\sin x+2\cos y-1=0$，求在点 $\left(\dfrac\pi2,\dfrac{3\pi}{2}\right)$ 处的 $y',y''$。
   \end{enumerate}
-  \item 设 $z=z(x,y)$ 是由下列方程确定的隐函数，求指定的导数或微分：
+\end{xexercise}
+
+\begin{xexercise}[3]
+设 $z=z(x,y)$ 是由下列方程确定的隐函数，求指定的导数或微分：
   \begin{enumerate}[label=(\arabic*)]
     \item $x+y+z=\ee^{-(x+y+z)}$，求 $\dfrac{\partial z}{\partial x},\dfrac{\partial z}{\partial y},\dfrac{\partial^2z}{\partial y^2},\dfrac{\partial^2z}{\partial x^2},\dfrac{\partial^2z}{\partial x\partial y}$；
     \item $x^3+y^3+z^3-3xyz-4=0$，求在点 $(1,1,2)$ 处的偏导数 $\dfrac{\partial z}{\partial x},\dfrac{\partial z}{\partial y}$；
@@ -224,13 +233,19 @@ $F(x,y)$ 在 $(0,0)$ 点附近满足定理所述条件，从而隐函数 $y=f(x)
     \item $\dfrac{x}{z}=\ln\dfrac{z}{y}$，求 $\dd z$；
     \item $xy+yz+zx=1$，求 $\dfrac{\partial z}{\partial x},\dfrac{\partial z}{\partial y},\dfrac{\partial^2z}{\partial y^2},\dfrac{\partial^2z}{\partial x^2},\dfrac{\partial^2z}{\partial x\partial y}$。
   \end{enumerate}
-  \item 设 $z=z(x,y)$ 由下列方程确定，求指定的导数或微分：
+\end{xexercise}
+
+\begin{xexercise}[4]
+设 $z=z(x,y)$ 由下列方程确定，求指定的导数或微分：
   \begin{enumerate}[label=(\arabic*)]
     \item $f(x+y+z,x^2+y^2+z^2)=0$，求 $\dd z$；
     \item $f(x,x+y,x+y+z)=0$，求 $\dfrac{\partial z}{\partial x},\dfrac{\partial z}{\partial y}$；
     \item $f(x+y,y+z,z+x)=0$，求 $\dfrac{\partial^2z}{\partial x^2},\dfrac{\partial^2z}{\partial y^2},\dfrac{\partial^2z}{\partial x\partial y}$。
   \end{enumerate}
-  \item 验证下列各题中给出的隐函数满足指定的方程：
+\end{xexercise}
+
+\begin{xexercise}[5]
+验证下列各题中给出的隐函数满足指定的方程：
   \begin{enumerate}[label=(\arabic*)]
     \item $xz_x-yz_y=2x$，其中 $z=z(x,y)$ 是由方程 $F(xy,z-2x)=0$ 确定的隐函数；
     \item $(x^2-y^2-z^2)z_x+2xyz_y=2xz$，其中 $z=z(x,y)$ 是由方程 $x^2+y^2+z^2=yf\!\left(\dfrac{z}{y}\right)$ 确定的隐函数；
@@ -241,7 +256,7 @@ $F(x,y)$ 在 $(0,0)$ 点附近满足定理所述条件，从而隐函数 $y=f(x)
     \]
     确定的隐函数。
   \end{enumerate}
-\end{enumerate}
+\end{xexercise}
 
 \section{隐函数组}
 
@@ -357,14 +372,17 @@ $F(x,y)$ 在 $(0,0)$ 点附近满足定理所述条件，从而隐函数 $y=f(x)
 
 \subsection{思考题}
 
-\begin{enumerate}
-  \item 若由 $F(x,y,z,u)=0,G(x,y,z,u)=0,H(x,y,z,u)=0$ 可解出 $x=x(u),y=y(u),z=z(u)$，根据隐函数组存在定理应如何对函数 $F,G,H$ 假设条件？
-  \item 对极坐标变换
+\begin{xthought}[1]
+若由 $F(x,y,z,u)=0,G(x,y,z,u)=0,H(x,y,z,u)=0$ 可解出 $x=x(u),y=y(u),z=z(u)$，根据隐函数组存在定理应如何对函数 $F,G,H$ 假设条件？
+\end{xthought}
+
+\begin{xthought}[2]
+对极坐标变换
   \[
     x=r\cos\theta,\qquad y=r\sin\theta,
   \]
   在哪些点 $(r_0,\theta_0)$ 附近可存在反函数组 $r=r(x,y),\theta=\theta(x,y)$？在 $(0,\theta_0)$ 附近能否存在反函数组？对结论做出直观解释。
-\end{enumerate}
+\end{xthought}
 
 \subsection{求已知函数组所确定的隐函数组的导数}
 
@@ -607,9 +625,12 @@ $F(x,y)$ 在 $(0,0)$ 点附近满足定理所述条件，从而隐函数 $y=f(x)
 
 \subsection{练习题}
 
-\begin{enumerate}
-  \item 设 $x=\ee^v+u^3,y=\ee^u-v^3$，求反函数组的一阶偏导数 $\dfrac{\partial u}{\partial x},\dfrac{\partial u}{\partial y}$。
-  \item 对由方程组
+\begin{xexercise}[1]
+设 $x=\ee^v+u^3,y=\ee^u-v^3$，求反函数组的一阶偏导数 $\dfrac{\partial u}{\partial x},\dfrac{\partial u}{\partial y}$。
+\end{xexercise}
+
+\begin{xexercise}[2]
+对由方程组
   \[
     \begin{cases}
       x+y+z=0,\\
@@ -617,7 +638,10 @@ $F(x,y)$ 在 $(0,0)$ 点附近满足定理所述条件，从而隐函数 $y=f(x)
     \end{cases}
   \]
   确定的函数 $x=x(z),y=y(z)$，求在点 $\left(\dfrac1{\sqrt2},-\dfrac1{\sqrt2},0\right)$ 处的导数 $\dfrac{\dd x}{\dd z},\dfrac{\dd y}{\dd z}$。
-  \item 对方程组
+\end{xexercise}
+
+\begin{xexercise}[3]
+对方程组
   \[
     \begin{cases}
       x^3+y^3+z^3=3xyz,\\
@@ -625,7 +649,10 @@ $F(x,y)$ 在 $(0,0)$ 点附近满足定理所述条件，从而隐函数 $y=f(x)
     \end{cases}
   \]
   确定的隐函数组 $y=y(x),z=z(x)$，求出导数 $\dfrac{\dd y}{\dd x},\dfrac{\dd z}{\dd x},\dfrac{\dd^2y}{\dd x^2},\dfrac{\dd^2z}{\dd x^2}$。
-  \item 设
+\end{xexercise}
+
+\begin{xexercise}[4]
+设
   \[
     \begin{cases}
       x=u\cos\dfrac vu,\\
@@ -633,11 +660,23 @@ $F(x,y)$ 在 $(0,0)$ 点附近满足定理所述条件，从而隐函数 $y=f(x)
     \end{cases}
   \]
   求反函数组的偏导数 $u_x,u_y,v_x,v_y$。
-  \item 设 $u=u(x)$ 是由方程组 $u=f(x,y,z),g(x,y,z)=0,h(x,y,z)=0$ 所确定，求 $\dfrac{\dd u}{\dd x},\dfrac{\dd^2u}{\dd x^2}$。
-  \item 求由方程组 $x=u\cos v,y=u\sin v,z=v$ 确定的 $z=z(x,y)$ 的所有二阶偏导数。
-  \item 设 $z=z(x,y)$ 为由方程组 $x=\ee^{u+v},y=\ee^{u-v},z=uv$ 所定义的函数，求当 $(u,v)=(0,0)$ 时的 $\dd z,\dd^2z$。
-  \item 设 $u=f(x,y,z),g(x^2,\ee^y,z)=0,y=\sin x$，且已知 $f$ 与 $g$ 都有一阶连续偏导数，求 $\dfrac{\dd u}{\dd x}$。
-\end{enumerate}
+\end{xexercise}
+
+\begin{xexercise}[5]
+设 $u=u(x)$ 是由方程组 $u=f(x,y,z),g(x,y,z)=0,h(x,y,z)=0$ 所确定，求 $\dfrac{\dd u}{\dd x},\dfrac{\dd^2u}{\dd x^2}$。
+\end{xexercise}
+
+\begin{xexercise}[6]
+求由方程组 $x=u\cos v,y=u\sin v,z=v$ 确定的 $z=z(x,y)$ 的所有二阶偏导数。
+\end{xexercise}
+
+\begin{xexercise}[7]
+设 $z=z(x,y)$ 为由方程组 $x=\ee^{u+v},y=\ee^{u-v},z=uv$ 所定义的函数，求当 $(u,v)=(0,0)$ 时的 $\dd z,\dd^2z$。
+\end{xexercise}
+
+\begin{xexercise}[8]
+设 $u=f(x,y,z),g(x^2,\ee^y,z)=0,y=\sin x$，且已知 $f$ 与 $g$ 都有一阶连续偏导数，求 $\dfrac{\dd u}{\dd x}$。
+\end{xexercise}
 
 \section{变量代换问题}
 
@@ -845,31 +884,46 @@ $F(x,y)$ 在 $(0,0)$ 点附近满足定理所述条件，从而隐函数 $y=f(x)
 
 \subsection{练习题}
 
-\begin{enumerate}
-  \item 把方程
+\begin{xexercise}[1]
+把方程
   \[
     (x-y)\frac{\partial z}{\partial x}+y\frac{\partial z}{\partial y}=0
   \]
   变为 $x$ 作因变量，$y,z$ 为自变量的形式。
-  \item 引用新函数 $r=\sqrt{x^2+y^2},\varphi=\arctan\dfrac yx$ 变换微分式
+\end{xexercise}
+
+\begin{xexercise}[2]
+引用新函数 $r=\sqrt{x^2+y^2},\varphi=\arctan\dfrac yx$ 变换微分式
   \[
     w=x\frac{\dd^2y}{\dd t^2}-y\frac{\dd^2x}{\dd t^2}.
   \]
-  \item 以 $\xi=x+y,\eta=x-y$ 为新自变量，变换方程
+\end{xexercise}
+
+\begin{xexercise}[3]
+以 $\xi=x+y,\eta=x-y$ 为新自变量，变换方程
   \[
     \frac{\partial z}{\partial x}=\frac{\partial z}{\partial y}.
   \]
-  \item 取 $u=y+z\ee^{-x},v=x+z\ee^{-y}$ 为新的自变量，变换微分式
+\end{xexercise}
+
+\begin{xexercise}[4]
+取 $u=y+z\ee^{-x},v=x+z\ee^{-y}$ 为新的自变量，变换微分式
   \[
     F=(z+\ee^x)\frac{\partial z}{\partial x}
     +(z+\ee^y)\frac{\partial z}{\partial y}
     -(z^2-\ee^{x+y}).
   \]
-  \item 设 $u=x\ee^z,v=y\ee^z,w=z\ee^z$，试以 $w$ 为新的因变量，$u,v$ 为新的自变量，变换方程
+\end{xexercise}
+
+\begin{xexercise}[5]
+设 $u=x\ee^z,v=y\ee^z,w=z\ee^z$，试以 $w$ 为新的因变量，$u,v$ 为新的自变量，变换方程
   \[
     \frac{\partial z}{\partial x}=\frac{\partial z}{\partial y}.
   \]
-  \item 以 $w$ 为新的因变量，$\xi,\eta,\zeta$ 为新的自变量，变换方程
+\end{xexercise}
+
+\begin{xexercise}[6]
+以 $w$ 为新的因变量，$\xi,\eta,\zeta$ 为新的自变量，变换方程
   \[
     x\frac{\partial u}{\partial x}+y\frac{\partial u}{\partial y}
     +z\frac{\partial u}{\partial z}=u+\frac{xy}{z},
@@ -878,12 +932,18 @@ $F(x,y)$ 在 $(0,0)$ 点附近满足定理所述条件，从而隐函数 $y=f(x)
   \[
     \xi=\frac xz,\qquad \eta=\frac yz,\qquad \zeta=z,\qquad w=\frac uz.
   \]
-  \item 试求
+\end{xexercise}
+
+\begin{xexercise}[7]
+试求
   \[
     \frac{\partial^2u}{\partial x^2}+\frac{\partial^2u}{\partial y^2}+\frac{\partial^2u}{\partial z^2}=0
   \]
   在球坐标下的形式。
-  \item 以 $u=x+2y+2,v=x-y-1$ 为新的自变量，变换方程
+\end{xexercise}
+
+\begin{xexercise}[8]
+以 $u=x+2y+2,v=x-y-1$ 为新的自变量，变换方程
   \[
     2\frac{\partial^2z}{\partial x^2}
     +\frac{\partial^2z}{\partial x\partial y}
@@ -891,29 +951,44 @@ $F(x,y)$ 在 $(0,0)$ 点附近满足定理所述条件，从而隐函数 $y=f(x)
     +\frac{\partial z}{\partial x}
     +\frac{\partial z}{\partial y}=0.
   \]
-  \item 以 $w$ 为新的因变量，$u,v$ 为新的自变量，变换方程
+\end{xexercise}
+
+\begin{xexercise}[9]
+以 $w$ 为新的因变量，$u,v$ 为新的自变量，变换方程
   \[
     \frac{\partial^2z}{\partial x^2}
     -2\frac{\partial^2z}{\partial x\partial y}
     +\left(1+\frac yx\right)\frac{\partial^2z}{\partial y^2}=0,
   \]
   其中 $u=x,v=x+y,w=x+y+z$。
-  \item 设 $xu=x^2+y^2,yv=x^2+y^2$，证明：
+\end{xexercise}
+
+\begin{xexercise}[10]
+设 $xu=x^2+y^2,yv=x^2+y^2$，证明：
   \[
     \frac{\partial(u,v)}{\partial(x,y)}=-\frac{uv}{xy}.
   \]
-  \item 若 $u(x,y,z),v(x,y,z)$ 可微，证明：
+\end{xexercise}
+
+\begin{xexercise}[11]
+若 $u(x,y,z),v(x,y,z)$ 可微，证明：
   \[
     \frac{\partial(u,v)}{\partial(y,z)}\frac{\partial u}{\partial x}
     +\frac{\partial(u,v)}{\partial(z,x)}\frac{\partial u}{\partial y}
     +\frac{\partial(u,v)}{\partial(x,y)}\frac{\partial u}{\partial z}=0.
   \]
-  \item 设 $u=xy,v=\dfrac xy$，试求
+\end{xexercise}
+
+\begin{xexercise}[12]
+设 $u=xy,v=\dfrac xy$，试求
   \[
     \frac{\partial(u,v)}{\partial(x,y)},\qquad
     \frac{\partial(x,y)}{\partial(u,v)}.
   \]
-  \item 设
+\end{xexercise}
+
+\begin{xexercise}[13]
+设
   \[
     u=\frac{x}{r^2},\qquad v=\frac{y}{r^2},\qquad w=\frac{z}{r^2},
   \]
@@ -921,7 +996,7 @@ $F(x,y)$ 在 $(0,0)$ 点附近满足定理所述条件，从而隐函数 $y=f(x)
   \[
     \frac{\partial(u,v,w)}{\partial(x,y,z)}.
   \]
-\end{enumerate}
+\end{xexercise}
 
 \section{隐函数及隐函数组的整体存在性}
 
@@ -1156,29 +1231,44 @@ $\forall y\in f(D)$，$\exists x\in D$，使 $f(x)=y$，$f$ 定义在 $x$ 的某
 
 \paragraph{第一组参考题}
 
-\begin{enumerate}
-  \item 设 $f(x,y)$ 在点 $(0,1)$ 附近连续可微，且 $f_y(0,1)\ne0,f(0,1)=0$。证明：
+\begin{xreferenceproblem}[1]
+设 $f(x,y)$ 在点 $(0,1)$ 附近连续可微，且 $f_y(0,1)\ne0,f(0,1)=0$。证明：
   \[
     f\left(x,\int_0^t\sin x\,\dd x\right)=0
   \]
   在点 $\left(0,\dfrac\pi2\right)$ 附近确定一个隐函数 $t=\varphi(x)$，并求 $\varphi'(0)$。
-  \item 证明：由方程
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[2]
+证明：由方程
   \[
     y=x+\frac12\sin y
   \]
   可在 $(-\infty,+\infty)$ 中确定隐函数 $y=y(x)$，且 $y(x)\in C^\infty(\RR)$，即 $y(x)$ 是 $\RR$ 上的无穷次可微函数。
-  \item 设 $x=y+\varphi(y)$，$\varphi$ 满足 $\varphi(0)=0$，$\varphi'(y)$ 在 $(-a,a)$ 中连续，且 $\abs{\varphi'(0)}\le k<1$。证明：存在 $\delta>0$，使当 $-\delta<x<\delta$ 时有唯一可微函数 $y=y(x)$ 满足方程 $x=y+\varphi(y)$ 且 $y(0)=0$。
-  \item 证明：方程
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[3]
+设 $x=y+\varphi(y)$，$\varphi$ 满足 $\varphi(0)=0$，$\varphi'(y)$ 在 $(-a,a)$ 中连续，且 $\abs{\varphi'(0)}\le k<1$。证明：存在 $\delta>0$，使当 $-\delta<x<\delta$ 时有唯一可微函数 $y=y(x)$ 满足方程 $x=y+\varphi(y)$ 且 $y(0)=0$。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[4]
+证明：方程
   \[
     F(x,y)=1-\ee^{-x}+y^3\ee^{-y}=0
   \]
   在 $\{x>0,y\in\RR^1\}$ 中存在唯一解 $y=y(x)$（$x>0$），且 $y(x)$ 连续可微。
-  \item 设 $f(x,y)$ 满足：$f_x$ 在 $\RR^2$ 上存在，$f_y$ 在 $\RR^2$ 上存在且连续，且
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[5]
+设 $f(x,y)$ 满足：$f_x$ 在 $\RR^2$ 上存在，$f_y$ 在 $\RR^2$ 上存在且连续，且
   \[
     \abs{f_x}<M\abs{f_y},\qquad f(x_0,y_0)=0,
   \]
   这里 $M$ 是正常数。证明：$f(x,y)=0$ 唯一确定一个定义在 $\RR$ 上的可微解 $y=y(x)$，且满足 $y(x_0)=y_0$。再问条件 $\abs{f_x}<M\abs{f_y}$ 是否是必要的？若去掉 $f(x_0,y_0)=0$ 这个条件，结论是否仍成立？
-  \item 设 $u=f(x,y),v=g(x,y)$ 在区域 $\Omega\subset\RR^2$ 上有连续偏导数。证明：
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[6]
+设 $u=f(x,y),v=g(x,y)$ 在区域 $\Omega\subset\RR^2$ 上有连续偏导数。证明：
   \begin{enumerate}[label=(\arabic*)]
     \item 如果在 $\Omega$ 上的 Jacobi 矩阵的秩恒等于 1，则对 $\Omega$ 内任一点 $(x_0,y_0)$，存在 $(x_0,y_0)$ 的邻域 $U$ 和连续可微的函数 $F(u,v)$，$(F'_u)^2+(F'_v)^2\ne0$，使 $F(f(x,y),g(x,y))=0$ 在 $U$ 上恒成立；
     \item 若有连续可微函数 $F(u,v)$，$(F'_u)^2+(F'_v)^2\ne0$，使 $F(f(x,y),g(x,y))=0$ 在 $\Omega$ 上恒成立，则
@@ -1186,7 +1276,10 @@ $\forall y\in f(D)$，$\exists x\in D$，使 $f(x)=y$，$f$ 定义在 $x$ 的某
       \frac{\partial(u,v)}{\partial(x,y)}=0,\qquad (x,y)\in\Omega.
     \]
   \end{enumerate}
-  \item 设空间曲线 $C$ 的方程是：
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[7]
+设空间曲线 $C$ 的方程是：
   \[
     x=f(t),\qquad y=\varphi(t),\qquad z=\frac{f'(t)}{\varphi'(t)},\qquad -1<t<1,
   \]
@@ -1198,7 +1291,10 @@ $\forall y\in f(D)$，$\exists x\in D$，使 $f(x)=y$，$f$ 定义在 $x$ 的某
       z=\frac{f'(t)}{\varphi'(t)},\quad s,t\in(-1,1)\right\}.
   \]
   证明：$E$ 中与曲线 $C$ 充分接近（即 $\abs s$ 充分小）的一些点，组成一张连续曲面 $z=z(x,y)$。
-  \item 设函数 $f(x,y),g(x,y)$ 是定义在平面开区域 $G$ 上的两个函数，在 $G$ 上均有连续的一阶偏导数，且在 $G$ 内任意点处均有
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[8]
+设函数 $f(x,y),g(x,y)$ 是定义在平面开区域 $G$ 上的两个函数，在 $G$ 上均有连续的一阶偏导数，且在 $G$ 内任意点处均有
   \[
     \frac{\partial f}{\partial x}\frac{\partial g}{\partial y}
     -\frac{\partial f}{\partial y}\frac{\partial g}{\partial x}\ne0.
@@ -1208,7 +1304,10 @@ $\forall y\in f(D)$，$\exists x\in D$，使 $f(x)=y$，$f$ 定义在 $x$ 的某
     f(x,y)=0,\qquad g(x,y)=0
   \]
   的点至多有有限个。
-  \item 设 $f$ 是 $\RR^3$ 上的连续可微函数。若 $f(x,y,z)=0$，则
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[9]
+设 $f$ 是 $\RR^3$ 上的连续可微函数。若 $f(x,y,z)=0$，则
   \[
     \frac{\partial z}{\partial y}\cdot
     \frac{\partial y}{\partial x}\cdot
@@ -1219,22 +1318,31 @@ $\forall y\in f(D)$，$\exists x\in D$，使 $f(x)=y$，$f$ 定义在 $x$ 的某
     \item 对 Clapeyron（克拉佩隆）公式 $\dfrac{P\cdot V}{T}=\text{常数}$，验证上述命题的正确性；
     \item 对于 $n$ 元连续可微函数 $f(x_1,x_2,\ldots,x_n)$ 确定的关系式 $f(x_1,x_2,\ldots,x_n)=0$ 是否有上述类似公式？验证你的判断。
   \end{enumerate}
-  \item 设 $f\colon\RR^2\to\RR^2$ 为 $C^1$ 映射。若只存在有限多个点 $x_1,x_2,\ldots,x_r$，使得
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[10]
+设 $f\colon\RR^2\to\RR^2$ 为 $C^1$ 映射。若只存在有限多个点 $x_1,x_2,\ldots,x_r$，使得
   \[
     \det Jf(x_i)=0,\qquad i=1,2,\ldots,r,
   \]
   并且对每个正数 $M$，$\{x\in\RR^2\mid \abs{f(x)}\le M\}$ 是有界集，证明：$f$ 把 $\RR^2$ 映满 $\RR^2$。
-  \item 设 $f\colon\RR^n\to\RR^n$ 为 $C^1$ 映射，且 $Jf(x_0)$ 可逆。证明：$\forall x\in\RR^n$，只要 $\abs x$ 充分小，就存在 $z\in\RR^n$，$z=\littleo(\abs x)$，使得
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[11]
+设 $f\colon\RR^n\to\RR^n$ 为 $C^1$ 映射，且 $Jf(x_0)$ 可逆。证明：$\forall x\in\RR^n$，只要 $\abs x$ 充分小，就存在 $z\in\RR^n$，$z=\littleo(\abs x)$，使得
   \[
     f(x_0+x+z)-f(x_0)-Jf(x_0)x=0.
   \]
-\end{enumerate}
+\end{xreferenceproblem}
 
 \paragraph{第二组参考题}
 
-\begin{enumerate}
-  \item 试用压缩映射原理证明如下局部微分同胚定理：设 $U$ 是 $\RR^n$ 的开集，$f\colon U\to\RR^n$ 是 $C^k$ 映射，$x_0\in U,\det Jf(x_0)\ne0$。则存在 $x_0$ 的邻域 $W\subset U$ 和 $f(x_0)$ 的邻域 $V$，使得 $f\colon W\to V$ 是 $C^k$ 微分同胚。
-  \item 设 $f\colon\RR^n\to\RR^n$ 是 $C^1$ 映射，且存在 $\alpha>0$ 使 $\forall x\in\RR^n$ 有
+\begin{xreferenceproblem}[1]
+试用压缩映射原理证明如下局部微分同胚定理：设 $U$ 是 $\RR^n$ 的开集，$f\colon U\to\RR^n$ 是 $C^k$ 映射，$x_0\in U,\det Jf(x_0)\ne0$。则存在 $x_0$ 的邻域 $W\subset U$ 和 $f(x_0)$ 的邻域 $V$，使得 $f\colon W\to V$ 是 $C^k$ 微分同胚。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[2]
+设 $f\colon\RR^n\to\RR^n$ 是 $C^1$ 映射，且存在 $\alpha>0$ 使 $\forall x\in\RR^n$ 有
   \[
     u^{\mathsf T}\cdot Jf(x)\cdot u\ge\alpha\abs u^2,\qquad \forall u\in\RR^n,
   \]
@@ -1243,8 +1351,14 @@ $\forall y\in f(D)$，$\exists x\in D$，使 $f(x)=y$，$f$ 定义在 $x$ 的某
     \abs{f(x)-f(y)}\ge\alpha\abs{x-y},\qquad \forall x,y\in\RR^n,
   \]
   且 $f$ 是 $\RR^n$ 上的微分同胚。
-  \item 用映射的语言叙述隐函数组存在定理，将它化为逆映射存在定理或直接用压缩映射原理证明。
-  \item 20.2.4 小节的逆映射存在性证明是构造性的，它给出了逆映射的迭代构造格式。设 $y\in V$，取合适的初始点 $x_0\in U$，则
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[3]
+用映射的语言叙述隐函数组存在定理，将它化为逆映射存在定理或直接用压缩映射原理证明。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[4]
+20.2.4 小节的逆映射存在性证明是构造性的，它给出了逆映射的迭代构造格式。设 $y\in V$，取合适的初始点 $x_0\in U$，则
   \[
     x_n=x_{n-1}+(f'(a))^{-1}(y-f(x_{n-1}))
   \]
@@ -1274,7 +1388,10 @@ $\forall y\in f(D)$，$\exists x\in D$，使 $f(x)=y$，$f$ 定义在 $x$ 的某
     \binom u{v-1}
   \]
   作比较。
-  \item 设 $U$ 是 $\RR^m$ 的开集，$f\colon U\to\RR^n$ 是 $C^k$ 映射，满足条件：
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[5]
+设 $U$ 是 $\RR^m$ 的开集，$f\colon U\to\RR^n$ 是 $C^k$ 映射，满足条件：
   \[
     f(0)=0,\qquad Jf(0)\text{ 的秩为 }m\quad(m\le n).
   \]
@@ -1284,7 +1401,10 @@ $\forall y\in f(D)$，$\exists x\in D$，使 $f(x)=y$，$f$ 定义在 $x$ 的某
     =(x_1,x_2,\ldots,x_m,0,0,\ldots,0),
     \quad \forall(x_1,x_2,\ldots,x_m)\in f^{-1}(V).
   \]
-  \item 设 $U$ 是 $\RR^m$ 的开集，$f\colon U\to\RR^n$ 是 $C^k$ 映射，满足条件：
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[6]
+设 $U$ 是 $\RR^m$ 的开集，$f\colon U\to\RR^n$ 是 $C^k$ 映射，满足条件：
   \[
     f(0)=0,\qquad Jf(0)\text{ 的秩为 }n\quad(m\ge n).
   \]
@@ -1294,4 +1414,4 @@ $\forall y\in f(D)$，$\exists x\in D$，使 $f(x)=y$，$f$ 定义在 $x$ 的某
     \quad \forall(x_1,x_2,\ldots,x_m)\in V.
   \]
   （以上两个命题称为秩定理，如何对它们作一个简单的几何解释？）
-\end{enumerate}
+\end{xreferenceproblem}

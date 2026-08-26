@@ -163,45 +163,59 @@
 
 \subsection{思考题}
 
-\begin{xthought}
-\begin{enumerate}
-  \item 设 $f(x,y),g(x,y)$ 在 $D$ 上可积，证明：$f(x,y)\cdot g(x,y)$ 也在 $D$ 上可积。设 $f(x,y)$ 在 $D$ 上可积，且 $f(x,y)\ne0$，证明：$\frac1{f(x,y)}$ 也在 $D$ 上可积。
-  \item 设 $u=u(x,y)$ 在 $D$ 上可积，$f(u)$ 是 $u$ 的连续函数，证明：$f(u(x,y))$ 在 $D$ 上可积。如果 $f(u)$ 仅仅是 $u$ 的可积函数，$f(u(x,y))$ 是否一定在 $D$ 上可积？
-  \item 设 $f(x,y),g(x,y)$ 在 $D$ 上有界，且在 $D$ 上除了一个零面积集外处处相等。证明：$f(x,y)$ 与 $g(x,y)$ 在 $D$ 上有相同的可积性，可积时有相同的积分值。如果 $f(x,y)$ 与 $g(x,y)$ 在 $D$ 上除了一个零测度集外处处相等，情况又如何？
-  \item 如果 $f(x,y)$ 在 $\overline D\subset D$ 上有界可积，且 $D\setminus\overline D$ 为零面积集。我们可以认为 $f(x,y)$ 在 $D$ 上可积，且其积分值就取 $f(x,y)$ 在 $\overline D$ 上的积分值。讨论：
+\begin{xthought}[1]
+设 $f(x,y),g(x,y)$ 在 $D$ 上可积，证明：$f(x,y)\cdot g(x,y)$ 也在 $D$ 上可积。设 $f(x,y)$ 在 $D$ 上可积，且 $f(x,y)\ne0$，证明：$\frac1{f(x,y)}$ 也在 $D$ 上可积。
+\end{xthought}
+
+\begin{xthought}[2]
+设 $u=u(x,y)$ 在 $D$ 上可积，$f(u)$ 是 $u$ 的连续函数，证明：$f(u(x,y))$ 在 $D$ 上可积。如果 $f(u)$ 仅仅是 $u$ 的可积函数，$f(u(x,y))$ 是否一定在 $D$ 上可积？
+\end{xthought}
+
+\begin{xthought}[3]
+设 $f(x,y),g(x,y)$ 在 $D$ 上有界，且在 $D$ 上除了一个零面积集外处处相等。证明：$f(x,y)$ 与 $g(x,y)$ 在 $D$ 上有相同的可积性，可积时有相同的积分值。如果 $f(x,y)$ 与 $g(x,y)$ 在 $D$ 上除了一个零测度集外处处相等，情况又如何？
+\end{xthought}
+
+\begin{xthought}[4]
+如果 $f(x,y)$ 在 $\overline D\subset D$ 上有界可积，且 $D\setminus\overline D$ 为零面积集。我们可以认为 $f(x,y)$ 在 $D$ 上可积，且其积分值就取 $f(x,y)$ 在 $\overline D$ 上的积分值。讨论：
   \begin{enumerate}[label=(\arabic*)]
     \item $\displaystyle f(x,y)=\sin\frac1{(x^2-1)^2+(y^2-1)^2}$ 在 $[-1,1]\times[-1,1]$ 上；
     \item $\displaystyle f(x,y)=\arctan\frac1{y-x^2}$ 在 $[0,1]\times[0,1]$ 上
   \end{enumerate}
   的可积性。
-\end{enumerate}
 \end{xthought}
 
 \subsection{练习题}
 
-\begin{xexercise}
-\begin{enumerate}
-  \item 设 $f(x,y),g(x,y)$ 都是 $D$ 上的可积函数，证明：
+\begin{xexercise}[1]
+设 $f(x,y),g(x,y)$ 都是 $D$ 上的可积函数，证明：
   \[
     h(x,y)=\max\{f(x,y),g(x,y)\}
   \]
   也是 $D$ 上的可积函数。
-  \item 设 $f(x,y)$ 在点 $p_0(x_0,y_0)$ 的某邻域中连续，求
+\end{xexercise}
+
+\begin{xexercise}[2]
+设 $f(x,y)$ 在点 $p_0(x_0,y_0)$ 的某邻域中连续，求
   \[
     \lim_{\rho\to0}\frac1{\pi\rho^2}
     \iint_{(x-x_0)^2+(y-y_0)^2\le\rho^2}f(x,y)\,\dd x\,\dd y.
   \]
-  \item 证明：
+\end{xexercise}
+
+\begin{xexercise}[3]
+证明：
   \[
     \iint_{\abs{x}+\abs{y}\le1} f(x+y)\,\dd x\,\dd y
     =\int_{-1}^1 f(u)\,\dd u.
   \]
-  \item 证明：
+\end{xexercise}
+
+\begin{xexercise}[4]
+证明：
   \[
     \iint_D f(xy)\,\dd x\,\dd y=\ln2\int_1^2 f(u)\,\dd u,
   \]
   其中 $D$ 为 $xy=1,xy=2,y=x,y=4x$ 在第一象限所围成的区域。
-\end{enumerate}
 \end{xexercise}
 
 \section{二重积分的计算}
@@ -577,36 +591,71 @@
 
 \subsection{练习题}
 
-\begin{xexercise}
-\begin{enumerate}
-  \item 试把累次积分
+\begin{xexercise}[1]
+试把累次积分
   \[
     I=\int_0^{R/\sqrt{1+R^2}}\dd x\int_0^{Rx}f(x,y)\,\dd y
     +\int_{R/\sqrt{1+R^2}}^R\dd x\int_0^{\sqrt{R^2-x^2}}f(x,y)\,\dd y
   \]
   改写为先对 $x$ 后对 $y$ 的累次积分形式。
-  \item 设 $f(x)$ 在 $[0,1]$ 上连续，证明：
+\end{xexercise}
+
+\begin{xexercise}[2]
+设 $f(x)$ 在 $[0,1]$ 上连续，证明：
   \[
     \int_0^1\dd x\int_x^1 f(t)\,\dd t=\int_0^1 t f(t)\,\dd t.
   \]
-  \item $D$ 由 $y=\pi-x,x=\pi,y=\pi$ 围成，求 $\displaystyle\iint_D\frac{\sin x}{x}\,\dd x\,\dd y$。
-  \item $D$ 由 $y=0,y=x^2,x+y=2$ 围成的第一象限的部分，求 $\displaystyle\iint_D(x^2+y^2)\,\dd x\,\dd y$。
-  \item 求由 $(x^2+y^2)^2=a^2(x^2-y^2),z=x^2-y^2,z=0$ 围成之立体的体积。
-  \item 设 $D$ 是由 $x^2=ay,x^2=by,y^2=px,y^2=qx$ 所围成的区域，其中 $0<a<b,0<p<q$，求
+\end{xexercise}
+
+\begin{xexercise}[3]
+$D$ 由 $y=\pi-x,x=\pi,y=\pi$ 围成，求 $\displaystyle\iint_D\frac{\sin x}{x}\,\dd x\,\dd y$。
+\end{xexercise}
+
+\begin{xexercise}[4]
+$D$ 由 $y=0,y=x^2,x+y=2$ 围成的第一象限的部分，求 $\displaystyle\iint_D(x^2+y^2)\,\dd x\,\dd y$。
+\end{xexercise}
+
+\begin{xexercise}[5]
+求由 $(x^2+y^2)^2=a^2(x^2-y^2),z=x^2-y^2,z=0$ 围成之立体的体积。
+\end{xexercise}
+
+\begin{xexercise}[6]
+设 $D$ 是由 $x^2=ay,x^2=by,y^2=px,y^2=qx$ 所围成的区域，其中 $0<a<b,0<p<q$，求
   \[
     \iint_D\frac{x^2\sin xy}{y}\,\dd x\,\dd y.
   \]
-  \item 证明：
+\end{xexercise}
+
+\begin{xexercise}[7]
+证明：
   \[
     \int_a^b\dd y\int_a^y(y-x)^n f(x)\,\dd x
     =\frac1{n+1}\int_a^b(b-x)^{n+1}f(x)\,\dd x.
   \]
-  \item 设 $D$ 是第一象限内由 $y$ 轴及两个圆 $x^2+y^2=a^2,x^2-2ax+y^2=0$ 所围成的区域，求 $\displaystyle\iint_D\sqrt{x^2+y^2}\,\dd x\,\dd y$。
-  \item 求由四条直线 $x+y=p,x+y=q,y=ax,y=bx$（$0<p<q,0<a<b$）所围成的图形的面积。
-  \item 求由曲线 $\sqrt[4]{x/a}+\sqrt[4]{y/b}=1$ 与直线 $x=0,y=0$ 所围成图形的面积。
-  \item 求 $\displaystyle\iint_D f(\sqrt{x^2+y^2})\,\dd x\,\dd y$，其中 $D=\{(x,y)\mid\abs{y}<\abs{x}\le1\}$。
-  \item 求 $\displaystyle\iint_D x\,\dd x\,\dd y$，其中 $D$ 由 $xy=1,x^2+y^2=4$ 围成。
-  \item 给定积分
+\end{xexercise}
+
+\begin{xexercise}[8]
+设 $D$ 是第一象限内由 $y$ 轴及两个圆 $x^2+y^2=a^2,x^2-2ax+y^2=0$ 所围成的区域，求 $\displaystyle\iint_D\sqrt{x^2+y^2}\,\dd x\,\dd y$。
+\end{xexercise}
+
+\begin{xexercise}[9]
+求由四条直线 $x+y=p,x+y=q,y=ax,y=bx$（$0<p<q,0<a<b$）所围成的图形的面积。
+\end{xexercise}
+
+\begin{xexercise}[10]
+求由曲线 $\sqrt[4]{x/a}+\sqrt[4]{y/b}=1$ 与直线 $x=0,y=0$ 所围成图形的面积。
+\end{xexercise}
+
+\begin{xexercise}[11]
+求 $\displaystyle\iint_D f(\sqrt{x^2+y^2})\,\dd x\,\dd y$，其中 $D=\{(x,y)\mid\abs{y}<\abs{x}\le1\}$。
+\end{xexercise}
+
+\begin{xexercise}[12]
+求 $\displaystyle\iint_D x\,\dd x\,\dd y$，其中 $D$ 由 $xy=1,x^2+y^2=4$ 围成。
+\end{xexercise}
+
+\begin{xexercise}[13]
+给定积分
   \[
     I=\iint_D\left[\left(\frac{\partial f}{\partial x}\right)^2+\left(\frac{\partial f}{\partial y}\right)^2\right]\dd x\,\dd y,
   \]
@@ -619,24 +668,35 @@
   \[
     I=\iint_\Omega\left[\left(\frac{\partial f}{\partial u}\right)^2+\left(\frac{\partial f}{\partial v}\right)^2\right]\dd u\,\dd v.
   \]
-  \item 求积分
+\end{xexercise}
+
+\begin{xexercise}[14]
+求积分
   \[
     \int_0^{\sqrt2}\dd y\int_y^{\sqrt{4-y^2}}\frac{1}{\sqrt{1+x^2+y^2}}\,\dd x.
   \]
-  \item 证明：
+\end{xexercise}
+
+\begin{xexercise}[15]
+证明：
   \[
     \iint_{\abs{x}+\abs{y}\le1}(\sqrt{\abs{xy}}+\abs{xy})\,\dd x\,\dd y\le\frac32.
   \]
-  \item 计算二重积分
+\end{xexercise}
+
+\begin{xexercise}[16]
+计算二重积分
   \[
     I=\iint_D\abs{x-y^2}\,\dd x\,\dd y,
   \]
   其中 $D=\{(x,y)\mid0\le x\le1,-1\le y\le1\}$。
-  \item 求 $\displaystyle\iint_D\abs*{\ln\frac{x}{y^2}}\,\dd x\,\dd y$，其中 $D$ 是由 $y=x,y=1,x=2$ 围成的三角形。
-\end{enumerate}
 \end{xexercise}
 
-\section{三重积分，$n$ 重积分}
+\begin{xexercise}[17]
+求 $\displaystyle\iint_D\abs*{\ln\frac{x}{y^2}}\,\dd x\,\dd y$，其中 $D$ 是由 $y=x,y=1,x=2$ 围成的三角形。
+\end{xexercise}
+
+\section{\texorpdfstring{三重积分，$n$ 重积分}{三重积分，n 重积分}}
 
 三重积分的定义与二重积分类似，这里不再重复。
 
@@ -892,7 +952,7 @@ $A=(a_{ij})$ 是 3 阶正定对称阵，求
 正交变换是一种很有用的坐标变换。它的特点是刚体变换，仅仅旋转坐标轴，保持区域体积不变。特别是保持单位球不变。
 \end{xremark}
 
-\subsection{$n$ 重积分}
+\subsection{\texorpdfstring{$n$ 重积分}{n 重积分}}
 
 以四重积分为例，按照三重积分的思路，可以采用“先一后三”或者“先三后一”或者“先二后二”的积分次序，而对于其中的“三”或者“二”，则采用三重积分或者二重积分化累次积分的方法。也可以用四维的变量替换。
 
@@ -934,46 +994,74 @@ $A=(a_{ij})$ 是 3 阶正定对称阵，求
 
 \subsection{练习题}
 
-\begin{xexercise}
-\begin{enumerate}
-  \item 计算积分
+\begin{xexercise}[1]
+计算积分
   \[
     \int_0^1\dd x\int_0^{1-x}\dd z\int_0^{1-z-x}(1-y)\ee^{-(1-y-z)^2}\,\dd y.
   \]
-  \item 将累次积分
+\end{xexercise}
+
+\begin{xexercise}[2]
+将累次积分
   \[
     \int_0^2\dd x\int_{-\sqrt{2x-x^2}}^0\dd y\int_0^x f(x,y,z)\,\dd z
   \]
   化为在柱坐标系下的累次积分。
-  \item 求 $\displaystyle\iiint_\Omega(x^2+y^2)\,\dd x\,\dd y\,\dd z$，其中 $\Omega$ 是由曲线 $y^2=2z,x=0$ 绕 $z$ 轴旋转而成的曲面、平面 $z=2$ 与平面 $z=8$ 所围成的区域。
-  \item 求 $\displaystyle\iiint_\Omega xyz\,\dd x\,\dd y\,\dd z$，其中 $\Omega$ 为 $x^2+y^2+z^2\le4$ 与 $x^2+y^2+(z-2)^2\le4$ 的公共部分，且 $x\ge0,y\ge0$。
-  \item 求 $\displaystyle\iiint_\Omega\frac{\dd x\,\dd y\,\dd z}{r}$，其中 $\Omega$ 为一半径为 $R$ 的球，$r$ 为球外一固定点到球域内任一点的距离。
-  \item 计算积分
+\end{xexercise}
+
+\begin{xexercise}[3]
+求 $\displaystyle\iiint_\Omega(x^2+y^2)\,\dd x\,\dd y\,\dd z$，其中 $\Omega$ 是由曲线 $y^2=2z,x=0$ 绕 $z$ 轴旋转而成的曲面、平面 $z=2$ 与平面 $z=8$ 所围成的区域。
+\end{xexercise}
+
+\begin{xexercise}[4]
+求 $\displaystyle\iiint_\Omega xyz\,\dd x\,\dd y\,\dd z$，其中 $\Omega$ 为 $x^2+y^2+z^2\le4$ 与 $x^2+y^2+(z-2)^2\le4$ 的公共部分，且 $x\ge0,y\ge0$。
+\end{xexercise}
+
+\begin{xexercise}[5]
+求 $\displaystyle\iiint_\Omega\frac{\dd x\,\dd y\,\dd z}{r}$，其中 $\Omega$ 为一半径为 $R$ 的球，$r$ 为球外一固定点到球域内任一点的距离。
+\end{xexercise}
+
+\begin{xexercise}[6]
+计算积分
   \[
     I=\iiint_\Omega\frac{xyz}{x^2+y^2}\,\dd x\,\dd y\,\dd z,
   \]
   其中 $\Omega$ 由曲面 $(x^2+y^2+z^2)^2=a^2xy$ 与平面 $z=0$ 所围成，曲面在上方，平面在下方。
-  \item 求
+\end{xexercise}
+
+\begin{xexercise}[7]
+求
   \[
     \iiiint_{\substack{x,y,z,u\ge0\\x^2+y^2+z^2+u^2\le1}}
     \sqrt{\frac{1-x^2-y^2-z^2-u^2}{1+x^2+y^2+z^2+u^2}}\,\dd x\,\dd y\,\dd z\,\dd u.
   \]
-  \item 设
+\end{xexercise}
+
+\begin{xexercise}[8]
+设
   \[
     F(t)=\iiint_{x^2+y^2+z^2\le t^2}f(x^2+y^2+z^2)\,\dd x\,\dd y\,\dd z,
   \]
   其中 $f$ 为连续函数，$f(1)=1$。证明：$F'(1)=4\pi$。
-  \item 设 $f(x,y,z)=\sqrt{x^2+y^2+z^2}$，区域 $\Omega\subset\RR^3$ 由 $z\ge\sqrt{x^2+y^2}$ 和 $4\le x^2+y^2+z^2\le16$ 所确定，试计算函数 $f$ 关于 $\Omega$ 的积分平均值
+\end{xexercise}
+
+\begin{xexercise}[9]
+设 $f(x,y,z)=\sqrt{x^2+y^2+z^2}$，区域 $\Omega\subset\RR^3$ 由 $z\ge\sqrt{x^2+y^2}$ 和 $4\le x^2+y^2+z^2\le16$ 所确定，试计算函数 $f$ 关于 $\Omega$ 的积分平均值
   \[
     \frac1{\abs{\Omega}}\iiint_\Omega f(x,y,z)\,\dd x\,\dd y\,\dd z,
   \]
   其中 $\abs{\Omega}$ 是 $\Omega$ 的体积。
-  \item 设区域 $\Omega$ 由 $z=x^2+y^2,z=0,xy=1,xy=2,y=3x,y=4x$ 所围成，求积分
+\end{xexercise}
+
+\begin{xexercise}[10]
+设区域 $\Omega$ 由 $z=x^2+y^2,z=0,xy=1,xy=2,y=3x,y=4x$ 所围成，求积分
   \[
     I=\iiint_\Omega x^2y^2z\,\dd x\,\dd y\,\dd z.
   \]
-  \item 利用正交变换计算三重积分 $\displaystyle\iiint_V\cos(ax+by+cz)\,\dd x\,\dd y\,\dd z$。其中 $V\colon x^2+y^2+z^2\le1$，$a,b,c$ 是不全为零的常数。
-\end{enumerate}
+\end{xexercise}
+
+\begin{xexercise}[11]
+利用正交变换计算三重积分 $\displaystyle\iiint_V\cos(ax+by+cz)\,\dd x\,\dd y\,\dd z$。其中 $V\colon x^2+y^2+z^2\le1$，$a,b,c$ 是不全为零的常数。
 \end{xexercise}
 
 \section{广义重积分}
@@ -1164,40 +1252,53 @@ Poisson 积分中 $\ee^{-x^2}$ 的原函数不是初等函数，Poisson 敏锐�
 
 \subsection{练习题}
 
-\begin{xexercise}
-\begin{enumerate}
-  \item 讨论下列广义积分的收敛性：
+\begin{xexercise}[1]
+讨论下列广义积分的收敛性：
   \begin{enumerate}[label=(\arabic*)]
     \item $\displaystyle\iint_{\RR^2}\frac{\dd x\,\dd y}{(1+\abs{x}^p)(1+\abs{y}^q)}$；
     \item $\displaystyle\iint_{\abs{x}+\abs{y}\ge1}\frac{\dd x\,\dd y}{\abs{x}^p+\abs{y}^q}$；
     \item $\displaystyle\iint_{x+y\ge1}\frac{\sin x\sin y}{(x+y)^p}\,\dd x\,\dd y$。
   \end{enumerate}
-  \item 设 $D$ 是 $\RR^2$ 中的无界区域，$\{D_n\}$ 是 $D$ 中的单调增加的闭区域序列，且 $\bigcup_{n=1}^{\infty}D_n=D$。若 $f$ 在 $D$ 上非负，且在每一个 $D_n$ 上可积，则
+\end{xexercise}
+
+\begin{xexercise}[2]
+设 $D$ 是 $\RR^2$ 中的无界区域，$\{D_n\}$ 是 $D$ 中的单调增加的闭区域序列，且 $\bigcup_{n=1}^{\infty}D_n=D$。若 $f$ 在 $D$ 上非负，且在每一个 $D_n$ 上可积，则
   \[
     \iint_Df(x,y)\,\dd x\,\dd y=\lim_{n\to\infty}\iint_{D_n}f(x,y)\,\dd x\,\dd y,
   \]
   这里左端与右端同时有意义或同时无意义。（提示：设 $D$ 和 $D_n$（$n=1,2,\ldots$）为可求面积的有界闭区域时结论已经成立。）
-  \item 计算下列积分：
+\end{xexercise}
+
+\begin{xexercise}[3]
+计算下列积分：
   \[
     \iint_{y\ge x^2+1}\frac{\dd x\,\dd y}{x^4+y^2}.
   \]
-  \item 讨论下列二重广义积分的收敛性：
+\end{xexercise}
+
+\begin{xexercise}[4]
+讨论下列二重广义积分的收敛性：
   \begin{enumerate}[label=(\arabic*)]
     \item $\displaystyle\iint_D\frac{\dd x\,\dd y}{x^2+y^2}$，其中 $D$ 由条件 $\abs{y}\le x^2,x^2+y^2\le1$ 所确定；
     \item $\displaystyle\iint_{x^2+y^2\le1}\frac{\dd x\,\dd y}{(x^2+xy+y^2)^p}$；
     \item $\displaystyle\iint_{x^2+y^2\le1}\frac{\dd x\,\dd y}{(1-x^2-y^2)^p}$。
   \end{enumerate}
-  \item 设函数 $f(x)$ 在 $[a,A]$ 上连续，讨论
+\end{xexercise}
+
+\begin{xexercise}[5]
+设函数 $f(x)$ 在 $[a,A]$ 上连续，讨论
   \[
     \iint_D\frac{\dd x\,\dd y}{\abs{y-f(x)}^p}
   \]
   的收敛性，其中 $D=[a,A]\times[b,B]$。
-  \item 计算下列积分：
+\end{xexercise}
+
+\begin{xexercise}[6]
+计算下列积分：
   \begin{enumerate}[label=(\arabic*)]
     \item $\displaystyle\iint_{x^2+y^2\le1}\ln\frac1{\sqrt{x^2+y^2}}\,\dd x\,\dd y$；
     \item $\displaystyle\iint_D\ln\abs{\sin(x-y)}\,\dd x\,\dd y$，其中 $D$ 是由直线 $y=0,y=x,x=\pi$ 所界定。
   \end{enumerate}
-\end{enumerate}
 \end{xexercise}
 
 \section{重积分的应用举例}
@@ -1794,37 +1895,56 @@ Poisson 积分中 $\ee^{-x^2}$ 的原函数不是初等函数，Poisson 敏锐�
 
 \subsection{练习题}
 
-\begin{xexercise}
-\begin{enumerate}
-  \item 计算由下列曲面围成的立体体积：
+\begin{xexercise}[1]
+计算由下列曲面围成的立体体积：
   \begin{enumerate}[label=(\arabic*)]
     \item $a_ix+b_iy+c_iz=\pm h_i$，$i=1,2,3$，其中三个平面的法向线性无关；
     \item $(x^2+y^2+z^2)^2=a^3z$，其中 $a>0$；
     \item $\displaystyle\left(\frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}\right)^2=\frac{x^2}{a^2}+\frac{y^2}{b^2}$；
     \item $(x^2+y^2)^2+z^4=z$。
   \end{enumerate}
-  \item 计算下列曲面的面积：
+\end{xexercise}
+
+\begin{xexercise}[2]
+计算下列曲面的面积：
   \begin{enumerate}[label=(\arabic*)]
     \item $(x^2+y^2+z^2)^2=x^2-y^2$；
     \item $(x^2+y^2+z^2)^2=z^3$；
     \item 连续曲线 $y=f(x)$（$\ge0$），$x\in[a,b]$，绕 $x$ 轴旋转所得曲面。
   \end{enumerate}
-  \item 设抛物面壳 $z=\frac12(x^2+y^2)$（$0\le z\le1$）的面密度 $\rho=z$，求质量。
-  \item 半径为 $R$ 的均匀圆盘，其密度为 $\mu$。过圆心且与圆垂直的直线上有一密度为 $\rho$ 的均匀细棒，棒长为 $l$，其近圆盘的一端与圆心相距为 $a$。求圆盘对细棒的引力。
-  \item 半径为 $a$ 的圆盘，其各点的密度等于该点到圆心的距离。今从圆盘上挖去一个半径为 $\frac a2$ 而其圆心离圆盘中心为 $\frac a2$ 的小圆盘。求剩下几何图形的重心坐标。
-  \item 假定物体有连续的密度函数，证明：凸形物体的重心必在其体内。
-  \item 设 $u_i\in L^{p_i}(\Omega),p_i>0,i=1,2,\ldots,m$，且 $\sum_{i=1}^m\frac1{p_i}=1$。证明：
+\end{xexercise}
+
+\begin{xexercise}[3]
+设抛物面壳 $z=\frac12(x^2+y^2)$（$0\le z\le1$）的面密度 $\rho=z$，求质量。
+\end{xexercise}
+
+\begin{xexercise}[4]
+半径为 $R$ 的均匀圆盘，其密度为 $\mu$。过圆心且与圆垂直的直线上有一密度为 $\rho$ 的均匀细棒，棒长为 $l$，其近圆盘的一端与圆心相距为 $a$。求圆盘对细棒的引力。
+\end{xexercise}
+
+\begin{xexercise}[5]
+半径为 $a$ 的圆盘，其各点的密度等于该点到圆心的距离。今从圆盘上挖去一个半径为 $\frac a2$ 而其圆心离圆盘中心为 $\frac a2$ 的小圆盘。求剩下几何图形的重心坐标。
+\end{xexercise}
+
+\begin{xexercise}[6]
+假定物体有连续的密度函数，证明：凸形物体的重心必在其体内。
+\end{xexercise}
+
+\begin{xexercise}[7]
+设 $u_i\in L^{p_i}(\Omega),p_i>0,i=1,2,\ldots,m$，且 $\sum_{i=1}^m\frac1{p_i}=1$。证明：
   \[
     \iint_\Omega u_1u_2\cdots u_m\,\dd x\,\dd y
     \le\norm{u_1}_{p_1}\norm{u_2}_{p_2}\cdots\norm{u_m}_{p_m}.
   \]
-  \item 证明：
+\end{xexercise}
+
+\begin{xexercise}[8]
+证明：
   \[
     \left\{\int_a^b\dd x\left[\int_c^d f(x,y)\,\dd y\right]^2\right\}^{1/2}
     \le\int_c^d\dd y\left[\int_a^b f^2(x,y)\,\dd x\right]^{1/2},
   \]
   其中 $f$ 是连续函数。
-\end{enumerate}
 \end{xexercise}
 
 \section{对于教学的建议}
@@ -1879,9 +1999,8 @@ Poisson 积分中 $\ee^{-x^2}$ 的原函数不是初等函数，Poisson 敏锐�
 
 \subsubsection*{第一组参考题}
 
-\begin{xreferenceproblem}
-\begin{enumerate}
-  \item 设 $f(x,y)$ 在 $D=\{(x,y)\mid0\le x\le1,0\le y\le1\}$ 上有如下定义：
+\begin{xreferenceproblem}[1]
+设 $f(x,y)$ 在 $D=\{(x,y)\mid0\le x\le1,0\le y\le1\}$ 上有如下定义：
   \[
     f(x,y)=
     \begin{cases}
@@ -1891,8 +2010,10 @@ Poisson 积分中 $\ee^{-x^2}$ 的原函数不是初等函数，Poisson 敏锐�
     \end{cases}
   \]
   其中 $q_x,q_y$ 分别表示有理数 $x,y$ 写成既约分数后的分母。则 $f(x,y)$ 在 $D$ 上可积，但两个二次积分不存在。
+\end{xreferenceproblem}
 
-  \item 设 $f(x,y)$ 定义在 $D=\{(x,y)\mid0\le x\le1,0\le y\le1\}$ 上，
+\begin{xreferenceproblem}[2]
+设 $f(x,y)$ 定义在 $D=\{(x,y)\mid0\le x\le1,0\le y\le1\}$ 上，
   \[
     f(x,y)=
     \begin{cases}
@@ -1901,9 +2022,10 @@ Poisson 积分中 $\ee^{-x^2}$ 的原函数不是初等函数，Poisson 敏锐�
     \end{cases}
   \]
   其中 $q_x,q_y$ 表示有理数 $x,y$ 写成既约分数后的分母。证明 $f(x,y)$ 在 $D$ 上不可积，但两个二次积分存在且相等。
+\end{xreferenceproblem}
 
-  \item
-  \begin{enumerate}[label=(\arabic*)]
+\begin{xreferenceproblem}[3]
+\begin{enumerate}[label=(\arabic*)]
     \item 计算积分 $\displaystyle A=\int_0^1\int_0^1\abs*{xy-\frac14}\,\dd x\,\dd y$；
     \item 设 $z=f(x,y)$ 在闭正方形 $D=\{(x,y)\mid0\le x\le1,0\le y\le1\}$ 上连续，且满足下列条件：
     \[
@@ -1913,20 +2035,26 @@ Poisson 积分中 $\ee^{-x^2}$ 的原函数不是初等函数，Poisson 敏锐�
     \]
     求证：$\exists(\xi,\eta)\in D$ 使得 $\abs{f(\xi,\eta)}\ge\dfrac1A$。
   \end{enumerate}
+\end{xreferenceproblem}
 
-  \item 证明：
+\begin{xreferenceproblem}[4]
+证明：
   \[
     1.96<\iint_{\abs{x}+\abs{y}\le10}\frac1{100+\cos^2x+\cos^2y}\,\dd x\,\dd y<2.
   \]
+\end{xreferenceproblem}
 
-  \item 设 $f$ 是连续函数，证明：
+\begin{xreferenceproblem}[5]
+设 $f$ 是连续函数，证明：
   \[
     \iiint_{x^2+y^2+z^2\le1}f(ax+by+cz)\,\dd x\,\dd y\,\dd z
     =\pi\int_{-1}^1(1-u^2)f(ku)\,\dd u,
   \]
   其中 $k=\sqrt{a^2+b^2+c^2}$。
+\end{xreferenceproblem}
 
-  \item 证明 Poincaré（彭加勒）不等式：设函数 $f(x,y),\frac{\partial f}{\partial y}(x,y)$ 在闭区域
+\begin{xreferenceproblem}[6]
+证明 Poincaré（彭加勒）不等式：设函数 $f(x,y),\frac{\partial f}{\partial y}(x,y)$ 在闭区域
   \[
     D=\{(x,y)\mid a\le x\le b,\varphi(x)\le y\le\psi(x)\}
   \]
@@ -1935,14 +2063,18 @@ Poisson 积分中 $\ee^{-x^2}$ 的原函数不是初等函数，Poisson 敏锐�
     \iint_D f^2(x,y)\,\dd x\,\dd y\le K\iint_D\left(\frac{\partial f}{\partial y}\right)^2\dd x\,\dd y.
   \]
   （Poincaré 不等式可看成是 Wirtinger 不等式（见第十五章参考题 8）在高维空间的推广，见 [27] 及其中所引文献。）
+\end{xreferenceproblem}
 
-  \item 设 $u,v\in L^p(\Omega),p\ge1$。利用 Hölder 不等式证明 Minkowski 不等式
+\begin{xreferenceproblem}[7]
+设 $u,v\in L^p(\Omega),p\ge1$。利用 Hölder 不等式证明 Minkowski 不等式
   \[
     \norm{u+v}_p\le\norm{u}_p+\norm{v}_p.
   \]
   讨论 Hölder 不等式和 Minkowski 不等式取等号的条件。
+\end{xreferenceproblem}
 
-  \item 设函数 $f(x,y)$ 在区域 $D=[0,1]\times[0,1]$ 上四次连续可微，在其边界上取零，并且
+\begin{xreferenceproblem}[8]
+设函数 $f(x,y)$ 在区域 $D=[0,1]\times[0,1]$ 上四次连续可微，在其边界上取零，并且
   \[
     \abs*{\frac{\partial^4f}{\partial x^2\partial y^2}(x,y)}\le B,
     \qquad(x,y)\in D.
@@ -1951,30 +2083,40 @@ Poisson 积分中 $\ee^{-x^2}$ 的原函数不是初等函数，Poisson 敏锐�
   \[
     \abs*{\iint_D f(x,y)\,\dd x\,\dd y}\le\frac B{144}.
   \]
+\end{xreferenceproblem}
 
-  \item 设二重积分 $\iint_Df(x,y)\,\dd x\,\dd y>0$。证明：存在 $D$ 的闭子区域 $U$，使当 $(x,y)\in U$ 时，有 $f(x,y)>0$。
+\begin{xreferenceproblem}[9]
+设二重积分 $\iint_Df(x,y)\,\dd x\,\dd y>0$。证明：存在 $D$ 的闭子区域 $U$，使当 $(x,y)\in U$ 时，有 $f(x,y)>0$。
+\end{xreferenceproblem}
 
-  \item 证明多重积分的中值定理：设 $f(x_1,x_2,\ldots,x_n)$ 在有界闭区域 $\Omega\subset\RR^n$ 上连续，则 $\exists\xi\in\Omega$，使
+\begin{xreferenceproblem}[10]
+证明多重积分的中值定理：设 $f(x_1,x_2,\ldots,x_n)$ 在有界闭区域 $\Omega\subset\RR^n$ 上连续，则 $\exists\xi\in\Omega$，使
   \[
     \int\cdots\int_\Omega f(x_1,x_2,\ldots,x_n)\,\dd x_1\,\dd x_2\cdots\dd x_n
     =f(\xi)\cdot(\Omega\text{ 的体积}).
   \]
+\end{xreferenceproblem}
 
-  \item 设函数 $p$ 在 $[a,b]$ 上非负连续，$f,g$ 在 $[a,b]$ 上连续单调增加，则
+\begin{xreferenceproblem}[11]
+设函数 $p$ 在 $[a,b]$ 上非负连续，$f,g$ 在 $[a,b]$ 上连续单调增加，则
   \[
     \left(\int_a^b p(x)f(x)\,\dd x\right)
     \left(\int_a^b p(x)g(x)\,\dd x\right)
     \le\left(\int_a^b p(x)\,\dd x\right)
     \left(\int_a^b p(x)f(x)g(x)\,\dd x\right).
   \]
+\end{xreferenceproblem}
 
-  \item 设 $f$ 在 $[0,1]$ 上连续、单调减少且恒取正值，则
+\begin{xreferenceproblem}[12]
+设 $f$ 在 $[0,1]$ 上连续、单调减少且恒取正值，则
   \[
     \frac{\int_0^1xf^2(x)\,\dd x}{\int_0^1xf(x)\,\dd x}
     \le\frac{\int_0^1f^2(x)\,\dd x}{\int_0^1f(x)\,\dd x}.
   \]
+\end{xreferenceproblem}
 
-  \item 设
+\begin{xreferenceproblem}[13]
+设
   \[
     I=\iiint_{x^2+y^2+z^2\le R^2}\frac{\dd x\,\dd y\,\dd z}{\sqrt{(x-a)^2+(y-b)^2+(z-c)^2}},
   \]
@@ -1982,8 +2124,10 @@ Poisson 积分中 $\ee^{-x^2}$ 的原函数不是初等函数，Poisson 敏锐�
   \[
     \frac{4\pi}{3}\frac{R^3}{A+R}\le I\le\frac{4\pi}{3}\frac{R^3}{A-R}.
   \]
+\end{xreferenceproblem}
 
-  \item 设 $f(t)$ 是连续函数，令
+\begin{xreferenceproblem}[14]
+设 $f(t)$ 是连续函数，令
   \[
     F(t)=\iiint_D f(xyz)\,\dd x\,\dd y\,\dd z,
   \]
@@ -1992,8 +2136,10 @@ Poisson 积分中 $\ee^{-x^2}$ 的原函数不是初等函数，Poisson 敏锐�
     F'(t)=\frac3t\int_0^{t^3}\frac{g(u)}u\,\dd u,
   \]
   其中 $g(u)=\int_0^u f(s)\,\dd s$。
+\end{xreferenceproblem}
 
-  \item 设坐标平面上有一周长为 $2\pi l$ 的椭圆 $\Gamma$，在其上选定一点作为计算弧长 $s$ 的起点，以逆时针方向作为计算弧长的方向，这时 $\Gamma$ 有参数方程
+\begin{xreferenceproblem}[15]
+设坐标平面上有一周长为 $2\pi l$ 的椭圆 $\Gamma$，在其上选定一点作为计算弧长 $s$ 的起点，以逆时针方向作为计算弧长的方向，这时 $\Gamma$ 有参数方程
   \[
     x=f(s),\qquad y=\varphi(s),\qquad0\le s\le2\pi l.
   \]
@@ -2005,21 +2151,21 @@ Poisson 积分中 $\ee^{-x^2}$ 的原函数不是初等函数，Poisson 敏锐�
     \]
     \item 用计算验证区域 $D$ 的面积为 $3\pi l^2$。
   \end{enumerate}
-\end{enumerate}
 \end{xreferenceproblem}
 
 \subsubsection*{第二组参考题}
 
-\begin{xreferenceproblem}
-\begin{enumerate}
-  \item 证明：对任意 $\varepsilon>0$，
+\begin{xreferenceproblem}[1]
+证明：对任意 $\varepsilon>0$，
   \[
     ab\le\frac{\varepsilon a^p}{p}+\frac{\varepsilon^{-q/p}b^q}{q}
     \le\varepsilon a^p+\varepsilon^{-q/p}b^q,
   \]
   其中 $a\ge0,b\ge0,p,q>0,\frac1p+\frac1q=1$。
+\end{xreferenceproblem}
 
-  \item 利用上题以及例题 22.5.9 的结论证明内插不等式：
+\begin{xreferenceproblem}[2]
+利用上题以及例题 22.5.9 的结论证明内插不等式：
   \[
     \norm{u}_q\le\varepsilon\norm{u}_r+\varepsilon^{-\mu}\norm{u}_p,
   \]
@@ -2028,8 +2174,10 @@ Poisson 积分中 $\ee^{-x^2}$ 的原函数不是初等函数，Poisson 敏锐�
     \mu=\left(\frac1p-\frac1q\right)\bigg/\left(\frac1q-\frac1r\right),
     \qquad0<p<q<r,\quad\varepsilon>0.
   \]
+\end{xreferenceproblem}
 
-  \item 设 $\Omega$ 是 $\RR^2$ 中有界闭区域，$u(x,y)$ 在 $\Omega$ 上连续且恒取正值，定义
+\begin{xreferenceproblem}[3]
+设 $\Omega$ 是 $\RR^2$ 中有界闭区域，$u(x,y)$ 在 $\Omega$ 上连续且恒取正值，定义
   \[
     \Phi_p(u)=\left(\frac1{\abs{\Omega}}\iint_\Omega u^p\,\dd x\,\dd y\right)^{1/p},
   \]
@@ -2039,27 +2187,32 @@ Poisson 积分中 $\ee^{-x^2}$ 的原函数不是初等函数，Poisson 敏锐�
     \item $\displaystyle\lim_{p\to-\infty}\Phi_p(u)=\min_{(x,y)\in\Omega}\{u(x,y)\}$；
     \item $\displaystyle\lim_{p\to0}\Phi_p(u)=\exp\left\{\frac1{\abs{\Omega}}\iint_\Omega\ln u\,\dd x\,\dd y\right\}$。
   \end{enumerate}
+\end{xreferenceproblem}
 
-  \item 设 $P_0$ 为半径等于 $R$ 的球内的一定点，从点 $P_0$ 向球面上任意一点 $Q$ 处的切平面作垂线，垂足为点 $P$。当点 $Q$ 在球面上变动时，点 $P$ 的轨迹形成一封闭曲面。
+\begin{xreferenceproblem}[4]
+设 $P_0$ 为半径等于 $R$ 的球内的一定点，从点 $P_0$ 向球面上任意一点 $Q$ 处的切平面作垂线，垂足为点 $P$。当点 $Q$ 在球面上变动时，点 $P$ 的轨迹形成一封闭曲面。
   \begin{enumerate}[label=(\arabic*)]
     \item 求此曲面所围成的立体的体积；
     \item 问当点 $P_0$ 沿什么方向变化时，上述体积的变化率最大？
   \end{enumerate}
+\end{xreferenceproblem}
 
-  \item 证明不等式
+\begin{xreferenceproblem}[5]
+证明不等式
   \[
     \frac{\sqrt\pi}{2}\left(1-\ee^{-a^2}\right)^{1/2}
     \le\int_0^a\ee^{-x^2}\,\dd x
     \le\frac{\sqrt\pi}{2}\left(1-\ee^{-4a^2/\pi}\right)^{1/2}.
   \]
+\end{xreferenceproblem}
 
-  \item 设连续函数 $f(x,y)$ 的等位线是简单封闭曲线，$S(v_1,v_2)$ 是由曲线 $f(x,y)=v_1,f(x,y)=v_2$ 所围成的域。证明 Catalan 公式
+\begin{xreferenceproblem}[6]
+设连续函数 $f(x,y)$ 的等位线是简单封闭曲线，$S(v_1,v_2)$ 是由曲线 $f(x,y)=v_1,f(x,y)=v_2$ 所围成的域。证明 Catalan 公式
   \[
     \iint_{S(v_1,v_2)}f(x,y)\,\dd x\,\dd y
     =\int_{v_1}^{v_2}vF'(v)\,\dd v,
   \]
   其中 $F(v)$ 为由曲线 $f(x,y)=v_1,f(x,y)=v$ 所围成的面积，还假设 $F(v)$ 可微且导函数 $F'(v)$ 可积。
-\end{enumerate}
 \end{xreferenceproblem}
 
 \begin{xremark}

@@ -368,18 +368,23 @@ Fourier 级数是一类特殊的三角级数，它的特殊性在于其系数是
 
 \subsection{练习题}
 
-\begin{xexercise}
-\begin{enumerate}
-  \item 求下列函数的 Fourier 级数：
+\begin{xexercise}[1]
+求下列函数的 Fourier 级数：
   \begin{enumerate}[label=(\arabic*)]
     \item $\sin^3x+\cos^4x$；
     \item $ax^3+bx^2+cx+d,\ x\in(-\pi,\pi)$。
   \end{enumerate}
-  \item 将定义在 $(0,\pi/2)$ 上的可积和绝对可积函数 $f$ 延拓到区间 $(-\pi,\pi)$ 上，使其 Fourier 级数具有如下的形式：
+\end{xexercise}
+
+\begin{xexercise}[2]
+将定义在 $(0,\pi/2)$ 上的可积和绝对可积函数 $f$ 延拓到区间 $(-\pi,\pi)$ 上，使其 Fourier 级数具有如下的形式：
   \[
     \sum_{n=1}^{\infty}b_{2n-1}\sin(2n-1)x.
   \]
-  \item 证明：函数
+\end{xexercise}
+
+\begin{xexercise}[3]
+证明：函数
   \[
     f(x)=\begin{cases}
       c,&0<x\le\pi,\\
@@ -395,18 +400,30 @@ Fourier 级数是一类特殊的三角级数，它的特殊性在于其系数是
   \[
     S_n(x)=\frac{2c}{\pi}\int_0^x\frac{\sin2nt}{\sin t}\,\dd t.
   \]
-  \item 设 $f\in C^1[-\pi,\pi]$，证明：
+\end{xexercise}
+
+\begin{xexercise}[4]
+设 $f\in C^1[-\pi,\pi]$，证明：
   \[
     a_n=\littleo\!\left(\frac1n\right),\qquad b_n=\bigO\!\left(\frac1n\right);
   \]
   如果又有 $f(\pi)=f(-\pi)$，则 $b_n=\littleo(1/n)$。
-  \item 设 $f$ 是以 $2\pi$ 为周期的有界函数且在 $(-\pi,\pi)$ 上逐段单调，证明：
+\end{xexercise}
+
+\begin{xexercise}[5]
+设 $f$ 是以 $2\pi$ 为周期的有界函数且在 $(-\pi,\pi)$ 上逐段单调，证明：
   \[
     a_n=\bigO\!\left(\frac1n\right),\qquad b_n=\bigO\!\left(\frac1n\right).
   \]
   （可在每个单调区间上用积分第二中值定理（见上册的命题 10.2.2）。）
-  \item 设 $f$ 是以 $2\pi$ 为周期的函数且在 $[-\pi,\pi]$ 上可积和绝对可积，证明：用 $\sin x$ 去乘 $f$ 的 Fourier 级数的每一项所得的三角级数就是 $f(x)\sin x$ 的 Fourier 级数。
-  \item 设 $[a,b]$ 上的连续函数系 $\{e_n\}$ 满足条件
+\end{xexercise}
+
+\begin{xexercise}[6]
+设 $f$ 是以 $2\pi$ 为周期的函数且在 $[-\pi,\pi]$ 上可积和绝对可积，证明：用 $\sin x$ 去乘 $f$ 的 Fourier 级数的每一项所得的三角级数就是 $f(x)\sin x$ 的 Fourier 级数。
+\end{xexercise}
+
+\begin{xexercise}[7]
+设 $[a,b]$ 上的连续函数系 $\{e_n\}$ 满足条件
   \[
     \int_a^b e_i(x)e_j(x)\,\dd x=\delta_{ij},
   \]
@@ -419,12 +436,14 @@ Fourier 级数是一类特殊的三角级数，它的特殊性在于其系数是
     \int_a^b\left[f(x)-\sum_{k=1}^{n}a_ke_k(x)\right]^2\,\dd x
   \]
   最小？
-  \item 设 $g$ 是周期为 1 的连续函数且 $\int_0^1g(x)\,\dd x=0$，函数 $f\in C^1[0,1]$，令
+\end{xexercise}
+
+\begin{xexercise}[8]
+设 $g$ 是周期为 1 的连续函数且 $\int_0^1g(x)\,\dd x=0$，函数 $f\in C^1[0,1]$，令
   \[
     a_n=\int_0^1f(x)g(nx)\,\dd x,\quad n=1,2,\ldots,
   \]
   证明：级数 $\sum_{n=1}^{\infty}a_n^2$ 收敛。
-\end{enumerate}
 \end{xexercise}
 
 \section{Fourier 级数的收敛性}
@@ -1125,9 +1144,8 @@ Fourier 级数展开和 Parseval 等式在求级数和中常有应用。下面�
 
 \subsection{练习题}
 
-\begin{xexercise}
-\begin{enumerate}
-  \item 定义函数
+\begin{xexercise}[1]
+定义函数
   \[
     f(x)=\begin{cases}
       x,&x\in(0,\pi/2),\\
@@ -1136,7 +1154,10 @@ Fourier 级数展开和 Parseval 等式在求级数和中常有应用。下面�
     \end{cases}
   \]
   将 $f$ 展开为余弦级数，并求数项级数 $\sum_{n=1}^{\infty}(-1)^{n-1}/(2n-1)$ 的值。
-  \item 设对于 $a>0$ 有函数
+\end{xexercise}
+
+\begin{xexercise}[2]
+设对于 $a>0$ 有函数
   \[
     f(x)=\begin{cases}
       x,&x\in[0,a/2],\\
@@ -1144,7 +1165,10 @@ Fourier 级数展开和 Parseval 等式在求级数和中常有应用。下面�
     \end{cases}
   \]
   将 $f$ 展开为：(1) 余弦级数；(2) 正弦级数。
-  \item 设 $\alpha$ 为非整数，利用 $f(x)=\cos\alpha x,\ x\in[-\pi,\pi]$ 的 Fourier 展开式，证明下列关于余切函数和余割函数的部分分式展开式：
+\end{xexercise}
+
+\begin{xexercise}[3]
+设 $\alpha$ 为非整数，利用 $f(x)=\cos\alpha x,\ x\in[-\pi,\pi]$ 的 Fourier 展开式，证明下列关于余切函数和余割函数的部分分式展开式：
   \[
     \cot x=\frac1x+\sum_{n=1}^{\infty}\left(\frac1{x-n\pi}+\frac1{x+n\pi}\right)
     =\frac1x+\sum_{n=1}^{\infty}\frac{2x}{x^2-n^2\pi^2},
@@ -1154,22 +1178,34 @@ Fourier 级数展开和 Parseval 等式在求级数和中常有应用。下面�
     =\frac1x+\sum_{n=1}^{\infty}(-1)^n\frac{2x}{x^2-n^2\pi^2},
   \]
   且求出级数 $\sum_{n=1}^{\infty}1/(n^2-a^2)$ 的和。
-  \item 将下列函数在 $[-\pi,\pi]$ 上展开为 Fourier 级数：
+\end{xexercise}
+
+\begin{xexercise}[4]
+将下列函数在 $[-\pi,\pi]$ 上展开为 Fourier 级数：
   \begin{enumerate}[label=(\arabic*)]
     \item $f(x)=\abs{\sin x}$；
     \item $f(x)=\begin{cases}ax,&x\in[-\pi,0),\\ bx,&x\in[0,\pi].\end{cases}$
   \end{enumerate}
-  \item 将下列函数展开为正弦级数：
+\end{xexercise}
+
+\begin{xexercise}[5]
+将下列函数展开为正弦级数：
   \begin{enumerate}[label=(\arabic*)]
     \item $f(x)=\ee^{-2x},\ x\in[0,\pi]$；
     \item $f(x)=\begin{cases}\cos(\pi x/2),&x\in[0,1),\\0,&x\in[1,2].\end{cases}$
   \end{enumerate}
-  \item 将下列函数展开为余弦级数：
+\end{xexercise}
+
+\begin{xexercise}[6]
+将下列函数展开为余弦级数：
   \begin{enumerate}[label=(\arabic*)]
     \item $f(x)=x(\pi-x),\ x\in[0,\pi]$；
     \item $f(x)=\begin{cases}\sin2x,&x\in[0,\pi/4),\\1,&x\in[\pi/4,\pi/2].\end{cases}$
   \end{enumerate}
-  \item 设函数
+\end{xexercise}
+
+\begin{xexercise}[7]
+设函数
   \[
     f(x)=\begin{cases}
       \pi-x,&0<x\le\pi,\\
@@ -1178,7 +1214,10 @@ Fourier 级数展开和 Parseval 等式在求级数和中常有应用。下面�
     \end{cases}
   \]
   (1) 求 $f$ 的 Fourier 展开式；(2) 讨论 $f$ 的 Fourier 级数在 $(-\pi,\pi]$ 上是否收敛于 $f$，是否一致收敛？
-  \item 设 $f$ 在 $[-\pi,\pi]$ 上可积和绝对可积，证明：$\forall\varepsilon>0$，存在三角多项式
+\end{xexercise}
+
+\begin{xexercise}[8]
+设 $f$ 在 $[-\pi,\pi]$ 上可积和绝对可积，证明：$\forall\varepsilon>0$，存在三角多项式
   \[
     P_n(x)=\sum_{k=0}^{n}(A_k\cos kx+B_k\sin kx),
   \]
@@ -1186,12 +1225,18 @@ Fourier 级数展开和 Parseval 等式在求级数和中常有应用。下面�
   \[
     \int_{-\pi}^{\pi}\abs{f(x)-P_n(x)}\,\dd x<\varepsilon.
   \]
-  \item 设 $f$ 为周期 $2\pi$ 的连续函数，且已知
+\end{xexercise}
+
+\begin{xexercise}[9]
+设 $f$ 为周期 $2\pi$ 的连续函数，且已知
   \[
     f(x)\sim\frac{a_0}{2}+\sum_{n=1}^{\infty}(a_n\cos nx+b_n\sin nx),
   \]
   证明：若右边的级数一致收敛，则其和函数一定就是 $f$。
-  \item 设 $0<a<\pi$，定义函数
+\end{xexercise}
+
+\begin{xexercise}[10]
+设 $0<a<\pi$，定义函数
   \[
     f(x)=\begin{cases}
       1,&\abs{x}<a,\\
@@ -1203,7 +1248,6 @@ Fourier 级数展开和 Parseval 等式在求级数和中常有应用。下面�
     \sum_{n=1}^{\infty}\frac{\sin^2na}{n^2},\qquad
     \sum_{n=1}^{\infty}\frac{\cos^2na}{n^2}.
   \]
-\end{enumerate}
 \end{xexercise}
 
 \section{对于教学的建议}
@@ -1220,9 +1264,8 @@ Fourier 级数展开和 Parseval 等式在求级数和中常有应用。下面�
 
 \subsection{参考题}
 
-\begin{xreferenceproblem}
-\begin{enumerate}
-  \item 设 $f$ 是以 $2\pi$ 为周期的函数且在 $(0,2\pi)$ 上可积和绝对可积，证明：
+\begin{xreferenceproblem}[1]
+设 $f$ 是以 $2\pi$ 为周期的函数且在 $(0,2\pi)$ 上可积和绝对可积，证明：
   \begin{enumerate}[label=(\arabic*)]
     \item 如果 $f$ 在 $(0,2\pi)$ 上单调减少，则
     \[
@@ -1233,11 +1276,17 @@ Fourier 级数展开和 Parseval 等式在求级数和中常有应用。下面�
       \int_0^{2\pi}f(x)\cos nx\,\dd x\ge0,\qquad n=1,2,\ldots.
     \]
   \end{enumerate}
-  \item 设 $f$ 为区间 $[0,2\pi]$ 上的下凸函数，证明：
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[2]
+设 $f$ 为区间 $[0,2\pi]$ 上的下凸函数，证明：
   \[
     \int_0^{2\pi}f(x)\cos nx\,\dd x\ge0,\qquad \forall n\ge1.
   \]
-  \item 设 $f$ 是周期 $2\pi$ 的连续函数，
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[3]
+设 $f$ 是周期 $2\pi$ 的连续函数，
   \[
     F_h(x)=\frac1{2h}\int_{x-h}^{x+h}f(t)\,\dd t,\qquad h>0.
   \]
@@ -1247,7 +1296,10 @@ Fourier 级数展开和 Parseval 等式在求级数和中常有应用。下面�
     \item 利用命题 15.2.8 重新证明 Weierstrass 第二逼近定理；
     \item 已知 $f$ 的 Fourier 级数，计算 $F_h$ 的 Fourier 级数。
   \end{enumerate}
-  \item 设 $f$ 为周期 $2\pi$ 的连续函数，
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[4]
+设 $f$ 为周期 $2\pi$ 的连续函数，
   \[
     f(x)\sim\frac{a_0}{2}+\sum_{n=1}^{\infty}(a_n\cos nx+b_n\sin nx),
   \]
@@ -1260,8 +1312,10 @@ Fourier 级数展开和 Parseval 等式在求级数和中常有应用。下面�
     \item 证明：$F$ 的 Fourier 级数一致收敛；
     \item 由此推出 $f$ 的 Parseval 等式。
   \end{enumerate}
-  \item
-  \begin{enumerate}[label=(\arabic*)]
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[5]
+\begin{enumerate}[label=(\arabic*)]
     \item 利用
     \[
       \sum_{k=1}^{n}\frac{\sin kx}{k}=\sum_{k=1}^{n}\int_0^x\cos kt\,\dd t
@@ -1269,7 +1323,10 @@ Fourier 级数展开和 Parseval 等式在求级数和中常有应用。下面�
     求 $\sum_{n=1}^{\infty}\sin nx/n$ 之和；
     \item 用类似的方法求 $\sum_{n=1}^{\infty}\sin(2n-1)x/(2n-1)$ 之和。
   \end{enumerate}
-  \item 从上题的 (1) 所得的结果出发，直接证明下列展开式成立：
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[6]
+从上题的 (1) 所得的结果出发，直接证明下列展开式成立：
   \begin{enumerate}[label=(\arabic*)]
     \item $\displaystyle \sum_{k=1}^{\infty}\frac{\sin2kx}{2k}=\frac\pi4-\frac x2,\quad0<x<\pi$；
     \item $\displaystyle \sum_{k=1}^{\infty}\frac{\sin(2k-1)x}{2k-1}=\frac\pi4,\quad0<x<\pi$；
@@ -1278,18 +1335,30 @@ Fourier 级数展开和 Parseval 等式在求级数和中常有应用。下面�
     \item $\displaystyle x=\frac\pi2-\frac4\pi\sum_{k=1}^{\infty}\frac{\cos(2k-1)x}{(2k-1)^2},\quad0\le x\le\pi$；
     \item $\displaystyle \frac{3x^2-6\pi x+2\pi^2}{12}=\sum_{n=1}^{\infty}\frac{\cos nx}{n^2},\quad0\le x\le\pi$。
   \end{enumerate}
-  \item （Steklov（斯捷克洛夫）不等式）设连续函数 $f$ 在 $[0,\pi]$ 上分段可导，且 $f'$ 在 $[0,\pi]$ 上可积和平方可积，证明：只要条件 (1) $\int_0^{\pi}f=0$ 和 (2) $f(0)=f(\pi)=0$ 之中有一个满足，就成立不等式
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[7]
+（Steklov（斯捷克洛夫）不等式）设连续函数 $f$ 在 $[0,\pi]$ 上分段可导，且 $f'$ 在 $[0,\pi]$ 上可积和平方可积，证明：只要条件 (1) $\int_0^{\pi}f=0$ 和 (2) $f(0)=f(\pi)=0$ 之中有一个满足，就成立不等式
   \[
     \int_0^{\pi}f'^2(x)\,\dd x\ge\int_0^{\pi}f^2(x)\,\dd x,
   \]
   且其中等号成立的条件为 (1) $f(x)=A\cos x$，(2) $f(x)=B\sin x$。
-  \item （Wirtinger 不等式）设连续函数 $f$ 在 $[-\pi,\pi]$ 上分段可导，$f(-\pi)=f(\pi)$，且 $f'$ 在 $[-\pi,\pi]$ 上可积和平方可积，又 $\int_{-\pi}^{\pi}f(x)\,\dd x=0$，证明：
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[8]
+（Wirtinger 不等式）设连续函数 $f$ 在 $[-\pi,\pi]$ 上分段可导，$f(-\pi)=f(\pi)$，且 $f'$ 在 $[-\pi,\pi]$ 上可积和平方可积，又 $\int_{-\pi}^{\pi}f(x)\,\dd x=0$，证明：
   \[
     \int_{-\pi}^{\pi}f'^2(x)\,\dd x\ge\int_{-\pi}^{\pi}f^2(x)\,\dd x,
   \]
   且仅当 $f(x)=A\cos x+B\sin x$ 时等号成立。
-  \item 设周期 $2\pi$ 的函数 $f$ 及其导函数 $f'$ 均分段连续，证明：$f$ 的 Fourier 级数在不含有 $f$ 的间断点的任何闭区间上一致收敛。
-  \item 证明：
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[9]
+设周期 $2\pi$ 的函数 $f$ 及其导函数 $f'$ 均分段连续，证明：$f$ 的 Fourier 级数在不含有 $f$ 的间断点的任何闭区间上一致收敛。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[10]
+证明：
   \[
     \sum_{n=1}^{\infty}\frac{\sin n}{n}
     =\sum_{n=1}^{\infty}\frac{\sin^2n}{n^2}
@@ -1297,18 +1366,27 @@ Fourier 级数展开和 Parseval 等式在求级数和中常有应用。下面�
     \qquad
     \sum_{n=1}^{\infty}\frac{\sin^2n}{n^4}=\frac{(\pi-1)^2}{6}.
   \]
-  \item 设函数 $f$ 是以 $2\pi$ 为周期的连续函数，不恒等于 0，且
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[11]
+设函数 $f$ 是以 $2\pi$ 为周期的连续函数，不恒等于 0，且
   \[
     \int_{-\pi}^{\pi}f(x)\sin kx\,\dd x
     =\int_{-\pi}^{\pi}f(x)\cos kx\,\dd x=0,
     \qquad k=0,1,\ldots,n.
   \]
   证明：$f$ 在任何长度大于 $2\pi$ 的区间上至少改变符号 $2n+2$ 次。
-  \item 设 $f$ 是在区间 $[0,+\infty)$ 上的单调函数，且 $f(+\infty)=0$，证明：
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[12]
+设 $f$ 是在区间 $[0,+\infty)$ 上的单调函数，且 $f(+\infty)=0$，证明：
   \[
     \lim_{n\to\infty}\int_0^{+\infty}f(x)\sin nx\,\dd x=0.
   \]
-  \item 设
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[13]
+设
   \[
     f(x)=\sum_{n=1}^{\infty}n^2\ee^{-n}\sin nx,
   \]
@@ -1316,11 +1394,17 @@ Fourier 级数展开和 Parseval 等式在求级数和中常有应用。下面�
   \[
     \max_{0\le x\le2\pi}\{\abs{f(x)}\}\ge\frac2{\pi\ee}.
   \]
-  \item 对于收敛于 0 的给定正数数列 $\{\varepsilon_n\}$，证明：存在连续函数 $f$，使得 $f$ 的 Fourier 系数 $\{a_n\},\{b_n\}$ 对于无限多个 $n$ 满足不等式
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[14]
+对于收敛于 0 的给定正数数列 $\{\varepsilon_n\}$，证明：存在连续函数 $f$，使得 $f$ 的 Fourier 系数 $\{a_n\},\{b_n\}$ 对于无限多个 $n$ 满足不等式
   \[
     \abs{a_n}+\abs{b_n}>\varepsilon_n.
   \]
-  \item 设 $f\in C[-\pi,\pi]$，且其导函数 $f'$ 可积和绝对可积，若有
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[15]
+设 $f\in C[-\pi,\pi]$，且其导函数 $f'$ 可积和绝对可积，若有
   \[
     f(x)\sim\frac{a_0}{2}+\sum_{n=1}^{\infty}(a_n\cos nx+b_n\sin nx),
   \]
@@ -1332,7 +1416,10 @@ Fourier 级数展开和 Parseval 等式在求级数和中常有应用。下面�
   \[
     c=\lim_{n\to\infty}[(-1)^{n-1}nb_n].
   \]
-  \item 设三角级数
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[16]
+设三角级数
   \[
     \frac{a_0}{2}+\sum_{n=1}^{\infty}(a_n\cos nx+b_n\sin nx)
   \]
@@ -1345,18 +1432,30 @@ Fourier 级数展开和 Parseval 等式在求级数和中常有应用。下面�
     f(x)=\frac{a_0}{2}+\sum_{n=1}^{\infty}(a_n\cos nx+b_n\sin nx),
   \]
   且在 $\varphi$ 的连续点上成立 $f'(x)=\varphi(x)$。
-  \item 利用上题证明：三角级数
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[17]
+利用上题证明：三角级数
   \[
     \sum_{n=2}^{\infty}\frac{(-1)^n n\sin nx}{n^2-1}
   \]
   是某个连续可微函数 $f$ 的 Fourier 级数，且 $f$ 满足微分方程 $f''+f=-\sin x$，并求出 $f$。
-  \item 证明：在区间 $[a,b]$ 上的可积和平方可积函数空间中，由有限个函数组成的正交系不可能是完备的。
-  \item （de la Vallée Poussin 核）设 $f$ 是以 $2\pi$ 为周期的连续函数，记
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[18]
+证明：在区间 $[a,b]$ 上的可积和平方可积函数空间中，由有限个函数组成的正交系不可能是完备的。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[19]
+（de la Vallée Poussin 核）设 $f$ 是以 $2\pi$ 为周期的连续函数，记
   \[
     V_n(x)=\frac{(2n)!!}{2\pi(2n-1)!!}\int_{-\pi}^{\pi}f(t)\left(\cos\frac{t-x}{2}\right)^{2n}\,\dd t.
   \]
   证明：(1) $V_n(x)$ 是 $n$ 次三角多项式；(2) 函数列 $\{V_n\}$ 在 $(-\infty,+\infty)$ 上一致收敛于 $f$。
-  \item 证明：三角级数
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[20]
+证明：三角级数
   \[
     \cos x+\frac{\cos2x}{2}+\cdots+\frac{\cos nx}{n}+\cdots
   \]
@@ -1364,5 +1463,4 @@ Fourier 级数展开和 Parseval 等式在求级数和中常有应用。下面�
   \[
     \lim_{n\to\infty}\min_{0\le x\le\pi}\{S_n(x)\}=-\ln2.
   \]
-\end{enumerate}
 \end{xreferenceproblem}

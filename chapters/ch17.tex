@@ -192,37 +192,60 @@ $\RR^n$ 中的区域都是道路连通的。
 由命题 17.1.2 易证下述结论：任意多个闭集的交集仍是闭集；有限多个闭集的并集仍是闭集。
 
 \subsection{思考题}
-\begin{xthought}
-\begin{enumerate}[label=\arabic*.]
-  \item 按定义证明闭集的如下重要性质：
+\begin{xthought}[1]
+按定义证明闭集的如下重要性质：
   \begin{enumerate}[label=(\arabic*)]
     \item 任意多个闭集的交集是闭集；
     \item 有限多个闭集的并集是闭集。
   \end{enumerate}
-  \item 证明聚点定义（1）、（2）的等价性。
-  \item 在例题 17.1.1 的证明中，我们使用的是聚点等价定义（1）。若使用原始定义，证明是否能通过？若不能，应如何修改？
-  \item 无限多个开集的交是否一定是开集？
-\end{enumerate}
+\end{xthought}
+
+\begin{xthought}[2]
+证明聚点定义（1）、（2）的等价性。
+\end{xthought}
+
+\begin{xthought}[3]
+在例题 17.1.1 的证明中，我们使用的是聚点等价定义（1）。若使用原始定义，证明是否能通过？若不能，应如何修改？
+\end{xthought}
+
+\begin{xthought}[4]
+无限多个开集的交是否一定是开集？
 \end{xthought}
 
 \subsection{练习题}
-\begin{xexercise}
-\begin{enumerate}[label=\arabic*.]
-  \item 证明：$\overline S=S\cup\partial S$。
-  \item 证明：$\partial S=\overline S-\operatorname{int}S$。
-  \item 若 $A\cap B=\varnothing$，则 $\overline A\cap(\operatorname{int}B)=\varnothing$。
-  \item 证明：$S=S^d\Longleftrightarrow S$ 闭，且 $S$ 无孤立点。
-  \item $S$ 为 $\RR^n$ 中的点集，证明：$\overline S=\{x\in\RR^n\mid d(x,S)=0\}$。
-  \item 若 $S$ 为凸集，则 $\overline S$ 也是凸集。
-  \item 对于集合 $S$ 与任一组集合 $A_\alpha$，$\alpha\in I$，恒有分配律：
+\begin{xexercise}[1]
+证明：$\overline S=S\cup\partial S$。
+\end{xexercise}
+
+\begin{xexercise}[2]
+证明：$\partial S=\overline S-\operatorname{int}S$。
+\end{xexercise}
+
+\begin{xexercise}[3]
+若 $A\cap B=\varnothing$，则 $\overline A\cap(\operatorname{int}B)=\varnothing$。
+\end{xexercise}
+
+\begin{xexercise}[4]
+证明：$S=S^d\Longleftrightarrow S$ 闭，且 $S$ 无孤立点。
+\end{xexercise}
+
+\begin{xexercise}[5]
+$S$ 为 $\RR^n$ 中的点集，证明：$\overline S=\{x\in\RR^n\mid d(x,S)=0\}$。
+\end{xexercise}
+
+\begin{xexercise}[6]
+若 $S$ 为凸集，则 $\overline S$ 也是凸集。
+\end{xexercise}
+
+\begin{xexercise}[7]
+对于集合 $S$ 与任一组集合 $A_\alpha$，$\alpha\in I$，恒有分配律：
   \[
     S\cap\left(\bigcup_{\alpha\in I}A_\alpha\right)
     =\bigcup_{\alpha\in I}(S\cap A_\alpha).
   \]
-\end{enumerate}
 \end{xexercise}
 
-\section{$\RR^n$ 中的几个基本定理}
+\section{\texorpdfstring{$\RR^n$ 中的几个基本定理}{R^n 中的几个基本定理}}
 
 \subsection{综述}
 
@@ -393,14 +416,24 @@ $(3)\Rightarrow(1)$。用闭矩形套定理。其详细证明在很多教科书�
 \end{xproof}
 
 \subsection{练习题}
-\begin{xexercise}
-\begin{enumerate}[label=\arabic*.]
-  \item 设 $A,B$ 是 $\RR^n$ 中的两个不相交的闭集，其中一个有界，证明：$d(A,B)>0$。如果 $A,B$ 均是无界闭集，是否仍有 $d(A,B)>0$？
-  \item 设 $S_1,S_2$ 为 $\RR^n$ 中不相交的闭集，其中一个有界。证明：存在开集 $O_1,O_2$ 满足 $S_i\subset O_i$，$i=1,2$，且 $O_1\cap O_2=\varnothing$。
-  \item 由闭矩形套定理证明凝聚定理。
-  \item 由凝聚定理证明 Cauchy 收敛定理。
-  \item 由紧性定理证明聚点定理。
-\end{enumerate}
+\begin{xexercise}[1]
+设 $A,B$ 是 $\RR^n$ 中的两个不相交的闭集，其中一个有界，证明：$d(A,B)>0$。如果 $A,B$ 均是无界闭集，是否仍有 $d(A,B)>0$？
+\end{xexercise}
+
+\begin{xexercise}[2]
+设 $S_1,S_2$ 为 $\RR^n$ 中不相交的闭集，其中一个有界。证明：存在开集 $O_1,O_2$ 满足 $S_i\subset O_i$，$i=1,2$，且 $O_1\cap O_2=\varnothing$。
+\end{xexercise}
+
+\begin{xexercise}[3]
+由闭矩形套定理证明凝聚定理。
+\end{xexercise}
+
+\begin{xexercise}[4]
+由凝聚定理证明 Cauchy 收敛定理。
+\end{xexercise}
+
+\begin{xexercise}[5]
+由紧性定理证明聚点定理。
 \end{xexercise}
 
 \section{对于教学的建议}
@@ -424,15 +457,28 @@ $(3)\Rightarrow(1)$。用闭矩形套定理。其详细证明在很多教科书�
 \subsection{参考题}
 
 \subsubsection*{第一组参考题}
-\begin{xreferenceproblem}
-\begin{enumerate}[label=\arabic*.]
-  \item 证明：$\RR^n$ 中每个闭集可表为可列个开集的交，每个开集可表为可列个闭集的并。
-  \item 用闭集套定理证明三角形三边上的中线交于一点。
-  \item 设函数 $f(x)$ 在 $(-\infty,+\infty)$ 上连续，证明：$E=\{(x,f(x))\mid x\in(-\infty,+\infty)\}$ 是平面上的闭集（称为 $f$ 的图像）。
-  \item 证明：$\operatorname{int}S$ 是开集，而且是包含于 $S$ 的最大开集。
-  \item （$\RR^n$ 的正规性）设 $S_1,S_2$ 为 $\RR^n$ 中不相交的闭集（不一定有界）。证明：存在开集 $O_1,O_2$ 满足 $S_i\subset O_i$，$i=1,2$，且 $O_1\cap O_2=\varnothing$。
-  \item
-  \begin{enumerate}[label=(\arabic*)]
+\begin{xreferenceproblem}[1]
+证明：$\RR^n$ 中每个闭集可表为可列个开集的交，每个开集可表为可列个闭集的并。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[2]
+用闭集套定理证明三角形三边上的中线交于一点。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[3]
+设函数 $f(x)$ 在 $(-\infty,+\infty)$ 上连续，证明：$E=\{(x,f(x))\mid x\in(-\infty,+\infty)\}$ 是平面上的闭集（称为 $f$ 的图像）。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[4]
+证明：$\operatorname{int}S$ 是开集，而且是包含于 $S$ 的最大开集。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[5]
+（$\RR^n$ 的正规性）设 $S_1,S_2$ 为 $\RR^n$ 中不相交的闭集（不一定有界）。证明：存在开集 $O_1,O_2$ 满足 $S_i\subset O_i$，$i=1,2$，且 $O_1\cap O_2=\varnothing$。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[6]
+\begin{enumerate}[label=(\arabic*)]
     \item 设 $S$ 是 $\RR^n$ 中的有界集合。证明：$\forall\delta>0$，$\exists S$ 中有限个点 $p_1,p_2,\ldots,p_k$，使得
     \[
       \bigcup_{i=1}^kO_\delta(p_i)\supset S;
@@ -440,25 +486,37 @@ $(3)\Rightarrow(1)$。用闭矩形套定理。其详细证明在很多教科书�
     \item 证明覆盖定理的 Lebesgue 形式：若 $\{G_\alpha\}$ 是有界闭集 $F$ 的开覆盖，则 $\exists\delta>0$，使得 $\forall p\in F$，存在 $\{G_\alpha\}$ 中的一个开集 $G$，满足 $O_\delta(p)\subset G$；
     \item 证明覆盖定理的 Lebesgue 形式与通常的表达形式（若 $\{G_\alpha\}$ 是有界闭集 $F$ 的开覆盖，则存在 $\{G_\alpha\}$ 中的有限个开集 $G_1,G_2,\ldots,G_m$，使得 $\bigcup_{i=1}^mG_i\supset F$）等价。
   \end{enumerate}
-\end{enumerate}
 \end{xreferenceproblem}
 
 \subsubsection*{第二组参考题}
-\begin{xreferenceproblem}
-\begin{enumerate}[label=\arabic*.]
-  \item 证明：$\RR^n$ 中开集 $D$ 是连通集的充分必要条件是 $D$ 不能分解为两个不相交的非空子开集的并。
-  \item 证明：$\RR$ 中集合 $D$ 是连通集的充分必要条件是 $D$ 为区间。
-  \item 证明：有公共点的连通集的并集是连通集。
-  \item 证明：$A=\{(x,y)\mid x,y\text{ 至少有一个是有理数}\}$ 是 $\RR^2$ 中的道路连通集。
-  \item 证明：道路连通集一定是连通集，但连通集未必是道路连通集。（考察例子
+\begin{xreferenceproblem}[1]
+证明：$\RR^n$ 中开集 $D$ 是连通集的充分必要条件是 $D$ 不能分解为两个不相交的非空子开集的并。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[2]
+证明：$\RR$ 中集合 $D$ 是连通集的充分必要条件是 $D$ 为区间。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[3]
+证明：有公共点的连通集的并集是连通集。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[4]
+证明：$A=\{(x,y)\mid x,y\text{ 至少有一个是有理数}\}$ 是 $\RR^2$ 中的道路连通集。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[5]
+证明：道路连通集一定是连通集，但连通集未必是道路连通集。（考察例子
   \[
     E=\{(x,y)\mid y=\sin\tfrac1x,\ 0<x\leq\tfrac2\pi\},
   \]
   证明 $\overline E$ 是连通而非道路连通的。）
-  \item 设 $A,B$ 为 $\RR^n$ 的非空子集，定义 $A+B$ 为 $\RR^n$ 中一切形如 $x+y$ 的点组成的集合，其中 $x\in A$，$y\in B$。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[6]
+设 $A,B$ 为 $\RR^n$ 的非空子集，定义 $A+B$ 为 $\RR^n$ 中一切形如 $x+y$ 的点组成的集合，其中 $x\in A$，$y\in B$。
   \begin{enumerate}[label=(\arabic*)]
     \item 如果 $K$ 为 $\RR^n$ 的紧子集，$C$ 为 $\RR^n$ 的闭子集，证明：$K+C$ 为 $\RR^n$ 的闭子集；
     \item 如果 $K,C$ 均为 $\RR^n$ 的闭子集，$K+C$ 未必为 $\RR^n$ 的闭子集。考虑 $K$ 为整数集合，$C$ 为一切形如 $\alpha m$ 的数组成的集合，其中 $m\in K$，$\alpha$ 是某个确定的无理数。证明：$\overline{K+C}=\RR$，但 $K+C\neq\RR$。
   \end{enumerate}
-\end{enumerate}
 \end{xreferenceproblem}

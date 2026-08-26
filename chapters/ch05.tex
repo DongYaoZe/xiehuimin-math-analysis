@@ -33,17 +33,29 @@
 
 \subsection{思考题}
 
-\begin{enumerate}
-  \item 当 $f$ 于点 $a$ 连续时，函数 $f^2$ 和 $|f|$ 在点 $a$ 是否连续？反之如何？
-  \item 设函数 $f,g$ 在点 $a$ 都不连续，问 $f+g$ 和 $f\cdot g$ 在点 $a$ 是否连续？
-  \item 设函数 $f$ 在区间 $(a,b)$ 上定义，若对于每个闭区间 $[c,d]\subset(a,b)$，函数 $f$ 在 $[c,d]$ 上连续，证明 $f$ 在 $(a,b)$ 上连续。
-  \item 讨论下列函数的连续性，若有间断点则确定它的类型：
+\begin{xthought}[1]
+当 $f$ 于点 $a$ 连续时，函数 $f^2$ 和 $|f|$ 在点 $a$ 是否连续？反之如何？
+\end{xthought}
+
+\begin{xthought}[2]
+设函数 $f,g$ 在点 $a$ 都不连续，问 $f+g$ 和 $f\cdot g$ 在点 $a$ 是否连续？
+\end{xthought}
+
+\begin{xthought}[3]
+设函数 $f$ 在区间 $(a,b)$ 上定义，若对于每个闭区间 $[c,d]\subset(a,b)$，函数 $f$ 在 $[c,d]$ 上连续，证明 $f$ 在 $(a,b)$ 上连续。
+\end{xthought}
+
+\begin{xthought}[4]
+讨论下列函数的连续性，若有间断点则确定它的类型：
   \begin{enumerate}[label=(\arabic*)]
     \item $f(x)=\begin{cases}\ee^{1/x},&x\in(-\infty,0),\\x^2,&x\in[0,+\infty);\end{cases}$
     \item $f(x)=\begin{cases}\ee^{1/x},&x\in\RR-\{0\},\\0,&x=0;\end{cases}$
     \item $f(x)=\begin{cases}\dfrac{\ln(1+x^2)}{x},&x\in(-1,0)\cup(0,1),\\2,&x=0.\end{cases}$
   \end{enumerate}
-  \item 找出下列函数的间断点，并确定类型：
+\end{xthought}
+
+\begin{xthought}[5]
+找出下列函数的间断点，并确定类型：
   \begin{enumerate}[label=(\arabic*)]
     \item $f(x)=\operatorname{sgn}x$；
     \item $g(x)=x-[x]$；
@@ -52,7 +64,7 @@
     \item $h(x)=\dfrac{\dfrac1x-\dfrac1{x+1}}{\dfrac1{x-1}-\dfrac1x}$；
     \item $y(x)=\dfrac{1}{\left[\dfrac1x\right]}$。
   \end{enumerate}
-\end{enumerate}
+\end{xthought}
 
 \subsection{例题}
 
@@ -174,26 +186,43 @@ Riemann 函数的定义为
 
 \subsection{练习题}
 
-\begin{enumerate}
-  \item
-  \begin{enumerate}[label=(\arabic*)]
+\begin{xexercise}[1]
+\begin{enumerate}[label=(\arabic*)]
     \item 将对偶法则用于连续性的第一定义和第二定义，写出函数 $f$ 在点 $a$ 处不连续的两个正面叙述；
     \item 证明连续性的两个定义的等价性。
   \end{enumerate}
-  \item 讨论下述函数的间断点及其类型：
+\end{xexercise}
+
+\begin{xexercise}[2]
+讨论下述函数的间断点及其类型：
   \begin{enumerate}[label=(\arabic*)]
     \item $f(x)=[x]$；
     \item $f(x)=\begin{cases}\dfrac{\ee^{\sin x}-1}{x},&x\in(-\infty,0)\cup(0,+\infty),\\1,&x=0;\end{cases}$
     \item $f(x)=[x]+[-x]$；
     \item $f(x)=\begin{cases}\dfrac{x^2-x}{|x|(x^2-1)},&x\ne0,\pm1,\\1,&x=0,\pm1.\end{cases}$
   \end{enumerate}
-  \item 设函数 $f\in C[a,b]$。若有数列 $\{x_n\}\subset[a,b]$，使得 $\lim_{n\to\infty}f(x_n)=A$，证明：存在 $\xi\in[a,b]$，使得 $f(\xi)=A$。
-  \item 设函数 $f$ 在 $(-\infty,+\infty)$ 上定义，在 $x=0,1$ 两点连续，且满足 $f(x)=f(x^2),x\in\RR$。证明：$f$ 是常值函数。
-  \item 设在区间 $I$ 上函数 $f,g$ 连续，证明：$\max\{f,g\},\min\{f,g\}\in C(I)$。
+\end{xexercise}
+
+\begin{xexercise}[3]
+设函数 $f\in C[a,b]$。若有数列 $\{x_n\}\subset[a,b]$，使得 $\lim_{n\to\infty}f(x_n)=A$，证明：存在 $\xi\in[a,b]$，使得 $f(\xi)=A$。
+\end{xexercise}
+
+\begin{xexercise}[4]
+设函数 $f$ 在 $(-\infty,+\infty)$ 上定义，在 $x=0,1$ 两点连续，且满足 $f(x)=f(x^2),x\in\RR$。证明：$f$ 是常值函数。
+\end{xexercise}
+
+\begin{xexercise}[5]
+设在区间 $I$ 上函数 $f,g$ 连续，证明：$\max\{f,g\},\min\{f,g\}\in C(I)$。
 
   （可以从连续定义证，也可用公式 $\max\{a,b\}=\dfrac{a+b}{2}+\dfrac{|a-b|}{2}$ 等。）
-  \item 设有三个函数 $f_1,f_2,f_3\in C[a,b]$，对每个 $x\in[a,b]$，定义 $f(x)$ 是三个函数值 $f_1(x),f_2(x),f_3(x)$ 中处于中间的一个值，证明：$f\in C[a,b]$。
-  \item 证明：$f$ 为区间上连续函数的充分必要条件是：对每个正整数 $n$，函数
+\end{xexercise}
+
+\begin{xexercise}[6]
+设有三个函数 $f_1,f_2,f_3\in C[a,b]$，对每个 $x\in[a,b]$，定义 $f(x)$ 是三个函数值 $f_1(x),f_2(x),f_3(x)$ 中处于中间的一个值，证明：$f\in C[a,b]$。
+\end{xexercise}
+
+\begin{xexercise}[7]
+证明：$f$ 为区间上连续函数的充分必要条件是：对每个正整数 $n$，函数
   \[
     f_n(x)=\begin{cases}
       -n,&f(x)\le-n,\\
@@ -204,16 +233,31 @@ Riemann 函数的定义为
   连续。
 
   （必要性证明可用 $f_n(x)=\max\{-n,\min\{f(x),n\}\}$ 归结为上一题。）
-  \item 证明 Dirichlet 函数 $D(x)$（其定义见第四章 4.1.5 小节题 11）处处不连续，并确定其类型。
-  \item 构造一个在 $(-\infty,+\infty)$ 上有定义的函数，使得它在某个指定点处连续，但在所有其他点处都不连续。
-  \item 设 $f\in C(-\infty,+\infty)$，且对任意 $x,y\in\RR$ 有 $f(x+y)=f(x)f(y)$。证明：这个函数方程的解除 $f\equiv0$ 之外，就是 $f(x)=a^x$，其中 $a=f(1)>0$。
-  \item 设 $f\in C(-\infty,+\infty)$，且对任意 $x,y\in\RR$ 有
+\end{xexercise}
+
+\begin{xexercise}[8]
+证明 Dirichlet 函数 $D(x)$（其定义见第四章 4.1.5 小节题 11）处处不连续，并确定其类型。
+\end{xexercise}
+
+\begin{xexercise}[9]
+构造一个在 $(-\infty,+\infty)$ 上有定义的函数，使得它在某个指定点处连续，但在所有其他点处都不连续。
+\end{xexercise}
+
+\begin{xexercise}[10]
+设 $f\in C(-\infty,+\infty)$，且对任意 $x,y\in\RR$ 有 $f(x+y)=f(x)f(y)$。证明：这个函数方程的解除 $f\equiv0$ 之外，就是 $f(x)=a^x$，其中 $a=f(1)>0$。
+\end{xexercise}
+
+\begin{xexercise}[11]
+设 $f\in C(-\infty,+\infty)$，且对任意 $x,y\in\RR$ 有
   \[
     f\left(\frac{x+y}{2}\right)=\frac12[f(x)+f(y)].
   \]
   证明：$f(x)=[f(1)-f(0)]x+f(0)$。
-  \item 根据 5.1.1 小节中第 5 点给出的定义，证明：函数 $f$ 在点 $a$ 连续的充分必要条件是 $f$ 在该点的振幅为 0，即 $\omega_f(a)=0$。
-\end{enumerate}
+\end{xexercise}
+
+\begin{xexercise}[12]
+根据 5.1.1 小节中第 5 点给出的定义，证明：函数 $f$ 在点 $a$ 连续的充分必要条件是 $f$ 在该点的振幅为 0，即 $\omega_f(a)=0$。
+\end{xexercise}
 
 \section{零点存在定理与介值定理}
 
@@ -396,32 +440,59 @@ Riemann 函数的定义为
 
 \subsection{练习题}
 
-\begin{enumerate}
-  \item 设 $f\in C[a,b]$，$a\le x_1<x_2<\cdots<x_n\le b$，证明：存在 $\xi\in[x_1,x_n]$，使成立
+\begin{xexercise}[1]
+设 $f\in C[a,b]$，$a\le x_1<x_2<\cdots<x_n\le b$，证明：存在 $\xi\in[x_1,x_n]$，使成立
   \[
     f(\xi)=\frac{f(x_1)+f(x_2)+\cdots+f(x_n)}{n}.
   \]
-  \item 设 $f$ 是定义在一个圆周上的连续函数。证明：存在一条直径，使得 $f$ 在其两端取相同的值。（试给出在圆周上的函数的连续性定义。）
-  \item 若余弦多项式 $C_n(x)=\sum_{k=0}^n a_k\cos kx$ 的系数满足条件 $\sum_{k=1}^{n-1}|a_k|<a_n$，证明：$C_n(x)$ 在区间 $[0,2\pi)$ 中至少有 $2n$ 个零点。
-  \item 设 $a_1,a_2,a_3>0$，且 $b_1<b_2<b_3$。证明：方程
+\end{xexercise}
+
+\begin{xexercise}[2]
+设 $f$ 是定义在一个圆周上的连续函数。证明：存在一条直径，使得 $f$ 在其两端取相同的值。（试给出在圆周上的函数的连续性定义。）
+\end{xexercise}
+
+\begin{xexercise}[3]
+若余弦多项式 $C_n(x)=\sum_{k=0}^n a_k\cos kx$ 的系数满足条件 $\sum_{k=1}^{n-1}|a_k|<a_n$，证明：$C_n(x)$ 在区间 $[0,2\pi)$ 中至少有 $2n$ 个零点。
+\end{xexercise}
+
+\begin{xexercise}[4]
+设 $a_1,a_2,a_3>0$，且 $b_1<b_2<b_3$。证明：方程
   \[
     \frac{a_1}{x-b_1}+\frac{a_2}{x-b_2}+\frac{a_3}{x-b_3}=0
   \]
   在区间 $(b_1,b_2)$ 和 $(b_2,b_3)$ 内恰好各有一个根。
-  \item 证明：
+\end{xexercise}
+
+\begin{xexercise}[5]
+证明：
   \begin{enumerate}[label=(\arabic*)]
     \item 奇数次多项式方程 $f(x)=x^{2n+1}+a_1x^{2n}+\cdots+a_{2n}x+a_{2n+1}=0$ 至少有一个实根；
     \item 偶数次多项式方程 $f(x)=x^{2n}+a_1x^{2n-1}+\cdots+a_{2n-1}x+a_{2n}=0$ 可以没有实根，但当 $a_{2n}<0$ 时则至少有两个实根。
   \end{enumerate}
-  \item 证明：$x^{17}+215/(1+\cos^2 3x)=18$ 必有实根。
-  \item 若 $f\in C[a,b]$，且 $f(x)$ 只取有理数。问：$f$ 有何特点？
-  \item 设 $f\in C[a,b]$，且为一对一映射。证明：
+\end{xexercise}
+
+\begin{xexercise}[6]
+证明：$x^{17}+215/(1+\cos^2 3x)=18$ 必有实根。
+\end{xexercise}
+
+\begin{xexercise}[7]
+若 $f\in C[a,b]$，且 $f(x)$ 只取有理数。问：$f$ 有何特点？
+\end{xexercise}
+
+\begin{xexercise}[8]
+设 $f\in C[a,b]$，且为一对一映射。证明：
   \begin{enumerate}[label=(\arabic*)]
     \item 若 $f(a)<f(b)$，则 $f$ 严格单调增加；
     \item 若 $f(a)>f(b)$，则 $f$ 严格单调减少。
   \end{enumerate}
-  \item 设 $f\in C(-\infty,+\infty)$，且有 $f(-\infty)=A<B=f(+\infty)$，证明：对每个 $c\in(A,B)$，存在 $\xi$，使得 $f(\xi)=c$。
-  \item 设 $f\in C[a,b)$，数列 $\{x_n\},\{y_n\}\subset[a,b)$，已知
+\end{xexercise}
+
+\begin{xexercise}[9]
+设 $f\in C(-\infty,+\infty)$，且有 $f(-\infty)=A<B=f(+\infty)$，证明：对每个 $c\in(A,B)$，存在 $\xi$，使得 $f(\xi)=c$。
+\end{xexercise}
+
+\begin{xexercise}[10]
+设 $f\in C[a,b)$，数列 $\{x_n\},\{y_n\}\subset[a,b)$，已知
   \[
     \lim_{n\to\infty}x_n=b,\quad \lim_{n\to\infty}y_n=b,\quad
     \lim_{n\to\infty}f(x_n)=A,\quad \lim_{n\to\infty}f(y_n)=B,
@@ -430,7 +501,7 @@ Riemann 函数的定义为
   \[
     \lim_{n\to\infty}z_n=b,\qquad \lim_{n\to\infty}f(z_n)=\eta.
   \]
-\end{enumerate}
+\end{xexercise}
 
 \section{有界性定理与最值定理}
 
@@ -562,21 +633,45 @@ Riemann 函数的定义为
 
 \subsection{练习题}
 
-\begin{enumerate}
-  \item 设函数 $f$ 在区间 $[a,b]$ 中只有第一类间断点，证明：$f$ 在 $[a,b]$ 上有界。
-  \item 若 $f\in C[a,+\infty)$，且存在有限极限 $\lim_{x\to+\infty}f(x)$。证明：$f$ 在 $[a,+\infty)$ 上有界。
-  \item 问：是否存在从区间 (1) $(0,1)$，(2) $[0,1]$，(3) $(0,1]$ 映射到整个实数集 $\RR$ 的连续函数？（如果存在，请举出例子；如果不存在，请作出证明。）
-  \item 问：若函数 $f$ 在区间 $[a,b]$ 上的值域为闭区间，则 $f$ 是否在 $[a,b]$ 上连续？
-  \item 若 $f\in C[a,+\infty)$，且存在有限极限 $\lim_{x\to+\infty}f(x)$。证明：$f$ 在 $[a,+\infty)$ 上至少可以取到最大值或最小值中的一个。
+\begin{xexercise}[1]
+设函数 $f$ 在区间 $[a,b]$ 中只有第一类间断点，证明：$f$ 在 $[a,b]$ 上有界。
+\end{xexercise}
+
+\begin{xexercise}[2]
+若 $f\in C[a,+\infty)$，且存在有限极限 $\lim_{x\to+\infty}f(x)$。证明：$f$ 在 $[a,+\infty)$ 上有界。
+\end{xexercise}
+
+\begin{xexercise}[3]
+问：是否存在从区间 (1) $(0,1)$，(2) $[0,1]$，(3) $(0,1]$ 映射到整个实数集 $\RR$ 的连续函数？（如果存在，请举出例子；如果不存在，请作出证明。）
+\end{xexercise}
+
+\begin{xexercise}[4]
+问：若函数 $f$ 在区间 $[a,b]$ 上的值域为闭区间，则 $f$ 是否在 $[a,b]$ 上连续？
+\end{xexercise}
+
+\begin{xexercise}[5]
+若 $f\in C[a,+\infty)$，且存在有限极限 $\lim_{x\to+\infty}f(x)$。证明：$f$ 在 $[a,+\infty)$ 上至少可以取到最大值或最小值中的一个。
 
   （可以与例题 2.2.1 作比较。）
-  \item 若 $f\in C(a,b)$，且 $f(a^+)=f(b^-)=+\infty$，证明：$f$ 在 $(a,b)$ 上有最小值。
-  \item 若 $f\in C(a,b)$，且 $f(a^+)=f(b^-)$，证明：$f$ 在 $(a,b)$ 上至少可以取到最大值或最小值中的一个。
-  \item 若 $f\in C(-\infty,+\infty)$，$\lim_{x\to\pm\infty}f(x)=+\infty$，且 $f(x)$ 的最小值 $f(a)<a$。证明：复合函数 $f(f(x))$ 至少在两个点上取到它的最小值。
-  \item 求出 Dirichlet 函数和 Riemann 函数的所有极值点和最值点。
+\end{xexercise}
+
+\begin{xexercise}[6]
+若 $f\in C(a,b)$，且 $f(a^+)=f(b^-)=+\infty$，证明：$f$ 在 $(a,b)$ 上有最小值。
+\end{xexercise}
+
+\begin{xexercise}[7]
+若 $f\in C(a,b)$，且 $f(a^+)=f(b^-)$，证明：$f$ 在 $(a,b)$ 上至少可以取到最大值或最小值中的一个。
+\end{xexercise}
+
+\begin{xexercise}[8]
+若 $f\in C(-\infty,+\infty)$，$\lim_{x\to\pm\infty}f(x)=+\infty$，且 $f(x)$ 的最小值 $f(a)<a$。证明：复合函数 $f(f(x))$ 至少在两个点上取到它的最小值。
+\end{xexercise}
+
+\begin{xexercise}[9]
+求出 Dirichlet 函数和 Riemann 函数的所有极值点和最值点。
 
   （关于极值与极值点的定义见 7.1.1 小节。）
-\end{enumerate}
+\end{xexercise}
 
 \section{一致连续性与 Cantor 定理}
 
@@ -598,12 +693,21 @@ Riemann 函数的定义为
 
 \subsection{思考题}
 
-\begin{enumerate}
-  \item 写出函数 $f$ 在区间 $I$ 上不一致连续的正面叙述。
-  \item 判断对或错：$f$ 在区间 $[a,b)$ 上连续，则 $f$ 在 $[a,b)$ 上一致连续。
-  \item 判断对或错：$f$ 在区间 $(a,b)$ 内的每一个闭子区间上连续，则 $f$ 在 $(a,b)$ 上一致连续。
-  \item 判断对或错：$f$ 在区间 $(a,b)$ 上连续，又有 $a<c<d<b$，则 $f$ 在区间 $(c,d)$ 上一致连续。
-\end{enumerate}
+\begin{xthought}[1]
+写出函数 $f$ 在区间 $I$ 上不一致连续的正面叙述。
+\end{xthought}
+
+\begin{xthought}[2]
+判断对或错：$f$ 在区间 $[a,b)$ 上连续，则 $f$ 在 $[a,b)$ 上一致连续。
+\end{xthought}
+
+\begin{xthought}[3]
+判断对或错：$f$ 在区间 $(a,b)$ 内的每一个闭子区间上连续，则 $f$ 在 $(a,b)$ 上一致连续。
+\end{xthought}
+
+\begin{xthought}[4]
+判断对或错：$f$ 在区间 $(a,b)$ 上连续，又有 $a<c<d<b$，则 $f$ 在区间 $(c,d)$ 上一致连续。
+\end{xthought}
 
 \subsection{Cantor 定理的证明}
 
@@ -819,35 +923,56 @@ $\forall\varepsilon>0$ 和 $x_0\in[a,b]$，由于 $f$ 在 $x_0$ 连续，存在 
 
 \subsection{练习题}
 
-\begin{enumerate}
-  \item 若 $f$ 在区间 $I$ 上定义，且存在 $L>0$，使得对任意 $x_1,x_2\in I$ 成立 $|f(x_1)-f(x_2)|\le L|x_1-x_2|$，则称 $f$ 在 $I$ 上满足 Lipschitz（利普希茨）条件。证明：在区间 $I$ 上满足 Lipschitz 条件的函数必是一致连续函数。
-  \item 根据一致连续性的定义直接证明：若 $f$ 在 $(a,b)$ 上一致连续，则 $f$ 有界。
-  \item
-  \begin{enumerate}[label=(\arabic*)]
+\begin{xexercise}[1]
+若 $f$ 在区间 $I$ 上定义，且存在 $L>0$，使得对任意 $x_1,x_2\in I$ 成立 $|f(x_1)-f(x_2)|\le L|x_1-x_2|$，则称 $f$ 在 $I$ 上满足 Lipschitz（利普希茨）条件。证明：在区间 $I$ 上满足 Lipschitz 条件的函数必是一致连续函数。
+\end{xexercise}
+
+\begin{xexercise}[2]
+根据一致连续性的定义直接证明：若 $f$ 在 $(a,b)$ 上一致连续，则 $f$ 有界。
+\end{xexercise}
+
+\begin{xexercise}[3]
+\begin{enumerate}[label=(\arabic*)]
     \item 设 $f,g$ 在区间 $I$ 上均为一致连续，问：它们的线性组合 $af+bg$ 和乘积 $fg$ 在 $I$ 上是否一致连续？
     \item 设 $f$ 在区间 $I_1$ 上一致连续，$g$ 在区间 $I_2$ 上一致连续，且区间 $I_2$ 包含了 $f$ 的值域，问：复合函数 $g\circ f$ 在区间 $I_1$ 上是否一致连续？
   \end{enumerate}
-  \item 设 $f\in C(-\infty,+\infty)$，且为周期函数。证明：$f$ 在 $(-\infty,+\infty)$ 上一致连续。
-  \item
-  \begin{enumerate}[label=(\arabic*)]
+\end{xexercise}
+
+\begin{xexercise}[4]
+设 $f\in C(-\infty,+\infty)$，且为周期函数。证明：$f$ 在 $(-\infty,+\infty)$ 上一致连续。
+\end{xexercise}
+
+\begin{xexercise}[5]
+\begin{enumerate}[label=(\arabic*)]
     \item 设 $f\in C[0,+\infty)$，且有 $\lim_{x\to+\infty}[f(x)-(ax+b)]=0$，证明 $f$ 在 $[0,+\infty)$ 上一致连续；
     \item 若将 (1) 中的 $ax+b$ 换成 $ax^2+bx+c$，结论是否成立？
     \item 又若将 $ax+b$ 换成某个函数 $g(x)$，问：当 $g(x)$ 具有什么性质时 (1) 中的结论仍成立？
   \end{enumerate}
-  \item 证明：当 $n>1$ 时，$x^n$ 在 $[0,+\infty)$ 上不一致连续。
-  \item 证明：$f(x)=\ln x$ 在 $(1,+\infty)$ 一致连续，但在 $(0,1)$ 上不一致连续。
-  \item
-  \begin{enumerate}[label=(\arabic*)]
+\end{xexercise}
+
+\begin{xexercise}[6]
+证明：当 $n>1$ 时，$x^n$ 在 $[0,+\infty)$ 上不一致连续。
+\end{xexercise}
+
+\begin{xexercise}[7]
+证明：$f(x)=\ln x$ 在 $(1,+\infty)$ 一致连续，但在 $(0,1)$ 上不一致连续。
+\end{xexercise}
+
+\begin{xexercise}[8]
+\begin{enumerate}[label=(\arabic*)]
     \item 证明：函数 $f(x)=|\sin x|/x$ 在区间 $(-1,0)$ 和 $(0,1)$ 均为一致连续，但在 $(-1,0)\cup(0,1)$ 上不一致连续（注意 $(-1,0)\cup(0,1)$ 不是一个区间）；
     \item 若函数 $f$ 在区间 $(a,b)$ 和 $[b,c)$ 上分别为一致连续，问：$f$ 在 $(a,c)$ 上是否一致连续？
   \end{enumerate}
-  \item 讨论以下函数在指定区间上是否一致连续（可参考图 4.2）：
+\end{xexercise}
+
+\begin{xexercise}[9]
+讨论以下函数在指定区间上是否一致连续（可参考图 4.2）：
   \begin{enumerate}[label=(\arabic*)]
     \item 在区间 $(0,1)$ 上的函数 $x\sin(1/x)$；
     \item 在区间 $(0,+\infty)$ 上的函数 $\sin x/x$；
     \item 在区间 $[0,+\infty)$ 上的函数 $x\sin x$。
   \end{enumerate}
-\end{enumerate}
+\end{xexercise}
 
 \section{单调函数}
 
@@ -988,12 +1113,21 @@ $\forall\varepsilon>0$ 和 $x_0\in[a,b]$，由于 $f$ 在 $x_0$ 连续，存在 
 
 \subsection{练习题}
 
-\begin{enumerate}
-  \item 设函数 $f$ 在开区间 $(a,b)$ 上定义，且对每一个点 $x\in(a,b)$，存在邻域 $O(x)$，使得 $f$ 在 $O(x)$ 上单调增加，证明：$f$ 在 $(a,b)$ 上单调增加。
-  \item 设 $f\in C[a,b]$，且对 $[a,b]$ 内的任意两个有理数 $r_1,r_2\ (r_1<r_2)$，成立 $f(r_1)\le f(r_2)$，证明：函数 $f$ 在 $[a,b]$ 上单调增加。
-  \item 设 $f$ 是 $(-\infty,+\infty)$ 上的单调函数，在每一点定义 $g(x)=f(x^+)$，证明：$g$ 是在 $(-\infty,+\infty)$ 上处处右连续的函数。
-  \item 设 $f$ 为 $(-\infty,+\infty)$ 上的单调函数，且对一切 $x,y\in\RR$ 满足 $f(x+y)=f(x)+f(y)$。证明：$f(x)=f(1)x$。
-\end{enumerate}
+\begin{xexercise}[1]
+设函数 $f$ 在开区间 $(a,b)$ 上定义，且对每一个点 $x\in(a,b)$，存在邻域 $O(x)$，使得 $f$ 在 $O(x)$ 上单调增加，证明：$f$ 在 $(a,b)$ 上单调增加。
+\end{xexercise}
+
+\begin{xexercise}[2]
+设 $f\in C[a,b]$，且对 $[a,b]$ 内的任意两个有理数 $r_1,r_2\ (r_1<r_2)$，成立 $f(r_1)\le f(r_2)$，证明：函数 $f$ 在 $[a,b]$ 上单调增加。
+\end{xexercise}
+
+\begin{xexercise}[3]
+设 $f$ 是 $(-\infty,+\infty)$ 上的单调函数，在每一点定义 $g(x)=f(x^+)$，证明：$g$ 是在 $(-\infty,+\infty)$ 上处处右连续的函数。
+\end{xexercise}
+
+\begin{xexercise}[4]
+设 $f$ 为 $(-\infty,+\infty)$ 上的单调函数，且对一切 $x,y\in\RR$ 满足 $f(x+y)=f(x)+f(y)$。证明：$f(x)=f(1)x$。
+\end{xexercise}
 
 \section{周期 3 蕴涵混沌}
 
@@ -1232,22 +1366,40 @@ $F$ 的零点即 $f$ 的不动点，则有
 
 \subsubsection*{第一组参考题}
 
-\begin{enumerate}
-  \item 设非负函数 $f\in C[0,1]$，且 $f(0)=f(1)=0$。证明：对任一实数 $a\in(0,1)$，存在 $x_0\in[0,1]$，使得 $x_0+a\in[0,1]$，并满足要求 $f(x_0)=f(x_0+a)$。又问，如去掉函数 $f$ 非负的条件，则结论还成立否？
-  \item 设 $f\in C[0,1],f(0)=f(1)$。证明：$\forall n\in\NN_+$，存在 $\xi$，使得 $f(\xi+1/n)=f(\xi)$。
-  \item 设 $f\in C[0,1],f([0,1])\subset[0,1]$。证明：$y=f(x)$ 的图像不仅与直线 $y=x$ 有交点，而且还与直线 $y=1-x$ 有交点。
-  \item 设 $f\in C(0,+\infty)$，又对每个实数 $c$，方程 $f(x)=c$ 至多只有有限个实根。试分别给出极限 $\lim_{x\to+\infty}f(x)$ 及 $\lim_{x\to0^+}f(x)$ 存在的充分必要条件，并加以证明。
-  \item 设 $f$ 在 $(-\infty,+\infty)$ 上有定义，对于任意 $x,y$，满足 $|f(x)-f(y)|\le k|x-y|\ (0<k<1)$。证明：
+\begin{xreferenceproblem}[1]
+设非负函数 $f\in C[0,1]$，且 $f(0)=f(1)=0$。证明：对任一实数 $a\in(0,1)$，存在 $x_0\in[0,1]$，使得 $x_0+a\in[0,1]$，并满足要求 $f(x_0)=f(x_0+a)$。又问，如去掉函数 $f$ 非负的条件，则结论还成立否？
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[2]
+设 $f\in C[0,1],f(0)=f(1)$。证明：$\forall n\in\NN_+$，存在 $\xi$，使得 $f(\xi+1/n)=f(\xi)$。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[3]
+设 $f\in C[0,1],f([0,1])\subset[0,1]$。证明：$y=f(x)$ 的图像不仅与直线 $y=x$ 有交点，而且还与直线 $y=1-x$ 有交点。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[4]
+设 $f\in C(0,+\infty)$，又对每个实数 $c$，方程 $f(x)=c$ 至多只有有限个实根。试分别给出极限 $\lim_{x\to+\infty}f(x)$ 及 $\lim_{x\to0^+}f(x)$ 存在的充分必要条件，并加以证明。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[5]
+设 $f$ 在 $(-\infty,+\infty)$ 上有定义，对于任意 $x,y$，满足 $|f(x)-f(y)|\le k|x-y|\ (0<k<1)$。证明：
   \begin{enumerate}[label=(\arabic*)]
     \item 函数 $kx-f(x)$ 单调增加；
     \item 存在唯一的 $\xi$，使 $f(\xi)=\xi$。
   \end{enumerate}
-  \item 设 $f_n(x)=x^n+x,n\in\NN_+$。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[6]
+设 $f_n(x)=x^n+x,n\in\NN_+$。
   \begin{enumerate}[label=(\arabic*)]
     \item 证明：对每个 $n>1$，方程 $f_n(x)=1$ 在 $(1/2,1)$ 内有且仅有一个根；
     \item 证明：由 $c_n\in(1/2,1)$ 是 $f_n(x)=1$ 的根，则存在 $\lim_{n\to\infty}c_n$。试求出极限值。
   \end{enumerate}
-  \item 设对每个正整数 $n$，数集 $A_n\subset[0,1]$ 是有限集，而且 $A_i\cap A_j=\varnothing,\ \forall i,j\in\NN_+,i\ne j$。定义函数
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[7]
+设对每个正整数 $n$，数集 $A_n\subset[0,1]$ 是有限集，而且 $A_i\cap A_j=\varnothing,\ \forall i,j\in\NN_+,i\ne j$。定义函数
   \[
     f(x)=\begin{cases}
       \dfrac1n,&\text{若 }x\in A_n,\\
@@ -1255,25 +1407,64 @@ $F$ 的零点即 $f$ 的不动点，则有
     \end{cases}
   \]
   对每个 $a\in[0,1]$，求 $\lim_{x\to a}f(x)$。
-  \item 设函数 $f$ 在区间 $I$ 内只有可去间断点。定义 $g(x)=\lim_{t\to x}f(t),x\in I$，证明：$g\in C(I)$。
-  \item 证明：若函数 $f$ 在区间 $[0,+\infty)$ 上连续且有界，则对每个给定的 $\lambda$，存在一个数列 $\{x_n\}$ 满足要求：(1) $\lim_{n\to\infty}x_n=+\infty$；(2) $\lim_{n\to\infty}[f(x_n+\lambda)-f(x_n)]=0$。
-  \item 设函数 $f$ 在区间 $I$ 上满足带指数的 Lipschitz 条件，即存在 $M>0,\alpha>0$，使得当 $x,y\in I$ 时，成立 $|f(x)-f(y)|\le M|x-y|^\alpha$。证明：若 $\alpha>1$，则 $f$ 在 $I$ 上是常值函数。
-  \item 举出一个函数 $f$，它的定义域为 $[0,1]$，处处不连续，但它的值域为区间。
-  \item 若 $f\in C[a,b]$，证明：对每个给定的 $\varepsilon>0$，存在区间 $[a,b]$ 上的分段线性函数 $L(x)$，使得 $|f(x)-L(x)|<\varepsilon$ 在区间 $[a,b]$ 上处处成立。
-  \item 设 $f\in C(-\infty,+\infty)$，且 $\lim_{x\to\infty}f(f(x))=\infty$，证明：$\lim_{x\to\infty}f(x)=\infty$。
-  \item 设 $f\in C(-\infty,+\infty)$，且存在 $k>0$，使得对任意 $x_1,x_2\in\RR$，成立 $|f(x_1)-f(x_2)|\ge k|x_1-x_2|$。证明：$f$ 严格单调且值域为 $(-\infty,+\infty)$。
-  \item 证明：不等于常数的连续周期函数一定有最小正周期。又问：如果将连续性条件去掉，结论还能成立否？\footnote{注意：非常值周期函数若有一个连续点，则必有最小周期。见 [59] 第一册 79 页命题 1.5。}
-  \item 设函数 $f$ 在区间 $[a,+\infty)$ 上满足 Lipschitz 条件，其中 $a>0$。证明：$f(x)/x$ 在 $[a,+\infty)$ 上一致连续。
-  \item 证明：函数 $f$ 在区间 $I$ 上一致连续的充分必要条件是：对任何满足条件 $\lim_{n\to\infty}(x_n-y_n)=0$ 的 $\{x_n\}\subset I$ 和 $\{y_n\}\subset I$，都有 $\lim_{n\to\infty}[f(x_n)-f(y_n)]=0$。
-  \item 证明：函数 $f$ 在有界区间 $I$ 上一致连续的充分必要条件是：当 $\{x_n\}$ 为基本数列时，$\{f(x_n)\}$ 也一定是基本数列。
-  \item 设函数 $f$ 在区间 $[0,+\infty)$ 上一致连续，且对任何 $x\in[0,1]$ 有 $\lim_{n\to\infty}f(x+n)=0$。证明：$\lim_{x\to+\infty}f(x)=0$。
-  \item 设 $f$ 在 $(-\infty,+\infty)$ 上一致连续，证明：存在非负常数 $a$ 和 $b$，使得成立 $|f(x)|\le a|x|+b$。
-\end{enumerate}
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[8]
+设函数 $f$ 在区间 $I$ 内只有可去间断点。定义 $g(x)=\lim_{t\to x}f(t),x\in I$，证明：$g\in C(I)$。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[9]
+证明：若函数 $f$ 在区间 $[0,+\infty)$ 上连续且有界，则对每个给定的 $\lambda$，存在一个数列 $\{x_n\}$ 满足要求：(1) $\lim_{n\to\infty}x_n=+\infty$；(2) $\lim_{n\to\infty}[f(x_n+\lambda)-f(x_n)]=0$。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[10]
+设函数 $f$ 在区间 $I$ 上满足带指数的 Lipschitz 条件，即存在 $M>0,\alpha>0$，使得当 $x,y\in I$ 时，成立 $|f(x)-f(y)|\le M|x-y|^\alpha$。证明：若 $\alpha>1$，则 $f$ 在 $I$ 上是常值函数。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[11]
+举出一个函数 $f$，它的定义域为 $[0,1]$，处处不连续，但它的值域为区间。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[12]
+若 $f\in C[a,b]$，证明：对每个给定的 $\varepsilon>0$，存在区间 $[a,b]$ 上的分段线性函数 $L(x)$，使得 $|f(x)-L(x)|<\varepsilon$ 在区间 $[a,b]$ 上处处成立。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[13]
+设 $f\in C(-\infty,+\infty)$，且 $\lim_{x\to\infty}f(f(x))=\infty$，证明：$\lim_{x\to\infty}f(x)=\infty$。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[14]
+设 $f\in C(-\infty,+\infty)$，且存在 $k>0$，使得对任意 $x_1,x_2\in\RR$，成立 $|f(x_1)-f(x_2)|\ge k|x_1-x_2|$。证明：$f$ 严格单调且值域为 $(-\infty,+\infty)$。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[15]
+证明：不等于常数的连续周期函数一定有最小正周期。又问：如果将连续性条件去掉，结论还能成立否？\footnote{注意：非常值周期函数若有一个连续点，则必有最小周期。见 [59] 第一册 79 页命题 1.5。}
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[16]
+设函数 $f$ 在区间 $[a,+\infty)$ 上满足 Lipschitz 条件，其中 $a>0$。证明：$f(x)/x$ 在 $[a,+\infty)$ 上一致连续。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[17]
+证明：函数 $f$ 在区间 $I$ 上一致连续的充分必要条件是：对任何满足条件 $\lim_{n\to\infty}(x_n-y_n)=0$ 的 $\{x_n\}\subset I$ 和 $\{y_n\}\subset I$，都有 $\lim_{n\to\infty}[f(x_n)-f(y_n)]=0$。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[18]
+证明：函数 $f$ 在有界区间 $I$ 上一致连续的充分必要条件是：当 $\{x_n\}$ 为基本数列时，$\{f(x_n)\}$ 也一定是基本数列。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[19]
+设函数 $f$ 在区间 $[0,+\infty)$ 上一致连续，且对任何 $x\in[0,1]$ 有 $\lim_{n\to\infty}f(x+n)=0$。证明：$\lim_{x\to+\infty}f(x)=0$。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[20]
+设 $f$ 在 $(-\infty,+\infty)$ 上一致连续，证明：存在非负常数 $a$ 和 $b$，使得成立 $|f(x)|\le a|x|+b$。
+\end{xreferenceproblem}
 
 \subsubsection*{第二组参考题}
 
-\begin{enumerate}
-  \item 用连续函数的零点存在定理解决以下“实际问题”：
+\begin{xreferenceproblem}[1]
+用连续函数的零点存在定理解决以下“实际问题”：
   \begin{enumerate}[label=(\arabic*)]
     \item 一个煎饼，不论形状如何，必可切一刀，使面积二等分；
     \item 两个煎饼，不论形状如何，相对位置如何，必可切一刀，使它们的面积同时二等分（双煎饼定理）；
@@ -1285,53 +1476,109 @@ $F$ 的零点即 $f$ 的不动点，则有
   \end{enumerate}
 
   （本题中出现的许多概念，包括区域、边界、面积、光滑曲线和相切等，在今后的教学中将会得到严格的数学处理。但是目前可以采取朴素的观点来对待题中的条件，因为在所有这些题中，主要的工具只是零点存在定理，再加上你的想象力。）
+\end{xreferenceproblem}
 
-  \item 设函数 $f$ 在区间 $[0,n]$ 上连续，且有 $f(0)=f(n)$，其中 $n$ 是一个正整数。证明：至少有 $n$ 对不同的 $(x,y)$，使得 $f(x)=f(y)$，同时 $x-y$ 为非零整数。
-  \item 设函数 $f$ 在 $[a,b]$ 上定义，且处处有极限。证明：
+\begin{xreferenceproblem}[2]
+设函数 $f$ 在区间 $[0,n]$ 上连续，且有 $f(0)=f(n)$，其中 $n$ 是一个正整数。证明：至少有 $n$ 对不同的 $(x,y)$，使得 $f(x)=f(y)$，同时 $x-y$ 为非零整数。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[3]
+设函数 $f$ 在 $[a,b]$ 上定义，且处处有极限。证明：
   \begin{enumerate}[label=(\arabic*)]
     \item 对每个 $\varepsilon>0$，在 $[a,b]$ 中使 $|\lim_{t\to x}f(t)-f(x)|>\varepsilon$ 的点至多只有有限个；
     \item $f$ 在 $[a,b]$ 中至多只有可列个间断点。
   \end{enumerate}
-  \item 证明：区间上的函数不可能以区间的每个点为它的可去间断点。
-  \item 是否存在定义于 $(-\infty,+\infty)$ 上的连续函数 $f$，使对于每个 $c\in\RR$，
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[4]
+证明：区间上的函数不可能以区间的每个点为它的可去间断点。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[5]
+是否存在定义于 $(-\infty,+\infty)$ 上的连续函数 $f$，使对于每个 $c\in\RR$，
   \begin{enumerate}[label=(\arabic*)]
     \item 方程 $f(x)=c$ 都恰有两个解？
     \item 方程 $f(x)=c$ 都恰有三个解？
   \end{enumerate}
-  \item 设 $n$ 为正整数，求满足函数方程 $f(x+y^n)=f(x)+(f(y))^n\ (x,y\in\RR)$ 的所有解。
-  \item 设 $f\in C[0,1],f(0)=0,f(1)=1,f(f(x))\equiv x$。证明：$f(x)\equiv x$。
-  \item 确定使得函数方程 $f(f(x))=kx^9$ 在 $(-\infty,+\infty)$ 上有连续解时参数 $k$ 应满足的充分必要条件。
-  \item 设 $f$ 是从 $\RR$ 到 $\RR$ 的一对一连续映射，有不动点。又满足
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[6]
+设 $n$ 为正整数，求满足函数方程 $f(x+y^n)=f(x)+(f(y))^n\ (x,y\in\RR)$ 的所有解。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[7]
+设 $f\in C[0,1],f(0)=0,f(1)=1,f(f(x))\equiv x$。证明：$f(x)\equiv x$。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[8]
+确定使得函数方程 $f(f(x))=kx^9$ 在 $(-\infty,+\infty)$ 上有连续解时参数 $k$ 应满足的充分必要条件。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[9]
+设 $f$ 是从 $\RR$ 到 $\RR$ 的一对一连续映射，有不动点。又满足
   \[
     f(2x-f(x))=x,\qquad \forall x\in\RR,
   \]
   证明：$f(x)\equiv x$。
-  \item 设函数 $f\in C[a,b]$，定义
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[10]
+设函数 $f\in C[a,b]$，定义
   \[
     M(x)=\max_{a\le y\le x}\{f(y)\},\qquad m(x)=\min_{a\le y\le x}\{f(y)\}.
   \]
   证明：函数 $M,m\in C[a,b]$。
-  \item 设 $f$ 在闭区间 $[a,b]$ 上单调增加，$f(a)>a,f(b)<b$。证明：$f$ 在 $(a,b)$ 内必有不动点。
-  \item 设 $f$ 在区间 $[0,1]$ 上满足以下条件：(1) $f(0)>0,f(1)<0$；(2) 存在一个函数 $g\in C[0,1]$，使得 $f+g$ 在 $[0,1]$ 上单调增加。证明：$f$ 在 $(0,1)$ 中有零点。
-  \item 设 $f_1,f_2$ 是分别以 $T_1,T_2$ 为周期的连续函数，且均非常值函数。证明：若周期 $T_1,T_2$ 不可公约，则 $f_1+f_2$ 不是周期函数。
-  \item 设 $f,g$ 是周期函数，且有 $\lim_{x\to+\infty}[f(x)-g(x)]=0$，证明：$f(x)\equiv g(x)$。（注意：本题并不需要 $f$ 和 $g$ 为连续函数的条件。）
-  \item 证明：函数 $f$ 在区间 $I$ 上一致连续的充分必要条件是：对每一个 $\varepsilon>0$，存在正数 $N$，使得当 $x,y\in I,x\ne y$ 且
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[11]
+设 $f$ 在闭区间 $[a,b]$ 上单调增加，$f(a)>a,f(b)<b$。证明：$f$ 在 $(a,b)$ 内必有不动点。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[12]
+设 $f$ 在区间 $[0,1]$ 上满足以下条件：(1) $f(0)>0,f(1)<0$；(2) 存在一个函数 $g\in C[0,1]$，使得 $f+g$ 在 $[0,1]$ 上单调增加。证明：$f$ 在 $(0,1)$ 中有零点。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[13]
+设 $f_1,f_2$ 是分别以 $T_1,T_2$ 为周期的连续函数，且均非常值函数。证明：若周期 $T_1,T_2$ 不可公约，则 $f_1+f_2$ 不是周期函数。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[14]
+设 $f,g$ 是周期函数，且有 $\lim_{x\to+\infty}[f(x)-g(x)]=0$，证明：$f(x)\equiv g(x)$。（注意：本题并不需要 $f$ 和 $g$ 为连续函数的条件。）
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[15]
+证明：函数 $f$ 在区间 $I$ 上一致连续的充分必要条件是：对每一个 $\varepsilon>0$，存在正数 $N$，使得当 $x,y\in I,x\ne y$ 且
   \[
     \left|\frac{f(x)-f(y)}{x-y}\right|>N
   \]
   时，成立 $|f(x)-f(y)|<\varepsilon$。
-  \item 设 $f$ 在开区间 $I$ 上连续，且于每点 $x\in I$ 取到极大值（或者于每点取到极小值）。证明：$f$ 为 $I$ 上的常值函数。
-  \item （本题是对上一题的进一步加强）设 $f$ 在开区间 $I$ 上连续，且于每一点 $x\in I$ 处取到极值，证明：$f$ 为 $I$ 上的常值函数。
-  \item 若 $x_0$ 为函数 $f$ 的极大值点（极小值点），且存在一个邻域 $O(x_0)$，使得当 $x\in O(x_0)\ (x\ne x_0)$ 时满足不等式 $f(x)<f(x_0)$（$f(x)>f(x_0)$），则称 $x_0$ 为 $f$ 的严格极大值点（严格极小值点）。证明：任何函数的严格极大值点（严格极小值点）至多可列，并举出同时有可列个严格极大值点和严格极小值点的例子。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[16]
+设 $f$ 在开区间 $I$ 上连续，且于每点 $x\in I$ 取到极大值（或者于每点取到极小值）。证明：$f$ 为 $I$ 上的常值函数。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[17]
+（本题是对上一题的进一步加强）设 $f$ 在开区间 $I$ 上连续，且于每一点 $x\in I$ 处取到极值，证明：$f$ 为 $I$ 上的常值函数。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[18]
+若 $x_0$ 为函数 $f$ 的极大值点（极小值点），且存在一个邻域 $O(x_0)$，使得当 $x\in O(x_0)\ (x\ne x_0)$ 时满足不等式 $f(x)<f(x_0)$（$f(x)>f(x_0)$），则称 $x_0$ 为 $f$ 的严格极大值点（严格极小值点）。证明：任何函数的严格极大值点（严格极小值点）至多可列，并举出同时有可列个严格极大值点和严格极小值点的例子。
 
   （在每个区间上有严格极大值和严格极小值的连续函数也是存在的。见《美国数学月刊》(1983) 第 90 卷 281--282 页和《美国数学月刊》(1985) 第 92 卷 209--211 页。）
-  \item 设 $f\in C(0,+\infty)$，对每个 $x_0>0$，有 $\lim_{n\to\infty}f(nx_0)=0$。证明：$\lim_{x\to+\infty}f(x)=0$。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[19]
+设 $f\in C(0,+\infty)$，对每个 $x_0>0$，有 $\lim_{n\to\infty}f(nx_0)=0$。证明：$\lim_{x\to+\infty}f(x)=0$。
 
   （本题可以与 Heine 归结原理对比，$\lim_{x\to+\infty}f(x)=0$ 的充分必要条件是对每个严格单调增加的正无穷大数列 $\{x_n\}$，成立 $\lim_{n\to\infty}f(x_n)=0$。本题表明，当 $f\in C(0,+\infty)$ 时，上述条件只需对所有等差增加的 $\{x_n\}$ 成立即可。）
-  \item 设 $f$ 是将区间 $[a,b]$ 映入自身的连续映射。从 $[a,b]$ 内任一点 $x$ 出发，用 $x_1=x$，$x_{n+1}=f(x_n)\ (n\in\NN_+)$ 生成迭代数列 $\{x_n\}$。证明：$\{x_n\}$ 收敛的充分必要条件是
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[20]
+设 $f$ 是将区间 $[a,b]$ 映入自身的连续映射。从 $[a,b]$ 内任一点 $x$ 出发，用 $x_1=x$，$x_{n+1}=f(x_n)\ (n\in\NN_+)$ 生成迭代数列 $\{x_n\}$。证明：$\{x_n\}$ 收敛的充分必要条件是
   \[
     \lim_{n\to\infty}(x_{n+1}-x_n)=0.
   \]
 
   （这个出人意料的结果来自《美国数学月刊》(1976) 第 83 卷 273 页的论文。它至少有两方面的意义：(1) 给出了一维迭代数列收敛的一个充分必要条件。这时只假定迭代函数连续，与第二章中依赖于单调性的几何方法完全不同。当然也与第三章的压缩映射原理无关。(2) 又可看成是 Cauchy 收敛准则在一维迭代数列中的特殊化，即此时不要求数列中下标任意大的两项之间的差任意小，而只要求前后两项之差任意小即可。）
-\end{enumerate}
+\end{xreferenceproblem}

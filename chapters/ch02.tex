@@ -58,24 +58,47 @@
 
 为了掌握数列收敛的定义，对以下一些问题作思考和讨论是有益的。
 
-\begin{enumerate}[label=\arabic*.]
-  \item 数列收敛有很多等价定义。例如：
+\begin{xthought}[1]
+数列收敛有很多等价定义。例如：
   \begin{enumerate}[label=(\arabic*)]
     \item 数列 $\{a_n\}$ 收敛于 $a\Longleftrightarrow\forall\varepsilon>0,\exists N\in\NN_+,\forall n\ge N$，成立 $\abs{a_n-a}<\varepsilon$；
     \item 数列 $\{a_n\}$ 收敛于 $a\Longleftrightarrow\forall m\in\NN_+,\exists N\in\NN_+,\forall n>N$，成立 $\abs{a_n-a}<1/m$；
     \item 数列 $\{a_n\}$ 收敛于 $a\Longleftrightarrow\forall\varepsilon>0,\exists N\in\NN_+,\forall n>N$，成立 $\abs{a_n-a}<K\varepsilon$，其中 $K$ 是一个与 $\varepsilon$ 和 $n$ 无关的正常数。
   \end{enumerate}
   试证明以上定义与上一小节列出的定义的等价性。
+\end{xthought}
 
-  \item 问：在数列收敛的定义中，$N$ 是否是 $\varepsilon$ 的函数？
-  \item 判断正确与否：若 $\{a_n\}$ 收敛，则有 $\displaystyle\lim_{n\to\infty}(a_{n+1}-a_n)=0$ 和 $\displaystyle\lim_{n\to\infty}\frac{a_{n+1}}{a_n}=1$。
-  \item 设收敛数列 $\{a_n\}$ 的每一项都是整数，问：该数列有什么特殊性质？
-  \item 问：收敛数列是否一定是单调数列？无穷小量是否一定是单调数列？
-  \item 问：一个很小很小的量，例如取 $1\,\mathrm{m}$ 为单位长度时，几个纳米大小的量是否是无穷小量？
-  \item 问：正无穷大数列是否一定单调增加？无界数列是否一定是无穷大量？
-  \item 问：如果数列 $\{a_n\}$ 收敛于 $a$，那么绝对值 $\abs{a_n-a}$ 是否随着 $n$ 的增加而单调减少趋于 $0$？
-  \item 判断正确与否：非负数列的极限是非负数，正数列的极限是正数。
-\end{enumerate}
+\begin{xthought}[2]
+问：在数列收敛的定义中，$N$ 是否是 $\varepsilon$ 的函数？
+\end{xthought}
+
+\begin{xthought}[3]
+判断正确与否：若 $\{a_n\}$ 收敛，则有 $\displaystyle\lim_{n\to\infty}(a_{n+1}-a_n)=0$ 和 $\displaystyle\lim_{n\to\infty}\frac{a_{n+1}}{a_n}=1$。
+\end{xthought}
+
+\begin{xthought}[4]
+设收敛数列 $\{a_n\}$ 的每一项都是整数，问：该数列有什么特殊性质？
+\end{xthought}
+
+\begin{xthought}[5]
+问：收敛数列是否一定是单调数列？无穷小量是否一定是单调数列？
+\end{xthought}
+
+\begin{xthought}[6]
+问：一个很小很小的量，例如取 $1\,\mathrm{m}$ 为单位长度时，几个纳米大小的量是否是无穷小量？
+\end{xthought}
+
+\begin{xthought}[7]
+问：正无穷大数列是否一定单调增加？无界数列是否一定是无穷大量？
+\end{xthought}
+
+\begin{xthought}[8]
+问：如果数列 $\{a_n\}$ 收敛于 $a$，那么绝对值 $\abs{a_n-a}$ 是否随着 $n$ 的增加而单调减少趋于 $0$？
+\end{xthought}
+
+\begin{xthought}[9]
+判断正确与否：非负数列的极限是非负数，正数列的极限是正数。
+\end{xthought}
 
 \subsection{适当放大法}
 
@@ -185,17 +208,26 @@
 
 \subsection{练习题}
 
-\begin{enumerate}[label=\arabic*.]
-  \item 按极限定义证明：
+\begin{xexercise}[1]
+按极限定义证明：
   \begin{enumerate}[label=(\arabic*)]
     \item $\displaystyle\lim_{n\to\infty}\frac{3n^2}{n^2-4}=3$；
     \item $\displaystyle\lim_{n\to\infty}\frac{\sin n}{n}=0$；
     \item $\displaystyle\lim_{n\to\infty}(1+n)^{1/n}=1$；
     \item $\displaystyle\lim_{n\to\infty}\frac{a^n}{n!}=0\quad(a>0)$。
   \end{enumerate}
-  \item 设 $a_n\ge0,\ n\in\NN_+$，数列 $\{a_n\}$ 收敛于 $a$，证明 $\displaystyle\lim_{n\to\infty}\sqrt{a_n}=\sqrt a$。
-  \item 若 $\displaystyle\lim_{n\to\infty}a_n=a$，证明 $\displaystyle\lim_{n\to\infty}\abs{a_n}=\abs a$。反之如何？
-  \item 下面一组题在本章的许多极限计算中有用（并与第五章的连续性概念有关）：
+\end{xexercise}
+
+\begin{xexercise}[2]
+设 $a_n\ge0,\ n\in\NN_+$，数列 $\{a_n\}$ 收敛于 $a$，证明 $\displaystyle\lim_{n\to\infty}\sqrt{a_n}=\sqrt a$。
+\end{xexercise}
+
+\begin{xexercise}[3]
+若 $\displaystyle\lim_{n\to\infty}a_n=a$，证明 $\displaystyle\lim_{n\to\infty}\abs{a_n}=\abs a$。反之如何？
+\end{xexercise}
+
+\begin{xexercise}[4]
+下面一组题在本章的许多极限计算中有用（并与第五章的连续性概念有关）：
   \begin{enumerate}[label=(\arabic*)]
     \item 设 $p(x)$ 是 $x$ 的多项式。若 $\displaystyle\lim_{n\to\infty}a_n=a$，证明 $\displaystyle\lim_{n\to\infty}p(a_n)=p(a)$；
     \item 设 $b>0,\ \displaystyle\lim_{n\to\infty}a_n=a$，证明 $\displaystyle\lim_{n\to\infty}b^{a_n}=b^a$；
@@ -204,10 +236,13 @@
     \item 设 $\displaystyle\lim_{n\to\infty}a_n=a$，证明 $\displaystyle\lim_{n\to\infty}\sin a_n=\sin a$。
   \end{enumerate}
   （例如上面提到过的题：若 $b>0$，则 $\displaystyle\lim_{n\to\infty}b^{1/n}=1$。它是第 (2) 题的特例。）
-  \item 设 $a>1$，证明 $\displaystyle\lim_{n\to\infty}\frac{\log_a n}{n}=0$。
+\end{xexercise}
+
+\begin{xexercise}[5]
+设 $a>1$，证明 $\displaystyle\lim_{n\to\infty}\frac{\log_a n}{n}=0$。
 
   （可以利用已知极限 $\displaystyle\lim_{n\to\infty}\sqrt[n]{n}=1$。）
-\end{enumerate}
+\end{xexercise}
 
 \section{收敛数列的基本性质}
 
@@ -228,19 +263,37 @@
 
 \subsection{思考题}
 
-\begin{enumerate}[label=\arabic*.]
-  \item 设 $\{a_n\}$ 收敛而 $\{b_n\}$ 发散，问：数列 $\{a_n+b_n\}$ 和 $\{a_nb_n\}$ 的敛散性如何？
-  \item 设 $\{a_n\}$ 和 $\{b_n\}$ 都发散，问：数列 $\{a_n+b_n\}$ 和 $\{a_nb_n\}$ 的敛散性如何？
-  \item 设 $a_n\le b_n\le c_n,\ n\in\NN_+$，已知 $\displaystyle\lim_{n\to\infty}(c_n-a_n)=0$，问：数列 $\{b_n\}$ 是否收敛？
-  \item 找出下列运算中的错误：
+\begin{xthought}[1]
+设 $\{a_n\}$ 收敛而 $\{b_n\}$ 发散，问：数列 $\{a_n+b_n\}$ 和 $\{a_nb_n\}$ 的敛散性如何？
+\end{xthought}
+
+\begin{xthought}[2]
+设 $\{a_n\}$ 和 $\{b_n\}$ 都发散，问：数列 $\{a_n+b_n\}$ 和 $\{a_nb_n\}$ 的敛散性如何？
+\end{xthought}
+
+\begin{xthought}[3]
+设 $a_n\le b_n\le c_n,\ n\in\NN_+$，已知 $\displaystyle\lim_{n\to\infty}(c_n-a_n)=0$，问：数列 $\{b_n\}$ 是否收敛？
+\end{xthought}
+
+\begin{xthought}[4]
+找出下列运算中的错误：
   \[
     \lim_{n\to\infty}\left(\frac1{n+1}+\cdots+\frac1{2n}\right)
     =\lim_{n\to\infty}\frac1{n+1}+\cdots+\lim_{n\to\infty}\frac1{2n}=0.
   \]
-  \item 设已知 $\{a_n\}$ 收敛于 $a$，又对每个 $n$ 有 $b<a_n<c$，问：是否成立 $b<a<c$？
-  \item 设已知 $\{a_n\}$ 收敛于 $a$，又有 $b\le a\le c$，问：是否存在 $N$，使得当 $n>N$ 时成立 $b\le a_n\le c$？
-  \item 设已知 $\displaystyle\lim_{n\to\infty}a_n=0$，问：是否有 $\displaystyle\lim_{n\to\infty}(a_1a_2\cdots a_n)=0$？又问：反之如何？
-\end{enumerate}
+\end{xthought}
+
+\begin{xthought}[5]
+设已知 $\{a_n\}$ 收敛于 $a$，又对每个 $n$ 有 $b<a_n<c$，问：是否成立 $b<a<c$？
+\end{xthought}
+
+\begin{xthought}[6]
+设已知 $\{a_n\}$ 收敛于 $a$，又有 $b\le a\le c$，问：是否存在 $N$，使得当 $n>N$ 时成立 $b\le a_n\le c$？
+\end{xthought}
+
+\begin{xthought}[7]
+设已知 $\displaystyle\lim_{n\to\infty}a_n=0$，问：是否有 $\displaystyle\lim_{n\to\infty}(a_1a_2\cdots a_n)=0$？又问：反之如何？
+\end{xthought}
 
 \subsection{例题}
 
@@ -561,16 +614,22 @@ $\cdots\cdots$。
 
 \subsection{练习题}
 
-\begin{enumerate}[label=\arabic*.]
-  \item 证明：$\{a_n\}$ 收敛的充分必要条件是 $\{a_{2k}\}$ 和 $\{a_{2k-1}\}$ 收敛于同一极限。
-  \item 以下是可以应用夹逼定理的几个题：
+\begin{xexercise}[1]
+证明：$\{a_n\}$ 收敛的充分必要条件是 $\{a_{2k}\}$ 和 $\{a_{2k-1}\}$ 收敛于同一极限。
+\end{xexercise}
+
+\begin{xexercise}[2]
+以下是可以应用夹逼定理的几个题：
   \begin{enumerate}[label=(\arabic*)]
     \item 给定 $p$ 个正数 $a_1,a_2,\cdots,a_p$，求 $\displaystyle\lim_{n\to\infty}\sqrt[n]{a_1^n+a_2^n+\cdots+a_p^n}$；
     \item 设 $x_n=\dfrac1{\sqrt{n^2+1}}+\dfrac1{\sqrt{n^2+2}}+\cdots+\dfrac1{\sqrt{(n+1)^2}}$，$n\in\NN_+$，求 $\displaystyle\lim_{n\to\infty}x_n$；
     \item 设 $a_n=\left(1+\dfrac12+\cdots+\dfrac1n\right)^{1/n}$，$n\in\NN_+$，求 $\displaystyle\lim_{n\to\infty}a_n$；
     \item 设 $\{a_n\}$ 为正数列，并且已知它收敛于 $a>0$，证明 $\displaystyle\lim_{n\to\infty}\sqrt[n]{a_n}=1$。
   \end{enumerate}
-  \item 求下列极限：
+\end{xexercise}
+
+\begin{xexercise}[3]
+求下列极限：
   \begin{enumerate}[label=(\arabic*)]
     \item $\displaystyle\lim_{n\to\infty}(1+x)(1+x^2)\cdots(1+x^{2^n})$，其中 $\abs{x}<1$；
     \item $\displaystyle\lim_{n\to\infty}\left(1-\frac1{2^2}\right)\left(1-\frac1{3^2}\right)\cdots\left(1-\frac1{n^2}\right)$；
@@ -579,19 +638,37 @@ $\cdots\cdots$。
     \item $\displaystyle\lim_{n\to\infty}\sum_{k=1}^n\frac1{k(k+1)\cdots(k+\nu)}$（其中 $\nu$ 为正整数）。
   \end{enumerate}
   （最后两个题是 $\displaystyle\lim_{n\to\infty}\left[\frac1{1\cdot2}+\frac1{2\cdot3}+\cdots+\frac1{n(n+1)}\right]$ 的推广。）
-  \item 设 $s_n=a+3a^2+\cdots+(2n-1)a^n$，$\abs a<1$，求 $\{s_n\}$ 的极限。
+\end{xexercise}
+
+\begin{xexercise}[4]
+设 $s_n=a+3a^2+\cdots+(2n-1)a^n$，$\abs a<1$，求 $\{s_n\}$ 的极限。
 
   （试计算 $s_n-as_n$。）
-  \item 设正数列 $\{x_n\}$ 收敛，极限大于 0，证明：这个数列有正下界，但在数列中不一定有最小数。
-  \item 证明：若有 $\displaystyle\lim_{n\to\infty}a_n=+\infty$，则在数列 $\{a_n\}$ 中一定有最小数。
-  \item 证明：无界数列至少有一个子列是确定符号的无穷大量。
-  \item 证明数列 $\{\tan n\}$ 发散。
-  \item 设数列 $\{S_n\}$ 的定义为
+\end{xexercise}
+
+\begin{xexercise}[5]
+设正数列 $\{x_n\}$ 收敛，极限大于 0，证明：这个数列有正下界，但在数列中不一定有最小数。
+\end{xexercise}
+
+\begin{xexercise}[6]
+证明：若有 $\displaystyle\lim_{n\to\infty}a_n=+\infty$，则在数列 $\{a_n\}$ 中一定有最小数。
+\end{xexercise}
+
+\begin{xexercise}[7]
+证明：无界数列至少有一个子列是确定符号的无穷大量。
+\end{xexercise}
+
+\begin{xexercise}[8]
+证明数列 $\{\tan n\}$ 发散。
+\end{xexercise}
+
+\begin{xexercise}[9]
+设数列 $\{S_n\}$ 的定义为
   \[
     S_n=1+\frac1{2^p}+\frac1{3^p}+\cdots+\frac1{n^p},\qquad n\in\NN_+.
   \]
   证明 $\{S_n\}$ 在以下两种情况均发散：(1) $p\le0$，(2) $0<p<1$。
-\end{enumerate}
+\end{xexercise}
 
 \section{单调数列}
 
@@ -772,34 +849,67 @@ $\cdots\cdots$。
 
 \subsection{练习题}
 
-\begin{enumerate}[label=\arabic*.]
-  \item 证明：若 $\{x_n\}$ 单调，则 $\{\abs{x_n}\}$ 至少从某项开始后单调。又问：反之如何？
-  \item 设 $\{a_n\}$ 单调增加，$\{b_n\}$ 单调减少，且有 $\displaystyle\lim_{n\to\infty}(a_n-b_n)=0$。证明：数列 $\{a_n\}$ 和 $\{b_n\}$ 都收敛，且极限相等。
-  \item 按照极限的定义证明：单调增加有上界的数列的极限不小于数列的任何一项，单调减少有下界的数列的极限不大于数列的任何一项。
-  \item 设 $x_n=\dfrac23\cdot\dfrac35\cdots\dfrac{n+1}{2n+1}$，$n\in\NN_+$，求数列 $\{x_n\}$ 的极限。
-  \item 设 $a_n=\dfrac{10}{1}\cdot\dfrac{11}{3}\cdots\dfrac{n+9}{2n-1}$，$n\in\NN_+$，求数列 $\{a_n\}$ 的极限。
-  \item 在例题 2.2.6 的基础上证明：当 $p>1$ 时，数列 $\{S_n\}$ 收敛，其中
+\begin{xexercise}[1]
+证明：若 $\{x_n\}$ 单调，则 $\{\abs{x_n}\}$ 至少从某项开始后单调。又问：反之如何？
+\end{xexercise}
+
+\begin{xexercise}[2]
+设 $\{a_n\}$ 单调增加，$\{b_n\}$ 单调减少，且有 $\displaystyle\lim_{n\to\infty}(a_n-b_n)=0$。证明：数列 $\{a_n\}$ 和 $\{b_n\}$ 都收敛，且极限相等。
+\end{xexercise}
+
+\begin{xexercise}[3]
+按照极限的定义证明：单调增加有上界的数列的极限不小于数列的任何一项，单调减少有下界的数列的极限不大于数列的任何一项。
+\end{xexercise}
+
+\begin{xexercise}[4]
+设 $x_n=\dfrac23\cdot\dfrac35\cdots\dfrac{n+1}{2n+1}$，$n\in\NN_+$，求数列 $\{x_n\}$ 的极限。
+\end{xexercise}
+
+\begin{xexercise}[5]
+设 $a_n=\dfrac{10}{1}\cdot\dfrac{11}{3}\cdots\dfrac{n+9}{2n-1}$，$n\in\NN_+$，求数列 $\{a_n\}$ 的极限。
+\end{xexercise}
+
+\begin{xexercise}[6]
+在例题 2.2.6 的基础上证明：当 $p>1$ 时，数列 $\{S_n\}$ 收敛，其中
   \[
     S_n=1+\frac1{2^p}+\frac1{3^p}+\cdots+\frac1{n^p},\qquad n\in\NN_+.
   \]
-  \item 设 $0<x_0<\dfrac\pi2$，$x_n=\sin x_{n-1}$，$n\in\NN_+$，证明：$\{x_n\}$ 收敛，并求其极限。
+\end{xexercise}
+
+\begin{xexercise}[7]
+设 $0<x_0<\dfrac\pi2$，$x_n=\sin x_{n-1}$，$n\in\NN_+$，证明：$\{x_n\}$ 收敛，并求其极限。
 
   （参见 §2.6 和例题 8.1.10。）
-  \item 设 $a_n=\left[\dfrac{(2n-1)!!}{(2n)!!}\right]^2$，$n\in\NN_+$，证明：$\{a_n\}$ 收敛于 0。
+\end{xexercise}
+
+\begin{xexercise}[8]
+设 $a_n=\left[\dfrac{(2n-1)!!}{(2n)!!}\right]^2$，$n\in\NN_+$，证明：$\{a_n\}$ 收敛于 0。
 
   （观察 $a_n=\left(\dfrac{1\cdot3}{2\cdot2}\right)\left(\dfrac{3\cdot5}{4\cdot4}\right)\cdots\left[\dfrac{(2n-3)(2n-1)}{(2n-2)(2n-2)}\right]\left[\dfrac{2n-1}{(2n)^2}\right]$。）
-  \item 设 $a_n=\left[\dfrac{(2n)!!}{(2n-1)!!}\right]^2\cdot\dfrac1{2n+1}$，$n\in\NN_+$，证明：$\{a_n\}$ 收敛。
+\end{xexercise}
+
+\begin{xexercise}[9]
+设 $a_n=\left[\dfrac{(2n)!!}{(2n-1)!!}\right]^2\cdot\dfrac1{2n+1}$，$n\in\NN_+$，证明：$\{a_n\}$ 收敛。
 
   （方法与上一题类似。在学了积分学后将于命题 11.4.1 中求出上述数列的极限为 $\dfrac\pi2$。这就是 Wallis 公式。）
-  \item 下列数列中，哪些是单调的：
+\end{xexercise}
+
+\begin{xexercise}[10]
+下列数列中，哪些是单调的：
   \begin{enumerate}[label=(\arabic*)]
     \item $\left\{\dfrac1{1+n^2}\right\}$；
     \item $\{\sin n\}$；
     \item $\{\sqrt[n]{n!}\}$。
   \end{enumerate}
-  \item 证明：单调数列 $\{a_n\}$ 收敛的充分必要条件是它有一个收敛子列。
-  \item 对每个正整数 $n$，用 $x_n$ 表示方程 $x+x^2+\cdots+x^n=1$ 在闭区间 $[0,1]$ 中的根。求 $\displaystyle\lim_{n\to\infty}x_n$。
-\end{enumerate}
+\end{xexercise}
+
+\begin{xexercise}[11]
+证明：单调数列 $\{a_n\}$ 收敛的充分必要条件是它有一个收敛子列。
+\end{xexercise}
+
+\begin{xexercise}[12]
+对每个正整数 $n$，用 $x_n$ 表示方程 $x+x^2+\cdots+x^n=1$ 在闭区间 $[0,1]$ 中的根。求 $\displaystyle\lim_{n\to\infty}x_n$。
+\end{xexercise}
 
 \section{Cauchy 命题与 Stolz 定理}
 
@@ -1074,37 +1184,64 @@ $\cdots\cdots$。
 
 \subsection{练习题}
 
-\begin{enumerate}[label=\arabic*.]
-  \item 设 $\displaystyle\lim_{n\to\infty}x_n=+\infty$，证明：$\displaystyle\lim_{n\to\infty}\frac{x_1+x_2+\cdots+x_n}{n}=+\infty$。
-  \item 设 $\{x_n\}$ 单调增加，$\displaystyle\lim_{n\to\infty}\frac{x_1+x_2+\cdots+x_n}{n}=a$，证明：$\{x_n\}$ 收敛于 $a$。
-  \item 设 $\{a_{2k-1}\}$ 收敛于 $a$，$\{a_{2k}\}$ 收敛于 $b$，且 $a\ne b$，求 $\displaystyle\lim_{n\to\infty}\frac{a_1+a_2+\cdots+a_n}{n}$。
+\begin{xexercise}[1]
+设 $\displaystyle\lim_{n\to\infty}x_n=+\infty$，证明：$\displaystyle\lim_{n\to\infty}\frac{x_1+x_2+\cdots+x_n}{n}=+\infty$。
+\end{xexercise}
+
+\begin{xexercise}[2]
+设 $\{x_n\}$ 单调增加，$\displaystyle\lim_{n\to\infty}\frac{x_1+x_2+\cdots+x_n}{n}=a$，证明：$\{x_n\}$ 收敛于 $a$。
+\end{xexercise}
+
+\begin{xexercise}[3]
+设 $\{a_{2k-1}\}$ 收敛于 $a$，$\{a_{2k}\}$ 收敛于 $b$，且 $a\ne b$，求 $\displaystyle\lim_{n\to\infty}\frac{a_1+a_2+\cdots+a_n}{n}$。
 
   （注意：虽然数列 $\{a_n\}$ 发散，但前 $n$ 项的算术平均值所成的数列仍可以有极限。一个典型例子就是 $\{(-1)^n\}$。）
-  \item 若 $\displaystyle\lim_{n\to\infty}(a_n-a_{n-1})=d$，证明：$\displaystyle\lim_{n\to\infty}\frac{a_n}{n}=d$。
+\end{xexercise}
+
+\begin{xexercise}[4]
+若 $\displaystyle\lim_{n\to\infty}(a_n-a_{n-1})=d$，证明：$\displaystyle\lim_{n\to\infty}\frac{a_n}{n}=d$。
 
   （本题可以说是 Cauchy 命题的另一种形式，也很有用。）
-  \item 设 $\{a_n\}$ 为正数列，且收敛于 $A$，证明：$\displaystyle\lim_{n\to\infty}(a_1a_2\cdots a_n)^{1/n}=A$。
+\end{xexercise}
+
+\begin{xexercise}[5]
+设 $\{a_n\}$ 为正数列，且收敛于 $A$，证明：$\displaystyle\lim_{n\to\infty}(a_1a_2\cdots a_n)^{1/n}=A$。
 
   （本题与 Cauchy 命题的关系是明显的。）
-  \item 设 $\{a_n\}$ 为正数列，且存在极限 $\displaystyle\lim_{n\to\infty}\frac{a_{n+1}}{a_n}=l$，证明 $\displaystyle\lim_{n\to\infty}\sqrt[n]{a_n}=l$。
+\end{xexercise}
+
+\begin{xexercise}[6]
+设 $\{a_n\}$ 为正数列，且存在极限 $\displaystyle\lim_{n\to\infty}\frac{a_{n+1}}{a_n}=l$，证明 $\displaystyle\lim_{n\to\infty}\sqrt[n]{a_n}=l$。
 
   （本题对类型为 $\{\sqrt[n]{a_n}\}$ 的极限问题很有用，可以说是例题 2.1.2 的一个发展。这个结果在无穷级数的研究中也很重要。）
-  \item 设 $\displaystyle\lim_{n\to\infty}(x_n-x_{n-2})=0$，证明 $\displaystyle\lim_{n\to\infty}\frac{x_n}{n}=0$。
-  \item 设 $\displaystyle\lim_{n\to\infty}(x_n-x_{n-2})=0$，证明：$\displaystyle\lim_{n\to\infty}\frac{x_n-x_{n-1}}n=0$。
+\end{xexercise}
+
+\begin{xexercise}[7]
+设 $\displaystyle\lim_{n\to\infty}(x_n-x_{n-2})=0$，证明 $\displaystyle\lim_{n\to\infty}\frac{x_n}{n}=0$。
+\end{xexercise}
+
+\begin{xexercise}[8]
+设 $\displaystyle\lim_{n\to\infty}(x_n-x_{n-2})=0$，证明：$\displaystyle\lim_{n\to\infty}\frac{x_n-x_{n-1}}n=0$。
 
   （本题是 1970 年的 Putnam 竞赛题，若没有题 7 的铺垫该如何做？）
-  \item 设数列 $\{a_n\}$ 满足条件 $0<a_1<1$ 和 $a_{n+1}=a_n(1-a_n)$（$n\ge1$），证明：$\displaystyle\lim_{n\to\infty}na_n=1$。
-  \item 若 $\displaystyle\lim_{n\to\infty}a_n=\alpha$，$\displaystyle\lim_{n\to\infty}b_n=\beta$，证明：
+\end{xexercise}
+
+\begin{xexercise}[9]
+设数列 $\{a_n\}$ 满足条件 $0<a_1<1$ 和 $a_{n+1}=a_n(1-a_n)$（$n\ge1$），证明：$\displaystyle\lim_{n\to\infty}na_n=1$。
+\end{xexercise}
+
+\begin{xexercise}[10]
+若 $\displaystyle\lim_{n\to\infty}a_n=\alpha$，$\displaystyle\lim_{n\to\infty}b_n=\beta$，证明：
   \[
     \lim_{n\to\infty}\frac{a_1b_n+a_2b_{n-1}+\cdots+a_nb_1}{n}=\alpha\beta.
   \]
-\end{enumerate}
+\end{xexercise}
 
-\section{自然对数的底 $\ee$ 和 Euler 常数 $\gamma$}
+\section{\texorpdfstring{自然对数的底 $\ee$ 和 Euler 常数 $\gamma$}{自然对数的底 e 和 Euler 常数 gamma}}
 
 在数学分析中数 $\ee$ 是通过数列极限而引进的一个常数，近似值为 $\ee\approx2.718\,28$。数 $\ee$ 在数学以及一般科学中的重要性决不亚于圆周率 $\pi$。
 
-\subsection{与数 $\ee$ 有关的两个问题}
+\subsection{\texorpdfstring{与数 $\ee$ 有关的两个问题}{与数 e 有关的两个问题}}
 
 虽然数 $\ee$ 不如圆周率 $\pi$ 那样容易理解，但仍然有与 $\ee$ 密切有关的简单例子。
 
@@ -1140,7 +1277,7 @@ $\cdots\cdots$。
 以上的第二个例子取自著名的中学生课外读物 [3]。我们将在例题 8.3.3 中证明以上结论。在那里的注 1 中还解决了与此密切相关的另一个问题，即如果对 $a$ 以及所分的每一部分都限制为正整数时，应当怎样分才能使乘积最大？
 \end{xremark}
 
-\subsection{关于数 $\ee$ 的基本结果}
+\subsection{\texorpdfstring{关于数 $\ee$ 的基本结果}{关于数 e 的基本结果}}
 
 \begin{xproposition}[2.5.1]
 设 $a_n=\left(1+\dfrac1n\right)^n$，$n\in\NN_+$，则 $\{a_n\}$ 严格单调增加且收敛。
@@ -1326,7 +1463,7 @@ $\cdots\cdots$。
 \paragraph{小结}
 数 $\ee$ 的引进和研究是一个重要范例。这表明通过极限理论可以发现新的数。应当指出，由于这些数是通过极限来定义的，对它们的研究就很不容易。在这方面还有许多我们所不了解的东西，有待今后的研究。例如，虽然已经证明了 $\ee$ 和 $\pi$ 都是无理数和超越数，但迄今为止还没有人能证明 $\ee+\pi$ 是无理数。
 
-\subsection{Euler 常数 $\gamma$}
+\subsection{\texorpdfstring{Euler 常数 $\gamma$}{Euler 常数 gamma}}
 
 \begin{xproposition}[2.5.6]
 数列 $\{c_n\}$ 收敛，其中
@@ -1466,8 +1603,8 @@ $\cdots\cdots$。
 
 \subsection{练习题}
 
-\begin{enumerate}[label=\arabic*.]
-  \item 计算下列极限：
+\begin{xexercise}[1]
+计算下列极限：
   \begin{enumerate}[label=(\arabic*)]
     \item $\displaystyle\lim_{n\to\infty}\left(1-\frac1n\right)^n$；
     \item $\displaystyle\lim_{n\to\infty}\left(1+\frac1{2n}\right)^n$；
@@ -1485,28 +1622,51 @@ $\cdots\cdots$。
     =\ee^2.
   \]
   \end{xremark}
+\end{xexercise}
 
-  \item 设 $k\in\NN_+$，证明：$\displaystyle\frac{k}{n+k}<\ln\left(1+\frac kn\right)<\frac kn$。
-  \item 求 $\displaystyle\lim_{n\to\infty}\left(1+\frac1{n^2}\right)\left(1+\frac2{n^2}\right)\cdots\left(1+\frac n{n^2}\right)$。
-  \item 设 $\{p_n\}$ 是正数列，且 $p_n\to+\infty$，计算 $\displaystyle\lim_{n\to\infty}\left(1+\frac1{p_n}\right)^{p_n}$。
-  \item 求 $\displaystyle\lim_{n\to\infty}\frac{n!\,2^n}{n^n}$。
-  \item 求极限 $\displaystyle\lim_{n\to\infty}\frac{\ln n}{1+\frac12+\cdots+\frac1n}$。
-  \item 证明：
+\begin{xexercise}[2]
+设 $k\in\NN_+$，证明：$\displaystyle\frac{k}{n+k}<\ln\left(1+\frac kn\right)<\frac kn$。
+\end{xexercise}
+
+\begin{xexercise}[3]
+求 $\displaystyle\lim_{n\to\infty}\left(1+\frac1{n^2}\right)\left(1+\frac2{n^2}\right)\cdots\left(1+\frac n{n^2}\right)$。
+\end{xexercise}
+
+\begin{xexercise}[4]
+设 $\{p_n\}$ 是正数列，且 $p_n\to+\infty$，计算 $\displaystyle\lim_{n\to\infty}\left(1+\frac1{p_n}\right)^{p_n}$。
+\end{xexercise}
+
+\begin{xexercise}[5]
+求 $\displaystyle\lim_{n\to\infty}\frac{n!\,2^n}{n^n}$。
+\end{xexercise}
+
+\begin{xexercise}[6]
+求极限 $\displaystyle\lim_{n\to\infty}\frac{\ln n}{1+\frac12+\cdots+\frac1n}$。
+\end{xexercise}
+
+\begin{xexercise}[7]
+证明：
   \[
     \left(\frac{n+1}{\ee}\right)^n<n!<\ee\left(\frac{n+1}{\ee}\right)^{n+1}.
   \]
   （由此又可得到 $\displaystyle\lim_{n\to\infty}\frac n{\sqrt[n]{n!}}=\ee$。）
-  \item 设 $S_n=1+2^2+3^3+\cdots+n^n$，$n\in\NN_+$。证明：对 $n\ge2$，成立不等式
+\end{xexercise}
+
+\begin{xexercise}[8]
+设 $S_n=1+2^2+3^3+\cdots+n^n$，$n\in\NN_+$。证明：对 $n\ge2$，成立不等式
   \[
     n^n\left[1+\frac1{4(n-1)}\right]\le S_n
     <n^n\left[1+\frac2{\ee(n-1)}\right].
   \]
-  \item 设有 $a_1=1$，$a_n=n(a_{n-1}+1)$，$n=2,3,\cdots$，又设
+\end{xexercise}
+
+\begin{xexercise}[9]
+设有 $a_1=1$，$a_n=n(a_{n-1}+1)$，$n=2,3,\cdots$，又设
   \[
     x_n=\prod_{k=1}^n\left(1+\frac1{a_k}\right),\qquad n\in\NN_+,
   \]
   求数列 $\{x_n\}$ 的极限。
-\end{enumerate}
+\end{xexercise}
 
 \section{由迭代生成的数列}
 
@@ -1677,28 +1837,48 @@ $\cdots\cdots$。
 
 在以下各题中均可试用几何方法，或作出几何解释。
 
-\begin{enumerate}[label=\arabic*.]
-  \item
-  \begin{enumerate}[label=(\arabic*)]
+\begin{xexercise}[1]
+\begin{enumerate}[label=(\arabic*)]
     \item 设 $a>0$，$x_1=\sqrt a$，$x_{n+1}=\sqrt{a+x_n}$，$n\in\NN_+$，求 $\displaystyle\lim_{n\to\infty}x_n$；
     \item 设 $a>0$，$x_1=\sqrt a$，$x_{n+1}=\sqrt{ax_n}$，$n\in\NN_+$，求 $\displaystyle\lim_{n\to\infty}x_n$。
   \end{enumerate}
   （这两题外形相似，都可用本节方法解决。但题 (2) 有更简单的直接解法。）
-  \item 设 $A>0$，$0<b_0<A^{-1}$，$b_{n+1}=b_n(2-Ab_n)$，$n\in\NN_+$。证明：$\displaystyle\lim_{n\to\infty}b_n=A^{-1}$。
-  \item 设参数 $b>4$，$x_1=\dfrac12$，$x_{n+1}=bx_n(1-x_n)$，$n\in\NN_+$。证明：$\{x_n\}$ 发散。
-  \item 设 $x_1=b$，$x_{n+1}=\dfrac12(x_n^2+1)$。问：$b$ 取何值时数列 $\{x_n\}$ 收敛，并求其极限。
-  \item 设 $x_0=a$，$x_n=1+bx_{n-1}$，$n\in\NN_+$。试求出使该数列收敛的 $a,b$ 的所有值。
+\end{xexercise}
+
+\begin{xexercise}[2]
+设 $A>0$，$0<b_0<A^{-1}$，$b_{n+1}=b_n(2-Ab_n)$，$n\in\NN_+$。证明：$\displaystyle\lim_{n\to\infty}b_n=A^{-1}$。
+\end{xexercise}
+
+\begin{xexercise}[3]
+设参数 $b>4$，$x_1=\dfrac12$，$x_{n+1}=bx_n(1-x_n)$，$n\in\NN_+$。证明：$\{x_n\}$ 发散。
+\end{xexercise}
+
+\begin{xexercise}[4]
+设 $x_1=b$，$x_{n+1}=\dfrac12(x_n^2+1)$。问：$b$ 取何值时数列 $\{x_n\}$ 收敛，并求其极限。
+\end{xexercise}
+
+\begin{xexercise}[5]
+设 $x_0=a$，$x_n=1+bx_{n-1}$，$n\in\NN_+$。试求出使该数列收敛的 $a,b$ 的所有值。
 
   （本题为线性迭代，解法很多。）
-  \item （对于线性迭代的全面讨论）设给定初始值 $x_1$，然后用线性函数 $f(x)=ax+b$ 迭代生成数列 $\{x_n\}$，即 $x_{n+1}=ax_n+b$。试回答以下问题：
+\end{xexercise}
+
+\begin{xexercise}[6]
+（对于线性迭代的全面讨论）设给定初始值 $x_1$，然后用线性函数 $f(x)=ax+b$ 迭代生成数列 $\{x_n\}$，即 $x_{n+1}=ax_n+b$。试回答以下问题：
   \begin{enumerate}[label=(\arabic*)]
     \item 是否存在线性函数，使对于任何初始值 $x_1$，$\{x_n\}$ 总是收敛的？
     \item 是否存在线性函数，使对于任何初始值 $x_1$，$\{x_n\}$ 总是发散的？
     \item 是否存在线性函数，使对于不同的初始值 $x_1$，$\{x_n\}$ 收敛到不同极限？
     \item 是否存在线性函数，使对于某些初始值 $x_1$，$\{x_n\}$ 收敛，而对于其他初始值 $x_1$，$\{x_n\}$ 发散？
   \end{enumerate}
-  \item 设 $\{x_n\}$ 为正数列，且满足 $x_{n+1}+\dfrac1{x_n}<2$，$n\in\NN_+$。证明 $\{x_n\}$ 收敛，并求其极限。
-  \item 设 $A>0$，$x_1>0$，$x_{n+1}=\dfrac12\left(x_n+\dfrac A{x_n}\right)$，$n\in\NN_+$，证明：$\displaystyle\lim_{n\to\infty}x_n=\sqrt A$。
+\end{xexercise}
+
+\begin{xexercise}[7]
+设 $\{x_n\}$ 为正数列，且满足 $x_{n+1}+\dfrac1{x_n}<2$，$n\in\NN_+$。证明 $\{x_n\}$ 收敛，并求其极限。
+\end{xexercise}
+
+\begin{xexercise}[8]
+设 $A>0$，$x_1>0$，$x_{n+1}=\dfrac12\left(x_n+\dfrac A{x_n}\right)$，$n\in\NN_+$，证明：$\displaystyle\lim_{n\to\infty}x_n=\sqrt A$。
 
   （这是求平方根的快速算法。实际上可以得到对于收敛速度的估计：
   \[
@@ -1706,14 +1886,17 @@ $\cdots\cdots$。
     \le\frac1{\sqrt A}(x_n-\sqrt A)^2,
   \]
   因此若记 $\abs{x_n-\sqrt A}=\varepsilon_n$ 为第 $n$ 次误差，则在 $n$ 充分大时有 $\varepsilon_{n+1}\approx\dfrac1{\sqrt A}\varepsilon_n^2$。每迭代一次，有效位数几乎增加一倍。）
-  \item 设 $A>0$，$x_1>0$，
+\end{xexercise}
+
+\begin{xexercise}[9]
+设 $A>0$，$x_1>0$，
   \[
     x_{n+1}=\frac{x_n(x_n^2+3A)}{3x_n^2+A},\qquad n\in\NN_+,
   \]
   证明：$\{x_n\}$ 收敛于 $\sqrt A$。
 
   （这是求平方根的另一个快速算法。请读者对收敛速度作估计。）
-\end{enumerate}
+\end{xexercise}
 
 \section{对于教学的建议}
 
@@ -1814,31 +1997,65 @@ $\cdots\cdots$。
 
 \subsubsection*{第一组参考题}
 
-\begin{enumerate}[label=\arabic*.]
-  \item 设 $\{a_{2k-1}\}$，$\{a_{2k}\}$ 和 $\{a_{3k}\}$ 都收敛，证明：$\{a_n\}$ 收敛。
-  \item 设 $\{a_n\}$ 有界，且满足条件 $a_n\le a_{n+2}$，$a_n\le a_{n+3}$，$n\in\NN_+$，证明：$\{a_n\}$ 收敛。
-  \item 设 $\{a_n+a_{n+1}\}$ 和 $\{a_n+a_{n+2}\}$ 都收敛，证明：$\{a_n\}$ 收敛。
-  \item 设数列 $\{a_n\}$ 收敛于 $0$，又存在极限 $\displaystyle\lim_{n\to\infty}\abs{\frac{a_{n+1}}{a_n}}=a$。证明：$a\le1$。
-  \item 设 $a_n=\displaystyle\sum_{k=1}^n\left(\sqrt{1+\frac{k}{n^2}}-1\right)$，$n\in\NN_+$，计算 $\displaystyle\lim_{n\to\infty}a_n$。
-  \item 用 $p(n)$ 表示能整除 $n$ 的素数的个数，证明：$\displaystyle\lim_{n\to\infty}\frac{p(n)}n=0$。
-  \item 设 $a_0,a_1,\cdots,a_p$ 是 $p+1$ 个给定的数，且满足条件 $a_0+a_1+\cdots+a_p=0$。求
+\begin{xreferenceproblem}[1]
+设 $\{a_{2k-1}\}$，$\{a_{2k}\}$ 和 $\{a_{3k}\}$ 都收敛，证明：$\{a_n\}$ 收敛。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[2]
+设 $\{a_n\}$ 有界，且满足条件 $a_n\le a_{n+2}$，$a_n\le a_{n+3}$，$n\in\NN_+$，证明：$\{a_n\}$ 收敛。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[3]
+设 $\{a_n+a_{n+1}\}$ 和 $\{a_n+a_{n+2}\}$ 都收敛，证明：$\{a_n\}$ 收敛。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[4]
+设数列 $\{a_n\}$ 收敛于 $0$，又存在极限 $\displaystyle\lim_{n\to\infty}\abs{\frac{a_{n+1}}{a_n}}=a$。证明：$a\le1$。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[5]
+设 $a_n=\displaystyle\sum_{k=1}^n\left(\sqrt{1+\frac{k}{n^2}}-1\right)$，$n\in\NN_+$，计算 $\displaystyle\lim_{n\to\infty}a_n$。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[6]
+用 $p(n)$ 表示能整除 $n$ 的素数的个数，证明：$\displaystyle\lim_{n\to\infty}\frac{p(n)}n=0$。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[7]
+设 $a_0,a_1,\cdots,a_p$ 是 $p+1$ 个给定的数，且满足条件 $a_0+a_1+\cdots+a_p=0$。求
   \[
     \lim_{n\to\infty}\left(a_0\sqrt n+a_1\sqrt{n+1}+\cdots+a_p\sqrt{n+p}\right).
   \]
-  \item 证明：当 $0<k<1$ 时，$\displaystyle\lim_{n\to\infty}[(1+n)^k-n^k]=0$。
-  \item
-  \begin{enumerate}[label=(\arabic*)]
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[8]
+证明：当 $0<k<1$ 时，$\displaystyle\lim_{n\to\infty}[(1+n)^k-n^k]=0$。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[9]
+\begin{enumerate}[label=(\arabic*)]
     \item 设 $\{x_n\}$ 收敛。令 $y_n=n(x_n-x_{n-1})$，$n\in\NN_+$，问 $\{y_n\}$ 是否收敛？
     \item 在上一小题中，若 $\{y_n\}$ 也收敛，证明：$\{y_n\}$ 收敛于 $0$。
   \end{enumerate}
-  \item
-  \begin{enumerate}[label=(\arabic*)]
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[10]
+\begin{enumerate}[label=(\arabic*)]
     \item 设正数列 $\{a_n\}$ 满足条件 $\displaystyle\lim_{n\to\infty}\frac{a_n}{a_{n+1}}=0$，证明：$\{a_n\}$ 是正无穷大量。
     \item 设正数列 $\{a_n\}$ 满足条件 $\displaystyle\lim_{n\to\infty}\frac{a_n}{a_{n+1}+a_{n+2}}=0$，证明：$\{a_n\}$ 无界。
   \end{enumerate}
-  \item 证明：$\left(\dfrac n3\right)^n<n!<\left(\dfrac n2\right)^n$，其中右边的不等式当 $n\ge6$ 时成立。
-  \item 证明：$\left(\dfrac n\ee\right)^n<n!<\ee\left(\dfrac n2\right)^n$。
-  \item （对于命题 2.5.4 的改进）证明：
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[11]
+证明：$\left(\dfrac n3\right)^n<n!<\left(\dfrac n2\right)^n$，其中右边的不等式当 $n\ge6$ 时成立。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[12]
+证明：$\left(\dfrac n\ee\right)^n<n!<\ee\left(\dfrac n2\right)^n$。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[13]
+（对于命题 2.5.4 的改进）证明：
   \begin{enumerate}[label=(\arabic*)]
     \item $n\ge2$ 时成立
     \[
@@ -1848,24 +2065,44 @@ $\cdots\cdots$。
     \item $\displaystyle\ee=3-\lim_{n\to\infty}\sum_{k=0}^n\frac1{(k+2)!(k+1)(k+2)}$；
     \item 用 $\displaystyle\sum_{k=0}^n\frac1{k!}+\frac1{n!n}$ 计算 $\ee$ 要比不加上最后一项好得多。
   \end{enumerate}
-  \item 设 $a_n=1+\dfrac1{\sqrt2}+\dfrac1{\sqrt3}+\cdots+\dfrac1{\sqrt n}-2\sqrt n$，$n\in\NN_+$，证明：$\{a_n\}$ 收敛。
-  \item 设已知存在极限 $\displaystyle\lim_{n\to\infty}\frac{a_1+a_2+\cdots+a_n}{n}$，证明 $\displaystyle\lim_{n\to\infty}\frac{a_n}{n}=0$。
-  \item 证明：$\displaystyle\lim_{n\to\infty}(n!)^{1/n^2}=1$。
-  \item 设对每个 $n$ 有 $x_n<1$ 和 $(1-x_n)x_{n+1}\ge\dfrac14$，证明 $\{x_n\}$ 收敛，并求其极限。
-  \item 设 $a_1=b$，$a_2=c$，在 $n\ge3$ 时，$a_n=\dfrac{a_{n-1}+a_{n-2}}2$，证明 $\{a_n\}$ 收敛，并求其极限。
-  \item 设 $a,b,c$ 是三个给定的实数。令 $a_1=a,b_1=b,c_1=c$，并以递推公式定义
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[14]
+设 $a_n=1+\dfrac1{\sqrt2}+\dfrac1{\sqrt3}+\cdots+\dfrac1{\sqrt n}-2\sqrt n$，$n\in\NN_+$，证明：$\{a_n\}$ 收敛。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[15]
+设已知存在极限 $\displaystyle\lim_{n\to\infty}\frac{a_1+a_2+\cdots+a_n}{n}$，证明 $\displaystyle\lim_{n\to\infty}\frac{a_n}{n}=0$。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[16]
+证明：$\displaystyle\lim_{n\to\infty}(n!)^{1/n^2}=1$。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[17]
+设对每个 $n$ 有 $x_n<1$ 和 $(1-x_n)x_{n+1}\ge\dfrac14$，证明 $\{x_n\}$ 收敛，并求其极限。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[18]
+设 $a_1=b$，$a_2=c$，在 $n\ge3$ 时，$a_n=\dfrac{a_{n-1}+a_{n-2}}2$，证明 $\{a_n\}$ 收敛，并求其极限。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[19]
+设 $a,b,c$ 是三个给定的实数。令 $a_1=a,b_1=b,c_1=c$，并以递推公式定义
   \[
     a_{n+1}=\frac{b_n+c_n}{2},\qquad
     b_{n+1}=\frac{c_n+a_n}{2},\qquad
     c_{n+1}=\frac{a_n+b_n}{2},\qquad n\in\NN_+.
   \]
   求这三个数列的极限。
-  \item
-  \begin{enumerate}[label=(\arabic*)]
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[20]
+\begin{enumerate}[label=(\arabic*)]
     \item 设 $a_1>b_1>0$，$a_{n+1}=\dfrac{2a_nb_n}{a_n+b_n}$，$b_{n+1}=\sqrt{a_{n+1}b_n}$，$n\in\NN_+$，证明：$\{a_n\}$ 和 $\{b_n\}$ 收敛于同一个极限。
     \item 在 $a_1=2\sqrt3,b_1=3$ 时，证明上述极限等于单位圆的半周长 $\pi$。（这里可以利用极限 $\displaystyle\lim_{n\to\infty}n\sin\frac\pi n=\pi$。）
   \end{enumerate}
-\end{enumerate}
+\end{xreferenceproblem}
 
 \begin{xremark}
 本题与例题 2.3.5 完全不同。实际上这就是计算圆周率的 Archimedes（阿基米德）—刘徽方法的迭代形式（参见 [4, 60]）。在 (2) 中的两个数列 $\{a_n\}$ 和 $\{b_n\}$ 就是单位圆的外切和内接正多边形的半周长（请找出边数与 $n$ 的关系）。
@@ -1873,53 +2110,104 @@ $\cdots\cdots$。
 
 \subsubsection*{第二组参考题}
 
-\begin{enumerate}[label=\arabic*.]
-  \item 设 $a_n=\sqrt{1+\sqrt{2+\cdots+\sqrt n}}$，$n\in\NN_+$，证明：$\{a_n\}$ 收敛。
-  \item 证明：对每个正整数 $n$，成立不等式
+\begin{xreferenceproblem}[1]
+设 $a_n=\sqrt{1+\sqrt{2+\cdots+\sqrt n}}$，$n\in\NN_+$，证明：$\{a_n\}$ 收敛。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[2]
+证明：对每个正整数 $n$，成立不等式
   \[
     \left(1+\frac1n\right)^n>\sum_{k=0}^n\frac1{k!}-\frac\ee{2n}.
   \]
-  \item 求极限 $\displaystyle\lim_{n\to\infty}n\sin(2\pi n!\ee)$。
-  \item 记 $S_n=1+\dfrac12+\cdots+\dfrac1n$，$n\in\NN_+$。用 $K_n$ 表示使 $S_k\ge n$ 的最小下标，求极限 $\displaystyle\lim_{n\to\infty}\frac{K_{n+1}}{K_n}$。
-  \item 设 $x_n=\dfrac1{n^2}\displaystyle\sum_{k=0}^n\ln\binom nk$，$n\in\NN_+$，求 $\displaystyle\lim_{n\to\infty}x_n$。
-  \item 将二项式系数 $\binom n0,\binom n1,\cdots,\binom nn$ 的算术平均值和几何平均值分别记为 $A_n$ 和 $G_n$，证明：(1) $\displaystyle\lim_{n\to\infty}\sqrt[n]{A_n}=2$；(2) $\displaystyle\lim_{n\to\infty}\sqrt[n]{G_n}=\sqrt\ee$。
-  \item 设 $A_n=\displaystyle\sum_{k=1}^n a_k$，$n\in\NN_+$，数列 $\{A_n\}$ 收敛。又有一个单调增加的正数数列 $\{p_n\}$，且为正无穷大量。证明：
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[3]
+求极限 $\displaystyle\lim_{n\to\infty}n\sin(2\pi n!\ee)$。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[4]
+记 $S_n=1+\dfrac12+\cdots+\dfrac1n$，$n\in\NN_+$。用 $K_n$ 表示使 $S_k\ge n$ 的最小下标，求极限 $\displaystyle\lim_{n\to\infty}\frac{K_{n+1}}{K_n}$。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[5]
+设 $x_n=\dfrac1{n^2}\displaystyle\sum_{k=0}^n\ln\binom nk$，$n\in\NN_+$，求 $\displaystyle\lim_{n\to\infty}x_n$。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[6]
+将二项式系数 $\binom n0,\binom n1,\cdots,\binom nn$ 的算术平均值和几何平均值分别记为 $A_n$ 和 $G_n$，证明：(1) $\displaystyle\lim_{n\to\infty}\sqrt[n]{A_n}=2$；(2) $\displaystyle\lim_{n\to\infty}\sqrt[n]{G_n}=\sqrt\ee$。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[7]
+设 $A_n=\displaystyle\sum_{k=1}^n a_k$，$n\in\NN_+$，数列 $\{A_n\}$ 收敛。又有一个单调增加的正数数列 $\{p_n\}$，且为正无穷大量。证明：
   \[
     \lim_{n\to\infty}\frac{p_1a_1+p_2a_2+\cdots+p_na_n}{p_n}=0.
   \]
-  \item 设 $\{a_n\}$ 满足 $\displaystyle\lim_{n\to\infty}\left(a_n\sum_{i=1}^n a_i^2\right)=1$，证明：$\displaystyle\lim_{n\to\infty}\sqrt[3]{3n}\,a_n=1$。
-  \item 设数列 $\{u_n\}_{n\ge0}$ 对每个非负整数 $n$ 满足条件
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[8]
+设 $\{a_n\}$ 满足 $\displaystyle\lim_{n\to\infty}\left(a_n\sum_{i=1}^n a_i^2\right)=1$，证明：$\displaystyle\lim_{n\to\infty}\sqrt[3]{3n}\,a_n=1$。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[9]
+设数列 $\{u_n\}_{n\ge0}$ 对每个非负整数 $n$ 满足条件
   \[
     u_n=\lim_{m\to\infty}(u_{n+1}^2+u_{n+2}^2+\cdots+u_{n+m}^2),
   \]
   证明：若存在有限极限 $\displaystyle\lim_{n\to\infty}(u_1+u_2+\cdots+u_n)$，则只能是每个 $u_n=0$。
-  \item （Toeplitz 定理）设对 $n,k\in\NN_+$，有 $t_{nk}\ge0$。又有 $\displaystyle\sum_{k=1}^n t_{nk}=1$，$\displaystyle\lim_{n\to\infty}t_{nk}=0$。若已知 $\displaystyle\lim_{n\to\infty}a_n=a$，定义 $x_n=\displaystyle\sum_{k=1}^n t_{nk}a_k$，$n\in\NN_+$。证明：$\displaystyle\lim_{n\to\infty}x_n=a$。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[10]
+（Toeplitz 定理）设对 $n,k\in\NN_+$，有 $t_{nk}\ge0$。又有 $\displaystyle\sum_{k=1}^n t_{nk}=1$，$\displaystyle\lim_{n\to\infty}t_{nk}=0$。若已知 $\displaystyle\lim_{n\to\infty}a_n=a$，定义 $x_n=\displaystyle\sum_{k=1}^n t_{nk}a_k$，$n\in\NN_+$。证明：$\displaystyle\lim_{n\to\infty}x_n=a$。
 
   （几种变型：(1) 将条件 $\sum_{k=1}^n t_{nk}=1$ 改为 $\displaystyle\lim_{n\to\infty}\sum_{k=1}^n t_{nk}=1$；(2) 不要求 $t_{nk}$ 非负，将 (1) 中的条件改为存在 $M>0$，使得对每个 $n$，成立不等式 $\abs{t_{n1}}+\cdots+\abs{t_{nn}}\le M$。则结论对 $a=0$ 仍成立。）
-  \item 用 Toeplitz 定理导出 Stolz 定理。
-  \item 设 $0<\lambda<1$，$\{a_n\}$ 收敛于 $a$。证明：
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[11]
+用 Toeplitz 定理导出 Stolz 定理。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[12]
+设 $0<\lambda<1$，$\{a_n\}$ 收敛于 $a$。证明：
   \[
     \lim_{n\to\infty}(a_n+\lambda a_{n-1}+\lambda^2a_{n-2}+\cdots+\lambda^na_0)
     =\frac a{1-\lambda}.
   \]
-  \item 设 $\displaystyle\lim_{n\to\infty}x_n=0$，并且存在常数 $K$，使得 $\abs{y_1}+\abs{y_2}+\cdots+\abs{y_n}\le K$ 对每个 $n$ 成立。令 $z_n=x_1y_n+x_2y_{n-1}+\cdots+x_ny_1$，$n\in\NN_+$，证明：$\displaystyle\lim_{n\to\infty}z_n=0$。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[13]
+设 $\displaystyle\lim_{n\to\infty}x_n=0$，并且存在常数 $K$，使得 $\abs{y_1}+\abs{y_2}+\cdots+\abs{y_n}\le K$ 对每个 $n$ 成立。令 $z_n=x_1y_n+x_2y_{n-1}+\cdots+x_ny_1$，$n\in\NN_+$，证明：$\displaystyle\lim_{n\to\infty}z_n=0$。
 
   （从本题的条件已可推出 $\displaystyle\lim_{n\to\infty}y_n=0$。但是可以举出例子说明仅仅有条件 $\displaystyle\lim_{n\to\infty}x_n=\displaystyle\lim_{n\to\infty}y_n=0$ 不能得到 $\displaystyle\lim_{n\to\infty}(x_1y_n+x_2y_{n-1}+\cdots+x_ny_1)=0$。）
-  \item 设 $y_n=x_n+2x_{n+1}$，$n\in\NN_+$。证明：若 $\{y_n\}$ 收敛，则 $\{x_n\}$ 也收敛。
-  \item 由初始值 $a_0$ 和 $a_n=2^{n-1}-3a_{n-1}$，$n\in\NN_+$，确定数列 $\{a_n\}$。求 $a_0$ 的所有可能值，使得数列 $\{a_n\}$ 是严格单调增加的。
-  \item 证明数列
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[14]
+设 $y_n=x_n+2x_{n+1}$，$n\in\NN_+$。证明：若 $\{y_n\}$ 收敛，则 $\{x_n\}$ 也收敛。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[15]
+由初始值 $a_0$ 和 $a_n=2^{n-1}-3a_{n-1}$，$n\in\NN_+$，确定数列 $\{a_n\}$。求 $a_0$ 的所有可能值，使得数列 $\{a_n\}$ 是严格单调增加的。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[16]
+证明数列
   \[
     \sqrt7,\quad\sqrt{7-\sqrt7},\quad
     \sqrt{7-\sqrt{7+\sqrt7}},\quad
     \sqrt{7-\sqrt{7+\sqrt{7-\sqrt7}}},\quad\cdots
   \]
   收敛，并求其极限。
-  \item 令 $y_0\ge2$，$y_n=y_{n-1}^2-2$，$n\in\NN_+$。设
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[17]
+令 $y_0\ge2$，$y_n=y_{n-1}^2-2$，$n\in\NN_+$。设
   \[
     S_n=\frac1{y_0}+\frac1{y_0y_1}+\cdots+\frac1{y_0y_1\cdots y_n}.
   \]
   证明：$\displaystyle\lim_{n\to\infty}S_n=\dfrac{y_0-\sqrt{y_0^2-4}}2$。
-  \item 设 $x_1=c$，$x_{n+1}=a^{x_n}$（$a>0,a\ne1$），$n\in\NN_+$。根据下面提供的函数 $f(x)=a^x$ 和 $f(f(x))$ 的单调性和不动点的知识，讨论数列 $\{x_n\}$ 的敛散性。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[18]
+设 $x_1=c$，$x_{n+1}=a^{x_n}$（$a>0,a\ne1$），$n\in\NN_+$。根据下面提供的函数 $f(x)=a^x$ 和 $f(f(x))$ 的单调性和不动点的知识，讨论数列 $\{x_n\}$ 的敛散性。
   \begin{enumerate}[label=(\arabic*)]
     \item 在 $a>1$ 时函数 $f(x)=a^x$ 单调增加。
     \begin{enumerate}[label=(\roman*)]
@@ -1937,8 +2225,10 @@ $\cdots\cdots$。
   \begin{xremark}
   这是关于迭代生成数列的一道名题，从 Euler 开始就有许多人对它作过研究（不限于在实数范围内），在《美国数学月刊》(1981) 第 88 卷 235—252 页有详细介绍，并附有丰富的文献。但是从混沌学的角度来看，至少在实数范围内进行讨论时，问题在本质上是简单的，只不过依赖于对函数 $f(x)=a^x$ 和 $f(f(x))=a^{a^x}$ 的单调性和不动点个数的讨论。这些问题在学了微分学后就不难解决（见第八章第二组参考题 17, 18）。此外，对本题的讨论也可以和计算机实验相配合，其中出现一次倍周期分岔。
   \end{xremark}
+\end{xreferenceproblem}
 
-  \item 设参数 $b>0$，$x_1=\dfrac12$，$x_{n+1}=bx_n(1-x_n)$，$n\in\NN_+$。证明以下结论（对于情况 $b>4$ 的讨论即是 2.6.3 小节中的题 3）：
+\begin{xreferenceproblem}[19]
+设参数 $b>0$，$x_1=\dfrac12$，$x_{n+1}=bx_n(1-x_n)$，$n\in\NN_+$。证明以下结论（对于情况 $b>4$ 的讨论即是 2.6.3 小节中的题 3）：
   \begin{enumerate}[label=(\arabic*)]
     \item 当 $0<b\le1$ 时，$\{x_n\}$ 单调减少收敛于 0；
     \item 当 $1<b\le2$ 时，$\{x_n\}$ 单调减少收敛于 $1-\dfrac1b$；
@@ -1953,8 +2243,10 @@ $\cdots\cdots$。
   \]
   也就是说这条轨道本身就是一个周期 2 轨道。在 $b>1+\sqrt5$ 之后的情况请参考前述文献。在本书后面的 §5.6 将对混沌作介绍。
   \end{xremark}
+\end{xreferenceproblem}
 
-  \item 给定 $x_1,\cdots,x_n$，令 $x_i^{(1)}=\dfrac{x_i+x_{i+1}}2$，$i=1,\cdots,n$，其中 $x_{n+1}=x_1$。归纳地定义
+\begin{xreferenceproblem}[20]
+给定 $x_1,\cdots,x_n$，令 $x_i^{(1)}=\dfrac{x_i+x_{i+1}}2$，$i=1,\cdots,n$，其中 $x_{n+1}=x_1$。归纳地定义
   \[
     x_i^{(k)}=\frac{x_i^{(k-1)}+x_{i+1}^{(k-1)}}2,
     \qquad i=1,\cdots,n,
@@ -1967,7 +2259,7 @@ $\cdots\cdots$。
   \begin{xremark}
   将本题与 §2.6 的迭代生成数列作比较，可见本题是迭代生成长度为 $n$ 的数组序列。由于这里的迭代是线性齐次的，因此用线性代数工具非常自然。见本书的参考题提示关于本题的第一种证法。
   \end{xremark}
-\end{enumerate}
+\end{xreferenceproblem}
 
 \section{关于数列极限的一组习题课教案}
 
@@ -2027,17 +2319,28 @@ $\cdots\cdots$。
 
 \paragraph{三、课堂练习题}
 
-\begin{enumerate}[label=\arabic*.]
-  \item 用 $\varepsilon$--$N$ 语言证明 $\displaystyle\lim_{n\to\infty}\frac{a^n}{n!}=0$（注意分情况 $a\ne0,a=0$）。
-  \item 用 $\varepsilon$--$N$ 语言证明 $\displaystyle\lim_{n\to\infty}\frac{n^c}{a^n}=0$，其中 $c\ge0,a>1$。
-  \item 设 $\displaystyle\lim_{n\to\infty}x_n=a$，又已知用 $\varepsilon$--$N$ 语言描述这个极限时，可取 $N$ 与 $\varepsilon$ 无关，问这样的数列 $\{x_n\}$ 是否一定是常值数列？如果不是，又具有怎样的特性？
-  \item
-  \begin{enumerate}[label=(\arabic*)]
+\begin{xexercise}[1]
+用 $\varepsilon$--$N$ 语言证明 $\displaystyle\lim_{n\to\infty}\frac{a^n}{n!}=0$（注意分情况 $a\ne0,a=0$）。
+\end{xexercise}
+
+\begin{xexercise}[2]
+用 $\varepsilon$--$N$ 语言证明 $\displaystyle\lim_{n\to\infty}\frac{n^c}{a^n}=0$，其中 $c\ge0,a>1$。
+\end{xexercise}
+
+\begin{xexercise}[3]
+设 $\displaystyle\lim_{n\to\infty}x_n=a$，又已知用 $\varepsilon$--$N$ 语言描述这个极限时，可取 $N$ 与 $\varepsilon$ 无关，问这样的数列 $\{x_n\}$ 是否一定是常值数列？如果不是，又具有怎样的特性？
+\end{xexercise}
+
+\begin{xexercise}[4]
+\begin{enumerate}[label=(\arabic*)]
     \item 正面叙述 $\{x_n\}$ 不是无穷小量（用对偶法则）。
     \item 正面叙述“$\forall\varepsilon>0,\exists N,\forall n,m\ge N$ 有 $\abs{x_n-x_m}<\varepsilon$”的否命题。
   \end{enumerate}
-  \item 证明：给定实数 $a$ 的任意邻域 $O_\delta(a)$ 中必定同时存在有理数与无理数。
-\end{enumerate}
+\end{xexercise}
+
+\begin{xexercise}[5]
+证明：给定实数 $a$ 的任意邻域 $O_\delta(a)$ 中必定同时存在有理数与无理数。
+\end{xexercise}
 
 \paragraph{四、命题的证明与讨论}
 
@@ -2136,14 +2439,23 @@ $\cdots\cdots$。
 
 \paragraph{六、课堂练习题}
 
-\begin{enumerate}[label=\arabic*.]
-  \item 求 $\displaystyle\lim_{n\to\infty}(\lambda+2\lambda^2+\cdots+n\lambda^n)$，其中 $\abs\lambda<1$。
-  \item 求 $\displaystyle\lim_{n\to\infty}\left(\frac1{\sqrt{n^2+1}}+\cdots+\frac1{\sqrt{n^2+n}}\right)$。
-  \item 设 $b_n>0$，$\displaystyle\lim_{n\to\infty}\frac{b_{n+1}}{b_n}=b$。证明：$\displaystyle\lim_{n\to\infty}b_n^{1/n}=b$。
+\begin{xexercise}[1]
+求 $\displaystyle\lim_{n\to\infty}(\lambda+2\lambda^2+\cdots+n\lambda^n)$，其中 $\abs\lambda<1$。
+\end{xexercise}
+
+\begin{xexercise}[2]
+求 $\displaystyle\lim_{n\to\infty}\left(\frac1{\sqrt{n^2+1}}+\cdots+\frac1{\sqrt{n^2+n}}\right)$。
+\end{xexercise}
+
+\begin{xexercise}[3]
+设 $b_n>0$，$\displaystyle\lim_{n\to\infty}\frac{b_{n+1}}{b_n}=b$。证明：$\displaystyle\lim_{n\to\infty}b_n^{1/n}=b$。
 
   （$b=0$ 时，用夹逼定理；$b>0$ 时，取对数。）
-  \item 证明对应于 $\displaystyle\lim_{n\to\infty}x_n=+\infty$ 的 Cauchy 命题。
-\end{enumerate}
+\end{xexercise}
+
+\begin{xexercise}[4]
+证明对应于 $\displaystyle\lim_{n\to\infty}x_n=+\infty$ 的 Cauchy 命题。
+\end{xexercise}
 
 \subsection{第三次习题课}
 
@@ -2216,19 +2528,28 @@ $\cdots\cdots$。
 
 \paragraph{三、课堂练习题}
 
-\begin{enumerate}[label=\arabic*.]
-  \item 设 $0<x_0<1$，$x_{n+1}=1-\sqrt{1-x_n}$，$n\in\NN_+$，求 $\displaystyle\lim_{n\to\infty}x_n$。
-  \item 求下列极限：
+\begin{xexercise}[1]
+设 $0<x_0<1$，$x_{n+1}=1-\sqrt{1-x_n}$，$n\in\NN_+$，求 $\displaystyle\lim_{n\to\infty}x_n$。
+\end{xexercise}
+
+\begin{xexercise}[2]
+求下列极限：
   \begin{enumerate}[label=(\arabic*)]
     \item $\displaystyle\lim_{n\to\infty}\left(1+\frac1{2n}\right)^n$；
     \item $\displaystyle\lim_{n\to\infty}\left(1+\frac1{n^2}\right)^n$。
   \end{enumerate}
-  \item 证明：$\{a_n\}$ 收敛 $\Longleftrightarrow$ $\{a_{2n}\}$ 和 $\{a_{2n+1}\}$ 收敛到同一极限。
-  \item 求极限
+\end{xexercise}
+
+\begin{xexercise}[3]
+证明：$\{a_n\}$ 收敛 $\Longleftrightarrow$ $\{a_{2n}\}$ 和 $\{a_{2n+1}\}$ 收敛到同一极限。
+\end{xexercise}
+
+\begin{xexercise}[4]
+求极限
   \[
     \lim_{n\to\infty}\left[1-\frac12+\frac13-\frac14+\cdots+(-1)^{n-1}\frac1n\right].
   \]
-\end{enumerate}
+\end{xexercise}
 
 \subsection{第四次习题课}
 
@@ -2253,10 +2574,22 @@ $\cdots\cdots$。
 
 \paragraph{三、单元测验（约一小时）}
 
-\begin{enumerate}[label=\arabic*.]
-  \item 设 $A$ 和 $B$ 是上有界集，定义 $A+B=\{x+y\mid x\in A,y\in B\}$。证明 $\sup(A+B)=\sup A+\sup B$。
-  \item 设 $\displaystyle\lim_{n\to\infty}x_n=a>0$，证明：存在 $N$，使当 $n>N$ 时，$x_n>0$。并举例说明逆命题不成立。
-  \item 求 $\displaystyle\lim_{n\to\infty}\left(\frac1{n+\sqrt1}+\frac1{n+\sqrt2}+\cdots+\frac1{n+\sqrt n}\right)$。
-  \item 叙述并证明 $\dfrac00$ 型不定式的 Stolz 定理。
-  \item 证明极限 $\displaystyle\lim_{n\to\infty}\sqrt{1+\sqrt{2+\cdots+\sqrt n}}$（$n$ 重根号）的存在性。
-\end{enumerate}
+\begin{xexercise}[1]
+设 $A$ 和 $B$ 是上有界集，定义 $A+B=\{x+y\mid x\in A,y\in B\}$。证明 $\sup(A+B)=\sup A+\sup B$。
+\end{xexercise}
+
+\begin{xexercise}[2]
+设 $\displaystyle\lim_{n\to\infty}x_n=a>0$，证明：存在 $N$，使当 $n>N$ 时，$x_n>0$。并举例说明逆命题不成立。
+\end{xexercise}
+
+\begin{xexercise}[3]
+求 $\displaystyle\lim_{n\to\infty}\left(\frac1{n+\sqrt1}+\frac1{n+\sqrt2}+\cdots+\frac1{n+\sqrt n}\right)$。
+\end{xexercise}
+
+\begin{xexercise}[4]
+叙述并证明 $\dfrac00$ 型不定式的 Stolz 定理。
+\end{xexercise}
+
+\begin{xexercise}[5]
+证明极限 $\displaystyle\lim_{n\to\infty}\sqrt{1+\sqrt{2+\cdots+\sqrt n}}$（$n$ 重根号）的存在性。
+\end{xexercise}

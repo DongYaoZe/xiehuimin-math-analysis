@@ -222,18 +222,28 @@
 \end{xproof}
 
 \subsection{练习题}
-\begin{xexercise}
-\begin{enumerate}[label=\arabic*.]
-  \item 在曲线 $x=t,y=t^2,z=t^3$ 上求出一点，使该点的切线平行于平面 $x+2y+z=4$。
-  \item 证明：斜坡线
+\begin{xexercise}[1]
+在曲线 $x=t,y=t^2,z=t^3$ 上求出一点，使该点的切线平行于平面 $x+2y+z=4$。
+\end{xexercise}
+
+\begin{xexercise}[2]
+证明：斜坡线
   \[
     \tan\left(\frac{\pi}{4}+\frac{\psi}{2}\right)=\ee^{k\varphi},\qquad k=\text{常数},
   \]
   与地球的每一条子午线相交成定角，其中 $\varphi$ 为地球上点的经度，$\psi$ 为地球上点的纬度。
-  \item 求曲线 $x^2+y^2+z^2=6,\ x+y+z=0$ 在点 $(1,-2,1)$ 处的切线与法平面方程。
-  \item 求曲面 $z=\arctan\dfrac{y}{x}$ 在点 $\left(1,1,\dfrac{\pi}{4}\right)$ 处的法线与切平面方程。
-  \item 证明：曲面 $xyz=a^3\ (a>0)$ 的每一个切平面与坐标面形成体积相同的四面体。
-\end{enumerate}
+\end{xexercise}
+
+\begin{xexercise}[3]
+求曲线 $x^2+y^2+z^2=6,\ x+y+z=0$ 在点 $(1,-2,1)$ 处的切线与法平面方程。
+\end{xexercise}
+
+\begin{xexercise}[4]
+求曲面 $z=\arctan\dfrac{y}{x}$ 在点 $\left(1,1,\dfrac{\pi}{4}\right)$ 处的法线与切平面方程。
+\end{xexercise}
+
+\begin{xexercise}[5]
+证明：曲面 $xyz=a^3\ (a>0)$ 的每一个切平面与坐标面形成体积相同的四面体。
 \end{xexercise}
 
 \section{方向导数与梯度}
@@ -357,20 +367,34 @@
 \end{xproof}
 
 \subsection{练习题}
-\begin{xexercise}
-\begin{enumerate}[label=\arabic*.]
-  \item 求函数 $u=x^2+y^2+z^2$ 在沿椭球面 $\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}+\dfrac{z^2}{c^2}=1$ 上点 $(x,y,z)$ 处的外法线方向的方向导数。
-  \item 设 $\dfrac{\partial u}{\partial n}$ 和 $\dfrac{\partial v}{\partial n}$ 为函数 $u$ 和 $v$ 在沿曲面 $F(x,y,z)=0$ 上的点 $(x,y,z)$ 的法线方向 $\vect{n}$ 的方向导数，证明：
+\begin{xexercise}[1]
+求函数 $u=x^2+y^2+z^2$ 在沿椭球面 $\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}+\dfrac{z^2}{c^2}=1$ 上点 $(x,y,z)$ 处的外法线方向的方向导数。
+\end{xexercise}
+
+\begin{xexercise}[2]
+设 $\dfrac{\partial u}{\partial n}$ 和 $\dfrac{\partial v}{\partial n}$ 为函数 $u$ 和 $v$ 在沿曲面 $F(x,y,z)=0$ 上的点 $(x,y,z)$ 的法线方向 $\vect{n}$ 的方向导数，证明：
   \[
     \frac{\partial}{\partial n}(uv)=u\frac{\partial v}{\partial n}+v\frac{\partial u}{\partial n}.
   \]
-  \item 设 $f(t),u=u(x,y,z)$ 为可微函数，证明：$\nabla f(u)=f'(u)\nabla u$。
-  \item 设 $f(x,y)$ 在点 $p_0(x_0,y_0)$ 处可微，$\vect{l}_1,\vect{l}_2,\ldots,\vect{l}_n$ 为 $n$ 个单位向量，相邻的两向量夹角为 $\dfrac{2\pi}{n}$。证明：
+\end{xexercise}
+
+\begin{xexercise}[3]
+设 $f(t),u=u(x,y,z)$ 为可微函数，证明：$\nabla f(u)=f'(u)\nabla u$。
+\end{xexercise}
+
+\begin{xexercise}[4]
+设 $f(x,y)$ 在点 $p_0(x_0,y_0)$ 处可微，$\vect{l}_1,\vect{l}_2,\ldots,\vect{l}_n$ 为 $n$ 个单位向量，相邻的两向量夹角为 $\dfrac{2\pi}{n}$。证明：
   \[
     \sum_{i=1}^n\frac{\partial f}{\partial l_i}(x_0,y_0)=0.
   \]
-  \item 设 $u=\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}-\dfrac{z^2}{c^2}$，其中 $a>b>c>0$。求在点 $(0,0,0)$ 处函数 $u$ 增加最快的方向。
-  \item 设
+\end{xexercise}
+
+\begin{xexercise}[5]
+设 $u=\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}-\dfrac{z^2}{c^2}$，其中 $a>b>c>0$。求在点 $(0,0,0)$ 处函数 $u$ 增加最快的方向。
+\end{xexercise}
+
+\begin{xexercise}[6]
+设
   \[
     f(x,y)=\begin{cases}
       x-y+\dfrac{xy^2}{x^2+y^2},&(x,y)\ne(0,0),\\[6pt]
@@ -378,7 +402,6 @@
     \end{cases}
   \]
   证明：$f(x,y)$ 在原点处连续，沿任何方向的方向导数存在，但不可微。
-\end{enumerate}
 \end{xexercise}
 \section{Taylor 公式与极值问题}
 
@@ -858,9 +881,8 @@ Hesse 矩阵 $Q$ 是否是正定、负定可以根据高等代数中学到的 Sy
 \end{xremark}
 
 \subsection{练习题}
-\begin{xexercise}
-\begin{enumerate}[label=\arabic*.]
-  \item 设 $u(x,y)$ 在 $(x_0,y_0)$ 的邻域上具有连续的二阶偏导数，证明：当 $h\to0$ 时有
+\begin{xexercise}[1]
+设 $u(x,y)$ 在 $(x_0,y_0)$ 的邻域上具有连续的二阶偏导数，证明：当 $h\to0$ 时有
   \[
     \frac{\partial^2u}{\partial x^2}(x_0,y_0)+\frac{\partial^2u}{\partial y^2}(x_0,y_0)
     =\frac1{h^2}\bigl[u(x_0+h,y_0)+u(x_0-h,y_0)
@@ -869,21 +891,32 @@ Hesse 矩阵 $Q$ 是否是正定、负定可以根据高等代数中学到的 Sy
     \qquad\qquad\qquad\qquad
     +u(x_0,y_0+h)+u(x_0,y_0-h)-4u(x_0,y_0)\bigr]+\littleo(1).
   \]
-  \item 对于下列函数，点 $(0,0)$ 是否为驻点？是否为极值点？
+\end{xexercise}
+
+\begin{xexercise}[2]
+对于下列函数，点 $(0,0)$ 是否为驻点？是否为极值点？
   \begin{enumerate}[label=(\arabic*)]
     \item $f(x,y)=x^2-4xy+5y^2-1$；
     \item $f(x,y)=\sqrt{x^2+y^2}$；
     \item $f(x,y)=(x+y)^2-y^2$。
   \end{enumerate}
-  \item 求下列函数的极值点及相应的极值：
+\end{xexercise}
+
+\begin{xexercise}[3]
+求下列函数的极值点及相应的极值：
   \begin{enumerate}[label=(\arabic*)]
     \item $u(x,y)=x^2(y-1)^2$；
     \item $u(x,y)=3x^2y-x^4-2y^2$；
     \item $u(x,y)=(1+\ee^y)\cos x-y\ee^y$。
   \end{enumerate}
-  \item 求 $f(x,y)=\sin x\sin y\sin(x+y)$ 在 $D=\{(x,y)\mid x\ge0,y\ge0,x+y\le\pi\}$ 上的最大、最小值。
-  \item 证明：函数 $f(x,y)=x^3-4x^2+2xy-y^2$ 在 $\RR^2$ 上有惟一的极大值点，但该极大值点不是最大值点。
-\end{enumerate}
+\end{xexercise}
+
+\begin{xexercise}[4]
+求 $f(x,y)=\sin x\sin y\sin(x+y)$ 在 $D=\{(x,y)\mid x\ge0,y\ge0,x+y\le\pi\}$ 上的最大、最小值。
+\end{xexercise}
+
+\begin{xexercise}[5]
+证明：函数 $f(x,y)=x^3-4x^2+2xy-y^2$ 在 $\RR^2$ 上有惟一的极大值点，但该极大值点不是最大值点。
 \end{xexercise}
 
 \section{条件极值与条件最值}
@@ -1454,9 +1487,8 @@ $\dfrac{\partial g}{\partial z}=2z-4$。由 $\dfrac{\partial g}{\partial z}\ne0$
 \subsection{参考题}
 
 \subsubsection*{第一组参考题}
-\begin{xreferenceproblem}
-\begin{enumerate}[label=\arabic*.]
-  \item 曲面 $z=z(x,y)$ 由方程
+\begin{xreferenceproblem}[1]
+曲面 $z=z(x,y)$ 由方程
   \[
     F\left(\frac{x-a}{z-c},\frac{y-b}{z-c}\right)=0
   \]
@@ -1469,12 +1501,21 @@ $\dfrac{\partial g}{\partial z}=2z-4$。由 $\dfrac{\partial g}{\partial z}\ne0$
       -\left(\frac{\partial^2z}{\partial x\partial y}\right)^2=0.
     \]
   \end{enumerate}
-  \item 在平面上给定一个边长为 $a,b,c$ 的三角形，在它上面可作无数个等体积的给定高 $h$ 的三棱锥，在其中求出有最小侧面积 $S$ 的那一个。
-  \item 设 $u=f(x,y,z)$ 为二次可微函数，记 $\cos\alpha,\cos\beta,\cos\gamma$ 为方向 $l$ 的方向余弦。求
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[2]
+在平面上给定一个边长为 $a,b,c$ 的三角形，在它上面可作无数个等体积的给定高 $h$ 的三棱锥，在其中求出有最小侧面积 $S$ 的那一个。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[3]
+设 $u=f(x,y,z)$ 为二次可微函数，记 $\cos\alpha,\cos\beta,\cos\gamma$ 为方向 $l$ 的方向余弦。求
   \[
     \frac{\partial^2u}{\partial l^2}=\frac{\partial}{\partial l}\left(\frac{\partial u}{\partial l}\right).
   \]
-  \item 设 $u=f(x,y,z)$ 为二次可微函数，$l_i=(\cos\alpha_i,\cos\beta_i,\cos\gamma_i),i=1,2,3$ 为三个互相垂直的单位向量，证明：
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[4]
+设 $u=f(x,y,z)$ 为二次可微函数，$l_i=(\cos\alpha_i,\cos\beta_i,\cos\gamma_i),i=1,2,3$ 为三个互相垂直的单位向量，证明：
   \begin{enumerate}[label=(\arabic*)]
     \item
     \[
@@ -1496,20 +1537,32 @@ $\dfrac{\partial g}{\partial z}=2z-4$。由 $\dfrac{\partial g}{\partial z}\ne0$
     \]
     \item 若 $\dfrac{\partial f}{\partial l_i}=0,i=1,2,3$，则 $f(x,y,z)$ 在 $\RR^3$ 中恒为常数。
   \end{enumerate}
-  \item 设 $f$ 在 $O_\delta(x_0)\subset\RR^n$ 上连续，在 $O_\delta(x_0)\setminus\{x_0\}$ 可微，证明：
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[5]
+设 $f$ 在 $O_\delta(x_0)\subset\RR^n$ 上连续，在 $O_\delta(x_0)\setminus\{x_0\}$ 可微，证明：
   \begin{enumerate}[label=(\arabic*)]
     \item 如果 $\forall x\in O_\delta(x_0)\setminus\{x_0\}$，有 $(x-x_0)\cdot\nabla f(x)<0$，则 $x_0$ 是 $f$ 的一个极大值点；
     \item 如果 $\forall x\in O_\delta(x_0)\setminus\{x_0\}$，有 $(x-x_0)\cdot\nabla f(x)>0$，则 $x_0$ 是 $f$ 的一个极小值点。
   \end{enumerate}
-  \item 设 $f$ 在 $O_{\delta_0}(x_0)\subset\RR^n$ 上二次连续可微，Hesse 矩阵 $\left(\dfrac{\partial^2f}{\partial x_i\partial x_j}(x_0)\right)$ 为正定阵，$\nabla f(x_0)=0$。证明：$\exists\delta\in(0,\delta_0)$，使 $(x-x_0)\cdot\nabla f(x)>0,\forall x\in O_\delta(x_0)\setminus\{x_0\}$。
-  \item 用条件极值的方法证明 Hölder 不等式：
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[6]
+设 $f$ 在 $O_{\delta_0}(x_0)\subset\RR^n$ 上二次连续可微，Hesse 矩阵 $\left(\dfrac{\partial^2f}{\partial x_i\partial x_j}(x_0)\right)$ 为正定阵，$\nabla f(x_0)=0$。证明：$\exists\delta\in(0,\delta_0)$，使 $(x-x_0)\cdot\nabla f(x)>0,\forall x\in O_\delta(x_0)\setminus\{x_0\}$。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[7]
+用条件极值的方法证明 Hölder 不等式：
   \[
     \sum_{i=1}^n a_ix_i
     \le\left(\sum_{i=1}^n a_i^p\right)^{1/p}
     \left(\sum_{i=1}^n x_i^q\right)^{1/q},
   \]
   其中 $a_i\ge0,x_i\ge0,i=1,2,\ldots,n;p,q>1,\dfrac1p+\dfrac1q=1$。
-  \item 证明：二次型
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[8]
+证明：二次型
   \[
     f(x,y,z)=Ax^2+By^2+Cz^2+2Dyz+2Ezx+2Fxy
   \]
@@ -1518,7 +1571,10 @@ $\dfrac{\partial g}{\partial z}=2z-4$。由 $\dfrac{\partial g}{\partial z}\ne0$
     \begin{pmatrix}A&F&E\\F&B&D\\E&D&C\end{pmatrix}
   \]
   的最大特征值与最小特征值。
-  \item 设 $A=(a_{ij})$ 是 $n$ 阶方阵，且设 $\sum_{j=1}^n a_{ij}^2=H_i,i=1,2,\ldots,n$，其中 $H_1,H_2,\ldots,H_n$ 是 $n$ 个确定的非负实数。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[9]
+设 $A=(a_{ij})$ 是 $n$ 阶方阵，且设 $\sum_{j=1}^n a_{ij}^2=H_i,i=1,2,\ldots,n$，其中 $H_1,H_2,\ldots,H_n$ 是 $n$ 个确定的非负实数。
   \begin{enumerate}[label=(\arabic*)]
     \item 证明：如果矩阵 $A$ 的行向量是 $\RR^n$ 中两两正交的向量，则 $(\det A)^2$ 取到极值；
     \item 根据等式 $(\det A)^2=\det A\cdot\det A^{\mathsf T}$，其中 $A^{\mathsf T}$ 是矩阵 $A$ 的转置矩阵，证明：
@@ -1531,7 +1587,10 @@ $\dfrac{\partial g}{\partial z}=2z-4$。由 $\dfrac{\partial g}{\partial z}\ne0$
     \]
     \item 给 Hadamard 不等式以直观的几何解释。
   \end{enumerate}
-  \item 设 $u(x,y)$ 在 $x^2+y^2\le1$ 上连续，在 $x^2+y^2<1$ 上满足
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[10]
+设 $u(x,y)$ 在 $x^2+y^2\le1$ 上连续，在 $x^2+y^2<1$ 上满足
   \[
     \frac{\partial^2u}{\partial x^2}+\frac{\partial^2u}{\partial y^2}=u,
   \]
@@ -1540,33 +1599,55 @@ $\dfrac{\partial g}{\partial z}=2z-4$。由 $\dfrac{\partial g}{\partial z}\ne0$
     \item 若在 $x^2+y^2=1$ 上 $u(x,y)\ge0$，证明：当 $x^2+y^2\le1$ 时，$u(x,y)\ge0$；
     \item 若在 $x^2+y^2=1$ 上 $u(x,y)>0$，证明：当 $x^2+y^2\le1$ 时，$u(x,y)>0$。
   \end{enumerate}
-  \item 对多元函数极值的充分性定理给出详细的证明。
-  \item 仿照 21.4.2 小节对具有多个约束条件的条件最值的确定给出详细的讨论。
-\end{enumerate}
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[11]
+对多元函数极值的充分性定理给出详细的证明。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[12]
+仿照 21.4.2 小节对具有多个约束条件的条件最值的确定给出详细的讨论。
 \end{xreferenceproblem}
 
 \subsubsection*{第二组参考题}
-\begin{xreferenceproblem}
-\begin{enumerate}[label=\arabic*.]
-  \item 设二次连续可微函数 $f$ 在点 $p_0$ 处的梯度为零向量，但 Hesse 矩阵 $Q$ 为非零矩阵。证明：$f$ 在 $p_0$ 处的函数值增长最快的方向位于 $Q$ 的最大特征值对应的特征子空间中。如果最大特征值对应的特征子空间为一维空间，则相应的方向就是 $f$ 增长最快的方向。
-  \item 设 $\RR^3$ 中的光滑曲线段 $L$ 的参数表达式为
+\begin{xreferenceproblem}[1]
+设二次连续可微函数 $f$ 在点 $p_0$ 处的梯度为零向量，但 Hesse 矩阵 $Q$ 为非零矩阵。证明：$f$ 在 $p_0$ 处的函数值增长最快的方向位于 $Q$ 的最大特征值对应的特征子空间中。如果最大特征值对应的特征子空间为一维空间，则相应的方向就是 $f$ 增长最快的方向。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[2]
+设 $\RR^3$ 中的光滑曲线段 $L$ 的参数表达式为
   \[
     x=x(t),\qquad y=y(t),\qquad z=z(t),\qquad t\in[a,b].
   \]
   $P(x(a),y(a),z(a)),Q(x(b),y(b),z(b))$ 为 $L$ 的起点与终点。$\Pi$ 是通过直线段 $PQ$ 的任一平面。证明：$\exists\xi\in(a,b)$，使得向量 $(x'(\xi),y'(\xi),z'(\xi))$ 与 $\Pi$ 平行。
-  \item （Sanderson（桑德森）中值定理）设 $f:[a,b]\to\RR^m$ 为 $k$ 次可微向量值函数，并且非零向量 $\vect{v}$ 与 $f(a),f(b)$ 及 $f^{(j)}(a),j=1,2,\ldots,k-1$ 正交。证明：$\exists\xi\in(a,b)$，使 $\vect{v}$ 与 $f^{(k)}(\xi)$ 正交。其中 $f^{(j)}$ 表示 $f$ 的各个分量函数的 $j$ 阶导数组成的向量。
-  \item 证明：与曲面 $ax^2+by^2+cz^2=1\ (abc\ne0)$ 相切的三个互相垂直的平面的交点在球面
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[3]
+（Sanderson（桑德森）中值定理）设 $f:[a,b]\to\RR^m$ 为 $k$ 次可微向量值函数，并且非零向量 $\vect{v}$ 与 $f(a),f(b)$ 及 $f^{(j)}(a),j=1,2,\ldots,k-1$ 正交。证明：$\exists\xi\in(a,b)$，使 $\vect{v}$ 与 $f^{(k)}(\xi)$ 正交。其中 $f^{(j)}$ 表示 $f$ 的各个分量函数的 $j$ 阶导数组成的向量。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[4]
+证明：与曲面 $ax^2+by^2+cz^2=1\ (abc\ne0)$ 相切的三个互相垂直的平面的交点在球面
   \[
     x^2+y^2+z^2=\frac1a+\frac1b+\frac1c
   \]
   上。
-  \item 设曲面 $\Sigma:z=f(x,y),(x,y)\in D$ 的每一点的法线与 $z$ 轴相交，其中 $D$ 是 $\RR^2$ 中的圆环或圆盘，$f$ 是 $C^1$ 函数。证明：$\Sigma$ 是一个旋转曲面。
-  \item 证明：不等式
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[5]
+设曲面 $\Sigma:z=f(x,y),(x,y)\in D$ 的每一点的法线与 $z$ 轴相交，其中 $D$ 是 $\RR^2$ 中的圆环或圆盘，$f$ 是 $C^1$ 函数。证明：$\Sigma$ 是一个旋转曲面。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[6]
+证明：不等式
   \[
     2ab\le\ee^{a-1}+a\ln a+\ee^{b-1}+b\ln b
   \]
   对所有 $a>0,b>0$ 成立。并求出等式成立的充分必要条件。
-  \item 设 $T:u=\varphi(x,y),v=\psi(x,y)$ 是平面上的一个变换。如果在该变换下任何两条相交曲线的交角保持不变，则称该变换是保角的。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[7]
+设 $T:u=\varphi(x,y),v=\psi(x,y)$ 是平面上的一个变换。如果在该变换下任何两条相交曲线的交角保持不变，则称该变换是保角的。
   \begin{enumerate}[label=(\arabic*)]
     \item 如果 $\varphi$ 与 $\psi$ 满足 $\varphi_x=\psi_y,\varphi_y=-\psi_x$，则 $T$ 是保角变换；
     \item 证明：下面的反演变换是保角的
@@ -1584,7 +1665,10 @@ $\dfrac{\partial g}{\partial z}=2z-4$。由 $\dfrac{\partial g}{\partial z}\ne0$
     \]
     第一种情况保持角度方向，第二种情况角度反向。
   \end{enumerate}
-  \item 由公式
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[8]
+由公式
   \[
     \xi=\frac{x}{x^2+y^2+z^2},\qquad
     \eta=\frac{y}{x^2+y^2+z^2},\qquad
@@ -1596,5 +1680,4 @@ $\dfrac{\partial g}{\partial z}=2z-4$。由 $\dfrac{\partial g}{\partial z}\ne0$
     \item 证明：球面被变换为球面或平面；
     \item 求变换的 Jacobi 行列式。
   \end{enumerate}
-\end{enumerate}
 \end{xreferenceproblem}

@@ -464,26 +464,35 @@ $f(x,y)$ 在点 $(x_0,y_0)$ 处可微时，成立无穷小增量公式：
 
 \subsection{思考题}
 
-\begin{xthought}
-\begin{enumerate}[label=\arabic*.]
-  \item 为什么说 $f_x(x_0,y_0)$ 存在就能保证一元函数 $f(x,y_0)$ 在点 $x_0$ 连续？由此能否进一步断言：对充分接近 $y_0$ 的 $y_1$，一元函数 $f(x,y_1)$ 在点 $x_0$ 连续？
-  \item 证明全微分的性质 (1),(2)。
-  \item 举例说明：
+\begin{xthought}[1]
+为什么说 $f_x(x_0,y_0)$ 存在就能保证一元函数 $f(x,y_0)$ 在点 $x_0$ 连续？由此能否进一步断言：对充分接近 $y_0$ 的 $y_1$，一元函数 $f(x,y_1)$ 在点 $x_0$ 连续？
+\end{xthought}
+
+\begin{xthought}[2]
+证明全微分的性质 (1),(2)。
+\end{xthought}
+
+\begin{xthought}[3]
+举例说明：
   \begin{enumerate}[label=(\arabic*)]
     \item $f(x,y)$ 在某一点的邻域内存在偏导数，但在该点不一定连续，从而不一定可微；
     \item $f(x,y)$ 在某一点连续，但在该点偏导数不一定存在，从而不一定可微；
     \item $f(x,y)$ 在某一点可微，但在该点偏导数不一定连续。
   \end{enumerate}
-  \item 证明：若 $f_x(x,y)$ 在点 $(x_0,y_0)$ 存在，$f_y(x,y)$ 在点 $(x_0,y_0)$ 连续，则 $f(x,y)$ 在点 $(x_0,y_0)$ 可微。
-  \item 设 $z=f(x,y)$ 在开集 $D=(a,b)\times(c,d)$ 上可微，且全微分 $\dd z$ 恒为零。问 $f(x,y)$ 在 $D$ 上是否应取常数值？证明你的结论。
-\end{enumerate}
+\end{xthought}
+
+\begin{xthought}[4]
+证明：若 $f_x(x,y)$ 在点 $(x_0,y_0)$ 存在，$f_y(x,y)$ 在点 $(x_0,y_0)$ 连续，则 $f(x,y)$ 在点 $(x_0,y_0)$ 可微。
+\end{xthought}
+
+\begin{xthought}[5]
+设 $z=f(x,y)$ 在开集 $D=(a,b)\times(c,d)$ 上可微，且全微分 $\dd z$ 恒为零。问 $f(x,y)$ 在 $D$ 上是否应取常数值？证明你的结论。
 \end{xthought}
 
 \subsection{练习题}
 
-\begin{xexercise}
-\begin{enumerate}[label=\arabic*.]
-  \item 设
+\begin{xexercise}[1]
+设
   \[
     f(x,y)=
     \begin{cases}
@@ -496,8 +505,10 @@ $f(x,y)$ 在点 $(x_0,y_0)$ 处可微时，成立无穷小增量公式：
     \item $f(x,y)$ 在点 $(0,0)$ 是否连续？
     \item $f(x,y)$ 在点 $(0,0)$ 是否可微？
   \end{enumerate}
+\end{xexercise}
 
-  \item 设
+\begin{xexercise}[2]
+设
   \[
     f(x,y)=
     \begin{cases}
@@ -512,22 +523,34 @@ $f(x,y)$ 在点 $(x_0,y_0)$ 处可微时，成立无穷小增量公式：
     \item $f(x,y)$ 在点 $(0,0)$ 可微。
   \end{enumerate}
   （本题也说明从可微不能推出偏导数连续。）
+\end{xexercise}
 
-  \item 设 $f(x,y,z)$ 在开集 $D$ 上有定义，$f_x(x,y,z)$ 与 $f_y(x,y,z)$ 在 $D$ 上有界，且对固定的 $(x,y)$，$f(x,y,z)$ 是 $z$ 的连续函数。证明：$f(x,y,z)$ 在 $D$ 上连续。
+\begin{xexercise}[3]
+设 $f(x,y,z)$ 在开集 $D$ 上有定义，$f_x(x,y,z)$ 与 $f_y(x,y,z)$ 在 $D$ 上有界，且对固定的 $(x,y)$，$f(x,y,z)$ 是 $z$ 的连续函数。证明：$f(x,y,z)$ 在 $D$ 上连续。
+\end{xexercise}
 
-  \item 求 $u=\ln(1+x^2+y^2)$ 在 $(x,y)=(1,2)$ 处的全微分。
+\begin{xexercise}[4]
+求 $u=\ln(1+x^2+y^2)$ 在 $(x,y)=(1,2)$ 处的全微分。
+\end{xexercise}
 
-  \item 已测得一圆柱体的底圆直径 $D_0=10.44$，高 $H_0=18.36$，且测量误差 $|\Delta D|\le0.02$，$|\Delta H|\le0.01$。试估计用体积公式 $V=\frac14\pi D^2H$ 计算时的绝对误差 $\Delta V$ 与相对误差 $\Delta V/V$。
+\begin{xexercise}[5]
+已测得一圆柱体的底圆直径 $D_0=10.44$，高 $H_0=18.36$，且测量误差 $|\Delta D|\le0.02$，$|\Delta H|\le0.01$。试估计用体积公式 $V=\frac14\pi D^2H$ 计算时的绝对误差 $\Delta V$ 与相对误差 $\Delta V/V$。
+\end{xexercise}
 
-  \item $f(x,y)$ 定义在矩形 $I=[a,b]\times[c,d]$ 上，且 $f_y$ 在 $I$ 上连续，证明：$f(x,y)$ 对 $y$ 满足一致 Lipschitz 条件，即 $\exists L>0$，使得 $\forall(x,y_1),(x,y_2)\in I$，都有
+\begin{xexercise}[6]
+$f(x,y)$ 定义在矩形 $I=[a,b]\times[c,d]$ 上，且 $f_y$ 在 $I$ 上连续，证明：$f(x,y)$ 对 $y$ 满足一致 Lipschitz 条件，即 $\exists L>0$，使得 $\forall(x,y_1),(x,y_2)\in I$，都有
   \[
     |f(x,y_1)-f(x,y_2)|\le L|y_1-y_2|,
   \]
   其中 $L$ 与 $x$ 无关。
+\end{xexercise}
 
-  \item 若函数 $f(x,y)$ 的偏导数 $f_x$ 和 $f_y$ 在区域 $D$ 内存在，且 $\forall(x,y)\in D$，$f_x(x,y)=f_y(x,y)=0$。证明：$f(x,y)$ 在 $D$ 上为常值函数。
+\begin{xexercise}[7]
+若函数 $f(x,y)$ 的偏导数 $f_x$ 和 $f_y$ 在区域 $D$ 内存在，且 $\forall(x,y)\in D$，$f_x(x,y)=f_y(x,y)=0$。证明：$f(x,y)$ 在 $D$ 上为常值函数。
+\end{xexercise}
 
-  \item 设 $\Omega\in\RR^2$ 是开区域，$u(x,y),v(x,y)$ 在 $\Omega$ 内满足
+\begin{xexercise}[8]
+设 $\Omega\in\RR^2$ 是开区域，$u(x,y),v(x,y)$ 在 $\Omega$ 内满足
   \[
     \frac{\partial u}{\partial x}=\frac{\partial v}{\partial y},
     \qquad
@@ -536,9 +559,10 @@ $f(x,y)$ 在点 $(x_0,y_0)$ 处可微时，成立无穷小增量公式：
     u^2+v^2=C,
   \]
   其中 $C$ 为常数，证明：$u(x,y),v(x,y)$ 在 $\Omega$ 上均为常值函数。
+\end{xexercise}
 
-  \item 设 $f(x,y)$ 在 $G=\{(x,y)\mid x^2+y^2<1\}$ 上有定义。若 $f(x,0)$ 在点 $x=0$ 处连续，且 $f_y(x,y)$ 在 $G$ 上有界。证明：$f(x,y)$ 在点 $(0,0)$ 处连续。
-\end{enumerate}
+\begin{xexercise}[9]
+设 $f(x,y)$ 在 $G=\{(x,y)\mid x^2+y^2<1\}$ 上有定义。若 $f(x,0)$ 在点 $x=0$ 处连续，且 $f_y(x,y)$ 在 $G$ 上有界。证明：$f(x,y)$ 在点 $(0,0)$ 处连续。
 \end{xexercise}
 
 \section{复合函数求导（链式法则）}
@@ -930,34 +954,66 @@ $f(x,y)$ 在点 $(x_0,y_0)$ 处可微时，成立无穷小增量公式：
 
 \subsection{练习题}
 
-\begin{xexercise}
-\begin{enumerate}[label=\arabic*.]
-  \item 设 $u=\ee^x+\sin y+t$，$x=st$，$y=s+t$，求 $\frac{\partial u}{\partial t}$。
-  \item 设 $u=f(s,t)$，$s=\frac{x}{y}$，$t=\frac{y}{z}$，求 $\frac{\partial u}{\partial x},\frac{\partial u}{\partial y},\frac{\partial u}{\partial z}$。
-  \item 设 $u=f(s,t,y)$，$s=\varphi(x,y)$，$t=\psi(x,y)$，求 $\frac{\partial u}{\partial x},\frac{\partial u}{\partial y}$。
-  \item 设 $u=\ee^x\sin y$，$x=2st$，$y=t+s^2$，求 $\frac{\partial u}{\partial s},\frac{\partial u}{\partial t}$。
-  \item 设 $u=f(ax^2+by^2+cz^2)$，求 $\dd u$。
-  \item 设 $f(x,y,z)=\left(\frac xy\right)^{1/z}$，求 $\dd f(1,1,1)$。
-  \item 设 $w=F(xy,yz)$，$F$ 为有连续偏导数的二元函数，证明：
+\begin{xexercise}[1]
+设 $u=\ee^x+\sin y+t$，$x=st$，$y=s+t$，求 $\frac{\partial u}{\partial t}$。
+\end{xexercise}
+
+\begin{xexercise}[2]
+设 $u=f(s,t)$，$s=\frac{x}{y}$，$t=\frac{y}{z}$，求 $\frac{\partial u}{\partial x},\frac{\partial u}{\partial y},\frac{\partial u}{\partial z}$。
+\end{xexercise}
+
+\begin{xexercise}[3]
+设 $u=f(s,t,y)$，$s=\varphi(x,y)$，$t=\psi(x,y)$，求 $\frac{\partial u}{\partial x},\frac{\partial u}{\partial y}$。
+\end{xexercise}
+
+\begin{xexercise}[4]
+设 $u=\ee^x\sin y$，$x=2st$，$y=t+s^2$，求 $\frac{\partial u}{\partial s},\frac{\partial u}{\partial t}$。
+\end{xexercise}
+
+\begin{xexercise}[5]
+设 $u=f(ax^2+by^2+cz^2)$，求 $\dd u$。
+\end{xexercise}
+
+\begin{xexercise}[6]
+设 $f(x,y,z)=\left(\frac xy\right)^{1/z}$，求 $\dd f(1,1,1)$。
+\end{xexercise}
+
+\begin{xexercise}[7]
+设 $w=F(xy,yz)$，$F$ 为有连续偏导数的二元函数，证明：
   \[
     x\frac{\partial w}{\partial x}+z\frac{\partial w}{\partial z}=y\frac{\partial w}{\partial y}.
   \]
-  \item 设 $z=f(xy)$，$f$ 为可微的一元函数，证明：
+\end{xexercise}
+
+\begin{xexercise}[8]
+设 $z=f(xy)$，$f$ 为可微的一元函数，证明：
   \[
     x\frac{\partial z}{\partial x}-y\frac{\partial z}{\partial y}=0.
   \]
-  \item 设二元函数 $u=F(x,y)$ 满足方程
+\end{xexercise}
+
+\begin{xexercise}[9]
+设二元函数 $u=F(x,y)$ 满足方程
   \[
     x\frac{\partial u}{\partial x}+y\frac{\partial u}{\partial y}=0,
   \]
   证明：$F(x,y)$ 在极坐标系下只是 $\theta$ 的函数。
-  \item 设二元函数 $F$ 在直角坐标系中可写成 $F(x,y)=f(x)g(y)$，在极坐标中可写成 $F(r\cos\theta,r\sin\theta)=h(\theta)$，求 $F(x,y)$。
-  \item 证明：$u=\varphi(x+at)+\psi(x-at)$ 满足方程
+\end{xexercise}
+
+\begin{xexercise}[10]
+设二元函数 $F$ 在直角坐标系中可写成 $F(x,y)=f(x)g(y)$，在极坐标中可写成 $F(r\cos\theta,r\sin\theta)=h(\theta)$，求 $F(x,y)$。
+\end{xexercise}
+
+\begin{xexercise}[11]
+证明：$u=\varphi(x+at)+\psi(x-at)$ 满足方程
   \[
     \frac{\partial^2u}{\partial t^2}-a^2\frac{\partial^2u}{\partial x^2}=0,
   \]
   其中 $\varphi,\psi$ 为具有二阶连续导数的一元函数。
-  \item 设 $x=x(u,v),y=y(u,v)$ 满足
+\end{xexercise}
+
+\begin{xexercise}[12]
+设 $x=x(u,v),y=y(u,v)$ 满足
   \[
     \frac{\partial x}{\partial u}=\frac{\partial y}{\partial v},
     \qquad
@@ -972,17 +1028,25 @@ $f(x,y)$ 在点 $(x_0,y_0)$ 处可微时，成立无穷小增量公式：
     \item $w=w(x(u,v),y(u,v))$ 满足方程 $\frac{\partial^2w}{\partial u^2}+\frac{\partial^2w}{\partial v^2}=0$；
     \item $\frac{\partial^2(xy)}{\partial u^2}+\frac{\partial^2(xy)}{\partial v^2}=0$。
   \end{enumerate}
-  \item 证明：可微函数 $z=f(x,y)$ 仅是 $ax+by$ $(ab\ne0)$ 的函数的充分必要条件是
+\end{xexercise}
+
+\begin{xexercise}[13]
+证明：可微函数 $z=f(x,y)$ 仅是 $ax+by$ $(ab\ne0)$ 的函数的充分必要条件是
   \[
     b\frac{\partial z}{\partial x}=a\frac{\partial z}{\partial y}.
   \]
-  \item 设 $u(x,y)$ 有连续二阶偏导数，$F(s,t)$ 有连续一阶偏导数，且满足
+\end{xexercise}
+
+\begin{xexercise}[14]
+设 $u(x,y)$ 有连续二阶偏导数，$F(s,t)$ 有连续一阶偏导数，且满足
   \[
     F(u_x,u_y)=0,\qquad F_s^2+F_t^2\ne0,
   \]
   证明：$u_{xx}u_{yy}-u_{xy}^2=0$。
-  \item 设 $u=f(\sqrt{x^2+y^2})$ 有连续二阶偏导数，且满足 $\frac{\partial^2u}{\partial x^2}+\frac{\partial^2u}{\partial y^2}=0$。试求 $u(x,y)$。
-\end{enumerate}
+\end{xexercise}
+
+\begin{xexercise}[15]
+设 $u=f(\sqrt{x^2+y^2})$ 有连续二阶偏导数，且满足 $\frac{\partial^2u}{\partial x^2}+\frac{\partial^2u}{\partial y^2}=0$。试求 $u(x,y)$。
 \end{xexercise}
 
 \section{向量值函数的微分学定理}
@@ -1087,17 +1151,20 @@ $f(x,y)$ 在点 $(x_0,y_0)$ 处可微时，成立无穷小增量公式：
 
 \subsection{练习题}
 
-\begin{xexercise}
-\begin{enumerate}[label=\arabic*.]
-  \item 设 $f\colon D\subset\RR^n\to\RR^m$，$x_0\in D$，且存在矩阵 $A$，使得在点 $x_0$ 的邻域上有
+\begin{xexercise}[1]
+设 $f\colon D\subset\RR^n\to\RR^m$，$x_0\in D$，且存在矩阵 $A$，使得在点 $x_0$ 的邻域上有
   \[
     f(x)=f(x_0)+A(x-x_0)+o(x-x_0),
   \]
   其中 $o(x-x_0)$ 表示当 $|x-x_0|\to0$ 时，模为高阶无穷小量的向量。证明：$f$ 在点 $x_0$ 处可微，且 $Jf(x_0)=A$。
+\end{xexercise}
 
-  \item 设 $f\colon\RR\to\RR^3$ 是可微的向量值函数，满足条件 $|f(t)|=1,\forall t\in\RR$。证明 $f'(t)\cdot f(t)=0$，并对这个结果进行几何上的解释。
+\begin{xexercise}[2]
+设 $f\colon\RR\to\RR^3$ 是可微的向量值函数，满足条件 $|f(t)|=1,\forall t\in\RR$。证明 $f'(t)\cdot f(t)=0$，并对这个结果进行几何上的解释。
+\end{xexercise}
 
-  \item 设 $u(x,y),v(x,y)$ 在区域 $\RR^2$ 上有一阶连续偏导数，且存在 $C>0$，对任意两点 $(x_i,y_i)\in\RR^2$ $(i=1,2)$ 均成立
+\begin{xexercise}[3]
+设 $u(x,y),v(x,y)$ 在区域 $\RR^2$ 上有一阶连续偏导数，且存在 $C>0$，对任意两点 $(x_i,y_i)\in\RR^2$ $(i=1,2)$ 均成立
   \[
     (u_1-u_2)^2+(v_1-v_2)^2\ge C[(x_1-x_2)^2+(y_1-y_2)^2],
   \]
@@ -1105,7 +1172,6 @@ $f(x,y)$ 在点 $(x_0,y_0)$ 处可微时，成立无穷小增量公式：
   \[
     \frac{\partial(u,v)}{\partial(x,y)}\ne0.
   \]
-\end{enumerate}
 \end{xexercise}
 
 \section{对于教学的建议}
@@ -1166,9 +1232,8 @@ $f(x,y)$ 在点 $(x_0,y_0)$ 处可微时，成立无穷小增量公式：
 
 \subsection{参考题}
 
-\begin{xreferenceproblem}
-\begin{enumerate}[label=\arabic*.]
-  \item 设
+\begin{xreferenceproblem}[1]
+设
   \[
     u(x,t)=\frac{1}{2\sqrt{\pi t}}\ee^{-\frac{x^2}{4t}},
   \]
@@ -1178,8 +1243,10 @@ $f(x,y)$ 在点 $(x_0,y_0)$ 处可微时，成立无穷小增量公式：
     \le Ct^{-3/2}\ee^{-\lambda x^2/t},
   \]
   其中 $C$ 为正常数，$\lambda$ 为小于 $\frac14$ 的正常数。
+\end{xreferenceproblem}
 
-  \item 设
+\begin{xreferenceproblem}[2]
+设
   \[
     \Gamma(x,y,z;\xi,\eta,\zeta)
     =-\frac{1}{4\pi}[(x-\xi)^2+(y-\eta)^2+(z-\zeta)^2]^{-1/2},
@@ -1198,17 +1265,23 @@ $f(x,y)$ 在点 $(x_0,y_0)$ 处可微时，成立无穷小增量公式：
     \le C[(x-\xi)^2+(y-\eta)^2+(z-\zeta)^2]^{-2},
   \]
   其中 $C$ 为正常数。
+\end{xreferenceproblem}
 
-  \item 设 $u(x,y)$ 有二阶偏导数，无零点。证明：$u$ 满足方程
+\begin{xreferenceproblem}[3]
+设 $u(x,y)$ 有二阶偏导数，无零点。证明：$u$ 满足方程
   \[
     u\frac{\partial^2u}{\partial x\partial y}
     =\frac{\partial u}{\partial x}\cdot\frac{\partial u}{\partial y}
   \]
   的充分必要条件是 $u(x,y)=f(x)g(y)$。
+\end{xreferenceproblem}
 
-  \item 证明：关于 $n$ 次齐次函数的命题 19.3.1--19.3.4。
+\begin{xreferenceproblem}[4]
+证明：关于 $n$ 次齐次函数的命题 19.3.1--19.3.4。
+\end{xreferenceproblem}
 
-  \item 设
+\begin{xreferenceproblem}[5]
+设
   \[
     u=
     \begin{vmatrix}
@@ -1224,16 +1297,20 @@ $f(x,y)$ 在点 $(x_0,y_0)$ 处可微时，成立无穷小增量公式：
     \item $\sum_{i=1}^n\frac{\partial u}{\partial x_i}=0$；
     \item $\sum_{i=1}^n x_i\frac{\partial u}{\partial x_i}=\frac{n(n-1)}2u$。
   \end{enumerate}
+\end{xreferenceproblem}
 
-  \item 设 $A=(a_{ij})_{n\times n}$ 是正交矩阵，$f(y)$ 是定义在 $\RR^n$ 上的二次可微函数，$F(x)=f(Ax)$。证明：当 $y=Ax$ 时有
+\begin{xreferenceproblem}[6]
+设 $A=(a_{ij})_{n\times n}$ 是正交矩阵，$f(y)$ 是定义在 $\RR^n$ 上的二次可微函数，$F(x)=f(Ax)$。证明：当 $y=Ax$ 时有
   \begin{enumerate}[label=(\arabic*)]
     \item $\sum_{i=1}^n\left(\frac{\partial f}{\partial y_i}\right)^2
       =\sum_{i=1}^n\left(\frac{\partial F}{\partial x_i}\right)^2$；
     \item $\sum_{i=1}^n\frac{\partial^2f}{\partial y_i^2}
       =\sum_{i=1}^n\frac{\partial^2F}{\partial x_i^2}$。
   \end{enumerate}
+\end{xreferenceproblem}
 
-  \item 求下列变换的 Jacobi 行列式：
+\begin{xreferenceproblem}[7]
+求下列变换的 Jacobi 行列式：
   \begin{enumerate}[label=(\arabic*)]
     \item $x_1=r\cos\theta,x_2=r\sin\theta$，求 $\frac{\partial(x_1,x_2)}{\partial(r,\theta)}$；
     \item $x_1=r\cos\theta_1,x_2=r\sin\theta_1\cos\theta_2,x_3=r\sin\theta_1\sin\theta_2$，求 $\frac{\partial(x_1,x_2,x_3)}{\partial(r,\theta_1,\theta_2)}$；
@@ -1253,8 +1330,10 @@ $f(x,y)$ 在点 $(x_0,y_0)$ 处可微时，成立无穷小增量公式：
       \frac{\partial(x_1,x_2,\cdots,x_m)}{\partial(r,\theta_1,\theta_2,\cdots,\theta_{m-1})}.
     \]
   \end{enumerate}
+\end{xreferenceproblem}
 
-  \item 函数值计算的相对误差估计：
+\begin{xreferenceproblem}[8]
+函数值计算的相对误差估计：
   \begin{enumerate}[label=(\arabic*)]
     \item 利用可微函数定义与近似等式 $\Delta f(x;h)\approx\dd f(x)h$，证明：设 $f(x)=f_1\cdot f_2\cdots f_n$ 是 $n$ 个不为零的因子的乘积，若 $\delta_i$ 是第 $i$ 个因子的相对误差，则它们乘积的相对误差为 $\delta=\delta(f(x);h)\approx\sum_{i=1}^n\delta_i$；
     \item 利用等式 $\dd\ln f(x)=\frac1{f(x)}\dd f(x)$，再次得到上题结果并证明：一般的分式
@@ -1263,8 +1342,10 @@ $f(x,y)$ 在点 $(x_0,y_0)$ 处可微时，成立无穷小增量公式：
     \]
     的相对误差是函数 $f_1,f_2,\cdots,f_n,g_1,g_2,\cdots,g_n$ 的值的相对误差的和。
   \end{enumerate}
+\end{xreferenceproblem}
 
-  \item 设 $x_1(t),x_2(t),\cdots,x_n(t)$ 是 $\RR$ 上的可微函数，满足：
+\begin{xreferenceproblem}[9]
+设 $x_1(t),x_2(t),\cdots,x_n(t)$ 是 $\RR$ 上的可微函数，满足：
   \[
     \begin{cases}
       x_1'(t)=a_{11}x_1(t)+a_{12}x_2(t)+\cdots+a_{1n}x_n(t),\\
@@ -1274,11 +1355,12 @@ $f(x,y)$ 在点 $(x_0,y_0)$ 处可微时，成立无穷小增量公式：
     \end{cases}
   \]
   其中 $a_{ij}\ge0$，$i,j=1,2,\cdots,n$。假如对任何 $i$，当 $t\to+\infty$ 时，$x_i(t)\to0$。问函数 $x_1(t),x_2(t),\cdots,x_n(t)$ 必定是线性相关的吗（这里函数线性相关的定义见上一章的第一组参考题 4）？
+\end{xreferenceproblem}
 
-  \item 设 $f$ 为 $\RR^n$ 上的 $C^2$ 映射，$Jf(x)$ 为 Jacobi 矩阵，它的元素为 $\frac{\partial f_j}{\partial x_i}(x)$，$i,j=1,2,\cdots,n$。在 Jacobi 行列式 $\det(Jf(x))$ 中对应的代数余子式为 $A_{ij}(x)$，$i,j=1,2,\cdots,n$。证明如下的 Hadamard 恒等式：
+\begin{xreferenceproblem}[10]
+设 $f$ 为 $\RR^n$ 上的 $C^2$ 映射，$Jf(x)$ 为 Jacobi 矩阵，它的元素为 $\frac{\partial f_j}{\partial x_i}(x)$，$i,j=1,2,\cdots,n$。在 Jacobi 行列式 $\det(Jf(x))$ 中对应的代数余子式为 $A_{ij}(x)$，$i,j=1,2,\cdots,n$。证明如下的 Hadamard 恒等式：
   \[
     \sum_{i=1}^n\frac{\partial A_{ij}}{\partial x_i}(x)=0,
     \qquad j=1,2,\cdots,n.
   \]
-\end{enumerate}
 \end{xreferenceproblem}

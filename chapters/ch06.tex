@@ -28,32 +28,55 @@
 
 \subsection{思考题}
 
-\begin{enumerate}
-  \item 设 $f\in C(a,b)$，又在点 $x_0\in(a,b)$ 处可导。在 $x\ne x_0$ 时定义函数
+\begin{xthought}[1]
+设 $f\in C(a,b)$，又在点 $x_0\in(a,b)$ 处可导。在 $x\ne x_0$ 时定义函数
   \[
     g(x)=\frac{f(x)-f(x_0)}{x-x_0}.
   \]
   问：如何在 $x_0$ 处补充定义 $g(x)$ 才能使得 $g\in C(a,b)$？
-  \item 说明 $f'_+(x_0)$ 和 $f'(x_0^+)$ 的不同意义，并举出它们取不同数值的例子。
-  \item $f'(x_0)$ 和 $(f(x_0))'$ 有无区别？为什么？
-  \item 验证下列三个函数 $f(x)=\sin^2x$，$g(x)=-\cos^2x$，$h(x)=-\frac12\cos2x$ 的导函数均相等。为什么相等？
-  \item 若 $f'(x_0)$ 存在，求
+\end{xthought}
+
+\begin{xthought}[2]
+说明 $f'_+(x_0)$ 和 $f'(x_0^+)$ 的不同意义，并举出它们取不同数值的例子。
+\end{xthought}
+
+\begin{xthought}[3]
+$f'(x_0)$ 和 $(f(x_0))'$ 有无区别？为什么？
+\end{xthought}
+
+\begin{xthought}[4]
+验证下列三个函数 $f(x)=\sin^2x$，$g(x)=-\cos^2x$，$h(x)=-\frac12\cos2x$ 的导函数均相等。为什么相等？
+\end{xthought}
+
+\begin{xthought}[5]
+若 $f'(x_0)$ 存在，求
   \[
     \lim_{\Delta x\to0}\frac{f(x_0-\Delta x)-f(x_0)}{\Delta x}.
   \]
-  \item 若 $[f(x)]'=[f^2(x)]'$，证明：或者 $f(1)=1$，或者 $f'(1)=0$。
-  \item
-  \begin{enumerate}[label=(\arabic*)]
+\end{xthought}
+
+\begin{xthought}[6]
+若 $[f(x)]'=[f^2(x)]'$，证明：或者 $f(1)=1$，或者 $f'(1)=0$。
+\end{xthought}
+
+\begin{xthought}[7]
+\begin{enumerate}[label=(\arabic*)]
     \item 在圆面积公式 $S(r)=\pi r^2$ 和圆周长公式 $l(r)=2\pi r$ 之间有微分学的关系 $S'(r)=l(r)$，请作出解释；
     \item 同样，在球体积公式 $V(r)=\frac43\pi r^3$ 和球面积公式 $A(r)=4\pi r^2$ 之间有微分学的关系 $V'(r)=A(r)$，请作出解释；
     \item 能否在所知的初等几何计算公式中再找出类似的微分学联系？
   \end{enumerate}
-  \item 设 $f(x)$ 在 $(a,b)$ 上可导。
+\end{xthought}
+
+\begin{xthought}[8]
+设 $f(x)$ 在 $(a,b)$ 上可导。
   \begin{enumerate}[label=(\arabic*)]
     \item 若 $\lim_{x\to a^+}f(x)=\infty$，是否可以推出 $\lim_{x\to a^+}f'(x)=\infty$？
     \item 若 $\lim_{x\to a^+}f'(x)=\infty$，是否可以推出 $\lim_{x\to a^+}f(x)=\infty$？
   \end{enumerate}
-  \item 判断下列命题的真假，并说明理由：
+\end{xthought}
+
+\begin{xthought}[9]
+判断下列命题的真假，并说明理由：
   \begin{enumerate}[label=(\arabic*)]
     \item 若 $f$ 在 $x=0$ 可导，且 $f(0)=0$，则 $f'(0)=0$；反之也成立；
     \item 若 $f$ 在 $x_0$ 可导，且在某 $O(x_0)$ 上 $f(x)>0$，则 $f'(x_0)>0$；
@@ -66,12 +89,14 @@
     \]
     则 $f(x)$ 于 $x_0$ 处可导；反之也成立。
   \end{enumerate}
-  \item
-  \begin{enumerate}[label=(\arabic*)]
+\end{xthought}
+
+\begin{xthought}[10]
+\begin{enumerate}[label=(\arabic*)]
     \item 如果 $f(x)$ 在点 $x_0$ 处既左连续，又右连续，问 $f(x)$ 在 $x_0$ 处是否连续？
     \item 如果 $f(x)$ 在点 $x_0$ 处既左侧可导，又右侧可导，问 $f(x)$ 在 $x_0$ 处是否可导？为什么？
   \end{enumerate}
-\end{enumerate}
+\end{xthought}
 
 \subsection{例题}
 
@@ -471,23 +496,40 @@
 
 \subsection{练习题}
 
-\begin{xexercise}
-\begin{enumerate}
-  \item 证明以下基本事实：
+\begin{xexercise}[1]
+证明以下基本事实：
   \begin{enumerate}[label=(\arabic*)]
     \item 可导的偶函数的导函数为奇函数；
     \item 可导的奇函数的导函数为偶函数；
     \item 可导的周期函数的导函数为周期函数。
   \end{enumerate}
-  \item 已知偶函数 $f(x)$ 在点 $x=0$ 处可导，求 $f'(0)$。
-  \item 确定 $a$ 的值，使两条曲线 $y=ax^2$ 与 $y=\ln x$ 相切。
-  \item 设函数 $f(x),g(x)$ 在点 $x_0$ 处均可导。证明：$f(x)-g(x)=\littleo(x-x_0)\ (x\to x_0)$ 的充分必要条件是两条曲线 $y=f(x)$ 与 $y=g(x)$ 在 $x=x_0$ 时相切。
-  \item 设函数 $f(x)$ 可导，且 $f(x)$ 无零点。证明：两条曲线 $y=f(x)$ 和 $y=f(x)\sin x$ 在其交点处相切。
-  \item 设 $p(x)$ 是有 $n$ 个实根的 $n$ 次多项式，记它的相异根为 $x_1,\ldots,x_k$，其中根 $x_i$ 的重数为 $n_i,i=1,2,\ldots,k,n_1+n_2+\cdots+n_k=n$。证明：成立
+\end{xexercise}
+
+\begin{xexercise}[2]
+已知偶函数 $f(x)$ 在点 $x=0$ 处可导，求 $f'(0)$。
+\end{xexercise}
+
+\begin{xexercise}[3]
+确定 $a$ 的值，使两条曲线 $y=ax^2$ 与 $y=\ln x$ 相切。
+\end{xexercise}
+
+\begin{xexercise}[4]
+设函数 $f(x),g(x)$ 在点 $x_0$ 处均可导。证明：$f(x)-g(x)=\littleo(x-x_0)\ (x\to x_0)$ 的充分必要条件是两条曲线 $y=f(x)$ 与 $y=g(x)$ 在 $x=x_0$ 时相切。
+\end{xexercise}
+
+\begin{xexercise}[5]
+设函数 $f(x)$ 可导，且 $f(x)$ 无零点。证明：两条曲线 $y=f(x)$ 和 $y=f(x)\sin x$ 在其交点处相切。
+\end{xexercise}
+
+\begin{xexercise}[6]
+设 $p(x)$ 是有 $n$ 个实根的 $n$ 次多项式，记它的相异根为 $x_1,\ldots,x_k$，其中根 $x_i$ 的重数为 $n_i,i=1,2,\ldots,k,n_1+n_2+\cdots+n_k=n$。证明：成立
   \[
     p'(x)=p(x)\left(\sum_{i=1}^k\frac{n_i}{x-x_i}\right).
   \]
-  \item 设函数
+\end{xexercise}
+
+\begin{xexercise}[7]
+设函数
   \[
     f(x)=
     \begin{cases}
@@ -496,7 +538,10 @@
     \end{cases}
   \]
   研究 $f(x)$ 的可导性。
-  \item 设 $n$ 为正整数，在什么条件下，函数
+\end{xexercise}
+
+\begin{xexercise}[8]
+设 $n$ 为正整数，在什么条件下，函数
   \[
     f(x)=
     \begin{cases}
@@ -505,22 +550,33 @@
     \end{cases}
   \]
   (1) 在 $x=0$ 处连续；(2) 在 $x=0$ 处可导；(3) 在 $x=0$ 处导函数连续。
-  \item 设函数 $f(x)$ 满足函数方程 $f(x+y)=f(x)\cdot f(y)$，且已知 $f'(0)=1$。证明：$f(x)$ 处处可导，且成立 $f'(x)=f(x)$。（可与 5.1.4 小节的题 10 作比较。）
-  \item 给定函数
+\end{xexercise}
+
+\begin{xexercise}[9]
+设函数 $f(x)$ 满足函数方程 $f(x+y)=f(x)\cdot f(y)$，且已知 $f'(0)=1$。证明：$f(x)$ 处处可导，且成立 $f'(x)=f(x)$。（可与 5.1.4 小节的题 10 作比较。）
+\end{xexercise}
+
+\begin{xexercise}[10]
+给定函数
   \[
     f(x)=\begin{cases}0,&x\text{ 为无理数},\\x,&x\text{ 为有理数},\end{cases}
     \qquad
     g(x)=\begin{cases}0,&x\text{ 为无理数},\\x^2,&x\text{ 为有理数},\end{cases}
   \]
   讨论它们的连续性与可导性。
-  \item 设
+\end{xexercise}
+
+\begin{xexercise}[11]
+设
   \[
     f(x)=\begin{cases}x,&x\text{ 为有理数},\\x^2+x,&x\text{ 为无理数}.
     \end{cases}
   \]
   (1) 证明 $x\ne0$ 时，$f$ 不连续；(2) 计算 $f'(0)$。
-  \item 设在原点某邻域 $O(0)$ 上有 $\abs{f(x)}\le\abs{g(x)}$，且 $g(0)=g'(0)=0$。求 $f'(0)$。
-\end{enumerate}
+\end{xexercise}
+
+\begin{xexercise}[12]
+设在原点某邻域 $O(0)$ 上有 $\abs{f(x)}\le\abs{g(x)}$，且 $g(0)=g'(0)=0$。求 $f'(0)$。
 \end{xexercise}
 
 % END OF SECTION 6.1 TRANSCRIPTION
@@ -922,13 +978,24 @@
 
 \subsection{练习题}
 
-\begin{xexercise}
-\begin{enumerate}
-  \item 对 $y=\arctan x$ 计算 $y^{(n)}(0)$。
-  \item 对 $y=(\arctan x)^2$ 计算 $y^{(n)}(0)$。
-  \item 对 $y=(\arcsin x)^2$ 计算 $y^{(n)}(0)$。
-  \item 设 $y=x^{n-1}\ee^{1/x}$，证明：$y^{(n)}=\dfrac{(-1)^n}{x^{n+1}}\ee^{1/x}$。
-  \item 求下列函数的 $n$ 阶导函数：
+\begin{xexercise}[1]
+对 $y=\arctan x$ 计算 $y^{(n)}(0)$。
+\end{xexercise}
+
+\begin{xexercise}[2]
+对 $y=(\arctan x)^2$ 计算 $y^{(n)}(0)$。
+\end{xexercise}
+
+\begin{xexercise}[3]
+对 $y=(\arcsin x)^2$ 计算 $y^{(n)}(0)$。
+\end{xexercise}
+
+\begin{xexercise}[4]
+设 $y=x^{n-1}\ee^{1/x}$，证明：$y^{(n)}=\dfrac{(-1)^n}{x^{n+1}}\ee^{1/x}$。
+\end{xexercise}
+
+\begin{xexercise}[5]
+求下列函数的 $n$ 阶导函数：
   \begin{enumerate}[label=(\arabic*)]
     \item $y=\sin^3x$；
     \item $y=\ee^x\sin x$；
@@ -938,22 +1005,48 @@
     \item $y=\dfrac{x^n}{(x+1)^2}$；
     \item $y=\sin ax\sin bx$。
   \end{enumerate}
-  \item 证明：$y=C_1\ee^{\lambda_1x}+C_2\ee^{\lambda_2x}$ 满足微分方程 $y''-(\lambda_1+\lambda_2)y'+\lambda_1\lambda_2y=0$。
-  \item 证明：$y=C_1\sin(\omega t+\varphi)+C_2\cos(\omega t+\varphi)$ 满足微分方程 $y''+\omega^2y=0$。
-  \item 若曲线由极坐标方程 $\rho=f(\theta)$ 表示，则可得到参数方程 $x=f(\theta)\cos\theta,y=f(\theta)\sin\theta$，求 $y'(x)$。
-  \item 证明：Archimedes 螺线 $\rho=a\theta$ 与双曲螺线 $\rho=a\theta^{-1}$ 在相交处的切线正交。
-  \item 对下列参数方程求 $y'(x)$ 和 $y''(x)$（在 (4) 中假定 $f$ 二阶可导）：
+\end{xexercise}
+
+\begin{xexercise}[6]
+证明：$y=C_1\ee^{\lambda_1x}+C_2\ee^{\lambda_2x}$ 满足微分方程 $y''-(\lambda_1+\lambda_2)y'+\lambda_1\lambda_2y=0$。
+\end{xexercise}
+
+\begin{xexercise}[7]
+证明：$y=C_1\sin(\omega t+\varphi)+C_2\cos(\omega t+\varphi)$ 满足微分方程 $y''+\omega^2y=0$。
+\end{xexercise}
+
+\begin{xexercise}[8]
+若曲线由极坐标方程 $\rho=f(\theta)$ 表示，则可得到参数方程 $x=f(\theta)\cos\theta,y=f(\theta)\sin\theta$，求 $y'(x)$。
+\end{xexercise}
+
+\begin{xexercise}[9]
+证明：Archimedes 螺线 $\rho=a\theta$ 与双曲螺线 $\rho=a\theta^{-1}$ 在相交处的切线正交。
+\end{xexercise}
+
+\begin{xexercise}[10]
+对下列参数方程求 $y'(x)$ 和 $y''(x)$（在 (4) 中假定 $f$ 二阶可导）：
   \begin{enumerate}[label=(\arabic*)]
     \item $x=\sqrt{1+t},\ y=\sqrt{1-t}$；
     \item $x=at\cos t,\ y=at\sin t$；
     \item $x=a\cos^3t,\ y=a\sin^3t$；
     \item $x=f'(t),\ y=tf'(t)-f(t)$。
   \end{enumerate}
-  \item 求出由方程 $x^3+y^3-3axy=0$ 确定的曲线上有水平切线的点。
-  \item 是否可以利用函数 $y=\sin x\sin3x\sin5x$ 的奇偶性计算 $y''(0)$？
-  \item 是否可以不展开乘积 $y=(6+5x)(4+3x)^2(2+x)^3$ 就求出 $y^{(5)}(0)$？
-  \item 设 $f$ 为 7 次多项式，若 $f(x)+1$ 能被 $(x-1)^4$ 整除，$f(x)-1$ 能被 $(x+1)^4$ 整除，能否利用导数工具求出 $f$？
-\end{enumerate}
+\end{xexercise}
+
+\begin{xexercise}[11]
+求出由方程 $x^3+y^3-3axy=0$ 确定的曲线上有水平切线的点。
+\end{xexercise}
+
+\begin{xexercise}[12]
+是否可以利用函数 $y=\sin x\sin3x\sin5x$ 的奇偶性计算 $y''(0)$？
+\end{xexercise}
+
+\begin{xexercise}[13]
+是否可以不展开乘积 $y=(6+5x)(4+3x)^2(2+x)^3$ 就求出 $y^{(5)}(0)$？
+\end{xexercise}
+
+\begin{xexercise}[14]
+设 $f$ 为 7 次多项式，若 $f(x)+1$ 能被 $(x-1)^4$ 整除，$f(x)-1$ 能被 $(x+1)^4$ 整除，能否利用导数工具求出 $f$？
 \end{xexercise}
 
 % END OF SECTION 6.2 TRANSCRIPTION
@@ -1111,10 +1204,12 @@
 
 \subsection{练习题}
 
-\begin{xexercise}
-\begin{enumerate}
-  \item 证明：若 $f'(x_0)\ne0$，则 $\lim_{\Delta x\to0}\dfrac{\Delta y}{\dd y}=1$。
-  \item 设 $u,v,w$ 均为 $x$ 的可微函数，求 $y$ 的微分：
+\begin{xexercise}[1]
+证明：若 $f'(x_0)\ne0$，则 $\lim_{\Delta x\to0}\dfrac{\Delta y}{\dd y}=1$。
+\end{xexercise}
+
+\begin{xexercise}[2]
+设 $u,v,w$ 均为 $x$ 的可微函数，求 $y$ 的微分：
   \begin{enumerate}[label=(\arabic*)]
     \item $y=uvw$；
     \item $y=\dfrac{u}{v^2}$；
@@ -1125,14 +1220,22 @@
     \]
     \item $y=\dfrac1{\sqrt{u^2+v^2+w^2}}$。
   \end{enumerate}
-  \item 证明：在 $x/a^n\approx0$ 时有近似公式：
+\end{xexercise}
+
+\begin{xexercise}[3]
+证明：在 $x/a^n\approx0$ 时有近似公式：
   \[
     \sqrt[n]{a^n+x}\approx a+\frac{x}{na^{n-1}}\qquad(a>0).
   \]
   并用于计算：(1) $\sqrt[3]{9}$；(2) $\sqrt[4]{80}$；(3) $\sqrt[7]{100}$；(4) $\sqrt[10]{1000}$。
-  \item 设通过单摆振动的实验，用公式 $g=4\pi^2l/T^2$ 求重力加速度 $g$。分别研究 (1) 测量摆长 $l$，(2) 测量周期 $T$ 时的相对误差对 $g$ 的影响。
-  \item 设要求测量值 $x$ 的常用对数，问：$x$ 的相对误差会给结果带来什么影响？
-\end{enumerate}
+\end{xexercise}
+
+\begin{xexercise}[4]
+设通过单摆振动的实验，用公式 $g=4\pi^2l/T^2$ 求重力加速度 $g$。分别研究 (1) 测量摆长 $l$，(2) 测量周期 $T$ 时的相对误差对 $g$ 的影响。
+\end{xexercise}
+
+\begin{xexercise}[5]
+设要求测量值 $x$ 的常用对数，问：$x$ 的相对误差会给结果带来什么影响？
 \end{xexercise}
 
 % END OF SECTION 6.3 TRANSCRIPTION
@@ -1154,96 +1257,158 @@
 
 \subsubsection*{第一组参考题}
 
-\begin{xreferenceproblem}
-\begin{enumerate}
-  \item 利用导数的定义计算极限
+\begin{xreferenceproblem}[1]
+利用导数的定义计算极限
   \[
     \lim_{x\to0}\frac{(1+\tan x)^{10}-(1-\sin x)^{10}}{\sin x}.
   \]
-  \item 设 $f(x)=\dfrac1{x^2+3x+2}$，计算 $f^{(100)}(0)$，要求相对误差不超过 $1\%$。
-  \item 设 $f$ 在点 $a$ 处可导，$f(a)\ne0$，计算
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[2]
+设 $f(x)=\dfrac1{x^2+3x+2}$，计算 $f^{(100)}(0)$，要求相对误差不超过 $1\%$。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[3]
+设 $f$ 在点 $a$ 处可导，$f(a)\ne0$，计算
   \[
     \lim_{n\to\infty}\left[\frac{f\left(a+\frac1n\right)}{f(a)}\right]^n.
   \]
-  \item 设 $a\ne0$，计算
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[4]
+设 $a\ne0$，计算
   \[
     f(x)=\frac{\sin x+\sin(x+a)}{\cos x-\cos(x+a)}
   \]
   的导数并对结果作出解释。
-  \item 设 $f(0)=0,f'(0)$ 存在。定义数列
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[5]
+设 $f(0)=0,f'(0)$ 存在。定义数列
   \[
     x_n=f\left(\frac1{n^2}\right)+f\left(\frac2{n^2}\right)+\cdots+f\left(\frac n{n^2}\right),\qquad n\in\NN_+,
   \]
   试求 $\lim_{n\to\infty}x_n$。
-  \item 求下列数列极限：
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[6]
+求下列数列极限：
   \begin{enumerate}[label=(\arabic*)]
     \item $\displaystyle\lim_{n\to\infty}\left(\sin\frac1{n^2}+\sin\frac2{n^2}+\cdots+\sin\frac n{n^2}\right)$；
     \item $\displaystyle\lim_{n\to\infty}\left[\left(1+\frac1{n^2}\right)\left(1+\frac2{n^2}\right)\cdots\left(1+\frac n{n^2}\right)\right]$。
   \end{enumerate}
-  \item 设 $y=\dfrac{1+x}{\sqrt{1-x}}$，计算 $y^{(n)}(x),n\in\NN_+$。
-  \item 设 $f$ 在 $\RR$ 上有任意阶导数，证明：对每个正整数 $n$ 成立
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[7]
+设 $y=\dfrac{1+x}{\sqrt{1-x}}$，计算 $y^{(n)}(x),n\in\NN_+$。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[8]
+设 $f$ 在 $\RR$ 上有任意阶导数，证明：对每个正整数 $n$ 成立
   \[
     \frac1{x^{n+1}}f^{(n)}\left(\frac1x\right)
     =(-1)^n\left[x^{n-1}f\left(\frac1x\right)\right]^{(n)}.
   \]
-  \item 利用 $1+x+x^2+\cdots+x^n$ 的和，求以下各式之和：
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[9]
+利用 $1+x+x^2+\cdots+x^n$ 的和，求以下各式之和：
   \begin{enumerate}[label=(\arabic*)]
     \item $1+2x+3x^2+\cdots+nx^{n-1}$；
     \item $1^2+2^2x+3^2x^2+\cdots+n^2x^{n-1}$。
   \end{enumerate}
   又问：不用微分学方法能否求出 (1) 与 (2) 中的和？
-  \item 证明组合恒等式：
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[10]
+证明组合恒等式：
   \begin{enumerate}[label=(\arabic*)]
     \item $\displaystyle\sum_{k=1}^n k\binom nk=n2^{n-1},\ n\in\NN_+$；
     \item $\displaystyle\sum_{k=1}^n k^2\binom nk=n(n+1)2^{n-2},\ n\in\NN_+$。
   \end{enumerate}
-  \item 证明：由抛物线的焦点出发的射线经抛物线反射后一定平行于抛物线的对称轴。
-  \item 证明：由椭圆的焦点出发的射线经椭圆反射后一定经过椭圆的另一个焦点。
-  \item 证明：在曳物线
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[11]
+证明：由抛物线的焦点出发的射线经抛物线反射后一定平行于抛物线的对称轴。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[12]
+证明：由椭圆的焦点出发的射线经椭圆反射后一定经过椭圆的另一个焦点。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[13]
+证明：在曳物线
   \[
     x=a\left(\ln\tan\frac t2+\cos t\right),\qquad y=a\sin t
   \]
   的每一条切线上从切点到与 $x$ 轴的交点的长度为常数。
-  \item 证明：函数 $f$ 在点 $x_0$ 可微的充分必要条件是 $f$ 在 $x_0$ 的某个邻域上可以写为
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[14]
+证明：函数 $f$ 在点 $x_0$ 可微的充分必要条件是 $f$ 在 $x_0$ 的某个邻域上可以写为
   \[
     f(x)=f(x_0)+\varphi(x)(x-x_0),
   \]
   其中 $\varphi(x)$ 于 $x_0$ 连续。
 
   （上述充分必要条件称为导数的 Carathéodory（卡拉泰奥多里）定义。若在教学中一开始就用它作为导数的定义，则有不少优点。这方面可以参考《美国数学月刊》上的两篇文章：(1991) 第 98 卷 40--44 页，(1994) 第 101 卷 332--338 页。还可以参考教材 [73] 在这方面的内容。本章多次利用例题 6.1.4 中的无穷小增量公式 (6.3) 的做法与此类似。）
-  \item 设 $n\ge2$，函数 $f(x)=f(x_0)+\varphi(x)(x-x_0)$，$\varphi(x)$ 在某邻域 $O(x_0)$ 上 $n-1$ 阶可微，且 $\varphi^{(n-1)}(x)$ 于 $x_0$ 连续。证明：存在 $f^{(n)}(x_0)$。
-  \item 设 $f(x)$ 在区间 $(a,b)$ 上有 $n$ 阶导数，且存在不全为 0 的 $n+1$ 个常数 $a_0,a_1,\ldots,a_n$，使得
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[15]
+设 $n\ge2$，函数 $f(x)=f(x_0)+\varphi(x)(x-x_0)$，$\varphi(x)$ 在某邻域 $O(x_0)$ 上 $n-1$ 阶可微，且 $\varphi^{(n-1)}(x)$ 于 $x_0$ 连续。证明：存在 $f^{(n)}(x_0)$。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[16]
+设 $f(x)$ 在区间 $(a,b)$ 上有 $n$ 阶导数，且存在不全为 0 的 $n+1$ 个常数 $a_0,a_1,\ldots,a_n$，使得
   \[
     a_0f(x)+a_1f'(x)+\cdots+a_nf^{(n)}(x)\equiv0.
   \]
   证明：$f(x)$ 在 $(a,b)$ 上存在任意阶导数。
-  \item 设多项式 $p(x)$ 只有实零点。证明：$[p'(x)]^2-p(x)p''(x)\ge0,\ \forall x\in\RR$。
-  \item 设 $f$ 在 $[0,1]$ 上可微，且使得数集 $\{x\in[0,1]\mid f(x)=0=f'(x)\}=\varnothing$。证明：$f$ 在 $[0,1]$ 中只有有限个零点。
-  \item 对于 $y=\arctan x$，证明：
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[17]
+设多项式 $p(x)$ 只有实零点。证明：$[p'(x)]^2-p(x)p''(x)\ge0,\ \forall x\in\RR$。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[18]
+设 $f$ 在 $[0,1]$ 上可微，且使得数集 $\{x\in[0,1]\mid f(x)=0=f'(x)\}=\varnothing$。证明：$f$ 在 $[0,1]$ 中只有有限个零点。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[19]
+对于 $y=\arctan x$，证明：
   \begin{enumerate}[label=(\arabic*)]
     \item $y^{(n)}(x)=(n-1)!\cos^n y\sin n\left(y+\dfrac\pi2\right)$；
     \item $\displaystyle y^{(n)}(x)=\frac{P_{n-1}(x)}{(1+x^2)^n}$，其中 $P_{n-1}(x)$ 是最高次项系数等于 $(-1)^{n-1}n!$ 的 $n-1$ 次多项式。
   \end{enumerate}
-  \item 定义 $f_0(x)\equiv1,f_{n+1}(x)=xf_n(x)-f_n'(x),n=0,1,\ldots$。证明：
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[20]
+定义 $f_0(x)\equiv1,f_{n+1}(x)=xf_n(x)-f_n'(x),n=0,1,\ldots$。证明：
   \begin{enumerate}[label=(\arabic*)]
     \item $f_n(x)$ 是 $n$ 次多项式；
     \item $f_n(x)$ 有 $n$ 个不同实根，且关于原点对称。
   \end{enumerate}
-\end{enumerate}
 \end{xreferenceproblem}
 
 \subsubsection*{第二组参考题}
 
-\begin{xreferenceproblem}
-\begin{enumerate}
-  \item
-  \begin{enumerate}[label=(\arabic*)]
+\begin{xreferenceproblem}[1]
+\begin{enumerate}[label=(\arabic*)]
     \item 求 $\displaystyle\sum_{k=1}^n\sin kx$ 和 $\displaystyle\sum_{k=1}^n\cos kx$；
     \item 求 $\displaystyle\sum_{k=1}^n k\sin kx$ 和 $\displaystyle\sum_{k=1}^n k\cos kx$。
   \end{enumerate}
-  \item 证明：（例题 5.1.4 中的）Riemann 函数 $R(x)$ 处处不可导。
-  \item 若从点 $(x_0,y_0)$ 向抛物线 $y=ax^2+bx+c$ 能够作出两条切线，或只能作出一条切线，或不能作出切线，问：在这三种情况中的 $(x_0,y_0)$ 的位置与抛物线有什么关系？
-  \item 证明：Legendre 多项式
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[2]
+证明：（例题 5.1.4 中的）Riemann 函数 $R(x)$ 处处不可导。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[3]
+若从点 $(x_0,y_0)$ 向抛物线 $y=ax^2+bx+c$ 能够作出两条切线，或只能作出一条切线，或不能作出切线，问：在这三种情况中的 $(x_0,y_0)$ 的位置与抛物线有什么关系？
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[4]
+证明：Legendre 多项式
   \[
     P_n(x)=\frac1{2^nn!}\frac{\dd^n}{\dd x^n}(x^2-1)^n
   \]
@@ -1251,13 +1416,25 @@
   \[
     P'_{n+1}(x)-P'_{n-1}(x)=(2n+1)P_n(x).
   \]
-  \item 证明：Legendre 多项式满足方程
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[5]
+证明：Legendre 多项式满足方程
   \[
     (1-x^2)P_n''(x)-2xP_n'(x)+n(n+1)P_n(x)=0.
   \]
-  \item 分析三项式 $(u+v+w)^n$ 展开的系数规律，猜测并证明 $(uvw)^{(n)}$ 的一般计算公式。
-  \item 设 $f(x)=ax^2+bx+c$，当 $\abs{x}\le1$ 时，$\abs{f(x)}\le1$。证明：当 $\abs{x}\le1$ 时，$\abs{f'(x)}\le4$。
-  \item 证明：对每个正整数 $n$，成立
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[6]
+分析三项式 $(u+v+w)^n$ 展开的系数规律，猜测并证明 $(uvw)^{(n)}$ 的一般计算公式。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[7]
+设 $f(x)=ax^2+bx+c$，当 $\abs{x}\le1$ 时，$\abs{f(x)}\le1$。证明：当 $\abs{x}\le1$ 时，$\abs{f'(x)}\le4$。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[8]
+证明：对每个正整数 $n$，成立
   \[
     \sum_{k=0}^n(-1)^k\binom nk k^m
     =
@@ -1266,17 +1443,29 @@
       (-1)^n n!, & m=n.
     \end{cases}
   \]
-  \item 设 $f(x)=x^n\ln x,n\in\NN_+$，求
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[9]
+设 $f(x)=x^n\ln x,n\in\NN_+$，求
   \[
     \lim_{n\to\infty}\frac{f^{(n)}(1/n)}{n!}.
   \]
-  \item 设 $f$ 在 $x=0$ 处连续，且存在极限
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[10]
+设 $f$ 在 $x=0$ 处连续，且存在极限
   \[
     \lim_{x\to0}\frac{f(2x)-f(x)}x=A.
   \]
   证明：$f'(0)=A$。
-  \item 设 $y=(1+\sqrt{x})^{2n+2},n\in\NN_+$，求 $y^{(n)}(1)$。
-  \item 设 $f(x)$ 在区间 $I$ 上三阶可导，$f'(x)\ne0$，则可以定义 $f(x)$ 的 Schwarz 导数如下：
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[11]
+设 $y=(1+\sqrt{x})^{2n+2},n\in\NN_+$，求 $y^{(n)}(1)$。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[12]
+设 $f(x)$ 在区间 $I$ 上三阶可导，$f'(x)\ne0$，则可以定义 $f(x)$ 的 Schwarz 导数如下：
   \[
     S(f,x)=\frac{f'''(x)}{f'(x)}-\frac32\left(\frac{f''(x)}{f'(x)}\right)^2
     =\left(\frac{f''(x)}{f'(x)}\right)'-\frac12\left(\frac{f''(x)}{f'(x)}\right)^2.
@@ -1289,7 +1478,6 @@
     \item 若 $S(f,x)<0,S(g,x)<0$，则 $S(f\circ g,x)<0$；
     \item 若 $S(f,x)<0$，又记 $f^n=\underbrace{f\circ f\circ\cdots\circ f}_{n\text{ 个 }f}$，则 $S(f^n,x)<0$。
   \end{enumerate}
-\end{enumerate}
 \end{xreferenceproblem}
 
 % END TRANSCRIPTION

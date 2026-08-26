@@ -386,16 +386,32 @@
 \end{xsolution}
 
 \subsection{练习题}
-\begin{xexercise}
-\begin{enumerate}
-  \item 求 $F(\theta)=\displaystyle\int_0^\pi\ln(1+\theta\cos x)\,\dd x$（$|\theta|<1$）。
-  \item 设 $f(s,t)$ 为可微函数，$F(x)=\displaystyle\int_0^x\dd t\int_{t^2}^{x^2}f(t,s)\,\dd s$，求 $F'(x)$。
-  \item 设 $f(x,y)$ 在 $(a,b)\times(c,d)$ 上连续有界，证明：$I(x)=\displaystyle\int_c^d f(x,y)\,\dd y$ 在 $(a,b)$ 上连续。
-  \item 设 $I(a)=\displaystyle\int_0^{2\pi}\ln(R^2+a^2-2aR\cos\theta)\,\dd\theta$，$|a|<R$，证明：$I'(a)=0$。
-  \item 设 $a,b>0$，求 $\displaystyle\int_0^1\frac{x^b-x^a}{\ln x}\sin\left(\ln\frac1x\right)\dd x$。
-  \item 设 $F(t)=\displaystyle\int_0^a\dd x\int_0^a f(x+y+t)\,\dd y$，其中 $f$ 为连续函数，证明：$F''(t)=f(t+2a)-2f(t+a)+f(t)$。
-  \item 设 $f(t)=\left(\displaystyle\int_0^t\ee^{-x^2}\,\dd x\right)^2$，$g(t)=\displaystyle\int_0^1\frac{\ee^{-t^2(1+x^2)}}{1+x^2}\,\dd x$。证明：$f(t)+g(t)\equiv\dfrac\pi4$，并由此计算 $\displaystyle\int_0^{+\infty}\ee^{-x^2}\,\dd x$。
-\end{enumerate}
+\begin{xexercise}[1]
+求 $F(\theta)=\displaystyle\int_0^\pi\ln(1+\theta\cos x)\,\dd x$（$|\theta|<1$）。
+\end{xexercise}
+
+\begin{xexercise}[2]
+设 $f(s,t)$ 为可微函数，$F(x)=\displaystyle\int_0^x\dd t\int_{t^2}^{x^2}f(t,s)\,\dd s$，求 $F'(x)$。
+\end{xexercise}
+
+\begin{xexercise}[3]
+设 $f(x,y)$ 在 $(a,b)\times(c,d)$ 上连续有界，证明：$I(x)=\displaystyle\int_c^d f(x,y)\,\dd y$ 在 $(a,b)$ 上连续。
+\end{xexercise}
+
+\begin{xexercise}[4]
+设 $I(a)=\displaystyle\int_0^{2\pi}\ln(R^2+a^2-2aR\cos\theta)\,\dd\theta$，$|a|<R$，证明：$I'(a)=0$。
+\end{xexercise}
+
+\begin{xexercise}[5]
+设 $a,b>0$，求 $\displaystyle\int_0^1\frac{x^b-x^a}{\ln x}\sin\left(\ln\frac1x\right)\dd x$。
+\end{xexercise}
+
+\begin{xexercise}[6]
+设 $F(t)=\displaystyle\int_0^a\dd x\int_0^a f(x+y+t)\,\dd y$，其中 $f$ 为连续函数，证明：$F''(t)=f(t+2a)-2f(t+a)+f(t)$。
+\end{xexercise}
+
+\begin{xexercise}[7]
+设 $f(t)=\left(\displaystyle\int_0^t\ee^{-x^2}\,\dd x\right)^2$，$g(t)=\displaystyle\int_0^1\frac{\ee^{-t^2(1+x^2)}}{1+x^2}\,\dd x$。证明：$f(t)+g(t)\equiv\dfrac\pi4$，并由此计算 $\displaystyle\int_0^{+\infty}\ee^{-x^2}\,\dd x$。
 \end{xexercise}
 
 \section{含参变量广义积分}
@@ -603,9 +619,8 @@
 由 Cauchy 准则知 $\displaystyle\int_1^{+\infty}\frac{x\sin tx}{a^2+x^2}\,\dd x$ 在 $(0,+\infty)$ 上不一致收敛。
 
 \subsection{练习题}
-\begin{xexercise}
-\begin{enumerate}
-  \item 讨论下列广义积分的一致收敛性：
+\begin{xexercise}[1]
+讨论下列广义积分的一致收敛性：
   \begin{enumerate}[label=(\arabic*)]
     \item $\displaystyle\int_0^{+\infty}\ee^{-(1+a^2)t}\sin t\,\dd t$，$a\in(-\infty,+\infty)$；
     \item $\displaystyle\int_0^{+\infty}\frac{\cos xy}{\sqrt{x+y}}\,\dd x$，$y\in[y_0,+\infty)$，其中 $y_0>0$；
@@ -620,9 +635,14 @@
     \item $\displaystyle\int_0^2\frac{x^t}{\sqrt[3]{(x-1)(x-2)}}\,\dd x$，$|t|<\dfrac12$；
     \item $\displaystyle\int_0^1(1-x)^{u-1}\,\dd x$，(1) $u\in[a,+\infty)$，其中 $a>0$，(2) $u\in(0,+\infty)$。
   \end{enumerate}
-  \item 设 $\displaystyle\int_0^{+\infty}x^\lambda f(x)\,\dd x$ 当 $\lambda=a,\lambda=b$ 时收敛（$a<b$），证明：$\displaystyle\int_0^{+\infty}x^\lambda f(x)\,\dd x$ 关于 $\lambda\in[a,b]$ 一致收敛。
-  \item 证明：积分 $\displaystyle\int_0^{+\infty}x\ee^{-xy}\,\dd y$ 在 $(0,+\infty)$ 上不一致收敛。
-\end{enumerate}
+\end{xexercise}
+
+\begin{xexercise}[2]
+设 $\displaystyle\int_0^{+\infty}x^\lambda f(x)\,\dd x$ 当 $\lambda=a,\lambda=b$ 时收敛（$a<b$），证明：$\displaystyle\int_0^{+\infty}x^\lambda f(x)\,\dd x$ 关于 $\lambda\in[a,b]$ 一致收敛。
+\end{xexercise}
+
+\begin{xexercise}[3]
+证明：积分 $\displaystyle\int_0^{+\infty}x\ee^{-xy}\,\dd y$ 在 $(0,+\infty)$ 上不一致收敛。
 \end{xexercise}
 
 \subsection{主要性质}
@@ -859,51 +879,79 @@ $\forall\varepsilon>0$，当 $\alpha\in[2+\varepsilon,+\infty)$ 时有
 \end{xsolution}
 
 \subsection{练习题}
-\begin{xexercise}
-\begin{enumerate}
-  \item 设 $\displaystyle\int_a^{+\infty}f(x,y)\,\dd y$ 对于 $x$ 在 $x_0$ 的邻域 $U(x_0)$ 中收敛，$f_x(x,y)$ 在 $U(x_0)\times[a,+\infty)$ 中存在，且当 $x\to x_0$ 时，$f_x(x,y)$ 关于 $y$ 在任何有限区间上一致收敛于 $f_x(x_0,y)$，又知积分 $\displaystyle\int_a^{+\infty}f_x(x,y)\,\dd y$ 在 $U(x_0)$ 上一致收敛。证明：
+\begin{xexercise}[1]
+设 $\displaystyle\int_a^{+\infty}f(x,y)\,\dd y$ 对于 $x$ 在 $x_0$ 的邻域 $U(x_0)$ 中收敛，$f_x(x,y)$ 在 $U(x_0)\times[a,+\infty)$ 中存在，且当 $x\to x_0$ 时，$f_x(x,y)$ 关于 $y$ 在任何有限区间上一致收敛于 $f_x(x_0,y)$，又知积分 $\displaystyle\int_a^{+\infty}f_x(x,y)\,\dd y$ 在 $U(x_0)$ 上一致收敛。证明：
   \[
     \left.\frac{\dd}{\dd x}\left(\int_a^{+\infty}f(x,y)\,\dd y\right)\right|_{x=x_0}
     =\int_a^{+\infty}f_x(x_0,y)\,\dd y.
   \]
-  \item $F(\alpha)=\displaystyle\int_0^{+\infty}\frac{\sin(1-\alpha^2)x}{x}\,\dd x$，证明：$F(\alpha)$ 在 $(-\infty,-1)\cup(-1,1)\cup(1,+\infty)$ 上连续，在 $\alpha=\pm1$ 处间断。
-  \item 证明：$F(\alpha)=\displaystyle\int_0^{+\infty}\frac{\sin\alpha x^2}{x}\,\dd x$ 在 $\alpha\in(0,+\infty)$ 上不一致收敛，但在 $(0,+\infty)$ 上连续。
-  \item 证明：$F(x)=\displaystyle\int_1^{+\infty}\frac{x\ee^{-yx}}{y}\,\dd y$ 在 $[0,+\infty)$ 上连续，在 $(0,+\infty)$ 上 $F'(x)$ 存在，且
+\end{xexercise}
+
+\begin{xexercise}[2]
+$F(\alpha)=\displaystyle\int_0^{+\infty}\frac{\sin(1-\alpha^2)x}{x}\,\dd x$，证明：$F(\alpha)$ 在 $(-\infty,-1)\cup(-1,1)\cup(1,+\infty)$ 上连续，在 $\alpha=\pm1$ 处间断。
+\end{xexercise}
+
+\begin{xexercise}[3]
+证明：$F(\alpha)=\displaystyle\int_0^{+\infty}\frac{\sin\alpha x^2}{x}\,\dd x$ 在 $\alpha\in(0,+\infty)$ 上不一致收敛，但在 $(0,+\infty)$ 上连续。
+\end{xexercise}
+
+\begin{xexercise}[4]
+证明：$F(x)=\displaystyle\int_1^{+\infty}\frac{x\ee^{-yx}}{y}\,\dd y$ 在 $[0,+\infty)$ 上连续，在 $(0,+\infty)$ 上 $F'(x)$ 存在，且
   \[
     F'(x)=\int_1^{+\infty}\frac{\partial}{\partial x}\left(\frac{x}{y}\ee^{-yx}\right)\dd y.
   \]
-  \item 设 $F(\alpha)=\displaystyle\int_0^\pi\frac{\sin x}{x^\alpha(\pi-x)^{2-\alpha}}\,\dd x$，证明：$F(\alpha)$ 在 $(0,2)$ 中连续。
-  \item 设 $F(y)=\displaystyle\int_0^{+\infty}y\ee^{-x^2y^2}\cos[x(1-y)]\,\dd x$，求 $\displaystyle\lim_{y\to1}F(y)$。
-  \item 利用 Dirichlet 积分或 Euler-Poisson 积分求下列积分值：
+\end{xexercise}
+
+\begin{xexercise}[5]
+设 $F(\alpha)=\displaystyle\int_0^\pi\frac{\sin x}{x^\alpha(\pi-x)^{2-\alpha}}\,\dd x$，证明：$F(\alpha)$ 在 $(0,2)$ 中连续。
+\end{xexercise}
+
+\begin{xexercise}[6]
+设 $F(y)=\displaystyle\int_0^{+\infty}y\ee^{-x^2y^2}\cos[x(1-y)]\,\dd x$，求 $\displaystyle\lim_{y\to1}F(y)$。
+\end{xexercise}
+
+\begin{xexercise}[7]
+利用 Dirichlet 积分或 Euler-Poisson 积分求下列积分值：
   \begin{enumerate}[label=(\arabic*)]
     \item $\displaystyle\int_{-\infty}^{+\infty}\left(\frac{\sin x}{x}\right)^2\dd x$；
     \item $\displaystyle\int_0^{+\infty}\frac{\sin^3x}{x}\,\dd x$；
     \item $\displaystyle\int_0^{+\infty}x^2\ee^{-\alpha x^2}\,\dd x$（$\alpha>0$）；
     \item $\displaystyle\int_{-\infty}^{+\infty}\ee^{-(ax^2+bx+c)}\,\dd x$（$a>0$）。
   \end{enumerate}
-  \item 利用积分号下求导的方法求下列积分：
+\end{xexercise}
+
+\begin{xexercise}[8]
+利用积分号下求导的方法求下列积分：
   \begin{enumerate}[label=(\arabic*)]
     \item $I(a)=\displaystyle\int_0^{+\infty}\ee^{-ax}\frac{\sin x}{x}\,\dd x$（$a\geqslant0$）；
     \item $I(\alpha)=\displaystyle\int_0^{+\infty}\frac{\arctan\alpha x}{x(1+x^2)}\,\dd x$（$\alpha\geqslant0$）；
     \item $f(x)=\displaystyle\int_1^{+\infty}\frac1y x\ee^{-yx}\,\dd y$（$x\geqslant0$）。
   \end{enumerate}
-  \item 利用积分号下求积分的方法求下列积分：
+\end{xexercise}
+
+\begin{xexercise}[9]
+利用积分号下求积分的方法求下列积分：
   \begin{enumerate}[label=(\arabic*)]
     \item $I(\alpha)=\displaystyle\int_0^{+\infty}\frac{\arctan\alpha x}{x(1+x^2)}\,\dd x$（$\alpha\geqslant0$）（提示：$\dfrac{\arctan\alpha x}{x}=\displaystyle\int_0^\alpha\frac{\dd y}{1+y^2x^2}$）；
     \item $\displaystyle\int_0^{+\infty}\frac{\cos\beta x}{x^2+\alpha^2}\,\dd x$（提示：$\dfrac1{x^2+\alpha^2}=\displaystyle\lim_{\varepsilon\to0^+}\int_\varepsilon^{+\infty}\ee^{-t(x^2+\alpha^2)}\,\dd t$）。
   \end{enumerate}
-  \item 求含参变量瑕积分
+\end{xexercise}
+
+\begin{xexercise}[10]
+求含参变量瑕积分
   \[
     I(\alpha)=\int_0^1\frac{\ln(1-\alpha^2x^2)}{\sqrt{1-x^2}}\,\dd x\qquad(|\alpha|\leqslant1).
   \]
-  \item 计算
+\end{xexercise}
+
+\begin{xexercise}[11]
+计算
   \[
     I(y)=\int_0^{+\infty}\ee^{-x^2}\cos(2yx)\,\dd x\qquad(-\infty<y<+\infty).
   \]
-\end{enumerate}
 \end{xexercise}
 
-\section{B 函数与 $\Gamma$ 函数}
+\section{\texorpdfstring{B 函数与 $\Gamma$ 函数}{B 函数与 Gamma 函数}}
 
 在计算积分或者解常微分方程时，常常遇到其解不能表示为初等函数的问题。解决这个问题的办法之一是引进一些新的函数，它们可能是函数项级数的和函数，或者是用含参变量积分表示的函数，然后研究它们的性质，甚至做出函数值表。这类函数一般称为\textbf{特殊函数}。这一节介绍的 Beta 函数（记为 B 函数）与 Gamma 函数（记为 $\Gamma$ 函数）就属于最重要特殊函数之列。它们在数学的很多分支中都有应用。有不少重要的定积分值可以用它们表示出来。此外，Gamma 函数的一些性质的证明也是数学分析中很好的训练，在 23.3.4 小节中的部分内容可作为习题课的补充材料。这方面还可参考 [25,55] 的 §7.4 中的内容。
 
@@ -941,7 +989,7 @@ B 函数的主要性质如下：
 \]
 （参见上册 326 页例题 10.4.10）。
 
-\subsection{$\Gamma$ 函数}
+\subsection{\texorpdfstring{$\Gamma$ 函数}{Gamma 函数}}
 $\Gamma$ 函数也称为第二类 Euler 积分。它是一元函数，其含参积分定义为
 \begin{equation}
   \Gamma(x)=\int_0^{+\infty}t^{x-1}\ee^{-t}\,\dd t,\qquad x>0.
@@ -1184,7 +1232,7 @@ I&=\int_0^\pi\dd\theta\int_0^{a\sin\theta}\dd r
 \]
 \end{xsolution}
 
-\subsection{$\Gamma$ 函数的特征刻画和几个重要公式的证明}
+\subsection{\texorpdfstring{$\Gamma$ 函数的特征刻画和几个重要公式的证明}{Gamma 函数的特征刻画和几个重要公式的证明}}
 
 前面已介绍过 $\Gamma$ 函数满足如下三条性质：
 
@@ -1357,24 +1405,35 @@ $\varphi(1)=0$，且 $\varphi$ 是下凸函数。设 $0<x<1$，考虑 $\varphi$ 
 \end{xremark}
 
 \subsection{练习题}
-\begin{xexercise}
-\begin{enumerate}
-  \item 计算
+\begin{xexercise}[1]
+计算
   \begin{enumerate}[label=(\arabic*)]
     \item $\displaystyle\int_0^1\frac{\dd x}{\sqrt{x\ln(1/x)}}$；
     \item $\displaystyle\int_0^{+\infty}\frac{\sqrt[4]{x}}{(1+x)^2}\,\dd x$。
   \end{enumerate}
-  \item 试用 $\Gamma$ 函数或 B 函数表示
+\end{xexercise}
+
+\begin{xexercise}[2]
+试用 $\Gamma$ 函数或 B 函数表示
   \begin{enumerate}[label=(\arabic*)]
     \item $\displaystyle\int_0^{\pi/2}\tan^\alpha x\,\dd x$（$|\alpha|<1$）；
     \item $\displaystyle\int_{-1}^1(1+x)^a(1-x)^b\,\dd x$（$a,b>0$）。
   \end{enumerate}
-  \item $n$ 为正整数，$p>0$，证明：
+\end{xexercise}
+
+\begin{xexercise}[3]
+$n$ 为正整数，$p>0$，证明：
   \[
     \mathrm{B}(p,n)=\frac{(n-1)!}{p(p+1)\cdots(p+n-1)}.
   \]
-  \item 证明：$\ln\Gamma(x)$ 是下凸函数。
-  \item 按照下列步骤证明公式 $\mathrm{B}(p,q)=\dfrac{\Gamma(p)\Gamma(q)}{\Gamma(p+q)}$：
+\end{xexercise}
+
+\begin{xexercise}[4]
+证明：$\ln\Gamma(x)$ 是下凸函数。
+\end{xexercise}
+
+\begin{xexercise}[5]
+按照下列步骤证明公式 $\mathrm{B}(p,q)=\dfrac{\Gamma(p)\Gamma(q)}{\Gamma(p+q)}$：
   \begin{enumerate}[label=(\arabic*)]
     \item $\displaystyle\Gamma(p)=2\int_0^{+\infty}u^{2p-1}\ee^{-u^2}\,\dd u$；
     \item $\displaystyle\Gamma(p)\Gamma(q)=\lim_{A\to+\infty}4\iint_{G(A)}f(u,v)\,\dd u\dd v$，其中
@@ -1395,7 +1454,6 @@ $\varphi(1)=0$，且 $\varphi$ 是下凸函数。设 $0<x<1$，考虑 $\varphi$ 
     \]
     \item $\displaystyle\mathrm{B}(p,q)=\frac{\Gamma(p)\Gamma(q)}{\Gamma(p+q)}$。
   \end{enumerate}
-\end{enumerate}
 \end{xexercise}
 
 \section{对于教学的建议}
@@ -1422,9 +1480,8 @@ $\varphi(1)=0$，且 $\varphi$ 是下凸函数。设 $0<x<1$，考虑 $\varphi$ 
 本章的内容综合性强，计算题大多具有一定的技巧性。因此应在习题课上作比较系统的示范和总结。
 
 \subsection{参考题}
-\begin{xreferenceproblem}
-\begin{enumerate}
-  \item 设 $f(x,t),f_x(x,t)$ 连续，记
+\begin{xreferenceproblem}[1]
+设 $f(x,t),f_x(x,t)$ 连续，记
   \[
     u(x,t)=\frac1{2a}\int_0^t\dd\tau\int_{x-a(t-\tau)}^{x+a(t-\tau)}f(\xi,\tau)\,\dd\xi,
   \]
@@ -1432,7 +1489,10 @@ $\varphi(1)=0$，且 $\varphi$ 是下凸函数。设 $0<x<1$，考虑 $\varphi$ 
   \[
     \frac{\partial^2u}{\partial t^2}=a^2\frac{\partial^2u}{\partial x^2}+f(x,t).
   \]
-  \item 设 $n$ 为正整数，证明 Bessel 函数
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[2]
+设 $n$ 为正整数，证明 Bessel 函数
   \[
     J_n(x)=\frac1\pi\int_0^\pi\cos(n\varphi-x\sin\varphi)\,\dd\varphi
   \]
@@ -1440,7 +1500,10 @@ $\varphi(1)=0$，且 $\varphi$ 是下凸函数。设 $0<x<1$，考虑 $\varphi$ 
   \[
     x^2J_n''(x)+xJ_n'(x)+(x^2-n^2)J_n(x)=0.
   \]
-  \item 设 $f(x)$ 在 $[0,1]$ 上连续可微，且 $f(0)=0$，定义
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[3]
+设 $f(x)$ 在 $[0,1]$ 上连续可微，且 $f(0)=0$，定义
   \[
     \varphi(x)=\int_0^x\frac{f(t)}{\sqrt{x-t}}\,\dd t,\quad0<x\leqslant1,\quad\varphi(0)=0.
   \]
@@ -1452,51 +1515,92 @@ $\varphi(1)=0$，且 $\varphi$ 是下凸函数。设 $0<x<1$，考虑 $\varphi$ 
     \]
     \item $\displaystyle f(x)=\frac1\pi\int_0^x\frac{\varphi'(t)}{\sqrt{x-t}}\,\dd t$，$0<x\leqslant1$。
   \end{enumerate}
-  \item 设 $f(x)$ 在 $[0,A]$ 上单调（$A>0$），证明：
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[4]
+设 $f(x)$ 在 $[0,A]$ 上单调（$A>0$），证明：
   \[
     \lim_{\alpha\to+\infty}\int_0^A f(x)\frac{\sin\alpha x}{x}\,\dd x=\frac\pi2f(0^+).
   \]
-  \item 设 $F(t)=t\displaystyle\int_0^{+\infty}\ee^{-tx}f(x)\,\dd x$，其中 $f(x)$ 在 $[0,b]$ 上有界可积（$\forall b>0$），且 $\displaystyle\lim_{x\to+\infty}f(x)=\alpha$，证明：$\displaystyle\lim_{t\to0^+}F(t)=\alpha$。
-  \item 设 $f(x)$ 连续，且 $\displaystyle\int_{-\infty}^{+\infty}f^2(x)\,\dd x$ 收敛，证明：
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[5]
+设 $F(t)=t\displaystyle\int_0^{+\infty}\ee^{-tx}f(x)\,\dd x$，其中 $f(x)$ 在 $[0,b]$ 上有界可积（$\forall b>0$），且 $\displaystyle\lim_{x\to+\infty}f(x)=\alpha$，证明：$\displaystyle\lim_{t\to0^+}F(t)=\alpha$。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[6]
+设 $f(x)$ 连续，且 $\displaystyle\int_{-\infty}^{+\infty}f^2(x)\,\dd x$ 收敛，证明：
   \begin{enumerate}[label=(\arabic*)]
     \item $q(t)=\displaystyle\int_{-\infty}^{+\infty}f(t+u)f(u)\,\dd u$ 在 $(-\infty,+\infty)$ 上连续且有界；
     \item $\displaystyle\lim_{\varepsilon\to0^+}\frac1{2\sqrt{\varepsilon\pi}}\int_{-\infty}^{+\infty}\ee^{-t^2/(4\varepsilon)}g(t)\,\dd t=\int_{-\infty}^{+\infty}f^2(x)\,\dd x$。
   \end{enumerate}
-  \item 讨论下列函数在 $(0,1)$ 上的连续性：
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[7]
+讨论下列函数在 $(0,1)$ 上的连续性：
   \begin{enumerate}[label=(\arabic*)]
     \item $f(\alpha)=\displaystyle\int_0^{+\infty}\frac{\ee^{-t}}{|\sin t|^\alpha}\,\dd t$；
     \item $g(\alpha)=\displaystyle\int_0^1\frac{f(t)}{\sqrt{|t-\alpha|}}\,\dd t$，其中 $f(t)$ 是 $[0,1]$ 上的有界可积函数。
   \end{enumerate}
-  \item 求曲面 $(x^2+y^2)^2+z^4=y$ 所围立体的体积。
-  \item 求立体
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[8]
+求曲面 $(x^2+y^2)^2+z^4=y$ 所围立体的体积。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[9]
+求立体
   \[
     \left(\frac xa\right)^{1/n}+\left(\frac yb\right)^{1/n}+\left(\frac zc\right)^{1/n}\leqslant1,
     \qquad x,y,z\geqslant0
   \]
   的质心的 $x$ 坐标。
-  \item 求星形线 $x^{2/3}+y^{2/3}=R^{2/3}$ 所包围的面积对 $x$ 轴的惯性矩。
-  \item 设 $f(x)$ 在 $[0,1]$ 中连续，证明：
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[10]
+求星形线 $x^{2/3}+y^{2/3}=R^{2/3}$ 所包围的面积对 $x$ 轴的惯性矩。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[11]
+设 $f(x)$ 在 $[0,1]$ 中连续，证明：
   \[
     \lim_{t\to+\infty}\int_0^1t\ee^{-t^2x^2}f(x)\,\dd x=\frac{\sqrt\pi}{2}f(0).
   \]
-  \item 设 $\displaystyle\int_0^{+\infty}f(x)\,\dd x$ 收敛，证明：
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[12]
+设 $\displaystyle\int_0^{+\infty}f(x)\,\dd x$ 收敛，证明：
   \[
     \lim_{y\to0^+}\int_0^{+\infty}\ee^{-xy}f(x)\,\dd x=\int_0^{+\infty}f(x)\,\dd x.
   \]
-  \item 求 $\displaystyle\int_0^{+\infty}\cos x^p\,\dd x$，其中 $p>1$。
-  \item 求 $\displaystyle\int_0^1\ln\Gamma(x)\,\dd x$。
-  \item 求 Laplace（拉普拉斯）积分
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[13]
+求 $\displaystyle\int_0^{+\infty}\cos x^p\,\dd x$，其中 $p>1$。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[14]
+求 $\displaystyle\int_0^1\ln\Gamma(x)\,\dd x$。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[15]
+求 Laplace（拉普拉斯）积分
   \[
     I_k=\int_0^{+\infty}\frac{\cos bx}{(a^2+x^2)^k}\,\dd x,
     \qquad J_k=\int_0^{+\infty}\frac{x\sin bx}{(a^2+x^2)^k}\,\dd x,
   \]
   $a,b>0,k\in\NN_+$。
-  \item 应用 $\Gamma$ 函数的 Gauss 乘积分解公式 (13.38) 证明：Euler 常数
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[16]
+应用 $\Gamma$ 函数的 Gauss 乘积分解公式 (13.38) 证明：Euler 常数
   \[
     \gamma=\lim_{n\to\infty}\left(1+\frac12+\cdots+\frac1n-\ln n\right)=-\Gamma'(1).
   \]
-  \item
-  \begin{enumerate}[label=(\arabic*)]
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[17]
+\begin{enumerate}[label=(\arabic*)]
     \item 利用 $n$ 次单位根分解式证明：
     \[
       1+x+\cdots+x^{n-1}=\prod_{k=1}^{n-1}\left(x-\ee^{2k\pi\ii/n}\right);
@@ -1510,7 +1614,6 @@ $\varphi(1)=0$，且 $\varphi$ 是下凸函数。设 $0<x<1$，考虑 $\varphi$ 
       \Gamma\left(\frac1n\right)\Gamma\left(\frac2n\right)\cdots\Gamma\left(\frac{n-1}{n}\right)=\frac{(2\pi)^{(n-1)/2}}{\sqrt n}.
     \]
   \end{enumerate}
-\end{enumerate}
 \end{xreferenceproblem}
 
 \begin{center}

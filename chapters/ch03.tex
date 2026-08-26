@@ -110,12 +110,20 @@
 
 \subsection{练习题}
 
-\begin{xexercise}
-\begin{enumerate}
-  \item 试证明确界的唯一性。
-  \item 设对每个 $x\in A$ 成立 $x<a$。问：在 $\sup A<a$ 和 $\sup A\leqslant a$ 中哪个是对的？
-  \item 设数集 $A$ 以 $\beta$ 为上界，又有数列 $\{x_n\}\subset A$ 和 $\lim_{n\to\infty}x_n=\beta$。证明：$\beta=\sup A$。
-  \item 求下列数集的上确界和下确界：
+\begin{xexercise}[1]
+试证明确界的唯一性。
+\end{xexercise}
+
+\begin{xexercise}[2]
+设对每个 $x\in A$ 成立 $x<a$。问：在 $\sup A<a$ 和 $\sup A\leqslant a$ 中哪个是对的？
+\end{xexercise}
+
+\begin{xexercise}[3]
+设数集 $A$ 以 $\beta$ 为上界，又有数列 $\{x_n\}\subset A$ 和 $\lim_{n\to\infty}x_n=\beta$。证明：$\beta=\sup A$。
+\end{xexercise}
+
+\begin{xexercise}[4]
+求下列数集的上确界和下确界：
   \begin{enumerate}[label=(\arabic*)]
     \item $\{x\in\QQ\mid x>0\}$；
     \item $\{y\mid y=x^2,\ x\in(-\frac12,1)\}$；
@@ -125,22 +133,36 @@
     \item $\{(-1)^n+\frac1n(-1)^{n+1}\mid n\in\NN_+\}$；
     \item $\{1+n\sin\frac{n\pi}{2}\mid n\in\NN_+\}$。
   \end{enumerate}
-  \item 证明：
+\end{xexercise}
+
+\begin{xexercise}[5]
+证明：
   \begin{enumerate}[label=(\arabic*)]
     \item $\sup\{x_n+y_n\}\leqslant\sup\{x_n\}+\sup\{y_n\}$；
     \item $\inf\{x_n+y_n\}\geqslant\inf\{x_n\}+\inf\{y_n\}$。
   \end{enumerate}
-  \item 设有两个数集 $A$ 和 $B$，且对数集 $A$ 中的任何一个数 $x$ 和数集 $B$ 中的任何一个数 $y$ 成立不等式 $x<y$。证明：$\sup A\leqslant\inf B$。
-  \item 设数集 $A$ 有上界，数集 $B=\{x+c\mid x\in A\}$，其中 $c$ 是一个常数。证明：
+\end{xexercise}
+
+\begin{xexercise}[6]
+设有两个数集 $A$ 和 $B$，且对数集 $A$ 中的任何一个数 $x$ 和数集 $B$ 中的任何一个数 $y$ 成立不等式 $x<y$。证明：$\sup A\leqslant\inf B$。
+\end{xexercise}
+
+\begin{xexercise}[7]
+设数集 $A$ 有上界，数集 $B=\{x+c\mid x\in A\}$，其中 $c$ 是一个常数。证明：
   \[
     \sup B=\sup A+c;\qquad \inf B=\inf A+c.
   \]
-  \item 设 $A,B$ 是两个有上界的数集，又有数集 $C\subset\{x+y\mid x\in A,y\in B\}$，则 $\sup C\leqslant\sup A+\sup B$。举出成立严格不等号的例子。
-  \item 设 $A,B$ 是两个有上界的数集，又有数集 $C\supset\{x+y\mid x\in A,y\in B\}$，则 $\sup C\geqslant\sup A+\sup B$。举出成立严格不等号的例子。
-\end{enumerate}
+\end{xexercise}
+
+\begin{xexercise}[8]
+设 $A,B$ 是两个有上界的数集，又有数集 $C\subset\{x+y\mid x\in A,y\in B\}$，则 $\sup C\leqslant\sup A+\sup B$。举出成立严格不等号的例子。
+\end{xexercise}
+
+\begin{xexercise}[9]
+设 $A,B$ 是两个有上界的数集，又有数集 $C\supset\{x+y\mid x\in A,y\in B\}$，则 $\sup C\geqslant\sup A+\sup B$。举出成立严格不等号的例子。
+\end{xexercise}
 
 （合并以上两题可见：当且仅当 $C=\{x+y\mid x\in A,y\in B\}$ 时成立 $\sup C=\sup A+\sup B$。）
-\end{xexercise}
 
 \section{闭区间套定理}
 
@@ -206,14 +228,24 @@
 
 \subsection{练习题}
 
-\begin{xexercise}
-\begin{enumerate}
-  \item 如果数列是 $\{(-1)^n\}$，开始的区间是 $[-1,1]$，试用例题 3.2.2 中的方法具体找出一个闭区间套和相应的收敛子列。又问：你能否用这样的方法在这个例子中找出 3 个收敛子列？
-  \item 如闭区间套定理中的闭区间套改为开区间套 $\{(a_n,b_n)\}$，其他条件不变，则可以举出例子说明结论不成立。
-  \item 如 $\{(a_n,b_n)\}$ 为开区间套，数列 $\{a_n\}$ 严格单调增加，数列 $\{b_n\}$ 严格单调减少，又满足条件 $a_n<b_n$，$n\in\NN_+$，证明 $\bigcap_{n=1}^{\infty}(a_n,b_n)\neq\varnothing$。
-  \item 用闭区间套定理证明确界存在定理。
-  \item 用闭区间套定理证明单调有界数列的收敛定理。
-\end{enumerate}
+\begin{xexercise}[1]
+如果数列是 $\{(-1)^n\}$，开始的区间是 $[-1,1]$，试用例题 3.2.2 中的方法具体找出一个闭区间套和相应的收敛子列。又问：你能否用这样的方法在这个例子中找出 3 个收敛子列？
+\end{xexercise}
+
+\begin{xexercise}[2]
+如闭区间套定理中的闭区间套改为开区间套 $\{(a_n,b_n)\}$，其他条件不变，则可以举出例子说明结论不成立。
+\end{xexercise}
+
+\begin{xexercise}[3]
+如 $\{(a_n,b_n)\}$ 为开区间套，数列 $\{a_n\}$ 严格单调增加，数列 $\{b_n\}$ 严格单调减少，又满足条件 $a_n<b_n$，$n\in\NN_+$，证明 $\bigcap_{n=1}^{\infty}(a_n,b_n)\neq\varnothing$。
+\end{xexercise}
+
+\begin{xexercise}[4]
+用闭区间套定理证明确界存在定理。
+\end{xexercise}
+
+\begin{xexercise}[5]
+用闭区间套定理证明单调有界数列的收敛定理。
 \end{xexercise}
 
 \section{凝聚定理}
@@ -264,13 +296,20 @@
 
 \subsection{练习题}
 
-\begin{xexercise}
-\begin{enumerate}
-  \item 对于给定的数列 $\{x_n\}$ 和数 $a$，证明：在 $a$ 的每个邻域中有数列 $\{x_n\}$ 的无穷多项的充分必要条件是，$a$ 是数列 $\{x_n\}$ 的某个子列的极限。
-  \item 证明：有界数列发散的充分必要条件是存在两个收敛于不同极限值的子列。
-  \item 证明：若 $\{x_n\}$ 无界，但不是无穷大量，则存在两个子列，其中一个子列收敛，另一个子列是无穷大量。
-  \item 用凝聚定理证明单调有界数列的收敛定理。
-\end{enumerate}
+\begin{xexercise}[1]
+对于给定的数列 $\{x_n\}$ 和数 $a$，证明：在 $a$ 的每个邻域中有数列 $\{x_n\}$ 的无穷多项的充分必要条件是，$a$ 是数列 $\{x_n\}$ 的某个子列的极限。
+\end{xexercise}
+
+\begin{xexercise}[2]
+证明：有界数列发散的充分必要条件是存在两个收敛于不同极限值的子列。
+\end{xexercise}
+
+\begin{xexercise}[3]
+证明：若 $\{x_n\}$ 无界，但不是无穷大量，则存在两个子列，其中一个子列收敛，另一个子列是无穷大量。
+\end{xexercise}
+
+\begin{xexercise}[4]
+用凝聚定理证明单调有界数列的收敛定理。
 \end{xexercise}
 
 \section{Cauchy 收敛准则}
@@ -525,36 +564,51 @@ Cauchy 收敛准则是数列收敛的充分必要条件，其中的基本概念�
 
 \subsection{练习题}
 
-\begin{xexercise}
-\begin{enumerate}
-  \item 满足以下条件的数列 $\{x_n\}$ 是否一定是基本数列？若回答“是”，请作出证明；若回答“不一定是”，请举出反例：
+\begin{xexercise}[1]
+满足以下条件的数列 $\{x_n\}$ 是否一定是基本数列？若回答“是”，请作出证明；若回答“不一定是”，请举出反例：
   \begin{enumerate}[label=(\arabic*)]
     \item 对每个 $\varepsilon>0$，存在 $N$，当 $n>N$ 时，成立 $\abs{x_n-x_N}<\varepsilon$；
     \item 对所有 $n,p\in\NN_+$，成立不等式 $\abs{x_{n+p}-x_n}\leqslant p/n$；
     \item 对所有 $n,p\in\NN_+$，成立不等式 $\abs{x_{n+p}-x_n}\leqslant p/n^2$；
     \item 对每个正整数 $p$，成立 $\lim_{n\to\infty}(x_n-x_{n+p})=0$。
   \end{enumerate}
-  \item 用对偶法则于数列收敛的 Cauchy 收敛准则，以正面方式写出数列发散的充分必要条件。
-  \item 证明下列数列为基本数列，因此都是收敛数列：
+\end{xexercise}
+
+\begin{xexercise}[2]
+用对偶法则于数列收敛的 Cauchy 收敛准则，以正面方式写出数列发散的充分必要条件。
+\end{xexercise}
+
+\begin{xexercise}[3]
+证明下列数列为基本数列，因此都是收敛数列：
   \begin{enumerate}[label=(\arabic*)]
     \item $a_n=1+\frac1{2!}+\frac1{3!}+\cdots+\frac1{n!}$，$n\in\NN_+$；
     \item $b_n=1-\frac12+\frac13-\cdots+(-1)^{n-1}\frac1n$，$n\in\NN_+$；
     \item $c_n=\frac{\sin2x}{2(2+\sin2x)}+\frac{\sin3x}{3(3+\sin3x)}+\cdots+\frac{\sin nx}{n(n+\sin nx)}$，$n\in\NN_+$。
   \end{enumerate}
-  \item 设 $a_n=\sin1+\frac{\sin2}{2!}+\cdots+\frac{\sin n}{n!}$，$n\in\NN_+$，证明：(1) 数列 $\{a_n\}$ 有界，但不单调；(2) $\{a_n\}$ 收敛。
-  \item 设从某个数列 $\{a_n\}$ 定义
+\end{xexercise}
+
+\begin{xexercise}[4]
+设 $a_n=\sin1+\frac{\sin2}{2!}+\cdots+\frac{\sin n}{n!}$，$n\in\NN_+$，证明：(1) 数列 $\{a_n\}$ 有界，但不单调；(2) $\{a_n\}$ 收敛。
+\end{xexercise}
+
+\begin{xexercise}[5]
+设从某个数列 $\{a_n\}$ 定义
   \[
     x_n=\sum_{k=1}^{n}a_k,\qquad y_n=\sum_{k=1}^{n}\abs{a_k},\qquad n\in\NN_+,
   \]
   若数列 $\{y_n\}$ 收敛，证明数列 $\{x_n\}$ 也收敛。
 
   （本题可以看成是上一题和例题 3.4.1 的推广。）
+\end{xexercise}
 
-  \item 设 $S_n=1+\frac1{2^p}+\frac1{3^p}+\cdots+\frac1{n^p}$，$n\in\NN_+$，其中 $p\leqslant1$，证明 $\{S_n\}$ 发散。
-  \item 天文学中的 Kepler（开普勒）方程 $x-q\sin x=a$（$0<q<1$）是一个超越方程，没有求根公式（见 [15] 的 22 和 72 页），求近似解的一个方法是通过迭代。取定 $x_1$，然后用递推公式 $x_{n+1}=q\sin x_n+a$，$n\in\NN_+$。证明这个方法的正确性。
+\begin{xexercise}[6]
+设 $S_n=1+\frac1{2^p}+\frac1{3^p}+\cdots+\frac1{n^p}$，$n\in\NN_+$，其中 $p\leqslant1$，证明 $\{S_n\}$ 发散。
+\end{xexercise}
+
+\begin{xexercise}[7]
+天文学中的 Kepler（开普勒）方程 $x-q\sin x=a$（$0<q<1$）是一个超越方程，没有求根公式（见 [15] 的 22 和 72 页），求近似解的一个方法是通过迭代。取定 $x_1$，然后用递推公式 $x_{n+1}=q\sin x_n+a$，$n\in\NN_+$。证明这个方法的正确性。
 
   （这个方程是 Kepler 在 1609 年左右研究行星运动规律时得到的方程。从天体力学的角度来分析可以肯定，对每个给定的 $a$，方程存在唯一解。这个解没有可用的显式表达式，但可以用近似方法求解。本题就是用迭代生成数列的方法求近似解。在 [14] 第二卷的 452 小节有解的无穷级数表达式。）
-\end{enumerate}
 \end{xexercise}
 
 \section{覆盖定理}
@@ -658,14 +712,24 @@ Cauchy 收敛准则是数列收敛的充分必要条件，其中的基本概念�
 
 \subsection{练习题}
 
-\begin{xexercise}
-\begin{enumerate}
-  \item 对开区间 $(0,1)$ 构造一个开覆盖，使得它的每一个有限子集都不能覆盖 $(0,1)$。
-  \item 用闭区间套定理证明覆盖定理。
-  \item 用覆盖定理证明闭区间套定理。
-  \item 用覆盖定理证明凝聚定理。
-  \item 试对例题 3.5.2 的证明举出两个具体例子，即 (1) 数集 $A$ 无上界；(2) $A$ 有上界，且有 $b<\xi=\sup A$ 和 $\xi\notin A$。
-\end{enumerate}
+\begin{xexercise}[1]
+对开区间 $(0,1)$ 构造一个开覆盖，使得它的每一个有限子集都不能覆盖 $(0,1)$。
+\end{xexercise}
+
+\begin{xexercise}[2]
+用闭区间套定理证明覆盖定理。
+\end{xexercise}
+
+\begin{xexercise}[3]
+用覆盖定理证明闭区间套定理。
+\end{xexercise}
+
+\begin{xexercise}[4]
+用覆盖定理证明凝聚定理。
+\end{xexercise}
+
+\begin{xexercise}[5]
+试对例题 3.5.2 的证明举出两个具体例子，即 (1) 数集 $A$ 无上界；(2) $A$ 有上界，且有 $b<\xi=\sup A$ 和 $\xi\notin A$。
 \end{xexercise}
 
 \section{数列的上极限和下极限}
@@ -1094,22 +1158,27 @@ Cauchy 收敛准则是数列收敛的充分必要条件，其中的基本概念�
 
 \subsection{练习题}
 
-\begin{xexercise}
-\begin{enumerate}
-  \item 求下列数列的上极限和下极限：
+\begin{xexercise}[1]
+求下列数列的上极限和下极限：
   \begin{enumerate}[label=(\arabic*)]
     \item $x_n=\frac{1+(-1)^n}{2}$，$n\in\NN_+$；
     \item $x_n=\sin\frac{n\pi}{4}$，$n\in\NN_+$；
     \item $x_n=n^{(-1)^n}$，$n\in\NN_+$；
     \item $x_n=\ee^{n(-1)^n}$，$n\in\NN_+$。
   \end{enumerate}
-  \item 若 $x_n\geqslant y_n$，$n\in\NN_+$，证明：
+\end{xexercise}
+
+\begin{xexercise}[2]
+若 $x_n\geqslant y_n$，$n\in\NN_+$，证明：
   \[
     \overline{\lim}_{n\to\infty}x_n\geqslant\overline{\lim}_{n\to\infty}y_n,
     \qquad
     \underline{\lim}_{n\to\infty}x_n\geqslant\underline{\lim}_{n\to\infty}y_n.
   \]
-  \item 对 $\{x_n\}$，记 $S_n=\frac1n\sum_{k=1}^{n}x_k$，$n\in\NN_+$，证明：
+\end{xexercise}
+
+\begin{xexercise}[3]
+对 $\{x_n\}$，记 $S_n=\frac1n\sum_{k=1}^{n}x_k$，$n\in\NN_+$，证明：
   \[
     \underline{\lim}_{n\to\infty}x_n
     \leqslant\underline{\lim}_{n\to\infty}S_n
@@ -1117,7 +1186,10 @@ Cauchy 收敛准则是数列收敛的充分必要条件，其中的基本概念�
     \leqslant\overline{\lim}_{n\to\infty}x_n.
   \]
   （可以看出本题的结论蕴涵了 §2.4 中的 Cauchy 命题。）
-  \item 设 $\{a_n\}$ 为正数列，证明：
+\end{xexercise}
+
+\begin{xexercise}[4]
+设 $\{a_n\}$ 为正数列，证明：
   \[
     \overline{\lim}_{n\to\infty}\sqrt[n]{a_n}\leqslant1
   \]
@@ -1125,20 +1197,40 @@ Cauchy 收敛准则是数列收敛的充分必要条件，其中的基本概念�
   \[
     \lim_{n\to\infty}\frac{a_n}{l^n}=0.
   \]
-  \item 设 $\{a_n\}$ 为正数列，证明：
+\end{xexercise}
+
+\begin{xexercise}[5]
+设 $\{a_n\}$ 为正数列，证明：
   \[
     \underline{\lim}_{n\to\infty}\frac{a_{n+1}}{a_n}
     \leqslant\underline{\lim}_{n\to\infty}\sqrt[n]{a_n}
     \leqslant\overline{\lim}_{n\to\infty}\sqrt[n]{a_n}
     \leqslant\overline{\lim}_{n\to\infty}\frac{a_{n+1}}{a_n}.
   \]
-  \item 根据极限点的定义直接证明：每个数列的极限点集中必有最大数和最小数（不要利用命题 3.6.2 和 3.6.3 的现成结论）。
-  \item 证明在例题 3.6.2 中所用到的关于上、下极限的公式。
-  \item 证明公式 (3.2)。
-  \item 对上极限写出与命题 3.6.3 对应的结论，并作出证明。
-  \item 证明公式 (3.5)。
-  \item 证明命题 3.6.5。
-\end{enumerate}
+\end{xexercise}
+
+\begin{xexercise}[6]
+根据极限点的定义直接证明：每个数列的极限点集中必有最大数和最小数（不要利用命题 3.6.2 和 3.6.3 的现成结论）。
+\end{xexercise}
+
+\begin{xexercise}[7]
+证明在例题 3.6.2 中所用到的关于上、下极限的公式。
+\end{xexercise}
+
+\begin{xexercise}[8]
+证明公式 (3.2)。
+\end{xexercise}
+
+\begin{xexercise}[9]
+对上极限写出与命题 3.6.3 对应的结论，并作出证明。
+\end{xexercise}
+
+\begin{xexercise}[10]
+证明公式 (3.5)。
+\end{xexercise}
+
+\begin{xexercise}[11]
+证明命题 3.6.5。
 \end{xexercise}
 
 \section{对于教学的建议}
@@ -1234,17 +1326,30 @@ Cauchy 收敛准则是数列收敛的充分必要条件，其中的基本概念�
 
 \subsubsection*{第一组参考题}
 
-\begin{xreferenceproblem}
-\begin{enumerate}
-  \item 证明：数列有界的充分必要条件是它的每个子列有收敛子列。
-  \item 证明：数列收敛的充分必要条件是存在一个数 $a$，使数列的每个子列有收敛于 $a$ 的子列。
-  \item 证明：在有界闭区间上的无界函数一定在这个区间的某一点的每一个邻域上无界。又问：在开区间上的无界函数是否有与此类似的性质？
-  \item 设函数 $f$ 在区间 $(a,b)$ 上定义，对区间 $(a,b)$ 的每一个点 $\xi$，存在 $\delta>0$，当 $x\in(\xi-\delta,\xi+\delta)\cap(a,b)$ 时，如 $x<\xi$，则 $f(x)<f(\xi)$；如 $x>\xi$，则 $f(x)>f(\xi)$。证明：函数 $f$ 在 $(a,b)$ 上严格单调增加。
-  \item 试用上、下极限的工具证明第二章 2.4.1 小节中的 Stolz 定理。
+\begin{xreferenceproblem}[1]
+证明：数列有界的充分必要条件是它的每个子列有收敛子列。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[2]
+证明：数列收敛的充分必要条件是存在一个数 $a$，使数列的每个子列有收敛于 $a$ 的子列。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[3]
+证明：在有界闭区间上的无界函数一定在这个区间的某一点的每一个邻域上无界。又问：在开区间上的无界函数是否有与此类似的性质？
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[4]
+设函数 $f$ 在区间 $(a,b)$ 上定义，对区间 $(a,b)$ 的每一个点 $\xi$，存在 $\delta>0$，当 $x\in(\xi-\delta,\xi+\delta)\cap(a,b)$ 时，如 $x<\xi$，则 $f(x)<f(\xi)$；如 $x>\xi$，则 $f(x)>f(\xi)$。证明：函数 $f$ 在 $(a,b)$ 上严格单调增加。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[5]
+试用上、下极限的工具证明第二章 2.4.1 小节中的 Stolz 定理。
 
   （参考 3.6.4 小节的题 3。）
+\end{xreferenceproblem}
 
-  \item 设 $\{x_n\},\{y_n\}$ 是非负数列，在以下乘积均有意义时证明：
+\begin{xreferenceproblem}[6]
+设 $\{x_n\},\{y_n\}$ 是非负数列，在以下乘积均有意义时证明：
   \[
     \underline{\lim}_{n\to\infty}x_n\,
     \underline{\lim}_{n\to\infty}y_n
@@ -1257,33 +1362,52 @@ Cauchy 收敛准则是数列收敛的充分必要条件，其中的基本概念�
     \leqslant\overline{\lim}_{n\to\infty}x_n\,
     \overline{\lim}_{n\to\infty}y_n.
   \]
-  \item 设 $\{x_n\}$ 为正数列。用上、下极限证明：若 $\lim_{n\to\infty}\frac{x_{n+1}}{x_n}=l$，则 $\lim_{n\to\infty}\sqrt[n]{x_n}=l$。
-  \item 若对于数列 $\{a_n\}$ 的每个子列 $\{a_{n_k}\}$ 都有
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[7]
+设 $\{x_n\}$ 为正数列。用上、下极限证明：若 $\lim_{n\to\infty}\frac{x_{n+1}}{x_n}=l$，则 $\lim_{n\to\infty}\sqrt[n]{x_n}=l$。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[8]
+若对于数列 $\{a_n\}$ 的每个子列 $\{a_{n_k}\}$ 都有
   \[
     \lim_{k\to\infty}\frac{a_{n_1}+a_{n_2}+\cdots+a_{n_k}}{k}=a,
   \]
   证明：$\lim_{n\to\infty}a_n=a$。
-  \item 设 $\{x_n\}$ 为正数列，证明
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[9]
+设 $\{x_n\}$ 为正数列，证明
   \[
     \underline{\lim}_{n\to\infty}n\left(\frac{1+x_{n+1}}{x_n}-1\right)\geqslant1,
   \]
   且右边的 $1$ 为最佳值。
-  \item 设 $\{x_n\}$ 为正数列，证明
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[10]
+设 $\{x_n\}$ 为正数列，证明
   \[
     \overline{\lim}_{n\to\infty}\left(\frac{x_1+x_{n+1}}{x_n}\right)^n\geqslant\ee,
   \]
   且右边的 $\ee$ 为最佳值。
-\end{enumerate}
 \end{xreferenceproblem}
 
 \subsubsection*{第二组参考题}
 
-\begin{xreferenceproblem}
-\begin{enumerate}
-  \item 从确界存在定理出发，证明：对于 $\RR$ 中的任何两个正数 $a,b$，存在正整数 $n$，使得 $na>b$。（这个结论常称为 Archimedes 公理或原理。）
-  \item 设有两个非空实数集 $A$ 和 $B$，满足条件：(1) $\RR=A\cup B$；(2) 在 $A$ 中的每一个数都小于 $B$ 中的每一个数，证明：或者 $A$ 有最大数而 $B$ 无最小数，或者 $B$ 有最小数而 $A$ 无最大数。（这就是 Dedekind（戴德金）的连续性定理或公理，它与实数系的每一个基本定理等价。）
-  \item 证明：将实数 $\RR$ 分成两个非空集合 $A$ 和 $B$，则或者 $A$ 中有数列收敛于 $B$ 中的点，或者 $B$ 中有数列收敛于 $A$ 中的点。（这个结论称为实数的连通性，它与实数系的每一个基本定理等价。）
-  \item 试用压缩映射原理证明数列
+\begin{xreferenceproblem}[1]
+从确界存在定理出发，证明：对于 $\RR$ 中的任何两个正数 $a,b$，存在正整数 $n$，使得 $na>b$。（这个结论常称为 Archimedes 公理或原理。）
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[2]
+设有两个非空实数集 $A$ 和 $B$，满足条件：(1) $\RR=A\cup B$；(2) 在 $A$ 中的每一个数都小于 $B$ 中的每一个数，证明：或者 $A$ 有最大数而 $B$ 无最小数，或者 $B$ 有最小数而 $A$ 无最大数。（这就是 Dedekind（戴德金）的连续性定理或公理，它与实数系的每一个基本定理等价。）
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[3]
+证明：将实数 $\RR$ 分成两个非空集合 $A$ 和 $B$，则或者 $A$ 中有数列收敛于 $B$ 中的点，或者 $B$ 中有数列收敛于 $A$ 中的点。（这个结论称为实数的连通性，它与实数系的每一个基本定理等价。）
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[4]
+试用压缩映射原理证明数列
   \[
     \sqrt7,\quad
     \sqrt{7-\sqrt7},\quad
@@ -1293,14 +1417,19 @@ Cauchy 收敛准则是数列收敛的充分必要条件，其中的基本概念�
   收敛，并计算其极限。
 
   （即用压缩映射原理重做第二章的第二组参考题 16。）
+\end{xreferenceproblem}
 
-  \item 设有界数列 $\{x_n\}$ 具有如下性质：对于每个数列 $\{y_n\}$，成立
+\begin{xreferenceproblem}[5]
+设有界数列 $\{x_n\}$ 具有如下性质：对于每个数列 $\{y_n\}$，成立
   \[
     \overline{\lim}_{n\to\infty}(x_n+y_n)
     =\overline{\lim}_{n\to\infty}x_n+\overline{\lim}_{n\to\infty}y_n.
   \]
   证明 $\{x_n\}$ 收敛。
-  \item \begin{enumerate}[label=(\arabic*)]
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[6]
+\begin{enumerate}[label=(\arabic*)]
     \item 设 $\{x_n\}$ 为正数列，且 $\lim_{n\to\infty}x_n=0$。证明：存在无限多个 $n$，成立
     \[
       x_n<x_k,\qquad k=1,2,\cdots,n-1.
@@ -1310,11 +1439,22 @@ Cauchy 收敛准则是数列收敛的充分必要条件，其中的基本概念�
       \overline{\lim}_{n\to\infty}\frac{x_{n+1}}{x_n}\geqslant1.
     \]
   \end{enumerate}
-  \item 设 $y_n=px_n+qx_{n+1}$，$n\in\NN_+$，其中 $\abs p<\abs q$。证明：若 $\{y_n\}$ 收敛，则 $\{x_n\}$ 也收敛。
-  \item 设 $\{x_n\}$ 有界，且 $\lim_{n\to\infty}(x_{2n}+2x_n)=A$。证明 $\{x_n\}$ 收敛，并求其极限。
-  \item 设 $x_n=\sin n$，$n\in\NN_+$，证明数列 $\{x_n\}$ 的极限点集合为 $[-1,1]$。
-  \item 设 $\{x_n\}$ 有界，且 $\lim_{n\to\infty}(x_{n+1}-x_n)=0$。将 $\{x_n\}$ 的下极限和上极限分别记为 $l$ 和 $L$，证明：在区间 $[l,L]$ 中的每一个点都是数列 $\{x_n\}$ 的极限点。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[7]
+设 $y_n=px_n+qx_{n+1}$，$n\in\NN_+$，其中 $\abs p<\abs q$。证明：若 $\{y_n\}$ 收敛，则 $\{x_n\}$ 也收敛。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[8]
+设 $\{x_n\}$ 有界，且 $\lim_{n\to\infty}(x_{2n}+2x_n)=A$。证明 $\{x_n\}$ 收敛，并求其极限。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[9]
+设 $x_n=\sin n$，$n\in\NN_+$，证明数列 $\{x_n\}$ 的极限点集合为 $[-1,1]$。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[10]
+设 $\{x_n\}$ 有界，且 $\lim_{n\to\infty}(x_{n+1}-x_n)=0$。将 $\{x_n\}$ 的下极限和上极限分别记为 $l$ 和 $L$，证明：在区间 $[l,L]$ 中的每一个点都是数列 $\{x_n\}$ 的极限点。
 
   （众所周知，本题的条件与基本数列的条件差得很远，一般来说当然不能保证数列 $\{x_n\}$ 收敛。但是 1976 年有人发现，如果 $\{x_n\}$ 是迭代生成数列，则从 $\lim_{n\to\infty}(x_{n+1}-x_n)=0$，差不多就可以推出 $\{x_n\}$ 收敛，从而 $l=L$。确切内容请看第五章第二组参考题 20。）
-\end{enumerate}
 \end{xreferenceproblem}

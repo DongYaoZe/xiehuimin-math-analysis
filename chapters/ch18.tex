@@ -331,18 +331,19 @@
 
 \subsection{思考题}
 
-\begin{xthought}
-\begin{enumerate}[label=\arabic*.]
-  \item 证明多元函数极限的 Heine 归结原理：设点 $\vect{a}\in\RR^n,A\in\RR$，则 $\displaystyle\lim_{\vect{x}\to\vect{a}}f(\vect{x})=A$ 的充分必要条件是：对满足条件 $\vect{x}_n\ne\vect{a}$（$n=1,2,\ldots$）、$\displaystyle\lim_{n\to\infty}\vect{x}_n=\vect{a}$ 的每个点列 $\{\vect{x}_n\}$，都有
+\begin{xthought}[1]
+证明多元函数极限的 Heine 归结原理：设点 $\vect{a}\in\RR^n,A\in\RR$，则 $\displaystyle\lim_{\vect{x}\to\vect{a}}f(\vect{x})=A$ 的充分必要条件是：对满足条件 $\vect{x}_n\ne\vect{a}$（$n=1,2,\ldots$）、$\displaystyle\lim_{n\to\infty}\vect{x}_n=\vect{a}$ 的每个点列 $\{\vect{x}_n\}$，都有
   \[
     \lim_{n\to\infty}f(\vect{x}_n)=A.
   \]
   （参见上册 104--105 页。）
-  \item 证明多元函数极限的 Cauchy 收敛准则：函数 $f(\vect{x})$ 在点 $\vect{a}$ 有极限的充分必要条件是对每一个 $\varepsilon>0$，$\exists\delta>0$，使得对于 $O_\delta(\vect{a})\setminus\{\vect{a}\}$ 中的每一对点 $\vect{x}',\vect{x}''$，满足不等式
+\end{xthought}
+
+\begin{xthought}[2]
+证明多元函数极限的 Cauchy 收敛准则：函数 $f(\vect{x})$ 在点 $\vect{a}$ 有极限的充分必要条件是对每一个 $\varepsilon>0$，$\exists\delta>0$，使得对于 $O_\delta(\vect{a})\setminus\{\vect{a}\}$ 中的每一对点 $\vect{x}',\vect{x}''$，满足不等式
   \[
     \abs{f(\vect{x}')-f(\vect{x}'')}<\varepsilon.
   \]
-\end{enumerate}
 \end{xthought}
 
 \subsection{关于累次极限换序}
@@ -435,9 +436,8 @@ $f(x,y)$ 在点 $(x_0,y_0)$ 的一个去心邻域上有定义，如果
 
 \subsection{练习题}
 
-\begin{xexercise}
-\begin{enumerate}[label=\arabic*.]
-  \item 求下列极限：
+\begin{xexercise}[1]
+求下列极限：
   \begin{enumerate}[label=(\arabic*)]
     \item $\displaystyle\lim_{(x,y)\to(0,a)}\frac{\sin xy}{x}$；
     \item $\displaystyle\lim_{(x,y)\to(0,0)}(x+y)\ln(x^2+y^2)$；
@@ -452,8 +452,14 @@ $f(x,y)$ 在点 $(x_0,y_0)$ 的一个去心邻域上有定义，如果
     \item $\displaystyle\lim_{(x,y)\to(\infty,0)}\left(1+\frac1x\right)^{\frac{x^2}{x+y}}$；
     \item $\displaystyle\lim_{(x,y)\to(\infty,\infty)}\frac{x+y}{x^2-xy+y^2}$。
   \end{enumerate}
-  \item 证明：$\displaystyle\lim_{(x,y)\to(0,0)}\frac{x^2y^2}{x^3+y^3}$ 不存在。
-  \item 讨论下列函数在点 $(0,0)$ 的重极限与累次极限：
+\end{xexercise}
+
+\begin{xexercise}[2]
+证明：$\displaystyle\lim_{(x,y)\to(0,0)}\frac{x^2y^2}{x^3+y^3}$ 不存在。
+\end{xexercise}
+
+\begin{xexercise}[3]
+讨论下列函数在点 $(0,0)$ 的重极限与累次极限：
   \begin{enumerate}[label=(\arabic*)]
     \item $\displaystyle\frac{x^2y^2}{x^2y^2+(x-y)^2}$；
     \item $\displaystyle(x+y)\sin\frac1x\sin\frac1y$；
@@ -466,13 +472,22 @@ $f(x,y)$ 在点 $(x_0,y_0)$ 的一个去心邻域上有定义，如果
       \end{cases}
     \]
   \end{enumerate}
-  \item 设一元函数 $f(t)$ 在 $\RR$ 上有连续导数，定义二元函数
+\end{xexercise}
+
+\begin{xexercise}[4]
+设一元函数 $f(t)$ 在 $\RR$ 上有连续导数，定义二元函数
   \[
     g(x,y)=\frac{f(x)-f(y)}{x-y},\qquad x\ne y,
   \]
   求 $\displaystyle\lim_{(x,y)\to(t,t)}g(x,y)$。
-  \item 叙述并证明二元函数极限存在的惟一性定理、局部有界性定理与局部保号性定理。
-  \item 设 $\displaystyle\lim_{y\to y_0}\varphi(y)=A$，$\displaystyle\lim_{x\to x_0}\psi(x)=0$，且在点 $(x_0,y_0)$ 附近有
+\end{xexercise}
+
+\begin{xexercise}[5]
+叙述并证明二元函数极限存在的惟一性定理、局部有界性定理与局部保号性定理。
+\end{xexercise}
+
+\begin{xexercise}[6]
+设 $\displaystyle\lim_{y\to y_0}\varphi(y)=A$，$\displaystyle\lim_{x\to x_0}\psi(x)=0$，且在点 $(x_0,y_0)$ 附近有
   \[
     \abs{f(x,y)-\varphi(y)}\le\psi(x),
   \]
@@ -480,8 +495,10 @@ $f(x,y)$ 在点 $(x_0,y_0)$ 的一个去心邻域上有定义，如果
   \[
     \lim_{(x,y)\to(x_0,y_0)}f(x,y)=A.
   \]
-  \item 证明：在命题 18.1.2 中若 $f(x,y)$ 除直线 $x=x_0,y=y_0$ 外有定义，其他条件不变，则重极限与两个累次极限都存在，并且相等。
-\end{enumerate}
+\end{xexercise}
+
+\begin{xexercise}[7]
+证明：在命题 18.1.2 中若 $f(x,y)$ 除直线 $x=x_0,y=y_0$ 外有定义，其他条件不变，则重极限与两个累次极限都存在，并且相等。
 \end{xexercise}
 
 \section{多元函数的连续性}
@@ -1000,20 +1017,40 @@ $\forall\varepsilon>0$，要找 $\delta>0$，使得当 $1-\delta<\rho<1,\ \abs{\
 
 \subsection{练习题}
 
-\begin{xexercise}
-\begin{enumerate}[label=\arabic*.]
-  \item 设二元函数 $f(x,y)$ 在 $[a,b]\times[c,d]$ 上连续，函数列 $\varphi_n(x)$（$n=1,2,\ldots$）在 $[a,b]$ 上一致收敛并满足条件 $c\le\varphi_n(x)\le d$，证明：函数列
+\begin{xexercise}[1]
+设二元函数 $f(x,y)$ 在 $[a,b]\times[c,d]$ 上连续，函数列 $\varphi_n(x)$（$n=1,2,\ldots$）在 $[a,b]$ 上一致收敛并满足条件 $c\le\varphi_n(x)\le d$，证明：函数列
   \[
     F_n(x)=f(x,\varphi_n(x))\qquad(n=1,2,\ldots)
   \]
   在 $[a,b]$ 上一致收敛。
-  \item 证明：$f(x,y)=\sqrt{x^2+y^2}$ 在 $\RR^2$ 上一致连续。
-  \item 在命题 18.2.1 中，由 (1) 直接证 (4)。
-  \item 如果 $f$ 把 $\RR$ 中的任意开集映为开集，问 $f$ 是否是 $\RR$ 上的连续函数。
-  \item $f(x,y)$ 在 $\RR^2$ 上连续，且 $\displaystyle\lim_{\abs{x}+\abs{y}\to\infty}f(x,y)$ 存在。证明：$f(x,y)$ 在 $\RR^2$ 上有界，且一致连续。
-  \item 证明：若 $D\subset\RR^2$ 是有界闭域，$f$ 为 $D$ 上连续函数，则 $f(D)$ 是一个有界闭区间。
-  \item 利用命题 18.2.1 和例题 18.2.7 重新证明上一章的第二组参考题 5。
-  \item （14.1.1 小节中 Dini 判别法的推广）设 $D$ 是 $\RR^n$ 中的紧集，$\{f_k\}$ 是 $D$ 上的连续函数列，且对每一点 $\vect{x}\in D$ 有
+\end{xexercise}
+
+\begin{xexercise}[2]
+证明：$f(x,y)=\sqrt{x^2+y^2}$ 在 $\RR^2$ 上一致连续。
+\end{xexercise}
+
+\begin{xexercise}[3]
+在命题 18.2.1 中，由 (1) 直接证 (4)。
+\end{xexercise}
+
+\begin{xexercise}[4]
+如果 $f$ 把 $\RR$ 中的任意开集映为开集，问 $f$ 是否是 $\RR$ 上的连续函数。
+\end{xexercise}
+
+\begin{xexercise}[5]
+$f(x,y)$ 在 $\RR^2$ 上连续，且 $\displaystyle\lim_{\abs{x}+\abs{y}\to\infty}f(x,y)$ 存在。证明：$f(x,y)$ 在 $\RR^2$ 上有界，且一致连续。
+\end{xexercise}
+
+\begin{xexercise}[6]
+证明：若 $D\subset\RR^2$ 是有界闭域，$f$ 为 $D$ 上连续函数，则 $f(D)$ 是一个有界闭区间。
+\end{xexercise}
+
+\begin{xexercise}[7]
+利用命题 18.2.1 和例题 18.2.7 重新证明上一章的第二组参考题 5。
+\end{xexercise}
+
+\begin{xexercise}[8]
+（14.1.1 小节中 Dini 判别法的推广）设 $D$ 是 $\RR^n$ 中的紧集，$\{f_k\}$ 是 $D$ 上的连续函数列，且对每一点 $\vect{x}\in D$ 有
   \[
     f_1(\vect{x})\ge f_2(\vect{x})\ge\cdots\ge f_k(\vect{x})\ge\cdots
   \]
@@ -1022,13 +1059,18 @@ $\forall\varepsilon>0$，要找 $\delta>0$，使得当 $1-\delta<\rho<1,\ \abs{\
     \lim_{k\to\infty}f_k(\vect{x})=0.
   \]
   证明：函数列 $\{f_k\}$ 在 $D$ 上一致收敛。
-  \item 证明：在例题 18.2.8 中的 $\omega_f(\vect{a})$ 可改用
+\end{xexercise}
+
+\begin{xexercise}[9]
+证明：在例题 18.2.8 中的 $\omega_f(\vect{a})$ 可改用
   \[
     \lim_{\delta\to0^+}\sup_{\abs{\vect{a}-\vect{x}}\le\delta}
     \{\abs{f(\vect{a})-f(\vect{x})}\}.
   \]
-  \item 证明：连续映射把紧集映为紧集。
-\end{enumerate}
+\end{xexercise}
+
+\begin{xexercise}[10]
+证明：连续映射把紧集映为紧集。
 \end{xexercise}
 
 \section{对于教学的建议}
@@ -1083,9 +1125,8 @@ $\forall\varepsilon>0$，要找 $\delta>0$，使得当 $1-\delta<\rho<1,\ \abs{\
 
 \subsubsection*{第一组参考题}
 
-\begin{xreferenceproblem}
-\begin{enumerate}[label=\arabic*.]
-  \item 设 $f(x,y)$ 关于 $x$ 在 $[a,b]$ 上连续，且关于 $y$ 单调增加。如果有
+\begin{xreferenceproblem}[1]
+设 $f(x,y)$ 关于 $x$ 在 $[a,b]$ 上连续，且关于 $y$ 单调增加。如果有
   \[
     \lim_{y\to d^-}f(x,y)=f(x,d),\qquad x\in[a,b],
   \]
@@ -1093,21 +1134,27 @@ $\forall\varepsilon>0$，要找 $\delta>0$，使得当 $1-\delta<\rho<1,\ \abs{\
   \[
     \abs{f(x,y)-f(x,d)}<\varepsilon.
   \]
+\end{xreferenceproblem}
 
-  \item 设 $f$ 在 $[a,b]\times[a,b]$ 上连续，定义
+\begin{xreferenceproblem}[2]
+设 $f$ 在 $[a,b]\times[a,b]$ 上连续，定义
   \[
     \varphi(x)=\max_{a\le\xi\le x}
     \left\{\max_{a\le y\le\xi}\{f(\xi,y)\}\right\},
   \]
   证明：$\varphi(x)$ 在 $[a,b]$ 上连续。
+\end{xreferenceproblem}
 
-  \item 设 $D$ 是 $\RR^n$ 的紧子集，$f$ 为定义在 $D$ 上的函数，证明：$f$ 在 $D$ 上连续的充分必要条件是下列集合
+\begin{xreferenceproblem}[3]
+设 $D$ 是 $\RR^n$ 的紧子集，$f$ 为定义在 $D$ 上的函数，证明：$f$ 在 $D$ 上连续的充分必要条件是下列集合
   \[
     \{(\vect{x},y)\in\RR^{n+1}\mid y=f(\vect{x}),\ \vect{x}\in D\}
   \]
   是 $\RR^{n+1}$ 中的紧集。
+\end{xreferenceproblem}
 
-  \item 设 $f_1,f_2,\ldots,f_n$ 是 $[0,1]$ 上的 $n$ 个连续函数，称 $f_1,f_2,\ldots,f_n$ 在 $[0,1]$ 上线性相关，若存在不全为零的常数 $c_1,c_2,\ldots,c_n$，使得
+\begin{xreferenceproblem}[4]
+设 $f_1,f_2,\ldots,f_n$ 是 $[0,1]$ 上的 $n$ 个连续函数，称 $f_1,f_2,\ldots,f_n$ 在 $[0,1]$ 上线性相关，若存在不全为零的常数 $c_1,c_2,\ldots,c_n$，使得
   \[
     \sum_{j=1}^n c_jf_j(x)=0,\qquad x\in[0,1].
   \]
@@ -1116,10 +1163,14 @@ $\forall\varepsilon>0$，要找 $\delta>0$，使得当 $1-\delta<\rho<1,\ \abs{\
     \det\left(\left[\int_0^1 f_i(x)f_j(x)\,\dd x\right]_{n\times n}\right)=0,
   \]
   其中 $\det(\mat{A})$ 是 $\mat{A}$ 的行列式。
+\end{xreferenceproblem}
 
-  \item 设 $p_1,p_2,\ldots,p_k$ 是 $\RR^2$ 上的 $k$ 个相异的点，证明：存在一个最小半径的圆盘 $B$，把这 $k$ 个点覆盖。对于 $\RR^n$ 中的点，也有类似的命题。
+\begin{xreferenceproblem}[5]
+设 $p_1,p_2,\ldots,p_k$ 是 $\RR^2$ 上的 $k$ 个相异的点，证明：存在一个最小半径的圆盘 $B$，把这 $k$ 个点覆盖。对于 $\RR^n$ 中的点，也有类似的命题。
+\end{xreferenceproblem}
 
-  \item 设 $\mat{A},\mat{B}$ 是两个 $n$ 阶的实对称方阵，其中 $\mat{B}$ 是正定矩阵。设函数
+\begin{xreferenceproblem}[6]
+设 $\mat{A},\mat{B}$ 是两个 $n$ 阶的实对称方阵，其中 $\mat{B}$ 是正定矩阵。设函数
   \[
     G(\vect{x})=(\vect{x}^{\mathsf T}\mat{B}\vect{x})^{-1}
     (\vect{x}^{\mathsf T}\mat{A}\vect{x})
@@ -1129,30 +1180,34 @@ $\forall\varepsilon>0$，要找 $\delta>0$，使得当 $1-\delta<\rho<1,\ \abs{\
     \item $G(\vect{x})$ 可以在 $E$ 上取到最大值；
     \item $G(\vect{x})$ 的最大值点是与 $\mat{A},\mat{B}$ 有关的某个矩阵的特征向量。请写出这个矩阵。
   \end{enumerate}
-\end{enumerate}
 \end{xreferenceproblem}
 
 \subsubsection*{第二组参考题}
 
-\begin{xreferenceproblem}
-\begin{enumerate}[label=\arabic*.]
-  \item 设 $T$ 是 $\RR^n$ 到 $\RR^n$ 的一个映射，如果存在常数 $\theta$，$0\le\theta<1$ 以及正整数 $n_0$，使得
+\begin{xreferenceproblem}[1]
+设 $T$ 是 $\RR^n$ 到 $\RR^n$ 的一个映射，如果存在常数 $\theta$，$0\le\theta<1$ 以及正整数 $n_0$，使得
   \[
     \abs{T^{n_0}\vect{x}-T^{n_0}\vect{y}}\le\theta\abs{\vect{x}-\vect{y}},
     \qquad \forall\vect{x},\vect{y}\in\RR^n,
   \]
   证明：映射 $T$ 有惟一的不动点。
+\end{xreferenceproblem}
 
-  \item 设 $\Omega$ 是 $\RR^n$ 中的有界闭集，$f$ 是 $\Omega$ 到 $\Omega$ 的一个映射，满足
+\begin{xreferenceproblem}[2]
+设 $\Omega$ 是 $\RR^n$ 中的有界闭集，$f$ 是 $\Omega$ 到 $\Omega$ 的一个映射，满足
   \[
     \abs{f(\vect{x})-f(\vect{y})}<\abs{\vect{x}-\vect{y}},
     \qquad \forall\vect{x},\vect{y}\in\Omega,\ \vect{x}\ne\vect{y}.
   \]
   证明：$f$ 在 $\Omega$ 中存在惟一的不动点。能否把命题中有界闭集的假设减弱为一般的有界集或无界的闭集？
+\end{xreferenceproblem}
 
-  \item 证明：连续映射将连通集映为连通集。
+\begin{xreferenceproblem}[3]
+证明：连续映射将连通集映为连通集。
+\end{xreferenceproblem}
 
-  \item 设 $\Omega$ 是 $\RR^n$ 中的区域，函数 $f$ 定义在 $\Omega$ 上。对于点 $\vect{x}_0\in\Omega$，如果 $\forall\varepsilon>0$，存在 $\delta>0$，使得当 $\vect{x}\in\Omega$，且 $\abs{\vect{x}-\vect{x}_0}<\delta$ 时
+\begin{xreferenceproblem}[4]
+设 $\Omega$ 是 $\RR^n$ 中的区域，函数 $f$ 定义在 $\Omega$ 上。对于点 $\vect{x}_0\in\Omega$，如果 $\forall\varepsilon>0$，存在 $\delta>0$，使得当 $\vect{x}\in\Omega$，且 $\abs{\vect{x}-\vect{x}_0}<\delta$ 时
   \[
     f(\vect{x})<f(\vect{x}_0)+\varepsilon
     \qquad(\text{或 }f(\vect{x})>f(\vect{x}_0)-\varepsilon),
@@ -1168,10 +1223,14 @@ $\forall\varepsilon>0$，要找 $\delta>0$，使得当 $1-\delta<\rho<1,\ \abs{\
       \liminf_{\Omega\ni\vect{x}\to\vect{x}_0}f(\vect{x})\ge f(\vect{x}_0).
     \]
   \end{enumerate}
+\end{xreferenceproblem}
 
-  \item 设 $\Omega$ 是 $\RR^n$ 中的紧集，$f$ 是 $\Omega$ 上的上半连续函数（下半连续函数），则 $f$ 在 $\Omega$ 上有上界并达到最大值（有下界并达到最小值）。
+\begin{xreferenceproblem}[5]
+设 $\Omega$ 是 $\RR^n$ 中的紧集，$f$ 是 $\Omega$ 上的上半连续函数（下半连续函数），则 $f$ 在 $\Omega$ 上有上界并达到最大值（有下界并达到最小值）。
+\end{xreferenceproblem}
 
-  \item 设 $\{f_k\}$ 是 $\RR^n$ 中紧集 $\Omega$ 上的连续函数列，如果对每个点 $\vect{x}\in\Omega$，均有
+\begin{xreferenceproblem}[6]
+设 $\{f_k\}$ 是 $\RR^n$ 中紧集 $\Omega$ 上的连续函数列，如果对每个点 $\vect{x}\in\Omega$，均有
   \[
     \sup_k\{f_k(\vect{x})\}<+\infty,
   \]
@@ -1180,8 +1239,10 @@ $\forall\varepsilon>0$，要找 $\delta>0$，使得当 $1-\delta<\rho<1,\ \abs{\
     f(\vect{x})=\sup_k\{f_k(\vect{x})\}
   \]
   在 $\Omega$ 上达最小值。
+\end{xreferenceproblem}
 
-  \item （Peano 曲线\footnote{关于 Peano 曲线这个名称的由来以及另一个例子见 16.4.2 小节。}）设 $\Delta$ 是 $\RR^2$ 中由 $y=0$，$y=\sqrt3x$ 和 $y=-\sqrt3x+\sqrt3$ 所围成的正三角形闭区域。映射 $f_0\colon[0,1]\to\Delta$ 定义为
+\begin{xreferenceproblem}[7]
+（Peano 曲线\footnote{关于 Peano 曲线这个名称的由来以及另一个例子见 16.4.2 小节。}）设 $\Delta$ 是 $\RR^2$ 中由 $y=0$，$y=\sqrt3x$ 和 $y=-\sqrt3x+\sqrt3$ 所围成的正三角形闭区域。映射 $f_0\colon[0,1]\to\Delta$ 定义为
   \[
     f_0(0)=(0,0),\qquad
     f_0\left(\frac12\right)=\left(\frac12,\frac{\sqrt3}{6}\right),\qquad
@@ -1214,8 +1275,10 @@ $\forall\varepsilon>0$，要找 $\delta>0$，使得当 $1-\delta<\rho<1,\ \abs{\
     从而 $f_n(t)$（$n=1,2,\ldots$）在 $[0,1]$ 上一致收敛。设其极限映射为 $f$，证明 $f\colon[0,1]\to\Delta$ 连续；
     \item 证明：$f([0,1])=\Delta$，即连续映射 $f$ 把一个区间 $[0,1]$ 映为 $\RR^2$ 中的一个面积为 $\dfrac{\sqrt3}{4}$ 的区域 $\Delta$。
   \end{enumerate}
+\end{xreferenceproblem}
 
-  \item （Tietze（蒂策）扩张定理）设 $D\subset\RR^n$ 为闭子集，$f\colon D\to\RR$ 为连续函数，且
+\begin{xreferenceproblem}[8]
+（Tietze（蒂策）扩张定理）设 $D\subset\RR^n$ 为闭子集，$f\colon D\to\RR$ 为连续函数，且
   \[
     \abs{f(\vect{x})}\le M,\qquad \vect{x}\in D.
   \]
@@ -1242,9 +1305,12 @@ $\forall\varepsilon>0$，要找 $\delta>0$，使得当 $1-\delta<\rho<1,\ \abs{\
     \item 证明：(1) 的结论当 $f$ 并不有界时也成立。
   \end{enumerate}
   （以上两题取自 [2]，又见 [3] 之 §16.3。）
+\end{xreferenceproblem}
 
-  \item 是否能把开集上的连续函数连续扩张到全空间？一致连续函数呢？考察 $\RR$ 中的例子。
+\begin{xreferenceproblem}[9]
+是否能把开集上的连续函数连续扩张到全空间？一致连续函数呢？考察 $\RR$ 中的例子。
+\end{xreferenceproblem}
 
-  \item 证明：可以把定义在 $\RR^n$ 中有理点集上的一致连续函数惟一扩张到全空间。
-\end{enumerate}
+\begin{xreferenceproblem}[10]
+证明：可以把定义在 $\RR^n$ 中有理点集上的一致连续函数惟一扩张到全空间。
 \end{xreferenceproblem}

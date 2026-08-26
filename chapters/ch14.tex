@@ -318,9 +318,8 @@
 
 \subsection{练习题}
 
-\begin{xexercise}
-\begin{enumerate}
-  \item 讨论函数列或函数项级数在给定区间上的一致收敛性：
+\begin{xexercise}[1]
+讨论函数列或函数项级数在给定区间上的一致收敛性：
   \begin{enumerate}[label=(\arabic*)]
     \item $S_n(x)=\dfrac{x}{1+n^2x^2},\ n=1,2,\ldots,\ x\in(-\infty,+\infty)$；
     \item $S_n(x)=\dfrac{nx}{1+n^2x^2},\ n=1,2,\ldots,\ x\in(-\infty,+\infty)$；
@@ -332,32 +331,70 @@
     \item $\displaystyle\sum_{n=1}^{\infty}\frac{\sin x\sin nx}{\sqrt{n+x}},\quad x>0$；
     \item $\displaystyle\sum_{n=1}^{\infty}\frac1n\left[\ee^x-\left(1+\frac{x}{n}\right)^n\right]$；(i) 有限闭区间 $[0,b]$，(ii) $[0,+\infty)$。
   \end{enumerate}
-  \item 确定函数项级数 $\displaystyle\sum_{n=1}^{\infty}\frac{x^n}{1+x^{2n}}$ 的收敛域与一致收敛域。
-  \item 证明：函数项级数 $\displaystyle\sum_{n=1}^{\infty}\frac{(-1)^{n-1}x^2}{(1+x^2)^n}$ 在 $(-\infty,+\infty)$ 上绝对收敛且一致收敛，但不绝对一致收敛。
-  \item 证明：函数项级数 $\displaystyle\sum_{n=2}^{\infty}\ln\left(1+\frac{x}{n\ln^2n}\right)$ 在区间 $(-a,a)$ 上一致收敛，其中 $a$ 是小于 $2\ln^2 2$ 的任意固定正数。
-  \item 证明：函数项级数 $\displaystyle\sum_{n=1}^{\infty}2^n\sin\frac{1}{3^nx}$ 在 $(0,+\infty)$ 上处处收敛，但不一致收敛。
-  \item 证明：函数项级数 $\displaystyle\sum_{n=0}^{\infty}\int_0^x t^n\sin\pi t\,\dd t$ 在 $[0,1]$ 上一致收敛。
-  \item 设 $\{f_n\}$ 是有界闭区间 $[a,b]$ 上的连续函数列，且设该函数列在 $(a,b)$ 上一致收敛，证明：$\{f_n\}$ 在点 $a$ 和 $b$ 都收敛，且在 $[a,b]$ 上一致收敛。
-  \item 设 $f$ 在 $(a,b)$ 上有连续导函数，定义
+\end{xexercise}
+
+\begin{xexercise}[2]
+确定函数项级数 $\displaystyle\sum_{n=1}^{\infty}\frac{x^n}{1+x^{2n}}$ 的收敛域与一致收敛域。
+\end{xexercise}
+
+\begin{xexercise}[3]
+证明：函数项级数 $\displaystyle\sum_{n=1}^{\infty}\frac{(-1)^{n-1}x^2}{(1+x^2)^n}$ 在 $(-\infty,+\infty)$ 上绝对收敛且一致收敛，但不绝对一致收敛。
+\end{xexercise}
+
+\begin{xexercise}[4]
+证明：函数项级数 $\displaystyle\sum_{n=2}^{\infty}\ln\left(1+\frac{x}{n\ln^2n}\right)$ 在区间 $(-a,a)$ 上一致收敛，其中 $a$ 是小于 $2\ln^2 2$ 的任意固定正数。
+\end{xexercise}
+
+\begin{xexercise}[5]
+证明：函数项级数 $\displaystyle\sum_{n=1}^{\infty}2^n\sin\frac{1}{3^nx}$ 在 $(0,+\infty)$ 上处处收敛，但不一致收敛。
+\end{xexercise}
+
+\begin{xexercise}[6]
+证明：函数项级数 $\displaystyle\sum_{n=0}^{\infty}\int_0^x t^n\sin\pi t\,\dd t$ 在 $[0,1]$ 上一致收敛。
+\end{xexercise}
+
+\begin{xexercise}[7]
+设 $\{f_n\}$ 是有界闭区间 $[a,b]$ 上的连续函数列，且设该函数列在 $(a,b)$ 上一致收敛，证明：$\{f_n\}$ 在点 $a$ 和 $b$ 都收敛，且在 $[a,b]$ 上一致收敛。
+\end{xexercise}
+
+\begin{xexercise}[8]
+设 $f$ 在 $(a,b)$ 上有连续导函数，定义
   \[
     F_n(x)=\frac n2\left[f\left(x+\frac1n\right)-f\left(x-\frac1n\right)\right],\quad x\in(a,b),\ n=1,2,\ldots.
   \]
   证明：函数列 $\{F_n\}$ 在 $(a,b)$ 上处处收敛且内闭一致收敛。
-  \item 设函数列 $\{u_n(x)\}$ 中的函数在 $[a,b]$ 上同为单调增加函数或同为单调减少函数，如果 $\displaystyle\sum_{n=1}^{\infty}u_n(a)$ 与 $\displaystyle\sum_{n=1}^{\infty}u_n(b)$ 都绝对收敛，证明：函数项级数 $\displaystyle\sum_{n=1}^{\infty}u_n(x)$ 在 $[a,b]$ 上一致收敛。
-  \item 设在区间 $[a,b]$ 上的连续函数列 $\{f_n\}$ 一致收敛于极限函数 $f$，且已知 $f$ 在 $[a,b]$ 上无零点，证明：函数列 $\left\{\dfrac1{f_n}\right\}$ 在 $[a,b]$ 上一致收敛。
-  \item 设函数列 $\{f_n\}$ 于区间 $I$ 上一致收敛，又设每个 $f_n$ 于 $I$ 上有界，证明：函数列 $\{f_n\}$ 于 $I$ 上一致有界。
-  \item 设函数列 $\{f_n\}$ 与 $\{g_n\}$ 分别在区间 $I$ 上一致收敛。如果每个 $f_n$ 和 $g_n$ 在 $I$ 上有界，证明：函数列 $\{f_n\cdot g_n\}$ 在 $I$ 上一致收敛。\footnote{如允许 $f_n$（或 $g_n$）无界，则结论可不成立（见 [62] 的第二册 282 页）。}
-  \item 设 $f\in C(-\infty,+\infty)$，定义函数列
+\end{xexercise}
+
+\begin{xexercise}[9]
+设函数列 $\{u_n(x)\}$ 中的函数在 $[a,b]$ 上同为单调增加函数或同为单调减少函数，如果 $\displaystyle\sum_{n=1}^{\infty}u_n(a)$ 与 $\displaystyle\sum_{n=1}^{\infty}u_n(b)$ 都绝对收敛，证明：函数项级数 $\displaystyle\sum_{n=1}^{\infty}u_n(x)$ 在 $[a,b]$ 上一致收敛。
+\end{xexercise}
+
+\begin{xexercise}[10]
+设在区间 $[a,b]$ 上的连续函数列 $\{f_n\}$ 一致收敛于极限函数 $f$，且已知 $f$ 在 $[a,b]$ 上无零点，证明：函数列 $\left\{\dfrac1{f_n}\right\}$ 在 $[a,b]$ 上一致收敛。
+\end{xexercise}
+
+\begin{xexercise}[11]
+设函数列 $\{f_n\}$ 于区间 $I$ 上一致收敛，又设每个 $f_n$ 于 $I$ 上有界，证明：函数列 $\{f_n\}$ 于 $I$ 上一致有界。
+\end{xexercise}
+
+\begin{xexercise}[12]
+设函数列 $\{f_n\}$ 与 $\{g_n\}$ 分别在区间 $I$ 上一致收敛。如果每个 $f_n$ 和 $g_n$ 在 $I$ 上有界，证明：函数列 $\{f_n\cdot g_n\}$ 在 $I$ 上一致收敛。\footnote{如允许 $f_n$（或 $g_n$）无界，则结论可不成立（见 [62] 的第二册 282 页）。}
+\end{xexercise}
+
+\begin{xexercise}[13]
+设 $f\in C(-\infty,+\infty)$，定义函数列
   \[
     S_n(x)=\sum_{k=1}^{n}\frac1n f\left(x+\frac{k}{n}\right),\quad n=1,2,\ldots,
   \]
   证明：函数列 $\{S_n(x)\}$ 在 $(-\infty,+\infty)$ 上内闭一致收敛。
-  \item 设 $S_1(x)\in R[a,b]$，定义
+\end{xexercise}
+
+\begin{xexercise}[14]
+设 $S_1(x)\in R[a,b]$，定义
   \[
     S_{n+1}(x)=\int_a^x S_n(t)\,\dd t,\quad n=1,2,\ldots.
   \]
   证明：函数列 $\{S_n(x)\}$ 在 $[a,b]$ 上一致收敛。
-\end{enumerate}
 \end{xexercise}
 
 \section{和函数与极限函数的性质}
@@ -695,13 +732,24 @@
 
 \subsection{练习题}
 
-\begin{xexercise}
-\begin{enumerate}
-  \item 计算 $\displaystyle\lim_{x\to0+}\sum_{n=1}^{\infty}\frac1{2^n n^x}$。
-  \item 确定函数 $\displaystyle S(x)=\sum_{n=1}^{\infty}\left(x+\frac1n\right)^n$ 的定义域，并讨论其连续性与可微性。
-  \item 证明：函数项级数 $\displaystyle\sum_{n=1}^{\infty}\frac{x+n(-1)^n}{x^2+n^2}$ 在任意有界闭区间上一致收敛，并且它的和函数在 $(-\infty,+\infty)$ 上可导。
-  \item 设 $\{S_n(x)\}$ 是在 $(-\infty,+\infty)$ 上一致连续的函数列，且已知它在 $(-\infty,+\infty)$ 上一致收敛于函数 $S(x)$，证明：函数 $S(x)$ 在 $(-\infty,+\infty)$ 上一致连续。
-  \item 设连续函数列 $\{f_n\}$ 在 $[a,b]$ 上收敛，且 $\forall\varepsilon\in(0,b-a)$，$\{f_n\}$ 在 $[a,b-\varepsilon]$ 上一致收敛。如果存在 $g\in R[a,b]$，使
+\begin{xexercise}[1]
+计算 $\displaystyle\lim_{x\to0+}\sum_{n=1}^{\infty}\frac1{2^n n^x}$。
+\end{xexercise}
+
+\begin{xexercise}[2]
+确定函数 $\displaystyle S(x)=\sum_{n=1}^{\infty}\left(x+\frac1n\right)^n$ 的定义域，并讨论其连续性与可微性。
+\end{xexercise}
+
+\begin{xexercise}[3]
+证明：函数项级数 $\displaystyle\sum_{n=1}^{\infty}\frac{x+n(-1)^n}{x^2+n^2}$ 在任意有界闭区间上一致收敛，并且它的和函数在 $(-\infty,+\infty)$ 上可导。
+\end{xexercise}
+
+\begin{xexercise}[4]
+设 $\{S_n(x)\}$ 是在 $(-\infty,+\infty)$ 上一致连续的函数列，且已知它在 $(-\infty,+\infty)$ 上一致收敛于函数 $S(x)$，证明：函数 $S(x)$ 在 $(-\infty,+\infty)$ 上一致连续。
+\end{xexercise}
+
+\begin{xexercise}[5]
+设连续函数列 $\{f_n\}$ 在 $[a,b]$ 上收敛，且 $\forall\varepsilon\in(0,b-a)$，$\{f_n\}$ 在 $[a,b-\varepsilon]$ 上一致收敛。如果存在 $g\in R[a,b]$，使
   \[
     \abs{f_n(x)}\leqslant g(x),\quad x\in[a,b],\quad n=1,2,\ldots,
   \]
@@ -709,10 +757,18 @@
   \[
     \lim_{n\to\infty}\int_a^b f_n(x)\,\dd x=\int_a^b\lim_{n\to\infty}f_n(x)\,\dd x.
   \]
-  \item 设函数列 $\{f_n\}$ 于点 $x_0$ 的某邻域 $O(x_0)$ 中收敛于函数 $f$，又设每个 $f_n$ 于点 $x_0$ 连续，证明：$f$ 在点 $x_0$ 连续的充分必要条件是 $\forall\varepsilon>0,\ \exists\delta>0,\ \exists N$，使得对于每个 $x\in O_\delta(x_0)$，成立 $\abs{f_N(x)-f(x)}<\varepsilon$。
-  \item 设函数列 $\{f_n\}$ 在区间 $[a,b]$ 上收敛于函数 $f\in C[a,b]$，证明：$\{f_n\}$ 于 $[a,b]$ 上一致收敛的充分必要条件是对于 $[a,b]$ 中的每个收敛数列 $\{x_n\}$，$\displaystyle\lim_{n\to\infty}x_n=x_0$，有 $\displaystyle\lim_{n\to\infty}f_n(x_n)=f(x_0)$。
-  \item 设可积函数列 $\{f_n\}$ 在 $[a,b]$ 上一致收敛于函数 $f$，且已知每个 $f_n$ 在 $[a,b]$ 上有原函数，证明：$f$ 在 $[a,b]$ 上也有原函数。
-\end{enumerate}
+\end{xexercise}
+
+\begin{xexercise}[6]
+设函数列 $\{f_n\}$ 于点 $x_0$ 的某邻域 $O(x_0)$ 中收敛于函数 $f$，又设每个 $f_n$ 于点 $x_0$ 连续，证明：$f$ 在点 $x_0$ 连续的充分必要条件是 $\forall\varepsilon>0,\ \exists\delta>0,\ \exists N$，使得对于每个 $x\in O_\delta(x_0)$，成立 $\abs{f_N(x)-f(x)}<\varepsilon$。
+\end{xexercise}
+
+\begin{xexercise}[7]
+设函数列 $\{f_n\}$ 在区间 $[a,b]$ 上收敛于函数 $f\in C[a,b]$，证明：$\{f_n\}$ 于 $[a,b]$ 上一致收敛的充分必要条件是对于 $[a,b]$ 中的每个收敛数列 $\{x_n\}$，$\displaystyle\lim_{n\to\infty}x_n=x_0$，有 $\displaystyle\lim_{n\to\infty}f_n(x_n)=f(x_0)$。
+\end{xexercise}
+
+\begin{xexercise}[8]
+设可积函数列 $\{f_n\}$ 在 $[a,b]$ 上一致收敛于函数 $f$，且已知每个 $f_n$ 在 $[a,b]$ 上有原函数，证明：$f$ 在 $[a,b]$ 上也有原函数。
 \end{xexercise}
 
 \section{幂级数的收敛域与和函数}
@@ -751,20 +807,36 @@
 
 \subsection{思考题}
 
-\begin{xthought}
-\begin{enumerate}
-  \item 如果幂级数 $\displaystyle\sum_{n=0}^{\infty}a_n(x-x_0)^n$ 在 $a,b$ 两点收敛（$a<b$），问：该级数在 $[a,b]$ 上的收敛、绝对收敛和一致收敛的情况如何？
-  \item 设 $\displaystyle\sum_{n=0}^{\infty}a_nx^n$ 与 $\displaystyle\sum_{n=0}^{\infty}b_nx^n$ 的收敛半径分别为 $R_1$ 与 $R_2$，讨论 $\displaystyle\sum_{n=0}^{\infty}(a_n+b_n)x^n$ 与 $\displaystyle\sum_{n=0}^{\infty}(a_nb_n)x^n$ 的收敛半径。
-  \item 设 $\displaystyle\sum_{n=0}^{\infty}a_n(x-x_0)^n$ 的收敛半径是 $R$，且在 $(x_0-R,x_0+R)$ 上一致收敛，问该级数在 $x=x_0\pm R$ 处的敛散性怎样？
-  \item 问：是否可以用 Weierstrass 判别法（即优级数判别法）证明 Abel 第二定理（即命题 14.3.2）？
-  \item 设幂级数 $\displaystyle\sum_{n=0}^{\infty}a_nx^n$ 的收敛半径 $R>0$，试问：
+\begin{xthought}[1]
+如果幂级数 $\displaystyle\sum_{n=0}^{\infty}a_n(x-x_0)^n$ 在 $a,b$ 两点收敛（$a<b$），问：该级数在 $[a,b]$ 上的收敛、绝对收敛和一致收敛的情况如何？
+\end{xthought}
+
+\begin{xthought}[2]
+设 $\displaystyle\sum_{n=0}^{\infty}a_nx^n$ 与 $\displaystyle\sum_{n=0}^{\infty}b_nx^n$ 的收敛半径分别为 $R_1$ 与 $R_2$，讨论 $\displaystyle\sum_{n=0}^{\infty}(a_n+b_n)x^n$ 与 $\displaystyle\sum_{n=0}^{\infty}(a_nb_n)x^n$ 的收敛半径。
+\end{xthought}
+
+\begin{xthought}[3]
+设 $\displaystyle\sum_{n=0}^{\infty}a_n(x-x_0)^n$ 的收敛半径是 $R$，且在 $(x_0-R,x_0+R)$ 上一致收敛，问该级数在 $x=x_0\pm R$ 处的敛散性怎样？
+\end{xthought}
+
+\begin{xthought}[4]
+问：是否可以用 Weierstrass 判别法（即优级数判别法）证明 Abel 第二定理（即命题 14.3.2）？
+\end{xthought}
+
+\begin{xthought}[5]
+设幂级数 $\displaystyle\sum_{n=0}^{\infty}a_nx^n$ 的收敛半径 $R>0$，试问：
   \begin{enumerate}[label=(\arabic*)]
     \item 是否成立 $\displaystyle\int_0^R\left(\sum_{n=0}^{\infty}a_nx^n\right)\dd x=\sum_{n=0}^{\infty}\frac{a_n}{n+1}R^{n+1}$？
     \item 如果上式右边的级数收敛，上式是否成立？
   \end{enumerate}
-  \item 已知 $\displaystyle\sum_{n=0}^{\infty}a_nx^n$ 的收敛半径为 $R$，问 $\displaystyle\sum_{n=0}^{\infty}a_nx^{2n}$ 的收敛半径是多少？
-  \item 已知 $\displaystyle\sum_{n=0}^{\infty}a_nx^n$ 的收敛半径 $R=1$，和函数为 $S(x)$。如果 $\displaystyle\sum_{n=0}^{\infty}a_n$ 发散，能否推出极限 $\displaystyle\lim_{x\to1-}S(x)$ 不存在？（试考虑 $\displaystyle\sum_{n=0}^{\infty}(-1)^nx^n$。）如果 $\displaystyle\sum_{n=0}^{\infty}a_n$ 为正项级数，则答案如何？
-\end{enumerate}
+\end{xthought}
+
+\begin{xthought}[6]
+已知 $\displaystyle\sum_{n=0}^{\infty}a_nx^n$ 的收敛半径为 $R$，问 $\displaystyle\sum_{n=0}^{\infty}a_nx^{2n}$ 的收敛半径是多少？
+\end{xthought}
+
+\begin{xthought}[7]
+已知 $\displaystyle\sum_{n=0}^{\infty}a_nx^n$ 的收敛半径 $R=1$，和函数为 $S(x)$。如果 $\displaystyle\sum_{n=0}^{\infty}a_n$ 发散，能否推出极限 $\displaystyle\lim_{x\to1-}S(x)$ 不存在？（试考虑 $\displaystyle\sum_{n=0}^{\infty}(-1)^nx^n$。）如果 $\displaystyle\sum_{n=0}^{\infty}a_n$ 为正项级数，则答案如何？
 \end{xthought}
 
 \subsection{例题}
@@ -956,14 +1028,25 @@
 
 \subsection{练习题}
 
-\begin{xexercise}
-\begin{enumerate}
-  \item 求级数 $\displaystyle\sum_{n=1}^{\infty}\frac{1^n+2^n+\cdots+k^n}{n^2}\left(\frac{1-x}{1+x}\right)^n$ 的收敛域，其中 $k>1$ 为整数。
+\begin{xexercise}[1]
+求级数 $\displaystyle\sum_{n=1}^{\infty}\frac{1^n+2^n+\cdots+k^n}{n^2}\left(\frac{1-x}{1+x}\right)^n$ 的收敛域，其中 $k>1$ 为整数。
   % SOURCE-ERR: 原书求和下限印作 n=0；因分母为 n^2，n=0 项无定义，此处改为 n=1。
-  \item 设 $\{a_n\}$ 为等差数列，$a_0\ne0$，试求 $\displaystyle\sum_{n=0}^{\infty}a_nx^n$ 的收敛半径。
-  \item 求幂级数 $\displaystyle\sum_{n=0}^{\infty}\frac{a^n}{1+a^{2n}}x^n\ (a>0)$ 的收敛半径。
-  \item 对任意正整数 $k$，证明：幂级数 $\displaystyle\sum_{n=0}^{\infty}\frac{(n!)^k}{(kn)!}x^n$ 的收敛半径为 $k^k$，收敛域为 $(-k^k,k^k)$。
-  \item 求下列幂级数（或广义幂级数）的收敛域：
+\end{xexercise}
+
+\begin{xexercise}[2]
+设 $\{a_n\}$ 为等差数列，$a_0\ne0$，试求 $\displaystyle\sum_{n=0}^{\infty}a_nx^n$ 的收敛半径。
+\end{xexercise}
+
+\begin{xexercise}[3]
+求幂级数 $\displaystyle\sum_{n=0}^{\infty}\frac{a^n}{1+a^{2n}}x^n\ (a>0)$ 的收敛半径。
+\end{xexercise}
+
+\begin{xexercise}[4]
+对任意正整数 $k$，证明：幂级数 $\displaystyle\sum_{n=0}^{\infty}\frac{(n!)^k}{(kn)!}x^n$ 的收敛半径为 $k^k$，收敛域为 $(-k^k,k^k)$。
+\end{xexercise}
+
+\begin{xexercise}[5]
+求下列幂级数（或广义幂级数）的收敛域：
   \begin{enumerate}[label=(\arabic*)]
     \item $\displaystyle\sum_{n=1}^{\infty}\left(1+\frac1n\right)^{n^2}x^n$；
     \item $\displaystyle\sum_{n=1}^{\infty}\frac{(-1)^n}{n!}\left(\frac ne\right)^n x^n$；
@@ -974,7 +1057,10 @@
     \item $\displaystyle\sum_{n=1}^{\infty}\sin\frac1{3n}(x^2+x+1)^n$；
     \item $\displaystyle\sum_{n=0}^{\infty}\frac{n-1}{n^2+1}\left(\frac{x}{3x+1}\right)^n$。
   \end{enumerate}
-  \item 求下列幂级数的收敛域与和函数：
+\end{xexercise}
+
+\begin{xexercise}[6]
+求下列幂级数的收敛域与和函数：
   \begin{enumerate}[label=(\arabic*)]
     \item $\displaystyle\sum_{n=2}^{\infty}(-1)^n\frac{x^{n+1}}{n^2-1}$；
     \item $\displaystyle\sum_{n=1}^{\infty}\frac{(-1)^{n-1}}{n(2n-1)}x^{2n}$；
@@ -983,29 +1069,49 @@
     \item $\displaystyle\sum_{n=0}^{\infty}(2^{n+2}-1)x^{2n}$；
     \item $\displaystyle\sum_{n=1}^{\infty}n(x-1)^n$。
   \end{enumerate}
-  \item 证明：$\displaystyle u(x)=\sum_{n=0}^{\infty}\frac1{(4n)!}x^{4n}$ 在 $(-\infty,+\infty)$ 上满足微分方程 $u^{(4)}=u$。
-  \item 证明：Bessel（贝塞尔）函数 $\displaystyle J_0(x)=\sum_{n=0}^{\infty}\frac{(-1)^n}{(n!)^2 2^{2n}}x^{2n}$ 满足微分方程
+\end{xexercise}
+
+\begin{xexercise}[7]
+证明：$\displaystyle u(x)=\sum_{n=0}^{\infty}\frac1{(4n)!}x^{4n}$ 在 $(-\infty,+\infty)$ 上满足微分方程 $u^{(4)}=u$。
+\end{xexercise}
+
+\begin{xexercise}[8]
+证明：Bessel（贝塞尔）函数 $\displaystyle J_0(x)=\sum_{n=0}^{\infty}\frac{(-1)^n}{(n!)^2 2^{2n}}x^{2n}$ 满足微分方程
   \[
     xu''+u'+xu=0.
   \]
-  \item 设 $\displaystyle S(x)=\sum_{n=1}^{\infty}\frac1{n^2\ln(1+n)}x^n$，证明：
+\end{xexercise}
+
+\begin{xexercise}[9]
+设 $\displaystyle S(x)=\sum_{n=1}^{\infty}\frac1{n^2\ln(1+n)}x^n$，证明：
   \begin{enumerate}[label=(\arabic*)]
     \item 函数 $S\in C[-1,1]$；
     \item $S'_+(-1)$ 有限，而 $S'_-(1)=+\infty$。
   \end{enumerate}
   （可参考上册 194 页命题 7.1.7 和本章 14.3.2 小节的第 7 题。）
-  \item 设 $\displaystyle f(x)=\sum_{n=1}^{\infty}\frac{2^n}{n^2}x^n$，证明：函数 $f$ 在 $\left[-\frac12,\frac12\right]$ 上连续，在 $\left[-\frac12,\frac12\right)$ 上可导，并讨论 $f$ 在 $\dfrac12$ 处的可导性。
-  \item 设 $\displaystyle f(x)=\sum_{n=1}^{\infty}\frac{x^n}{n^2},\ -1\leqslant x\leqslant1$。证明：当 $x\in(0,1)$ 时有
+\end{xexercise}
+
+\begin{xexercise}[10]
+设 $\displaystyle f(x)=\sum_{n=1}^{\infty}\frac{2^n}{n^2}x^n$，证明：函数 $f$ 在 $\left[-\frac12,\frac12\right]$ 上连续，在 $\left[-\frac12,\frac12\right)$ 上可导，并讨论 $f$ 在 $\dfrac12$ 处的可导性。
+\end{xexercise}
+
+\begin{xexercise}[11]
+设 $\displaystyle f(x)=\sum_{n=1}^{\infty}\frac{x^n}{n^2},\ -1\leqslant x\leqslant1$。证明：当 $x\in(0,1)$ 时有
   \[
     f(x)+f(1-x)+\ln x\ln(1-x)=\frac{\pi^2}{6}.
   \]
-  \item 设幂级数 $\displaystyle\sum_{n=0}^{\infty}a_nx^n$ 的收敛半径 $R=+\infty$，将级数的部分和函数列记为 $\{S_n\}$，将和函数记为 $S$，证明：函数列 $\{S\circ S_n\}$ 在 $(-\infty,+\infty)$ 上内闭一致收敛于 $S\circ S$。
-  \item 设级数 $\displaystyle\sum_{n=0}^{\infty}a_n$ 发散，记 $S_n=a_0+a_1+\cdots+a_n,\ n=0,1,\ldots$。证明：
+\end{xexercise}
+
+\begin{xexercise}[12]
+设幂级数 $\displaystyle\sum_{n=0}^{\infty}a_nx^n$ 的收敛半径 $R=+\infty$，将级数的部分和函数列记为 $\{S_n\}$，将和函数记为 $S$，证明：函数列 $\{S\circ S_n\}$ 在 $(-\infty,+\infty)$ 上内闭一致收敛于 $S\circ S$。
+\end{xexercise}
+
+\begin{xexercise}[13]
+设级数 $\displaystyle\sum_{n=0}^{\infty}a_n$ 发散，记 $S_n=a_0+a_1+\cdots+a_n,\ n=0,1,\ldots$。证明：
   \begin{enumerate}[label=(\arabic*)]
     \item 幂级数 $\displaystyle\sum_{n=0}^{\infty}a_nx^n$ 和 $\displaystyle\sum_{n=0}^{\infty}S_nx^n$ 有相同的收敛半径；
     \item 若 $a_n\geqslant0,\ n=0,1,\ldots$，且 $\displaystyle\lim_{n\to\infty}\frac{a_n}{S_n}=0$，则 $\displaystyle\sum_{n=0}^{\infty}a_nx^n$ 的收敛半径为 $1$。
   \end{enumerate}
-\end{enumerate}
 \end{xexercise}
 
 \section{函数的幂级数展开}
@@ -1405,13 +1511,24 @@ $f$ 在点 $x_0$ 的邻域 $U(x_0)$ 能展开为幂级数 $\displaystyle\sum_{n=
 
 \subsection{练习题}
 
-\begin{xexercise}
-\begin{enumerate}
-  \item 将函数 $f(x)=\dfrac1{a-x}\ (a\ne0)$ 分别按 $x$、$x-b$、$\dfrac1x$ 的乘幂展开。
-  \item 将函数 $f(x)=\ln x$ 展开为 $\dfrac{x-1}{x+1}$ 的幂级数。
-  \item 设函数 $f$ 在区间 $(-a,a)\ (a>0)$ 上无限次可微，且导函数序列 $\{f^{(n)}\}$ 在 $(-a,a)$ 上一致有界，证明：$f$ 在 $(-a,a)$ 上可以展开为 Maclaurin 级数。
-  \item 设函数 $f$ 在 $(-\infty,+\infty)$ 上无穷次可导，并且其导函数列在 $(-\infty,+\infty)$ 上一致有界。如果存在正数数列 $\{x_n\}$，使 $\displaystyle\lim_{n\to\infty}x_n=0$ 且 $f(x_n)=0,\ n=1,2,\ldots$。证明：$f(x)=0$。
-  \item 求下列函数的 Maclaurin 展开式，并确定其成立范围：
+\begin{xexercise}[1]
+将函数 $f(x)=\dfrac1{a-x}\ (a\ne0)$ 分别按 $x$、$x-b$、$\dfrac1x$ 的乘幂展开。
+\end{xexercise}
+
+\begin{xexercise}[2]
+将函数 $f(x)=\ln x$ 展开为 $\dfrac{x-1}{x+1}$ 的幂级数。
+\end{xexercise}
+
+\begin{xexercise}[3]
+设函数 $f$ 在区间 $(-a,a)\ (a>0)$ 上无限次可微，且导函数序列 $\{f^{(n)}\}$ 在 $(-a,a)$ 上一致有界，证明：$f$ 在 $(-a,a)$ 上可以展开为 Maclaurin 级数。
+\end{xexercise}
+
+\begin{xexercise}[4]
+设函数 $f$ 在 $(-\infty,+\infty)$ 上无穷次可导，并且其导函数列在 $(-\infty,+\infty)$ 上一致有界。如果存在正数数列 $\{x_n\}$，使 $\displaystyle\lim_{n\to\infty}x_n=0$ 且 $f(x_n)=0,\ n=1,2,\ldots$。证明：$f(x)=0$。
+\end{xexercise}
+
+\begin{xexercise}[5]
+求下列函数的 Maclaurin 展开式，并确定其成立范围：
   \begin{enumerate}[label=(\arabic*)]
     \item $\sqrt{4-x}$；
     \item $a^x,\ a>0$；
@@ -1422,7 +1539,10 @@ $f$ 在点 $x_0$ 的邻域 $U(x_0)$ 能展开为幂级数 $\displaystyle\sum_{n=
     \item $\displaystyle\frac{\dd}{\dd x}\left(\frac{\ee^x-1}{x}\right)$；
     \item $\displaystyle\int_0^x\frac{1-\cos t}{t^2}\,\dd t$。
   \end{enumerate}
-  \item 将下列函数在指定点展开为幂级数：
+\end{xexercise}
+
+\begin{xexercise}[6]
+将下列函数在指定点展开为幂级数：
   \begin{enumerate}[label=(\arabic*)]
     \item $\dfrac1{3+x},\ x=2$；
     \item $\ln\dfrac1{3+2x+x^2},\ x=-1$；
@@ -1430,7 +1550,6 @@ $f$ 在点 $x_0$ 的邻域 $U(x_0)$ 能展开为幂级数 $\displaystyle\sum_{n=
     \item $\dfrac{x-1}{x+1},\ x=1$；
     \item $\sin x,\ x=\dfrac\pi6$。
   \end{enumerate}
-\end{enumerate}
 \end{xexercise}
 
 \section{对于教学的建议}
@@ -1465,76 +1584,145 @@ $f$ 在点 $x_0$ 的邻域 $U(x_0)$ 能展开为幂级数 $\displaystyle\sum_{n=
 
 \paragraph{第一组参考题}
 
-\begin{xreferenceproblem}
-\begin{enumerate}
-  \item 试举例：在 $[0,1]$ 上一致收敛于连续函数的函数列 $\{S_n(x)\}$，但每个 $S_n(x)$ 在 $[0,1]$ 上处处不连续。
-  \item 用逐项求导方法写出函数 $\displaystyle\zeta(x)=\sum_{n=1}^{\infty}\frac1{n^x}$ 在 $(1,+\infty)$ 上的任意阶导数的表达式，并证明运算的合理性。
-  \item 证明 Dirichlet 级数 $\displaystyle\sum_{n=1}^{\infty}\frac{a_n}{n^x}$ 的收敛域具有以下特性：若存在 $x_1,x_2$，使 $x=x_1$ 时级数发散，而当 $x=x_2$ 时级数收敛，则一定存在 $r\in(-\infty,+\infty)$，使 $x<r$ 时级数发散，而 $x>r$ 时级数收敛。
-  \item 设 $f\in C[0,1]$，定义函数列 $S_n(x)=x^nf(x),\ x\in[0,1],\ n=1,2,\ldots$，证明：$\{S_n(x)\}$ 在 $[0,1]$ 上一致收敛的充分必要条件是 $f(1)=0$。
-  \item 设数列 $\{r_n\}$ 是 $[0,1]$ 区间内的所有有理点的一个排列，证明函数
+\begin{xreferenceproblem}[1]
+试举例：在 $[0,1]$ 上一致收敛于连续函数的函数列 $\{S_n(x)\}$，但每个 $S_n(x)$ 在 $[0,1]$ 上处处不连续。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[2]
+用逐项求导方法写出函数 $\displaystyle\zeta(x)=\sum_{n=1}^{\infty}\frac1{n^x}$ 在 $(1,+\infty)$ 上的任意阶导数的表达式，并证明运算的合理性。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[3]
+证明 Dirichlet 级数 $\displaystyle\sum_{n=1}^{\infty}\frac{a_n}{n^x}$ 的收敛域具有以下特性：若存在 $x_1,x_2$，使 $x=x_1$ 时级数发散，而当 $x=x_2$ 时级数收敛，则一定存在 $r\in(-\infty,+\infty)$，使 $x<r$ 时级数发散，而 $x>r$ 时级数收敛。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[4]
+设 $f\in C[0,1]$，定义函数列 $S_n(x)=x^nf(x),\ x\in[0,1],\ n=1,2,\ldots$，证明：$\{S_n(x)\}$ 在 $[0,1]$ 上一致收敛的充分必要条件是 $f(1)=0$。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[5]
+设数列 $\{r_n\}$ 是 $[0,1]$ 区间内的所有有理点的一个排列，证明函数
   \[
     f(x)=\sum_{n=1}^{\infty}\frac{\abs{x-r_n}}{3^n},\quad x\in[0,1]
   \]
   具有性质：(1) 处处连续；(2) 在 $[0,1]$ 的每个无理点处可微，而在每个有理点处不可微。
-  \item 设函数 $f$ 在区间 $[0,1]$ 上无穷次可微且不恒等于 $0$，$f^{(n)}(0)=0,\ n=0,1,\ldots$。如果函数列 $\{a_nf^{(n)}\}$ 在区间 $[0,1]$ 上一致收敛于 $0$，其中 $\{a_n\}$ 为一给定的数列，证明：$\displaystyle\lim_{n\to\infty}n!a_n=0$。
-  \item 用幂级数方法证明级数乘积的一个基本结果（即命题 13.3.7）：设 $\displaystyle\sum_{n=1}^{\infty}a_n$、$\displaystyle\sum_{n=1}^{\infty}b_n$ 和它们的 Cauchy 乘积 $\displaystyle\sum_{n=1}^{\infty}c_n$ 均收敛，且分别以 $A,B,C$ 为和，则 $C=AB$。
-  \item 求下列函数的 Maclaurin 展开式：
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[6]
+设函数 $f$ 在区间 $[0,1]$ 上无穷次可微且不恒等于 $0$，$f^{(n)}(0)=0,\ n=0,1,\ldots$。如果函数列 $\{a_nf^{(n)}\}$ 在区间 $[0,1]$ 上一致收敛于 $0$，其中 $\{a_n\}$ 为一给定的数列，证明：$\displaystyle\lim_{n\to\infty}n!a_n=0$。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[7]
+用幂级数方法证明级数乘积的一个基本结果（即命题 13.3.7）：设 $\displaystyle\sum_{n=1}^{\infty}a_n$、$\displaystyle\sum_{n=1}^{\infty}b_n$ 和它们的 Cauchy 乘积 $\displaystyle\sum_{n=1}^{\infty}c_n$ 均收敛，且分别以 $A,B,C$ 为和，则 $C=AB$。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[8]
+求下列函数的 Maclaurin 展开式：
   \begin{enumerate}[label=(\arabic*)]
     \item $\dfrac{\arcsin x}{\sqrt{1-x^2}}$；
     \item $\dfrac{\ln(x+\sqrt{1+x^2})}{\sqrt{1+x^2}}$；
     \item $\left(\dfrac{\arcsin x}{x}\right)^2$（函数在点 $x=0$ 处用极限值定义）。
   \end{enumerate}
-  \item 设数列 $\{a_n\}$ 有极限 $L$，证明：$\displaystyle f(x)=\sum_{n=1}^{\infty}a_nx^n$ 在 $(-1,1)$ 上有定义，且 $\displaystyle\lim_{x\to1-}(1-x)f(x)=L$。
-  \item 设多项式序列 $\{P_n\}$ 在 $(-\infty,+\infty)$ 上一致收敛于 $P$，证明：$P$ 也是多项式。
-  \item 设 $\{P_n\}$ 是次数不超过 $D$ 的多项式序列，证明：若该序列于区间 $[0,1]$ 上收敛，则也一定一致收敛。
-  \item 设 $\displaystyle\sum_{n=0}^{\infty}a_nx^n$ 为 $f$ 在 $(-\infty,+\infty)$ 上的 Maclaurin 级数展开式，证明：$\displaystyle\sum_{n=0}^{\infty}a_nx^n$ 在 $(-\infty,+\infty)$ 上一致收敛的充分必要条件是 $f$ 为多项式。
-  \item 设 $C(a)$ 为 $(1+x)^a$ 的 Maclaurin 级数展开式中 $x^{2003}$ 项的系数，计算积分
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[9]
+设数列 $\{a_n\}$ 有极限 $L$，证明：$\displaystyle f(x)=\sum_{n=1}^{\infty}a_nx^n$ 在 $(-1,1)$ 上有定义，且 $\displaystyle\lim_{x\to1-}(1-x)f(x)=L$。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[10]
+设多项式序列 $\{P_n\}$ 在 $(-\infty,+\infty)$ 上一致收敛于 $P$，证明：$P$ 也是多项式。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[11]
+设 $\{P_n\}$ 是次数不超过 $D$ 的多项式序列，证明：若该序列于区间 $[0,1]$ 上收敛，则也一定一致收敛。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[12]
+设 $\displaystyle\sum_{n=0}^{\infty}a_nx^n$ 为 $f$ 在 $(-\infty,+\infty)$ 上的 Maclaurin 级数展开式，证明：$\displaystyle\sum_{n=0}^{\infty}a_nx^n$ 在 $(-\infty,+\infty)$ 上一致收敛的充分必要条件是 $f$ 为多项式。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[13]
+设 $C(a)$ 为 $(1+x)^a$ 的 Maclaurin 级数展开式中 $x^{2003}$ 项的系数，计算积分
   \[
     \int_0^1 C(-y-1)\left(\frac1{y+1}+\frac1{y+2}+\frac1{y+3}+\cdots+\frac1{y+2003}\right)\dd y.
   \]
-  \item 求级数和 $\displaystyle\sum_{m=1}^{\infty}\sum_{n=1}^{\infty}\frac{m^2n}{3^m(n3^m+m3^n)}$。
-  \item 甲乙两人掷骰子，两人依次轮流掷并且由甲掷第一次，问第一个六点由甲掷出的概率是多少？
-  \item 某侨商捐资给母校设立奖学基金。该基金存入银行，每年可以得到 $a\%$ 的利息。奖学金按如下数目发放：基金存入银行当日发放一万元，第二年同一天发放二万元，以后每年同一日发放，发放金额比前一年多一万元。要使这笔奖学金能够永远按此规律发放下去，该侨商至少应捐资多少元？
-\end{enumerate}
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[14]
+求级数和 $\displaystyle\sum_{m=1}^{\infty}\sum_{n=1}^{\infty}\frac{m^2n}{3^m(n3^m+m3^n)}$。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[15]
+甲乙两人掷骰子，两人依次轮流掷并且由甲掷第一次，问第一个六点由甲掷出的概率是多少？
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[16]
+某侨商捐资给母校设立奖学基金。该基金存入银行，每年可以得到 $a\%$ 的利息。奖学金按如下数目发放：基金存入银行当日发放一万元，第二年同一天发放二万元，以后每年同一日发放，发放金额比前一年多一万元。要使这笔奖学金能够永远按此规律发放下去，该侨商至少应捐资多少元？
 \end{xreferenceproblem}
 
 \paragraph{第二组参考题}
 
-\begin{xreferenceproblem}
-\begin{enumerate}
-  \item 设 $\{f_n\}$ 是在 $[a,b]$ 上的可积函数列，且于 $[a,b]$ 上一致有界，若已知 $\{f_n\}$ 在 $[a,b]$ 上收敛，证明：积分值所成的数列必有极限 $\displaystyle\lim_{n\to\infty}\int_a^b f_n$。
-  \item 若在 $[a,b]$ 上的可积函数列 $\{f_n\}$ 一致收敛于极限函数 $f$，证明：$f\in R[a,b]$，且有
+\begin{xreferenceproblem}[1]
+设 $\{f_n\}$ 是在 $[a,b]$ 上的可积函数列，且于 $[a,b]$ 上一致有界，若已知 $\{f_n\}$ 在 $[a,b]$ 上收敛，证明：积分值所成的数列必有极限 $\displaystyle\lim_{n\to\infty}\int_a^b f_n$。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[2]
+若在 $[a,b]$ 上的可积函数列 $\{f_n\}$ 一致收敛于极限函数 $f$，证明：$f\in R[a,b]$，且有
   \[
     \lim_{n\to\infty}\int_a^b f_n(x)\,\dd x=\int_a^b f(x)\,\dd x.
   \]
-  \item 设具有相同单调性的单调函数列 $\{f_n\}$ 在区间 $[a,b]$ 上收敛于 $f\in C[a,b]$，则 $\{f_n\}$ 在 $[a,b]$ 上一致收敛。
-  \item 设 $\{f_n\}$ 是 $[a,b]$ 上的连续函数列，并已知对于每个 $x\in[a,b]$，数列 $\{f_n(x)\}$ 单调增加收敛于 $f(x)$，证明：$f$ 在 $[a,b]$ 上必有最小值。又问：若将最小值换为最大值，或将 $[a,b]$ 换为 $(a,b)$，则结论如何？
-  \item 设 $\{f_n\}$ 为 $[a,b]$ 上的连续可微函数列，且存在 $\{x_n\}\subset[a,b]$，使 $f_n(x_n)=x_n,\ n=1,2,\ldots$。如果导函数列 $\{f_n'\}$ 在 $[a,b]$ 上一致收敛，证明：
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[3]
+设具有相同单调性的单调函数列 $\{f_n\}$ 在区间 $[a,b]$ 上收敛于 $f\in C[a,b]$，则 $\{f_n\}$ 在 $[a,b]$ 上一致收敛。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[4]
+设 $\{f_n\}$ 是 $[a,b]$ 上的连续函数列，并已知对于每个 $x\in[a,b]$，数列 $\{f_n(x)\}$ 单调增加收敛于 $f(x)$，证明：$f$ 在 $[a,b]$ 上必有最小值。又问：若将最小值换为最大值，或将 $[a,b]$ 换为 $(a,b)$，则结论如何？
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[5]
+设 $\{f_n\}$ 为 $[a,b]$ 上的连续可微函数列，且存在 $\{x_n\}\subset[a,b]$，使 $f_n(x_n)=x_n,\ n=1,2,\ldots$。如果导函数列 $\{f_n'\}$ 在 $[a,b]$ 上一致收敛，证明：
   \begin{enumerate}[label=(\arabic*)]
     \item 函数列 $\{f_n\}$ 有子列 $\{f_{n_k}\}$ 在 $[a,b]$ 上一致收敛；
     \item 设 $\{f_{n_k}\}$ 的极限函数为 $f$，则存在 $x_0\in[a,b]$，使 $f(x_0)=x_0$；
     \item $f$ 在 $[a,b]$ 上连续可微，且在 $[a,b]$ 上 $f'(x)=\displaystyle\lim_{n\to\infty}f_n'(x)$。
   \end{enumerate}
-  \item 设在区间 $[a,b]$ 上的连续函数项级数 $\displaystyle\sum_{n=1}^{\infty}u_n(x)$、$\displaystyle\sum_{n=1}^{\infty}v_n(x)$ 的通项之间满足条件
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[6]
+设在区间 $[a,b]$ 上的连续函数项级数 $\displaystyle\sum_{n=1}^{\infty}u_n(x)$、$\displaystyle\sum_{n=1}^{\infty}v_n(x)$ 的通项之间满足条件
   \[
     \abs{u_n(x)}\leqslant v_n(x),\quad n=1,2,\ldots,
   \]
   又设 $\displaystyle\sum_{n=1}^{\infty}v_n(x)$ 的和函数在 $[a,b]$ 上连续，证明：$\displaystyle\sum_{n=1}^{\infty}u_n(x)$ 的和函数也在 $[a,b]$ 上连续。
-  \item 证明：对任意 $n$ 和 $x$ 成立不等式
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[7]
+证明：对任意 $n$ 和 $x$ 成立不等式
   \[
     \abs{\sum_{k=1}^{n}\frac{\sin kx}{k}}\leqslant2\sqrt\pi.
   \]
-  \item 利用幂级数展开证明（上册 374 页的题 15）不等式：
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[8]
+利用幂级数展开证明（上册 374 页的题 15）不等式：
   \[
     0<\frac12\ln\frac{1+x}{1-x}-x<\frac{x^3}{3(1-x^2)},\quad 0<x<1.
   \]
-  \item 利用幂级数展开证明：对一切 $n\in\NN_+$ 和实数 $x$ 成立不等式：
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[9]
+利用幂级数展开证明：对一切 $n\in\NN_+$ 和实数 $x$ 成立不等式：
   \[
     \abs{\ee^x-\left(1+\frac xn\right)^n}
     \leqslant \ee^{\abs{x}}-\left(1+\frac{\abs{x}}n\right)^n
     <\frac{x^2\ee^{\abs{x}}}{2n}.
   \]
-  \item 设级数 $\displaystyle\sum_{n=0}^{\infty}a_n$ 的部分和数列为 $S_n=a_0+a_1+\cdots+a_n$，$\sigma_n=(S_0+S_1+\cdots+S_{n-1})/n,\ n=1,2,\ldots$，且有极限 $\displaystyle\lim_{n\to\infty}\sigma_n=S$，即级数 $\displaystyle\sum_{n=0}^{\infty}a_n$ 的 Cesàro 和为 $S$（参见 39 页上第十三章末的几个参考题），证明：
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[10]
+设级数 $\displaystyle\sum_{n=0}^{\infty}a_n$ 的部分和数列为 $S_n=a_0+a_1+\cdots+a_n$，$\sigma_n=(S_0+S_1+\cdots+S_{n-1})/n,\ n=1,2,\ldots$，且有极限 $\displaystyle\lim_{n\to\infty}\sigma_n=S$，即级数 $\displaystyle\sum_{n=0}^{\infty}a_n$ 的 Cesàro 和为 $S$（参见 39 页上第十三章末的几个参考题），证明：
   % SOURCE-ERR: 原书此处印作 n=0,1,\ldots；n=0 时分母为 0，此处改为 n=1,2,\ldots。
   \begin{enumerate}[label=(\arabic*)]
     \item $\displaystyle\sum_{n=0}^{\infty}a_nx^n$ 在 $(-1,1)$ 上收敛；
@@ -1544,25 +1732,40 @@ $f$ 在点 $x_0$ 的邻域 $U(x_0)$ 能展开为幂级数 $\displaystyle\sum_{n=
     \]
     \item 记 $S(x)=\displaystyle\sum_{n=0}^{\infty}a_nx^n,\ x\in(-1,1)$，则有 $\displaystyle\lim_{x\to1-}S(x)=S$。
   \end{enumerate}
-  \item 设 $\{a_n\}$ 与 $\{b_n\}$ 为正数数列，幂级数 $\displaystyle\sum_{n=0}^{\infty}a_nx^n$ 的收敛半径为 $1$，且在 $x=1$ 处发散。如果 $\displaystyle\lim_{n\to\infty}\frac{b_n}{a_n}=A$，证明：
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[11]
+设 $\{a_n\}$ 与 $\{b_n\}$ 为正数数列，幂级数 $\displaystyle\sum_{n=0}^{\infty}a_nx^n$ 的收敛半径为 $1$，且在 $x=1$ 处发散。如果 $\displaystyle\lim_{n\to\infty}\frac{b_n}{a_n}=A$，证明：
   \[
     \lim_{x\to1-}\frac{\displaystyle\sum_{n=0}^{\infty}b_nx^n}{\displaystyle\sum_{n=0}^{\infty}a_nx^n}=A.
   \]
-  \item 证明：如果正项级数 $\displaystyle\sum_{n=0}^{\infty}c_n=A$，则
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[12]
+证明：如果正项级数 $\displaystyle\sum_{n=0}^{\infty}c_n=A$，则
   \[
     \lim_{x\to1-}\left(\sum_{n=0}^{\infty}c_nx^n\right)=A.
   \]
   （本题为上题之特例，但也可以用其他方法做。）
-  \item 设 $f$ 在区间 $[0,r)$ 上无限次可微，且 $f$ 及其所有导函数都是非负的，证明：$f$ 的 Maclaurin 级数展开式在 $[0,r)$ 上成立：
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[13]
+设 $f$ 在区间 $[0,r)$ 上无限次可微，且 $f$ 及其所有导函数都是非负的，证明：$f$ 的 Maclaurin 级数展开式在 $[0,r)$ 上成立：
   \[
     f(x)=\sum_{n=0}^{\infty}\frac{f^{(n)}(0)}{n!}x^n.
   \]
-  \item （生成函数法）设 $\{a_n\}$ 为 Fibonacci 数列：$a_0=a_1=1$，$a_n=a_{n-1}+a_{n-2},\ \forall n\geqslant2$，定义
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[14]
+（生成函数法）设 $\{a_n\}$ 为 Fibonacci 数列：$a_0=a_1=1$，$a_n=a_{n-1}+a_{n-2},\ \forall n\geqslant2$，定义
   \[
     f(x)=a_0+a_1x+a_2x^2+\cdots+a_nx^n+\cdots
   \]
   为 $\{a_n\}$ 的\textbf{生成函数}。试求出 $f$，并由此求出 $\{a_n\}$ 的解析表达式，同时求出该数列的\textbf{增长数}：$\displaystyle\lim_{n\to\infty}\frac{a_{n+1}}{a_n}$（参见上册 48 页）。
-  \item 利用上题的生成函数方法证明组合学中的 Vandermonde（范德蒙德）恒等式：
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[15]
+利用上题的生成函数方法证明组合学中的 Vandermonde（范德蒙德）恒等式：
   \[
     \sum_{k=0}^{n}{\alpha\choose k}{\beta\choose n-k}={\alpha+\beta\choose n},
   \]
@@ -1570,5 +1773,4 @@ $f$ 在点 $x_0$ 的邻域 $U(x_0)$ 能展开为幂级数 $\displaystyle\sum_{n=
   \[
     \sum_{k=0}^{n}{n\choose k}^2={2n\choose n}.
   \]
-\end{enumerate}
 \end{xreferenceproblem}

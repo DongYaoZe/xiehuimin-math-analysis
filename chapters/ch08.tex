@@ -411,33 +411,38 @@
 
 \subsection{练习题}
 
-\begin{xexercise}
-\begin{enumerate}
-  \item 以下几个函数极限均不宜用 L'Hospital 法则，为什么？
+\begin{xexercise}[1]
+以下几个函数极限均不宜用 L'Hospital 法则，为什么？
   \begin{enumerate}[label=(\arabic*)]
     \item $\displaystyle\lim_{x\to1}\frac{x}{x+1}$；
     \item $\displaystyle\lim_{x\to+\infty}\frac{x+\sin x}{x-\sin x}$；
     \item $\displaystyle\lim_{x\to+\infty}\frac{\ee^x+\ee^{-x}}{\ee^x-\ee^{-x}}$；
     \item $\displaystyle\lim_{x\to+\infty}\frac{x}{\sqrt{1+x^2}}$。
   \end{enumerate}
+\end{xexercise}
 
-  \item 求下列极限：
+\begin{xexercise}[2]
+求下列极限：
   \begin{enumerate}[label=(\arabic*)]
     \item $\displaystyle\lim_{x\to0}\frac{a^{x^2}-b^{x^2}}{(a^x-b^x)^2}$；
     \item $\displaystyle\lim_{x\to+\infty}\left[\left(x^3-x^2+\frac x2\right)\ee^{1/x}-\sqrt{1+x^6}\right]$；
     \item $\displaystyle\lim_{x\to0+}\left(\ln\frac1x\right)^x$；
     \item $\displaystyle\lim_{x\to+\infty}\left(\frac\pi2-\arctan x\right)^{1/\ln x}$。
   \end{enumerate}
+\end{xexercise}
 
-  \item 确定 $a,b$，使得当 $x\to0$ 时，下列函数为尽可能高阶的无穷小量：
+\begin{xexercise}[3]
+确定 $a,b$，使得当 $x\to0$ 时，下列函数为尽可能高阶的无穷小量：
   \begin{enumerate}[label=(\arabic*)]
     \item $f(x)=x-(a+b\cos x)\sin x$；
     \item $f(x)=\ee^x-\dfrac{1+ax}{1+bx}$；
     \item $f(x)=\cot x-\dfrac{1+ax^2}{x+bx^3}$；
     \item $f(x)=\cos x-\dfrac{1+ax^2}{1+bx^2}$。
   \end{enumerate}
+\end{xexercise}
 
-  \item 应用 Taylor 公式求下列极限：
+\begin{xexercise}[4]
+应用 Taylor 公式求下列极限：
   \begin{enumerate}[label=(\arabic*)]
     \item $\displaystyle\lim_{x\to0}\left(\frac1x-\frac1{\sin x}\right)$；
     \item $\displaystyle\lim_{x\to0}\frac{\ee^{x^3}-1-x^3}{\sin^6 2x}$；
@@ -446,33 +451,44 @@
     \item $\displaystyle\lim_{x\to0}\frac{\sin(\tan x)-\tan(\sin x)}{x^7}$；
     \item $\displaystyle\lim_{x\to0}\frac{x\sin(\sin x)-\sin^2x}{x^6}$。
   \end{enumerate}
+\end{xexercise}
 
-  \item 设存在 $f''(a)$，证明：
+\begin{xexercise}[5]
+设存在 $f''(a)$，证明：
   \[
     \lim_{h\to0}\frac{f(a+2h)-2f(a+h)+f(a)}{h^2}=f''(a).
   \]
+\end{xexercise}
 
-  \item 设 $f$ 在某邻域 $O(x_0)$ 上二阶连续可微，$f'(x_0)\ne0$，$f(x)\ne f(x_0)$，$\forall x\ne x_0$。求
+\begin{xexercise}[6]
+设 $f$ 在某邻域 $O(x_0)$ 上二阶连续可微，$f'(x_0)\ne0$，$f(x)\ne f(x_0)$，$\forall x\ne x_0$。求
   \[
     \lim_{x\to x_0}\left[\frac1{f(x)-f(x_0)}-\frac1{f'(x_0)(x-x_0)}\right].
   \]
+\end{xexercise}
 
-  \item 设 $f$ 在 $[0,+\infty)$ 上二阶连续可微，且 $f''(x)>0$，$f(0)=f'(0)=0$。试求极限
+\begin{xexercise}[7]
+设 $f$ 在 $[0,+\infty)$ 上二阶连续可微，且 $f''(x)>0$，$f(0)=f'(0)=0$。试求极限
   \[
     \lim_{x\to0+}\frac{xf(u)}{uf(x)},
   \]
   其中 $u$ 是函数 $f$ 的图像在点 $(x,f(x))$ 处的切线在 $x$ 轴上的截距。
+\end{xexercise}
 
-  \item 令
+\begin{xexercise}[8]
+令
   \[
     f(x)=\lim_{n\to\infty}n^x\left[\left(1+\frac1{n+1}\right)^{n+1}-\left(1+\frac1n\right)^n\right],
   \]
   确定其定义域和值域。
+\end{xexercise}
 
-  \item 设 $x_1>0$，$x_{n+1}=\ln(1+x_n)$，$n\in\NN_+$，证明：$\displaystyle\lim_{n\to\infty}nx_n=2$。
+\begin{xexercise}[9]
+设 $x_1>0$，$x_{n+1}=\ln(1+x_n)$，$n\in\NN_+$，证明：$\displaystyle\lim_{n\to\infty}nx_n=2$。
+\end{xexercise}
 
-  \item 设 $x_0=\ln a$，$a>0$，$x_n=\displaystyle\sum_{k=0}^{n-1}\ln(a-x_k)$，$n\in\NN_+$，求 $\displaystyle\lim_{n\to\infty}x_n$。
-\end{enumerate}
+\begin{xexercise}[10]
+设 $x_0=\ln a$，$a>0$，$x_n=\displaystyle\sum_{k=0}^{n-1}\ln(a-x_k)$，$n\in\NN_+$，求 $\displaystyle\lim_{n\to\infty}x_n$。
 \end{xexercise}
 
 \section{函数的单调性}
@@ -612,32 +628,44 @@
 
 \subsection{练习题}
 
-\begin{xexercise}
-\begin{enumerate}
-  \item 问：单调函数若可微，则其导函数是否也单调？反之又如何？请举例说明。
+\begin{xexercise}[1]
+问：单调函数若可微，则其导函数是否也单调？反之又如何？请举例说明。
+\end{xexercise}
 
-  \item 证明：函数 $\left(1+\frac1x\right)^x$ 在区间 $(-\infty,-1)$ 和 $(0,+\infty)$ 上单调增加。
+\begin{xexercise}[2]
+证明：函数 $\left(1+\frac1x\right)^x$ 在区间 $(-\infty,-1)$ 和 $(0,+\infty)$ 上单调增加。
+\end{xexercise}
 
-  \item 设 $f$ 在 $[0,+\infty)$ 上可微，$f(0)=0$ 且 $f'$ 严格单调增加，证明：$\dfrac{f(x)}x$ 在 $(0,+\infty)$ 上也严格单调增加。
+\begin{xexercise}[3]
+设 $f$ 在 $[0,+\infty)$ 上可微，$f(0)=0$ 且 $f'$ 严格单调增加，证明：$\dfrac{f(x)}x$ 在 $(0,+\infty)$ 上也严格单调增加。
+\end{xexercise}
 
-  \item 设 $f,g$ 在 $[0,a]$ 上连续，在 $(0,a)$ 上可微，$f(0)=g(0)=0$，$f',g'>0$，证明：如果 $f'/g'$ 单调增加，则 $f/g$ 也单调增加。
+\begin{xexercise}[4]
+设 $f,g$ 在 $[0,a]$ 上连续，在 $(0,a)$ 上可微，$f(0)=g(0)=0$，$f',g'>0$，证明：如果 $f'/g'$ 单调增加，则 $f/g$ 也单调增加。
+\end{xexercise}
 
-  \item 设 $f$ 在区间 $[a,+\infty)$ 上二阶可微，并且满足条件：(1) $f(a)>0$；(2) $f'(a)<0$；(3) 在 $x>a$ 时 $f''(x)\le0$，证明：$f(x)$ 在 $(a,+\infty)$ 内有且只有一个零点。
+\begin{xexercise}[5]
+设 $f$ 在区间 $[a,+\infty)$ 上二阶可微，并且满足条件：(1) $f(a)>0$；(2) $f'(a)<0$；(3) 在 $x>a$ 时 $f''(x)\le0$，证明：$f(x)$ 在 $(a,+\infty)$ 内有且只有一个零点。
+\end{xexercise}
 
-  \item 设 $f\in C[a,+\infty)$，且当 $x>a$ 时成立 $f'(x)>k>0$，其中 $k$ 为常数，证明：若 $f(a)<0$，则于区间 $(a,a-f(a)/k)$ 内方程 $f(x)=0$ 有且只有一个实根。
+\begin{xexercise}[6]
+设 $f\in C[a,+\infty)$，且当 $x>a$ 时成立 $f'(x)>k>0$，其中 $k$ 为常数，证明：若 $f(a)<0$，则于区间 $(a,a-f(a)/k)$ 内方程 $f(x)=0$ 有且只有一个实根。
+\end{xexercise}
 
-  \item 设 $a>0$，证明：方程
+\begin{xexercise}[7]
+设 $a>0$，证明：方程
   \[
     a\ee^x=1+x+\frac{x^2}{2}
   \]
   只有一个实根。
+\end{xexercise}
 
-  \item 证明：方程
+\begin{xexercise}[8]
+证明：方程
   \[
     f(x)=\left(\frac2\pi-1\right)\ln x-\ln2+\ln(1+x^2)=0
   \]
   在开区间 $(0,1)$ 内只有一个实根。
-\end{enumerate}
 \end{xexercise}
 
 \section{函数的极值与最值}
@@ -813,34 +841,46 @@ $n=1$ 时这就是 Fermat 定理（命题 7.1.2），即从 $f'(x_0)\ne0$ 可推
 
 \subsection{练习题}
 
-\begin{xexercise}
-\begin{enumerate}
-  \item 设 $f\in C(I)$，$I$ 为区间，证明：若 $x_0\in I$ 是 $f$ 的唯一极值点，则 $x_0$ 一定是最值点；又若 $x_0$ 是极小值点（极大值点），则它也是 $f$ 的唯一最小值点（唯一最大值点）。
+\begin{xexercise}[1]
+设 $f\in C(I)$，$I$ 为区间，证明：若 $x_0\in I$ 是 $f$ 的唯一极值点，则 $x_0$ 一定是最值点；又若 $x_0$ 是极小值点（极大值点），则它也是 $f$ 的唯一最小值点（唯一最大值点）。
+\end{xexercise}
 
-  \item 求出方程 $x^3+px+q=0$ 有三个不同实根的充分必要条件。
+\begin{xexercise}[2]
+求出方程 $x^3+px+q=0$ 有三个不同实根的充分必要条件。
+\end{xexercise}
 
-  \item 求出方程 $\dfrac1{x^2}+px+q=0$ 有三个不同实根的充分必要条件。
+\begin{xexercise}[3]
+求出方程 $\dfrac1{x^2}+px+q=0$ 有三个不同实根的充分必要条件。
+\end{xexercise}
 
-  \item 证明：$f(x)=a^2\ee^{\lambda x}+b^2\ee^{-\lambda x}$（$a,b>0$）存在与 $\lambda$ 无关的极小值。
+\begin{xexercise}[4]
+证明：$f(x)=a^2\ee^{\lambda x}+b^2\ee^{-\lambda x}$（$a,b>0$）存在与 $\lambda$ 无关的极小值。
+\end{xexercise}
 
-  \item 证明：$y=\dfrac{ax+b}{cx+d}$ 若不是常值函数，则不会有极值。
+\begin{xexercise}[5]
+证明：$y=\dfrac{ax+b}{cx+d}$ 若不是常值函数，则不会有极值。
+\end{xexercise}
 
-  \item 比较两个数的大小：(1) $\pi^{\ee}$ 和 $\ee^\pi$；(2) $(\sqrt n)^{\sqrt{n+1}}$ 和 $(\sqrt{n+1})^{\sqrt n}$。
+\begin{xexercise}[6]
+比较两个数的大小：(1) $\pi^{\ee}$ 和 $\ee^\pi$；(2) $(\sqrt n)^{\sqrt{n+1}}$ 和 $(\sqrt{n+1})^{\sqrt n}$。
+\end{xexercise}
 
-  \item 考虑下列几何极值问题（能用初等方法做就不一定用微分学工具）：
+\begin{xexercise}[7]
+考虑下列几何极值问题（能用初等方法做就不一定用微分学工具）：
   \begin{enumerate}[label=(\arabic*)]
     \item 在面积为定值的三角形中，什么三角形的周长最小？
     \item 在周长为定值的三角形中，什么三角形的面积最大？
     \item 在椭圆 $\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1$ 内，各边平行于坐标轴的内接矩形中，面积最大的矩形的长和宽分别为多少？
     \item 在椭圆 $\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1$ 内，各边平行于坐标轴的内接矩形中，周长最大的矩形的长和宽为多少？
   \end{enumerate}
+\end{xexercise}
 
-  \item 考虑给定边界值的二阶线性非齐次微分方程
+\begin{xexercise}[8]
+考虑给定边界值的二阶线性非齐次微分方程
   \[
     y''+p(x)y'+q(x)y=r(x),\quad a<x<b,\quad y(a)=A,\quad y(b)=B,
   \]
   其中 $p,q,r$ 是给定的函数，$A$ 和 $B$ 是给定的数。又设 $q(x)<0$，$\forall x\in(a,b)$，证明：如果这个微分方程在闭区间 $[a,b]$ 上存在解，则必唯一。
-\end{enumerate}
 \end{xexercise}
 
 \begin{xremark}
@@ -1167,54 +1207,90 @@ f(x_3)-f(x_1)&f(x_3)-f(x_2)
 
 \subsection{练习题}
 
-\begin{xexercise}
-\begin{enumerate}
-  \item 在不假定函数 $f$ 可微的条件下，证明 Jensen 不等式 (8.11) 仍然成立。
+\begin{xexercise}[1]
+在不假定函数 $f$ 可微的条件下，证明 Jensen 不等式 (8.11) 仍然成立。
+\end{xexercise}
 
-  \item 设 $f$ 是区间 $(a,b)$ 上的上凸函数，且 $f(x)>0$，证明：函数 $1/f$ 是区间 $(a,b)$ 上的下凸函数。又问：若在上题中将 $f$ 的上凸条件改为下凸，则有何结论？
+\begin{xexercise}[2]
+设 $f$ 是区间 $(a,b)$ 上的上凸函数，且 $f(x)>0$，证明：函数 $1/f$ 是区间 $(a,b)$ 上的下凸函数。又问：若在上题中将 $f$ 的上凸条件改为下凸，则有何结论？
 
   （本题的变形是对 $f$ 加上一阶可微或二阶可微条件。）
+\end{xexercise}
 
-  \item 设 $f,g$ 是 $(a,b)$ 上的下凸函数，证明：$\max\{f,g\}$ 也是 $(a,b)$ 上的下凸函数。
+\begin{xexercise}[3]
+设 $f,g$ 是 $(a,b)$ 上的下凸函数，证明：$\max\{f,g\}$ 也是 $(a,b)$ 上的下凸函数。
+\end{xexercise}
 
-  \item 设 $f$ 和 $g$ 均为区间 $I$ 上的单调增加非负下凸函数，证明：$f\cdot g$ 为区间 $I$ 上的下凸函数。
+\begin{xexercise}[4]
+设 $f$ 和 $g$ 均为区间 $I$ 上的单调增加非负下凸函数，证明：$f\cdot g$ 为区间 $I$ 上的下凸函数。
+\end{xexercise}
 
-  \item 设 $f$ 在区间 $I$ 上为下凸函数，证明：$F(x)=\ee^{f(x)}$ 也是 $I$ 上的下凸函数。
+\begin{xexercise}[5]
+设 $f$ 在区间 $I$ 上为下凸函数，证明：$F(x)=\ee^{f(x)}$ 也是 $I$ 上的下凸函数。
+\end{xexercise}
 
-  \item 设 $f$ 和 $g$ 为 $(-\infty,+\infty)$ 上的下凸函数，问：复合函数 $f\circ g$ 是否一定是 $(-\infty,+\infty)$ 上的下凸函数？
+\begin{xexercise}[6]
+设 $f$ 和 $g$ 为 $(-\infty,+\infty)$ 上的下凸函数，问：复合函数 $f\circ g$ 是否一定是 $(-\infty,+\infty)$ 上的下凸函数？
+\end{xexercise}
 
-  \item 设 $f$ 为 $(-\infty,+\infty)$ 上的下凸函数，证明：或者 $f$ 为单调函数，或者存在点 $c$，使得 $f$ 在 $(-\infty,c]$ 上单调减少，而在 $[c,+\infty)$ 上单调增加。
+\begin{xexercise}[7]
+设 $f$ 为 $(-\infty,+\infty)$ 上的下凸函数，证明：或者 $f$ 为单调函数，或者存在点 $c$，使得 $f$ 在 $(-\infty,c]$ 上单调减少，而在 $[c,+\infty)$ 上单调增加。
+\end{xexercise}
 
-  \item 设 $f$ 在 $(-\infty,+\infty)$ 上有界，且处处有 $f''(x)\ge0$，证明：$f$ 只能是常值函数。
+\begin{xexercise}[8]
+设 $f$ 在 $(-\infty,+\infty)$ 上有界，且处处有 $f''(x)\ge0$，证明：$f$ 只能是常值函数。
+\end{xexercise}
 
-  \item 设 $f$ 在 $(a,b)$ 上 $n$ 阶可微（$n>2$），$f^{(n)}(x)>0$。又有 $x_0\in(a,b)$，使对于 $k=1,2,\ldots,n-1$ 成立 $f^{(k)}(x_0)=0$，证明：
+\begin{xexercise}[9]
+设 $f$ 在 $(a,b)$ 上 $n$ 阶可微（$n>2$），$f^{(n)}(x)>0$。又有 $x_0\in(a,b)$，使对于 $k=1,2,\ldots,n-1$ 成立 $f^{(k)}(x_0)=0$，证明：
   \begin{enumerate}[label=(\arabic*)]
     \item $n$ 为奇数时，$f$ 在 $(a,b)$ 上严格单调增加；
     \item $n$ 为偶数时，$f$ 在 $(a,b)$ 上严格下凸。
   \end{enumerate}
+\end{xexercise}
 
-  \item 设 $f$ 在开区间 $(c,d)$ 上为下凸函数，则 $f$ 一定满足内闭的 Lipschitz 条件。（这就是说对每个有界闭区间 $[a,b]\subset(c,d)$，存在 $M>0$，对所有 $x_1,x_2\in[a,b]$，成立 $|f(x_1)-f(x_2)|\le M|x_1-x_2|$。）
+\begin{xexercise}[10]
+设 $f$ 在开区间 $(c,d)$ 上为下凸函数，则 $f$ 一定满足内闭的 Lipschitz 条件。（这就是说对每个有界闭区间 $[a,b]\subset(c,d)$，存在 $M>0$，对所有 $x_1,x_2\in[a,b]$，成立 $|f(x_1)-f(x_2)|\le M|x_1-x_2|$。）
+\end{xexercise}
 
-  \item 证明：$f$ 在开区间 $I$ 上为下凸函数的充分必要条件是对每个 $c\in I$，存在 $a$，使在区间 $I$ 上成立不等式 $f(x)\ge a(x-c)+f(c)$（称 $y=a(x-c)+f(c)$ 为支撑线）。
+\begin{xexercise}[11]
+证明：$f$ 在开区间 $I$ 上为下凸函数的充分必要条件是对每个 $c\in I$，存在 $a$，使在区间 $I$ 上成立不等式 $f(x)\ge a(x-c)+f(c)$（称 $y=a(x-c)+f(c)$ 为支撑线）。
+\end{xexercise}
 
-  \item 设 $f$ 在 $[a,+\infty)$ 上为凸函数，证明：$\displaystyle\lim_{x\to+\infty}\frac{f(x)}x$ 一定有意义。
+\begin{xexercise}[12]
+设 $f$ 在 $[a,+\infty)$ 上为凸函数，证明：$\displaystyle\lim_{x\to+\infty}\frac{f(x)}x$ 一定有意义。
+\end{xexercise}
 
-  \item 设 $f$ 在 $(-\infty,+\infty)$ 上为凸函数，又有 $\displaystyle\lim_{x\to\pm\infty}\frac{f(x)}x=0$，证明：$f$ 是常值函数。
+\begin{xexercise}[13]
+设 $f$ 在 $(-\infty,+\infty)$ 上为凸函数，又有 $\displaystyle\lim_{x\to\pm\infty}\frac{f(x)}x=0$，证明：$f$ 是常值函数。
+\end{xexercise}
 
-  \item 设 $f$ 是 $[a,b]$ 上的凸函数，如果有 $c\in(a,b)$ 使得 $f(a)=f(c)=f(b)$，证明：$f(x)$ 是 $[a,b]$ 上的常值函数。
+\begin{xexercise}[14]
+设 $f$ 是 $[a,b]$ 上的凸函数，如果有 $c\in(a,b)$ 使得 $f(a)=f(c)=f(b)$，证明：$f(x)$ 是 $[a,b]$ 上的常值函数。
+\end{xexercise}
 
-  \item 设 $a<b<c<d$，证明：若 $f$ 在 $[a,c]$ 和 $[b,d]$ 上是下凸函数，则 $f$ 也是 $[a,d]$ 上的下凸函数。
+\begin{xexercise}[15]
+设 $a<b<c<d$，证明：若 $f$ 在 $[a,c]$ 和 $[b,d]$ 上是下凸函数，则 $f$ 也是 $[a,d]$ 上的下凸函数。
+\end{xexercise}
 
-  \item 证明：不存在三次或三次以上的奇次多项式为 $(-\infty,+\infty)$ 上的凸函数。
+\begin{xexercise}[16]
+证明：不存在三次或三次以上的奇次多项式为 $(-\infty,+\infty)$ 上的凸函数。
+\end{xexercise}
 
-  \item 设 $f$ 在区间 $(a,b)$ 上二阶可微，$f''$ 无零点，证明：对该区间内的任何两点 $a<x_1<x_2<b$ 用 Lagrange 中值定理得到 $f(x_1)-f(x_2)=f'(\xi)(x_1-x_2)$ 时，其中的中值 $\xi\in(x_1,x_2)$ 总是唯一的。
+\begin{xexercise}[17]
+设 $f$ 在区间 $(a,b)$ 上二阶可微，$f''$ 无零点，证明：对该区间内的任何两点 $a<x_1<x_2<b$ 用 Lagrange 中值定理得到 $f(x_1)-f(x_2)=f'(\xi)(x_1-x_2)$ 时，其中的中值 $\xi\in(x_1,x_2)$ 总是唯一的。
+\end{xexercise}
 
-  \item 若曲线 $y=f(x)$ 以 $(x_0,f(x_0))$ 为拐点，且存在 $f'''(x_0)$，证明：$f'''(x_0)=0$。
+\begin{xexercise}[18]
+若曲线 $y=f(x)$ 以 $(x_0,f(x_0))$ 为拐点，且存在 $f'''(x_0)$，证明：$f'''(x_0)=0$。
+\end{xexercise}
 
-  \item 问：若已知有 $f'''(x_0)=0$，则点 $(x_0,f(x_0))$ 是否一定是曲线 $y=f(x)$ 的拐点？
+\begin{xexercise}[19]
+问：若已知有 $f'''(x_0)=0$，则点 $(x_0,f(x_0))$ 是否一定是曲线 $y=f(x)$ 的拐点？
+\end{xexercise}
 
-  \item 设 $f$ 在点 $x_0$ 处 $n$（$n>2$）阶可微，且满足条件 $f''(x_0)=\cdots=f^{(n-1)}(x_0)=0$，但 $f^{(n)}(x_0)\ne0$，请参考例题 8.3.1 写出点 $(x_0,f(x_0))$ 是拐点的充分必要条件并作出证明。
-\end{enumerate}
+\begin{xexercise}[20]
+设 $f$ 在点 $x_0$ 处 $n$（$n>2$）阶可微，且满足条件 $f''(x_0)=\cdots=f^{(n-1)}(x_0)=0$，但 $f^{(n)}(x_0)\ne0$，请参考例题 8.3.1 写出点 $(x_0,f(x_0))$ 是拐点的充分必要条件并作出证明。
 \end{xexercise}
 
 \section{不等式}
@@ -1608,24 +1684,29 @@ Cauchy 中值定理在证明不等式中也有应用。
 
 \subsection{练习题}
 
-\begin{xexercise}
-\begin{enumerate}
-  \item 证明：当 $x>1$ 时，成立
+\begin{xexercise}[1]
+证明：当 $x>1$ 时，成立
   \[
     \ln x>\frac{2(x-1)}{x+1}.
   \]
+\end{xexercise}
 
-  \item 证明：当 $0<a<b$ 时，成立不等式
+\begin{xexercise}[2]
+证明：当 $0<a<b$ 时，成立不等式
   \[
     a\ln a+b\ln b>(a+b)\cdot[\ln(a+b)-\ln2].
   \]
+\end{xexercise}
 
-  \item 证明：对任意 $0<x_1<x_2$，成立不等式
+\begin{xexercise}[3]
+证明：对任意 $0<x_1<x_2$，成立不等式
   \[
     \frac{x_2-x_1}{x_2}<\ln\frac{x_2}{x_1}<\frac{x_2-x_1}{x_1}.
   \]
+\end{xexercise}
 
-  \item 证明以下不等式：
+\begin{xexercise}[4]
+证明以下不等式：
   \begin{enumerate}[label=(\arabic*)]
     \item $\displaystyle a^{\frac{x_1+x_2+\cdots+x_n}{n}}
     \le\frac1n(a^{x_1}+a^{x_2}+\cdots+a^{x_n})$，其中 $a>0$；
@@ -1637,10 +1718,14 @@ Cauchy 中值定理在证明不等式中也有应用。
       \le\left(x_1^{x_1}x_2^{x_2}\cdots x_n^{x_n}\right)^{\frac1{x_1+x_2+\cdots+x_n}}.
     \]
   \end{enumerate}
+\end{xexercise}
 
-  \item 证明：对于 $0<\alpha<1$ 和 $x>0$ 成立 $x^\alpha-\alpha x+\alpha-1\le0$，而当 $\alpha>1$ 时不等式反向成立。
+\begin{xexercise}[5]
+证明：对于 $0<\alpha<1$ 和 $x>0$ 成立 $x^\alpha-\alpha x+\alpha-1\le0$，而当 $\alpha>1$ 时不等式反向成立。
+\end{xexercise}
 
-  \item 从命题 2.5.1 已知，对每个 $n\in\NN_+$，成立不等式
+\begin{xexercise}[6]
+从命题 2.5.1 已知，对每个 $n\in\NN_+$，成立不等式
   \[
     \left(1+\frac1n\right)^n\le\ee\le\left(1+\frac1n\right)^{n+1}.
   \]
@@ -1650,51 +1735,69 @@ Cauchy 中值定理在证明不等式中也有应用。
     \left(1+\frac1n\right)^{n+\beta},\qquad\forall n\in\NN_+.
   \]
   （本题与例题 8.2.3 有联系。）
+\end{xexercise}
 
-  \item 证明：对 $0<a<b$，成立以下不等式：
+\begin{xexercise}[7]
+证明：对 $0<a<b$，成立以下不等式：
   \[
     a<\frac2{\frac1a+\frac1b}<\sqrt{ab}<\frac{b-a}{\ln b-\ln a}<\frac{a+b}{2}
     <\sqrt{\frac{a^2+b^2}{2}}<b.
   \]
+\end{xexercise}
 
-  \item 对于 $2n$ 个正数 $x_1,x_2,\ldots,x_n$ 和 $\lambda_1,\lambda_2,\ldots,\lambda_n$，且 $\lambda_1+\lambda_2+\cdots+\lambda_n=1$，定义加权的 $t$ 阶平均值（或 $t$ 阶和）为
+\begin{xexercise}[8]
+对于 $2n$ 个正数 $x_1,x_2,\ldots,x_n$ 和 $\lambda_1,\lambda_2,\ldots,\lambda_n$，且 $\lambda_1+\lambda_2+\cdots+\lambda_n=1$，定义加权的 $t$ 阶平均值（或 $t$ 阶和）为
   \[
     M_t(x,\lambda)=\left(\sum_{i=1}^n\lambda_i x_i^t\right)^{1/t}.
   \]
   它在 $t=-1$ 时为调和平均值，$t=1$ 时为算术平均值，$t=2$ 时为平方平均值（即均方根值）。又若在 $t=0,+\infty,-\infty$ 时用极限作补充定义，则在 $t=0$ 时为几何平均值，$t=+\infty$ 时为 $\max\{x\}$，$t=-\infty$ 时为 $\min\{x\}$。这样就使 $M_t(x,\lambda)$ 在 $-\infty\le t\le+\infty$ 上处处有定义。证明：$M_t(x,\lambda)$ 是 $t$ 的单调增加函数，在 $n>1$ 且 $x_1,x_2,\ldots,x_n$ 不全相等时为 $t$ 的严格单调增加函数。
+\end{xexercise}
 
-  \item 证明：若将 Minkowski 不等式 (8.18) 中的参数 $p\ge1$ 的条件改为 $0<p<1$，则不等式反向成立。
+\begin{xexercise}[9]
+证明：若将 Minkowski 不等式 (8.18) 中的参数 $p\ge1$ 的条件改为 $0<p<1$，则不等式反向成立。
+\end{xexercise}
 
-  \item 证明 Young（杨氏）不等式：若 $x,y\ge0$，$p,q>1$，$\dfrac1p+\dfrac1q=1$，则成立不等式
+\begin{xexercise}[10]
+证明 Young（杨氏）不等式：若 $x,y\ge0$，$p,q>1$，$\dfrac1p+\dfrac1q=1$，则成立不等式
   \[
     x^{1/p}y^{1/q}\le\frac xp+\frac yq.
   \]
+\end{xexercise}
 
-  \item 试用 Young 不等式证明：
+\begin{xexercise}[11]
+试用 Young 不等式证明：
   \begin{enumerate}[label=(\arabic*)]
     \item 广义的算术平均值－几何平均值不等式；
     \item Hölder 不等式。
   \end{enumerate}
+\end{xexercise}
 
-  \item 设 $f$ 和 $\varphi$ 在 $x\ge a$ 时可微，$f(a)=\varphi(a)$，且当 $x\ge a$ 时，成立 $|f'(x)|\le\varphi'(x)$，证明：当 $x\ge a$ 时，成立
+\begin{xexercise}[12]
+设 $f$ 和 $\varphi$ 在 $x\ge a$ 时可微，$f(a)=\varphi(a)$，且当 $x\ge a$ 时，成立 $|f'(x)|\le\varphi'(x)$，证明：当 $x\ge a$ 时，成立
   \[
     |f(x)-f(a)|\le\varphi(x)-\varphi(a).
   \]
+\end{xexercise}
 
-  \item 设 $f$ 满足 $f(1)=1$，且当 $x\ge1$ 时有
+\begin{xexercise}[13]
+设 $f$ 满足 $f(1)=1$，且当 $x\ge1$ 时有
   \[
     f'(x)=\frac1{x^2+f^2(x)}.
   \]
   证明：极限 $\displaystyle\lim_{x\to+\infty}f(x)$ 存在，且小于 $1+\pi/4$。
+\end{xexercise}
 
-  \item 设 $A=(a_{ij})_{1\le i,j\le n}$ 是每行每列的和均等于 1 的非负元素矩阵，又有
+\begin{xexercise}[14]
+设 $A=(a_{ij})_{1\le i,j\le n}$ 是每行每列的和均等于 1 的非负元素矩阵，又有
   \[
     \begin{pmatrix}y_1\\\vdots\\y_n\end{pmatrix}
     =A\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix},
   \]
   其中两个向量的所有元素也都是非负数，证明：$y_1\cdots y_n\ge x_1\cdots x_n$。
+\end{xexercise}
 
-  \item 若记
+\begin{xexercise}[15]
+若记
   \[
     T_n(x)=x-\frac1{3!}x^3+\cdots+\frac{(-1)^n}{(2n+1)!}x^{2n+1}
     =\sum_{k=0}^n\frac{(-1)^k}{(2k+1)!}x^{2k+1}
@@ -1710,9 +1813,10 @@ Cauchy 中值定理在证明不等式中也有应用。
     \quad\text{其中 }x>0,\ n\text{ 为偶数}.
   \]
   （例题 8.5.3 是本题的一个特例。类似地，可以建立关于 $\cos x$ 的结果。）
+\end{xexercise}
 
-  \item 证明例题 8.5.4 中右边的不等式。
-\end{enumerate}
+\begin{xexercise}[16]
+证明例题 8.5.4 中右边的不等式。
 \end{xexercise}
 
 \section{函数作图}
@@ -1816,17 +1920,20 @@ $x(t)$ 和 $y(t)$ 只是 $t$ 的三次和四次多项式，容易分别作出它
 
 \subsection{练习题}
 
-\begin{xexercise}
-\begin{enumerate}
-  \item 随手画出一条曲线代表 $y=f(x)$，然后试画出其一阶导函数和二阶导函数的图形（本题是《数学译林》(1992) 第 4 期《数学的基本要求》一文中的第 1 题）。
+\begin{xexercise}[1]
+随手画出一条曲线代表 $y=f(x)$，然后试画出其一阶导函数和二阶导函数的图形（本题是《数学译林》(1992) 第 4 期《数学的基本要求》一文中的第 1 题）。
+\end{xexercise}
 
-  \item 证明：曲线
+\begin{xexercise}[2]
+证明：曲线
   \[
     y=\frac{x+1}{x^2+1}
   \]
   有位于同一直线上的三个拐点，并作图。
+\end{xexercise}
 
-  \item 作出以下函数的图像：
+\begin{xexercise}[3]
+作出以下函数的图像：
   \begin{enumerate}[label=(\arabic*)]
     \item $\displaystyle y=\left(1+\frac1x\right)^x\quad(x>0)$；
     \item $\displaystyle y=\frac1{1+x^2}\ee^{\frac1{1-x^2}}$；
@@ -1839,10 +1946,14 @@ $x(t)$ 和 $y(t)$ 只是 $t$ 的三次和四次多项式，容易分别作出它
     \item $y=x^x\quad(x>0)$；
     \item $y=x^{1/x}\quad(x>0)$。
   \end{enumerate}
+\end{xexercise}
 
-  \item 证明：方程 $x^y=y^x$ 在第一象限内的图像由一条直线和一条曲线组成，并作出此图像。
+\begin{xexercise}[4]
+证明：方程 $x^y=y^x$ 在第一象限内的图像由一条直线和一条曲线组成，并作出此图像。
+\end{xexercise}
 
-  \item 作出以下用参数方程给出的曲线：
+\begin{xexercise}[5]
+作出以下用参数方程给出的曲线：
   \begin{enumerate}[label=(\arabic*)]
     \item $x=t^2-2$，$y=t(t^2-2)$；
     \item $x=2t-t^2$，$y=3t-t^3$；
@@ -1851,7 +1962,6 @@ $x(t)$ 和 $y(t)$ 只是 $t$ 的三次和四次多项式，容易分别作出它
     \item $x=a(t-\sin t)$，$y=a(1-\cos t)$（摆线）；
     \item $x=a(\cos t+t\sin t)$，$y=a(\sin t-t\cos t)$（圆的渐开线）。
   \end{enumerate}
-\end{enumerate}
 \end{xexercise}
 
 \section{方程求根与近似计算}
@@ -2202,30 +2312,40 @@ $x(t)$ 和 $y(t)$ 只是 $t$ 的三次和四次多项式，容易分别作出它
 
 本节的计算题应当根据在学习中所能使用的计算工具来安排，下面的题中只有第 1 题是计算题，且只需用计算器。
 
-\begin{xexercise}
-\begin{enumerate}
-  \item 用 Newton 求根法计算（要求精确到 $0.0001$）：
+\begin{xexercise}[1]
+用 Newton 求根法计算（要求精确到 $0.0001$）：
   \begin{enumerate}[label=(\arabic*)]
     \item $x^3-2x^2-4x-7=0$ 在 $[3,4]$ 之间的根的近似值；
     \item $\sin x=1-x$ 的根的近似值。
   \end{enumerate}
+\end{xexercise}
 
-  \item 在命题 8.7.1 中给出了保证 Newton 求根法成功的充分条件，其中共有 4 项要求。试举出例子，说明不满足其中的某些要求时，用 Newton 求根法有可能失败。
+\begin{xexercise}[2]
+在命题 8.7.1 中给出了保证 Newton 求根法成功的充分条件，其中共有 4 项要求。试举出例子，说明不满足其中的某些要求时，用 Newton 求根法有可能失败。
+\end{xexercise}
 
-  \item 证明：在例题 5.2.1 中提供的二分法是方程求根的一阶算法。
+\begin{xexercise}[3]
+证明：在例题 5.2.1 中提供的二分法是方程求根的一阶算法。
+\end{xexercise}
 
-  \item 证明：2.6.3 小节的题 9 中的算法是求平方根的三阶算法。
+\begin{xexercise}[4]
+证明：2.6.3 小节的题 9 中的算法是求平方根的三阶算法。
+\end{xexercise}
 
-  \item 设 $A>0$，为计算立方根 $\sqrt[3]A$，从 $x_0>0$ 出发用递推公式
+\begin{xexercise}[5]
+设 $A>0$，为计算立方根 $\sqrt[3]A$，从 $x_0>0$ 出发用递推公式
   \[
     x_{n+1}=\frac{x_n(x_n^3+2A)}{2x_n^3+A}
   \]
   作迭代，证明数列 $\{x_n\}$ 收敛，求出其极限，并确定其收敛的阶。
+\end{xexercise}
 
-  \item 用 Newton 求根法设计一个求 $\sqrt[k]A$（$A>0,k>0$）的迭代算法，并对其收敛速度作出分析。
+\begin{xexercise}[6]
+用 Newton 求根法设计一个求 $\sqrt[k]A$（$A>0,k>0$）的迭代算法，并对其收敛速度作出分析。
+\end{xexercise}
 
-  \item 用 Newton 求根法设计一个求 $1/A$ 的迭代算法，其中只用加法和乘法运算，并对其收敛速度作出分析。
-\end{enumerate}
+\begin{xexercise}[7]
+用 Newton 求根法设计一个求 $1/A$ 的迭代算法，其中只用加法和乘法运算，并对其收敛速度作出分析。
 \end{xexercise}
 
 \section{对于教学的建议}
@@ -2252,15 +2372,15 @@ $x(t)$ 和 $y(t)$ 只是 $t$ 的三次和四次多项式，容易分别作出它
 
 \paragraph{第一组参考题}
 
-\begin{xreferenceproblem}
-\begin{enumerate}
-  \item
-  \begin{enumerate}[label=(\arabic*)]
+\begin{xreferenceproblem}[1]
+\begin{enumerate}[label=(\arabic*)]
     \item 设 $\displaystyle\lim_{x\to+\infty}[f(x)+f'(x)]=0$，证明：$\displaystyle\lim_{x\to+\infty}f(x)=0$；
     \item 设 $|f(x)+f'(x)|\le1$，$f(x)$ 在 $(-\infty,+\infty)$ 上有界，证明：$|f(x)|\le1$。
   \end{enumerate}
+\end{xreferenceproblem}
 
-  \item 设 $f(x)$ 在 $x=0$ 的某邻域上二阶可微，且
+\begin{xreferenceproblem}[2]
+设 $f(x)$ 在 $x=0$ 的某邻域上二阶可微，且
   \[
     \lim_{x\to0}\left(1+x+\frac{f(x)}x\right)^{1/x}=\ee^3.
   \]
@@ -2268,53 +2388,75 @@ $x(t)$ 和 $y(t)$ 只是 $t$ 的三次和四次多项式，容易分别作出它
   \[
     \lim_{x\to0}\left(1+\frac{f(x)}x\right)^{1/x}.
   \]
+\end{xreferenceproblem}
 
-  \item 例题 8.1.10 可以推广如下：设正数列 $\{x_n\}$ 为满足递推公式 $x_{n+1}=f(x_n)$ 的无穷小量，函数 $f$ 有 Maclaurin 展开式
+\begin{xreferenceproblem}[3]
+例题 8.1.10 可以推广如下：设正数列 $\{x_n\}$ 为满足递推公式 $x_{n+1}=f(x_n)$ 的无穷小量，函数 $f$ 有 Maclaurin 展开式
   \[
     f(x)=x+Ax^k+\littleo(x^k)\quad(x\to0),
   \]
   其中 $k$ 为大于 1 的某正整数，系数 $A\ne0$，证明：有 $\alpha>0$，使得存在非零极限 $\displaystyle\lim_{n\to\infty}nx_n^\alpha$，并求出此极限。
+\end{xreferenceproblem}
 
-  \item 设 $f\in C[a,b]$，证明：$f$ 在 $(a,b)$ 内没有极值点的充分必要条件是 $f$ 在区间 $[a,b]$ 上为严格单调函数。
+\begin{xreferenceproblem}[4]
+设 $f\in C[a,b]$，证明：$f$ 在 $(a,b)$ 内没有极值点的充分必要条件是 $f$ 在区间 $[a,b]$ 上为严格单调函数。
+\end{xreferenceproblem}
 
-  \item 证明关于三点不等式（命题 1.3.4）的一个推广：在 $0<p<1$ 时，成立不等式
+\begin{xreferenceproblem}[5]
+证明关于三点不等式（命题 1.3.4）的一个推广：在 $0<p<1$ 时，成立不等式
   \[
     |a+b|^p\le|a|^p+|b|^p.
   \]
+\end{xreferenceproblem}
 
-  \item 证明：对每个正整数 $n$，成立不等式
+\begin{xreferenceproblem}[6]
+证明：对每个正整数 $n$，成立不等式
   \[
     \frac{\ee}{2n+2}<\ee-\left(1+\frac1n\right)^n<\frac{\ee}{2n+1}.
   \]
+\end{xreferenceproblem}
 
-  \item 证明：当 $0<x<\dfrac\pi2$ 时，成立不等式
+\begin{xreferenceproblem}[7]
+证明：当 $0<x<\dfrac\pi2$ 时，成立不等式
   \[
     \left(\frac{\sin x}{x}\right)^3>\cos x.
   \]
+\end{xreferenceproblem}
 
-  \item 证明：当 $0<x<\dfrac\pi2$ 时，成立不等式 $2\sin x+\tan x>3x$。
+\begin{xreferenceproblem}[8]
+证明：当 $0<x<\dfrac\pi2$ 时，成立不等式 $2\sin x+\tan x>3x$。
+\end{xreferenceproblem}
 
-  \item 证明：当 $0<x<1$ 时，成立不等式
+\begin{xreferenceproblem}[9]
+证明：当 $0<x<1$ 时，成立不等式
   \[
     \pi<\frac{\sin\pi x}{x(1-x)}\le4.
   \]
+\end{xreferenceproblem}
 
-  \item 证明：当 $x\in[0,\pi/2]$ 时，成立比 Jordan 不等式（例题 8.5.6）更好的结果：
+\begin{xreferenceproblem}[10]
+证明：当 $x\in[0,\pi/2]$ 时，成立比 Jordan 不等式（例题 8.5.6）更好的结果：
   \[
     \sin x\ge\frac2\pi x+\frac1{12\pi}x(\pi^2-4x^2).
   \]
+\end{xreferenceproblem}
 
-  \item 证明：对 $n$ 个正数 $x_1,x_2,\ldots,x_n$，成立不等式
+\begin{xreferenceproblem}[11]
+证明：对 $n$ 个正数 $x_1,x_2,\ldots,x_n$，成立不等式
   \[
     \frac{x_1x_2\cdots x_n}{(x_1+x_2+\cdots+x_n)^n}
     \le
     \frac{(1+x_1)(1+x_2)\cdots(1+x_n)}{(n+x_1+x_2+\cdots+x_n)^n},
   \]
   并讨论成立等号的条件。
+\end{xreferenceproblem}
 
-  \item 证明：当 $x\in(0,\pi/4)$ 时，成立 $(\sin x)^{\cos x}<(\cos x)^{\sin x}$；而在 $x\in(\pi/4,\pi/2)$ 时，不等式反向。
+\begin{xreferenceproblem}[12]
+证明：当 $x\in(0,\pi/4)$ 时，成立 $(\sin x)^{\cos x}<(\cos x)^{\sin x}$；而在 $x\in(\pi/4,\pi/2)$ 时，不等式反向。
+\end{xreferenceproblem}
 
-  \item 设 $p>1$，$a,b>0$，证明：
+\begin{xreferenceproblem}[13]
+设 $p>1$，$a,b>0$，证明：
   \begin{enumerate}[label=(\arabic*)]
     \item 当 $t>0$ 时，成立
     \[
@@ -2326,21 +2468,31 @@ $x(t)$ 和 $y(t)$ 只是 $t$ 的三次和四次多项式，容易分别作出它
       t^{1-p}a^p+(1-t)^{1-p}b^p\ge(a+b)^p.
     \]
   \end{enumerate}
+\end{xreferenceproblem}
 
-  \item 设 $p(x)$ 为三次多项式，$p(a)=p(b)=0$，证明：$p(x)$ 在 $[a,b]$ 上不变号的充分必要条件是 $p'(a)p'(b)\le0$。
+\begin{xreferenceproblem}[14]
+设 $p(x)$ 为三次多项式，$p(a)=p(b)=0$，证明：$p(x)$ 在 $[a,b]$ 上不变号的充分必要条件是 $p'(a)p'(b)\le0$。
+\end{xreferenceproblem}
 
-  \item 证明在 $\RR$ 上的任何可微函数都不可能满足下列函数方程：
+\begin{xreferenceproblem}[15]
+证明在 $\RR$ 上的任何可微函数都不可能满足下列函数方程：
   \begin{enumerate}[label=(\arabic*)]
     \item $g(g(x))=-x^3+x+1$；
     \item $g(g(x))=-x^3+x^2+1$；
     \item $g(g(x))=x^2-3x+3$。
   \end{enumerate}
+\end{xreferenceproblem}
 
-  \item 设 $f$ 在 $[0,1]$ 上二阶可微，$f(0)=f(1)=0$，$\displaystyle\min_{0\le x\le1}\{f(x)\}=-1$，证明：存在 $\xi\in(0,1)$，使成立 $f''(\xi)\ge8$。
+\begin{xreferenceproblem}[16]
+设 $f$ 在 $[0,1]$ 上二阶可微，$f(0)=f(1)=0$，$\displaystyle\min_{0\le x\le1}\{f(x)\}=-1$，证明：存在 $\xi\in(0,1)$，使成立 $f''(\xi)\ge8$。
+\end{xreferenceproblem}
 
-  \item 设 $f$ 在 $[-1,1]$ 上二阶可微，$f(0)=f'(0)=0$，$f(1)=1$，$f(-1)=0$，证明：存在 $\xi\in(-1,1)$，使成立 $f''(\xi)=3$。
+\begin{xreferenceproblem}[17]
+设 $f$ 在 $[-1,1]$ 上二阶可微，$f(0)=f'(0)=0$，$f(1)=1$，$f(-1)=0$，证明：存在 $\xi\in(-1,1)$，使成立 $f''(\xi)=3$。
+\end{xreferenceproblem}
 
-  \item 设 $f,g$ 在 $[a,b]$ 上连续可微，$f(a)=f(b)=0$，Wronski（朗斯基）行列式
+\begin{xreferenceproblem}[18]
+设 $f,g$ 在 $[a,b]$ 上连续可微，$f(a)=f(b)=0$，Wronski（朗斯基）行列式
   \[
     W(f,g)=
     \begin{vmatrix}
@@ -2350,19 +2502,19 @@ $x(t)$ 和 $y(t)$ 只是 $t$ 的三次和四次多项式，容易分别作出它
     \ne0,\qquad\forall x\in[a,b],
   \]
   证明：$g(x)$ 在 $(a,b)$ 中有零点。
-\end{enumerate}
 \end{xreferenceproblem}
 
 \paragraph{第二组参考题}
 
-\begin{xreferenceproblem}
-\begin{enumerate}
-  \item 设 $f$ 在 $(0,+\infty)$ 上单调减少、可微，且满足不等式 $0<f(x)<|f'(x)|$，证明：当 $0<x<1$ 时，成立不等式
+\begin{xreferenceproblem}[1]
+设 $f$ 在 $(0,+\infty)$ 上单调减少、可微，且满足不等式 $0<f(x)<|f'(x)|$，证明：当 $0<x<1$ 时，成立不等式
   \[
     xf(x)>\frac1x f\left(\frac1x\right).
   \]
+\end{xreferenceproblem}
 
-  \item 若 $f(0)=0$，且存在 $f^{(n+1)}(0)$，定义
+\begin{xreferenceproblem}[2]
+若 $f(0)=0$，且存在 $f^{(n+1)}(0)$，定义
   \[
     g(x)=
     \begin{cases}
@@ -2375,10 +2527,14 @@ $x(t)$ 和 $y(t)$ 只是 $t$ 的三次和四次多项式，容易分别作出它
     g^{(n)}(0)=\frac1{n+1}f^{(n+1)}(0).
   \]
   （例题 8.1.9 的推广。）
+\end{xreferenceproblem}
 
-  \item 设 $f$ 在点 $a$ 存在 $f^{(n)}(a)$，且 $f(a)=0$。令 $F(x)=[f(x)]^n$，证明：对于 $k=0,1,\ldots,n-1$，$F^{(k)}(a)=0$。又举例说明：导数 $f^{(n)}(a)$ 存在的条件不能去掉。
+\begin{xreferenceproblem}[3]
+设 $f$ 在点 $a$ 存在 $f^{(n)}(a)$，且 $f(a)=0$。令 $F(x)=[f(x)]^n$，证明：对于 $k=0,1,\ldots,n-1$，$F^{(k)}(a)=0$。又举例说明：导数 $f^{(n)}(a)$ 存在的条件不能去掉。
+\end{xreferenceproblem}
 
-  \item 记
+\begin{xreferenceproblem}[4]
+记
   \[
     P_n(x)=1+\frac{x}{1!}+\frac{x^2}{2!}+\cdots+\frac{x^n}{n!},\qquad n\in\NN_+,
   \]
@@ -2391,89 +2547,120 @@ $x(t)$ 和 $y(t)$ 只是 $t$ 的三次和四次多项式，容易分别作出它
     \item 当 $x>0$ 时，成立不等式 $\ee^x>P_n(x)\ge\left(1+\dfrac xn\right)^n$；
     \item 对一切 $x\in\RR$，成立 $\displaystyle\lim_{n\to\infty}P_n(x)=\ee^x$。
   \end{enumerate}
+\end{xreferenceproblem}
 
-  \item 定义 $x_0=a$，$x_1=b$，
+\begin{xreferenceproblem}[5]
+定义 $x_0=a$，$x_1=b$，
   \[
     x_{n+1}=\frac{(2n-1)x_n+x_{n-1}}{2n},
   \]
   求 $\displaystyle\lim_{n\to\infty}x_n$。
+\end{xreferenceproblem}
 
-  \item 设 $0<x_0<y_0\le\dfrac\pi2$，并用递推公式 $x_{n+1}=\sin x_n$ 和 $y_{n+1}=\sin y_n$ 生成两个数列 $\{x_n\}$ 和 $\{y_n\}$，证明：
+\begin{xreferenceproblem}[6]
+设 $0<x_0<y_0\le\dfrac\pi2$，并用递推公式 $x_{n+1}=\sin x_n$ 和 $y_{n+1}=\sin y_n$ 生成两个数列 $\{x_n\}$ 和 $\{y_n\}$，证明：
   \[
     \lim_{n\to\infty}\frac{x_n}{y_n}=1.
   \]
+\end{xreferenceproblem}
 
-  \item 证明：若函数
+\begin{xreferenceproblem}[7]
+证明：若函数
   \[
     y=\frac{ax^2+2bx+c}{\alpha x^2+2\beta x+\gamma}\qquad(a\ne0)
   \]
   有三个拐点，则它们必在一条直线上。
+\end{xreferenceproblem}
 
-  \item 下凸函数的 Jensen 定义是：称函数 $f$ 在区间 $I$ 上为下凸，如果对所有 $x_1,x_2\in I$，成立
+\begin{xreferenceproblem}[8]
+下凸函数的 Jensen 定义是：称函数 $f$ 在区间 $I$ 上为下凸，如果对所有 $x_1,x_2\in I$，成立
   \[
     f\left(\frac{x_1+x_2}{2}\right)\le\frac12[f(x_1)+f(x_2)].
   \]
   证明：对连续函数来说，下凸的 Jensen 定义和 §8.4 中的下凸定义等价。
 
   （确实存在按 Jensen 定义为下凸但不满足 §8.4 中的下凸定义的函数，例题 5.1.3 的不连续解就是如此（参见 [54, 56, 58]）。）
+\end{xreferenceproblem}
 
-  \item 设 $f$ 在区间 $(a,b)$ 上按 Jensen 定义为下凸函数，且至多只有第一类间断点，证明：$f$ 在 $(a,b)$ 上连续。
+\begin{xreferenceproblem}[9]
+设 $f$ 在区间 $(a,b)$ 上按 Jensen 定义为下凸函数，且至多只有第一类间断点，证明：$f$ 在 $(a,b)$ 上连续。
+\end{xreferenceproblem}
 
-  \item 设 $f$ 在区间 $(a,b)$ 上按 Jensen 定义为下凸函数，且在 $(a,b)$ 内的每个闭子区间上有界，证明：$f$ 在 $(a,b)$ 上连续。
+\begin{xreferenceproblem}[10]
+设 $f$ 在区间 $(a,b)$ 上按 Jensen 定义为下凸函数，且在 $(a,b)$ 内的每个闭子区间上有界，证明：$f$ 在 $(a,b)$ 上连续。
+\end{xreferenceproblem}
 
-  \item 函数 $f$ 在区间 $(-1,1)$ 上二阶可微，$f(0)=f'(0)=0$，且在该区间上满足不等式
+\begin{xreferenceproblem}[11]
+函数 $f$ 在区间 $(-1,1)$ 上二阶可微，$f(0)=f'(0)=0$，且在该区间上满足不等式
   \[
     |f''(x)|\le|f(x)|+|f'(x)|,
   \]
   证明：$f(x)\equiv0$。
+\end{xreferenceproblem}
 
-  \item 设 $f(x)$ 为区间 $I$ 上的可微函数，满足微分方程 $f'(x)=g(f(x))$，其中 $g$ 是在 $f$ 的值域上有定义的函数，证明：$f$ 一定是单调函数。
+\begin{xreferenceproblem}[12]
+设 $f(x)$ 为区间 $I$ 上的可微函数，满足微分方程 $f'(x)=g(f(x))$，其中 $g$ 是在 $f$ 的值域上有定义的函数，证明：$f$ 一定是单调函数。
+\end{xreferenceproblem}
 
-  \item 证明：在 $(-\infty,+\infty)$ 上二阶可微的函数 $f$ 不可能对于一切 $x$，同时满足不等式
+\begin{xreferenceproblem}[13]
+证明：在 $(-\infty,+\infty)$ 上二阶可微的函数 $f$ 不可能对于一切 $x$，同时满足不等式
   \[
     f(x)>0,\qquad f'(x)>0,\qquad f''(x)<0.
   \]
+\end{xreferenceproblem}
 
-  \item 设 $f$ 在 $\RR$ 上三阶可微，证明：存在一个点 $a$ 使得
+\begin{xreferenceproblem}[14]
+设 $f$ 在 $\RR$ 上三阶可微，证明：存在一个点 $a$ 使得
   \[
     f(a)f'(a)f''(a)f'''(a)\ge0.
   \]
+\end{xreferenceproblem}
 
-  \item 设 $p(x)$ 是多项式，证明：若对每个 $x$ 成立不等式
+\begin{xreferenceproblem}[15]
+设 $p(x)$ 是多项式，证明：若对每个 $x$ 成立不等式
   \[
     p'''(x)-p''(x)-p'(x)+p(x)\ge0,
   \]
   则 $p(x)\ge0$ 对每个 $x$ 成立。
+\end{xreferenceproblem}
 
-  \item 设 $P$ 为多项式，$P(x)=0$ 有 $n$ 个大于 1 的互异实根。令
+\begin{xreferenceproblem}[16]
+设 $P$ 为多项式，$P(x)=0$ 有 $n$ 个大于 1 的互异实根。令
   \[
     Q(x)=(x^2+1)P(x)P'(x)+x[(P(x))^2+(P'(x))^2],
   \]
   证明：$Q(x)=0$ 至少有 $2n-1$ 个互异实根。
 
   （下面两个题用于证明在第二章第二组参考题 18 中所用到的结论。）
+\end{xreferenceproblem}
 
-  \item 设 $f(x)=a^x$，证明：
+\begin{xreferenceproblem}[17]
+设 $f(x)=a^x$，证明：
   \begin{enumerate}[label=(\arabic*)]
     \item 如 $a>\ee^{1/\ee}$，则 $f$ 无不动点；
     \item 如 $a=\ee^{1/\ee}$，则 $f$ 恰有一个不动点；
     \item 如 $1<a<\ee^{1/\ee}$，则 $f$ 有两个不动点。
   \end{enumerate}
+\end{xreferenceproblem}
 
-  \item 设 $g(x)=a^{a^x}$，证明：
+\begin{xreferenceproblem}[18]
+设 $g(x)=a^{a^x}$，证明：
   \begin{enumerate}[label=(\arabic*)]
     \item 如 $\ee^{-\ee}\le a<1$，则 $g$ 只有一个不动点；
     \item 如 $0<a<\ee^{-\ee}$，则 $g$ 有三个不动点。
   \end{enumerate}
+\end{xreferenceproblem}
 
-  \item 讨论三角方程
+\begin{xreferenceproblem}[19]
+讨论三角方程
   \[
     a\sin\theta+b\cos\theta-\sin\theta\cos\theta=0
   \]
   在 $[0,2\pi)$ 中的实根个数。
+\end{xreferenceproblem}
 
-  \item 从平面上的一个定点向一个给定的椭圆可以引出多少条法线？讨论在什么区域上法线的条数最多。（参见后面 412 页上关于本题所附的图 1 和图 2。）
+\begin{xreferenceproblem}[20]
+从平面上的一个定点向一个给定的椭圆可以引出多少条法线？讨论在什么区域上法线的条数最多。（参见后面 412 页上关于本题所附的图 1 和图 2。）
 
   （本题以及类似的问题最早是由 Apollonius（阿波罗尼奥斯，约公元前 262—前 190 年）提出和解决的。又见于《数学译林》(1992) 第 4 期，即 V. I. Arnold 给出的《构成对物理专业学生的最低限度的数学的一百个问题》中的第 7 题。）
-\end{enumerate}
 \end{xreferenceproblem}

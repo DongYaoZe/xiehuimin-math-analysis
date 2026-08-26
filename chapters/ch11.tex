@@ -318,26 +318,51 @@ B(z)&=2\int_{\sqrt z}^1\sqrt{x^2-z}\,\dd x\\
 
 由于在习题集[27]（及其学习指引[59]）和各种教科书中都有许多几何计算题可用，因此本节只收入少量练习题作为补充。
 
-\begin{xexercise}
-\begin{enumerate}
-  \item 设椭圆方程为$Ax^2+2Bxy+Cy^2=1$，其中$A>0,\Delta=AC-B^2>0$。试用例题11.1.1中的第三种方法（即公式(11.1)）证明：由该椭圆所围的面积等于$\pi/\sqrt\Delta$。
-  \item 试以公式(11.1)为出发点，推导出极坐标下的扇形面积计算公式(11.2)。
-  \item 已知三个半径为$r$的圆，其中每个圆的圆周都通过另外两个圆的圆心，求三个圆公共部分的面积。
+\begin{xexercise}[1]
+设椭圆方程为$Ax^2+2Bxy+Cy^2=1$，其中$A>0,\Delta=AC-B^2>0$。试用例题11.1.1中的第三种方法（即公式(11.1)）证明：由该椭圆所围的面积等于$\pi/\sqrt\Delta$。
+\end{xexercise}
+
+\begin{xexercise}[2]
+试以公式(11.1)为出发点，推导出极坐标下的扇形面积计算公式(11.2)。
+\end{xexercise}
+
+\begin{xexercise}[3]
+已知三个半径为$r$的圆，其中每个圆的圆周都通过另外两个圆的圆心，求三个圆公共部分的面积。
 
   （本题有不用微积分的初等解法。）
-  \item 周长一定的等腰三角形，腰与底的比例为多少时，它绕底边旋转所得的旋转体体积最大？
-  \item 半轴长为$a$和$b$的一个椭圆在曲线$y=c\sin(x/a)$上进行无滑动的滚动。问$a,b,c$之间的关系怎样时，椭圆在曲线上滚动了曲线的一个周期时，它正好转了一周？
-  \item 在单位圆周上任意取一段位于第一象限且长度为$s$的弧，设位于该弧下方、$x$轴上方的曲边梯形的面积为$A$，而位于该弧左侧、$y$轴右侧的曲边梯形的面积为$B$。证明：$A+B$只依赖于弧的长度$s$，而与弧的位置无关。
-  \item 试求由抛物线$y^2=2x$与过其焦点的弦所围的图形面积的最小值。
-  \item 至少用两种方法计算下列三个圆的公共部分的面积：
+\end{xexercise}
+
+\begin{xexercise}[4]
+周长一定的等腰三角形，腰与底的比例为多少时，它绕底边旋转所得的旋转体体积最大？
+\end{xexercise}
+
+\begin{xexercise}[5]
+半轴长为$a$和$b$的一个椭圆在曲线$y=c\sin(x/a)$上进行无滑动的滚动。问$a,b,c$之间的关系怎样时，椭圆在曲线上滚动了曲线的一个周期时，它正好转了一周？
+\end{xexercise}
+
+\begin{xexercise}[6]
+在单位圆周上任意取一段位于第一象限且长度为$s$的弧，设位于该弧下方、$x$轴上方的曲边梯形的面积为$A$，而位于该弧左侧、$y$轴右侧的曲边梯形的面积为$B$。证明：$A+B$只依赖于弧的长度$s$，而与弧的位置无关。
+\end{xexercise}
+
+\begin{xexercise}[7]
+试求由抛物线$y^2=2x$与过其焦点的弦所围的图形面积的最小值。
+\end{xexercise}
+
+\begin{xexercise}[8]
+至少用两种方法计算下列三个圆的公共部分的面积：
   \[
     x^2+y^2\le4,\qquad (x-2)^2+y^2\le4,\qquad x^2+(y-2)^2\le4.
   \]
-  \item 求椭圆柱$x^2/16+y^2/100\le1$夹在平面$z=0,y=2z$之间部分的体积。
-  \item 求圆柱面$x^2+y^2=a^2$与$x^2+z^2=a^2$所围立体区域的体积。
+\end{xexercise}
+
+\begin{xexercise}[9]
+求椭圆柱$x^2/16+y^2/100\le1$夹在平面$z=0,y=2z$之间部分的体积。
+\end{xexercise}
+
+\begin{xexercise}[10]
+求圆柱面$x^2+y^2=a^2$与$x^2+z^2=a^2$所围立体区域的体积。
 
   （这个立体区域在中国古代数学史上称为牟合方盖，它是刘徽在研究球体积计算问题中提出来的，见[35]。在这之前，Archimedes在其著作《方法》的命题15中已经给出了这个立体区域的体积计算（参见[60]的192页）。）
-\end{enumerate}
 \end{xexercise}
 
 \section{不等式}
@@ -696,36 +721,62 @@ I&=\int_0^af(x)\,\dd x+\int_0^bg(y)\,\dd y
 
 \subsection{练习题}
 
-\begin{xexercise}
-\begin{enumerate}
-  \item 设$f$在$[a,b]$上单调增加，证明：对每个$c\in(a,b)$，函数$F(x)=\int_c^xf(t)\,\dd t$为$[a,b]$上的下凸函数。
-  \item 设$f$在$[0,+\infty)$上是下凸函数，证明：函数$F(x)=\frac1x\int_0^xf(t)\,\dd t$是$(0,+\infty)$上的下凸函数。
-  \item 设$f$于$[0,1]$上为非负的上凸函数，证明：$\int_0^12f(x)\,\dd x\ge\max_{x\in[0,1]}\{f(x)\}$。
-  \item 设$f$在$[a,b]$上为上凸可微函数，$f(a)=f(b)=0,f'(a)=\alpha>0,f'(b)=\beta<0$，证明：
+\begin{xexercise}[1]
+设$f$在$[a,b]$上单调增加，证明：对每个$c\in(a,b)$，函数$F(x)=\int_c^xf(t)\,\dd t$为$[a,b]$上的下凸函数。
+\end{xexercise}
+
+\begin{xexercise}[2]
+设$f$在$[0,+\infty)$上是下凸函数，证明：函数$F(x)=\frac1x\int_0^xf(t)\,\dd t$是$(0,+\infty)$上的下凸函数。
+\end{xexercise}
+
+\begin{xexercise}[3]
+设$f$于$[0,1]$上为非负的上凸函数，证明：$\int_0^12f(x)\,\dd x\ge\max_{x\in[0,1]}\{f(x)\}$。
+\end{xexercise}
+
+\begin{xexercise}[4]
+设$f$在$[a,b]$上为上凸可微函数，$f(a)=f(b)=0,f'(a)=\alpha>0,f'(b)=\beta<0$，证明：
   \[
     0\le\int_a^bf(x)\,\dd x\le\frac12\alpha\beta\cdot\frac{(b-a)^2}{\beta-\alpha}.
   \]
-  \item 设$f\in C^1[0,2],f(0)=f(2)=1,\abs{f'(x)}\le1$，证明：$\abs{\int_0^2f(x)\,\dd x}\ge1$。
-  \item 已知函数$f\in C[a,b]$，且$f(x)$处处大于0，证明：
+\end{xexercise}
+
+\begin{xexercise}[5]
+设$f\in C^1[0,2],f(0)=f(2)=1,\abs{f'(x)}\le1$，证明：$\abs{\int_0^2f(x)\,\dd x}\ge1$。
+\end{xexercise}
+
+\begin{xexercise}[6]
+已知函数$f\in C[a,b]$，且$f(x)$处处大于0，证明：
   \[
     \int_a^bf(x)\,\dd x\int_a^b\frac1{f(x)}\,\dd x\ge(b-a)^2.
   \]
-  \item 已知非负函数$f\in R[a,b],\int_a^bf(x)\,\dd x=1,k$为实数，证明：
+\end{xexercise}
+
+\begin{xexercise}[7]
+已知非负函数$f\in R[a,b],\int_a^bf(x)\,\dd x=1,k$为实数，证明：
   \[
     \left(\int_a^bf(x)\cos kx\,\dd x\right)^2+
     \left(\int_a^bf(x)\sin kx\,\dd x\right)^2\le1.
   \]
-  \item 设$f\in C^1[a,b]$且$f(a)=0$，证明比例题11.2.3更强的不等式：
+\end{xexercise}
+
+\begin{xexercise}[8]
+设$f\in C^1[a,b]$且$f(a)=0$，证明比例题11.2.3更强的不等式：
   \[
     \int_a^bf^2(x)\,\dd x\le\frac{(b-a)^2}{2}\int_a^b(f'(x))^2\,\dd x
     -\frac12\int_a^b(f'(x))^2(x-a)^2\,\dd x.
   \]
-  \item 设$f$在$[0,1]$上可微且当$x\in(0,1)$时，$0\le f'(x)\le1,f(0)=0$。证明：
+\end{xexercise}
+
+\begin{xexercise}[9]
+设$f$在$[0,1]$上可微且当$x\in(0,1)$时，$0\le f'(x)\le1,f(0)=0$。证明：
   \[
     \left(\int_0^1f(x)\,\dd x\right)^2\ge\int_0^1f^3(x)\,\dd x,
   \]
   且仅当$f(x)=0$或$f(x)=x$时成立等号。
-  \item (1)试用Young不等式证明：当$a,b\ge1$时成立$ab\le\ee^{a-1}+b\ln b$；
+\end{xexercise}
+
+\begin{xexercise}[10]
+(1)试用Young不等式证明：当$a,b\ge1$时成立$ab\le\ee^{a-1}+b\ln b$；
 
   (2)设函数$f\in R[a,b]$，试用Minkowski不等式证明下面两个不等式不能同时成立：
   \[
@@ -733,7 +784,6 @@ I&=\int_0^af(x)\,\dd x+\int_0^bg(y)\,\dd y
     \quad\text{和}\quad
     \int_0^\pi\abs{f(x)-\cos x}^2\,\dd x\le\frac34.
   \]
-\end{enumerate}
 \end{xexercise}
 
 \section{积分估计与近似计算}
@@ -947,9 +997,8 @@ s&=4\int_0^{\pi/2}\sqrt{a^2\sin^2t+b^2\cos^2t}\,\dd t\\
 
 \subsection{练习题}
 
-\begin{xexercise}
-\begin{enumerate}
-  \item 证明：
+\begin{xexercise}[1]
+证明：
   \begin{enumerate}[label=(\arabic*)]
     \item $\displaystyle \int_0^{\sqrt{2\pi}}\sin x^2\,\dd x>0$；
     \item $\displaystyle \frac1{20\sqrt[3]{2}}<\int_0^1\frac{x^{19}}{\sqrt[3]{1+x^6}}\,\dd x<\frac1{20}$；
@@ -958,55 +1007,87 @@ s&=4\int_0^{\pi/2}\sqrt{a^2\sin^2t+b^2\cos^2t}\,\dd t\\
     \item $\displaystyle 0.005<\int_0^{100}\frac{\ee^{-x}}{x+100}\,\dd x<0.01$；
     \item $\displaystyle \frac29\pi^2<\int_{\pi/6}^{\pi/2}\frac{2x}{\sin x}\,\dd x<\frac13\pi^2$。
   \end{enumerate}
-  \item 设$f$在$[0,a]$（$a>0$）上有可积的导函数，证明：
+\end{xexercise}
+
+\begin{xexercise}[2]
+设$f$在$[0,a]$（$a>0$）上有可积的导函数，证明：
   \[
     \abs{f(0)}\le\frac1a\int_0^a\abs{f(x)}\,\dd x+\int_0^a\abs{f'(x)}\,\dd x.
   \]
-  \item 设$f$在$[0,1]$上有可积的导函数，证明：
+\end{xexercise}
+
+\begin{xexercise}[3]
+设$f$在$[0,1]$上有可积的导函数，证明：
   \[
     \int_0^1\abs{f(x)}\,\dd x\le\max\left\{\int_0^1\abs{f'(x)}\,\dd x,\ \abs{\int_0^1f(x)\,\dd x}\right\}.
   \]
-  \item 设函数$f$在$[a,b]$上可微，$\abs{f'(x)}\le M$，且$\int_a^bf(x)\,\dd x=0$。对于函数$F(x)=\int_a^xf(t)\,\dd t$，
+\end{xexercise}
+
+\begin{xexercise}[4]
+设函数$f$在$[a,b]$上可微，$\abs{f'(x)}\le M$，且$\int_a^bf(x)\,\dd x=0$。对于函数$F(x)=\int_a^xf(t)\,\dd t$，
   \begin{enumerate}[label=(\arabic*)]
     \item 证明：$\abs{F(x)}\le\dfrac{M(b-a)^2}{8}$；
     \item 在增加条件$f(a)=f(b)=0$时证明：$\abs{F(x)}\le\dfrac{M(b-a)^2}{16}$。
   \end{enumerate}
-  \item 证明：对每个正整数$n$，成立
+\end{xexercise}
+
+\begin{xexercise}[5]
+证明：对每个正整数$n$，成立
   \[
     \frac23n\sqrt n<1+\sqrt2+\cdots+\sqrt n<\frac{4n+3}{6}\sqrt n.
   \]
-  \item 设$f$在$[a,b]$上可微，$f(a)=f(b)=0,\abs{f'(x)}\le M$，证明：
+\end{xexercise}
+
+\begin{xexercise}[6]
+设$f$在$[a,b]$上可微，$f(a)=f(b)=0,\abs{f'(x)}\le M$，证明：
   \[
     \abs{\int_a^bf(x)\,\dd x}\le\frac M4(b-a)^2.
   \]
-  \item 设$f$在$[a,b]$上二阶可微，$f(a)=f(b)=0,\abs{f''(x)}\le M$，证明：
+\end{xexercise}
+
+\begin{xexercise}[7]
+设$f$在$[a,b]$上二阶可微，$f(a)=f(b)=0,\abs{f''(x)}\le M$，证明：
   \[
     \abs{\int_a^bf(x)\,\dd x}\le\frac M{12}(b-a)^3.
   \]
-  \item （矩形公式）设$f\in C^2[a,b]$，证明：存在$\xi\in(a,b)$，使成立
+\end{xexercise}
+
+\begin{xexercise}[8]
+（矩形公式）设$f\in C^2[a,b]$，证明：存在$\xi\in(a,b)$，使成立
   \[
     \int_a^bf(x)\,\dd x-(b-a)f\left(\frac{a+b}{2}\right)=\frac{f''(\xi)(b-a)^3}{24}.
   \]
-  \item 设$f$于$[-1,1]$上可微，且有$a\in(0,1)$，使得$\int_{-a}^af(x)\,\dd x=0$，证明：
+\end{xexercise}
+
+\begin{xexercise}[9]
+设$f$于$[-1,1]$上可微，且有$a\in(0,1)$，使得$\int_{-a}^af(x)\,\dd x=0$，证明：
   \[
     \abs{\int_{-1}^1f(x)\,\dd x}\le M(1-a^2).
   \]
   % SOURCE-ERR: 原书确实在本题右端使用 M，但题设未定义 M；此处忠实保留原文。
-  \item 设$f$于$[0,1]$上可微，$\abs{f'(x)}\le M$，证明：
+\end{xexercise}
+
+\begin{xexercise}[10]
+设$f$于$[0,1]$上可微，$\abs{f'(x)}\le M$，证明：
   \[
     \abs{\int_0^1f(x)\,\dd x-\frac1n\sum_{k=1}^nf\left(\frac kn\right)}\le\frac M{2n}.
   \]
-  \item 设$f$在区间$[0,1]$上可微，且$f'\in R[0,1]$，对正整数$n$定义
+\end{xexercise}
+
+\begin{xexercise}[11]
+设$f$在区间$[0,1]$上可微，且$f'\in R[0,1]$，对正整数$n$定义
   \[
     A_n=\int_0^1f(x)\,\dd x-\frac1n\sum_{k=1}^nf\left(\frac kn\right),
   \]
   证明：$\displaystyle\lim_{n\to\infty}nA_n=\frac12(f(0)-f(1))$。
-  \item 设$f$在区间$[0,1]$上二阶可微，且$f''\in R[0,1]$，对正整数$n$定义
+\end{xexercise}
+
+\begin{xexercise}[12]
+设$f$在区间$[0,1]$上二阶可微，且$f''\in R[0,1]$，对正整数$n$定义
   \[
     B_n=\int_0^1f(x)\,\dd x-\frac1n\sum_{k=1}^nf\left(\frac{2k-1}{2n}\right),
   \]
   证明：$\displaystyle\lim_{n\to\infty}n^2B_n=\frac1{24}[f'(1)-f'(0)]$。
-\end{enumerate}
 \end{xexercise}
 
 \section{积分学在分析中的其他应用}
@@ -1322,7 +1403,7 @@ R_n(x)
 
 (3) Lagrange余项与Cauchy余项分别含有不完全确定的中值$\xi$与$\eta$，而积分型余项中则不含中值，这无疑是一个优点。由于这个原因，带积分型余项的Taylor公式常被用于比较精确的表达式中。
 
-\subsection{$\pi$的无理性证明}
+\subsection{\texorpdfstring{$\pi$的无理性证明}{π的无理性证明}}
 
 作为定积分的又一方面的应用，我们证明$\pi$是无理数。下面的证法是由I. Niven（尼文）提出的（见[4]），这方面较新的材料见《美国数学月刊》(2001)第108卷222--231页（《数学译林》(2001)第3期）。
 
@@ -1378,9 +1459,8 @@ $\pi$是无理数。
 
 \subsection{练习题}
 
-\begin{xexercise}
-\begin{enumerate}
-  \item 求下列极限：
+\begin{xexercise}[1]
+求下列极限：
   \begin{enumerate}[label=(\arabic*)]
     \item $\displaystyle\lim_{n\to\infty}n\left(\frac1{n^2+1^2}+\frac1{n^2+2^2}+\cdots+\frac1{2n^2}\right)$；
     \item $\displaystyle\lim_{n\to\infty}\left[\frac1{\sqrt{n^2}}+\frac1{\sqrt{n(n+1)}}+\cdots+\frac1{\sqrt{n(2n-1)}}\right]$；
@@ -1390,40 +1470,66 @@ $\pi$是无理数。
     \item $\displaystyle\lim_{n\to\infty}\frac1{n^2}\sum_{k=1}^n\sqrt{(nx+k)(nx+k-1)}\quad(x>0)$。
   \end{enumerate}
   （题(4)可利用第十一章第二组参考题2中的Poisson积分，题(6)可利用第十章第一组参考题3。）
-  \item 证明对于区间$(2/3,1)$中的数$A$，存在$N$使$n>N$时，成立
+\end{xexercise}
+
+\begin{xexercise}[2]
+证明对于区间$(2/3,1)$中的数$A$，存在$N$使$n>N$时，成立
   \[
     \sqrt1+\sqrt2+\cdots+\sqrt n<An^{3/2},
   \]
   并与11.3.3小节的题5在方法和结果上进行比较。
-  \item 设$f(x)\in C[0,1]$，$f(x)$处处大于0，求极限
+\end{xexercise}
+
+\begin{xexercise}[3]
+设$f(x)\in C[0,1]$，$f(x)$处处大于0，求极限
   \[
     \lim_{n\to\infty}\sqrt[n]{f\left(\frac1n\right)f\left(\frac2n\right)\cdots f\left(\frac{n-1}{n}\right)f(1)},
   \]
   由此导出算术平均值—几何平均值不等式的积分形式，并与11.2.1小节的不等式(11.10)作比较。
-  \item 设$A_n=\frac1{n+1}+\frac1{n+2}+\cdots+\frac1{2n}$，求$\displaystyle\lim_{n\to\infty}n(\ln2-A_n)$。
-  \item 设$B_n=\frac2{2n+1}+\frac2{2n+3}+\cdots+\frac2{4n-1}$，求$\displaystyle\lim_{n\to\infty}n^2(\ln2-B_n)$。
-  \item 求$\displaystyle\lim_{n\to\infty}\sqrt n\int_{-1}^1(1-x^2)^n\,\dd x$。
-  \item 试从Stirling公式（命题11.4.2）的证明中推导出
+\end{xexercise}
+
+\begin{xexercise}[4]
+设$A_n=\frac1{n+1}+\frac1{n+2}+\cdots+\frac1{2n}$，求$\displaystyle\lim_{n\to\infty}n(\ln2-A_n)$。
+\end{xexercise}
+
+\begin{xexercise}[5]
+设$B_n=\frac2{2n+1}+\frac2{2n+3}+\cdots+\frac2{4n-1}$，求$\displaystyle\lim_{n\to\infty}n^2(\ln2-B_n)$。
+\end{xexercise}
+
+\begin{xexercise}[6]
+求$\displaystyle\lim_{n\to\infty}\sqrt n\int_{-1}^1(1-x^2)^n\,\dd x$。
+\end{xexercise}
+
+\begin{xexercise}[7]
+试从Stirling公式（命题11.4.2）的证明中推导出
   \[
     n!=\sqrt{2\pi n}\left(\frac n\ee\right)^n\ee^{\theta_n/(4n)},
   \]
   其中$0<\theta_n<1$。
 
   （在第十一章第二组参考题15中有更好的结果，但需要比(11.34)更强的不等式。）
-  \item 试写出$(2n)!!,(2n-1)!!$和$C_{2n}^n$的渐近公式。
-  \item 利用Stirling公式计算下列极限：
+\end{xexercise}
+
+\begin{xexercise}[8]
+试写出$(2n)!!,(2n-1)!!$和$C_{2n}^n$的渐近公式。
+\end{xexercise}
+
+\begin{xexercise}[9]
+利用Stirling公式计算下列极限：
   \begin{enumerate}[label=(\arabic*)]
     \item $\displaystyle\lim_{n\to\infty}\left(1+\frac1n\right)^{n^2}\frac{n!}{n^n\sqrt n}$；
     \item $\displaystyle\lim_{n\to\infty}(-1)^n\binom{-1/2}{n}\sqrt n$。
   \end{enumerate}
-  \item 证明：
+\end{xexercise}
+
+\begin{xexercise}[10]
+证明：
   \[
     \lim_{n\to\infty}\sqrt n\prod_{k=1}^n
     \frac{\ee^{1-1/k}}{\left(1+\frac1k\right)^k}
     =\frac{\sqrt{2\pi}}{\ee^{1+\gamma}},
   \]
   其中$\gamma$是Euler常数。
-\end{enumerate}
 \end{xexercise}
 
 \section{对于教学的建议}
@@ -1440,17 +1546,22 @@ $\pi$是无理数。
 
 \subsubsection*{第一组参考题}
 
-\begin{xreferenceproblem}
-\begin{enumerate}
-  \item 设$f\in C^1[0,1]$，且$f(0)=0,f(1)=1$，证明：
+\begin{xreferenceproblem}[1]
+设$f\in C^1[0,1]$，且$f(0)=0,f(1)=1$，证明：
   \[
     \int_0^1\abs{f(x)-f'(x)}\,\dd x\ge\frac1\ee.
   \]
-  \item 设$a>0$，证明：
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[2]
+设$a>0$，证明：
   \[
     \int_0^\pi xa^{\sin x}\,\dd x\int_0^{\pi/2}a^{-\cos x}\,\dd x\ge\frac{\pi^3}{4}.
   \]
-  \item （Tchebycheff（切比雪夫）不等式）
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[3]
+（Tchebycheff（切比雪夫）不等式）
   \begin{enumerate}[label=(\arabic*)]
     \item 设$F\in C[a,b]$，处处大于0，且单调减少，证明：
     \[
@@ -1463,28 +1574,43 @@ $\pi$是无理数。
       \le\int_a^bp(x)\,\dd x\int_a^bp(x)f(x)g(x)\,\dd x.
     \]
   \end{enumerate}
-  \item 设$f$在$[0,1]$上连续，且$0\le f(x)<1$，证明：
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[4]
+设$f$在$[0,1]$上连续，且$0\le f(x)<1$，证明：
   \[
     \int_0^1\frac{f(x)}{1-f(x)}\,\dd x
     \ge\frac{\int_0^1f(x)\,\dd x}{1-\int_0^1f(x)\,\dd x}.
   \]
-  \item 证明不等式：
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[5]
+证明不等式：
   \[
     \int_0^1\frac{\cos x}{\sqrt{1-x^2}}\,\dd x
     \ge\int_0^1\frac{\sin x}{\sqrt{1-x^2}}\,\dd x.
   \]
-  \item 设$f^{(2n)}\in C[a,b]$，且$f^{(k)}(a)=f^{(k)}(b)=0,k=0,1,2,\ldots,n-1$，证明：
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[6]
+设$f^{(2n)}\in C[a,b]$，且$f^{(k)}(a)=f^{(k)}(b)=0,k=0,1,2,\ldots,n-1$，证明：
   \[
     \abs{\int_a^bf(x)\,\dd x}
     \le\frac{(n!)^2(b-a)^{2n+1}}{(2n)!(2n+1)!}
     \max_{a\le x\le b}\{\abs{f^{(2n)}(x)}\}.
   \]
-  \item 设函数$f,g\in C[a,b]$，且$f(x)\not\equiv0,g(x)$处处大于0。记
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[7]
+设函数$f,g\in C[a,b]$，且$f(x)\not\equiv0,g(x)$处处大于0。记
   \[
     d_n=\int_a^b\abs{f(x)}^ng(x)\,\dd x,\qquad n=1,2,\ldots,
   \]
   证明：数列$\left\{d_{n+1}/d_n\right\}$收敛，并求出其极限。
-  \item 计算
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[8]
+计算
   \[
     \lim_{n\to\infty}\left[
     \frac{\sin(\pi/n)}{n+1}
@@ -1493,30 +1619,51 @@ $\pi$是无理数。
     \frac{\sin\pi}{n+1/n}
     \right].
   \]
-  \item 对任意实数$a$，证明：
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[9]
+对任意实数$a$，证明：
   \[
     \lim_{n\to\infty}\prod_{k=1}^{n+1}
     \cos\left(\frac{\sqrt{2k-1}}{n}a^2\right)
     =\ee^{-a^4/2}.
   \]
-  \item 设$f$是$[1,+\infty)$上的非负单调减少函数，令
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[10]
+设$f$是$[1,+\infty)$上的非负单调减少函数，令
   \[
     a_n=\sum_{k=1}^nf(k)-\int_1^nf(x)\,\dd x,\qquad n\in\NN_+,
   \]
   证明：数列$\{a_n\}$收敛。
 
   （这是“面积原理”的一种简单情况（参见[26]）。取$f(x)=1/x$，就得到关于Euler常数的命题2.5.6；取$f(x)=1/\sqrt x$，就是第二章第一组参考题14。）
-  \item 计算积分$\int_0^1\sin x^2\,\dd x$，使得误差不超过0.001。
-  \item 证明：函数$F(x)=\int_0^x\sin\frac1t\,\dd t$在区间$(0,1]$上有无穷多个零点。
-  \item 设$f$在$[a,b]$上可导，$f'$单调增加且有$f'(x)\ge m>0$，证明：
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[11]
+计算积分$\int_0^1\sin x^2\,\dd x$，使得误差不超过0.001。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[12]
+证明：函数$F(x)=\int_0^x\sin\frac1t\,\dd t$在区间$(0,1]$上有无穷多个零点。
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[13]
+设$f$在$[a,b]$上可导，$f'$单调增加且有$f'(x)\ge m>0$，证明：
   \[
     \abs{\int_a^b\cos f(x)\,\dd x}\le\frac2m.
   \]
-  \item 设$f$在$[a,b]$上连续可微，且满足$f'(x)\ge m>0,\abs{f(x)}\le\pi$，证明：
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[14]
+设$f$在$[a,b]$上连续可微，且满足$f'(x)\ge m>0,\abs{f(x)}\le\pi$，证明：
   \[
     \abs{\int_a^b\sin f(x)\,\dd x}\le\frac2m.
   \]
-  \item 对$n\in\NN_+$，定义
+\end{xreferenceproblem}
+
+\begin{xreferenceproblem}[15]
+对$n\in\NN_+$，定义
   \[
     S_n=1+\frac{n-1}{n+2}
     +\frac{n-1}{n+2}\cdot\frac{n-2}{n+3}
@@ -1524,20 +1671,20 @@ $\pi$是无理数。
     \frac{n-1}{n+2}\cdot\frac{n-2}{n+3}\cdots\frac1{2n},
   \]
   证明：$\displaystyle\lim_{n\to\infty}\frac{S_n}{\sqrt n}=\frac{\sqrt\pi}{2}$。
-\end{enumerate}
 \end{xreferenceproblem}
 
 \subsubsection*{第二组参考题}
 
-\begin{xreferenceproblem}
-\begin{enumerate}
-  \item 曲线$K$的极坐标方程为$\rho=\rho(\theta),0\le\theta\le\pi,\rho\in C[0,\pi]$，且已知$K$上任何两点之间的距离不超过1，证明：由曲线$K$与射线$\theta=0,\theta=\pi$围成的扇形面积
+\begin{xreferenceproblem}[1]
+曲线$K$的极坐标方程为$\rho=\rho(\theta),0\le\theta\le\pi,\rho\in C[0,\pi]$，且已知$K$上任何两点之间的距离不超过1，证明：由曲线$K$与射线$\theta=0,\theta=\pi$围成的扇形面积
   \[
     S=\frac12\int_0^\pi\rho^2(\theta)\,\dd\theta\le\frac\pi4.
   \]
   （由此可见，直径不超过1的图形面积最多为$\pi/4$。）
+\end{xreferenceproblem}
 
-  \item 设$f\in C[a,b]$，且处处大于0。记$f_{kn}=f(a+kh_n),h_n=(b-a)/n,k=1,2,\ldots,n$。证明：
+\begin{xreferenceproblem}[2]
+设$f\in C[a,b]$，且处处大于0。记$f_{kn}=f(a+kh_n),h_n=(b-a)/n,k=1,2,\ldots,n$。证明：
   \[
     \lim_{n\to\infty}\sqrt[n]{f_{1n}f_{2n}\cdots f_{nn}}
     =\exp\left[\frac1{b-a}\int_a^b\ln f(x)\,\dd x\right],
@@ -1547,14 +1694,18 @@ $\pi$是无理数。
     \frac1{2\pi}\int_0^{2\pi}\ln(1-2r\cos x+r^2)\,\dd x=2\ln r,
   \]
   其中$r>1$。
+\end{xreferenceproblem}
 
-  \item 设$f\in C[0,1],\int_0^1x^2f(x)\,\dd x=1$。
+\begin{xreferenceproblem}[3]
+设$f\in C[0,1],\int_0^1x^2f(x)\,\dd x=1$。
   \begin{enumerate}[label=(\arabic*)]
     \item 证明：$\displaystyle\max_{0\le x\le1}\{\abs{f(x)}\}\ge3$；
     \item 又知$\int_0^1xf(x)\,\dd x=0$，证明：$\displaystyle\max_{0\le x\le1}\{\abs{f(x)}\}>10.2$。
   \end{enumerate}
+\end{xreferenceproblem}
 
-  \item 设$f\in C[0,1]$，如果对某个正整数$n>1$，成立
+\begin{xreferenceproblem}[4]
+设$f\in C[0,1]$，如果对某个正整数$n>1$，成立
   \[
     \int_0^1f(x)\,\dd x=\int_0^1xf(x)\,\dd x=\cdots
     =\int_0^1x^{n-1}f(x)\,\dd x=0,
@@ -1565,21 +1716,27 @@ $\pi$是无理数。
   \[
     M=\max_{0\le x\le1}\{\abs{f(x)}\}\ge2^n(n+1).
   \]
+\end{xreferenceproblem}
 
-  \item 求出使不等式
+\begin{xreferenceproblem}[5]
+求出使不等式
   \[
     c_1\le\int_a^b\frac{\sin x}{x}\,\dd x\le c_2
   \]
   成立的最佳常数$c_1,c_2$，对其中的积分限分两种情况讨论：(1)$0\le a<b$；(2)$a<b$。
+\end{xreferenceproblem}
 
-  \item 在命题11.2.3（即Young不等式）中的可微条件可以去掉，此外还可以得到另一个方向的不等式。设$f\in C[0,+\infty)$，严格单调增加，且$f(0)=0$，记其反函数为$g(y)$。对$a,b>0$，证明下列不等式并解释其几何意义：
+\begin{xreferenceproblem}[6]
+在命题11.2.3（即Young不等式）中的可微条件可以去掉，此外还可以得到另一个方向的不等式。设$f\in C[0,+\infty)$，严格单调增加，且$f(0)=0$，记其反函数为$g(y)$。对$a,b>0$，证明下列不等式并解释其几何意义：
   \[
     ab\le\int_0^af(x)\,\dd x+\int_0^bg(y)\,\dd y
     \le bg(b)+af(a)-f(a)g(b),
   \]
   其中成立等号的充分必要条件是$b=f(a)$（即$a=g(b)$）。
+\end{xreferenceproblem}
 
-  \item 设$f\in C(a,b)$，证明：
+\begin{xreferenceproblem}[7]
+设$f\in C(a,b)$，证明：
   \begin{enumerate}[label=(\arabic*)]
     \item 若对任何$a<x_1<x_2<b$成立不等式
     \[
@@ -1596,8 +1753,10 @@ $\pi$是无理数。
     \item 若以上两个不等式中的任何一个始终成立等号，则$f$只能是线性函数。
   \end{enumerate}
   （因此Hadamard不等式(11.7)中的每个不等式都是$f$下凸的充分必要条件。）
+\end{xreferenceproblem}
 
-  \item 设$f\in C^1[0,a],f(0)=0$。
+\begin{xreferenceproblem}[8]
+设$f\in C^1[0,a],f(0)=0$。
   \begin{enumerate}[label=(\arabic*)]
     \item 证明：
     \[
@@ -1611,8 +1770,10 @@ $\pi$是无理数。
       \le\frac a4\int_0^a\abs{f'(x)}^2\,\dd x.
     \]
   \end{enumerate}
+\end{xreferenceproblem}
 
-  \item （Bellman-Gronwall不等式）设当$x\ge0$时$f(x),g(x)$为非负连续函数，且有
+\begin{xreferenceproblem}[9]
+（Bellman-Gronwall不等式）设当$x\ge0$时$f(x),g(x)$为非负连续函数，且有
   \[
     f(x)\le A+\int_0^xf(t)g(t)\,\dd t,
   \]
@@ -1620,32 +1781,42 @@ $\pi$是无理数。
   \[
     f(x)\le A\exp\left(\int_0^xg(t)\,\dd t\right).
   \]
+\end{xreferenceproblem}
 
-  \item 设$f\in C^2[0,1],f(0)=f(1)=0$，$f$在$(0,1)$中无零点，证明：
+\begin{xreferenceproblem}[10]
+设$f\in C^2[0,1],f(0)=f(1)=0$，$f$在$(0,1)$中无零点，证明：
   \[
     \int_0^1\abs{\frac{f''(x)}{f(x)}}\,\dd x\ge4,
   \]
   且其中4是最佳下界。
+\end{xreferenceproblem}
 
-  \item 设$f$在$[0,1]$上可积，且有$0<m\le f(x)\le M$，则有
+\begin{xreferenceproblem}[11]
+设$f$在$[0,1]$上可积，且有$0<m\le f(x)\le M$，则有
   \[
     \int_0^1f(x)\,\dd x\int_0^1\frac1{f(x)}\,\dd x
     \le\frac{(m+M)^2}{4mM}.
   \]
   （这是Cauchy-Schwarz不等式的反向不等式，也称为Kantorovich（康托罗维奇）不等式。）
+\end{xreferenceproblem}
 
-  \item 设非常值函数$f$在区间$[a,b]$上可微，且$f(a)=f(b)=0$，证明：在$[a,b]$内至少存在一点$\xi$，使
+\begin{xreferenceproblem}[12]
+设非常值函数$f$在区间$[a,b]$上可微，且$f(a)=f(b)=0$，证明：在$[a,b]$内至少存在一点$\xi$，使
   \[
     \abs{f'(\xi)}>\frac4{(b-a)^2}\int_a^b\abs{f(x)}\,\dd x.
   \]
+\end{xreferenceproblem}
 
-  \item 设$f\in C^2[0,1],f(0)=f(1)=f'(0)=0,f'(1)=1$，证明：
+\begin{xreferenceproblem}[13]
+设$f\in C^2[0,1],f(0)=f(1)=f'(0)=0,f'(1)=1$，证明：
   \[
     \int_0^1(f''(x))^2\,\dd x\ge4,
   \]
   且其中成立等号当且仅当$f(x)=x^3-x^2$。
+\end{xreferenceproblem}
 
-  \item 设函数$f$在区间$[a,b]$上处处大于0，且对于$L>0$满足Lipschitz条件
+\begin{xreferenceproblem}[14]
+设函数$f$在区间$[a,b]$上处处大于0，且对于$L>0$满足Lipschitz条件
   \[
     \abs{f(x_1)-f(x_2)}\le L\abs{x_1-x_2},
   \]
@@ -1660,8 +1831,10 @@ $\pi$是无理数。
     \int_a^bf(x)\,\dd x
     \le\frac{\ee^{2L\beta}-1}{2L\alpha}\int_c^df(x)\,\dd x.
   \]
+\end{xreferenceproblem}
 
-  \item 先用微分学或其他方法证明：当$0<x<1$时，成立不等式
+\begin{xreferenceproblem}[15]
+先用微分学或其他方法证明：当$0<x<1$时，成立不等式
   \[
     0<\frac12\ln\frac{1+x}{1-x}-x<\frac{x^3}{3(1-x^2)},
   \]
@@ -1674,7 +1847,6 @@ $\pi$是无理数。
     n!=\sqrt{2\pi n}\left(\frac n\ee\right)^n\ee^{\theta_n/(12n)},
   \]
   其中$0<\theta_n<1$。
-\end{enumerate}
 \end{xreferenceproblem}
 
 % END TRANSCRIPTION
