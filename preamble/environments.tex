@@ -1,35 +1,112 @@
-% Source-faithful, explicitly numbered textbook environments.
-% Optional argument is the printed source number, e.g. \begin{xexample}[5.2.1].
+% Unified textbook environments for the inline-solution edition.
+% Optional arguments preserve the printed source number, e.g.
+%   \begin{xexercise}[5.2.1] ... \end{xexercise}
+
+\definecolor{xieNavy}{HTML}{33545F}
+\definecolor{xieTeal}{HTML}{477F82}
+\definecolor{xieGreen}{HTML}{668F80}
+\definecolor{xieGold}{HTML}{B78A46}
+\definecolor{xieRose}{HTML}{9A686B}
+\definecolor{xieInk}{HTML}{263238}
+\definecolor{xiePaperBlue}{HTML}{F3F7F7}
+\definecolor{xiePaperGreen}{HTML}{F4F8F5}
+\definecolor{xiePaperGold}{HTML}{FBF8F1}
+\definecolor{xiePaperRose}{HTML}{FAF5F5}
+\definecolor{xieRule}{HTML}{D8E0E0}
+
+\tcbset{
+  xie/common/.style={
+    enhanced,
+    breakable,
+    boxrule=0pt,
+    arc=1mm,
+    outer arc=1mm,
+    left=1.05em,
+    right=1.05em,
+    top=.72em,
+    bottom=.72em,
+    before skip=.72em plus .15em,
+    after skip=.72em plus .15em,
+    before upper={\setlength{\parindent}{2em}},
+  },
+  xie/theorem/.style={
+    xie/common,
+    colback=xiePaperBlue,
+    colframe=xieNavy,
+    leftrule=1.5pt,
+  },
+  xie/example/.style={
+    xie/common,
+    colback=xiePaperGold,
+    colframe=xieGold,
+    leftrule=1.5pt,
+  },
+  xie/problem/.style={
+    xie/common,
+    colback=xiePaperGreen,
+    colframe=xieGreen,
+    leftrule=1.7pt,
+  },
+  xie/thought/.style={
+    xie/common,
+    colback=xiePaperRose,
+    colframe=xieRose,
+    leftrule=1.5pt,
+  },
+  xie/solution/.style={
+    xie/common,
+    colback=white,
+    colframe=xieTeal,
+    leftrule=1.25pt,
+    borderline north={.25pt}{0pt}{xieRule},
+    borderline south={.25pt}{0pt}{xieRule},
+  },
+}
+
+\newcommand{\xieEnvTitle}[2]{%
+  \noindent\textcolor{#1}{\sffamily\bfseries #2}\quad\ignorespaces
+}
+\newcommand{\xieNumberedTitle}[3]{%
+  \IfValueTF{#3}
+    {\xieEnvTitle{#1}{#2~#3}}
+    {\xieEnvTitle{#1}{#2}}%
+}
+
 \NewDocumentEnvironment{xdefinition}{o}
-  {\par\medskip\Needspace{3\baselineskip}\noindent\textbf{定义\IfValueT{#1}{~#1}}\quad}
-  {\par\medskip}
+  {\begin{tcolorbox}[xie/theorem]\xieNumberedTitle{xieNavy}{定义}{#1}}
+  {\end{tcolorbox}}
 \NewDocumentEnvironment{xtheorem}{o}
-  {\par\medskip\Needspace{3\baselineskip}\noindent\textbf{定理\IfValueT{#1}{~#1}}\quad}
-  {\par\medskip}
+  {\begin{tcolorbox}[xie/theorem]\xieNumberedTitle{xieNavy}{定理}{#1}}
+  {\end{tcolorbox}}
 \NewDocumentEnvironment{xlemma}{o}
-  {\par\medskip\Needspace{3\baselineskip}\noindent\textbf{引理\IfValueT{#1}{~#1}}\quad}
-  {\par\medskip}
+  {\begin{tcolorbox}[xie/theorem]\xieNumberedTitle{xieNavy}{引理}{#1}}
+  {\end{tcolorbox}}
 \NewDocumentEnvironment{xproposition}{o}
-  {\par\medskip\Needspace{3\baselineskip}\noindent\textbf{命题\IfValueT{#1}{~#1}}\quad}
-  {\par\medskip}
+  {\begin{tcolorbox}[xie/theorem]\xieNumberedTitle{xieNavy}{命题}{#1}}
+  {\end{tcolorbox}}
+
 \NewDocumentEnvironment{xexample}{o}
-  {\par\medskip\Needspace{3\baselineskip}\noindent\textbf{例\IfValueT{#1}{~#1}}\quad}
-  {\par\medskip}
+  {\begin{tcolorbox}[xie/example]\xieNumberedTitle{xieGold}{例}{#1}}
+  {\end{tcolorbox}}
+
 \NewDocumentEnvironment{xexercise}{o}
-  {\par\medskip\Needspace{3\baselineskip}\noindent\textbf{练习\IfValueT{#1}{~#1}}\quad}
-  {\par\medskip}
+  {\begin{tcolorbox}[xie/problem]\xieNumberedTitle{xieGreen}{练习}{#1}}
+  {\end{tcolorbox}}
 \NewDocumentEnvironment{xthought}{o}
-  {\par\medskip\Needspace{3\baselineskip}\noindent\textbf{思考题\IfValueT{#1}{~#1}}\quad}
-  {\par\medskip}
+  {\begin{tcolorbox}[xie/thought]\xieNumberedTitle{xieRose}{思考题}{#1}}
+  {\end{tcolorbox}}
 \NewDocumentEnvironment{xreferenceproblem}{o}
-  {\par\medskip\Needspace{3\baselineskip}\noindent\textbf{参考题\IfValueT{#1}{~#1}}\quad}
-  {\par\medskip}
+  {\begin{tcolorbox}[xie/problem]\xieNumberedTitle{xieTeal}{参考题}{#1}}
+  {\end{tcolorbox}}
+
 \NewDocumentEnvironment{xsolution}{}
-  {\par\smallskip\noindent\textbf{解}\quad}
-  {\par\smallskip}
+  {\begin{tcolorbox}[xie/solution]\xieEnvTitle{xieTeal}{解答}}
+  {\end{tcolorbox}}
+
 \NewDocumentEnvironment{xproof}{}
-  {\par\smallskip\noindent\textbf{证明}\quad}
-  {\hfill$\square$\par\smallskip}
+  {\par\smallskip\Needspace{3\baselineskip}\noindent\textcolor{xieNavy}{\sffamily\bfseries 证明}\quad\ignorespaces}
+  {\hfill\textcolor{xieNavy}{$\square$}\par\smallskip}
+
 \NewDocumentEnvironment{xremark}{}
-  {\par\smallskip\noindent\textbf{注}\quad}
+  {\par\smallskip\Needspace{3\baselineskip}\noindent\textcolor{xieInk!72}{\sffamily\bfseries 注}\quad\ignorespaces}
   {\par\smallskip}

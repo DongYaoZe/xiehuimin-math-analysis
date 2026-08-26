@@ -1,0 +1,55 @@
+\NeedsTeXFormat{LaTeX2e}[1995/12/01]
+\ProvidesPackage{stys/beautybook-bottompage}[2026/08/17,math-analysis edition]
+
+% 数学分析答案专用封底：完全由 TikZ 绘制，不再依赖背景位图和 ean13isbn。
+% 既减小项目体积，也避免自用讲义出现没有实际意义的 ISBN 条码。
+\makeatletter
+\newcommand\summary[1]{\def\@summary{#1}}
+\providecommand\@summary{}
+
+\newcommand*\makebottomcover{%
+  \clearpage
+  \thispagestyle{empty}%
+  \begin{tikzpicture}[remember picture,overlay]
+    \fill[bottomcolor!92] (current page.north west) rectangle (current page.south east);
+
+    % 与正封面的几何语言保持一致，但刻意简化，避免封底喧宾夺主。
+    \foreach \rad/\op in {5.25cm/.11,4.30cm/.10,3.40cm/.09,2.50cm/.08,1.70cm/.07}{%
+      \draw[white,opacity=\op,line width=.55pt]
+        ([xshift=-.09\paperwidth,yshift=-.14\paperheight]current page.north east)
+        circle[radius=\rad];
+    }
+    \foreach \i in {0,...,11}{%
+      \draw[white,opacity=.08,line width=.45pt]
+        ([xshift=-.04\paperwidth,yshift=-.08\paperheight]current page.north east)
+        -- ++({210+9*\i}:13cm);
+    }
+
+    \fill[white,opacity=.07]
+      ([xshift=.10\paperwidth,yshift=-.29\paperheight]current page.north west)
+      rectangle
+      ([xshift=-.10\paperwidth,yshift=-.71\paperheight]current page.south east);
+
+    \node[anchor=north west,text=white,text width=.74\paperwidth,
+          align=left,font=\sffamily\bfseries\fontsize{24}{30}\selectfont]
+      at ([xshift=.13\paperwidth,yshift=-.34\paperheight]current page.north west)
+      {数学分析讲义 · 习题解答};
+
+    \ifdefvoid{\@summary}{}{%
+      \node[anchor=north west,text=white!92,text width=.70\paperwidth,
+            align=left,font=\sffamily\fontsize{13}{22}\selectfont]
+        at ([xshift=.13\paperwidth,yshift=-.44\paperheight]current page.north west)
+        {\@summary};
+    }
+
+    \node[anchor=south west,text=white!88,font=\sffamily\large]
+      at ([xshift=.13\paperwidth,yshift=.10\paperheight]current page.south west)
+      {\@pressname};
+    \node[anchor=south east,inner sep=0pt]
+      at ([xshift=-.10\paperwidth,yshift=.085\paperheight]current page.south east)
+      {\includegraphics[width=.075\paperwidth]{\@presslogo}};
+  \end{tikzpicture}%
+  \null
+}
+\makeatother
+\endinput

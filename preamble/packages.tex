@@ -1,26 +1,21 @@
-\usepackage{amsmath,amssymb,mathtools}
+% Packages specific to the Xie Huimin transcription.
+% beautybook.cls already owns geometry, hyperref, scrlayer-scrpage, tcolorbox,
+% amsmath and the general book layout. Keep this file deliberately small.
 \usepackage{esint}
 \usepackage{xparse}
 \usepackage{bm}
 \usepackage{graphicx}
-\usepackage{xcolor}
 \usepackage{enumitem}
 \usepackage{booktabs,longtable,array}
-\usepackage{geometry}
-\usepackage{fancyhdr}
 \usepackage{needspace}
-\usepackage{hyperref}
 \usepackage{url}
 
-\geometry{left=28mm,right=24mm,top=27mm,bottom=28mm,headheight=16pt}
 \setlength{\parindent}{2em}
 \setlength{\parskip}{0pt}
-\setlist{nosep,leftmargin=2.5em}
+\linespread{1.045}\selectfont
+\setlist{itemsep=.18em,topsep=.35em,parsep=0pt,partopsep=0pt,leftmargin=2.35em}
 \allowdisplaybreaks[2]
-
-\pagestyle{fancy}
-\fancyhf{}
-\fancyhead[LE]{\small\leftmark}
-\fancyhead[RO]{\small\rightmark}
-\fancyfoot[C]{\thepage}
-\renewcommand{\headrulewidth}{0.4pt}
+\setlength{\abovedisplayskip}{.65em plus .2em minus .15em}
+\setlength{\belowdisplayskip}{.65em plus .2em minus .15em}
+\setlength{\abovedisplayshortskip}{.4em plus .15em}
+\setlength{\belowdisplayshortskip}{.45em plus .15em}

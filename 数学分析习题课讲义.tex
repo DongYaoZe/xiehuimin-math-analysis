@@ -1,33 +1,77 @@
-\documentclass[UTF8,zihao=-4,a4paper,openany,fontset=fandol]{ctexbook}
+\documentclass[lang=cn,zihao=-4,a4paper,fontset=fandol]{beautybook}
+
+\definecolor{coverbgcolor}{HTML}{D8E4E1}
+\definecolor{coverfgcolor}{HTML}{33545F}
+\definecolor{coverbar}{HTML}{477F82}
+\definecolor{bottomcolor}{HTML}{2C4F54}
+\definecolor{nuanbai}{HTML}{F7F7F4}
+\pagecolor{nuanbai}
+\beautybookstyle={
+  cover-choose=en,
+  math-font=plain,
+  sidebar=off,
+}
+\usepackage{stys/beautybook-cnsettings}
 \input{preamble/packages}
 \input{preamble/notation}
 \input{preamble/environments}
 
 \hypersetup{
-  pdftitle={数学分析习题课讲义（第2版）LaTeX整理版},
-  pdfauthor={谢惠民、恽自求、易法槐、钱定边},
-  pdfsubject={数学分析习题课讲义},
-  pdfkeywords={数学分析, 习题课, 谢惠民, LaTeX}
+  pdftitle={数学分析习题课讲义（第2版）LaTeX 整理与习题解答},
+  pdfauthor={谢惠民、恽自求、易法槐、钱定边 原著},
+  pdfsubject={数学分析习题课讲义与逐题解答},
+  pdfkeywords={数学分析, 习题课, 谢惠民, LaTeX, 习题解答}
 }
 
 \begin{document}
-\begin{titlepage}
-  \centering
-  \vspace*{0.15\textheight}
-  {\Huge\bfseries 数学分析习题课讲义\par}
-  \vspace{1em}
-  {\LARGE 第2版·上、下册\par}
-  \vspace{2.5em}
-  {\Large 谢惠民\quad 恽自求\quad 易法槐\quad 钱定边\ 编\par}
-  \vfill
-  {\large LaTeX 整理工程\par}
-\end{titlepage}
+\thispagestyle{empty}
+\title{数学分析习题课讲义}
+\subtitle{第2版 · LaTeX 整理 · 习题解答随题}
+\edition{Inline Solution Edition}
+\bookseries{数学分析}
+\author{谢惠民\quad 恽自求\quad 易法槐\quad 钱定边\ 原著}
+\pressname{LaTeX Study Edition}
+\presslogo{kuangyummy2}
+
+\copyrightpage%
+{数学分析}%
+{习题课讲义}%
+{扫描本忠实转录与习题解答整理}%
+{}%
+{China}%
+\makecover
+
+\makeatletter
+\definecolor{bg}{HTML}{E2E9E7}
+\definecolor{fg}{HTML}{33545F}
+\colorlet{outermarginbgcolor}{bg}
+\colorlet{outermarginfgcolor}{fg}
+\titleimage{
+  chapteroddimage={c9,c10},
+  partoddimage={c9,c10},
+  chapterevenimage={c10,c9},
+  partevenimage={c10,c9},
+}
+\chapimage{\beautybook@chapterimagename}
+\partimage{\beautybook@partimagename}
+\makeatother
+\colorlet{framegolden}{fg}
+\colorlet{framegray}{bg!50}
 
 \frontmatter
-\tableofcontents
+\pagenumbering{Roman}
+\chapter*{整理说明}
+本版本以谢惠民等编著《数学分析习题课讲义》第2版上下册扫描本为底本，保留原书章节顺序、公式编号、例题、思考题、练习题和参考题的结构。正文与题面以扫描页为依据；LaTeX 化仅做必要的结构化和排版规范化，不改变原书数学内容。
+
+为便于连续阅读，本版不再把“原书正文”和“习题解答”分成独立卷册。凡已完成复核的练习题、思考题和参考题，解答直接排在相应原题之后。微分算子、常数和数学算子等记号遵循仓库统一规范。
+
+\thispagestyle{empty}
+\tableofcontents\let\cleardoublepage\clearpage
+
 \mainmatter
-\input{01上册}
-\input{02下册}
-\input{03上册习题解答}
-\input{04下册习题解答}
+\pagenumbering{arabic}
+\input{inline/index}
+
+\summary{谢惠民《数学分析习题课讲义》第2版的 LaTeX 整理版本。全书保持原章节顺序，并将已复核的习题解答直接附在对应原题之后。}
+\makebottomcover
 \end{document}
