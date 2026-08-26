@@ -1,0 +1,610 @@
+% 第1章《引论》习题解答
+% 对应 chapters/ch01.tex
+
+\chapter*{第1章\quad 引论：习题解答}
+
+\section*{1.3.2\quad 练习题}
+
+\begin{xexercise}[1]
+关于 Bernoulli 不等式的推广。
+\end{xexercise}
+\begin{xsolution}
+\begin{enumerate}[label=(\arabic*)]
+  \item 当 $-2\le h\le-1$ 时，有 $-1\le1+h\le0$。
+
+  若 $n=1$，则
+  \[
+    (1+h)^n=1+h=1+nh.
+  \]
+  若 $n\ge2$，则 $1+nh\le1-n\le-1$；另一方面，因 $-1\le1+h\le0$，故
+  \[
+    (1+h)^n\ge-1.
+  \]
+  因此
+  \[
+    (1+h)^n\ge-1\ge1+nh.
+  \]
+  故 Bernoulli 不等式在 $-2\le h\le-1$ 时仍成立。
+
+  \item 当 $h\ge0$ 时，由二项式展开
+  \[
+    (1+h)^n
+    =\sum_{j=0}^n\binom{n}{j}h^j
+    =1+nh+\frac{n(n-1)}2h^2+\cdots+h^n.
+  \]
+  各项均非负，所以
+  \[
+    (1+h)^n\ge\frac{n(n-1)}2h^2.
+  \]
+  同一理由给出更一般的结论：对任意整数 $m$，$0\le m\le n$，均有
+  \[
+    (1+h)^n\ge\sum_{j=0}^m\binom{n}{j}h^j
+    \ge\binom{n}{m}h^m,
+    \qquad h\ge0.
+  \]
+
+  \item 先设 $a_i\ge0$（$i=1,\ldots,n$）。直接展开乘积可得
+  \[
+    \prod_{i=1}^n(1+a_i)
+    =1+\sum_{i=1}^n a_i+\sum_{i<j}a_ia_j+\cdots+\prod_{i=1}^n a_i
+    \ge1+\sum_{i=1}^n a_i.
+  \]
+
+  再设 $-1<a_i\le0$。令 $x_i=-a_i$，则 $0\le x_i<1$。证明
+  \[
+    \prod_{i=1}^n(1-x_i)\ge1-\sum_{i=1}^n x_i.
+  \]
+  对 $n$ 作归纳。$n=1$ 时为等式。若结论对 $n-1$ 成立，记
+  \[
+    S=\sum_{i=1}^{n-1}x_i\ge0,
+  \]
+  则因 $1-x_n>0$，
+  \[
+  \begin{aligned}
+    \prod_{i=1}^n(1-x_i)
+    &\ge(1-S)(1-x_n)\\
+    &=1-S-x_n+Sx_n\\
+    &\ge1-S-x_n.
+  \end{aligned}
+  \]
+  因而结论对所有 $n$ 成立。代回 $x_i=-a_i$，得
+  \[
+    \prod_{i=1}^n(1+a_i)\ge1+\sum_{i=1}^n a_i.
+  \]
+  由于题设各 $a_i$ 同号，两种情况已穷尽。
+\end{enumerate}
+\end{xsolution}
+
+\begin{xexercise}[2]
+关于阶乘 $n!$ 的几个不等式。
+\end{xexercise}
+\begin{xsolution}
+设 $n>1$。
+\begin{enumerate}[label=(\arabic*)]
+  \item 对正数 $1,2,\ldots,n$ 使用算术平均值—几何平均值不等式，
+  \[
+    (n!)^{1/n}
+    <\frac{1+2+\cdots+n}{n}
+    =\frac{n+1}{2}.
+  \]
+  这里严格不等号成立，是因为 $n>1$ 时这些数不全相等。两边取 $n$ 次幂即得
+  \[
+    n!<\left(\frac{n+1}{2}\right)^n.
+  \]
+
+  \item 由
+  \[
+    (n!)^2=\prod_{k=1}^n k(n+1-k)
+  \]
+  对 $n$ 个正数 $k(n+1-k)$ 使用算术平均值—几何平均值不等式，得到
+  \[
+    (n!)^{2/n}
+    \le\frac1n\sum_{k=1}^n k(n+1-k).
+  \]
+  计算右端：
+  \[
+  \begin{aligned}
+    \frac1n\sum_{k=1}^n k(n+1-k)
+    &=\frac1n\left((n+1)\sum_{k=1}^n k-\sum_{k=1}^n k^2\right)\\
+    &=\frac{(n+1)(n+2)}6.
+  \end{aligned}
+  \]
+  因此实际上有更强的估计
+  \[
+    n!\le\left(\sqrt{\frac{(n+1)(n+2)}6}\right)^n.
+  \]
+  又因为 $n+1<n+2$，故
+  \[
+    \sqrt{\frac{(n+1)(n+2)}6}<\frac{n+2}{\sqrt6},
+  \]
+  从而
+  \[
+    n!<\left(\frac{n+2}{\sqrt6}\right)^n.
+  \]
+
+  \item 比较题中两上界的底数
+  \[
+    A_n=\frac{n+1}{2},\qquad B_n=\frac{n+2}{\sqrt6}.
+  \]
+  因二者均为正数，$B_n<A_n$ 等价于
+  \[
+    2(n+2)<\sqrt6(n+1),
+  \]
+  进一步等价于
+  \[
+    n^2-2n-5>0.
+  \]
+  对整数 $n>1$，这恰在 $n\ge4$ 时成立。因此：$n=2,3$ 时 (1) 的上界较小，故 (1) 较优；$n\ge4$ 时 (2) 的上界较小，故 (2) 较优。
+
+  还可注意到，(2) 的证明中得到的中间估计
+  \[
+    n!\le\left(\sqrt{\frac{(n+1)(n+2)}6}\right)^n
+  \]
+  对每个 $n>1$ 都比 (1) 更强，因为
+  \[
+    \sqrt{\frac{(n+1)(n+2)}6}<\frac{n+1}{2}
+  \]
+  等价于 $n>1$。
+
+  \item 对任意实数 $r$，各数 $1^r,2^r,\ldots,n^r$ 都为正数。由算术平均值—几何平均值不等式，
+  \[
+    \left(\prod_{k=1}^n k^r\right)^{1/n}
+    \le\frac1n\sum_{k=1}^n k^r.
+  \]
+  即
+  \[
+    (n!)^{r/n}\le\frac1n\sum_{k=1}^n k^r.
+  \]
+  两边取 $n$ 次幂，得到
+  \[
+    (n!)^r\le\frac1{n^n}\left(\sum_{k=1}^n k^r\right)^n.
+  \]
+\end{enumerate}
+\end{xsolution}
+
+\begin{xexercise}[3]
+证明几何平均值—调和平均值不等式。
+\end{xexercise}
+\begin{xsolution}
+由 $a_k>0$，可对正数 $1/a_1,\ldots,1/a_n$ 使用算术平均值—几何平均值不等式：
+\[
+  \frac1n\sum_{k=1}^n\frac1{a_k}
+  \ge
+  \left(\prod_{k=1}^n\frac1{a_k}\right)^{1/n}
+  =\left(\prod_{k=1}^n a_k\right)^{-1/n}.
+\]
+两边均为正数，取倒数后不等号反向，故
+\[
+  \frac{n}{\displaystyle\sum_{k=1}^n\frac1{a_k}}
+  \le
+  \left(\prod_{k=1}^n a_k\right)^{1/n}.
+\]
+这就是所要证明的不等式。等号成立当且仅当 $1/a_1=\cdots=1/a_n$，亦即 $a_1=\cdots=a_n$。
+\end{xsolution}
+
+\begin{xexercise}[4]
+证明三个非负数的几何平均值、平方平均式与算术平均值之间的不等式。
+\end{xexercise}
+\begin{xsolution}
+对非负数 $ab,bc,ca$ 使用算术平均值—几何平均值不等式，
+\[
+  \frac{ab+bc+ca}{3}
+  \ge\sqrt[3]{(ab)(bc)(ca)}
+  =(abc)^{2/3}.
+\]
+两边开平方，得到
+\[
+  \sqrt{\frac{ab+bc+ca}{3}}\ge\sqrt[3]{abc}.
+\]
+另一方面，
+\[
+  (a+b+c)^2-3(ab+bc+ca)
+  =\frac12\bigl((a-b)^2+(b-c)^2+(c-a)^2\bigr)\ge0.
+\]
+于是
+\[
+  \frac{ab+bc+ca}{3}\le\frac{(a+b+c)^2}{9}.
+\]
+因两边非负，开平方即得
+\[
+  \sqrt{\frac{ab+bc+ca}{3}}\le\frac{a+b+c}{3}.
+\]
+综上，
+\[
+  \sqrt[3]{abc}\le\sqrt{\frac{ab+bc+ca}{3}}\le\frac{a+b+c}{3}.
+\]
+两处同时取等号当且仅当 $a=b=c$。
+\end{xsolution}
+
+\begin{xexercise}[5]
+证明题中四组不等式，并回答第 (2) 小问。
+\end{xexercise}
+\begin{xsolution}
+\begin{enumerate}[label=(\arabic*)]
+  \item 由三角形不等式
+  \[
+    \abs{a}=\abs{(a-b)+b}\le\abs{a-b}+\abs{b},
+  \]
+  得
+  \[
+    \abs{a-b}\ge\abs{a}-\abs{b}.
+  \]
+  交换 $a,b$，又有
+  \[
+    \abs{a-b}=\abs{b-a}\ge\abs{b}-\abs{a}.
+  \]
+  因而 $\abs{a-b}$ 同时不小于 $\abs{a}-\abs{b}$ 与其相反数，所以
+  \[
+    \abs{a-b}\ge\abs{\abs{a}-\abs{b}}.
+  \]
+
+  \item 反复使用三角形不等式，
+  \[
+    \abs{\sum_{k=1}^n a_k}\le\sum_{k=1}^n\abs{a_k}.
+  \]
+  又由
+  \[
+    a_1=\sum_{k=1}^n a_k-\sum_{k=2}^n a_k
+  \]
+  得
+  \[
+    \abs{a_1}
+    \le\abs{\sum_{k=1}^n a_k}+\sum_{k=2}^n\abs{a_k},
+  \]
+  即
+  \[
+    \abs{a_1}-\sum_{k=2}^n\abs{a_k}
+    \le\abs{\sum_{k=1}^n a_k}.
+  \]
+  因此题中双边不等式成立。
+
+  左边一般不能改为
+  \[
+    \abs{\abs{a_1}-\sum_{k=2}^n\abs{a_k}}.
+  \]
+  例如取 $n=3$，$a_1=1$，$a_2=10$，$a_3=-10$，则
+  \[
+    \abs{\abs{a_1}-\abs{a_2}-\abs{a_3}}=19,
+    \qquad
+    \abs{a_1+a_2+a_3}=1,
+  \]
+  所以这种加强不成立。
+
+  \item 记 $x=\abs{a}$，$y=\abs{b}$。由三角形不等式及函数 $t/(1+t)$ 在 $t\ge0$ 上单调增加，
+  \[
+    \frac{\abs{a+b}}{1+\abs{a+b}}
+    \le\frac{x+y}{1+x+y}.
+  \]
+  另一方面，
+  \[
+  \begin{aligned}
+    \frac{x}{1+x}+\frac{y}{1+y}-\frac{x+y}{1+x+y}
+    &=\frac{xy(2+x+y)}{(1+x)(1+y)(1+x+y)}\\
+    &\ge0.
+  \end{aligned}
+  \]
+  因此
+  \[
+    \frac{\abs{a+b}}{1+\abs{a+b}}
+    \le\frac{\abs{a}}{1+\abs{a}}+\frac{\abs{b}}{1+\abs{b}}.
+  \]
+
+  \item 由二项式展开与三角形不等式，
+  \[
+  \begin{aligned}
+    \abs{(a+b)^n-a^n}
+    &=\abs{\sum_{k=1}^n\binom{n}{k}a^{n-k}b^k}\\
+    &\le\sum_{k=1}^n\binom{n}{k}\abs{a}^{n-k}\abs{b}^k\\
+    &=(\abs{a}+\abs{b})^n-\abs{a}^n.
+  \end{aligned}
+  \]
+\end{enumerate}
+\end{xsolution}
+
+\begin{xexercise}[6]
+按四个提示给出 Cauchy 不等式的不同证明。
+\end{xexercise}
+\begin{xsolution}
+记
+\[
+  S_n=\sum_{k=1}^n a_kb_k,
+  \qquad
+  A_n=\sum_{k=1}^n a_k^2,
+  \qquad
+  B_n=\sum_{k=1}^n b_k^2.
+\]
+要证的是 $\abs{S_n}^2\le A_nB_n$。
+
+\begin{enumerate}[label=(\arabic*)]
+  \item 用数学归纳法。$n=1$ 时为等式。设结论对 $n$ 成立。令
+  \[
+    A=\sqrt{A_n},\qquad B=\sqrt{B_n},\qquad a=a_{n+1},\qquad b=b_{n+1}.
+  \]
+  由归纳假设及三角形不等式，
+  \[
+    \abs{S_{n+1}}\le AB+\abs{ab}.
+  \]
+  而
+  \[
+  \begin{aligned}
+    &(A^2+a^2)(B^2+b^2)-(AB+\abs{ab})^2\\
+    &\qquad=A^2b^2+B^2a^2-2AB\abs{ab}
+    =(A\abs{b}-B\abs{a})^2\ge0.
+  \end{aligned}
+  \]
+  所以
+  \[
+    AB+\abs{ab}\le\sqrt{A^2+a^2}\sqrt{B^2+b^2}.
+  \]
+  因而 Cauchy 不等式对 $n+1$ 成立，归纳完成。
+
+  \item 由题给 Lagrange 恒等式，
+  \[
+    A_nB_n-\left(\sum_{k=1}^n\abs{a_kb_k}\right)^2
+    =\frac12\sum_{k=1}^n\sum_{i=1}^n
+    (\abs{a_k}\abs{b_i}-\abs{a_i}\abs{b_k})^2\ge0.
+  \]
+  故
+  \[
+    \sum_{k=1}^n\abs{a_kb_k}\le\sqrt{A_nB_n}.
+  \]
+  再由
+  \[
+    \abs{S_n}\le\sum_{k=1}^n\abs{a_kb_k},
+  \]
+  即得 Cauchy 不等式。
+
+  \item 若 $A_n=0$ 或 $B_n=0$，结论立即成立。以下设 $A_nB_n>0$，令
+  \[
+    \alpha_k=\frac{a_k}{\sqrt{A_n}},
+    \qquad
+    \beta_k=\frac{b_k}{\sqrt{B_n}}.
+  \]
+  则 $\sum\alpha_k^2=\sum\beta_k^2=1$。由
+  \[
+    \abs{AB}\le\frac{A^2+B^2}{2}
+  \]
+  得
+  \[
+  \begin{aligned}
+    \frac{\abs{S_n}}{\sqrt{A_nB_n}}
+    &\le\sum_{k=1}^n\abs{\alpha_k\beta_k}\\
+    &\le\frac12\sum_{k=1}^n(\alpha_k^2+\beta_k^2)=1.
+  \end{aligned}
+  \]
+  故 $\abs{S_n}\le\sqrt{A_nB_n}$。
+
+  \item 令
+  \[
+    c_k=a_k^2-b_k^2+2\ii\abs{a_kb_k}.
+  \]
+  则
+  \[
+    \abs{c_k}
+    =\sqrt{(a_k^2-b_k^2)^2+4a_k^2b_k^2}
+    =a_k^2+b_k^2.
+  \]
+  由题给三角形不等式，
+  \[
+    \abs{\sum_{k=1}^n c_k}\le A_n+B_n.
+  \]
+  左边平方为
+  \[
+    (A_n-B_n)^2+4\left(\sum_{k=1}^n\abs{a_kb_k}\right)^2.
+  \]
+  因此
+  \[
+    (A_n-B_n)^2+4\left(\sum_{k=1}^n\abs{a_kb_k}\right)^2
+    \le(A_n+B_n)^2,
+  \]
+  即
+  \[
+    \left(\sum_{k=1}^n\abs{a_kb_k}\right)^2\le A_nB_n.
+  \]
+  最后用 $\abs{S_n}\le\sum\abs{a_kb_k}$，即得所需结论。
+\end{enumerate}
+\end{xsolution}
+
+\begin{xexercise}[7]
+用向前—向后数学归纳法证明 Ky Fan 不等式。
+\end{xexercise}
+\begin{xsolution}
+对 $0<x_i\le\dfrac12$，记
+\[
+  A_n=\frac1n\sum_{i=1}^n x_i,
+  \qquad
+  G_n=\left(\prod_{i=1}^n x_i\right)^{1/n},
+\]
+并记
+\[
+  A_n'=1-A_n=\frac1n\sum_{i=1}^n(1-x_i),
+  \qquad
+  G_n'=\left(\prod_{i=1}^n(1-x_i)\right)^{1/n}.
+\]
+题中不等式等价于
+\[
+  \frac{G_n}{A_n}\le\frac{G_n'}{A_n'}.
+\]
+记此命题为 $P_n$。
+
+先证 $P_2$。令 $s=x_1+x_2$，$p=x_1x_2$。因 $0<x_i\le1/2$，有 $s\le1$，且
+\[
+  s^2-4p=(x_1-x_2)^2\ge0.
+\]
+$P_2$ 平方并清去正分母后等价于
+\[
+  p(2-s)^2\le(1-s+p)s^2.
+\]
+而两边之差为
+\[
+  (1-s+p)s^2-p(2-s)^2
+  =(s^2-4p)(1-s)\ge0,
+\]
+故 $P_2$ 成立。
+
+下面证明“向前”步骤：若 $P_n$ 成立，则 $P_{2n}$ 成立。把 $2n$ 个数分成两组，每组 $n$ 个。两组的算术平均值、几何平均值分别记为
+\[
+  A_1,G_1,A_1',G_1',
+  \qquad
+  A_2,G_2,A_2',G_2'.
+\]
+由 $P_n$，
+\[
+  \frac{G_j}{G_j'}\le\frac{A_j}{A_j'},\qquad j=1,2.
+\]
+于是
+\[
+  \frac{G_{2n}}{G_{2n}'}
+  =\sqrt{\frac{G_1G_2}{G_1'G_2'}}
+  \le\sqrt{\frac{A_1A_2}{A_1'A_2'}}.
+\]
+又因 $0<A_1,A_2\le1/2$，可对两个数 $A_1,A_2$ 使用已经证明的 $P_2$，得到
+\[
+  \sqrt{\frac{A_1A_2}{A_1'A_2'}}
+  \le\frac{(A_1+A_2)/2}{(A_1'+A_2')/2}
+  =\frac{A_{2n}}{A_{2n}'}.
+\]
+故 $P_{2n}$ 成立。从 $P_2$ 出发，依次得到 $P_4,P_8,\ldots,P_{2^m}$。
+
+再证明“向后”步骤：若 $P_n$ 对某个 $n>1$ 成立，则 $P_{n-1}$ 成立。给定 $n-1$ 个数 $x_1,\ldots,x_{n-1}$，令
+\[
+  x_n=A_{n-1}=\frac1{n-1}\sum_{i=1}^{n-1}x_i.
+\]
+仍有 $0<x_n\le1/2$，且加入这个数后
+\[
+  A_n=A_{n-1},\qquad A_n'=A_{n-1}'.
+\]
+由 $P_n$，
+\[
+  \frac{(G_{n-1}^{n-1}A_{n-1})^{1/n}}{A_{n-1}}
+  \le
+  \frac{((G_{n-1}')^{n-1}A_{n-1}')^{1/n}}{A_{n-1}'}.
+\]
+两边取 $n$ 次幂并约去正因子，得到
+\[
+  \left(\frac{G_{n-1}}{A_{n-1}}\right)^{n-1}
+  \le
+  \left(\frac{G_{n-1}'}{A_{n-1}'}\right)^{n-1},
+\]
+即 $P_{n-1}$ 成立。
+
+任取正整数 $n$，选择 $m$ 使 $2^m\ge n$。由向前步骤知 $P_{2^m}$ 成立，再反复使用向后步骤即可得到 $P_n$。因此题中不等式对所有 $n$ 成立。
+\end{xsolution}
+
+\begin{xexercise}[8]
+设 $a,c,g,t\ge0$，$a+c+g+t=1$，证明平方和的下界并确定等号条件。
+\end{xexercise}
+\begin{xsolution}
+由 Cauchy 不等式，
+\[
+  (a+c+g+t)^2
+  \le(1^2+1^2+1^2+1^2)(a^2+c^2+g^2+t^2).
+\]
+利用 $a+c+g+t=1$，得到
+\[
+  1\le4(a^2+c^2+g^2+t^2),
+\]
+即
+\[
+  a^2+c^2+g^2+t^2\ge\frac14.
+\]
+Cauchy 不等式取等号当且仅当 $(a,c,g,t)$ 与 $(1,1,1,1)$ 成比例。再结合四数之和为 $1$，可知等号成立当且仅当
+\[
+  a=c=g=t=\frac14.
+\]
+\end{xsolution}
+
+\section*{1.4\quad 逻辑符号与对偶法则：练习题}
+
+\begin{xexercise}[1.4 练习题]
+以正面方式写出原章所列八个命题或叙述的否定。
+\end{xexercise}
+\begin{xsolution}
+以下均按原命题的量词结构逐层取否定。
+\begin{enumerate}[label=(\arabic*)]
+  \item “数集 $A$ 有上界”可写成
+  \[
+    \exists M\in\RR,\ \forall x\in A,\quad x\le M.
+  \]
+  因此其否定为
+  \[
+    \forall M\in\RR,\ \exists x\in A,\quad x>M.
+  \]
+
+  \item “数集 $A$ 的最小值是 $b$”可写成
+  \[
+    b\in A,
+    \qquad
+    \forall x\in A,\quad b\le x.
+  \]
+  因此其否定为
+  \[
+    b\notin A
+    \quad\text{或}\quad
+    \exists x\in A,\quad x<b.
+  \]
+
+  \item 若“单调增加”按通常的非严格定义，即
+  \[
+    \forall x_1,x_2\in(a,b),\quad
+    x_1<x_2\Longrightarrow f(x_1)\le f(x_2),
+  \]
+  则其否定为
+  \[
+    \exists x_1,x_2\in(a,b),\quad
+    x_1<x_2,\qquad f(x_1)>f(x_2).
+  \]
+  若后文采用“单调增加”表示严格递增，即结论写成 $f(x_1)<f(x_2)$，则相应否定中的最后一个不等号应改为 $f(x_1)\ge f(x_2)$。这样不依赖术语的严格/非严格约定。
+
+  \item 按非严格约定，“$f$ 是区间 $(a,b)$ 上的单调函数”表示 $f$ 非减或非增。其否定要求这两种情形都失败，即
+  \[
+  \begin{gathered}
+    \exists x_1,x_2\in(a,b),\quad x_1<x_2,\quad f(x_1)>f(x_2),\\
+    \exists y_1,y_2\in(a,b),\quad y_1<y_2,\quad f(y_1)<f(y_2).
+  \end{gathered}
+  \]
+  两对点不必相同。若“单调”采用严格约定，则上述两个末端不等号分别改为 $\ge$ 与 $\le$。
+
+  \item 若 $A\subset B$ 表示包含关系，即
+  \[
+    \forall x,\quad x\in A\Longrightarrow x\in B,
+  \]
+  则其否定为
+  \[
+    \exists x,\quad x\in A,\qquad x\notin B.
+  \]
+  若采用 $\subset$ 专指真包含的约定，则 $A\subset B$ 还要求 $A\ne B$，其否定相应为“存在 $x\in A$ 但 $x\notin B$，或 $A=B$”。
+
+  \item $A-B\ne\varnothing$ 等价于
+  \[
+    \exists x,\quad x\in A,\qquad x\notin B.
+  \]
+  因此其否定为
+  \[
+    \forall x\in A,\quad x\in B,
+  \]
+  即 $A-B=\varnothing$。
+
+  \item “数列 $\{x_n\}$ 是无穷小量”即
+  \[
+    \forall\varepsilon>0,\ \exists N,\ \forall n>N,
+    \quad \abs{x_n}<\varepsilon.
+  \]
+  其否定为
+  \[
+    \exists\varepsilon_0>0,\ \forall N,\ \exists n>N,
+    \quad \abs{x_n}\ge\varepsilon_0.
+  \]
+
+  \item “数列 $\{x_n\}$ 是正无穷大量”即
+  \[
+    \forall M>0,\ \exists N,\ \forall n>N,
+    \quad x_n>M.
+  \]
+  其否定为
+  \[
+    \exists M_0>0,\ \forall N,\ \exists n>N,
+    \quad x_n\le M_0.
+  \]
+\end{enumerate}
+\end{xsolution}
