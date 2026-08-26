@@ -1,0 +1,3019 @@
+% 第21章习题解答
+\chapter*{第21章 偏导数的应用——习题解答}
+
+\section*{21.1.4 练习题}
+
+\paragraph{第1题}
+\begin{xsolution}
+曲线的参数表示为
+\[
+  \vect{r}(t)=(t,t^2,t^3),
+\]
+故切向量为
+\[
+  \vect{r}'(t)=(1,2t,3t^2).
+\]
+平面 $x+2y+z=4$ 的法向量为 $\vect{n}=(1,2,1)$。切线平行于该平面的充要条件是
+\[
+  \vect{r}'(t)\cdot\vect{n}=0,
+\]
+即
+\[
+  1+4t+3t^2=0.
+\]
+解得 $t=-1$ 或 $t=-\dfrac13$。因此满足条件的点有两个：
+\[
+  (-1,1,-1),
+  \qquad
+  \left(-\frac13,\frac19,-\frac1{27}\right).
+\]
+\end{xsolution}
+
+\paragraph{第2题}
+\begin{xsolution}
+设地球半径为 $R$。以经度 $\varphi$、纬度 $\psi$ 为球面坐标，则球面线元为
+\[
+  \dd s^2=R^2\bigl(\cos^2\psi\,\dd\varphi^2+\dd\psi^2\bigr).
+\]
+题给曲线满足
+\[
+  \tan\left(\frac\pi4+\frac\psi2\right)=\ee^{k\varphi}.
+\]
+两边取对数并微分。利用
+\[
+  \frac{\dd}{\dd\psi}
+  \ln\tan\left(\frac\pi4+\frac\psi2\right)
+  =\frac1{\cos\psi},
+\]
+得到
+\[
+  \frac{\dd\psi}{\cos\psi}=k\,\dd\varphi,
+  \qquad
+  \dd\psi=k\cos\psi\,\dd\varphi.
+\]
+沿子午线方向的弧长分量为 $R\,\dd\psi$，沿纬圈方向的弧长分量为 $R\cos\psi\,\dd\varphi$。若曲线与子午线所成角为 $\theta$，则对 $k\ne0$，
+\[
+  \tan\theta
+  =\abs{\frac{R\cos\psi\,\dd\varphi}{R\,\dd\psi}}
+  =\frac1{\abs{k}},
+\]
+与交点的位置无关。因此该曲线与每一条子午线相交成定角。
+
+若 $k=0$，则 $\psi=0$，曲线为赤道，与各子午线均成直角，结论同样成立。
+\end{xsolution}
+
+\paragraph{第3题}
+\begin{xsolution}
+令
+\[
+  F=x^2+y^2+z^2-6,
+  \qquad
+  G=x+y+z.
+\]
+在点 $P=(1,-2,1)$，
+\[
+  \nabla F(P)=(2,-4,2),
+  \qquad
+  \nabla G(P)=(1,1,1).
+\]
+交线的切向量可取
+\[
+  \nabla F(P)\times\nabla G(P)=(-6,0,6),
+\]
+故可取方向向量 $(1,0,-1)$。于是切线为
+\[
+  \frac{x-1}{1}=\frac{y+2}{0}=\frac{z-1}{-1},
+\]
+亦即
+\[
+  x=1+t,\qquad y=-2,\qquad z=1-t.
+\]
+法平面以切向量为法向量，因此方程为
+\[
+  (x-1)-(z-1)=0,
+\]
+即
+\[
+  x-z=0.
+\]
+\end{xsolution}
+
+\paragraph{第4题}
+\begin{xsolution}
+令
+\[
+  f(x,y)=\arctan\frac yx.
+\]
+则
+\[
+  f_x=-\frac{y}{x^2+y^2},
+  \qquad
+  f_y=\frac{x}{x^2+y^2}.
+\]
+在点 $(1,1)$，
+\[
+  f_x=-\frac12,
+  \qquad
+  f_y=\frac12.
+\]
+曲面 $z=f(x,y)$ 的一个法向量可取
+\[
+  (f_x,f_y,-1)=\left(-\frac12,\frac12,-1\right),
+\]
+等比例地可取 $(1,-1,2)$。因此法线方程为
+\[
+  \frac{x-1}{1}=\frac{y-1}{-1}
+  =\frac{z-\pi/4}{2}.
+\]
+切平面方程为
+\[
+  z-\frac\pi4
+  =-\frac12(x-1)+\frac12(y-1),
+\]
+即
+\[
+  x-y+2z-\frac\pi2=0.
+\]
+\end{xsolution}
+
+\paragraph{第5题}
+\begin{xsolution}
+取曲面上一点 $P=(x_0,y_0,z_0)$，则
+\[
+  x_0y_0z_0=a^3.
+\]
+令 $F(x,y,z)=xyz-a^3$，则切平面为
+\[
+  y_0z_0(x-x_0)+x_0z_0(y-y_0)+x_0y_0(z-z_0)=0.
+\]
+利用 $x_0y_0z_0=a^3$，化为
+\[
+  \frac{x}{x_0}+\frac{y}{y_0}+\frac{z}{z_0}=3.
+\]
+故它与三个坐标轴的截距分别为
+\[
+  3x_0,\qquad 3y_0,\qquad 3z_0.
+\]
+切平面与三个坐标面所围四面体的体积为
+\[
+  V=\frac16\abs{(3x_0)(3y_0)(3z_0)}
+  =\frac{27}{6}\abs{x_0y_0z_0}
+  =\frac92a^3.
+\]
+该值与切点无关，故每一个切平面与坐标面形成的四面体体积相同。
+\end{xsolution}
+
+\section*{21.2.3 练习题}
+
+\paragraph{第1题}
+\begin{xsolution}
+椭球面记为
+\[
+  F(x,y,z)=\frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}-1=0.
+\]
+其外法方向的单位向量为
+\[
+  \vect{n}=
+  \frac{\left(\dfrac{x}{a^2},\dfrac{y}{b^2},\dfrac{z}{c^2}\right)}
+  {\sqrt{\dfrac{x^2}{a^4}+\dfrac{y^2}{b^4}+\dfrac{z^2}{c^4}}}.
+\]
+而
+\[
+  \nabla u=(2x,2y,2z).
+\]
+所以沿外法方向的方向导数为
+\[
+\begin{aligned}
+  \frac{\partial u}{\partial n}
+  &=\nabla u\cdot\vect{n}\\
+  &=\frac{2\left(\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}+\dfrac{z^2}{c^2}\right)}
+  {\sqrt{\dfrac{x^2}{a^4}+\dfrac{y^2}{b^4}+\dfrac{z^2}{c^4}}}\\
+  &=\frac{2}{\sqrt{\dfrac{x^2}{a^4}+\dfrac{y^2}{b^4}+\dfrac{z^2}{c^4}}}.
+\end{aligned}
+\]
+\end{xsolution}
+
+\paragraph{第2题}
+\begin{xsolution}
+设 $\vect{n}$ 为所取的单位法向量。由方向导数与梯度的关系，
+\[
+  \frac{\partial}{\partial n}(uv)
+  =\nabla(uv)\cdot\vect{n}.
+\]
+又由梯度的乘积法则，
+\[
+  \nabla(uv)=u\nabla v+v\nabla u.
+\]
+因此
+\[
+\begin{aligned}
+  \frac{\partial}{\partial n}(uv)
+  &=(u\nabla v+v\nabla u)\cdot\vect{n}\\
+  &=u\frac{\partial v}{\partial n}
+  +v\frac{\partial u}{\partial n}.
+\end{aligned}
+\]
+\end{xsolution}
+
+\paragraph{第3题}
+\begin{xsolution}
+对复合函数 $f(u(x,y,z))$ 分别求偏导，得
+\[
+  \frac{\partial f(u)}{\partial x}=f'(u)u_x,
+  \qquad
+  \frac{\partial f(u)}{\partial y}=f'(u)u_y,
+  \qquad
+  \frac{\partial f(u)}{\partial z}=f'(u)u_z.
+\]
+故
+\[
+  \nabla f(u)
+  =f'(u)(u_x,u_y,u_z)
+  =f'(u)\nabla u.
+\]
+\end{xsolution}
+
+\paragraph{第4题}
+\begin{xsolution}
+设这些方向的方向角依次为
+\[
+  \theta_i=\theta_0+\frac{2\pi(i-1)}n,
+  \qquad i=1,2,\ldots,n,
+\]
+则
+\[
+  \vect{l}_i=(\cos\theta_i,\sin\theta_i).
+\]
+由单位根求和公式，
+\[
+  \sum_{i=1}^n\ee^{\ii\theta_i}=0,
+\]
+故
+\[
+  \sum_{i=1}^n\vect{l}_i=(0,0).
+\]
+因为 $f$ 在 $p_0$ 可微，
+\[
+  \frac{\partial f}{\partial l_i}(p_0)
+  =\nabla f(p_0)\cdot\vect{l}_i.
+\]
+于是
+\[
+  \sum_{i=1}^n\frac{\partial f}{\partial l_i}(p_0)
+  =\nabla f(p_0)\cdot\sum_{i=1}^n\vect{l}_i=0.
+\]
+\end{xsolution}
+
+\paragraph{第5题}
+\begin{xsolution}
+在原点 $\nabla u(0,0,0)=0$，因此不能直接用梯度判定。设单位方向
+\[
+  \vect{l}=(\alpha,\beta,\gamma),
+  \qquad
+  \alpha^2+\beta^2+\gamma^2=1.
+\]
+沿该方向有
+\[
+  u(t\alpha,t\beta,t\gamma)-u(0,0,0)
+  =t^2\left(
+  \frac{\alpha^2}{a^2}+\frac{\beta^2}{b^2}-\frac{\gamma^2}{c^2}
+  \right).
+\]
+因 $a>b>c>0$，有
+\[
+  \frac1{a^2}<\frac1{b^2},
+\]
+而 $-1/c^2<0$。在 $\alpha^2+\beta^2+\gamma^2=1$ 下，上式括号内的最大值为 $1/b^2$，当且仅当
+\[
+  \alpha=0,\qquad \gamma=0,\qquad \beta=\pm1.
+\]
+故函数在原点增加最快的方向为
+\[
+  (0,1,0)\quad\text{和}\quad(0,-1,0).
+\]
+\end{xsolution}
+
+\paragraph{第6题}
+\begin{xsolution}
+先证连续性。对 $(x,y)\ne(0,0)$，
+\[
+  \abs{\frac{xy^2}{x^2+y^2}}
+  \le \abs{x},
+\]
+所以当 $(x,y)\to(0,0)$ 时，
+\[
+  f(x,y)=x-y+\frac{xy^2}{x^2+y^2}\to0=f(0,0).
+\]
+故 $f$ 在原点连续。
+
+任取单位方向 $\vect{l}=(\cos\theta,\sin\theta)$。按方向导数定义，
+\[
+\begin{aligned}
+  \frac{\partial f}{\partial l}(0,0)
+  &=\lim_{t\to0^+}\frac{f(t\cos\theta,t\sin\theta)-f(0,0)}t\\
+  &=\cos\theta-\sin\theta
+  +\cos\theta\sin^2\theta,
+\end{aligned}
+\]
+故沿任何方向的方向导数都存在。
+
+另一方面，
+\[
+  f_x(0,0)=1,
+  \qquad
+  f_y(0,0)=-1.
+\]
+若 $f$ 在原点可微，则应有
+\[
+  f(x,y)=x-y+\littleo\bigl(\sqrt{x^2+y^2}\bigr).
+\]
+但沿 $y=x$，
+\[
+  f(x,x)-(x-x)=\frac{x^3}{2x^2}=\frac x2,
+\]
+从而
+\[
+  \frac{\abs{f(x,x)}}{\sqrt{x^2+x^2}}
+  =\frac1{2\sqrt2}
+\]
+对 $x\ne0$ 恒成立，并不趋于 $0$。所以 $f$ 在原点不可微。
+\end{xsolution}
+
+\section*{21.3.1 命题 21.3.1（Taylor 公式的惟一性）留作习题}
+
+\paragraph{命题 21.3.1}
+\begin{xsolution}
+设
+\[
+  h=x-x_0,\qquad k=y-y_0,
+  \qquad \rho=\sqrt{h^2+k^2}.
+\]
+由多元 Taylor 公式，$f$ 在 $(x_0,y_0)$ 处本来就有 Peano 型展开
+\[
+  f(x_0+h,y_0+k)
+  =\sum_{i+j=0}^{m}
+  \frac1{i!j!}
+  \frac{\partial^{i+j}f}{\partial x^i\partial y^j}(x_0,y_0)
+  h^ik^j+\littleo(\rho^m).
+\]
+另一方面，题设给出
+\[
+  f(x_0+h,y_0+k)
+  =\sum_{i+j=0}^{m}A_{ij}h^ik^j+\littleo(\rho^m).
+\]
+两式相减，令
+\[
+  c_{ij}
+  =A_{ij}
+  -\frac1{i!j!}
+  \frac{\partial^{i+j}f}{\partial x^i\partial y^j}(x_0,y_0),
+\]
+便有多项式
+\[
+  P(h,k)=\sum_{i+j=0}^{m}c_{ij}h^ik^j
+  =\littleo\bigl((h^2+k^2)^{m/2}\bigr).
+\]
+只需证明所有 $c_{ij}=0$。
+
+把 $P$ 按总次数分解为齐次部分：
+\[
+  P=P_0+P_1+\cdots+P_m,
+\]
+其中
+\[
+  P_d(h,k)=\sum_{i+j=d}c_{ij}h^ik^j.
+\]
+任取固定向量 $(u,v)\ne(0,0)$，并令
+\[
+  (h,k)=t(u,v),\qquad t\to0.
+\]
+则
+\[
+  P(tu,tv)=\sum_{d=0}^{m}t^dP_d(u,v)=\littleo(t^m).
+\]
+首先令 $t\to0$，得到 $P_0(u,v)=0$。假设已经证明
+\[
+  P_0(u,v)=P_1(u,v)=\cdots=P_{r-1}(u,v)=0,
+\]
+其中 $1\le r\le m$，则上式除以 $t^r$ 得
+\[
+  P_r(u,v)+tP_{r+1}(u,v)+\cdots+t^{m-r}P_m(u,v)
+  =\littleo(t^{m-r}).
+\]
+令 $t\to0$，右端趋于 $0$，故
+\[
+  P_r(u,v)=0.
+\]
+由归纳法，
+\[
+  P_d(u,v)=0,\qquad d=0,1,\ldots,m.
+\]
+由于 $(u,v)$ 任意，每个齐次多项式 $P_d$ 在 $\RR^2$ 上恒为零，因而其所有系数均为零，即
+\[
+  c_{ij}=0,\qquad i+j\le m.
+\]
+于是
+\[
+  A_{ij}
+  =\frac1{i!j!}
+  \frac{\partial^{i+j}f}{\partial x^i\partial y^j}(x_0,y_0),
+\]
+这就证明了 Taylor 展开系数的惟一性。
+\end{xsolution}
+\section*{21.3.4 练习题}
+
+\paragraph{第1题}
+\begin{xsolution}
+在 $(x_0,y_0)$ 处分别沿 $x$、$y$ 方向作二阶 Taylor 展开：
+\[
+  u(x_0\pm h,y_0)
+  =u(x_0,y_0)\pm u_x(x_0,y_0)h
+  +\frac12u_{xx}(x_0,y_0)h^2+\littleo(h^2),
+\]
+故
+\[
+  u(x_0+h,y_0)+u(x_0-h,y_0)
+  =2u(x_0,y_0)+u_{xx}(x_0,y_0)h^2+\littleo(h^2).
+\]
+同理，
+\[
+  u(x_0,y_0+h)+u(x_0,y_0-h)
+  =2u(x_0,y_0)+u_{yy}(x_0,y_0)h^2+\littleo(h^2).
+\]
+两式相加并减去 $4u(x_0,y_0)$，再除以 $h^2$，即得
+\[
+\begin{aligned}
+  u_{xx}(x_0,y_0)+u_{yy}(x_0,y_0)
+  ={}&\frac1{h^2}\bigl[u(x_0+h,y_0)+u(x_0-h,y_0)\\
+  &+u(x_0,y_0+h)+u(x_0,y_0-h)-4u(x_0,y_0)\bigr]
+  +\littleo(1).
+\end{aligned}
+\]
+\end{xsolution}
+
+\paragraph{第2题}
+\begin{xsolution}
+\begin{enumerate}[label=(\arabic*)]
+  \item
+  \[
+    f_x=2x-4y,
+    \qquad
+    f_y=-4x+10y,
+  \]
+  故 $(0,0)$ 是驻点。又
+  \[
+    f(x,y)+1=x^2-4xy+5y^2=(x-2y)^2+y^2\ge0,
+  \]
+  且等号仅在 $(0,0)$ 成立，所以 $(0,0)$ 是严格极小值点，极小值为 $-1$。
+
+  \item $f(x,y)=\sqrt{x^2+y^2}$ 在原点的偏导数不存在，例如
+  \[
+    \lim_{h\to0}\frac{f(h,0)-f(0,0)}h
+    =\lim_{h\to0}\frac{\abs{h}}h
+  \]
+  不存在。因此 $(0,0)$ 不是驻点。但 $f(x,y)\ge0=f(0,0)$，所以原点是严格的全局极小值点，极小值为 $0$。
+
+  \item
+  \[
+    f(x,y)=(x+y)^2-y^2=x^2+2xy.
+  \]
+  有
+  \[
+    f_x=2x+2y,
+    \qquad
+    f_y=2x,
+  \]
+  故 $(0,0)$ 是驻点。沿 $y=0$，$f(x,0)=x^2>0$；沿 $y=-x$，$f(x,-x)=-x^2<0$。任意小邻域内函数同时取正值和负值，因此原点不是极值点。
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{第3题}
+\begin{xsolution}
+\begin{enumerate}[label=(\arabic*)]
+  \item 对
+  \[
+    u=x^2(y-1)^2
+  \]
+  有
+  \[
+    u_x=2x(y-1)^2,
+    \qquad
+    u_y=2x^2(y-1).
+  \]
+  驻点集合为
+  \[
+    \{x=0\}\cup\{y=1\}.
+  \]
+  因 $u\ge0$，且在上述两条直线上 $u=0$，所以这两条直线上的每一点都是全局极小值点，极小值均为 $0$。函数无极大值点。
+
+  \item
+  \[
+    u_x=6xy-4x^3=2x(3y-2x^2),
+    \qquad
+    u_y=3x^2-4y.
+  \]
+  联立得惟一驻点 $(0,0)$。将函数配方为
+  \[
+    u=-2\left(y-\frac34x^2\right)^2+\frac18x^4.
+  \]
+  沿 $y=0$，$u=-x^4<0$；沿 $y=\dfrac34x^2$，$u=\dfrac18x^4>0$。故 $(0,0)$ 不是极值点，因此该函数没有极值点。
+
+  \item 对
+  \[
+    u=(1+\ee^y)\cos x-y\ee^y
+  \]
+  有
+  \[
+    u_x=-(1+\ee^y)\sin x,
+    \qquad
+    u_y=\ee^y(\cos x-1-y).
+  \]
+  因 $1+\ee^y>0$，驻点必须满足 $x=k\pi$，并且 $y=\cos x-1$。故驻点为
+  \[
+    (2k\pi,0),
+    \qquad
+    ((2k+1)\pi,-2),
+    \qquad k\in\ZZ.
+  \]
+  二阶偏导为
+  \[
+    u_{xx}=-(1+\ee^y)\cos x,
+    \qquad
+    u_{xy}=-\ee^y\sin x,
+    \qquad
+    u_{yy}=\ee^y(\cos x-2-y).
+  \]
+  在 $(2k\pi,0)$，
+  \[
+    u_{xx}=-2,
+    \qquad u_{xy}=0,
+    \qquad u_{yy}=-1,
+  \]
+  Hesse 矩阵负定，所以这些点都是严格极大值点，且
+  \[
+    u(2k\pi,0)=2.
+  \]
+  在 $((2k+1)\pi,-2)$，
+  \[
+    u_{xx}=1+\ee^{-2}>0,
+    \qquad
+    u_{yy}=-\ee^{-2}<0,
+  \]
+  Hesse 矩阵不定，所以这些点不是极值点。故全部极值点为 $(2k\pi,0)$，相应极大值为 $2$，无极小值点。
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{第4题}
+\begin{xsolution}
+在区域内部 $x>0,y>0,x+y<\pi$ 时，三个正弦均为正，故 $f>0$；在边界 $x=0$、$y=0$ 或 $x+y=\pi$ 上均有 $f=0$。因此最小值为
+\[
+  f_{\min}=0,
+\]
+并在整个边界上取得。
+
+内部极大点满足
+\[
+  \frac{\partial}{\partial x}\ln f
+  =\cot x+\cot(x+y)=0,
+\]
+\[
+  \frac{\partial}{\partial y}\ln f
+  =\cot y+\cot(x+y)=0.
+\]
+两式相减得 $\cot x=\cot y$。因 $x,y\in(0,\pi)$ 且 $x+y<\pi$，故 $x=y$。于是
+\[
+  \cot x+\cot2x=0.
+\]
+利用
+\[
+  \cot x+\cot2x
+  =\frac{\sin3x}{\sin x\sin2x},
+\]
+且 $0<x<\pi/2$，得 $x=\pi/3$。所以惟一的内部驻点为
+\[
+  \left(\frac\pi3,\frac\pi3\right).
+\]
+由于闭三角形 $D$ 上连续函数必有最大值，而边界值均为 $0$、内部函数为正，故最大值就在该点取得：
+\[
+  f_{\max}
+  =\sin^2\frac\pi3\sin\frac{2\pi}3
+  =\frac{3\sqrt3}{8}.
+\]
+\end{xsolution}
+
+\paragraph{第5题}
+\begin{xsolution}
+先求驻点：
+\[
+  f_x=3x^2-8x+2y,
+  \qquad
+  f_y=2x-2y.
+\]
+由 $f_y=0$ 得 $y=x$，再代入 $f_x=0$，得
+\[
+  3x^2-6x=3x(x-2)=0.
+\]
+所以仅有两个驻点
+\[
+  (0,0),\qquad(2,2).
+\]
+二阶偏导为
+\[
+  f_{xx}=6x-8,
+  \qquad f_{xy}=2,
+  \qquad f_{yy}=-2.
+\]
+在 $(0,0)$，
+\[
+  f_{xx}=-8<0,
+  \qquad
+  f_{xx}f_{yy}-f_{xy}^2=16-4=12>0,
+\]
+故 $(0,0)$ 是严格极大值点，极大值为 $f(0,0)=0$。
+
+在 $(2,2)$，
+\[
+  f_{xx}=4,
+  \qquad
+  f_{xx}f_{yy}-f_{xy}^2=-8-4=-12<0,
+\]
+故它是鞍点。因此 $(0,0)$ 是惟一的极大值点。
+
+但沿直线 $y=x$，
+\[
+  f(x,x)=x^3-3x^2=x^2(x-3)\to+\infty
+  \qquad(x\to+\infty).
+\]
+所以函数在 $\RR^2$ 上无最大值，特别地，惟一的极大值点 $(0,0)$ 不是最大值点。
+\end{xsolution}
+\section*{21.4.4 练习题}
+
+\paragraph{第1题}
+\begin{xsolution}
+约束 $xyz=1$ 保证三个变量均非零。由算术--几何平均值不等式，
+\[
+  x^4+y^4+z^4
+  \ge3\sqrt[3]{x^4y^4z^4}
+  =3.
+\]
+等号成立当且仅当
+\[
+  x^4=y^4=z^4=1
+\]
+且 $xyz=1$。因此极小值为
+\[
+  f_{\min}=3,
+\]
+在四点
+\[
+  (1,1,1),\quad(1,-1,-1),\quad(-1,1,-1),\quad(-1,-1,1)
+\]
+取得。
+
+不存在极大值。例如取
+\[
+  x=t,\qquad y=t,\qquad z=t^{-2}\quad(t>0),
+\]
+则始终满足 $xyz=1$，而
+\[
+  f=2t^4+t^{-8}\to+\infty\qquad(t\to+\infty).
+\]
+\end{xsolution}
+
+\paragraph{第2题}
+\begin{xsolution}
+写成向量形式
+\[
+  u=(1,-2,2)\cdot(x,y,z).
+\]
+在单位球面上，由 Cauchy--Schwarz 不等式，
+\[
+  \abs{u}\le\sqrt{1^2+(-2)^2+2^2}\sqrt{x^2+y^2+z^2}=3.
+\]
+等号成立当且仅当 $(x,y,z)$ 与 $(1,-2,2)$ 同向或反向。因此
+\[
+  u_{\max}=3,
+  \qquad
+  (x,y,z)=\left(\frac13,-\frac23,\frac23\right),
+\]
+\[
+  u_{\min}=-3,
+  \qquad
+  (x,y,z)=\left(-\frac13,\frac23,-\frac23\right).
+\]
+\end{xsolution}
+
+\paragraph{第3题}
+\begin{xsolution}
+由约束 $x-y=\dfrac\pi4$，令 $y=x-\dfrac\pi4$，则
+\[
+\begin{aligned}
+  z
+  &=\cos^2x+\cos^2\left(x-\frac\pi4\right)\\
+  &=1+\frac12\bigl(\cos2x+\sin2x\bigr)\\
+  &=1+\frac1{\sqrt2}\cos\left(2x-\frac\pi4\right).
+\end{aligned}
+\]
+所以
+\[
+  z_{\max}=1+\frac1{\sqrt2},
+  \qquad
+  z_{\min}=1-\frac1{\sqrt2}.
+\]
+最大值在
+\[
+  x=\frac\pi8+k\pi,
+  \qquad
+  y=-\frac\pi8+k\pi,
+  \qquad k\in\ZZ
+\]
+取得；最小值在
+\[
+  x=\frac{5\pi}8+k\pi,
+  \qquad
+  y=\frac{3\pi}8+k\pi,
+  \qquad k\in\ZZ
+\]
+取得。
+\end{xsolution}
+
+\paragraph{第4题}
+\begin{xsolution}
+设
+\[
+  s=l+m+n.
+\]
+由于 $x,y,z$ 均为正数，可最大化
+\[
+  \ln f=l\ln x+m\ln y+n\ln z
+\]
+而不改变极值点。构造
+\[
+  \Phi=l\ln x+m\ln y+n\ln z
+  -\lambda(ax+by+cz-k).
+\]
+驻点满足
+\[
+  \frac lx=\lambda a,
+  \qquad
+  \frac my=\lambda b,
+  \qquad
+  \frac nz=\lambda c.
+\]
+故
+\[
+  ax:by:cz=l:m:n.
+\]
+再利用 $ax+by+cz=k$，得
+\[
+  x=\frac{lk}{as},
+  \qquad
+  y=\frac{mk}{bs},
+  \qquad
+  z=\frac{nk}{cs}.
+\]
+于是
+\[
+  f_{\max}
+  =\left(\frac{lk}{as}\right)^l
+   \left(\frac{mk}{bs}\right)^m
+   \left(\frac{nk}{cs}\right)^n.
+\]
+这是全局最大值。事实上，约束集在闭包 $x,y,z\ge0$ 中是紧的，而在边界上因 $l,m,n>0$ 有 $f=0$，故正的最大值必在内部，内部驻点又惟一。
+
+在原题要求 $x,y,z>0$ 的开约束集上没有最小值；当任一变量趋于 $0^+$ 时 $f\to0$，故下确界为 $0$。
+\end{xsolution}
+
+\paragraph{第5题}
+\begin{xsolution}
+记
+\[
+  A=\frac1{a^2},\qquad B=\frac1{b^2},\qquad C=\frac1{c^2},
+\]
+并记
+\[
+  p=\cos\alpha,\qquad q=\cos\beta,\qquad r=\cos\gamma,
+  \qquad p^2+q^2+r^2=1.
+\]
+目标函数为二次型
+\[
+  u=Ax^2+By^2+Cz^2,
+\]
+约束为
+\[
+  x^2+y^2+z^2=1,
+  \qquad
+  px+qy+rz=0.
+\]
+也就是说，只需考查对角矩阵
+\[
+  D=\operatorname{diag}(A,B,C)
+\]
+在平面 $(p,q,r)^\perp$ 上的 Rayleigh 商。其两个特征值恰为条件最小值和条件最大值。
+
+用 Lagrange 乘子法，条件驻点满足
+\[
+  D\begin{pmatrix}x\\y\\z\end{pmatrix}
+  =\lambda\begin{pmatrix}x\\y\\z\end{pmatrix}
+  +\mu\begin{pmatrix}p\\q\\r\end{pmatrix}.
+\]
+两边与 $(x,y,z)$ 作内积，并利用两个约束，得到
+\[
+  u=\lambda.
+\]
+消去 $x,y,z,\mu$ 后，$\lambda$ 满足
+\[
+  p^2(B-\lambda)(C-\lambda)
+  +q^2(A-\lambda)(C-\lambda)
+  +r^2(A-\lambda)(B-\lambda)=0.
+\]
+令
+\[
+  S=p^2(B+C)+q^2(A+C)+r^2(A+B),
+\]
+\[
+  P=p^2BC+q^2AC+r^2AB,
+\]
+则方程为
+\[
+  \lambda^2-S\lambda+P=0.
+\]
+因此
+\[
+  \lambda_\pm
+  =\frac{S\pm\sqrt{S^2-4P}}2.
+\]
+所以条件极小值与极大值分别为
+\[
+  u_{\min}=\lambda_-,
+  \qquad
+  u_{\max}=\lambda_+.
+\]
+相应极值点是线性方程组
+\[
+  (D-\lambda_\pm I)\vect{x}=\mu(p,q,r)^{\mathsf T},
+  \qquad
+  p x+q y+r z=0,
+  \qquad
+  \norm{\vect{x}}=1
+\]
+的两组相反单位解。该写法也包括某些 $p,q,r$ 为零、$\lambda_\pm$ 恰与 $A,B,C$ 中某个数相等的退化情形。
+\end{xsolution}
+
+\paragraph{第6题}
+\begin{xsolution}
+令
+\[
+  y_i=\frac1{x_i}>0.
+\]
+则约束化为
+\[
+  y_1+y_2+\cdots+y_n=\frac1a,
+\]
+而
+\[
+  u=x_1x_2\cdots x_n=\frac1{y_1y_2\cdots y_n}.
+\]
+由算术--几何平均值不等式，
+\[
+  y_1y_2\cdots y_n
+  \le\left(\frac{y_1+\cdots+y_n}{n}\right)^n
+  =\frac1{(an)^n}.
+\]
+因此
+\[
+  u\ge(an)^n.
+\]
+等号成立当且仅当
+\[
+  y_1=\cdots=y_n=\frac1{an},
+\]
+即
+\[
+  x_1=\cdots=x_n=an.
+\]
+故条件最小值为
+\[
+  u_{\min}=(an)^n.
+\]
+不存在最大值：令某个 $y_i\to0^+$，并保持其余 $y_j$ 的和趋于 $1/a$，则 $y_1\cdots y_n\to0$，从而 $u\to+\infty$。
+\end{xsolution}
+
+\paragraph{第7题}
+\begin{xsolution}
+在 $x,y,z>0$ 且 $x+y+z=\dfrac\pi2$ 时，函数为正。考查
+\[
+  \Phi=\ln(\sin x)+\ln(\sin y)+\ln(\sin z).
+\]
+因 $\ln(\sin t)$ 在 $(0,\pi)$ 上严格凹，Jensen 不等式给出
+\[
+  \frac13\Phi
+  \le\ln\sin\left(\frac{x+y+z}{3}\right)
+  =\ln\frac12.
+\]
+所以
+\[
+  u=\sin x\sin y\sin z\le\frac18,
+\]
+等号当且仅当
+\[
+  x=y=z=\frac\pi6.
+\]
+故条件最大值为 $1/8$。由于约束中要求三个变量严格为正，当例如 $x\to0^+$ 时 $u\to0$，所以不存在最小值，下确界为 $0$。
+\end{xsolution}
+
+\paragraph{第8题}
+\begin{xsolution}
+记
+\[
+  S=\sum_{i=1}^n\frac1{a_i^2}.
+\]
+由 Cauchy--Schwarz 不等式，
+\[
+  1=\left(\sum_{i=1}^n\frac{x_i}{a_i}\right)^2
+  \le\left(\sum_{i=1}^n x_i^2\right)
+  \left(\sum_{i=1}^n\frac1{a_i^2}\right)=uS.
+\]
+故
+\[
+  u\ge\frac1S.
+\]
+等号成立当且仅当向量 $(x_1,\ldots,x_n)$ 与 $(1/a_1,\ldots,1/a_n)$ 成比例。结合约束，得到
+\[
+  x_i=\frac{1}{S a_i},
+  \qquad i=1,2,\ldots,n.
+\]
+因此
+\[
+  u_{\min}=\frac1{\displaystyle\sum_{i=1}^n a_i^{-2}}.
+\]
+
+原约束集要求 $x_i>0$，它是开单纯形的内部，因此最大值不取到。其上确界在闭包的顶点取得，故
+\[
+  \sup u=\max_{1\le i\le n}a_i^2,
+\]
+但在原条件下没有最大值。
+\end{xsolution}
+
+\paragraph{第9题}
+\begin{xsolution}
+令
+\[
+  R^2=x^2+y^2+z^2.
+\]
+先证明
+\[
+  \abs{x^3+y^3+z^3-2xyz}\le R^3.
+\]
+写成
+\[
+  x^3+y^3+z^3-2xyz
+  =(x,y,z)\cdot(x^2-yz,\ y^2-zx,\ z^2).
+\]
+由 Cauchy--Schwarz 不等式，
+\[
+  \abs{u}
+  \le R\sqrt{(x^2-yz)^2+(y^2-zx)^2+z^4}.
+\]
+而
+\[
+\begin{aligned}
+  R^4-&\bigl[(x^2-yz)^2+(y^2-zx)^2+z^4\bigr]\\
+  ={}&(x^2+y^2)z^2+2xy(x+y)z+2x^2y^2.
+\end{aligned}
+\]
+把右端看成关于 $z$ 的二次式，其首项系数为 $x^2+y^2\ge0$，判别式为
+\[
+  4x^2y^2\bigl[(x+y)^2-2(x^2+y^2)\bigr]
+  =-4x^2y^2(x-y)^2\le0.
+\]
+故右端非负，从而
+\[
+  (x^2-yz)^2+(y^2-zx)^2+z^4\le R^4.
+\]
+于是 $\abs{u}\le R^3$。
+
+在单位闭球中 $R\le1$，所以
+\[
+  -1\le u\le1.
+\]
+当 $(x,y,z)$ 分别取
+\[
+  (1,0,0),\ (0,1,0),\ (0,0,1)
+\]
+时 $u=1$；取其相反点时 $u=-1$。因此
+\[
+  u_{\max}=1,
+  \qquad
+  u_{\min}=-1.
+\]
+\end{xsolution}
+
+\paragraph{第10题}
+\begin{xsolution}
+二次型
+\[
+  z=x^2-xy+y^2
+  =\left(x-\frac y2\right)^2+\frac34y^2\ge0,
+\]
+故最小值为
+\[
+  z_{\min}=0,
+\]
+仅在 $(0,0)$ 取得。
+
+若 $\abs{x}+\abs{y}=s\le1$，当 $s>0$ 时令
+\[
+  X=\frac xs,
+  \qquad
+  Y=\frac ys,
+\]
+则 $\abs{X}+\abs{Y}=1$，且
+\[
+  z=s^2(X^2-XY+Y^2).
+\]
+所以最大值必在边界 $\abs{x}+\abs{y}=1$ 上取得。若 $xy\ge0$，则
+\[
+  z=(\abs{x}+\abs{y})^2-3\abs{xy}=1-3\abs{xy}\le1;
+\]
+若 $xy\le0$，则
+\[
+  z=\abs{x}^2+\abs{y}^2+\abs{xy}
+  =1-\abs{xy}\le1.
+\]
+故
+\[
+  z_{\max}=1,
+\]
+在
+\[
+  (1,0),\ (-1,0),\ (0,1),\ (0,-1)
+\]
+取得。
+\end{xsolution}
+
+\paragraph{第11题}
+\begin{xsolution}
+设所求球面点的位置向量为 $\vect{x}$，已知点的位置向量为 $\vect{m}_i$。目标函数为
+\[
+\begin{aligned}
+  \Phi(\vect{x})
+  &=\sum_{i=1}^n\norm{\vect{x}-\vect{m}_i}^2\\
+  &=n\norm{\vect{x}}^2
+  -2\vect{x}\cdot\sum_{i=1}^n\vect{m}_i
+  +\sum_{i=1}^n\norm{\vect{m}_i}^2.
+\end{aligned}
+\]
+在单位球面 $\norm{\vect{x}}=1$ 上，除中间的内积项外其余均为常数。令
+\[
+  \vect{S}=\sum_{i=1}^n\vect{m}_i.
+\]
+若 $\vect{S}\ne0$，要使 $\Phi$ 最小，只需使 $\vect{x}\cdot\vect{S}$ 最大。由 Cauchy--Schwarz 不等式，惟一的最小点为
+\[
+  \vect{x}=\frac{\vect{S}}{\norm{\vect{S}}}.
+\]
+也就是
+\[
+  (x,y,z)=
+  \frac{\left(\sum x_i,\sum y_i,\sum z_i\right)}
+  {\sqrt{(\sum x_i)^2+(\sum y_i)^2+(\sum z_i)^2}}.
+\]
+若 $\vect{S}=0$，则 $\Phi$ 在整个单位球面上为常数，因而球面上任一点都是最小点。
+\end{xsolution}
+
+\paragraph{第12题}
+\begin{xsolution}
+用参数
+\[
+  x=t^2,
+  \qquad
+  y=t^3,
+  \qquad t\in\RR
+\]
+表示半立方抛物线 $y^2=x^3$。到点 $(-1,0)$ 的距离平方为
+\[
+\begin{aligned}
+  d^2(t)
+  &=(t^2+1)^2+t^6\\
+  &=t^6+t^4+2t^2+1.
+\end{aligned}
+\]
+求导得
+\[
+  \frac{\dd}{\dd t}d^2(t)
+  =6t^5+4t^3+4t
+  =2t(3t^4+2t^2+2).
+\]
+括号内恒正，所以惟一驻点为 $t=0$。又 $d^2(t)\to+\infty$ 当 $\abs{t}\to\infty$，故该驻点给出全局最小值。于是最近点为 $(0,0)$，最短距离为
+\[
+  d_{\min}=1.
+\]
+\end{xsolution}
+
+\paragraph{第13题}
+\begin{xsolution}
+设三角形周长为 $P$，半周长为 $s=P/2$，三边为 $a,b,c$。由 Heron 公式，面积 $K$ 满足
+\[
+  K^2=s(s-a)(s-b)(s-c).
+\]
+令
+\[
+  x=s-a,
+  \qquad
+  y=s-b,
+  \qquad
+  z=s-c.
+\]
+则 $x,y,z>0$ 且
+\[
+  x+y+z=s.
+\]
+由算术--几何平均值不等式，
+\[
+  xyz\le\left(\frac s3\right)^3,
+\]
+等号当且仅当 $x=y=z=s/3$，即 $a=b=c=P/3$。因此面积最大的三角形是等边三角形，最大面积为
+\[
+  K_{\max}=\frac{\sqrt3}{4}\left(\frac P3\right)^2
+  =\frac{\sqrt3}{36}P^2.
+\]
+\end{xsolution}
+
+\paragraph{第14题}
+\begin{xsolution}
+设正因子为 $x_1,x_2,\ldots,x_n$，满足
+\[
+  x_1x_2\cdots x_n=a.
+\]
+要求最小化
+\[
+  \frac1{x_1}+\frac1{x_2}+\cdots+\frac1{x_n}.
+\]
+由算术--几何平均值不等式，
+\[
+  \frac1n\sum_{i=1}^n\frac1{x_i}
+  \ge\left(\prod_{i=1}^n\frac1{x_i}\right)^{1/n}
+  =a^{-1/n}.
+\]
+故倒数和的最小值为
+\[
+  \frac n{a^{1/n}},
+\]
+等号当且仅当
+\[
+  x_1=x_2=\cdots=x_n=a^{1/n}.
+\]
+\end{xsolution}
+
+\paragraph{第15题}
+\begin{xsolution}
+设分给正方形的铁丝长度为 $x$，分给圆的长度为 $a-x$。若允许退化端点，则 $0\le x\le a$。正方形与圆的面积之和为
+\[
+  A(x)=\frac{x^2}{16}+\frac{(a-x)^2}{4\pi}.
+\]
+有
+\[
+  A''(x)=\frac18+\frac1{2\pi}>0,
+\]
+所以 $A$ 是严格凸函数，其最大值只能在区间端点取得。比较
+\[
+  A(0)=\frac{a^2}{4\pi},
+  \qquad
+  A(a)=\frac{a^2}{16}.
+\]
+因 $\pi<4$，故
+\[
+  \frac1{4\pi}>\frac1{16}.
+\]
+因此面积和最大时应将全部铁丝用于围圆，即
+\[
+  x=0,
+  \qquad
+  a-x=a,
+\]
+最大面积为 $a^2/(4\pi)$。
+
+若题意严格要求“截成两段”且两段长度都必须为正，则开区间 $0<x<a$ 上没有最大值；其上确界仍为 $a^2/(4\pi)$，在 $x\to0^+$ 时趋近。
+\end{xsolution}
+\paragraph{第16题}
+\begin{xsolution}
+设切点为 $(x_0,y_0)$。椭圆
+\[
+  3x^2+2xy+3y^2=1
+\]
+在该点的切线为
+\[
+  (3x_0+y_0)x+(x_0+3y_0)y=1.
+\]
+若两个截距均有限，则与 $x,y$ 轴的截距分别为
+\[
+  X=\frac1{3x_0+y_0},
+  \qquad
+  Y=\frac1{x_0+3y_0}.
+\]
+所围三角形面积为
+\[
+  S=\frac1{2\abs{(3x_0+y_0)(x_0+3y_0)}}.
+\]
+因此要使 $S$ 最小，只需在椭圆上使
+\[
+  \abs{(3x+y)(x+3y)}
+\]
+最大。
+
+令
+\[
+  p=x+y,
+  \qquad
+  q=x-y.
+\]
+则
+\[
+  3x^2+2xy+3y^2=2p^2+q^2=1,
+\]
+且
+\[
+  (3x+y)(x+3y)=(2p+q)(2p-q)=4p^2-q^2.
+\]
+由 $q^2=1-2p^2$，
+\[
+  4p^2-q^2=6p^2-1,
+  \qquad 0\le p^2\le\frac12.
+\]
+所以它的取值范围为 $[-1,2]$，绝对值最大为 $2$。于是
+\[
+  S_{\min}=\frac1{2\cdot2}=\frac14.
+\]
+等号在 $p^2=1/2,q=0$ 时成立，即
+\[
+  x_0=y_0=\pm\frac1{2\sqrt2}.
+\]
+\end{xsolution}
+
+\paragraph{第17题}
+\begin{xsolution}
+令
+\[
+  u=\frac{x-y}{\sqrt2},
+  \qquad
+  v=\frac{x+y}{\sqrt2}.
+\]
+这是正交变换，所以
+\[
+  x^2+y^2=u^2+v^2.
+\]
+曲面方程化为
+\[
+  2u^2+z^2=1,
+\]
+而到原点的距离平方为
+\[
+  d^2=u^2+v^2+z^2.
+\]
+显然对给定 $u,z$，应取 $v=0$。再由 $z^2=1-2u^2$，
+\[
+  d^2=u^2+z^2=1-u^2,
+  \qquad 0\le u^2\le\frac12.
+\]
+故最小值在 $u^2=1/2,z=0$ 时取得，
+\[
+  d_{\min}^2=\frac12,
+  \qquad
+  d_{\min}=\frac1{\sqrt2}.
+\]
+最近点为
+\[
+  \left(\frac12,-\frac12,0\right),
+  \qquad
+  \left(-\frac12,\frac12,0\right).
+\]
+\end{xsolution}
+
+\paragraph{第18题}
+\begin{xsolution}
+在交线上有
+\[
+  x^2+y^2=1.
+\]
+代入另一方程，得
+\[
+  1-xy-z^2=1,
+\]
+即
+\[
+  z^2=-xy.
+\]
+因此必须有 $xy\le0$。到原点的距离平方为
+\[
+  d^2=x^2+y^2+z^2=1-xy.
+\]
+在 $x^2+y^2=1$ 且 $xy\le0$ 时，$-xy\ge0$，故
+\[
+  d^2\ge1.
+\]
+等号当且仅当 $xy=0$，此时 $z=0$。所以最短距离为
+\[
+  d_{\min}=1,
+\]
+最近点为
+\[
+  (\pm1,0,0),
+  \qquad
+  (0,\pm1,0).
+\]
+\end{xsolution}
+
+\paragraph{第19题}
+\begin{xsolution}
+设给定圆的半径为 $r$，外切三角形三个内角为 $A,B,C$。从内心向三边作垂线，并利用三个顶点处的直角三角形，可得半周长
+\[
+  s=r\left(\cot\frac A2+\cot\frac B2+\cot\frac C2\right).
+\]
+又
+\[
+  \frac A2+\frac B2+\frac C2=\frac\pi2.
+\]
+函数 $\cot x$ 在 $(0,\pi/2)$ 上严格凸，因为
+\[
+  (\cot x)''=2\cot x\csc^2x>0.
+\]
+由 Jensen 不等式，
+\[
+  \cot\frac A2+\cot\frac B2+\cot\frac C2
+  \ge3\cot\frac\pi6=3\sqrt3.
+\]
+所以
+\[
+  s\ge3\sqrt3\,r.
+\]
+三角形面积为 $K=rs$，故
+\[
+  K\ge3\sqrt3\,r^2.
+\]
+等号当且仅当 $A=B=C=\pi/3$。因此面积最小的圆外切三角形是等边三角形，最小面积为
+\[
+  3\sqrt3\,r^2.
+\]
+\end{xsolution}
+
+\paragraph{第20题}
+\begin{xsolution}
+设四边形 $ABCD$ 的四边依次为 $a,b,c,d$，半周长为
+\[
+  s=\frac{a+b+c+d}{2},
+\]
+并记 $\angle A=A,\angle C=C$，面积为 $K$。沿对角线 $BD$ 分成两个三角形。由余弦定理，
+\[
+  BD^2=a^2+b^2-2ab\cos A
+  =c^2+d^2-2cd\cos C,
+\]
+故
+\[
+  ab\cos A-cd\cos C
+  =\frac{a^2+b^2-c^2-d^2}{2}.
+\]
+另一方面
+\[
+  2K=ab\sin A+cd\sin C.
+\]
+于是
+\[
+\begin{aligned}
+  4K^2
+  ={}&(ab\sin A+cd\sin C)^2\\
+  ={}&(ab)^2+(cd)^2-2abcd\cos(A+C)\\
+  &-\left(\frac{a^2+b^2-c^2-d^2}{2}\right)^2.
+\end{aligned}
+\]
+利用
+\[
+  \cos(A+C)=2\cos^2\frac{A+C}{2}-1,
+\]
+上式化为
+\[
+\begin{aligned}
+  4K^2
+  ={}&(ab+cd)^2
+  -\left(\frac{a^2+b^2-c^2-d^2}{2}\right)^2
+  -4abcd\cos^2\frac{A+C}{2}.
+\end{aligned}
+\]
+其中前两项的差可完全因式分解：
+\[
+\begin{aligned}
+ &(ab+cd)^2
+ -\left(\frac{a^2+b^2-c^2-d^2}{2}\right)^2\\
+ &\quad=\frac14(-a+b+c+d)(a-b+c+d)\\
+ &\qquad\qquad\cdot(a+b-c+d)(a+b+c-d)\\
+ &\quad=4(s-a)(s-b)(s-c)(s-d).
+\end{aligned}
+\]
+故
+\[
+  K^2=(s-a)(s-b)(s-c)(s-d)
+  -abcd\cos^2\frac{A+C}{2}.
+\]
+
+右端第一项只由四条边长决定，第二项非负，因此
+\[
+  K^2\le(s-a)(s-b)(s-c)(s-d).
+\]
+等号成立当且仅当
+\[
+  \cos\frac{A+C}{2}=0,
+\]
+即
+\[
+  A+C=\pi.
+\]
+这正是四边形为圆内接四边形的条件。因此，在给定四边长能够组成非退化四边形的前提下，面积最大的四边形是圆内接四边形，最大面积为
+\[
+  K_{\max}
+  =\sqrt{(s-a)(s-b)(s-c)(s-d)}.
+\]
+\end{xsolution}
+
+\paragraph{第21题}
+\begin{xsolution}
+设凸四边形四个顶点的位置向量为
+\[
+  \vect{a}_1,\vect{a}_2,\vect{a}_3,\vect{a}_4,
+\]
+所求点的位置向量为 $\vect{x}$。令
+\[
+  \bar{\vect{a}}
+  =\frac14(\vect{a}_1+\vect{a}_2+\vect{a}_3+\vect{a}_4).
+\]
+则
+\[
+\begin{aligned}
+  \sum_{i=1}^4\norm{\vect{x}-\vect{a}_i}^2
+  &=4\norm{\vect{x}-\bar{\vect{a}}}^2
+  +\sum_{i=1}^4\norm{\vect{a}_i}^2
+  -4\norm{\bar{\vect{a}}}^2.
+\end{aligned}
+\]
+后两项与 $\vect{x}$ 无关，故惟一最小点为
+\[
+  \vect{x}=\bar{\vect{a}}.
+\]
+由于这是四个顶点的等权凸组合，它位于凸四边形内部。故所求点 $C$ 就是四个顶点的位置向量平均点；等价地，它是两条对角线中点连线的中点。
+\end{xsolution}
+
+\paragraph{第22题}
+\begin{xsolution}
+先证法线性质。设最大面积内接三角形为 $ABC$。固定 $B,C$，让 $A$ 沿椭圆移动。三角形的有向二倍面积
+\[
+  2K=\det(\overrightarrow{BC},\overrightarrow{BA})
+\]
+是点 $A$ 坐标的线性函数。在线性函数于椭圆上取得极值的点，椭圆切线必与该线性函数的等值线平行，而等值线又平行于 $BC$。所以在 $A$ 点，椭圆切线平行于 $BC$，从而 $A$ 点的法线垂直于 $BC$。对另外两个顶点同理。
+
+再求最大面积。设椭圆为
+\[
+  \frac{x^2}{a^2}+\frac{y^2}{b^2}=1.
+\]
+作线性变换
+\[
+  X=\frac xa,
+  \qquad
+  Y=\frac yb.
+\]
+它把椭圆化为单位圆，并把面积缩小为原来的 $1/(ab)$。因此只需考查单位圆内接三角形。
+
+设单位圆内接三角形三个内角为 $A,B,C$。其三边分别为 $2\sin A,2\sin B,2\sin C$，由 $R=1$ 时的面积公式 $K=abc/(4R)$，
+\[
+  K=2\sin A\sin B\sin C.
+\]
+因 $A+B+C=\pi$，由 $\ln\sin x$ 的凹性或 Jensen 不等式，
+\[
+  \sin A\sin B\sin C
+  \le\left(\sin\frac\pi3\right)^3
+  =\frac{3\sqrt3}{8}.
+\]
+故单位圆内接三角形的最大面积为
+\[
+  \frac{3\sqrt3}{4},
+\]
+等号当且仅当三角形为等边三角形。
+
+于是原椭圆内接三角形的最大面积为
+\[
+  K_{\max}=\frac{3\sqrt3}{4}ab.
+\]
+全部最大三角形可写为三顶点
+\[
+  \bigl(a\cos(\theta+2k\pi/3),
+  b\sin(\theta+2k\pi/3)\bigr),
+  \qquad k=0,1,2,
+\]
+其中 $\theta$ 任意。
+\end{xsolution}
+
+\paragraph{第23题}
+\begin{xsolution}
+椭圆写为
+\[
+  \frac{x^2}{4}+y^2=1.
+\]
+其上点到直线 $3x+4y=12$ 的距离为
+\[
+  d=\frac{12-3x-4y}{5},
+\]
+因为椭圆上
+\[
+  3x+4y\le\sqrt{(3\cdot2)^2+4^2}=2\sqrt{13}<12.
+\]
+所以只需最大化 $3x+4y$。令 $x=2X,y=Y$，则 $X^2+Y^2=1$，
+\[
+  3x+4y=6X+4Y\le2\sqrt{13}.
+\]
+等号在
+\[
+  (X,Y)=\left(\frac3{\sqrt{13}},\frac2{\sqrt{13}}\right)
+\]
+成立。因此所求点为
+\[
+  \left(\frac6{\sqrt{13}},\frac2{\sqrt{13}}\right),
+\]
+最短距离为
+\[
+  d_{\min}=\frac{12-2\sqrt{13}}5.
+\]
+\end{xsolution}
+
+\paragraph{第24题}
+\begin{xsolution}
+设切点为 $(x_0,y_0)$。切线方程为
+\[
+  \frac{xx_0}{a^2}+\frac{yy_0}{b^2}=1.
+\]
+与两坐标轴的截距为
+\[
+  A\left(\frac{a^2}{x_0},0\right),
+  \qquad
+  B\left(0,\frac{b^2}{y_0}\right),
+\]
+所以
+\[
+  AB^2=\frac{a^4}{x_0^2}+\frac{b^4}{y_0^2}.
+\]
+令
+\[
+  u=\frac{x_0^2}{a^2},
+  \qquad
+  v=\frac{y_0^2}{b^2},
+\]
+则 $u,v>0$ 且 $u+v=1$，并且
+\[
+  AB^2=\frac{a^2}{u}+\frac{b^2}{v}.
+\]
+由 Cauchy--Schwarz 不等式，
+\[
+  \frac{a^2}{u}+\frac{b^2}{v}
+  \ge\frac{(a+b)^2}{u+v}=(a+b)^2.
+\]
+故
+\[
+  AB_{\min}=a+b.
+\]
+等号条件为
+\[
+  \frac{u}{v}=\frac ab,
+\]
+即
+\[
+  x_0^2=\frac{a^3}{a+b},
+  \qquad
+  y_0^2=\frac{b^3}{a+b}.
+\]
+\end{xsolution}
+
+\paragraph{第25题}
+\begin{xsolution}
+设法线所过的抛物线点为
+\[
+  P=(t,t^2),
+  \qquad t\ne0.
+\]
+切线斜率为 $2t$，故法线方程为
+\[
+  y-t^2=-\frac{x-t}{2t}.
+\]
+设该法线与抛物线的另一交点为 $Q=(s,s^2)$。代入上式，
+\[
+  s^2-t^2=-\frac{s-t}{2t}.
+\]
+除去根 $s=t$ 后得到
+\[
+  s+t=-\frac1{2t},
+\]
+即
+\[
+  s=-t-\frac1{2t}.
+\]
+于是弦长平方为
+\[
+\begin{aligned}
+  PQ^2
+  &=(s-t)^2+(s^2-t^2)^2\\
+  &=(s-t)^2\bigl[1+(s+t)^2\bigr]\\
+  &=\frac{(4t^2+1)^3}{16t^4}.
+\end{aligned}
+\]
+令 $q=4t^2>0$，则
+\[
+  PQ^2=\frac{(q+1)^3}{q^2}.
+\]
+求导其对数：
+\[
+  \frac{\dd}{\dd q}\ln PQ^2
+  =\frac3{q+1}-\frac2q.
+\]
+驻点满足 $3q=2(q+1)$，故 $q=2$，即
+\[
+  t^2=\frac12.
+\]
+此时函数在 $q\to0^+$ 或 $q\to+\infty$ 时均趋于 $+\infty$，所以这是全局最小点。最短弦长为
+\[
+  PQ_{\min}=\sqrt{\frac{27}{4}}=\frac{3\sqrt3}{2}.
+\]
+例如当 $t=1/\sqrt2$ 时，另一根 $s=-\sqrt2$，故一条最短法线弦的端点为
+\[
+  \left(\frac1{\sqrt2},\frac12\right),
+  \qquad
+  (-\sqrt2,2),
+\]
+另一条由关于 $y$ 轴对称得到。
+\end{xsolution}
+
+\paragraph{第26题}
+\begin{xsolution}
+记
+\[
+  A=a^2,
+  \qquad
+  B=b^2.
+\]
+圆 $(x-1)^2+y^2=1$ 上有点
+\[
+  \left(\frac32,\frac{\sqrt3}{2}\right).
+\]
+若椭圆包含整个圆，则该点必在椭圆内部或边界上，所以
+\[
+  \frac{9}{4A}+\frac{3}{4B}\le1.
+\]
+即
+\[
+  B\ge\frac{3A}{4A-9},
+  \qquad A>\frac94.
+\]
+因此
+\[
+  AB\ge\frac{3A^2}{4A-9}.
+\]
+右端对 $A$ 求导：
+\[
+  \frac{\dd}{\dd A}\frac{3A^2}{4A-9}
+  =\frac{6A(2A-9)}{(4A-9)^2}.
+\]
+故最小值在
+\[
+  A=\frac92
+\]
+取得，此时
+\[
+  B=\frac32,
+  \qquad
+  AB=\frac{27}{4}.
+\]
+
+还需验证这个椭圆确实包含整个圆。圆上任一点写为
+\[
+  x=1+\cos t,
+  \qquad
+  y=\sin t.
+\]
+取 $A=9/2,B=3/2$，则
+\[
+\begin{aligned}
+  \frac{x^2}{A}+\frac{y^2}{B}-1
+  &=\frac{(1+\cos t)^2}{9/2}
+  +\frac{\sin^2t}{3/2}-1\\
+  &=-\frac{(2\cos t-1)^2}{9}\le0.
+\end{aligned}
+\]
+故圆确在该椭圆内。于是面积最小时
+\[
+  a=\frac3{\sqrt2},
+  \qquad
+  b=\sqrt{\frac32},
+\]
+最小面积为
+\[
+  \pi ab=\frac{3\sqrt3}{2}\pi.
+\]
+\end{xsolution}
+
+\paragraph{第27题}
+\begin{xsolution}
+\begin{enumerate}[label=(\arabic*)]
+  \item 由
+  \[
+    F(x,f(x))=0
+  \]
+  一次求导得
+  \[
+    F_x+F_yf'=0,
+  \]
+  因而
+  \[
+    f'=-\frac{F_x}{F_y}.
+  \]
+  再求导，得到
+  \[
+    F_{xx}+2F_{xy}f'+F_{yy}(f')^2+F_yf''=0.
+  \]
+  所以
+  \[
+    f''(x)
+    =-\frac{F_{xx}+2F_{xy}f'+F_{yy}(f')^2}{F_y}.
+  \]
+  所有偏导均在 $(x,f(x))$ 处取值。
+
+  \item 若 $x_0$ 是隐函数的极值点，则 $f'(x_0)=0$。由上式
+  \[
+    f''(x_0)=-\frac{F_{xx}(x_0,y_0)}{F_y(x_0,y_0)}.
+  \]
+  隐函数定理保证 $F_y(x_0,y_0)\ne0$。若 $F_y$ 与 $F_{xx}$ 同号，则 $f''(x_0)<0$，故 $f(x_0)$ 为严格极大值；若二者异号，则 $f''(x_0)>0$，故 $f(x_0)$ 为严格极小值。
+
+  \item 令
+  \[
+    F(x,y)=x^2+xy+y^2-27.
+  \]
+  有
+  \[
+    F_x=2x+y,
+    \qquad
+    F_y=x+2y,
+    \qquad
+    F_{xx}=2.
+  \]
+  极值点满足 $f'=0$，故 $F_x=0$，即 $y=-2x$。与 $F=0$ 联立，
+  \[
+    x^2-2x^2+4x^2=27,
+  \]
+  得 $x=\pm3$。相应点为
+  \[
+    (3,-6),
+    \qquad
+    (-3,6).
+  \]
+  在 $(3,-6)$，
+  \[
+    F_y=3-12=-9,
+  \]
+  与 $F_{xx}=2$ 异号，故 $y=-6$ 为极小值。
+  在 $(-3,6)$，
+  \[
+    F_y=-3+12=9,
+  \]
+  与 $F_{xx}=2$ 同号，故 $y=6$ 为极大值。
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{第28题}
+\begin{xsolution}
+区域 $D$ 可写成
+\[
+  \abs{y}\le1-x^2,
+  \qquad
+  \abs{x}\le1.
+\]
+设椭圆
+\[
+  \frac{x^2}{a^2}+\frac{y^2}{b^2}=1
+\]
+包含在 $D$ 中，并记
+\[
+  A=a^2,
+  \qquad
+  B=b^2.
+\]
+显然 $0<A\le1$。椭圆上半部为
+\[
+  y=b\sqrt{1-\frac{x^2}{A}}.
+\]
+要使椭圆在 $D$ 内，必须且只需对 $0\le x^2<A$ 有
+\[
+  b\sqrt{1-\frac{x^2}{A}}\le1-x^2.
+\]
+令 $t=x^2$，平方后得
+\[
+  B\le R_A(t):=\frac{A(1-t)^2}{A-t},
+  \qquad 0\le t<A.
+\]
+因此对给定 $A$，最大的允许 $B$ 是 $R_A(t)$ 在 $[0,A)$ 上的最小值。
+
+计算
+\[
+  R_A'(t)
+  =\frac{A(1-t)(1-2A+t)}{(A-t)^2}.
+\]
+若 $0<A\le1/2$，则 $R_A$ 在 $[0,A)$ 上递增，故
+\[
+  B\le R_A(0)=1,
+\]
+于是
+\[
+  AB\le A\le\frac12.
+\]
+
+若 $1/2<A\le1$，则最小点为
+\[
+  t=2A-1,
+\]
+且
+\[
+  B\le R_A(2A-1)=4A(1-A).
+\]
+因此
+\[
+  AB\le4A^2(1-A).
+\]
+对右端求导，最大点为 $A=2/3$，从而
+\[
+  AB\le\frac{16}{27}.
+\]
+这一值大于前一情形的上界 $1/2$，故总的最大值为 $16/27$。当
+\[
+  A=\frac23,
+  \qquad
+  B=\frac89
+\]
+时达到。
+
+所以最优椭圆为
+\[
+  \frac{x^2}{2/3}+\frac{y^2}{8/9}=1,
+\]
+即
+\[
+  a=\sqrt{\frac23},
+  \qquad
+  b=\frac{2\sqrt2}{3},
+\]
+最大面积为
+\[
+  \pi ab
+  =\frac{4\pi}{3\sqrt3}.
+\]
+\end{xsolution}
+\section*{21.6.2 参考题}
+\subsection*{第一组参考题}
+
+\paragraph{第一组参考题第1题}
+\begin{xsolution}
+记
+\[
+  \xi=\frac{x-a}{z-c},
+  \qquad
+  \eta=\frac{y-b}{z-c}.
+\]
+曲面由 $F(\xi,\eta)=0$ 给出。
+
+\begin{enumerate}[label=(\arabic*)]
+  \item 取曲面上一点 $P=(x,y,z)$。对任意实数 $t$，只要 $z_t\ne c$，令
+  \[
+    P_t=(a,b,c)+t(x-a,y-b,z-c).
+  \]
+  则
+  \[
+    \frac{x_t-a}{z_t-c}=\frac{x-a}{z-c},
+    \qquad
+    \frac{y_t-b}{z_t-c}=\frac{y-b}{z-c}.
+  \]
+  因而 $P_t$ 仍在曲面上。故通过 $P$ 与定点 $(a,b,c)$ 的直线是曲面上的一条母线，它的方向向量
+  \[
+    (x-a,y-b,z-c)
+  \]
+  属于曲面在 $P$ 的切平面。于是切平面经过定点 $(a,b,c)$。
+
+  \item 由 (1)，曲面 $z=z(x,y)$ 在任一点 $(x,y,z)$ 的切平面
+  \[
+    Z-z=z_x(X-x)+z_y(Y-y)
+  \]
+  经过 $(a,b,c)$。代入该定点得
+  \[
+    c-z=z_x(a-x)+z_y(b-y),
+  \]
+  即
+  \[
+    z-c=(x-a)z_x+(y-b)z_y.
+  \]
+  对 $x$ 求偏导：
+  \[
+    z_x=z_x+(x-a)z_{xx}+(y-b)z_{xy},
+  \]
+  所以
+  \[
+    (x-a)z_{xx}+(y-b)z_{xy}=0.
+  \]
+  对 $y$ 求偏导，同理得
+  \[
+    (x-a)z_{xy}+(y-b)z_{yy}=0.
+  \]
+  因而非零向量 $(x-a,y-b)^{\mathsf T}$ 是 Hesse 矩阵
+  \[
+    \begin{pmatrix}z_{xx}&z_{xy}\\z_{xy}&z_{yy}\end{pmatrix}
+  \]
+  的零特征向量，于是该矩阵行列式为零：
+  \[
+    z_{xx}z_{yy}-z_{xy}^2=0.
+  \]
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{第一组参考题第2题}
+\begin{xsolution}
+设给定三角形三边为 $a,b,c$，面积为 $\Delta$，半周长为 $s=(a+b+c)/2$，内切圆半径为
+\[
+  r=\frac{\Delta}{s}=rac{2\Delta}{a+b+c}.
+\]
+设三棱锥顶点为 $P$，其在底面上的正射影为 $Q$，棱锥高固定为 $h$。记 $Q$ 到三边所在直线的距离为 $d_a,d_b,d_c$。三个侧面的高分别为
+\[
+  \sqrt{h^2+d_a^2},
+  \qquad
+  \sqrt{h^2+d_b^2},
+  \qquad
+  \sqrt{h^2+d_c^2}.
+\]
+所以侧面积
+\[
+  S=\frac12\left[
+  a\sqrt{h^2+d_a^2}
+  +b\sqrt{h^2+d_b^2}
+  +c\sqrt{h^2+d_c^2}
+  \right].
+\]
+
+若 $Q$ 在三角形内部，则分割底面可得
+\[
+  ad_a+bd_b+cd_c=2\Delta=(a+b+c)r.
+\]
+若 $Q$ 在外部，用有向面积考虑仍有相应带符号关系，因此对普通距离必有
+\[
+  ad_a+bd_b+cd_c\ge2\Delta=(a+b+c)r.
+\]
+函数
+\[
+  \phi(t)=\sqrt{h^2+t^2},\qquad t\ge0
+\]
+严格凸且递增。于是由带权 Jensen 不等式，
+\[
+\begin{aligned}
+  2S
+  &\ge(a+b+c)
+  \phi\left(\frac{ad_a+bd_b+cd_c}{a+b+c}\right)\\
+  &\ge(a+b+c)\phi(r)
+  =(a+b+c)\sqrt{h^2+r^2}.
+\end{aligned}
+\]
+故
+\[
+  S\ge s\sqrt{h^2+r^2}.
+\]
+等号必须同时满足 $d_a=d_b=d_c=r$，即 $Q$ 是底面三角形的内心。因此侧面积最小的三棱锥是顶点在过底面内心且垂直底面的直线上的那个，最小侧面积为
+\[
+  S_{\min}=s\sqrt{h^2+r^2}.
+\]
+\end{xsolution}
+
+\paragraph{第一组参考题第3题}
+\begin{xsolution}
+设方向 $l$ 的单位向量为
+\[
+  \vect{l}=(\cos\alpha,\cos\beta,\cos\gamma).
+\]
+方向微分算子为
+\[
+  D_l=\cos\alpha\frac{\partial}{\partial x}
+  +\cos\beta\frac{\partial}{\partial y}
+  +\cos\gamma\frac{\partial}{\partial z}.
+\]
+由于方向余弦为常数，
+\[
+  \frac{\partial^2u}{\partial l^2}=D_l^2u.
+\]
+展开得到
+\[
+\begin{aligned}
+  \frac{\partial^2u}{\partial l^2}
+  ={}&u_{xx}\cos^2\alpha
+  +u_{yy}\cos^2\beta
+  +u_{zz}\cos^2\gamma\\
+  &+2u_{xy}\cos\alpha\cos\beta
+  +2u_{xz}\cos\alpha\cos\gamma
+  +2u_{yz}\cos\beta\cos\gamma.
+\end{aligned}
+\]
+\end{xsolution}
+
+\paragraph{第一组参考题第4题}
+\begin{xsolution}
+令 $Q$ 为以三个单位向量 $l_1,l_2,l_3$ 为行向量的矩阵。因三向量两两垂直，$Q$ 是正交矩阵，故
+\[
+  QQ^{\mathsf T}=Q^{\mathsf T}Q=I.
+\]
+
+\begin{enumerate}[label=(\arabic*)]
+  \item 令
+  \[
+    \vect{g}=\nabla u.
+  \]
+  三个方向导数组成的列向量为
+  \[
+    \begin{pmatrix}
+      \partial u/\partial l_1\\
+      \partial u/\partial l_2\\
+      \partial u/\partial l_3
+    \end{pmatrix}
+    =Q\vect{g}.
+  \]
+  因正交变换保持 Euclid 范数，
+  \[
+    \sum_{i=1}^3\left(\frac{\partial u}{\partial l_i}\right)^2
+    =\norm{Q\vect{g}}^2
+    =\norm{\vect{g}}^2
+    =u_x^2+u_y^2+u_z^2.
+  \]
+
+  \item 设 $H$ 为 $u$ 的 Hesse 矩阵。则
+  \[
+    \frac{\partial^2u}{\partial l_i^2}=l_iH l_i^{\mathsf T}.
+  \]
+  因而
+  \[
+  \begin{aligned}
+    \sum_{i=1}^3\frac{\partial^2u}{\partial l_i^2}
+    &=\operatorname{tr}(QHQ^{\mathsf T})\\
+    &=\operatorname{tr}(H)
+    =u_{xx}+u_{yy}+u_{zz}.
+  \end{aligned}
+  \]
+
+  \item 若在 $\RR^3$ 的每一点都有
+  \[
+    \frac{\partial f}{\partial l_i}=0,
+    \qquad i=1,2,3,
+  \]
+  则由 (1)
+  \[
+    \norm{\nabla f}^2
+    =\sum_{i=1}^3\left(\frac{\partial f}{\partial l_i}\right)^2=0.
+  \]
+  故 $\nabla f=0$。任取两点 $P,Q\in\RR^3$，令
+  \[
+    \varphi(t)=f(P+t(Q-P)),\qquad0\le t\le1.
+  \]
+  则
+  \[
+    \varphi'(t)=\nabla f(P+t(Q-P))\cdot(Q-P)=0.
+  \]
+  因此 $f(P)=f(Q)$。由 $P,Q$ 任意，$f$ 在 $\RR^3$ 中恒为常数。
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{第一组参考题第5题}
+\begin{xsolution}
+任取 $x\in O_\delta(x_0)\setminus\{x_0\}$，令
+\[
+  \varphi(t)=f(x_0+t(x-x_0)),
+  \qquad0\le t\le1.
+\]
+对 $t>0$，点
+\[
+  y_t=x_0+t(x-x_0)
+\]
+仍在 $O_\delta(x_0)\setminus\{x_0\}$，且
+\[
+  \varphi'(t)=\nabla f(y_t)\cdot(x-x_0)
+  =\frac1t(y_t-x_0)\cdot\nabla f(y_t).
+\]
+
+\begin{enumerate}[label=(\arabic*)]
+  \item 若 $(y-x_0)\cdot\nabla f(y)<0$ 对所有 $y\ne x_0$ 成立，则 $\varphi'(t)<0$ 对所有 $t\in(0,1]$ 成立。因此 $\varphi$ 在 $(0,1]$ 严格递减。由 $f$ 在 $x_0$ 连续，
+  \[
+    f(x)=\varphi(1)<\lim_{t\to0^+}\varphi(t)=f(x_0).
+  \]
+  故 $x_0$ 是严格极大值点。
+
+  \item 若 $(y-x_0)\cdot\nabla f(y)>0$，同理有 $\varphi'(t)>0$，从而
+  \[
+    f(x)>f(x_0).
+  \]
+  故 $x_0$ 是严格极小值点。
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{第一组参考题第6题}
+\begin{xsolution}
+记 $H(x)$ 为 $f$ 的 Hesse 矩阵。因 $H(x_0)$ 正定，存在常数 $m>0$，使对任意单位向量 $\vect{v}$ 有
+\[
+  \vect{v}^{\mathsf T}H(x_0)\vect{v}\ge m.
+\]
+Hesse 矩阵在 $x_0$ 连续，所以可取 $\delta\in(0,\delta_0)$，使对任意 $y\in O_\delta(x_0)$ 和任意单位向量 $\vect{v}$，
+\[
+  \vect{v}^{\mathsf T}H(y)\vect{v}\ge\frac m2>0.
+\]
+
+任取 $x\in O_\delta(x_0)\setminus\{x_0\}$，令 $h=x-x_0$。由于 $\nabla f(x_0)=0$，沿线段积分得
+\[
+  \nabla f(x)
+  =\int_0^1 H(x_0+th)h\,\dd t.
+\]
+因此
+\[
+\begin{aligned}
+  (x-x_0)\cdot\nabla f(x)
+  &=\int_0^1 h^{\mathsf T}H(x_0+th)h\,\dd t\\
+  &\ge\int_0^1\frac m2\norm{h}^2\,\dd t
+  =\frac m2\norm{h}^2>0.
+\end{aligned}
+\]
+这就证明了所要求的结论。
+\end{xsolution}
+\paragraph{第一组参考题第7题}
+\begin{xsolution}
+若
+\[
+  \sum_{i=1}^n x_i^q=0,
+\]
+则所有 $x_i=0$，不等式显然成立。以下设
+\[
+  X:=\left(\sum_{i=1}^n x_i^q\right)^{1/q}>0.
+\]
+令
+\[
+  y_i=\frac{x_i}{X},
+\]
+则 $y_i\ge0$ 且
+\[
+  \sum_{i=1}^n y_i^q=1.
+\]
+所以只需证明在约束
+\[
+  \sum_{i=1}^n y_i^q=1,
+  \qquad y_i\ge0
+\]
+下，线性函数
+\[
+  L(y)=\sum_{i=1}^n a_i y_i
+\]
+的最大值不超过
+\[
+  A:=\left(\sum_{i=1}^n a_i^p\right)^{1/p}.
+\]
+若 $A=0$，则所有 $a_i=0$，结论显然。设 $A>0$。
+
+先考察所有 $a_i>0$ 的指标。内部条件极值满足
+\[
+  a_i=\lambda q y_i^{q-1}.
+\]
+由于
+\[
+  \frac1{q-1}=p-1,
+\]
+故
+\[
+  y_i=\left(\frac{a_i}{\lambda q}\right)^{p-1}.
+\]
+代入约束，得到
+\[
+  1=\sum_i y_i^q
+  =\frac{\sum_i a_i^p}{(\lambda q)^p},
+\]
+从而
+\[
+  \lambda q=A.
+\]
+于是极值点满足
+\[
+  y_i=\frac{a_i^{p-1}}{A^{p-1}},
+\]
+且
+\[
+  L_{\max}
+  =\sum_i a_i y_i
+  =\frac{\sum_i a_i^p}{A^{p-1}}=A.
+\]
+若某些 $a_i=0$，对应坐标在最大化时可以取 $0$，上述计算作用于其余指标即可。由于约束集
+\[
+  \{y_i\ge0:\sum y_i^q=1\}
+\]
+为紧集，故此条件最大值确实存在。
+
+因此
+\[
+  \sum_{i=1}^n a_i y_i\le A.
+\]
+乘回 $X$ 即得 Hölder 不等式
+\[
+  \sum_{i=1}^n a_i x_i
+  \le
+  \left(\sum_{i=1}^n a_i^p\right)^{1/p}
+  \left(\sum_{i=1}^n x_i^q\right)^{1/q}.
+\]
+当两边非零时，等号条件为
+\[
+  x_i^q=\kappa a_i^p
+\]
+对某个常数 $\kappa>0$ 成立。
+\end{xsolution}
+
+\paragraph{第一组参考题第8题}
+\begin{xsolution}
+令
+\[
+  M=\begin{pmatrix}
+  A&F&E\\
+  F&B&D\\
+  E&D&C
+  \end{pmatrix},
+  \qquad
+  \vect{x}=\begin{pmatrix}x\\y\\z\end{pmatrix}.
+\]
+则
+\[
+  f(x,y,z)=\vect{x}^{\mathsf T}M\vect{x},
+  \qquad
+  \vect{x}^{\mathsf T}\vect{x}=1.
+\]
+矩阵 $M$ 为实对称矩阵，所以存在正交矩阵 $Q$ 使
+\[
+  Q^{\mathsf T}MQ
+  =\operatorname{diag}(\lambda_1,\lambda_2,\lambda_3),
+\]
+其中 $\lambda_i$ 是 $M$ 的三个实特征值。令
+\[
+  \vect{y}=Q^{\mathsf T}\vect{x}.
+\]
+则 $\norm{\vect{y}}=1$，且
+\[
+  f=\lambda_1y_1^2+\lambda_2y_2^2+\lambda_3y_3^2.
+\]
+设
+\[
+  \lambda_{\min}=\min_i\lambda_i,
+  \qquad
+  \lambda_{\max}=\max_i\lambda_i.
+\]
+由于 $y_1^2+y_2^2+y_3^2=1$，
+\[
+  \lambda_{\min}\le f\le\lambda_{\max}.
+\]
+取 $\vect{y}$ 为相应特征值的单位坐标向量即可达到等号。因此单位球面上二次型的最小值和最大值分别恰为 $M$ 的最小特征值与最大特征值。
+\end{xsolution}
+
+\paragraph{第一组参考题第9题}
+\begin{xsolution}
+记矩阵 $A$ 的第 $i$ 个行向量为 $\vect{r}_i$，则约束为
+\[
+  \norm{\vect{r}_i}^2=H_i,
+  \qquad i=1,2,\ldots,n.
+\]
+
+\begin{enumerate}[label=(\arabic*)]
+  \item 若某个 $H_i=0$，则第 $i$ 行恒为零，因而 $\det A=0$，结论平凡。以下设所有 $H_i>0$。
+
+  约束集是 $n$ 个球面的直积，因此为紧集，$(\det A)^2$ 必有最大值。又可以取长度分别为 $\sqrt{H_i}$ 的两两正交行向量，得到非零行列式，所以最大点必为非奇异矩阵。
+
+  令
+  \[
+    D(A)=(\det A)^2.
+  \]
+  在非奇异矩阵处，
+  \[
+    \frac{\partial D}{\partial a_{ij}}
+    =2D(A)(A^{-1})_{ji}.
+  \]
+  Lagrange 条件为
+  \[
+    2D(A)(A^{-1})_{ji}=2\lambda_i a_{ij}.
+  \]
+  对固定的 $i,k$，两边乘 $a_{kj}$ 并对 $j$ 求和，得到
+  \[
+    2D(A)\delta_{ik}
+    =2\lambda_i\vect{r}_i\cdot\vect{r}_k.
+  \]
+  当 $k=i$ 时，
+  \[
+    \lambda_iH_i=D(A)>0,
+  \]
+  故 $\lambda_i\ne0$。当 $k\ne i$ 时，便有
+  \[
+    \vect{r}_i\cdot\vect{r}_k=0.
+  \]
+  因此最大点的各行向量必两两正交。反过来，任一满足给定长度且两两正交的行向量组都有相同的 $\abs{\det A}$，所以都取得该最大值，特别地确为极值点。
+
+  \item 若各行两两正交，则
+  \[
+    AA^{\mathsf T}=\operatorname{diag}(H_1,H_2,\ldots,H_n).
+  \]
+  因而
+  \[
+    (\det A)^2
+    =\det(AA^{\mathsf T})
+    =H_1H_2\cdots H_n.
+  \]
+  由 (1) 这正是全局最大值，所以
+  \[
+    \max_A\{(\det A)^2\}=H_1H_2\cdots H_n.
+  \]
+
+  \item 对任意矩阵 $B=(b_{ij})$，把 $B^{\mathsf T}$ 看成 (2) 中的矩阵。它的第 $j$ 个行向量的平方范数为
+  \[
+    H_j=\sum_{i=1}^n b_{ij}^2.
+  \]
+  因为 $\det B^{\mathsf T}=\det B$，由 (2)
+  \[
+    (\det B)^2
+    \le\prod_{j=1}^n\left(\sum_{i=1}^n b_{ij}^2\right).
+  \]
+  这就是 Hadamard 不等式。等号在各列向量两两正交时成立；若有零列，该结论也包括在内。
+
+  \item $\abs{\det B}$ 是由 $B$ 的列向量作为棱所张成的 $n$ 维平行多面体的体积，而
+  \[
+    \prod_{j=1}^n\sqrt{\sum_{i=1}^n b_{ij}^2}
+  \]
+  是这些棱长的乘积，也就是具有相同棱长、棱彼此正交时的体积。Hadamard 不等式说明：在各条棱长固定时，平行多面体的体积不超过正交情形的体积；等号恰在这些棱两两正交时成立。
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{第一组参考题第10题}
+\begin{xsolution}
+\begin{enumerate}[label=(\arabic*)]
+  \item 假设结论不成立，则闭圆盘内存在点使 $u<0$。由连续性，$u$ 在闭圆盘上取得最小值 $m<0$。由于边界上 $u\ge0$，最小点必在开圆盘内部。设该点为 $(x_0,y_0)$。在内点极小值处，
+  \[
+    u_{xx}(x_0,y_0)\ge0,
+    \qquad
+    u_{yy}(x_0,y_0)\ge0,
+  \]
+  所以
+  \[
+    u_{xx}+u_{yy}\ge0.
+  \]
+  但方程给出
+  \[
+    u_{xx}+u_{yy}=u(x_0,y_0)=m<0,
+  \]
+  矛盾。故闭圆盘内 $u\ge0$。
+
+  \item 边界是紧集，且边界上 $u>0$，故存在 $m_0>0$ 使
+  \[
+    u\ge m_0
+  \]
+  在圆周上成立。函数 $\ee^x$ 满足
+  \[
+    \frac{\partial^2}{\partial x^2}\ee^x
+    +\frac{\partial^2}{\partial y^2}\ee^x
+    =\ee^x.
+  \]
+  在闭单位圆盘上 $\ee^x\le\ee$。取
+  \[
+    0<\varepsilon<\frac{m_0}{\ee},
+  \]
+  并令
+  \[
+    v(x,y)=u(x,y)-\varepsilon\ee^x.
+  \]
+  则 $v$ 仍满足
+  \[
+    v_{xx}+v_{yy}=v,
+  \]
+  且在边界上
+  \[
+    v\ge m_0-\varepsilon\ee>0.
+  \]
+  由 (1)，闭圆盘内 $v\ge0$。因此
+  \[
+    u(x,y)\ge\varepsilon\ee^x>0
+  \]
+  在整个闭圆盘上成立。
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{第一组参考题第11题}
+\begin{xsolution}
+设 $f$ 在驻点 $p_0$ 的某邻域内二次连续可微，记
+\[
+  H=H_f(p_0)
+\]
+为 Hesse 矩阵。对 $h\to0$，二阶 Taylor 公式给出
+\[
+  f(p_0+h)-f(p_0)
+  =\frac12h^{\mathsf T}Hh+\littleo(\norm{h}^2),
+\]
+因为 $\nabla f(p_0)=0$。
+
+若 $H$ 正定，则其最小特征值 $\lambda_{\min}>0$，从而
+\[
+  h^{\mathsf T}Hh\ge\lambda_{\min}\norm{h}^2.
+\]
+由余项定义，可取 $\delta>0$，使 $0<\norm{h}<\delta$ 时
+\[
+  \abs{\littleo(\norm{h}^2)}
+  \le\frac{\lambda_{\min}}4\norm{h}^2.
+\]
+于是
+\[
+\begin{aligned}
+  f(p_0+h)-f(p_0)
+  &\ge\frac12\lambda_{\min}\norm{h}^2
+  -\frac14\lambda_{\min}\norm{h}^2\\
+  &=\frac14\lambda_{\min}\norm{h}^2>0.
+\end{aligned}
+\]
+故 $p_0$ 是严格极小值点。
+
+若 $H$ 负定，则 $-H$ 正定。完全同理可得在充分小的非零 $h$ 下
+\[
+  f(p_0+h)-f(p_0)<0,
+\]
+故 $p_0$ 是严格极大值点。
+
+若 $H$ 不定，则存在单位向量 $\vect{u},\vect{v}$，使
+\[
+  \vect{u}^{\mathsf T}H\vect{u}>0,
+  \qquad
+  \vect{v}^{\mathsf T}H\vect{v}<0.
+\]
+沿两条直线 $h=t\vect{u}$ 与 $h=t\vect{v}$，有
+\[
+  f(p_0+t\vect{u})-f(p_0)
+  =\frac12t^2\vect{u}^{\mathsf T}H\vect{u}+\littleo(t^2)>0
+\]
+以及
+\[
+  f(p_0+t\vect{v})-f(p_0)
+  =\frac12t^2\vect{v}^{\mathsf T}H\vect{v}+\littleo(t^2)<0
+\]
+对充分小的非零 $t$ 成立。因此任意小邻域内都有函数值大于和小于 $f(p_0)$ 的点，故 $p_0$ 不是极值点。
+
+若 $H$ 仅为半正定或半负定，上述二次项在某些非零方向上可能为零，二阶项不能控制高阶余项的符号，因此仅由 Hesse 矩阵不能作出一般判定。这说明了极值充分性定理中各种情形及其原因。
+\end{xsolution}
+
+\paragraph{第一组参考题第12题}
+\begin{xsolution}
+设目标函数为
+\[
+  f(x_1,\ldots,x_n),
+\]
+有 $m$ 个等式约束
+\[
+  g_j(x_1,\ldots,x_n)=0,
+  \qquad j=1,2,\ldots,m,
+  \qquad m<n.
+\]
+记约束集为 $M$。具有多个约束条件时，条件最值可按以下原则系统确定。
+
+\begin{enumerate}[label=\arabic*.]
+  \item \textbf{只有等式约束且约束集紧。}
+
+  若 $M$ 是有界闭集，$f$ 连续，则最大、最小值必存在。若在 $M$ 上 Jacobi 矩阵
+  \[
+    Dg(x)=\left(\frac{\partial g_j}{\partial x_i}\right)_{m\times n}
+  \]
+  处处秩为 $m$，则每个条件最值点都满足 Lagrange 方程
+  \[
+    \nabla f(x)+\sum_{j=1}^m\lambda_j\nabla g_j(x)=0,
+  \]
+  连同
+  \[
+    g_1(x)=\cdots=g_m(x)=0.
+  \]
+  因此先解这一由 $n+m$ 个方程组成的系统，求出全部条件驻点，再计算这些点的 $f$ 值。由于最值必存在且没有其他候选点，最大候选值和最小候选值分别就是条件最大值和条件最小值。
+
+  \item \textbf{存在秩退化点。}
+
+  若 $Dg$ 在某些点秩小于 $m$，Lagrange 乘子定理的通常形式在那里不能直接使用。这些点必须另列为候选点，直接代入目标函数并与正规条件驻点比较，不能遗漏。
+
+  \item \textbf{约束集无界。}
+
+  此时先判断最值是否存在。常用办法是证明当 $\norm{x}\to\infty$ 且 $x\in M$ 时，$f(x)$ 趋于某一方向的无穷，或者证明所有可能优于某一已知候选值的点都落在某个有界集合内。这样便可把问题化为紧约束集上的最值问题。若能构造约束内序列使 $f$ 无界，则相应的最大值或最小值不存在。
+
+  \item \textbf{还带有不等式约束。}
+
+  设另有
+  \[
+    h_k(x)\ge0,
+    \qquad k=1,\ldots,r.
+  \]
+  若取闭不等式后可行集紧，则先求内部点，即所有 $h_k>0$ 时的等式约束 Lagrange 驻点；随后逐层考查边界。对每一个可能的活动指标集 $I\subset\{1,\ldots,r\}$，把
+  \[
+    h_k=0\quad(k\in I)
+  \]
+  与原来的 $g_j=0$ 一并作为等式约束，求该边界层上的驻点。还要继续考查这些边界层的交界处以及所有秩退化点。最后比较全部候选值。
+
+  若原题使用严格不等式 $h_k>0$，则边界点不属于原可行集。此时边界上的值只能用来判断上确界、下确界以及最值是否真正达到：若最优值只在被删去的边界上达到，则原问题没有相应最值。
+
+  \item \textbf{可以不求全部坐标时，应直接求目标值。}
+
+  在许多具体问题中，Lagrange 方程与约束方程具有齐次或线性结构。可以像例题 21.4.2 那样，把各个偏导方程分别乘以相应变量后相加，先得到乘子与目标函数值之间的关系；再把坐标消去，直接得到目标值或乘子的低次方程。若只要求最值而不要求最值点，这通常比完整解出全部 $x_i$ 与 $\lambda_j$ 更简洁，也更可靠。
+\end{enumerate}
+
+因此，多约束条件最值问题的核心是：先保证候选集完整，包括正规条件驻点、秩退化点和各级边界；再利用紧性或无穷远行为保证最值存在；最后比较所有候选函数值。这样就不会把“条件极值点”与“条件最值点”混为一谈。
+\end{xsolution}
+\subsection*{第二组参考题}
+
+\paragraph{第二组参考题第1题}
+\begin{xsolution}
+设 $H_f(p_0)=Q$。因 $\nabla f(p_0)=0$，对任意单位方向 $\vect{l}$，沿直线 $p_0+t\vect{l}$ 有二阶 Taylor 展开
+\[
+  f(p_0+t\vect{l})-f(p_0)
+  =\frac12t^2\vect{l}^{\mathsf T}Q\vect{l}+\littleo(t^2).
+\]
+因此在 $t\to0$ 时，各方向上函数值变化的二阶主部由 Rayleigh 商
+\[
+  R(\vect{l})=\vect{l}^{\mathsf T}Q\vect{l},
+  \qquad \norm{\vect{l}}=1
+\]
+决定。
+
+矩阵 $Q$ 为实对称矩阵。设其最大特征值为 $\lambda_{\max}$，取正交特征向量基后，若
+\[
+  \vect{l}=\sum_i c_i\vect{e}_i,
+  \qquad
+  \sum_i c_i^2=1,
+\]
+则
+\[
+  R(\vect{l})=\sum_i\lambda_i c_i^2\le\lambda_{\max}.
+\]
+等号成立当且仅当 $\vect{l}$ 属于 $\lambda_{\max}$ 的特征子空间。因此，$p_0$ 处函数值增长最快的方向位于 $Q$ 的最大特征值对应的特征子空间中。
+
+若该特征子空间是一维的，设其单位特征向量为 $\vect{e}$，则达到最大 Rayleigh 商的单位方向只有 $\vect{e}$ 与 $-\vect{e}$，故相应直线方向就是函数增长最快的惟一方向。
+\end{xsolution}
+
+\paragraph{第二组参考题第2题}
+\begin{xsolution}
+设
+\[
+  \vect{r}(t)=(x(t),y(t),z(t)),
+\]
+并取平面 $\Pi$ 的一个非零法向量 $\vect{n}$。因为 $P,Q$ 都在 $\Pi$ 上，
+\[
+  \vect{n}\cdot(\vect{r}(b)-\vect{r}(a))=0.
+\]
+定义一元函数
+\[
+  \phi(t)=\vect{n}\cdot\vect{r}(t).
+\]
+则
+\[
+  \phi(a)=\phi(b).
+\]
+由 Rolle 定理，存在 $\xi\in(a,b)$ 使
+\[
+  \phi'(\xi)=0.
+\]
+即
+\[
+  \vect{n}\cdot\vect{r}'(\xi)=0.
+\]
+所以切向量
+\[
+  \vect{r}'(\xi)=(x'(\xi),y'(\xi),z'(\xi))
+\]
+与平面法向量正交，因而与平面 $\Pi$ 平行。
+\end{xsolution}
+
+\paragraph{第二组参考题第3题（Sanderson（桑德森）中值定理）}
+\begin{xsolution}
+定义标量函数
+\[
+  g(t)=\vect{v}\cdot f(t).
+\]
+题设给出
+\[
+  g(a)=g(b)=0,
+\]
+并且
+\[
+  g^{(j)}(a)=\vect{v}\cdot f^{(j)}(a)=0,
+  \qquad j=1,2,\ldots,k-1.
+\]
+
+若 $k=1$，直接由 Rolle 定理存在 $\xi\in(a,b)$ 使 $g'(\xi)=0$。
+
+设 $k\ge2$。由 $g(a)=g(b)$，存在 $c_1\in(a,b)$ 使
+\[
+  g'(c_1)=0.
+\]
+又 $g'(a)=0$，所以在区间 $[a,c_1]$ 上再用 Rolle 定理，存在 $c_2\in(a,c_1)$ 使
+\[
+  g''(c_2)=0.
+\]
+继续进行。第 $j$ 步利用
+\[
+  g^{(j)}(a)=0
+\]
+与此前得到的某点 $c_j$ 上 $g^{(j)}(c_j)=0$，可得到 $c_{j+1}\in(a,c_j)$ 使
+\[
+  g^{(j+1)}(c_{j+1})=0.
+\]
+最终存在 $\xi\in(a,b)$ 使
+\[
+  g^{(k)}(\xi)=0.
+\]
+而
+\[
+  g^{(k)}(\xi)=\vect{v}\cdot f^{(k)}(\xi),
+\]
+所以 $\vect{v}$ 与 $f^{(k)}(\xi)$ 正交。
+\end{xsolution}
+
+\paragraph{第二组参考题第4题}
+\begin{xsolution}
+令
+\[
+  D=\operatorname{diag}(a,b,c).
+\]
+设三个互相垂直的切平面分别在曲面点 $\vect{q}_i$ 处相切。曲面方程为
+\[
+  \vect{q}^{\mathsf T}D\vect{q}=1.
+\]
+第 $i$ 个切平面的法向量可取
+\[
+  \vect{n}_i=D\vect{q}_i,
+\]
+切平面方程为
+\[
+  \vect{n}_i\cdot\vect{x}=1.
+\]
+因为三个切平面互相垂直，所以三个非零法向量 $\vect{n}_i$ 两两正交。令
+\[
+  \vect{e}_i=\frac{\vect{n}_i}{\norm{\vect{n}_i}},
+\]
+则 $\vect{e}_1,\vect{e}_2,\vect{e}_3$ 构成 $\RR^3$ 的一组标准正交基。
+
+由 $\vect{n}_i=D\vect{q}_i$，
+\[
+  \vect{n}_i^{\mathsf T}D^{-1}\vect{n}_i
+  =\vect{q}_i^{\mathsf T}D\vect{q}_i=1.
+\]
+所以
+\[
+  \frac1{\norm{\vect{n}_i}^2}
+  =\vect{e}_i^{\mathsf T}D^{-1}\vect{e}_i.
+\]
+设三个切平面的交点为 $P$，位置向量为 $\vect{p}$。由切平面方程，
+\[
+  \vect{e}_i\cdot\vect{p}
+  =\frac1{\norm{\vect{n}_i}}.
+\]
+因此
+\[
+\begin{aligned}
+  \norm{\vect{p}}^2
+  &=\sum_{i=1}^3(\vect{e}_i\cdot\vect{p})^2\\
+  &=\sum_{i=1}^3\vect{e}_i^{\mathsf T}D^{-1}\vect{e}_i\\
+  &=\operatorname{tr}(D^{-1})
+  =\frac1a+\frac1b+\frac1c.
+\end{aligned}
+\]
+故交点位于球面
+\[
+  x^2+y^2+z^2=\frac1a+\frac1b+\frac1c
+\]
+上。
+\end{xsolution}
+
+\paragraph{第二组参考题第5题}
+\begin{xsolution}
+曲面为图形
+\[
+  z=f(x,y).
+\]
+在点 $(x,y,f(x,y))$ 的一个法向量可取
+\[
+  (-f_x,-f_y,1).
+\]
+因此法线可写为
+\[
+  (X,Y,Z)=(x,y,f)+t(-f_x,-f_y,1).
+\]
+题设说该法线与 $z$ 轴相交，所以存在 $t$ 使
+\[
+  x-tf_x=0,
+  \qquad
+  y-tf_y=0.
+\]
+消去 $t$ 得
+\[
+  xf_y-yf_x=0.
+\]
+
+在极坐标
+\[
+  x=r\cos\theta,
+  \qquad
+  y=r\sin\theta
+\]
+中，角向偏导为
+\[
+  \frac{\partial f}{\partial\theta}
+  =-y f_x+x f_y.
+\]
+所以上式说明
+\[
+  \frac{\partial f}{\partial\theta}=0.
+\]
+因此对每个固定的 $r$，$f$ 与极角 $\theta$ 无关，即存在一元函数 $g$ 使
+\[
+  f(x,y)=g\left(\sqrt{x^2+y^2}\right).
+\]
+于是
+\[
+  z=g(r)
+\]
+只依赖于点到 $z$ 轴的距离。绕 $z$ 轴旋转任意角度曲面保持不变，所以 $\Sigma$ 是旋转曲面。
+\end{xsolution}
+
+\paragraph{第二组参考题第6题}
+\begin{xsolution}
+对任意固定的 $b>0$，考查函数
+\[
+  \phi(t)=\ee^{t-1}-bt+b\ln b.
+\]
+有
+\[
+  \phi'(t)=\ee^{t-1}-b,
+  \qquad
+  \phi''(t)=\ee^{t-1}>0.
+\]
+所以其惟一最小点为
+\[
+  t=1+\ln b,
+\]
+且
+\[
+  \phi(1+\ln b)=0.
+\]
+因此对任意 $a>0,b>0$，
+\[
+  \ee^{a-1}+b\ln b\ge ab,
+\]
+等号当且仅当
+\[
+  b=\ee^{a-1}.
+\]
+交换 $a,b$，同理有
+\[
+  \ee^{b-1}+a\ln a\ge ab,
+\]
+等号当且仅当
+\[
+  a=\ee^{b-1}.
+\]
+两式相加即得
+\[
+  2ab\le\ee^{a-1}+a\ln a+\ee^{b-1}+b\ln b.
+\]
+
+要同时取得等号，必须
+\[
+  \ln b=a-1,
+  \qquad
+  \ln a=b-1.
+\]
+相减得
+\[
+  \ln a-\ln b=b-a.
+\]
+若 $a>b$，左边为正而右边为负；若 $a<b$，左边为负而右边为正。因此只能 $a=b$。于是
+\[
+  \ln a=a-1.
+\]
+由基本不等式 $\ln a\le a-1$，等号仅在 $a=1$，故原不等式等号成立的充分必要条件是
+\[
+  a=b=1.
+\]
+\end{xsolution}
+
+\paragraph{第二组参考题第7题}
+\begin{xsolution}
+记变换的 Jacobi 矩阵为
+\[
+  J=\begin{pmatrix}
+  \varphi_x&\varphi_y\\
+  \psi_x&\psi_y
+  \end{pmatrix}.
+\]
+以下均在 $J\ne0$ 的正则点讨论交角。
+
+\begin{enumerate}[label=(\arabic*)]
+  \item 若
+  \[
+    \varphi_x=\psi_y,
+    \qquad
+    \varphi_y=-\psi_x,
+  \]
+  令 $a=\varphi_x,b=\varphi_y$，则
+  \[
+    J=\begin{pmatrix}a&b\\-b&a\end{pmatrix}.
+  \]
+  因而
+  \[
+    J^{\mathsf T}J=(a^2+b^2)I.
+  \]
+  对任意两个非零切向量 $\vect{p},\vect{q}$，
+  \[
+    (J\vect{p})\cdot(J\vect{q})
+    =(a^2+b^2)\vect{p}\cdot\vect{q},
+  \]
+  且
+  \[
+    \norm{J\vect{p}}=\sqrt{a^2+b^2}\norm{\vect{p}}.
+  \]
+  所以夹角余弦不变。又
+  \[
+    \det J=a^2+b^2>0,
+  \]
+  故角度方向也保持，$T$ 为保角变换。
+
+  \item 对反演变换，令 $r^2=x^2+y^2$。直接计算
+  \[
+    J=\frac1{r^4}
+    \begin{pmatrix}
+      y^2-x^2&-2xy\\
+      -2xy&x^2-y^2
+    \end{pmatrix}.
+  \]
+  有
+  \[
+    J^{\mathsf T}J=\frac1{r^4}I.
+  \]
+  因而任意切向量都被同一比例 $1/r^2$ 缩放并再作正交变换，夹角保持不变，所以反演是保角的。又 $\det J<0$，故它反转角度方向。
+
+  \item 反演是自身的逆变换，即
+  \[
+    x=\frac{\xi}{\xi^2+\eta^2},
+    \qquad
+    y=\frac{\eta}{\xi^2+\eta^2}.
+  \]
+  设原圆为
+  \[
+    (x-a)^2+(y-b)^2=R^2.
+  \]
+  代入逆变换并乘以 $\xi^2+\eta^2$，得到
+  \[
+    1-2a\xi-2b\eta
+    +(a^2+b^2-R^2)(\xi^2+\eta^2)=0.
+  \]
+  若
+  \[
+    a^2+b^2\ne R^2,
+  \]
+  这是一个圆；若
+  \[
+    a^2+b^2=R^2,
+  \]
+  即原圆经过原点，则像为直线
+  \[
+    1-2a\xi-2b\eta=0.
+  \]
+  所以任一不经过反演中心的圆映为圆，经过反演中心的圆映为直线。
+
+  \item 由 (2) 的 Jacobi 矩阵，
+  \[
+  \begin{aligned}
+    \frac{\partial(\xi,\eta)}{\partial(x,y)}
+    &=\det J\\
+    &=-\frac{(x^2-y^2)^2+4x^2y^2}{(x^2+y^2)^4}\\
+    &=-\frac1{(x^2+y^2)^2}.
+  \end{aligned}
+  \]
+
+  \item 先证必要性。设
+  \[
+    J=\begin{pmatrix}a&b\\c&d\end{pmatrix}.
+  \]
+  由于 $e_1,e_2$ 正交，保角性给出 $Je_1=(a,c)$ 与 $Je_2=(b,d)$ 正交，即
+  \[
+    ab+cd=0.
+  \]
+  又 $e_1+e_2$ 与 $e_1-e_2$ 也正交，所以它们的像必须正交：
+  \[
+    (Je_1+Je_2)\cdot(Je_1-Je_2)=0.
+  \]
+  因而
+  \[
+    \norm{Je_1}^2=\norm{Je_2}^2,
+  \]
+  即
+  \[
+    a^2+c^2=b^2+d^2>0.
+  \]
+  在二维平面中，与非零向量 $(a,c)$ 正交且长度相同的向量只有
+  \[
+    (-c,a)
+    \quad\text{或}\quad
+    (c,-a).
+  \]
+  因此或者
+  \[
+    b=-c,
+    \qquad d=a,
+  \]
+  即
+  \[
+    \varphi_x=\psi_y,
+    \qquad
+    \varphi_y=-\psi_x;
+  \]
+  或者
+  \[
+    b=c,
+    \qquad d=-a,
+  \]
+  即
+  \[
+    \varphi_x=-\psi_y,
+    \qquad
+    \varphi_y=\psi_x.
+  \]
+
+  反过来，若满足任一组方程，则直接计算都有
+  \[
+    J^{\mathsf T}J=\lambda^2I
+  \]
+  其中 $\lambda>0$，故所有夹角均保持。第一组有 $\det J>0$，保持角度方向；第二组有 $\det J<0$，反转角度方向。这就证明了充分必要性。
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{第二组参考题第8题}
+\begin{xsolution}
+用向量记号写三维反演为
+\[
+  \vect{y}=T(\vect{x})=rac{\vect{x}}{\norm{\vect{x}}^2},
+  \qquad \vect{x}\ne0.
+\]
+令
+\[
+  r=\norm{\vect{x}},
+  \qquad
+  \vect{e}=\frac{\vect{x}}r.
+\]
+则导数矩阵为
+\[
+  J_T(\vect{x})
+  =\frac1{r^2}\left(I-2\vect{e}\vect{e}^{\mathsf T}\right).
+\]
+矩阵
+\[
+  H=I-2\vect{e}\vect{e}^{\mathsf T}
+\]
+是关于垂直于 $\vect{e}$ 的平面的 Householder 反射，满足
+\[
+  H^{\mathsf T}H=I,
+  \qquad
+  \det H=-1.
+\]
+
+\begin{enumerate}[label=(\arabic*)]
+  \item 对任意两个切向量 $\vect{p},\vect{q}$，
+  \[
+    (J_T\vect{p})\cdot(J_T\vect{q})
+    =\frac1{r^4}\vect{p}\cdot\vect{q},
+  \]
+  且每个向量的长度都乘以同一个因子 $1/r^2$。因此任意两个切向量的夹角保持不变。曲面之间的夹角由其切平面之间的夹角决定，而 $J_T$ 是“正交变换乘一个标量”，所以两个切平面之间的夹角也保持不变。故任意两个曲面之间的夹角在反演下不变。
+
+  \item 三维反演也是自身的逆变换。设原球面为
+  \[
+    \norm{\vect{x}-\vect{a}}^2=R^2.
+  \]
+  令像点为 $\vect{y}$，则
+  \[
+    \vect{x}=\frac{\vect{y}}{\norm{\vect{y}}^2}.
+  \]
+  代入并乘以 $\norm{\vect{y}}^2$，得到
+  \[
+    1-2\vect{a}\cdot\vect{y}
+    +(\norm{\vect{a}}^2-R^2)\norm{\vect{y}}^2=0.
+  \]
+  若 $\norm{\vect{a}}^2\ne R^2$，这是一个球面；若 $\norm{\vect{a}}^2=R^2$，即原球面经过原点，则像为平面
+  \[
+    1-2\vect{a}\cdot\vect{y}=0.
+  \]
+
+  \item 由导数矩阵的分解，
+  \[
+  \begin{aligned}
+    \det J_T
+    &=\left(\frac1{r^2}\right)^3\det H\\
+    &=-\frac1{r^6}
+    =-\frac1{(x^2+y^2+z^2)^3}.
+  \end{aligned}
+  \]
+\end{enumerate}
+\end{xsolution}
