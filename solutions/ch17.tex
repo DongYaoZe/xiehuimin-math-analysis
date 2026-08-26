@@ -1,0 +1,888 @@
+% 第17章题目解答
+% 基于 chapters/ch17.tex 中的思考题、练习题与参考题，按原章顺序编排。
+
+\section*{17.1.3 思考题}
+
+\paragraph{思考题 1.}
+\begin{xsolution}
+\textbf{(1) 任意多个闭集的交集是闭集。}
+设 $\{F_\alpha\}_{\alpha\in I}$ 是一族闭集。则每个 $F_\alpha^c$ 都是开集。由 De Morgan 法则，
+\[
+  \left(\bigcap_{\alpha\in I}F_\alpha\right)^c
+  =\bigcup_{\alpha\in I}F_\alpha^c.
+\]
+任意多个开集的并集仍为开集，因此右端是开集，从而 $\bigcap_{\alpha\in I}F_\alpha$ 是闭集。
+
+\textbf{(2) 有限多个闭集的并集是闭集。}
+设 $F_1,\ldots,F_m$ 为闭集，则 $F_1^c,\ldots,F_m^c$ 都是开集，且
+\[
+  \left(\bigcup_{i=1}^mF_i\right)^c
+  =\bigcap_{i=1}^mF_i^c.
+\]
+有限多个开集的交集仍为开集，所以 $\bigcup_{i=1}^mF_i$ 为闭集。
+\end{xsolution}
+
+\paragraph{思考题 2.}
+\begin{xsolution}
+证明聚点定义（1）、（2）等价。
+
+先设 $x$ 满足定义（1），即 $x$ 的任一邻域都含有 $S$ 中无穷多个点。对每个 $n\in\NN_+$，在
+\[
+  O_{1/n}(x)\cap S
+\]
+中选取一点 $x_n$，并要求 $x_n$ 与 $x,x_1,\ldots,x_{n-1}$ 均不相同。由于该邻域中有无穷多个 $S$ 中的点，这样的选择总能进行。于是 $\{x_n\}\subset S$ 由两两相异的点组成，$x_n\neq x$，且
+\[
+  d(x_n,x)<\frac1n\to0.
+\]
+故 $x_n\to x$，定义（2）成立。
+
+反之，设定义（2）成立，即存在两两相异的点列 $\{x_n\}\subset S$，$x_n\neq x$，且 $x_n\to x$。任给 $\delta>0$，存在 $N$，使得当 $n>N$ 时 $x_n\in O_\delta(x)$。由于尾列 $\{x_n:n>N\}$ 中仍有无穷多个两两相异的点，故 $O_\delta(x)$ 中含有 $S$ 中无穷多个点。于是定义（1）成立。
+\end{xsolution}
+
+\paragraph{思考题 3.}
+\begin{xsolution}
+若直接照搬例题 17.1.1 的写法而只使用聚点的原始定义，关键处会缺少对“所取的 $S$ 中点不能恰好等于 $x$”的保证；但适当缩小所取邻域后，可以用原始定义完成证明。
+
+设 $x\in(S^d)^d$。任给 $\delta>0$，由 $x$ 是 $S^d$ 的聚点，存在
+\[
+  y\in S^d,\qquad 0<\abs{y-x}<\delta.
+\]
+取
+\[
+  r<\min\{\delta-\abs{y-x},\ \abs{y-x}\},
+  \qquad r>0.
+\]
+因为 $y$ 是 $S$ 的聚点，由原始定义可在去心邻域 $O_r(y)\setminus\{y\}$ 中取到一点 $z\in S$。由 $r<\abs{y-x}$ 得 $z\neq x$；又由三角形不等式，
+\[
+  \abs{z-x}\leq\abs{z-y}+\abs{y-x}
+  <r+\abs{y-x}<\delta.
+\]
+故在 $x$ 的任一去心邻域中都有 $S$ 的点，于是 $x\in S^d$。因此
+\[
+  (S^d)^d\subset S^d.
+\]
+\end{xsolution}
+
+\paragraph{思考题 4.}
+\begin{xsolution}
+不一定。以 $\RR$ 中的开集
+\[
+  G_n=\left(-\frac1n,\frac1n\right),\qquad n=1,2,\ldots
+\]
+为例，每个 $G_n$ 都是开集，但
+\[
+  \bigcap_{n=1}^\infty G_n=\{0\},
+\]
+而单点集 $\{0\}$ 不是 $\RR$ 中的开集。
+\end{xsolution}
+
+\section*{17.1.4 练习题}
+
+\paragraph{练习题 1.}
+\begin{xsolution}
+证明
+\[
+  \overline S=S\cup\partial S.
+\]
+由定义 $\overline S=S\cup S^d$。
+
+先证 $\overline S\subset S\cup\partial S$。任取 $x\in\overline S$。若 $x\in S$，结论立即成立。若 $x\notin S$，则 $x\in S^d$，所以 $x$ 的任一邻域中都有 $S$ 的点；同时该邻域中还含有点 $x\notin S$。故每个邻域中既有 $S$ 中的点又有不在 $S$ 中的点，即 $x\in\partial S$。
+
+再证 $S\cup\partial S\subset\overline S$。由闭包定义 $\overline S=S\cup S^d$，已有 $S\subset\overline S$。若 $x\in\partial S$，当 $x\in S$ 时仍有 $x\in\overline S$；当 $x\notin S$ 时，$x$ 的任一邻域均含有 $S$ 中的点，而这些点均异于 $x$，故 $x\in S^d\subset\overline S$。
+
+由上述两个包含关系，等式得证。
+\end{xsolution}
+
+\paragraph{练习题 2.}
+\begin{xsolution}
+证明
+\[
+  \partial S=\overline S-\operatorname{int}S.
+\]
+若 $x\in\partial S$，则 $x$ 的任一邻域都含有 $S$ 中的点，因此 $x\in\overline S$；同时任一邻域又含有不在 $S$ 中的点，所以不存在某个邻域完全包含于 $S$，即 $x\notin\operatorname{int}S$。故
+\[
+  \partial S\subset\overline S-\operatorname{int}S.
+\]
+
+反之，设 $x\in\overline S-\operatorname{int}S$。由于 $x\in\overline S$，任一邻域 $O_\delta(x)$ 都与 $S$ 相交；由于 $x\notin\operatorname{int}S$，任一邻域都不可能完全包含于 $S$，因而其中必有不属于 $S$ 的点。故 $x$ 的任一邻域中既有 $S$ 中的点，又有 $S$ 外的点，所以 $x\in\partial S$。
+\end{xsolution}
+
+\paragraph{练习题 3.}
+\begin{xsolution}
+设 $A\cap B=\varnothing$。若结论不成立，则存在
+\[
+  x\in\overline A\cap\operatorname{int}B.
+\]
+由于 $x\in\operatorname{int}B$，存在 $\delta>0$ 使
+\[
+  O_\delta(x)\subset B.
+\]
+另一方面，$x\in\overline A$ 意味着 $x$ 的每个邻域都与 $A$ 相交，故存在 $a\in A\cap O_\delta(x)$。于是 $a\in A\cap B$，与 $A\cap B=\varnothing$ 矛盾。因此
+\[
+  \overline A\cap\operatorname{int}B=\varnothing.
+\]
+\end{xsolution}
+
+\paragraph{练习题 4.}
+\begin{xsolution}
+证明
+\[
+  S=S^d\Longleftrightarrow S\text{ 闭，且 }S\text{ 无孤立点}.
+\]
+
+先设 $S=S^d$。则 $S^d\subset S$，由闭集的等价判据知 $S$ 为闭集。又任取 $x\in S$，由 $S=S^d$ 得 $x\in S^d$，故 $x$ 是 $S$ 的聚点，不可能是孤立点。因此 $S$ 无孤立点。
+
+反之，设 $S$ 闭且无孤立点。闭性给出 $S^d\subset S$。下面证 $S\subset S^d$。任取 $x\in S$。若 $x\notin S^d$，则按聚点的原始定义，存在某个去心邻域不含 $S$ 中的点，即存在 $\delta>0$ 使
+\[
+  \bigl(O_\delta(x)\setminus\{x\}\bigr)\cap S=\varnothing.
+\]
+因 $x\in S$，这等价于
+\[
+  O_\delta(x)\cap S=\{x\},
+\]
+于是 $x$ 是孤立点，与假设矛盾。因此 $x\in S^d$，从而 $S\subset S^d$。
+
+综上 $S=S^d$。
+\end{xsolution}
+
+\paragraph{练习题 5.}
+\begin{xsolution}
+若 $S=\varnothing$，在约定 $d(x,\varnothing)=+\infty$ 时，等式两边都为空集。以下设 $S\neq\varnothing$。
+
+证明
+\[
+  \overline S=\{x\in\RR^n\mid d(x,S)=0\}.
+\]
+先设 $x\in\overline S$。任给 $\varepsilon>0$，邻域 $O_\varepsilon(x)$ 与 $S$ 相交，所以存在 $y\in S$ 使
+\[
+  \abs{x-y}<\varepsilon.
+\]
+故
+\[
+  0\leq d(x,S)\leq\abs{x-y}<\varepsilon.
+\]
+由 $\varepsilon$ 的任意性得 $d(x,S)=0$。
+
+反之，若 $d(x,S)=0$，任给 $\varepsilon>0$，由下确界的定义存在 $y\in S$ 使
+\[
+  \abs{x-y}<\varepsilon.
+\]
+因此 $O_\varepsilon(x)\cap S\neq\varnothing$。于是 $x$ 的任一邻域都与 $S$ 相交，故 $x\in\overline S$。
+\end{xsolution}
+
+\paragraph{练习题 6.}
+\begin{xsolution}
+若 $S=\varnothing$，则 $\overline S=\varnothing$，按定义仍为凸集。以下设 $S\neq\varnothing$，且 $S$ 为凸集。任取
+\[
+  x,y\in\overline S,\qquad 0\leq t\leq1.
+\]
+由闭包的定义，可分别选取点列 $x_k,y_k\in S$ 使
+\[
+  x_k\to x,\qquad y_k\to y.
+\]
+由于 $S$ 凸，
+\[
+  z_k=tx_k+(1-t)y_k\in S.
+\]
+又
+\[
+  z_k\to tx+(1-t)y.
+\]
+因此 $tx+(1-t)y\in\overline S$。故 $\overline S$ 为凸集。
+\end{xsolution}
+
+\paragraph{练习题 7.}
+\begin{xsolution}
+证明
+\[
+  S\cap\left(\bigcup_{\alpha\in I}A_\alpha\right)
+  =\bigcup_{\alpha\in I}(S\cap A_\alpha).
+\]
+任取 $x$。有
+\begin{align*}
+  x\in S\cap\left(\bigcup_{\alpha\in I}A_\alpha\right)
+  &\Longleftrightarrow x\in S\text{ 且存在 }\alpha\in I\text{ 使 }x\in A_\alpha\\
+  &\Longleftrightarrow \text{存在 }\alpha\in I\text{ 使 }x\in S\cap A_\alpha\\
+  &\Longleftrightarrow x\in\bigcup_{\alpha\in I}(S\cap A_\alpha).
+\end{align*}
+因此两集合相等。
+\end{xsolution}
+
+\section*{17.2.3 练习题}
+
+\paragraph{练习题 1.}
+\begin{xsolution}
+设 $A,B$ 是 $\RR^n$ 中两个不相交的闭集，且其中一个有界。不妨设 $A$ 有界。若 $d(A,B)=0$，则由集合距离的定义，可取
+\[
+  a_k\in A,\qquad b_k\in B,
+\]
+使得
+\[
+  \abs{a_k-b_k}<\frac1k.
+\]
+由于 $A$ 有界，$\{a_k\}$ 为有界点列。由凝聚定理，存在子列 $a_{k_j}\to a$。因为 $A$ 闭，故 $a\in A$。
+
+又
+\[
+  \abs{b_{k_j}-a}
+  \leq\abs{b_{k_j}-a_{k_j}}+\abs{a_{k_j}-a}\to0,
+\]
+所以 $b_{k_j}\to a$。由于 $B$ 闭，得 $a\in B$，与 $A\cap B=\varnothing$ 矛盾。因此
+\[
+  d(A,B)>0.
+\]
+
+若 $A,B$ 均为无界闭集，则未必有 $d(A,B)>0$。例如在 $\RR^2$ 中取
+\[
+  A=\{(x,0)\mid x\in\RR\},
+  \qquad
+  B=\left\{\left(x,\frac1x\right)\middle|x\geq1\right\}.
+\]
+$A$ 是闭集；对 $B$，若 $(x_k,1/x_k)\in B$ 且 $(x_k,1/x_k)\to(x,y)$，则 $x_k\to x\geq1$，并且 $1/x_k\to1/x$，故 $y=1/x$，所以 $(x,y)\in B$，从而 $B$ 也是闭集。二者都无界且不相交。对 $x\geq1$，
+\[
+  d\left((x,0),\left(x,\frac1x\right)\right)=\frac1x\to0,
+\]
+故 $d(A,B)=0$。
+\end{xsolution}
+
+\paragraph{练习题 2.}
+\begin{xsolution}
+由练习题 1，
+\[
+  d=d(S_1,S_2)>0.
+\]
+定义
+\[
+  O_i=\{x\in\RR^n\mid d(x,S_i)<d/3\},\qquad i=1,2.
+\]
+先说明 $O_i$ 为开集。对任意非空集合 $S$，由三角形不等式有
+\[
+  \abs{d(x,S)-d(y,S)}\leq\abs{x-y},
+\]
+故函数 $x\mapsto d(x,S)$ 连续，于是 $O_i$ 是开集。对任意 $x\in S_i$，有 $d(x,S_i)=0<d/3$，所以 $x\in O_i$，即 $S_i\subset O_i$。
+
+若存在 $z\in O_1\cap O_2$，则可取 $x\in S_1,y\in S_2$ 使
+\[
+  \abs{z-x}<\frac d3,
+  \qquad
+  \abs{z-y}<\frac d3.
+\]
+于是
+\[
+  \abs{x-y}\leq\abs{x-z}+\abs{z-y}<\frac{2d}{3},
+\]
+这与 $d=d(S_1,S_2)\leq\abs{x-y}$ 矛盾。因此 $O_1\cap O_2=\varnothing$。
+\end{xsolution}
+
+\paragraph{练习题 3.}
+\begin{xsolution}
+设 $\{x_k\}\subset\RR^n$ 为有界点列。取一个闭矩形 $Q_0$ 包含此点列。将 $Q_0$ 的每一条边二等分，则得到 $2^n$ 个闭子矩形，其中至少有一个含有点列的无穷多个项，记为 $Q_1$。
+
+对 $Q_1$ 重复同样的二等分，取其中含有无穷多个 $x_k$ 的闭子矩形 $Q_2$。如此递推，得到闭矩形套
+\[
+  Q_0\supset Q_1\supset Q_2\supset\cdots,
+\]
+且每个 $Q_m$ 都含有点列的无穷多个项。若 $Q_0$ 的直径为 $D$，则
+\[
+  \operatorname{diam}Q_m=\frac{D}{2^m}\to0.
+\]
+由闭矩形套定理，存在唯一一点
+\[
+  x\in\bigcap_{m=0}^\infty Q_m.
+\]
+
+由于每个 $Q_m$ 中含有无穷多个点列项，可递归选取严格递增的指标 $k_m$，使
+\[
+  x_{k_m}\in Q_m.
+\]
+又 $x\in Q_m$，故
+\[
+  \abs{x_{k_m}-x}\leq\operatorname{diam}Q_m\to0.
+\]
+于是 $x_{k_m}\to x$。因此任一有界点列都有收敛子列，即凝聚定理成立。
+\end{xsolution}
+
+\paragraph{练习题 4.}
+\begin{xsolution}
+设点列 $\{x_k\}\subset\RR^n$ 为 Cauchy 点列。先证它有界。取 $N$ 使得当 $m,n\geq N$ 时
+\[
+  \abs{x_m-x_n}<1.
+\]
+固定 $n=N$，则对所有 $m\geq N$，
+\[
+  \abs{x_m}\leq\abs{x_N}+1.
+\]
+再把有限个 $x_1,\ldots,x_{N-1}$ 包含进去，即知整个点列有界。
+
+由凝聚定理，存在子列 $x_{k_j}\to x$。任给 $\varepsilon>0$，由 Cauchy 性质可取 $N_1$，使 $m,n\geq N_1$ 时
+\[
+  \abs{x_m-x_n}<\frac\varepsilon2.
+\]
+又可取 $j$ 足够大，使
+\[
+  k_j\geq N_1,
+  \qquad
+  \abs{x_{k_j}-x}<\frac\varepsilon2.
+\]
+于是对任意 $n\geq N_1$，
+\[
+  \abs{x_n-x}
+  \leq\abs{x_n-x_{k_j}}+\abs{x_{k_j}-x}
+  <\varepsilon.
+\]
+故 $x_n\to x$。因此 Cauchy 点列必收敛。
+
+反过来，任一收敛点列都是 Cauchy 点列，这是三角形不等式的直接推论。故 Cauchy 收敛准则成立。
+\end{xsolution}
+
+\paragraph{练习题 5.}
+\begin{xsolution}
+用紧性定理证明聚点定理。设 $S\subset\RR^n$ 是有界无限点集。反设 $S$ 没有聚点，则 $S^d=\varnothing$，于是
+\[
+  \overline S=S\cup S^d=S,
+\]
+故 $S$ 是闭集。由于 $S$ 又有界，由紧性定理知 $S$ 是紧集。
+
+对每个 $x\in S$，因 $x$ 不是 $S$ 的聚点，存在 $\delta_x>0$ 使
+\[
+  O_{\delta_x}(x)\cap S=\{x\}.
+\]
+于是
+\[
+  \{O_{\delta_x}(x)\mid x\in S\}
+\]
+构成 $S$ 的一个开覆盖。由紧性，可从中取出有限子覆盖
+\[
+  O_{\delta_{x_1}}(x_1),\ldots,O_{\delta_{x_m}}(x_m).
+\]
+但每个这样的邻域与 $S$ 的交只有一个点，故这有限个邻域至多覆盖 $S$ 中的 $m$ 个点，与 $S$ 为无限集矛盾。因此 $S$ 必有聚点。
+\end{xsolution}
+
+\section*{17.3.2 参考题：第一组参考题}
+
+\paragraph{第一组参考题 1.}
+\begin{xsolution}
+先证每个闭集都可表为可列个开集的交。设 $F\subset\RR^n$ 为非空闭集。对 $m\in\NN_+$ 定义
+\[
+  G_m=\{x\in\RR^n\mid d(x,F)<1/m\}.
+\]
+由于 $x\mapsto d(x,F)$ 是连续函数，每个 $G_m$ 都是开集，而且 $F\subset G_m$，故
+\[
+  F\subset\bigcap_{m=1}^\infty G_m.
+\]
+若 $x\notin F$，由于 $F$ 闭，$F^c$ 是开集，故存在 $r>0$ 使 $O_r(x)\subset F^c$，从而 $d(x,F)\geq r>0$。取 $m$ 使 $1/m<r$，则 $x\notin G_m$。因此
+\[
+  F=\bigcap_{m=1}^\infty G_m.
+\]
+若 $F=\varnothing$，取所有 $G_m=\varnothing$ 即可。
+
+再设 $G$ 为开集。其余集 $F=G^c$ 为闭集，由上一步可写成
+\[
+  F=\bigcap_{m=1}^\infty G_m,
+\]
+其中 $G_m$ 均为开集。取余集并用 De Morgan 法则，
+\[
+  G=F^c=\bigcup_{m=1}^\infty G_m^c,
+\]
+而每个 $G_m^c$ 都是闭集。因此每个开集都是可列个闭集的并。
+\end{xsolution}
+
+\paragraph{第一组参考题 2.}
+\begin{xsolution}
+设原三角形为 $T_0=\triangle ABC$，三条中线所在的直线分别记为 $l_1,l_2,l_3$。令 $T_1$ 为 $T_0$ 的中位三角形，即三个顶点分别是 $AB,BC,CA$ 的中点；再令 $T_{k+1}$ 为 $T_k$ 的中位三角形。
+
+每个 $T_k$ 都是非空闭三角形，并且
+\[
+  T_0\supset T_1\supset T_2\supset\cdots.
+\]
+中位三角形的每条边长均为原三角形对应边长的一半，因此
+\[
+  \operatorname{diam}T_k=2^{-k}\operatorname{diam}T_0\to0.
+\]
+由闭集套定理，存在唯一一点
+\[
+  p\in\bigcap_{k=0}^\infty T_k.
+\]
+
+下面证明 $p$ 同时在三条原中线上。先观察一个几何事实：若一条直线是三角形的一条中线，那么它也是该三角形的中位三角形的一条中线。事实上，原中线经过原三角形的一个顶点和其对边中点；在中位三角形中，该对边中点本身是一个顶点，而另外两个中点的连线之中点仍在原中线上。因此归纳可知，$l_1,l_2,l_3$ 都是每个 $T_k$ 的中线。
+
+于是对每个 $i=1,2,3$ 及每个 $k$，可取
+\[
+  p_k^{(i)}\in l_i\cap T_k.
+\]
+因 $p,p_k^{(i)}\in T_k$，有
+\[
+  \abs{p_k^{(i)}-p}\leq\operatorname{diam}T_k\to0.
+\]
+所以 $p_k^{(i)}\to p$。直线 $l_i$ 是闭集，故 $p\in l_i$。于是
+\[
+  p\in l_1\cap l_2\cap l_3,
+\]
+三角形三边上的中线交于一点。
+\end{xsolution}
+
+\paragraph{第一组参考题 3.}
+\begin{xsolution}
+设
+\[
+  E=\{(x,f(x))\mid x\in\RR\}.
+\]
+证明 $E$ 为闭集，只需证明它包含自己的所有聚点。设 $(a,b)$ 是 $E$ 的聚点。则可取一列点
+\[
+  (x_k,f(x_k))\in E,
+  \qquad
+  (x_k,f(x_k))\to(a,b).
+\]
+因此
+\[
+  x_k\to a,
+  \qquad
+  f(x_k)\to b.
+\]
+由于 $f$ 在 $a$ 处连续，
+\[
+  f(x_k)\to f(a).
+\]
+极限唯一，所以 $b=f(a)$。于是
+\[
+  (a,b)=(a,f(a))\in E.
+\]
+故 $E^d\subset E$，从而 $E$ 是闭集。
+\end{xsolution}
+
+\paragraph{第一组参考题 4.}
+\begin{xsolution}
+先证 $\operatorname{int}S$ 是开集。任取 $x\in\operatorname{int}S$，存在 $\delta>0$ 使
+\[
+  O_\delta(x)\subset S.
+\]
+若 $y\in O_{\delta/2}(x)$，则对任意 $z\in O_{\delta/2}(y)$，
+\[
+  \abs{z-x}\leq\abs{z-y}+\abs{y-x}<\delta,
+\]
+故
+\[
+  O_{\delta/2}(y)\subset O_\delta(x)\subset S.
+\]
+于是 $y\in\operatorname{int}S$。因此
+\[
+  O_{\delta/2}(x)\subset\operatorname{int}S,
+\]
+说明 $\operatorname{int}S$ 是开集。
+
+再证最大性。设 $G$ 是任一开集且 $G\subset S$。对任意 $x\in G$，由于 $G$ 开，存在 $\delta>0$ 使
+\[
+  O_\delta(x)\subset G\subset S.
+\]
+故 $x\in\operatorname{int}S$。于是 $G\subset\operatorname{int}S$。
+
+因此 $\operatorname{int}S$ 是所有包含于 $S$ 的开集中最大的一个。
+\end{xsolution}
+
+\paragraph{第一组参考题 5（$\RR^n$ 的正规性）.}
+\begin{xsolution}
+设 $S_1,S_2$ 是 $\RR^n$ 中不相交的闭集。对每个 $x\in S_1$，因 $x\notin S_2$ 且 $S_2^c$ 开，存在 $r_x>0$ 使 $O_{r_x}(x)\subset S_2^c$，故
+\[
+  d_x:=d(x,S_2)>0.
+\]
+对每个 $y\in S_2$，因为 $y\notin S_1$ 且 $S_1^c$ 开，也存在 $r_y>0$ 使 $O_{r_y}(y)\subset S_1^c$，因此
+\[
+  d_y:=d(y,S_1)>0.
+\]
+定义
+\[
+  O_1=\bigcup_{x\in S_1}O_{d_x/3}(x),
+  \qquad
+  O_2=\bigcup_{y\in S_2}O_{d_y/3}(y).
+\]
+$O_1,O_2$ 都是开球的并，因此都是开集。又对任意 $x\in S_1$，有 $x\in O_{d_x/3}(x)\subset O_1$；对任意 $y\in S_2$，有 $y\in O_{d_y/3}(y)\subset O_2$。故 $S_i\subset O_i$。
+
+若存在 $z\in O_1\cap O_2$，则存在 $x\in S_1,y\in S_2$ 使
+\[
+  \abs{z-x}<\frac{d_x}{3},
+  \qquad
+  \abs{z-y}<\frac{d_y}{3}.
+\]
+另一方面，由 $y\in S_2$ 和 $x\in S_1$，有
+\[
+  d_x\leq\abs{x-y},
+  \qquad
+  d_y\leq\abs{x-y}.
+\]
+于是
+\[
+  \abs{x-y}
+  \leq\abs{x-z}+\abs{z-y}
+  <\frac{d_x+d_y}{3}
+  \leq\frac{2}{3}\abs{x-y},
+\]
+矛盾。因此 $O_1\cap O_2=\varnothing$。
+\end{xsolution}
+
+\paragraph{第一组参考题 6.}
+\begin{xsolution}
+\textbf{(1)} 设 $S\subset\RR^n$ 有界，任给 $\delta>0$。取一个边长有限的闭立方体 $Q$ 包含 $S$。将 $Q$ 的每条边等分为足够多段，使所得每个小立方体的直径都小于 $\delta$。由于小立方体只有有限个，只保留那些与 $S$ 相交的小立方体。对每个这样的立方体 $Q_i$，任取
+\[
+  p_i\in S\cap Q_i.
+\]
+若 $x\in S\cap Q_i$，则
+\[
+  \abs{x-p_i}\leq\operatorname{diam}Q_i<\delta,
+\]
+故 $x\in O_\delta(p_i)$。因此存在有限个点 $p_1,\ldots,p_k\in S$ 使
+\[
+  \bigcup_{i=1}^kO_\delta(p_i)\supset S.
+\]
+
+\textbf{(2)} 设 $\{G_\alpha\}$ 是有界闭集 $F$ 的开覆盖。反设不存在所要求的 $\delta>0$。则对每个 $m\in\NN_+$，存在 $p_m\in F$，使得 $O_{1/m}(p_m)$ 不包含于这族开覆盖中的任何一个开集。
+
+由于 $F$ 有界闭，由凝聚定理可从 $\{p_m\}$ 中取收敛子列
+\[
+  p_{m_j}\to p\in F.
+\]
+因 $\{G_\alpha\}$ 覆盖 $F$，存在某个 $G$ 使 $p\in G$。$G$ 为开集，故存在 $r>0$ 使
+\[
+  O_r(p)\subset G.
+\]
+当 $j$ 足够大时，
+\[
+  \abs{p_{m_j}-p}<\frac r2,
+  \qquad
+  \frac1{m_j}<\frac r2.
+\]
+于是
+\[
+  O_{1/m_j}(p_{m_j})\subset O_r(p)\subset G,
+\]
+与 $p_{m_j}$ 的选择矛盾。因此存在 $\delta>0$，使得对每个 $p\in F$，总有某个 $G_\alpha$ 满足
+\[
+  O_\delta(p)\subset G_\alpha.
+\]
+
+\textbf{(3)} 证明两种形式等价。
+
+先由 Lebesgue 形式推出通常的有限子覆盖形式。由 Lebesgue 形式取到 $\delta>0$。由第 (1) 问，存在有限个 $p_1,\ldots,p_k\in F$ 使
+\[
+  F\subset\bigcup_{i=1}^kO_\delta(p_i).
+\]
+对每个 $p_i$，Lebesgue 形式给出一个覆盖中的开集 $G_i$，满足
+\[
+  O_\delta(p_i)\subset G_i.
+\]
+于是
+\[
+  F\subset\bigcup_{i=1}^kG_i,
+\]
+即得到有限子覆盖。
+
+反过来，假设通常的覆盖定理成立。给定 $F$ 的任一开覆盖 $\{G_\alpha\}$。对每个 $p\in F$，选取某个 $G_{\alpha(p)}$ 使 $p\in G_{\alpha(p)}$。由于该集合开，可取 $r_p>0$ 使
+\[
+  O_{2r_p}(p)\subset G_{\alpha(p)}.
+\]
+诸 $O_{r_p}(p)$ 构成 $F$ 的开覆盖。由通常的覆盖定理，存在有限个点 $p_1,\ldots,p_m$ 使
+\[
+  F\subset\bigcup_{i=1}^mO_{r_{p_i}}(p_i).
+\]
+令
+\[
+  \delta=\min_{1\leq i\leq m}r_{p_i}>0.
+\]
+任取 $p\in F$，选 $i$ 使 $p\in O_{r_{p_i}}(p_i)$。若 $q\in O_\delta(p)$，则
+\[
+  \abs{q-p_i}
+  \leq\abs{q-p}+\abs{p-p_i}
+  <\delta+r_{p_i}
+  \leq2r_{p_i}.
+\]
+故
+\[
+  O_\delta(p)\subset O_{2r_{p_i}}(p_i)\subset G_{\alpha(p_i)}.
+\]
+这正是 Lebesgue 形式。
+\end{xsolution}
+
+\section*{17.3.2 参考题：第二组参考题}
+
+\paragraph{第二组参考题 1.}
+\begin{xsolution}
+设 $D\subset\RR^n$ 为开集。
+
+先设 $D$ 能分解为两个不相交的非空开集之并
+\[
+  D=A\cup B,
+  \qquad A\cap B=\varnothing.
+\]
+对任意 $y\in B$，因 $B$ 开，存在邻域 $O_\delta(y)\subset B$，从而该邻域不含 $A$ 中的点，所以 $y\notin A^d$。故
+\[
+  A^d\cap B=\varnothing.
+\]
+对任意 $x\in A$，因 $A$ 开，存在邻域包含于 $A$，故该邻域不含 $B$ 中的点，所以 $x\notin B^d$。因此 $A\cap B^d=\varnothing$。按定义 $D$ 不是连通集。
+
+反之，设 $D$ 不是连通集。则存在不相交的非空子集 $A,B$ 使
+\[
+  D=A\cup B,
+  \qquad
+  A^d\cap B=\varnothing,
+  \qquad
+  A\cap B^d=\varnothing.
+\]
+证明 $A$ 是开集。任取 $x\in A$。因为 $x\notin B$ 且 $x\notin B^d$，存在 $r_1>0$ 使
+\[
+  O_{r_1}(x)\cap B=\varnothing.
+\]
+又因为 $D$ 开且 $x\in D$，存在 $r_2>0$ 使
+\[
+  O_{r_2}(x)\subset D.
+\]
+取 $r=\min\{r_1,r_2\}$，则
+\[
+  O_r(x)\subset D\setminus B=A.
+\]
+故 $A$ 开。对 $y\in B$，由 $y\notin A\cup A^d$ 可取邻域不含 $A$ 中的点，再与 $D$ 中包含 $y$ 的邻域取较小者，即得到一个完全包含于 $B$ 的邻域，所以 $B$ 也开。于是 $D$ 可分解为两个不相交的非空开集之并。
+
+因此，开集 $D$ 连通，当且仅当它不能作上述分解。
+\end{xsolution}
+
+\paragraph{第二组参考题 2.}
+\begin{xsolution}
+先设 $D\subset\RR$ 为区间。若 $D$ 不连通，则存在不相交的非空集合 $A,B$ 使
+\[
+  D=A\cup B,
+  \qquad A^d\cap B=\varnothing,
+  \qquad A\cap B^d=\varnothing.
+\]
+取 $a\in A,b\in B$。不妨设 $a<b$。由于 $D$ 是区间，$[a,b]\subset D$。令
+\[
+  c=\sup(A\cap[a,b]).
+\]
+则 $c\in[a,b]\subset D$，所以 $c\in A$ 或 $c\in B$。
+
+若 $c\in B$，则 $c>a$。由上确界定义，可取 $a_k\in A\cap[a,b]$ 使 $a_k\to c$，且 $a_k\neq c$，故 $c\in A^d\cap B$，矛盾。
+
+若 $c\in A$，则 $c<b$。对任意 $t\in(c,b]$，由于 $t\in D$ 且 $t>c$，由 $c$ 是 $A\cap[a,b]$ 的上界知 $t\notin A$，所以 $t\in B$。取 $t_k\downarrow c$，即得 $c\in A\cap B^d$，仍矛盾。因此区间必连通。
+
+反之，若 $D$ 不是区间，则存在 $a,b\in D$，$a<b$，以及 $c\in(a,b)$ 使 $c\notin D$。令
+\[
+  A=D\cap(-\infty,c),
+  \qquad
+  B=D\cap(c,+\infty).
+\]
+则 $A,B$ 非空、不相交且 $D=A\cup B$。任取 $y\in B$，取半径 $(y-c)/2$ 的邻域，它不与 $A$ 相交，所以 $y\notin A^d$；故 $A^d\cap B=\varnothing$。任取 $x\in A$，取半径 $(c-x)/2$ 的邻域，它不与 $B$ 相交，所以 $x\notin B^d$，从而 $A\cap B^d=\varnothing$。因此 $D$ 不连通。
+
+所以 $\RR$ 中集合 $D$ 连通，当且仅当 $D$ 为区间。
+\end{xsolution}
+
+\paragraph{第二组参考题 3.}
+\begin{xsolution}
+设一族连通集 $\{E_\alpha\}_{\alpha\in I}$ 有公共点 $p$，令
+\[
+  E=\bigcup_{\alpha\in I}E_\alpha.
+\]
+反设 $E$ 不连通，则存在不相交的非空集合 $A,B$ 使
+\[
+  E=A\cup B,
+  \qquad A^d\cap B=\varnothing,
+  \qquad A\cap B^d=\varnothing.
+\]
+公共点 $p$ 属于 $A$ 或 $B$；不妨设 $p\in A$。
+
+对任意 $\alpha$，若 $E_\alpha$ 中还有一点属于 $B$，则
+\[
+  E_\alpha=(E_\alpha\cap A)\cup(E_\alpha\cap B)
+\]
+是两个不相交的非空子集之并。又因 $E_\alpha\cap A\subset A$、$E_\alpha\cap B\subset B$，有
+\[
+  (E_\alpha\cap A)^d\cap(E_\alpha\cap B)
+  \subset A^d\cap B=\varnothing,
+\]
+以及
+\[
+  (E_\alpha\cap A)\cap(E_\alpha\cap B)^d
+  \subset A\cap B^d=\varnothing.
+\]
+这与 $E_\alpha$ 连通矛盾。因此每个 $E_\alpha$ 都包含于 $A$。于是 $E\subset A$，从而 $B=\varnothing$，又与假设矛盾。
+
+故 $E$ 连通。
+\end{xsolution}
+
+\paragraph{第二组参考题 4.}
+\begin{xsolution}
+设
+\[
+  A=\{(x,y)\in\RR^2\mid x,y\text{ 至少有一个是有理数}\}.
+\]
+证明任一点都可在 $A$ 内沿折线连接到原点 $(0,0)$。
+
+任取 $p=(x,y)\in A$。若 $x\in\QQ$，先沿竖直线段从 $(x,y)$ 到 $(x,0)$，该线段上第一坐标恒为有理数 $x$，故全部位于 $A$；再沿水平线段从 $(x,0)$ 到 $(0,0)$，该线段上第二坐标恒为有理数 $0$，也全部位于 $A$。
+
+若 $x\notin\QQ$，则由 $p\in A$ 必有 $y\in\QQ$。先沿水平线段从 $(x,y)$ 到 $(0,y)$，第二坐标恒为有理数 $y$；再沿竖直线段从 $(0,y)$ 到 $(0,0)$，第一坐标恒为有理数 $0$。两段仍都在 $A$ 内。
+
+因此任意两点 $p,q\in A$ 都可以先从 $p$ 沿上述折线到原点，再反向沿相应折线到 $q$。这给出 $A$ 内的一条连续折线路径，所以 $A$ 是道路连通集。
+\end{xsolution}
+
+\paragraph{第二组参考题 5.}
+\begin{xsolution}
+先证明道路连通集一定连通。设 $D$ 道路连通，反设它不连通，则可写成
+\[
+  D=A\cup B,
+  \qquad A\cap B=\varnothing,
+\]
+其中 $A,B$ 非空，且
+\[
+  A^d\cap B=\varnothing,
+  \qquad
+  A\cap B^d=\varnothing.
+\]
+与第二组参考题 1 的证明相同，这两个条件说明 $A,B$ 都是 $D$ 中的相对开集。取 $p\in A,q\in B$。由于 $D$ 道路连通，存在连续映射
+\[
+  \gamma\colon[0,1]\to D,
+  \qquad \gamma(0)=p,
+  \qquad \gamma(1)=q.
+\]
+于是 $\gamma^{-1}(A)$ 与 $\gamma^{-1}(B)$ 是 $[0,1]$ 中两个不相交的非空相对开集，且其并为 $[0,1]$，这与区间 $[0,1]$ 连通矛盾。因此道路连通集必连通。
+
+下面考察
+\[
+  E=\left\{(x,y)\middle|y=\sin\frac1x,\ 0<x\leq\frac2\pi\right\}.
+\]
+先确定其闭包。由于 $-1\leq\sin(1/x)\leq1$，任何趋于 $x=0$ 的聚点第二坐标都在 $[-1,1]$ 中。反之，对任意 $y_0\in[-1,1]$，取 $\theta$ 使 $\sin\theta=y_0$，再令
+\[
+  x_k=\frac1{\theta+2k\pi}
+\]
+（忽略有限个使分母非正的项），则 $x_k\to0$ 且
+\[
+  \sin\frac1{x_k}=y_0.
+\]
+因此
+\[
+  \overline E
+  =E\cup\bigl(\{0\}\times[-1,1]\bigr).
+\]
+
+集合 $E$ 本身道路连通：若 $(x_1,\sin(1/x_1))$ 与 $(x_2,\sin(1/x_2))$ 属于 $E$，取
+\[
+  x(t)=(1-t)x_1+tx_2,
+\]
+则
+\[
+  \gamma(t)=\left(x(t),\sin\frac1{x(t)}\right),\qquad 0\leq t\leq1,
+\]
+是一条位于 $E$ 中的连续路径。由上面已证的结论，$E$ 连通。
+
+再说明连通集的闭包仍连通。反设连通集 $C$ 的闭包 $\overline C$ 不连通，则存在不相交的非空集合 $A,B$ 使
+\[
+  \overline C=A\cup B,
+  \qquad A^d\cap B=\varnothing,
+  \qquad A\cap B^d=\varnothing.
+\]
+由这两个导集条件可知 $A,B$ 都是 $\overline C$ 中的相对开集：例如对 $a\in A$，因 $a\notin B\cup B^d$，存在邻域不含 $B$ 中的点，故该邻域与 $\overline C$ 的交包含于 $A$。由于 $C$ 在 $\overline C$ 中稠密，非空相对开集 $A,B$ 都与 $C$ 相交。因此
+\[
+  C=(C\cap A)\cup(C\cap B)
+\]
+是两个不相交的非空子集之并。又
+\[
+  (C\cap A)^d\cap(C\cap B)\subset A^d\cap B=\varnothing,
+\]
+\[
+  (C\cap A)\cap(C\cap B)^d\subset A\cap B^d=\varnothing,
+\]
+这与 $C$ 连通矛盾。因此 $\overline C$ 连通。故 $\overline E$ 连通。
+
+最后证明 $\overline E$ 不是道路连通的。若它道路连通，则存在从 $(0,0)$ 到 $(2/\pi,1)$ 的连续路径
+\[
+  \gamma(t)=(x(t),y(t)),\qquad 0\leq t\leq1.
+\]
+因为 $x(0)=0$，$x(1)=2/\pi>0$，且 $x(t)\geq0$，集合
+\[
+  Z=\{t\in[0,1]\mid x(t)=0\}
+\]
+为非空闭集。令 $t_0=\max Z$，则 $t_0<1$，且对 $t>t_0$ 有 $x(t)>0$。由连续性，$x(t)\to0$ 当 $t\downarrow t_0$。
+
+任给足够小的 $\eta>0$，连续函数 $x$ 在 $[t_0,t_0+\eta]$ 上从 $0$ 取到某个正值，因此其值域包含一个区间 $[0,M_\eta]$，其中 $M_\eta>0$。在 $(0,M_\eta)$ 内可以选到
+\[
+  u=\frac1{\pi/2+2k\pi},
+  \qquad
+  v=\frac1{3\pi/2+2l\pi}
+\]
+且 $u,v$ 任意接近 $0$。由介值定理，存在 $s,r\in(t_0,t_0+\eta]$ 使 $x(s)=u,x(r)=v$。因为此时路径点属于 $E$，故
+\[
+  y(s)=1,
+  \qquad
+  y(r)=-1.
+\]
+令 $\eta\downarrow0$，即可得到两列 $s_j,r_j\to t_0$，而
+\[
+  y(s_j)=1,
+  \qquad
+  y(r_j)=-1.
+\]
+这与 $y(t)$ 在 $t_0$ 处连续矛盾。因此不存在这样的路径，$\overline E$ 不是道路连通集。
+
+综上，道路连通集一定连通，但连通集未必道路连通。
+\end{xsolution}
+
+\paragraph{第二组参考题 6.}
+\begin{xsolution}
+\textbf{(1)} 设 $K\subset\RR^n$ 紧，$C\subset\RR^n$ 闭。证明 $K+C$ 闭。设
+\[
+  z_j\in K+C,
+  \qquad
+  z_j\to z.
+\]
+可写
+\[
+  z_j=x_j+y_j,
+  \qquad x_j\in K,
+  \qquad y_j\in C.
+\]
+由于 $K$ 紧，点列 $\{x_j\}$ 有收敛子列 $x_{j_k}\to x\in K$。于是
+\[
+  y_{j_k}=z_{j_k}-x_{j_k}\to z-x.
+\]
+因 $C$ 闭，得 $z-x\in C$。所以
+\[
+  z=x+(z-x)\in K+C.
+\]
+因此 $K+C$ 包含所有收敛点列的极限，故为闭集。
+
+\textbf{(2)} 取
+\[
+  K=\ZZ,
+  \qquad
+  C=\alpha\ZZ=\{\alpha m\mid m\in\ZZ\},
+\]
+其中 $\alpha$ 为固定无理数。$K,C$ 都是闭集，因为它们在任一有界区间中都只有有限多个点。此时
+\[
+  K+C=\{m+\alpha n\mid m,n\in\ZZ\}.
+\]
+记该集合为 $G$。先证 $\overline G=\RR$。
+
+任给 $\varepsilon>0$，取正整数 $N$ 使 $1/N<\varepsilon$。考察 $N+1$ 个数
+\[
+  0,\alpha,2\alpha,\ldots,N\alpha
+\]
+的小数部分，并把区间 $[0,1)$ 分成 $N$ 个长度为 $1/N$ 的小区间。由抽屉原理，存在 $0\leq r<s\leq N$，使 $r\alpha$ 与 $s\alpha$ 的小数部分落在同一个小区间。于是存在整数 $p$，令 $q=s-r$，有
+\[
+  0<\abs{q\alpha-p}<\frac1N<\varepsilon.
+\]
+严格大于零是因为 $\alpha$ 无理。令
+\[
+  h=\abs{q\alpha-p}>0.
+\]
+由于 $q\alpha-p\in G$ 且 $G$ 对取负和整数倍封闭，故 $h\in G$，并且所有 $jh$（$j\in\ZZ$）都属于 $G$。
+
+任给 $x\in\RR$，取整数 $j$ 为 $x/h$ 的最近整数，则
+\[
+  \abs{x-jh}\leq\frac h2<\varepsilon.
+\]
+因此对任意 $x$ 和任意 $\varepsilon>0$，$G$ 中总有一点落在 $O_\varepsilon(x)$ 内。这说明 $G$ 在 $\RR$ 中稠密，即
+\[
+  \overline{K+C}=\overline G=\RR.
+\]
+
+另一方面，$K+C$ 是 $\ZZ^2$ 在映射 $(m,n)\mapsto m+\alpha n$ 下的像，因此是可列集；而 $\RR$ 不可列，所以
+\[
+  K+C\neq\RR.
+\]
+故两个闭集之和未必是闭集。
+\end{xsolution}
