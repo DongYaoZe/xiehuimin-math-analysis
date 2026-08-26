@@ -6,3 +6,504 @@
 \chapter{引论}
 
 % BEGIN TRANSCRIPTION
+
+这一章只是一些准备工作。读者可先浏览一下，然后根据自己的需要来使用。在 §1.1 中对于如何上习题课提出一些建议。在 §1.2 中列出了本书中的常用记号。在 §1.3 中介绍几个常用的初等不等式，供自学。根据我们的经验，在学期开始时如能关于初等不等式组织一次课外讲座是很合适的。就初学者而言，花点力气学好这一节（包括练习题）对今后大有好处。这不仅因为其中的算术平均值不等式、三点不等式和 Cauchy（柯西）不等式是以后的常用工具，而且还可以通过这些不等式的证明熟悉所用的方法。§1.4 的对偶法则很重要，也可自学。
+
+\section{关于习题课教案的组织}
+
+在上册中，除第二章外，不提供具体的习题课教案。附有教案的参考书已有很多，例如 [13, 61, 65, 70] 等。我们认为习题课的任课教师应当根据所用的具体教材、大课内容和学生的动态情况来写出自己的习题课教案。与主讲教师所上的大课相比，这里有更为广阔的天地可以发挥教师的创造性。我们在下面先提出一些原则性的建议供参考，然后从第二章起，于每章的最后一节提出学习要点和对习题课的建议，并附有一定难度的若干参考题供选择使用。注意：较难的参考题，特别是第二组参考题，可供学有余力的学生或者考研使用，对习题课则不尽合适。
+
+在讨论习题课的内容之前，需要强调指出：上习题课的教师必须自己动手解题和选题。随随便便从一本书上抄个题，不明白它的来龙去脉，就拿来作为习题课上的例题或练习题，这不是对学生负责的做法，效果也一定不会好。一旦出了问题，就会砸锅，使自己下不了台。以其昏昏，怎能使人昭昭？
+
+写教案的另一个依据则是掌握学生不断变化的具体情况，特别是作业批改中出现的活材料。教师认真批改作业和思考其中出现的问题是上好习题课的必要条件。对于学习中出现的情况是不可能举尽的，完全要靠教师的辛勤劳动和对教学内容的把握来作出正确的处理。“教无定法”在这里是非常合适的。
+
+\paragraph{一、课堂提问与讨论}
+这方面可以参考本书中为部分章节安排的思考题。但往往最好的材料来自习题批改和学习中出现的具体情况。要从一开始引导学生学习数学的思维方式。例如，对于所提出的问题，若回答“一定”，则要求能给出证明；若回答“不一定”，则要求会举出反例，用来推翻某个论断的例子就叫做“反例”。要引导学生学会举例子来支持自己的观点。
+
+\paragraph{二、课内例题的选取}
+首先应当注意，不要将习题课变成例题讲解课，一讲到底。这样做的效果往往不一定好。实际上，不论例题的选择和讲解是怎样的如花似锦，学生还是必须经过自己的实践才能吸收其中所含的营养。这就是 Pólya（波利亚）所说的“模仿加实践”的意思（见 [45]）。“精讲多练，加强实践”的提法在这里是完全正确的。关于例题的选取可以参考本书各章节的例题和所用教材的内容，还要根据学生情况来决定其难度和强度。在一定条件下，多即是少，少即是多。脱离实际讲难度过大的题，使得绝大多数学生都听不懂，这完全背离了教学的基本原则。要学生听不懂，这是最差的教师都能做得到的事。教学中困难的恰恰是其反面，即能够深入浅出，将重要的基本内容讲得使绝大多数学生都懂。总之，在教学上如何为好，应当根据实际效果作出裁决。
+
+\paragraph{三、对课内练习题的备课}
+课内练习题的选取应当考虑到同学的实际情况，不宜过难。指导教师要精心考虑如何启发和引导学生，根据现场情况对有困难的学生给予帮助，进行个别指导。要避免使很多学生束手无策或在错误的道路上浪费太多的时间。还应当在现场及时总结情况，发现和介绍较好的解法。这里有一个与上大课不同之处是，在习题课上经常会出现事先不曾料到的情况。例如有学生提出新的解法，它的正确与否，以及它的意义和价值，需要习题课任课教师当场作出判断和处理。由此可见，上好习题课对教师来说，无论是刚上讲台的青年教师还是老教师，都不是简单的工作。要做到因势利导与随机应变，真是谈何容易。当然，关键还在于充分备课和积累经验。习题课教师对于所布置的课内练习题的意义、解法和所要达到的目的应当有清楚的了解和充分的准备。要积极鼓励学生中的创造性思维。
+
+\section{书中常用记号}
+
+凡本书中用文字符号表示的数，如未加说明，均为实数。对于实数，本书一开始采取与中学教材中相同的理解，即可以用十进有尽小数和无尽小数表示的数。
+
+\begin{enumerate}
+  \item $\NN_+$：所有正整数所成的集合。
+  \item $\RR$：所有实数所成的集合（同时也用于表示无限区间 $(-\infty,+\infty)$）。
+  \item $\QQ$：所有有理数所成的集合。
+  \item $\CC$：所有复数所成的集合。
+  \item $\Longleftrightarrow$ 是等价关系的记号，$A\Longleftrightarrow B$ 表示 $A$ 和 $B$ 等价。例如，$A$ 代表 $x>3$，$B$ 代表 $x-3>0$，则 $x>3\Longleftrightarrow x-3>0$。
+  \item $[x]$ 是实数 $x$ 的整数部分，即不超过 $x$ 的最大整数。例如 $[\sqrt2]=1$，$[-\sqrt2]=-2$。关于 $[x]$ 的基本不等式是：$[x]\le x<[x]+1$，或 $x-1<[x]\le x$。
+  \item $\square$ 表示一个证明或解的结束。
+  \item
+  \[
+    \binom{n}{k}=C_n^k=\frac{n(n-1)\cdots(n-k+1)}{k!}.
+  \]
+  \item 记号 $\approx$ 表示近似值。例如 $\sqrt2\approx1.4$。
+  \item 复合函数 $f(g(x))$ 也写成 $(f\circ g)(x)$ 或 $f\circ g$。
+  \item 若 $A$ 和 $B$ 为两个集合，则用记号 $A-B$ 或 $A\setminus B$ 表示 $A$ 与 $B$ 的差集，也就是集合 $\{x\mid x\in A\text{ 且 }x\notin B\}$。
+  \item 用 $O_\delta(a)$ 表示以 $a$ 为中心，以 $\delta>0$ 为半径的邻域。它就是开区间 $(a-\delta,a+\delta)$（也可用 $U_\delta(a)$ 等记号）。如不必指出半径，则可简记为 $O(a)$（或 $U(a)$）。
+\end{enumerate}
+
+\section{几个常用的初等不等式}
+
+本节的不等式只要有中学数学基础就能理解，但在中学时学生不一定都学过，更谈不上熟悉，而在大学学习时老师又可能认为这些内容很容易，学生早就该会了。在多数的数学分析教材中往往对此不加证明（或只放在一个注解中）。其实这些不等式，尤其是算术平均值—几何平均值不等式，以及它们的一些常见的证明方法，具有深刻的意义，从一开始就应当重视。本节以命题的形式介绍它们的基本内容，作为学习数学分析的准备工作。
+
+\subsection{几个初等不等式的证明}
+
+\begin{xproposition}[1.3.1（Bernoulli（伯努利）不等式）]
+设 $h>-1$，$n\in\NN_+$，则成立不等式
+\[
+  (1+h)^n\ge 1+nh,
+\]
+其中当 $n>1$ 时等号成立的充分必要条件是 $h=0$。
+\end{xproposition}
+
+\begin{xproof}
+由于 $n=1$ 或 $h=0$ 时不等式明显成立（且其中均成立等号），以下只需讨论 $n>1$ 和 $h\ne0$ 的情况。
+
+将 $(1+h)^n-1$ 作因式分解，就可以得到
+\begin{equation}
+  (1+h)^n-1=h[1+(1+h)+(1+h)^2+\cdots+(1+h)^{n-1}].
+  \tag{1.1}
+  \label{eq:1.1}
+\end{equation}
+当 $h>0$ 时，在右边方括号内从第二项起都大于 $1$，因此就有 $(1+h)^n-1>nh$。在 $-1<h<0$ 时在 \eqref{eq:1.1} 右边方括号中从第二项起都小于 $1$，因此方括号中表达式之和小于 $n$。由于 $h<0$，因此又得到 $(1+h)^n-1>nh$。
+\end{xproof}
+
+为了应用的方便，可将 Bernoulli 不等式推广为双参数的形式。
+
+令 $h=B/A$，其中 $A>0$，$A+B>0$，则条件 $1+h>0$ 成立。将这个 $h$ 代入 Bernoulli 不等式中，就可以得到下一个不等式。
+
+\begin{xproposition}[1.3.2]
+设有 $A>0$，$A+B>0$，$n\in\NN_+$，则成立不等式
+\[
+  (A+B)^n\ge A^n+nA^{n-1}B,
+\]
+而且当 $n>1$ 时等号成立的充分必要条件是 $B=0$。
+\end{xproposition}
+
+下面要介绍的就是著名的算术平均值—几何平均值不等式，也简称为平均值不等式。它在两个实数的情况包含了中学数学的三个基本不等式：
+\[
+\begin{aligned}
+  &\text{(1)}\quad \sqrt{ab}\le \frac12(a+b) &&(a,b\ge0),\\
+  &\text{(2)}\quad \frac ab+\frac ba\ge2 &&(a,b\text{ 同号}),\\
+  &\text{(3)}\quad a^2+b^2\ge2ab &&(a,b\in\RR),
+\end{aligned}
+\]
+且仅当 $a=b$ 时，以上三个不等式中等号成立。
+
+平均值不等式“可能是最重要的不等式，并无疑地是不等式理论的基石”（见 [2]）。平均值不等式在有关不等式的名著 [22, 2] 中都有许多讨论。这方面的较新专著是 [7]，其中收集了 74 个证明。读者还可以从 [30] 中找到关于平均值不等式的许多推广和新的研究。有些数学杂志，如《数学通报》《中学数学月刊》和《美国数学月刊》等，还经常发表关于平均值不等式的新证明。
+
+\begin{xproposition}[1.3.3（算术平均值—几何平均值不等式）]
+设 $a_1,a_2,\ldots,a_n$ 是 $n$ 个非负实数，则成立不等式
+\[
+  \frac{a_1+a_2+\cdots+a_n}{n}\ge \sqrt[n]{a_1a_2\cdots a_n},
+\]
+其中等号成立的充分必要条件是 $a_1=a_2=\cdots=a_n$。
+\end{xproposition}
+
+\begin{xproof}
+\textbf{证 1}\quad 一开始可以看出，如果在 $a_1,a_2,\ldots,a_n$ 中出现 $0$，则不等式已经成立。又可以看出，这时等号成立的充分必要条件是其中每个数为 $0$。因此以下只要对 $a_1,a_2,\ldots,a_n$ 为 $n$ 个正数的情况来进行证明就够了。
+
+应用数学归纳法。在 $n=1$ 时结论是平凡的。在 $n=2$ 时的结论是中学数学已包含的内容。现设 $n=k$ 时不等式已成立，然后讨论 $n=k+1$。将 $k+1$ 个正数 $a_1,a_2,\ldots,a_{k+1}$ 的算术平均值分解如下：
+\begin{equation}
+  \frac{a_1+a_2+\cdots+a_{k+1}}{k+1}
+  =\frac{a_1+a_2+\cdots+a_k}{k}
+  +\frac{ka_{k+1}-(a_1+a_2+\cdots+a_k)}{k(k+1)}.
+  \tag{1.2}
+  \label{eq:1.2}
+\end{equation}
+然后将上式右边的两项分别记为 $A$ 和 $B$。这时条件 $A>0$，$A+B>0$ 满足，因而就可以应用命题 1.3.2 中的不等式作以下计算：
+\[
+\begin{aligned}
+  \left(\frac{a_1+a_2+\cdots+a_{k+1}}{k+1}\right)^{k+1}
+  &=(A+B)^{k+1}\\
+  &\ge A^{k+1}+(k+1)A^kB\\
+  &=A^k(A+(k+1)B)\\
+  &=\left(\frac{a_1+a_2+\cdots+a_k}{k}\right)^k a_{k+1}\\
+  &\ge a_1a_2\cdots a_ka_{k+1}.
+\end{aligned}
+\]
+在不等式中等号成立的条件也可用数学归纳法得到。在 $n=1$ 时已成立。设在 $n=k$ 时结论为真，则在 $n=k+1$ 时可从上述推导看出等号成立的条件是
+\[
+  ka_{k+1}=a_1+a_2+\cdots+a_k
+  \quad\text{和}\quad
+  a_1=a_2=\cdots=a_k,
+\]
+也就是 $a_1=a_2=\cdots=a_k=a_{k+1}$。
+\end{xproof}
+
+\begin{xproof}
+\textbf{证 2}\quad 这个证明与第一个证明基本上是一样的，只是多用了一个技巧，从而就可以不必用 Bernoulli 不等式，而只要用二项式展开定理就够了。
+
+只写出与第一个证明不同之处。在归纳法第二步中，对 $a_1,a_2,\ldots,a_{k+1}$ 可根据需要重新编号，使得 $a_{k+1}$ 是其中的最大数（之一）。然后再作分解 \eqref{eq:1.2}。这个分解式右边的第二项一定是非负数，从而满足条件 $A>0$，$B\ge0$。从二项式展开定理就有 $(A+B)^{k+1}\ge A^{k+1}+(k+1)A^kB$，其后的证明不变。
+\end{xproof}
+
+\begin{xproof}
+\textbf{证 3}\quad 现在介绍用向前—向后（Forward and Backward）数学归纳法的证明。这是由 Cauchy 于 1897 年给出的，由于这个证明十分精彩，也有人将平均值不等式称为 Cauchy 平均值不等式。
+
+从 $n=2$ 的已知情况出发，可以得到如下 $n=4$ 时的平均值不等式：
+\[
+\begin{aligned}
+  \frac{a_1+a_2+a_3+a_4}{4}
+  &=\frac12\left(\frac{a_1+a_2}{2}+\frac{a_3+a_4}{2}\right)\\
+  &\ge \sqrt{\left(\frac{a_1+a_2}{2}\right)\left(\frac{a_3+a_4}{2}\right)}\\
+  &\ge \sqrt{\sqrt{a_1a_2}\sqrt{a_3a_4}}
+   =\sqrt[4]{a_1a_2a_3a_4}.
+\end{aligned}
+\]
+同样可知，若 $n=2^k$ 时不等式已成立，则可得到 $n=2^{k+1}$ 时的平均值不等式
+\[
+\begin{aligned}
+  \frac{1}{2^{k+1}}\sum_{i=1}^{2^{k+1}}a_i
+  &=\frac12\left(
+    \frac1{2^k}\sum_{i=1}^{2^k}a_i
+    +\frac1{2^k}\sum_{i=2^k+1}^{2^{k+1}}a_i
+  \right)\\
+  &\ge \sqrt{
+    \left(\frac1{2^k}\sum_{i=1}^{2^k}a_i\right)
+    \left(\frac1{2^k}\sum_{i=2^k+1}^{2^{k+1}}a_i\right)
+  }\\
+  &\ge \sqrt{
+    \sqrt[2^k]{\prod_{i=1}^{2^k}a_i}
+    \sqrt[2^k]{\prod_{i=2^k+1}^{2^{k+1}}a_i}
+  }
+  =\sqrt[2^{k+1}]{\prod_{i=1}^{2^{k+1}}a_i}.
+\end{aligned}
+\]
+这样就证明了当 $n$ 为 $2$ 的所有方幂时平均值不等式已成立，这是“向前”部分。
+
+第二步要证明，当平均值不等式对某个 $n>2$ 成立时，则它对 $n-1$ 也一定成立。这是证明中的“向后”部分。写出
+\[
+  \frac1{n-1}\sum_{i=1}^{n-1}a_i
+  =\frac1n\cdot\frac n{n-1}\sum_{i=1}^{n-1}a_i
+  =\frac1n\left(
+    \sum_{i=1}^{n-1}a_i
+    +\frac1{n-1}\sum_{i=1}^{n-1}a_i
+  \right).
+\]
+将圆括号中的第二项看成为 $a_n$，就可以利用 $n$ 时已成立的平均值不等式得到
+\[
+  \frac1{n-1}\sum_{i=1}^{n-1}a_i
+  \ge
+  \sqrt[n]{
+    \left(\prod_{i=1}^{n-1}a_i\right)
+    \left(\frac1{n-1}\sum_{i=1}^{n-1}a_i\right)
+  }.
+\]
+将以上不等式两边升高 $n$ 次幂，就有
+\[
+  \left(\frac1{n-1}\sum_{i=1}^{n-1}a_i\right)^n
+  \ge
+  \left(\prod_{i=1}^{n-1}a_i\right)
+  \left(\frac1{n-1}\sum_{i=1}^{n-1}a_i\right),
+\]
+然后在两边约去公因子 $\dfrac1{n-1}\sum_{i=1}^{n-1}a_i$，再开 $n-1$ 次根，就得到所要的不等式。合并以上向前和向后两部分，可见平均值不等式对每个正整数 $n$ 成立。
+\end{xproof}
+
+\begin{xremark}
+除以上证明外，平均值不等式还有许多其他证明。例题 8.5.5 即是用微分学方法的证明。此外，广义的平均值不等式（命题 8.5.1）也有多种证明。读者可从参考资料中找到更多的材料。可能今后你自己也会发现一个新的证明。
+\end{xremark}
+
+下面的不等式常称为三点不等式。实际上，它不仅在实数范围中成立，在复数以及更为一般的空间（例如在高等代数中的线性空间或向量空间）中也成立，并因此又被形象化地称为三角形不等式。
+
+\begin{xproposition}[1.3.4（三点不等式）]
+若 $a,b$ 为实数，则成立不等式
+\[
+  \abs{a+b}\le \abs a+\abs b,
+\]
+其中等号成立的充分必要条件是 $a$ 和 $b$ 同号（将数 $0$ 看为和任何数同号）。
+\end{xproposition}
+
+\begin{xproof}
+写出不等式 $-\abs a\le a\le\abs a$ 和 $-\abs b\le b\le\abs b$，将它们相加，得到
+\[
+  -(\abs a+\abs b)\le a+b\le (\abs a+\abs b),
+\]
+即是 $\abs{a+b}\le\abs a+\abs b$。其中等号成立的讨论可类似进行，请读者补充说明。
+\end{xproof}
+
+下面的不等式在线性空间中有漂亮的几何意义，它也称为 Schwarz（施瓦茨）不等式。
+
+\begin{xproposition}[1.3.5（Cauchy 不等式）]
+对实数 $a_1,a_2,\ldots,a_n$ 和 $b_1,b_2,\ldots,b_n$ 成立
+\[
+  \abs{\sum_{i=1}^n a_i b_i}
+  \le
+  \sqrt{\sum_{i=1}^n a_i^2}\sqrt{\sum_{i=1}^n b_i^2}.
+\]
+\end{xproposition}
+
+\begin{xproof}
+引进变量 $\lambda$，写出如下的非负二次三项式：
+\[
+  0\le\sum_{i=1}^n(\lambda a_i-b_i)^2
+  =\lambda^2\sum_{i=1}^n a_i^2
+  -2\lambda\sum_{i=1}^n a_i b_i
+  +\sum_{i=1}^n b_i^2.
+\]
+如果 $a_1,a_2,\ldots,a_n$ 全为 $0$，则可以发现 Cauchy 不等式已成立。否则，$\lambda^2$ 项的系数不会是 $0$，因此它的判别式非正，这就导致
+\[
+  \left(\sum_{i=1}^n a_i b_i\right)^2
+  \le
+  \left(\sum_{i=1}^n a_i^2\right)
+  \left(\sum_{i=1}^n b_i^2\right).
+\]
+两边开方，就得到所要求证的不等式。
+\end{xproof}
+
+\begin{xremark}
+在 Cauchy 不等式中等号成立的充分必要条件是两个序列 $\{a_i\}_{1\le i\le n}$ 和 $\{b_i\}_{1\le i\le n}$ 成比例。其证明请读者完成。
+\end{xremark}
+
+以下是关于三角函数的一个初等不等式，在其中角度 $x$ 用弧度作为单位。
+
+\begin{xproposition}[1.3.6]
+如果 $0<x<\dfrac\pi2$，则成立不等式 $\sin x<x<\tan x$。
+\end{xproposition}
+
+\begin{xremark}
+由于这个不等式在数学分析教材中都有证明（例如 [14]），这里从略。大多数教科书中采用几何方法，即利用三角形和扇形的面积关系来导出上述不等式。在 [41] 上册第 65—66 页中有新的证明，在一定的意义上更严格一些。
+\end{xremark}
+
+\subsection{练习题}
+
+下面的题用于熟悉以上的初等不等式，进一步的材料见 [30]。
+
+\begin{xexercise}[1]
+关于 Bernoulli 不等式的推广：
+\begin{enumerate}[label=(\arabic*)]
+  \item 证明：当 $-2\le h\le-1$ 时 Bernoulli 不等式 $(1+h)^n\ge1+nh$ 仍成立；
+  \item 证明：当 $h\ge0$ 时成立不等式
+  \[
+    (1+h)^n\ge \frac{n(n-1)h^2}{2},
+  \]
+  并推广之；
+  \item 证明：若 $a_i>-1$（$i=1,2,\ldots,n$）且同号，则成立不等式
+  \[
+    \prod_{i=1}^n(1+a_i)\ge1+\sum_{i=1}^n a_i.
+  \]
+\end{enumerate}
+\end{xexercise}
+
+\begin{xexercise}[2]
+阶乘 $n!$ 在数学分析以及其他课程中经常出现，以下是几个有关的不等式，它们都可以从平均值不等式得到：
+\begin{enumerate}[label=(\arabic*)]
+  \item 证明：当 $n>1$ 时成立
+  \[
+    n!<\left(\frac{n+1}{2}\right)^n;
+  \]
+  \item 利用 $(n!)^2=(n\cdot1)[(n-1)\cdot2]\cdots(1\cdot n)$ 证明：当 $n>1$ 时成立
+  \[
+    n!<\left(\frac{n+2}{\sqrt6}\right)^n;
+  \]
+  \item 比较 (1) 和 (2) 中两个不等式的优劣，并说明原因；
+  \item 证明：对任意实数 $r$ 成立
+  \[
+    (n!)^r\le \frac1{n^n}\left(\sum_{k=1}^n k^r\right)^n.
+  \]
+\end{enumerate}
+
+（在第二章的参考题中还有关于 $n!$ 的不等式。这方面的深入讨论见本书 11.4.2 小节的 Wallis（沃利斯）公式和 Stirling（斯特林）公式。）
+\end{xexercise}
+
+\begin{xexercise}[3]
+证明几何平均值—调和平均值不等式：若 $a_k>0$，$k=1,2,\ldots,n$，则有
+\[
+  \left(\prod_{k=1}^n a_k\right)^{1/n}
+  \ge
+  \frac{n}{\displaystyle\sum_{k=1}^n\frac1{a_k}}.
+\]
+\end{xexercise}
+
+\begin{xexercise}[4]
+证明：当 $a,b,c$ 为非负数时成立
+\[
+  \sqrt[3]{abc}\le \sqrt{\frac{ab+bc+ca}{3}}\le \frac{a+b+c}{3}.
+\]
+（这个结果还可以推广到 $n$ 个非负数的情况。）
+\end{xexercise}
+
+\begin{xexercise}[5]
+证明下列不等式：
+\begin{enumerate}[label=(\arabic*)]
+  \item $\abs{a-b}\ge\abs a-\abs b$ 和 $\abs{a-b}\ge\abs{\abs a-\abs b}$；
+  \item
+  \[
+    \abs{a_1}-\sum_{k=2}^n\abs{a_k}
+    \le
+    \abs{\sum_{k=1}^n a_k}
+    \le
+    \sum_{k=1}^n\abs{a_k};
+  \]
+  又问：左边可否为 $\abs{\abs{a_1}-\sum_{k=2}^n\abs{a_k}}$？
+  \item
+  \[
+    \frac{\abs{a+b}}{1+\abs{a+b}}
+    \le
+    \frac{\abs a}{1+\abs a}+\frac{\abs b}{1+\abs b};
+  \]
+  \item
+  \[
+    \abs{(a+b)^n-a^n}\le(\abs a+\abs b)^n-\abs a^n.
+  \]
+\end{enumerate}
+（特别要注意其中的 (1) 是应用三点不等式时的常见形式。）
+\end{xexercise}
+
+\begin{xexercise}[6]
+试按下列提示，给出 Cauchy 不等式的几个不同证明：
+\begin{enumerate}[label=(\arabic*)]
+  \item 用数学归纳法；
+  \item 用 Lagrange（拉格朗日）恒等式
+  \[
+    \sum_{k=1}^n a_k^2\sum_{k=1}^n b_k^2
+    -\left(\sum_{k=1}^n\abs{a_kb_k}\right)^2
+    =\frac12\sum_{k=1}^n\sum_{i=1}^n
+    (\abs{a_k}\abs{b_i}-\abs{a_i}\abs{b_k})^2;
+  \]
+  \item 用不等式 $\abs{AB}\le\dfrac{A^2+B^2}{2}$；
+  \item 构造复的辅助数列
+  \[
+    c_k=a_k^2-b_k^2+2\ii\abs{a_kb_k},\qquad k=1,2,\ldots,n,
+  \]
+  再利用
+  \[
+    \abs{\sum_{k=1}^n c_k}\le\sum_{k=1}^n\abs{c_k}.
+  \]
+\end{enumerate}
+\end{xexercise}
+
+\begin{xexercise}[7]
+用向前—向后数学归纳法证明：设 $0<x_i\le\dfrac12$，$i=1,2,\ldots,n$，则
+\[
+  \frac{\displaystyle\prod_{i=1}^n x_i}
+       {\left(\displaystyle\sum_{i=1}^n x_i\right)^n}
+  \le
+  \frac{\displaystyle\prod_{i=1}^n(1-x_i)}
+       {\left[\displaystyle\sum_{i=1}^n(1-x_i)\right]^n}.
+\]
+（这个不等式是由在美国数学界有重大影响的华裔数学家樊畿（Fan Ky）得到的，关于它的许多研究和推广见 [30]。）
+\end{xexercise}
+
+\begin{xexercise}[8]
+设 $a,c,g,t$ 均为非负数，$a+c+g+t=1$，证明 $a^2+c^2+g^2+t^2\ge\dfrac14$，且其中等号成立的充分必要条件是 $a=c=g=t=\dfrac14$。
+
+（本题来自 DNA 序列分析。）
+\end{xexercise}
+
+\section{逻辑符号与对偶法则}
+
+在数学中广泛使用从数理逻辑中借用来的两个逻辑符号，即 $\forall$ 和 $\exists$。这样就可以将许多带有变元的数学命题或叙述（Statement）符号化，从而得到既简单又准确的表达方式。更为重要的是，在学习了本节所介绍的对偶法则后，可以很容易将否定的命题或叙述用正面的方式（即肯定的方式）表达出来，这在数学分析和其他许多课程的学习中是很基本的一种方法。
+
+首先要了解这两个逻辑符号的确切意义。
+
+符号 $\forall$ 是从大写字母 A 绕中心旋转而得到的。它的意义与英文单词 All 直接有关，译成中文就是“对所有”“对任意”“对任何”或“对每一个”。
+
+符号 $\exists$ 是从大写字母 E 绕中心旋转而得到的。它的意义与英文单词 Exist 一致，译成中文就是“存在”或“有”。
+
+举例来说，如何刻画一个数列 $\{a_n\}$ 有界？如果不用数学符号的话，则可说成为：存在一个正数，使数列的每一项的绝对值都以它为界，也就是说都不超过这个正数。如果用上述逻辑符号，则可以写为
+\begin{equation}
+  \exists M>0,\ \forall n,\ \text{使得 }\abs{a_n}\le M\text{（成立）}.
+  \tag{1.3}
+  \label{eq:1.3}
+\end{equation}
+当然初学者很可能会觉得这两个不同说法并没有多大差别，而且在后一个说法中还引进了两个陌生的符号，何必呢？
+
+现在提出一个新的问题，即如何刻画一个数列 $\{a_n\}$ 无界？
+
+从定义知道，数列无界的概念是作为数列有界概念的否定而引进的。因此问题就变成如何去刻画数列 $\{a_n\}$ 不是有界的？这在很多场合是不能避免的问题。
+
+例如，假定你要证明的一个命题是：若数列满足条件 P，则必定有界。如果你打算用反证法，则证明的第一句话应当是：设有一个数列 $\{a_n\}$ 满足条件 P，但同时 $\{a_n\}$ 无界。如果你不能够将“$\{a_n\}$ 无界”这个反证法的前提用正面方式表达出来，而只知道无界就是有界的否定的话，那么你的反证法证明就做不下去了。
+
+现在我们从 \eqref{eq:1.3} 出发来看如何写出无界的正面叙述。在 \eqref{eq:1.3} 中的第一句话“$\exists M>0$”，即存在一个正数，它具有后两句中所规定的性质。因此数列 $\{a_n\}$ 无界就应当是它的反面，即不存在由后两句规定的性质的正数（这里我们仍然没有前进一步）。换一个说法，即每一个正数都不具有由 \eqref{eq:1.3} 后两句所规定的性质。这样就可以将数列 $\{a_n\}$ 无界从“不是有界的”改写成
+\[
+  \forall M>0,\ \text{不成立“$\forall n$，使得 $\abs{a_n}\le M$”}.
+\]
+然后再看，如何将“$\forall n$，使得 $\abs{a_n}\le M$”的否定说法改为正面叙述。可以看出，既然不是对每个 $n$，成立 $\abs{a_n}\le M$，那么就等于说至少存在一个 $n$，使得 $\abs{a_n}\le M$ 不成立。这样我们又前进了一步，即可以将数列 $\{a_n\}$ 无界写为
+\[
+  \forall M>0,\ \exists n,\ \text{不成立“$\abs{a_n}\le M$”}.
+\]
+最后，$\abs{a_n}\le M$ 的否定当然是 $\abs{a_n}>M$，因此就得到数列 $\{a_n\}$ 无界的新的叙述为
+\begin{equation}
+  \forall M>0,\ \exists n,\ \text{使得 }\abs{a_n}>M.
+  \tag{1.4}
+  \label{eq:1.4}
+\end{equation}
+由于其中不出现否定性的词，因此将它称为无界概念的正面叙述。又由于它是从叙述 \eqref{eq:1.3} 的否定得来的，因此这就是否定说法的正面叙述的一个例子。
+
+比较 \eqref{eq:1.3} 和 \eqref{eq:1.4}，可见前一个叙述中的 $\forall$ 和 $\exists$ 在后一个叙述中的对应位置上恰好改为 $\exists$ 和 $\forall$，还有最后一句从“$\abs{a_n}\le M$”换为恰恰相反的“$\abs{a_n}>M$”。这就是对偶法则。
+
+它的一般形式可以表达如下。设命题 P 可写为
+\begin{equation}
+  p_1q_1,p_2q_2,\ldots,p_nq_n,\ \text{使得 }q_{n+1}\text{（成立）},
+  \tag{1.5}
+  \label{eq:1.5}
+\end{equation}
+其中 $p_i$（$i=1,2,\ldots,n$）为逻辑符号 $\forall$ 或 $\exists$；而 $q_i$（$i=1,2,\ldots,n+1$）代表普通的数学表达式，如在 \eqref{eq:1.3} 中的 $M>0$，$n$，$\abs{a_n}\le M$ 等。这里对“命题”作广义理解，它可以是数学中任何叙述、断言、定义等\footnote{对于 $\forall$ 后只有一个表达式或断言的简单情况，按照文献中的习惯，常将 $\forall$ 移到最后。例如：“$\forall x\in(0,1),f(x)>0$”常写为“$f(x)>0,\forall x\in(0,1)$”。}。例如，P 可以是数列有界的定义，也可以是对一个数列的有界性的断言。
+
+\paragraph{对偶法则}
+设命题 P 为 \eqref{eq:1.5} 所表示。则为了得到命题 P 的否命题的正面叙述，只要将 \eqref{eq:1.5} 中的所有逻辑符号 $p_i$（$i=1,2,\ldots,n$）从 $\forall$（$\exists$）改成 $\exists$（$\forall$），并将最后的 $q_{n+1}$ 改为它的否定式即可。
+
+再举几个例子。其中后两个例子取自数列极限理论，初学者可以在今后参考。
+
+\begin{xexample}[1.4.1]
+数集 $A$ 有界，即是
+\[
+  \exists M>0,\ \forall x\in A,\ \text{使得 }\abs x\le M.
+\]
+它的否定，即数集 $A$ 无界，就是
+\[
+  \forall M>0,\ \exists x\in A,\ \text{使得 }\abs x>M.
+\]
+\end{xexample}
+
+\begin{xexample}[1.4.2]
+数列 $\{a_n\}$ 收敛于 $a$，按定义为
+\[
+  \forall\varepsilon>0,\ \exists N,\ \forall n>N,\ \text{使得 }\abs{a_n-a}<\varepsilon.
+\]
+它的否定，即数列 $\{a_n\}$ 不收敛于 $a$，就是
+\[
+  \exists\varepsilon_0>0,\ \forall N,\ \exists n>N,\ \text{使得 }\abs{a_n-a}\ge\varepsilon_0.
+\]
+在这里的第一句是存在一个特定的数 $\varepsilon$，按照习惯，将它记为 $\varepsilon_0$ 是有好处的。
+\end{xexample}
+
+\begin{xexample}[1.4.3]
+数列 $\{a_n\}$ 收敛，按定义为
+\[
+  \exists a,\ \forall\varepsilon>0,\ \exists N,\ \forall n>N,\ \text{使得 }\abs{a_n-a}<\varepsilon.
+\]
+它的否定，即数列 $\{a_n\}$ 发散，就是
+\[
+  \forall a,\ \exists\varepsilon_0>0,\ \forall N,\ \exists n>N,\ \text{使得 }\abs{a_n-a}\ge\varepsilon_0.
+\]
+\end{xexample}
+
+最后，以注解的形式对本节的内容作几点补充。
+
+\begin{xremark}[1]
+前面已经讲到，符号“$\forall$”用中文表达时有多种方式。同样在英文中它可表达为“for any”“for all”“for every”“for each”等。著名数学家 Halmos（哈尔莫斯）在《如何写数学》一文（见 [20] 的 142 页）中提出，在数学写作中决不要用“for any”，而应当用“for every”或“for each”。我们觉得这是很有见地的建议，因为“任意”或“任何”的意思太不清楚，到底是指一个还是指所有的？笔者曾经检查了一些数学著作和论文，发现 Halmos 的意见已为很多作者所采纳。因此，我们建议初学者在看到 $\forall$ 时也以理解为“对每一个”或“对每一个给定的”为好。
+\end{xremark}
+
+\begin{xremark}[2]
+符号 $\forall$ 和 $\exists$ 在数理逻辑中分别称为全称量词和存在量词。对偶法则是数理逻辑中的一个规则（的重复使用）。它实际上来自日常生活中的逻辑思维，只是经过上述改造后在数学中更便于使用而已。有了这个工具之后，不论 \eqref{eq:1.5} 有多长，都可以轻而易举地将它的否定说法的正面叙述立即写出来，“脑筋都不要动”。这比起重复从 \eqref{eq:1.3} 到 \eqref{eq:1.4} 的思维过程要方便得多了。如果读者对数理逻辑有兴趣，这里可以推荐获得“普利策文学奖”的一本著名的科普读物 [23]。读者在其中不仅会找到逻辑，还会遇到许多意想不到的内容，包括美术和音乐。
+\end{xremark}
+
+\paragraph{练习题}
+以正面方式写出下列命题或叙述的否定（有几题可在以后再做）：
+\begin{enumerate}[label=(\arabic*)]
+  \item 数集 $A$ 有上界；
+  \item 数集 $A$ 的最小值是 $b$；
+  \item $f$ 是区间 $(a,b)$ 上的单调增加函数；
+  \item $f$ 是区间 $(a,b)$ 上的单调函数；
+  \item $A\subset B$；
+  \item $A-B\ne\varnothing$；
+  \item 数列 $\{x_n\}$ 是无穷小量；
+  \item 数列 $\{x_n\}$ 是正无穷大量。
+\end{enumerate}
