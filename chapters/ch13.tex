@@ -5,4 +5,1579 @@
 % Transcribe only source content; omit running headers, footers, and printed page numbers.
 \chapter{数项级数}
 
-% BEGIN TRANSCRIPTION
+本章是无穷级数理论的第一章。在 §13.1 中从无限项求和、部分和数列与广义积分三个角度对无穷级数的基本概念作综述。在 §13.2 和 §13.3 中讲述正项级数和一般项级数的判别法与性质。§13.4 用于介绍无穷乘积。最后一节是学习要点和两组参考题。（有关级数求和的问题将在 §16.2 集中讨论。）
+
+\section{无限级数的基本概念}
+
+\subsection{无限级数的多种视角}
+
+可以从几个不同角度来理解无穷级数的概念。
+
+首先，无穷级数是有限项求和的直接推广。下面是数学发展史上的几个重要例子，其中都涉及无穷级数问题（参见 [30, 56]）。
+
+\begin{xexample}[13.1.1]
+我国古代重要典籍《庄子》（约公元前 300 年）一书中有“一尺之棰，日取其半，万世不竭”。从数学上看，这与下列无穷项求和有密切联系：
+\[
+1=\frac12+\frac14+\frac18+\cdots+\frac1{2^n}+\cdots.
+\]
+\end{xexample}
+
+\begin{xexample}[13.1.2]
+古希腊伊利亚学派的 Zeno（芝诺）提出过 4 个著名的悖论，其中的 Achilles\footnote{Achilles（阿基里斯）是荷马史诗《伊利亚特》中的希腊名将，以快跑著称，被称为 The great runner。用无穷级数工具来解决 Zeno 悖论的想法最早来自 Gregory（格雷戈里，1647）。}悖论是：Achilles 永远追不上在他前面的一只乌龟，因为 Achilles 必须首先跑到乌龟的出发点，而在这段时间中乌龟又已经向前爬过一段距离，因此仍然在 Achilles 的前面，这种情况会无休止地继续下去。
+
+若将上面提到的时间记为 $t_1$，并继续下去，问题就变成了计算 $t_1+t_2+\cdots$ 的和。这是一个无穷级数求和问题。虽然谁都知道 Achilles 一定会赶上乌龟，而且不难直接计算出所需要的时间，但是为了驳倒 Zeno 的说法，就需要有关于无穷级数的概念和工具，这超出了当时希腊数学的水平（见下一小节的思考题 1）。
+\end{xexample}
+
+\begin{xexample}[13.1.3]
+古希腊数学家 Archimedes 求得抛物线弓形的面积是同底同高的三角形面积乘以因子 $\frac43$。如图 13.1 所示，其中作出了经过点 $A,B,C$ 的抛物线弓形和对应的三角形。由于过抛物线上点 $A$ 的切线平行于直线段 $BC$，因此它们符合同底（$BC$）同高（$AD$）的条件。从该图中又可以看出在抛物线弓形中去掉上述三角形之后又得到两个较小的抛物线弓形，于是又可以继续作出与它们分别为同底同高的两个三角形。Archimedes 证明它们的面积之和是第一个三角形面积的 $\frac14$，而且这个过程可以无限继续，因此就出现了无穷级数的求和问题：
+\begin{equation}
+1+\frac14+\frac1{4^2}+\cdots+\frac1{4^n}+\cdots=\frac43.
+\tag{13.1}
+\end{equation}
+由于当时没有无穷级数的概念和极限理论，Archimedes 在论证中只能使用 Eudoxus（欧多克索斯）的穷竭法（详见 [56] 中 2.3.2 小节的（三）和（四））。
+
+\begin{center}
+\includegraphics[width=.28\linewidth]{figures/lower/ch13/fig-13-1.png}
+\end{center}
+\end{xexample}
+
+\begin{xexample}[13.1.4]
+我国魏晋时代的数学家刘徽提出用“割圆术”来计算圆周率。他的方法是从计算圆的内接正六边形的面积出发，然后将内接正多边形的边数成倍增加，将每次增加的小三角形的面积累加，以得到越来越精确的圆面积值，从而求出圆周率 $\pi$ 的近似值。刘徽提出：“割之弥细，所失弥少，割之又割以至于不可割，则与圆合体而无所失矣。”这就是说圆面积是一个无穷级数之和（本题的分析将在本小节末完成）。
+\end{xexample}
+
+其次，对数列的研究就可引出无穷级数。在上册中我们已经有意识地这样做了。在 2.2.3 小节末的注解中（上册 24--25 页）引入了无穷级数
+\begin{equation}
+\sum_{n=1}^{\infty}a_n=a_1+a_2+\cdots+a_n+\cdots
+\tag{13.2}
+\end{equation}
+的基本概念，其中包括通项 $a_n$，部分和数列 $S_n=a_1+a_2+\cdots+a_n$，$n=1,2,\ldots$。当部分和数列 $\{S_n\}$ 收敛时，称无穷级数 (13.2) 收敛，否则称 (13.2) 发散。当无穷级数 (13.2) 收敛时，称极限 $S=\lim_{n\to\infty}S_n$ 为无穷级数 (13.2) 的和，并记为
+\[
+\sum_{n=1}^{\infty}a_n=a_1+a_2+\cdots+a_n+\cdots=S.
+\]
+此外，对于 $S$ 为无穷大量，即部分和数列 $\{S_n\}$ 有广义极限的情况，也写为 $\sum_{n=1}^{\infty}a_n=S$。为简明起见，常将无穷级数简称为级数，有时还将 $\sum_{n=1}^{\infty}a_n$ 简记为 $\sum a_n$。
+
+对收敛级数来说，还需要有余项概念。设 $\sum_{n=1}^{\infty}a_n$ 收敛，则级数 $\sum_{k=n+1}^{\infty}a_k$ 对每个 $n$ 均收敛。将它的和 $R_n$ 称为收敛级数 $\sum_{n=1}^{\infty}a_n$ 的第 $n$ 个余项。若将级数 $\sum_{n=1}^{\infty}a_n$ 的部分和数列记为 $\{S_n\}$，记级数的和为 $S$，则就有 $R_n=S-S_n$，因此作为数列的余项 $\{R_n\}$ 一定是无穷小量：$\lim_{n\to\infty}R_n=0$。
+
+由级数的定义可见，从给定的数列 $\{a_n\}$ 出发可以构造一个级数
+\begin{equation}
+a_1+\sum_{n=1}^{\infty}(a_{n+1}-a_n),
+\tag{13.3}
+\end{equation}
+使得两者同时收敛或发散。当它们收敛时，级数 (13.3) 的和 $S$ 就等于数列的极限：$\lim_{n\to\infty}a_n=S$。今后将会看到，对于给定的数列构造级数 (13.3) 是研究数列以及计算其极限的一种有用方法。
+
+由于级数与数列的上述联系，关于级数的不少性质可以从数列的性质直接推出。首先是级数收敛的必要条件：
+\begin{equation}
+\sum_{n=1}^{\infty}a_n\ \text{收敛}\quad\Longrightarrow\quad \lim_{n\to\infty}a_n=0.
+\tag{13.4}
+\end{equation}
+其证明见例题 2.2.9。同时在那里已经指出，这不是级数收敛的充分条件。
+
+由数列的 Cauchy 收敛准则（见 §3.4）就得到级数的 \textbf{Cauchy 收敛准则}：级数 $\sum a_n$ 收敛的充分必要条件是对于每个 $\varepsilon>0$，存在正整数 $N$，使得对满足条件 $n>N$ 的正整数 $n$ 和每个正整数 $p$，成立不等式
+\begin{equation}
+\abs{a_{n+1}+a_{n+2}+\cdots+a_{n+p}}<\varepsilon.
+\tag{13.5}
+\end{equation}
+注意：若于 (13.5) 中令 $p=1$，就得到收敛级数的必要条件 (13.4)。此外，上册中的例题 3.4.1 和 3.4.2 就是这个收敛准则在无穷级数上的应用。
+
+若级数 $\sum a_n$ 的每一项同号，则称该级数为同号级数。习惯上称非负项级数为正项级数。显然对同号级数只需研究正项级数就够了。对于正项级数，其部分和数列为单调增加数列，因此就知道：\textbf{正项级数收敛的充分必要条件是其部分和数列有上界}。
+
+在上册中已经介绍了几个重要的正项级数。例如，已经用多种方法证明调和级数 $\sum_{n=1}^{\infty}\frac1n$ 发散（见例题 2.2.6，3.4.2）。进一步是关于 $p$ 次幂的调和级数（简称为 $p$ 级数）$\sum_{n=1}^{\infty}\frac1{n^p}$ 的敛散性结论：当 $p\leq1$ 时发散，当 $p>1$ 时收敛（见 2.2.4 小节的题 9 和 2.3.2 小节的题 6）。在命题 2.5.2 中得到了自然对数的底 $\ee$ 的无穷级数表示，并将它用于 $\ee$ 的近似计算与无理性证明中。
+
+对无穷级数的第三个视角是将它与上册第十二章的广义积分作比较。例如，在级数 $\sum_{n=1}^{\infty}a_n$ 与无穷限广义积分 $\int_a^{+\infty}f(x)\,\dd x$ 的基本概念之间，存在离散 $\leftrightarrow$ 连续的对应关系：$n\leftrightarrow x$，$a_n\leftrightarrow f(x)$，$S_n=\sum_{k=1}^{n}a_k\leftrightarrow\int_a^A f(x)\,\dd x$ 和 $R_n=\sum_{k=n+1}^{\infty}a_k\leftrightarrow\int_A^{+\infty}f(x)\,\dd x$。
+
+在敛散性判别方面级数理论为广义积分提供了以下两个工具：
+
+\begin{xproposition}[13.1.1]
+设 $f$ 于 $[a,+\infty)$ 上内闭可积，则广义积分 $\int_a^{+\infty}f(x)\,\dd x$ 收敛的充分必要条件是：对于发散于正无穷大的每个数列 $\{A_n\}\subset[a,+\infty)$，级数
+\[
+\sum_{n=1}^{\infty}\int_{A_{n-1}}^{A_n}f(x)\,\dd x
+\]
+收敛，其中 $A_0=a$。
+\end{xproposition}
+
+\begin{xproposition}[13.1.2]
+设 $f$ 于 $[a,+\infty)$ 上内闭可积且不变号，则 $\int_a^{+\infty}f(x)\,\dd x$ 收敛的充分必要条件是：存在发散于正无穷大的严格单调增加数列 $\{A_n\}\subset[a,+\infty)$，使同号级数
+\[
+\sum_{n=1}^{\infty}\int_{A_{n-1}}^{A_n}f(x)\,\dd x
+\]
+收敛，其中 $A_0=a$。
+\end{xproposition}
+
+\begin{xremark}
+在例题 12.2.5 中实际上已经用了这个命题。又已在 12.4.1 小节中指出，无穷级数的性质 (13.4) 在广义积分中没有简单的平行结果。
+\end{xremark}
+
+现在用级数概念来完成对刘徽割圆术的分析。
+
+\begin{xexample}[13.1.4（续）]
+考虑刘徽对半径为 1 的圆面积计算。从内接正六边形开始，每次边数加倍，第 $n$ 次的正多边形边数为 $6\cdot2^{n-1}$，其面积为
+\[
+S_n=3\cdot2^{n-1}\sin\frac{\pi}{3\cdot2^{n-1}}.
+\]
+从 $\sin x\sim x\ (x\to0)$ 可见
+\[
+\lim_{n\to\infty}S_n=\pi.
+\]
+以 $\{S_n\}$ 为部分和数列的无穷级数是 $\sum_{n=1}^{\infty}a_n$，其中 $a_n=S_n-S_{n-1}$（设 $S_0=0$）。
+
+\begin{center}
+\includegraphics[width=.38\linewidth]{figures/lower/ch13/fig-13-2.png}
+
+图 13.2
+\end{center}
+
+刘徽的方法就是将 $a_n$ 累加以得到级数和 $\pi$ 的近似值。在图 13.2 中的正六边形的面积为 $S_1=a_1$，而在其每条边上的 6 个小三角形面积之和就是 $a_2=S_2-S_1$。
+
+现在分析级数通项的渐近性态。为方便起见，令 $x_n=3\cdot2^{n-1}$，则有
+\begin{equation}
+\begin{aligned}
+a_n&=S_n-S_{n-1}=x_n\left(\sin\frac{\pi}{x_n}-\frac12\sin\frac{2\pi}{x_n}\right)\\
+&=x_n\sin\frac{\pi}{x_n}\left(1-\cos\frac{\pi}{x_n}\right)\\
+&\sim\frac{\pi^3}{2}\cdot\frac1{x_n^2}=\frac{2\pi^3}{9}\left(\frac14\right)^n.
+\end{aligned}
+\tag{13.6}
+\end{equation}
+因此刘徽的级数 $\sum_{n=1}^{\infty}a_n$ 在渐近性态上相当于公比为 $\frac14$ 的几何级数。
+
+类似地可以分析每次计算后的误差，这就是级数的余项：
+\begin{equation}
+\varepsilon_n=S-S_n=\pi\left(1-\frac{\sin(\pi/x_n)}{\pi/x_n}\right)\sim\frac{\pi^3}{6}\cdot\frac1{x_n^2}.
+\tag{13.7}
+\end{equation}
+由这些分析已可得到有用的结论。首先，从 (13.7) 知道 $\varepsilon_{n+1}\sim\frac14\varepsilon_n$，这与上册的例题 8.7.1 的分析可谓异曲同工。其次，比较 (13.6) 和 (13.7) 可以知道
+\begin{equation}
+\varepsilon_n\sim\frac13a_n.
+\tag{13.8}
+\end{equation}
+从而就可以建立外推公式
+\begin{equation}
+\pi\approx S_n+\frac13(S_n-S_{n-1})=S_{n-1}+\frac43(S_n-S_{n-1}).
+\tag{13.9}
+\end{equation}
+例如根据参考文献 [4] 中的第 48 页，仿照刘徽计算出 96 边形和 192 边形的面积：
+\[
+S_5\approx3.139350203,\qquad S_6\approx3.141031951,
+\]
+然后用 (13.9) 就可以得到有显著改进的结果：
+\[
+\pi\approx S_6+\frac13(S_6-S_5)\approx3.141592534.
+\]
+从 [4] 还知道，刘徽在这一步也用了某种外推法，但究竟是什么方法则仍是中国数学史上的一个悬案\footnote{根据 [4]（第 48 页），刘徽计算的是 $100\pi$ 的近似值。他得到的 $S_5=313\frac{581}{625}$，$S_6=314\frac{64}{625}$，$S_6-S_5=\frac{105}{625}$，因此按照 (13.8) 的修正量为 $\frac{35}{625}$，而刘徽实际所用的修正量为 $\frac{36}{625}$，从而得到 $100\pi\approx314\frac{100}{625}=314.16$。}（关于外推法可以参看 [12]）。
+\end{xexample}
+
+\subsection{思考题}
+
+这一小节的思考题主要用于对级数定义进行复习，对于其中的是非题，若回答“是”，则要作出证明，若回答“不是”，则要举出反例。
+
+\begin{xthought}
+\begin{enumerate}[label=\arabic*.]
+\item （例题 13.1.2 之续）设比赛开始时，乌龟在 Achilles 之前 $1000\,\mathrm m$，Achilles 的速度为 $10\,\mathrm{m/s}$，乌龟的爬行速度为 $0.1\,\mathrm{m/s}$。试将 Zeno 悖论中的论点转化为无穷级数求和问题，并计算出 Achilles 赶上乌龟所需要的时间。（本题表明：有了无穷级数的工具之后，Zeno 的这个悖论就不再是悖论了。）
+\item 设级数 $\sum a_n$ 与 $\sum b_n$ 均收敛（或发散），讨论下列级数的敛散性：
+\[
+\sum(a_n\pm b_n),\qquad \sum a_nb_n,\qquad \sum\frac{a_n}{b_n}\quad(b_n\neq0),
+\]
+又对于 $\sum a_n$ 和 $\sum b_n$ 均为正项级数情况讨论同样的问题。
+\item 对于级数 $\sum\max\{a_n,b_n\}$，$\sum\min\{a_n,b_n\}$ 继续上题的讨论。
+\item 如果级数 $\sum(a_n+a_{n+1})$ 收敛，是否必可推出 $\sum a_n$ 收敛？在 $\sum a_n$ 是正项级数时，答案又是什么？
+\item 记 $S=1-1+1-1+\cdots$，并作以下计算：
+\[
+S=1-(1-1+1-1+\cdots)=1-S\Rightarrow S=\frac12,
+\]
+问：其中有何错误？又可在阅读第二组参考题 18 后再做此题。
+\item 讨论级数 $a_1-a_1+a_2-a_2+\cdots+a_n-a_n+\cdots$ 的敛散性。
+\item 如果对每个正整数 $p$ 均成立
+\[
+\lim_{n\to\infty}(a_{n+1}+a_{n+2}+\cdots+a_{n+p})=0,
+\]
+问：是否能由此推出级数 $\sum a_n$ 一定收敛？
+\item 设 $a_n<c_n<b_n$，$n=1,2,\ldots$，若已知级数 $\sum a_n$ 和 $\sum b_n$ 同时收敛（或发散），问：能否推出级数 $\sum c_n$ 收敛（或发散）？并请将你的结论与数列的夹逼定理（见上册 20 页）作比较。
+\item 设 $\sum a_n$ 收敛于和 $S$，若对于每个 $n$ 将 $a_{2n-1}$ 和 $a_{2n}$ 两项作交换，证明所得的新级数收敛，并求其和。
+\item 设有收敛正项级数 $\sum a_n$，且对于每个正整数 $n$ 成立 $a_n\leq a_nR_n$，其中 $R_n$ 为第 $n$ 个余项，证明：$\sum a_n$ 实际上是有限和。
+\end{enumerate}
+\end{xthought}
+
+\section{正项级数}
+
+从本节开始我们将主要关注级数的敛散性判别法。如果能够判定一个级数收敛，则原则上至少可以用数值方法来计算级数和的近似值。关于级数求和的内容则在 §16.2 中讨论。
+
+正项级数的敛散性一般只需要从其部分和数列是否有界就可以解决，在这方面已经得到了许多丰富的成果。以下的前两个小节分别介绍比较判别法的一般形式和特殊形式，然后在 13.2.3 小节介绍 Cauchy 积分判别法、Cauchy 凝聚判别法、Sapagof（萨巴高夫）判别法和 Kummer（库默尔）判别法。
+
+\subsection{比较判别法的一般形式}
+
+首先列出比较判别法的几种常用形式，它们的证明见教科书。
+
+\textbf{比较判别法的基本形式。}设正项级数 $\sum a_n$ 和 $\sum b_n$ 的通项之间满足条件 $a_n\leq b_n$，$n=1,2,\ldots$，则就有以下结论：
+\begin{align}
+&\sum b_n\ \text{收敛}\Longrightarrow\sum a_n\ \text{收敛}; \tag{13.10}\\
+&\sum a_n\ \text{发散}\Longrightarrow\sum b_n\ \text{发散}. \tag{13.11}
+\end{align}
+注意其中关于两个级数通项之间的不等式关系只需要对充分大的 $n$ 成立即可。
+
+我们称 (13.10) 中的 $\sum b_n$ 与 (13.11) 中的 $\sum a_n$ 为比较级数。一般常用的比较级数如
+\[
+\sum_{n=1}^{\infty}aq^n,\qquad \sum_{n=1}^{\infty}\frac1{n^p},\qquad \sum_{n=2}^{\infty}\frac1{n\ln^p n}
+\]
+等等。在使用比较判别法时经常需要知道以下“级别”关系（参见 2.7.1 小节）：
+\[
+\ln n\ll n^\varepsilon\ll a^n\ll n!\ll n^n\qquad(a>1,\ \varepsilon>0).
+\]
+
+\textbf{比较判别法的极限形式。}若对于正项级数 $\sum a_n$ 和 $\sum b_n$ 存在（广义）极限
+\begin{equation}
+c=\lim_{n\to\infty}\frac{b_n}{a_n},
+\tag{13.12}
+\end{equation}
+则当 $0<c<+\infty$ 时正项级数 $\sum a_n$ 与 $\sum b_n$ 同敛散，当 $c=0$ 时可以从 $\sum a_n$ 收敛推出 $\sum b_n$ 收敛，或从 $\sum b_n$ 发散推出 $\sum a_n$ 发散，当 $c=+\infty$ 时有相反的结论。
+
+比较判别法的极限形式表明，研究级数 $\sum a_n$ 的通项所成的数列 $\{a_n\}$ 当 $n\to\infty$ 时的渐近性态往往是值得做的分析工作，其中包括通项 $\{a_n\}$ 是否是无穷小量的初步观察，如果不是，则已经可以断定该级数发散。对于上面 $0<c<+\infty$ 的情况，可以称为等价量判别法。
+
+\textbf{比较判别法的比值形式。}设对于正项级数 $\sum a_n$，$\sum b_n$ 的通项当 $n$ 充分大时成立不等式
+\begin{equation}
+\frac{a_{n+1}}{a_n}\leq\frac{b_{n+1}}{b_n},
+\tag{13.13}
+\end{equation}
+则结论 (13.10) 与 (13.11) 成立。
+
+在下一小节会看到，从 d'Alembert（达朗贝尔）判别法开始的许多判别法都是在取定某个 $\sum b_n$ 之后从 (13.13) 导出的比较判别法的特殊形式。
+
+\subsection{比较判别法的特殊形式}
+
+上一小节中的比较判别法有一个共同点，就是都需要有比较级数。如何对于给定的级数去寻找合适的比较级数往往是一个难题。\footnote{这里的第一个困难在于，由于事先不知道一个级数究竟是收敛还是发散，因此事先不知道是按照 (13.10) 还是 (13.11) 去寻找比较级数。这在原则上只能通过尝试和摸索来解决。}
+
+一种新的思维方法是“守株待兔”：取定比较级数以导出简单易用的判别法。例如，一般教科书中的 Cauchy 根值判别法和 d'Alembert 比值判别法就是如此。它们都是用几何级数作为比较级数。区别在于 Cauchy 根值判别法是从 (13.10) 和 (13.11) 出发两边开 $n$ 次根得到，而 d'Alembert 比值判别法则从比值形式 (13.13) 推出。由于教科书中都有它们的介绍和比较，此处从略。
+
+不难看出，这样得到的每一种判别法的能力必定有限，其适用范围为所取的比较级数所限定。例如，$p$ 级数的敛散性就不可能用 Cauchy 根值判别法或 d'Alembert 比值判别法来进行判定。利用数列收敛和发散的快慢概念，就很容易理解这种现象。（参见 2.7.1 小节关于无穷大量的“级别”概念，§4.4 中关于无穷小量和无穷大量的比较，以及 8.7.1 小节中关于收敛速度的讨论。）
+
+具体来说，采用 $p$ 级数作为比较级数就得到 Raabe（拉比）判别法，采用 $\sum_{n=2}^{\infty}\frac1{n\ln^p n}$ 作为比较级数就得到 Bertrand（贝特朗）判别法和 Gauss 判别法。它们的证明都可以从 [18] 等书中找到，此外还有许多更为细致的讨论和发展可以参考 [53] 和其中的文献。
+
+现在我们将上述几种判别法的使用方法列表如下。以下设 $\sum_{n=1}^{\infty}a_n$ 为正项级数。
+\[
+\begin{array}{lll}
+\text{Cauchy 根值判别法：}&\displaystyle \lim_{n\to\infty}\sqrt[n]{a_n}=c,&c<1\text{ 时级数收敛，}\ c>1\text{ 时级数发散};\\[6pt]
+\text{d'Alembert 判别法：}&\displaystyle \lim_{n\to\infty}\frac{a_{n+1}}{a_n}=d,&d<1\text{ 时级数收敛，}\ d>1\text{ 时级数发散};\\[6pt]
+\text{Raabe 判别法：}&\displaystyle \lim_{n\to\infty}n\left(\frac{a_n}{a_{n+1}}-1\right)=r,&r>1\text{ 时级数收敛，}\ r<1\text{ 时级数发散};\\[6pt]
+\text{Bertrand 判别法：}&\displaystyle \lim_{n\to\infty}\ln n\left[n\left(\frac{a_n}{a_{n+1}}-1\right)-1\right]=b,&b>1\text{ 时级数收敛，}\ b<1\text{ 时级数发散};\\[6pt]
+\text{Gauss 判别法：}&\displaystyle \frac{a_n}{a_{n+1}}=1+\frac{\mu}{n}+\bigO\left(\frac1{n^{1+\varepsilon}}\right),\ \varepsilon>0,&\mu>1\text{ 时级数收敛，}\ \mu\leq1\text{ 时级数发散}.
+\end{array}
+\]
+
+\begin{xremark}
+表中除 Cauchy 根值判别法外，所列出的判别法都基于对比值 $a_{n+1}/a_n$（或 $a_n/a_{n+1}$）的分析，因此都可以称为比值判别法。在 Gauss 判别法中的 $\mu=1$ 时级数发散的结论可以从 Bertrand 判别法得到。此外，若再考虑
+\begin{equation}
+\sum_{n=9}^{\infty}\frac1{n\ln n(\ln\ln n)^p},\quad
+\sum_{n=9}^{\infty}\frac1{n\ln n\ln\ln n(\ln\ln\ln n)^p},\quad\ldots
+\tag{13.14}
+\end{equation}
+等比较级数，就可以得到更为精细的判别法，统称为 Bertrand 判别法（见 [65]）。
+\end{xremark}
+
+\begin{xremark}
+容易发现本小节列举的所有判别法中，除了 Cauchy 根值判别法之外，都只能用于 $\{a_n\}$ 为单调的情况，至少当 $n$ 充分大时必须单调，否则就不可能成功。在这个意义上可以说，它们都是通项单调减少的正项级数判别法。正因为如此，虽然 Cauchy 根值判别法只是以几何级数为比较级数得到的判别法，能力有限，但是它的适用范围不能为表中任何其他判别法所完全覆盖。一个典型例子是以 $a_n=2^{-n-(-1)^n}$ 为通项的级数 $\sum_{n=1}^{\infty}a_n$，其中
+\[
+\frac{a_{n+1}}{a_n}=\begin{cases}\frac18,&n\text{ 为奇数},\\2,&n\text{ 为偶数}.
+\end{cases}
+\]
+由 $\lim_{n\to\infty}\sqrt[n]{a_n}=\frac12$ 知可用 Cauchy 根值判别法，但比值判别法都不行。
+\end{xremark}
+
+\begin{xremark}
+在这方面还应当提到各种形式的对数判别法。这里只举出两种对数判别法的极限形式（此外还有非极限形式和上、下极限形式）：
+\begin{enumerate}[label=\arabic*.]
+\item 若对正项级数 $\sum a_n$ 存在极限
+\begin{equation}
+\lim_{n\to\infty}\frac{\ln(1/a_n)}{\ln n}=r',
+\tag{13.15}
+\end{equation}
+则当 $r'>1$ 时级数收敛，而当 $r'<1$ 时级数发散。
+\item 若对正项级数 $\sum a_n$ 存在极限
+\begin{equation}
+\lim_{n\to\infty}\frac{\ln[1/(na_n)]}{\ln\ln n}=b',
+\tag{13.16}
+\end{equation}
+则当 $b'>1$ 时级数收敛，而当 $b'<1$ 时级数发散。
+\end{enumerate}
+这两种判别法与 Raabe 判别法和 Bertrand 判别法的关系恰如 Cauchy 根值判别法与 d'Alembert 判别法那样，即当后者有效时前者一定有效（见 13.2.5 小节题 12），但反之不成立（参见 [53]）。与根值判别法相同的是，对数判别法不依赖于级数中的比值 $a_{n+1}/a_n$，因此对于通项不是单调的正项级数仍然可能有效。
+\end{xremark}
+
+\subsection{其他判别法}
+
+对正项级数来说，除了上面介绍的几个判别法之外，其他判别法还有很多。本小节中只列举其中的几种判别法，它们都含有新的思想。此外，最后还讨论了比较级数中的一个理论问题。
+
+首先应当指出，建立在广义积分基础上的 Cauchy 积分判别法是非常有用的。它不依赖于比较级数。例如在 (13.14) 中的级数的敛散性都可以用它得到解决，但是不能用前面的那些判别法来判定。
+
+\begin{xproposition}[13.2.1（Cauchy 积分判别法）]
+设 $f$ 在 $[1,+\infty)$ 上单调减少，则级数 $\sum_{n=1}^{\infty}f(n)$ 与无穷限广义积分 $\int_1^{+\infty}f(x)\,\dd x$ 同敛散。
+\end{xproposition}
+
+\begin{xremark}
+积分判别法只是面积原理的一个应用（见上册 371 页的题 10），证明从略。希望初学者要学习这种面积比较方法，它可以解决不少问题。
+\end{xremark}
+
+\begin{xproposition}[13.2.2（Cauchy 凝聚判别法）]
+设 $\{a_n\}$ 是单调减少的正数数列，则正项级数 $\sum_{n=1}^{\infty}a_n$ 收敛的充分必要条件是凝聚项级数
+\[
+\sum_{n=0}^{\infty}2^na_{2^n}=a_1+2a_2+4a_4+\cdots+2^na_{2^n}+\cdots
+\]
+收敛。
+\end{xproposition}
+\begin{xproof}
+由于该正项级数的通项单调减少，因此不等式
+\[
+2^{k-1}a_{2^k}\leq a_{2^{k-1}+1}+a_{2^{k-1}+2}+\cdots+a_{2^k}\leq2^{k-1}a_{2^{k-1}}
+\]
+对 $k\geq1$ 成立。注意不等式中间部分恰有 $2^{k-1}$ 项。取 $k$ 从 1 到 $n$ 并相加，即可得到
+\[
+\frac12\sum_{k=1}^{n}2^ka_{2^k}\leq a_2+a_3+\cdots+a_{2^n}\leq\sum_{k=0}^{n-1}2^ka_{2^k},
+\]
+可见原来的级数的部分和与凝聚项级数的部分和同时有界或无界。
+\end{xproof}
+
+\begin{xremark}
+这里也不需要比较级数，建议读者对 $\sum_{n=1}^{\infty}\frac1{n^p}$，$\sum_{n=2}^{\infty}\frac1{n\ln^p n}$ 和 (13.14) 中的级数用 Cauchy 凝聚判别法一试。
+\end{xremark}
+
+讨论一个数列 $\{a_n\}$ 是否收敛于 0 是数学分析中的基本问题之一，具有多方面的应用。无穷级数已经为此提供了一种方法，这就是研究级数 $\sum_{n=1}^{\infty}a_n$ 是否收敛。若级数收敛，则就得到 $\lim_{n\to\infty}a_n=0$。容易理解这个方法不会很有效，若级数发散就不能作出任何结论。但是对于单调数列，则有下面好得多的结果。
+
+\begin{xproposition}[13.2.3（Sapagof 判别法）]
+设正数数列 $\{a_n\}$ 单调减少，则 $\lim_{n\to\infty}a_n=0$ 的充分必要条件是正项级数
+\[
+\sum_{n=1}^{\infty}\left(1-\frac{a_{n+1}}{a_n}\right)
+\]
+发散。
+\end{xproposition}
+\begin{xproof}
+将题中的级数记为 $\sum_{n=1}^{\infty}b_n$，其中 $b_n=1-\frac{a_{n+1}}{a_n}$，$n=1,2,\ldots$。
+
+由于正数数列 $\{a_n\}$ 单调减少，因此有极限 $\lim_{n\to\infty}a_n=a$。若 $a>0$，则
+\[
+b_n\leq\frac{a_n-a_{n+1}}a.
+\]
+由于 $\sum_{n=1}^{\infty}(a_n-a_{n+1})=\lim_{n\to\infty}(a_1-a_n)=a_1-a$，可见 $\sum_{n=1}^{\infty}b_n$ 收敛。若 $a=0$，则有
+\[
+\sum_{k=n+1}^{n+p}b_k=\sum_{k=n+1}^{n+p}\frac{a_k-a_{k+1}}{a_k}\geq\sum_{k=n+1}^{n+p}\frac{a_k-a_{k+1}}{a_{n+1}}=1-\frac{a_{n+p+1}}{a_{n+1}}.
+\]
+对每个给定的 $n$，利用 $a_n\to0$ 的条件，总可以取到充分大的 $p$，使上式大于 $\frac12$。由级数的 Cauchy 收敛准则（见 (13.5)）可知级数 $\sum_{n=1}^{\infty}b_n$ 发散。
+\end{xproof}
+
+\begin{xremark}
+本命题有几种等价形式（见 [18] 第二卷的 375 小节之 6）：
+\begin{enumerate}[label=(\arabic*)]
+\item 设 $\{a_n\}$ 为单调增加的正数数列，则该数列与级数 $\sum_{n=1}^{\infty}\left(1-\frac{a_n}{a_{n+1}}\right)$ 同敛散（这种形式在各种教科书中出现最多）；
+\item 若正项级数 $\sum_{n=1}^{\infty}a_n$ 的部分和数列为 $\{S_n\}$，则 $\sum_{n=1}^{\infty}a_n$ 与 $\sum_{n=1}^{\infty}\frac{a_n}{S_n}$ 同敛散。
+\end{enumerate}
+\end{xremark}
+
+\begin{xremark}
+应当指出，在下一节的变号级数敛散性判别法中，往往需要证明某个单调数列收敛于 0。这时命题 13.2.3 就是一个有用的工具。这样就可能将变号级数的敛散性判别问题归结为某个正项级数的敛散性判别问题，而关于后者的方法要丰富得多。此外，还可以看出，如数列极限理论中的例题 2.3.3（上册 28 页）这类经典性结果都可以看成为命题 13.2.3 的特例。
+\end{xremark}
+
+\begin{xproposition}[13.2.4（Kummer 判别法）]
+\begin{enumerate}[label=(\arabic*)]
+\item 正项级数 $\sum_{n=1}^{\infty}a_n$ 收敛的充分必要条件是存在正数数列 $\{b_n\}$ 和正数 $\delta$，使得当 $n$ 充分大时有
+\begin{equation}
+b_n\frac{a_n}{a_{n+1}}-b_{n+1}\geq\delta>0;
+\tag{13.17}
+\end{equation}
+\item 正项级数 $\sum_{n=1}^{\infty}a_n$ 发散的充分必要条件是存在发散的正项级数 $\sum_{n=1}^{\infty}\frac1{b_n}$，使得当 $n$ 充分大时有
+\begin{equation}
+b_n\frac{a_n}{a_{n+1}}-b_{n+1}\leq0.
+\tag{13.18}
+\end{equation}
+\end{enumerate}
+\end{xproposition}
+\begin{xproof}
+(1) 先证充分性。不妨设条件 (13.17) 已对于 $n\geq1$ 成立。将它改写为 $0<\delta a_{n+1}\leq b_na_n-b_{n+1}a_{n+1}$，可见正数数列 $\{b_na_n\}$ 单调减少，因此有估计：
+\[
+\sum_{k=1}^{n}a_k\leq a_1+\frac1\delta\sum_{k=1}^{n-1}(b_ka_k-b_{k+1}a_{k+1})\leq a_1+\frac1\delta b_1a_1,
+\]
+从而知级数 $\sum_{n=1}^{\infty}a_n$ 收敛。
+
+再证必要性。在 $\sum_{n=1}^{\infty}a_n$ 收敛时记其余项为 $R_n$，$n\geq1$。令 $b_n=R_n/a_n$，则就有
+\[
+b_n\frac{a_n}{a_{n+1}}-b_{n+1}=\frac{R_n}{a_{n+1}}-\frac{R_{n+1}}{a_{n+1}}=\frac{R_n-R_{n+1}}{a_{n+1}}=1.
+\]
+因此取 $\delta=1$ 即可。
+
+(2) 这时的充分性就是比较判别法的比值形式（见 (13.13)）。再证必要性。设 $\sum_{n=1}^{\infty}a_n$ 发散，取 $b_n=S_n/a_n$，其中 $S_n$ 为级数的第 $n$ 个部分和。这时 (13.18) 满足：
+\[
+b_n\frac{a_n}{a_{n+1}}-b_{n+1}=\frac{S_n-S_{n+1}}{a_{n+1}}=-1<0.
+\]
+从 $1/b_n=a_n/S_n$ 和命题 13.2.3（注 1 之 (2)）可知 $\sum_{n=1}^{\infty}1/b_n$ 发散。
+\end{xproof}
+
+\begin{xremark}
+值得注意：Kummer 判别法中的 (1) 来自于正项级数收敛的充分必要条件是其部分和数列有上界，而与比较判别法没有直接联系。（参见《美国数学月刊》(1995) 第 102 卷 817--818 页中的历史观点。）
+\end{xremark}
+
+\begin{xremark}
+采取不同的 $\{b_n\}$，就可以从 Kummer 判别法得到上一小节的各种比值判别法（见 [18] 第二卷的 371 小节）。关于 Kummer 判别法的必要性结果取自《美国数学月刊》(1994) 第 101 卷 450--452 页。
+\end{xremark}
+
+在上一小节中已经提到，由于存在收敛（发散）速度不同的正项级数，因此用特定的比较级数得到的比较判别法的能力总是有限的。现在我们证明，对于比较判别法而言，不论是为了判定级数收敛，还是发散，都不可能存在万能的比较级数。
+
+\begin{xproposition}[13.2.5]
+\begin{enumerate}[label=(\arabic*)]
+\item （Du Bois-Reymond（杜布瓦-雷蒙）定理）对于一个给定的收敛正项级数 $\sum_{n=1}^{\infty}a_n$，一定存在一个收敛正项级数 $\sum_{n=1}^{\infty}b_n$，使得 $\lim_{n\to\infty}a_n/b_n=0$；
+\item （Abel 定理）对于一个给定的发散正项级数 $\sum_{n=1}^{\infty}a_n$，一定存在一个发散正项级数 $\sum_{n=1}^{\infty}b_n$，使得 $\lim_{n\to\infty}b_n/a_n=0$。
+\end{enumerate}
+\end{xproposition}
+\begin{xproof}
+(1) 由正项级数 $\sum_{n=1}^{\infty}a_n$ 收敛知，余项 $R_n$ 单调减少收敛于 0。令
+\[
+b_n=\sqrt{R_{n-1}}-\sqrt{R_n},
+\]
+其中记 $R_0=\sum_{n=1}^{\infty}a_n$。从
+\[
+\frac{a_n}{b_n}=\frac{R_{n-1}-R_n}{\sqrt{R_{n-1}}-\sqrt{R_n}}=\sqrt{R_{n-1}}+\sqrt{R_n}\to0
+\]
+和 $\sum_{k=1}^{n}b_k=\sqrt{R_0}-\sqrt{R_n}\leq\sqrt{R_0}$ 可见 $\sum_{n=1}^{\infty}b_n$ 为满足要求的收敛级数。\footnote{若 $\{R_n\}$ 从某项起为 0，则正项级数 $\sum a_n$ 为有限和，任何收敛正项级数都可以作为 $\sum b_n$，只要每个 $b_n>0$。}
+
+(2) 令 $b_n=a_n/S_n$，然后引用命题 13.2.3（注 1 之 (2)）即可。
+\end{xproof}
+
+\begin{xremark}
+利用上册 §2.4 的 Stolz 定理，可以如下解释本题的结果。对于 (1)，分别记 $\sum a_n$ 和 $\sum b_n$ 的余项为 $R_n$ 和 $R'_n$，$n=1,2,\ldots$，则它们都是单调减少的无穷小量。由条件 $b_n>0$ 还知 $\{R'_n\}$ 严格单调减少。利用命题 2.4.2（$0/0$ 型的 Stolz 定理），可见有
+\[
+\lim_{n\to\infty}\frac{R_n}{R'_n}=\lim_{n\to\infty}\frac{R_n-R_{n+1}}{R'_n-R'_{n+1}}=\lim_{n\to\infty}\frac{a_n}{b_n}=0,
+\]
+从而 $R_n=\littleo(R'_n)$，这就是收敛级数 $\sum a_n$ 的收敛速度比 $\sum b_n$ 的收敛速度慢的严格表述。
+
+对于 (2)，若分别记 $\sum a_n$ 和 $\sum b_n$ 的部分和为 $S_n$ 和 $S'_n$，$n=1,2,\ldots$，则它们都是单调增加的正无穷大量，而且 $\{S_n\}$ 还是严格单调增加的。用命题 2.4.3（$*/\infty$ 型的 Stolz 定理）就得到
+\[
+S'_n=\littleo(S_n),
+\]
+也就是 $S'_n\ll S_n$。这是作为正无穷大量的 $S'_n$ 的发散速度慢于 $S_n$ 的严格表述。
+\end{xremark}
+
+\subsection{例题}
+
+先介绍对 $p$ 级数的敛散性证明，它们与上册已有的方法不同。其中第一个证明在方法论上很有价值。
+
+\begin{xexample}[13.2.1]
+讨论 $p$ 级数的敛散性。
+\end{xexample}
+\begin{xsolution}
+\textbf{解 1}\quad 对于 $p\leq1$ 只需讨论 $p=1$，即调和级数。利用微分中值定理，有
+\[
+\ln\left(1+\frac1n\right)=\ln(n+1)-\ln n=\frac1{n+\theta}<\frac1n,
+\]
+其中 $0<\theta<1$，因此对调和级数的部分和有估计（参见上册 43 页）：
+\[
+\sum_{n=1}^{N}\frac1n>\ln2+(\ln3-\ln2)+\cdots+[\ln(N+1)-\ln N]=\ln(N+1),
+\]
+可见级数发散。对于 $p>1$ 同样有
+\[
+\frac1{n^{p-1}}-\frac1{(n+1)^{p-1}}=\frac{p-1}{(n+\theta)^p}>\frac{p-1}{(n+1)^p},
+\]
+其中 $0<\theta<1$，因此有估计
+\[
+\begin{aligned}
+\sum_{n=1}^{N}\frac1{n^p}
+&<1+\frac1{p-1}\left[\left(1-\frac1{2^{p-1}}\right)+\cdots+\left(\frac1{N^{p-1}}-\frac1{(N+1)^{p-1}}\right)\right]\\
+&=1+\frac1{p-1}\left(1-\frac1{(N+1)^{p-1}}\right)<1+\frac1{p-1}=\frac p{p-1},
+\end{aligned}
+\]
+可见级数收敛。
+
+\textbf{解 2}\quad 对于 $p\leq1$ 只需证明 $p=1$ 时调和级数发散，用反证法：若调和级数收敛，其和为 $S$，则
+\[
+\begin{aligned}
+S&=\left(1+\frac13+\cdots+\frac1{2n-1}+\cdots\right)+\left(\frac12+\frac14+\cdots+\frac1{2n}+\cdots\right)\\
+&=\left(1+\frac13+\cdots+\frac1{2n-1}+\cdots\right)+\frac12\left(1+\frac12+\cdots+\frac1n+\cdots\right)\\
+&=\left(1+\frac13+\cdots+\frac1{2n-1}+\cdots\right)+\frac S2,
+\end{aligned}
+\]
+因此得到
+\[
+1+\frac13+\cdots+\frac1{2n-1}+\cdots=\frac S2=\frac12+\frac14+\cdots+\frac1{2n}+\cdots.
+\]
+但从 $1>\frac12$，$\frac13>\frac14$，$\ldots$，$\frac1{2n-1}>\frac1{2n}$，$\ldots$ 可见这不可能成立。
+
+再讨论 $p>1$，这时级数的部分和数列 $\{S_n\}$ 满足条件 $S_{2N}<S_{2N+1}$ 以及
+\[
+\begin{aligned}
+S_{2N+1}&=1+\left(\frac1{2^p}+\frac1{4^p}+\cdots+\frac1{(2N)^p}\right)+\left(\frac1{3^p}+\frac1{5^p}+\cdots+\frac1{(2N+1)^p}\right)\\
+&<1+2\left(\frac1{2^p}+\frac1{4^p}+\cdots+\frac1{(2N)^p}\right)
+=1+2^{1-p}\left(1+\frac1{2^p}+\cdots+\frac1{N^p}\right)\\
+&<1+2^{1-p}S_{2N+1},
+\end{aligned}
+\]
+因此部分和数列 $\{S_n\}$ 以 $1/(1-2^{1-p})$ 为上界，可见级数收敛。
+\end{xsolution}
+
+\begin{xremark}
+证 2 见 \textit{Math. Magazine} (1979) 第 52 卷 178 页。
+\end{xremark}
+
+下面是利用 $p$ 级数为比较级数的几个例题。
+
+\begin{xexample}[13.2.2]
+讨论下列级数的敛散性：
+\[
+\text{(1) }\sum_{n=1}^{\infty}\frac1{3^{\ln n}};\qquad
+\text{(2) }\sum_{n=2}^{\infty}\frac1{(\ln n)^{\ln n}};\qquad
+\text{(3) }\sum_{n=3}^{\infty}\frac1{(\ln n)^{\ln\ln n}}.
+\]
+\end{xexample}
+\begin{xsolution}
+只要知道对于任何两个正数 $a,b>0$ 均成立
+\[
+a^{\ln b}=(\ee^{\ln a})^{\ln b}=\ee^{\ln a\ln b}=(\ee^{\ln b})^{\ln a}=b^{\ln a},
+\]
+就不难解决前两题。在题 (1) 中，利用 $3^{\ln n}=n^{\ln3}$ 和 $\ln3>1$，可见这个级数本身就是 $p>1$ 的 $p$ 级数，因此收敛。对于题 (2)，利用 $(\ln n)^{\ln n}=n^{\ln\ln n}$ 和当 $n$ 充分大时有 $n^{\ln\ln n}>n^2$，就可用 $\sum_{n=1}^{\infty}1/n^2$ 为比较级数而知其收敛。类似地在题 (3) 中有
+\[
+(\ln n)^{\ln\ln n}=\ee^{(\ln\ln n)^2}<\ee^{\ln n}=n,
+\]
+因此可从 $\sum_{n=1}^{\infty}1/n$ 的发散性知其发散。
+\end{xsolution}
+
+在下面的例子中用等价量判别法（当然也可用其他比较判别法）。
+
+\begin{xexample}[13.2.3]
+讨论下列级数的敛散性：
+\[
+\text{(1) }\sum_{n=1}^{\infty}\left[\frac{(2n-1)!!}{(2n)!!}\right]^k;\qquad
+\text{(2) }\sum_{n=1}^{\infty}n!\left(\frac an\right)^n\ (a>0);\qquad
+\text{(3) }\sum_{n=1}^{\infty}\left[\ee-\left(1+\frac1n\right)^n\right]^n.
+\]
+\end{xexample}
+\begin{xsolution}
+(1) 利用关于阶乘的 Wallis 公式知道有
+\[
+\frac{(2n)!!}{(2n-1)!!}\sim\sqrt{\pi n}
+\]
+（即公式 (11.29)），因此该级数的通项 $a_n$ 与级数 $\sum_{n=1}^{\infty}\frac1{(\pi n)^{k/2}}$ 的通项为等价无穷小量。从而知道级数当 $k\leq2$ 时发散，而当 $k>2$ 时收敛。
+
+(2) 根据 Stirling 公式 (11.32)，可见成立
+\[
+a_n=n!\left(\frac an\right)^n\sim\left(\frac a\ee\right)^n\sqrt{2\pi n}=b_n.
+\]
+若 $a\geq\ee$，则可看出数列 $\{b_n\}$ 不是无穷小量，因此级数 $\sum b_n$ 以及 $\sum a_n$ 均发散。否则，可以取 $r\in(a/\ee,1)$，并看出
+\[
+\lim_{n\to\infty}\frac{a_n}{r^n}=0,
+\]
+因此从几何级数 $\sum_{n=1}^{\infty}r^n$（$0<r<1$）收敛知 $\sum_{n=1}^{\infty}a_n$ 收敛。
+
+(3) 利用 Taylor 公式即可得到
+\[
+\ee-\left(1+\frac1n\right)^n=\frac{\ee}{2n}+\bigO\left(\frac1{n^2}\right)
+\]
+（见上册 230 页例题 8.1.4 之解 2），因此知级数收敛。
+% SOURCE-ERR: 原书此处作“因此知级数发散”，由上式可确定应为“收敛”。
+\end{xsolution}
+
+下面是应用 Sapagof 判别法（命题 13.2.3）的一个典型例题。
+
+\begin{xexample}[13.2.4]
+问：在什么条件下数列 $\{a_n\}$ 为无穷小量，其中
+\[
+a_n=\binom{\alpha}{n}=\frac{\alpha(\alpha-1)\cdots(\alpha-n+1)}{n!},\qquad n=1,2,\ldots.
+\]
+\end{xexample}
+\begin{xsolution}
+从定义可见，若参数 $\alpha$ 为非负整数，则数列至多只有前有限项不等于 0，因此是无穷小量。否则，只需讨论 $\{|a_n|\}$。从
+\[
+\frac{|a_{n+1}|}{|a_n|}=\frac{n-\alpha}{n+1}=1-\frac{\alpha+1}{n+1}
+\]
+可见当 $\alpha\leq-1$ 时有 $|a_{n+1}|\geq|a_n|$，因此数列不可能趋于 0。
+
+当 $\alpha>-1$ 时 $\{|a_n|\}$ 当 $n$ 充分大时单调减少。利用命题 13.2.3，从
+\[
+1-\frac{|a_{n+1}|}{|a_n|}=\frac{\alpha+1}{n+1}
+\]
+和级数 $\sum_{n=1}^{\infty}\frac{\alpha+1}{n+1}$ 发散可知 $\lim_{n\to\infty}a_n=0$。
+\end{xsolution}
+
+下面是在例题 13.2.1 中引进的微分中值定理方法的又一个应用。
+
+\begin{xexample}[13.2.5]
+设 $\sum_{n=1}^{\infty}a_n$ 为正项级数，$\{S_n\}$ 为其部分和数列，$p>1$，证明：无论 $\sum_{n=1}^{\infty}a_n$ 收敛与否，级数 $\sum_{n=1}^{\infty}\frac{a_n}{S_n^p}$ 总是收敛的。
+\end{xexample}
+\begin{xproof}
+这里的出发点是 $a_n/S_n^p=(S_n-S_{n-1})/S_n^p$。设 $0<a<b$，对函数 $x^{1-p}$ 在区间 $[a,b]$ 上用 Lagrange 微分中值定理，可知存在 $\xi\in(a,b)$，使成立
+\[
+\frac1{a^{p-1}}-\frac1{b^{p-1}}=\frac{p-1}{\xi^p}(b-a)>(p-1)\frac{b-a}{b^p}.
+\]
+用 $a=S_{n-1}$，$b=S_n$ 代入，得到不等式
+\[
+\frac{a_n}{S_n^p}=\frac{S_n-S_{n-1}}{S_n^p}<\frac1{p-1}\left(\frac1{S_{n-1}^{p-1}}-\frac1{S_n^{p-1}}\right).
+\]
+由此可以作出级数 $\sum_{n=1}^{\infty}\frac{a_n}{S_n^p}$ 的部分和数列的上界估计：
+\[
+\begin{aligned}
+\sum_{k=1}^{n}\frac{a_k}{S_k^p}
+&=\frac1{a_1^{p-1}}+\sum_{k=2}^{n}\frac{a_k}{S_k^p}\\
+&<\frac1{a_1^{p-1}}+\frac1{p-1}\sum_{k=2}^{n}\left(\frac1{S_{k-1}^{p-1}}-\frac1{S_k^{p-1}}\right)\\
+&<\frac1{a_1^{p-1}}+\frac1{p-1}\frac1{a_1^{p-1}}
+=\frac p{p-1}\frac1{a_1^{p-1}},
+\end{aligned}
+\]
+因此级数 $\sum_{n=1}^{\infty}\frac{a_n}{S_n^p}$ 收敛。
+\end{xproof}
+
+\begin{xremark}
+以上证明对于 $\sum a_n$ 收敛和发散情况都有效，但可以看出，若 $\sum a_n$ 收敛，记其和为 $S$，则 $a_n/S_n^p\sim a_n/S^p$，因此本题的结论是平凡的。
+\end{xremark}
+
+\begin{xexample}[13.2.6]
+若正项级数 $\sum_{n=1}^{\infty}\frac1{a_n}$ 收敛，证明：级数 $\sum_{n=1}^{\infty}\frac{n}{a_1+a_2+\cdots+a_n}$ 也收敛。
+\end{xexample}
+\begin{xproof}
+从条件可见正数数列 $\{a_n\}$ 为正无穷大量。以下分两步来做。
+
+(1) 若数列 $\{a_n\}$ 单调增加，则有
+\[
+a_1+a_2+\cdots+a_{2n-1}\geq a_n+a_{n+1}+\cdots+a_{2n-1}\geq na_n,
+\]
+因此有不等式：
+\[
+\frac{2n-1}{a_1+\cdots+a_{2n-1}}+\frac{2n}{a_1+\cdots+a_{2n}}
+\leq\frac{2n-1}{na_n}+\frac{2n}{na_n}<\frac4{a_n}.
+\]
+从而级数 $\sum_{n=1}^{\infty}\frac{n}{a_1+\cdots+a_n}$ 的部分和数列有上界，因此收敛。同时还得到
+\begin{equation}
+\sum_{n=1}^{\infty}\frac{n}{a_1+a_2+\cdots+a_n}\leq4\sum_{n=1}^{\infty}\frac1{a_n}.
+\tag{13.19}
+\end{equation}
+
+(2) 对于一般情况，将数列 $\{a_n\}$ 按照从小到大重排\footnote{为实现这样的重排需反复用一个初等结论：若数列为正无穷大量，则数列中必有最小数。简证如下：设 $a_n\to+\infty$，则有 $N$，当 $n>N$ 时 $a_n>a_1$。于是 $\min\{a_1,a_2,\ldots,a_N\}$ 就是 $\{a_n\}$ 的最小数。}，并将重排后的数列记为 $\{b_n\}$。根据收敛的正项级数在重排后仍收敛，因此级数 $\sum_{n=1}^{\infty}1/b_n$ 收敛。利用 (1) 知道级数 $\sum_{n=1}^{\infty}\frac{n}{b_1+\cdots+b_n}$ 收敛。同时容易看出对于每个 $n$ 成立不等式\footnote{由于 $b_1,b_2,\ldots,b_n$ 是数列 $\{a_n\}$ 中按照从小到大的顺序重新排列的前 $n$ 项，因此它们的和不会大于任何其他 $n$ 项之和，其中包括 $a_1+a_2+\cdots+a_n$。}
+\begin{equation}
+b_1+b_2+\cdots+b_n\leq a_1+a_2+\cdots+a_n.
+\tag{13.20}
+\end{equation}
+因此就有
+\[
+\frac{n}{a_1+a_2+\cdots+a_n}\leq\frac{n}{b_1+b_2+\cdots+b_n},
+\]
+于是从比较判别法就知道级数 $\sum_{n=1}^{\infty}\frac{n}{a_1+a_2+\cdots+a_n}$ 收敛。
+\end{xproof}
+
+\begin{xremark}
+从 Knopp（克诺普）的论文（\textit{Math. Zeitschr.} (1929) 第 30 卷 387--413 页）知道 (13.19) 右边的常数 4 可以降低，其最优值为 2。
+\end{xremark}
+
+可以看出上题中第二个级数的第 $n$ 项是第一个级数的前 $n$ 项的调和平均值。根据几何平均值--调和平均值不等式（见上册第 8 页 1.3.2 小节题 3），可见该题是以下著名不等式的一个推论。
+
+\begin{xexample}[13.2.7（Carleman 不等式）]
+设 $\sum_{n=1}^{\infty}a_n$ 为收敛的正项级数，则成立
+\[
+\sum_{n=1}^{\infty}\sqrt[n]{a_1a_2\cdots a_n}<\ee\sum_{n=1}^{\infty}a_n,
+\]
+其中右边的系数 $\ee$ 不能再改进。
+\end{xexample}
+\begin{xproof}
+对部分和估计如下（其中利用的不等式 $((n+1)/\ee)^n<n!$ 见上册 46 页题 7）：
+\[
+\begin{aligned}
+\sum_{n=1}^{N}\sqrt[n]{a_1a_2\cdots a_n}
+&=\sum_{n=1}^{N}\frac{\sqrt[n]{(a_1)(2a_2)\cdots(na_n)}}{\sqrt[n]{n!}}\\
+&\leq\sum_{n=1}^{N}\frac{a_1+2a_2+\cdots+na_n}{n\sqrt[n]{n!}}\\
+&\leq\ee\sum_{n=1}^{N}\frac{a_1+2a_2+\cdots+na_n}{n(n+1)}\\
+&=\ee\sum_{n=1}^{N}\frac1{n(n+1)}\sum_{k=1}^{n}ka_k\\
+&=\ee\sum_{k=1}^{N}ka_k\sum_{n=k}^{N}\frac1{n(n+1)}
+=\ee\sum_{k=1}^{N}ka_k\left(\frac1k-\frac1{N+1}\right)\\
+&\leq\ee\sum_{k=1}^{N}a_k.
+\end{aligned}
+\]
+然后令 $N\to\infty$ 即可得到 Carleman 不等式。最后，对于每个 $N$ 构造一个数列：$a_n=1/n$，$n=1,2,\ldots,N$，而 $a_n=0$，$\forall n>N$，然后作出由 $\{a_n\}$ 得到的两个级数和之比，令 $N\to\infty$，且用 Stolz 定理和上册例题 2.5.3 的结果，就有
+\[
+\lim_{N\to\infty}\frac{\sum_{n=1}^{N}\sqrt[n]{a_1a_2\cdots a_n}}{\sum_{n=1}^{N}a_n}
+=\lim_{N\to\infty}\frac{N}{\sqrt[N]{N!}}=\ee.
+\]
+这表明不等式右边的系数 $\ee$ 不能再改进。
+\end{xproof}
+
+\begin{xremark}
+在《数学译林》(2004) 第 4 期中的一文给出了 Carleman 不等式的 5 个证明。在上述证明中的二重求和的顺序交换也可以利用裂项法改写为
+\[
+\frac1{n(n+1)}\sum_{k=1}^{n}ka_k=\frac1n\sum_{k=1}^{n}ka_k-\frac1{n+1}\sum_{k=1}^{n+1}ka_k+a_{n+1},
+\]
+并对于 $n=1,2,\ldots,N$ 相加，就得到同样的结果：
+\[
+\sum_{n=1}^{N}\frac1{n(n+1)}\sum_{k=1}^{n}ka_k\leq a_1+a_2+\cdots+a_N.
+\]
+\end{xremark}
+
+\begin{xremark}
+与此有关的还有 Hardy（哈代）不等式，其中当 $p>1$ 时为
+\[
+\sum_{n=1}^{\infty}\left(\frac1n\sum_{k=1}^{n}a_k^{1/p}\right)^p\leq\left(\frac p{p-1}\right)^p\sum_{n=1}^{\infty}a_n.
+\]
+令 $p\to+\infty$ 就导出 Carleman 不等式。
+\end{xremark}
+
+\subsection{练习题}
+
+\begin{xexercise}
+\begin{enumerate}[label=\arabic*.]
+\item 设正项级数 $\sum_{n=1}^{\infty}a_n$ 和 $\sum_{n=1}^{\infty}b_n$ 的通项为等价量：$a_n\sim b_n$，又记两个级数的部分和为 $S_n$ 和 $S'_n$，余项为 $R_n$ 和 $R'_n$，$n=1,2,\ldots$，证明：
+\begin{enumerate}[label=(\arabic*)]
+\item 若两个级数均收敛，则 $R_n\sim R'_n$；
+\item 若两个级数均发散，则 $S_n\sim S'_n$。
+\end{enumerate}
+\item 设 $\sum a_n$ 为正项级数，证明：任意改变其中各项的顺序和加括号后得到的级数与原来的级数具有相同的敛散性，且在收敛时级数的和不变。（这表明，如果无限项求和时每项为非负数，或至多只有有限项为负数，则有限项求和时的结合律和交换律对于无限项求和都依然成立。）
+\item 讨论下列各级数的敛散性：
+\[
+\begin{array}{ll}
+(1)\ \displaystyle\sum_{n=1}^{\infty}\frac1{3^{\sqrt n}};&
+(2)\ \displaystyle\sum_{n=1}^{\infty}\frac1{n^{1+1/n}};\\[6pt]
+(3)\ \displaystyle\sum_{n=1}^{\infty}\left[\frac1n-\ln\left(1+\frac1n\right)\right];&
+(4)\ \displaystyle\sum_{n=1}^{\infty}\frac{n^{n-1}}{(2n^2+n+1)^{(n-1)/2}};\\[6pt]
+(5)\ \displaystyle\sum_{n=2}^{\infty}\frac{n^{\ln n}}{(\ln n)^n};&
+(6)\ \displaystyle\sum_{n=1}^{\infty}\frac{\ee^{-(1+1/2+\cdots+1/n)}}{n^p};\\[6pt]
+(7)\ \displaystyle\sum_{n=1}^{\infty}\left(a^{1/n}-\frac{b^{1/n}+c^{1/n}}2\right)\quad(a,b,c>0);&
+(8)\ \displaystyle\sum_{n=1}^{\infty}\left(1-\frac{\ln n}{n}\right)^n.
+\end{array}
+\]
+\item 从例题 13.2.6 和 13.2.7 知道，若从收敛正项级数 $\sum_{n=1}^{\infty}a_n$ 作出 $\{u_n\}$，其中 $u_n$ 为 $a_1,a_2,\ldots,a_n$ 的调和平均值或几何平均值，则 $\sum_{n=1}^{\infty}u_n$ 收敛。但是若 $u_n$ 为算术平均值，则情况大不一样。证明：若正项级数 $\sum_{n=1}^{\infty}a_n$ 收敛，则除了一种特殊情况之外，级数 $\sum_{n=1}^{\infty}\frac{a_1+a_2+\cdots+a_n}{n}$ 必定发散。
+\item 试用 Sapagof 判别法（即命题 13.2.3）或其他方法证明下列数列收敛于 0：
+\[
+(1)\ \left\{\frac{(2n)!}{4^n(n!)^2}\right\};\qquad
+(2)\ \left\{\frac{n^n}{\ee^n n!}\right\};\qquad
+(3)\ \left\{\frac{n!}{(x+1)(x+2)\cdots(x+n)}\right\}\ (x>0).
+\]
+\item 举出一个收敛的正项级数 $\sum a_n$ 的例子，使它满足条件 $\limsup_{n\to\infty}na_n=1$。
+\item 已知正项级数 $\sum a_n$ 收敛，$p>1$，证明：级数 $\sum a_n^p$ 一定收敛。又若去掉 $\sum a_n$ 为正项级数的条件，结论是否还成立？
+\item 设数列 $\{a_n\}$ 单调减少收敛于 0，且 $b_n=a_n-2a_{n+1}+a_{n+2}>0$，$n=1,2,\ldots$；证明：级数 $\sum_{n=1}^{\infty}nb_n$ 收敛，且其和为 $a_1$。
+\item 设对于每个正整数 $n$ 都有 $0<a_n<a_{2n}+a_{2n+1}$，证明：级数 $\sum_{n=1}^{\infty}a_n$ 发散。
+\item 设 $x>0$，证明：级数
+\[
+\sum_{n=1}^{\infty}\frac{x^n}{(1+x)(1+x^2)\cdots(1+x^n)}
+\]
+收敛。
+\item 设 $x>0$，讨论级数
+\[
+\sum_{n=1}^{\infty}(2-x)(2-x^{1/2})(2-x^{1/3})\cdots(2-x^{1/n})
+\]
+的敛散性。
+\item 设 $\sum_{n=1}^{\infty}a_n$ 为正项级数，证明：
+\begin{enumerate}[label=(\arabic*)]
+\item 若在 Raabe 判别法中的极限 $\lim_{n\to\infty}n\left(\frac{a_n}{a_{n+1}}-1\right)$ 存在，则在对数判别法 (13.15) 中的极限 $\lim_{n\to\infty}\frac{\ln(1/a_n)}{\ln n}$ 也存在，且极限值相同；
+\item 若在 Bertrand 判别法中的极限 $\lim_{n\to\infty}\ln n\left[n\left(\frac{a_n}{a_{n+1}}-1\right)-1\right]$ 存在，则在对数判别法 (13.16) 中的极限 $\lim_{n\to\infty}\frac{\ln[1/(na_n)]}{\ln\ln n}$ 也存在，且极限值相同。
+\end{enumerate}
+\item 设 $\sum_{n=1}^{\infty}a_n$ 为正项级数，$k$ 为一正整数，如果 $\lim_{n\to\infty}\frac{a_{n+k}}{a_n}=l$，证明：$l<1$ 时，$\sum a_n$ 收敛；$l>1$ 时，$\sum a_n$ 发散。（本题如取 $k=1$，就是 d'Alembert 判别法。因此本题可看作为 d'Alembert 判别法的一个推广。）
+\item （Dini（迪尼））设正项级数 $\sum_{n=1}^{\infty}a_n$ 收敛，其余项为 $R_n=\sum_{k=n+1}^{\infty}a_k$，$n=0,1,\ldots$。证明：$\sum_{n=1}^{\infty}\frac{a_n}{R_{n-1}}$ 发散，但对任意 $p>0$，$\sum_{n=1}^{\infty}\frac{a_n}{R_{n-1}^{1-p}}$ 收敛。
+\item 设 $0<a_1<\frac\pi2$，然后用迭代公式 $a_n=\sin a_{n-1}$ 生成数列 $\{a_n\}$，讨论级数 $\sum_{n=1}^{\infty}a_n^p$ 的敛散性（参考上册 233 页的例题 8.1.10）。
+\end{enumerate}
+\end{xexercise}
+
+\section{一般项级数}
+
+本节研究一般项级数，即在 $\sum_{n=1}^{\infty}a_n$ 中既有无限多个正项，又有无限多个负项的情况，称这样的级数为变号级数。对于其他情况则可归到正项级数的范畴去解决。
+
+这里需要强调指出绝对收敛级数与条件收敛级数的区别。从敛散性来看，前者的收敛性可以用正项级数的各种判别法来判定，而后者则需要全新的判别法。从级数的一系列性质来看，两者均有极大的不同。粗略地说，前者与有限和相似，而后者则完全不同。
+
+\subsection{一般项级数的敛散性判别法}
+
+称收敛级数 $\sum a_n$ 为绝对收敛级数，若 $\sum|a_n|$ 也收敛；否则就称为条件收敛级数。用 Cauchy 收敛准则就可以得到这里的基本结论：
+
+\begin{xproposition}[13.3.1]
+若级数 $\sum_{n=1}^{\infty}|a_n|$ 收敛，则 $\sum_{n=1}^{\infty}a_n$ 必定收敛。
+\end{xproposition}
+
+由此可知，在研究变号级数 $\sum a_n$ 的敛散性时，可以先分析对应的正项级数 $\sum|a_n|$ 的敛散性。对后者来说可以用正项级数的各种判别法。若 $\sum|a_n|$ 收敛，则原来的级数 $\sum a_n$ 的收敛性就已经解决。若 $\sum|a_n|$ 发散，则 $\sum a_n$ 的敛散性有两种可能：条件收敛或发散。这时上一节中以比较判别法为基础的各种判别法都不能奏效。其中的例外是导出发散结论的 Cauchy 根值判别法和 d'Alembert 判别法。这就是说，在对 $\sum|a_n|$ 用这两种判别法时，若有
+\[
+\lim_{n\to\infty}\sqrt[n]{|a_n|}>1\quad\text{或}\quad
+\lim_{n\to\infty}\frac{|a_{n+1}|}{|a_n|}>1,
+\]
+则可以肯定原来的级数 $\sum_{n=1}^{\infty}a_n$ 发散，其原因在于这两种判别法背后的比较级数是（正项）几何级数，它在公比大于 1 时的级数通项不收敛于 0，而 $\lim_{n\to\infty}|a_n|=0$ 与 $\lim_{n\to\infty}a_n=0$ 是等价的，因此它们的反面也等价。
+
+变号级数中最基本的例子就是在上册 54 页例题 2.7.3 中的无穷级数：
+\[
+\sum_{n=1}^{\infty}\frac{(-1)^{n-1}}n=1-\frac12+\frac13-\cdots+\frac{(-1)^{n-1}}n+\cdots=\ln2.
+\]
+其求和计算见上册的例题 2.5.4 和例题 11.4.1（注意上册 55 页的 Catalan 恒等式）。
+
+在一般项级数的敛散性判别法中除了 Cauchy 收敛准则仍然有效之外，常用的其他判别法有：
+
+\textbf{1. Leibniz 判别法}\quad 若数列 $\{a_n\}$ 单调收敛于 0，则 $\sum_{n=1}^{\infty}(-1)^{n-1}a_n$ 收敛。
+
+\begin{xremark}
+满足 Leibniz 判别法中条件的级数称为 Leibniz 型级数，它的各项符号交替取正号和负号。我们将这样的级数称为交错级数。Leibniz 型级数就是通项单调收敛于 0 的交错级数。初学者可能以为在变号级数中交错级数不会很多，其实不然。
+\end{xremark}
+
+虽说一个级数加括号后收敛不能推出原来的级数也收敛，然而利用级数收敛的定义或 Cauchy 收敛准则就可以得到下面的结果：
+
+\begin{xproposition}[13.3.2]
+若对级数 $\sum a_n$ 加括号后得到的级数收敛，且在每个括号内各项的符号相同，则级数 $\sum a_n$ 也收敛。
+\end{xproposition}
+
+由此可知，对于任何变号级数都可以采用加括号的方法使它成为一个交错级数，而且两个级数的敛散性等价。
+
+但是 Leibniz 判别法只是一种保证收敛性的充分条件，而下面两个判别法都是级数收敛的充分必要条件。又容易知道 Leibniz 判别法只是 Dirichlet 判别法的一个特例。
+
+\textbf{2. Dirichlet 判别法}\quad 若 $\sum_{n=1}^{\infty}a_n$ 的部分和数列有界，数列 $\{b_n\}$ 单调收敛于 0，则 $\sum_{n=1}^{\infty}a_nb_n$ 收敛。
+
+\textbf{3. Abel 判别法}\quad 若 $\sum_{n=1}^{\infty}a_n$ 收敛，数列 $\{b_n\}$ 单调有界，则 $\sum_{n=1}^{\infty}a_nb_n$ 收敛。
+
+\begin{xremark}
+Dirichlet 判别法和 Abel 判别法的基础是 Abel 变换（参见 [58] 的第一章）。这个变换在一系列问题中有用，也是积分第二中值定理（命题 10.2.2）的基础。其基本形式很简单。设有两个有限数列 $\{a_k\}_{1\leq k\leq n}$ 和 $\{b_k\}_{1\leq k\leq n}$，令 $A_k=a_1+a_2+\cdots+a_k$，$k=1,2,\ldots,n$，则
+\begin{equation}
+\begin{aligned}
+a_1b_1+a_2b_2+\cdots+a_nb_n
+&=A_1b_1+(A_2-A_1)b_2+\cdots+(A_n-A_{n-1})b_n\\
+&=A_1(b_1-b_2)+A_2(b_2-b_3)+\cdots+A_{n-1}(b_{n-1}-b_n)+A_nb_n.
+\end{aligned}
+\tag{13.21}
+\end{equation}
+由此可导出各种有用的估计式。设 $|A_k|\leq M$（$k=1,2,\ldots,n$）。当 $\{b_k\}_{1\leq k\leq n}$ 为非负单调减少时，从 (13.21) 得到
+\begin{equation}
+|a_1b_1+a_2b_2+\cdots+a_nb_n|\leq Mb_1;
+\tag{13.22}
+\end{equation}
+又若只假定 $\{b_k\}$ 单调，则可得到
+\begin{equation}
+|a_1b_1+a_2b_2+\cdots+a_nb_n|\leq M(|b_1|+2|b_n|).
+\tag{13.23}
+\end{equation}
+\end{xremark}
+
+\begin{xremark}
+与广义积分中的命题 12.2.1 和 12.2.2（上册 380--381 页）类似地可以证明，Dirichlet 判别法和 Abel 判别法中的条件也是级数 $\sum_{n=1}^{\infty}a_nb_n$ 收敛的必要条件。这方面的结论见《数学通报》(1983) 第 7 卷 29--32 页和 (1984) 第 9 卷 22--23 页。
+\end{xremark}
+
+\subsection{一般项级数的基本性质}
+
+区分绝对收敛级数和条件收敛级数的意义不仅是它们的判别方法不同，更重要的是它们在一系列性质上完全不一样的。
+
+作为无限项求和来说，绝对收敛级数与正项收敛级数都满足结合律和交换律，而且其和不变（参见 13.2.5 小节的练习题 2）。
+
+但对条件收敛级数来说，情况大不相同。为了指出这两类收敛级数的根本差异何在，需要引进由级数 $\sum_{n=1}^{\infty}a_n$ 导出的两个正项级数 $\sum_{n=1}^{\infty}a_n^+$ 和 $\sum_{n=1}^{\infty}a_n^-$：
+\[
+a_n^+=\frac{|a_n|+a_n}{2}=\begin{cases}a_n,&a_n>0,\\0,&a_n\leq0,\end{cases}
+\qquad
+a_n^-=\frac{|a_n|-a_n}{2}=\begin{cases}-a_n,&a_n<0,\\0,&a_n\geq0.\end{cases}
+\]
+
+\begin{xproposition}[13.3.3]
+\begin{enumerate}[label=(\arabic*)]
+\item $\sum_{n=1}^{\infty}a_n$ 绝对收敛的充分必要条件是由它导出的两个正项级数 $\sum_{n=1}^{\infty}a_n^+$ 和 $\sum_{n=1}^{\infty}a_n^-$ 同时收敛；
+\item 若 $\sum_{n=1}^{\infty}a_n$ 收敛，则该级数条件收敛的充分必要条件是这两个正项级数同时发散。
+\end{enumerate}
+\end{xproposition}
+
+\begin{xremark}
+这就是说，条件收敛级数中的正项之和为 $+\infty$，而负项之和为 $-\infty$，因此当 $n\to\infty$ 时其部分和数列 $\{S_n\}$ 必为 $\infty-\infty$ 型的不定式（见上册 102 页的注）。由此可知条件收敛级数是依赖于正项和负项在求和过程（即部分和数列当 $n\to\infty$ 的极限过程）中相互抵消而收敛的。
+\end{xremark}
+
+由此出发，就不难证明下列著名定理。初看起来其结果似乎很惊人，但其本质则不难理解。
+
+\begin{xproposition}[13.3.4（Riemann 重排定理）]
+设级数 $\sum_{n=1}^{\infty}a_n$ 为条件收敛，则对于满足 $-\infty\leq A\leq B\leq+\infty$ 的任意一对 $A,B$，可以改变级数 $\sum_{n=1}^{\infty}a_n$ 中的项的顺序，使得重排后的级数的部分和数列 $\{S'_n\}$ 满足要求：
+\[
+\liminf_{n\to\infty}S'_n=A,\qquad \limsup_{n\to\infty}S'_n=B.
+\]
+特别是当 $A=B$ 时，重排级数的和可以是任何有限数或带确定符号的无穷大。\footnote{由于此时 $a_n\to0$，从上册 96 页最后一题知，若 $A\neq B$，则部分和数列 $\{S'_n\}$ 的极限点集为闭区间 $[A,B]$。这个结果对于 $A,B$ 为非有限数的情况也成立。}
+\end{xproposition}
+
+绝对收敛级数和条件收敛级数的另一个差异表现在级数的乘积问题中。级数 $\sum_{n=1}^{\infty}a_n$ 和 $\sum_{n=1}^{\infty}b_n$ 的乘积是有限和与有限和的推广。如果将上述两个无穷级数换为有限和，则它们的乘积就等于所有形如 $a_ib_j$ 的项之和。对于无穷级数的乘积，这类项有无限多个，因此首先就是按什么顺序相加，其次作为无限项求和当然还有敛散性问题。
+
+为简明起见，本书只考虑无穷级数的 Cauchy 乘积，又称对角线乘积。这就是定义级数 $\sum_{n=1}^{\infty}a_n$ 和 $\sum_{n=1}^{\infty}b_n$ 的乘积为无穷级数
+\[
+\sum_{n=1}^{\infty}c_n,\qquad c_n=\sum_{i+j=n+1}a_ib_j=a_1b_n+a_2b_{n-1}+\cdots+a_nb_1.
+\]
+这里的基本结果如下：
+
+\begin{xproposition}[13.3.5]
+设 $\sum_{n=1}^{\infty}a_n$ 和 $\sum_{n=1}^{\infty}b_n$ 均绝对收敛，它们的和分别为 $A$ 和 $B$，则它们的 Cauchy 乘积 $\sum_{n=1}^{\infty}c_n$ 也绝对收敛，且其和为 $A\cdot B$。
+\end{xproposition}
+
+上述结果还可以改进为：
+
+\begin{xproposition}[13.3.6（Mertens（默滕斯）定理）]
+设 $\sum_{n=1}^{\infty}a_n=A$ 和 $\sum_{n=1}^{\infty}b_n=B$，且其中至少有一个级数绝对收敛，则就有 $\sum_{n=1}^{\infty}c_n=A\cdot B$。
+\end{xproposition}
+
+以上两个基本结果的证明见 [18] 等教科书。此外，还有一个补充结果，它的证明用幂级数理论很容易得到（留作为第十四章第一组参考题 7）：
+
+\begin{xproposition}[13.3.7]
+设 $\sum_{n=1}^{\infty}a_n$，$\sum_{n=1}^{\infty}b_n$ 和它们的 Cauchy 乘积 $\sum_{n=1}^{\infty}c_n$ 都收敛，且分别以 $A,B,C$ 为和，则 $C=A\cdot B$。
+\end{xproposition}
+
+\subsection{例题}
+
+注意：在一般项级数的敛散性讨论中，若级数收敛，则还需进一步讨论它是绝对收敛还是条件收敛。
+
+下面的第一个例题的目的是强调：对于变号级数来说，将通项换为等价无穷小量的方法是没有根据的。这表明（在正项级数中非常有用的）等价量判别法在变号级数中不能成立（参见比较判别法的极限形式 (13.12) 和例题 13.2.3）。
+
+\begin{xexample}[13.3.1]
+问：级数 $\sum_{n=1}^{\infty}\frac{(-1)^n}{\sqrt n}$ 和 $\sum_{n=2}^{\infty}\frac{(-1)^n}{\sqrt{n+(-1)^n}}$ 是否同敛散？
+\end{xexample}
+\begin{xsolution}
+第一个级数是典型的 Leibniz 型级数，因此收敛。但第二个级数是发散的。虽然它是交错级数，同时它的通项与第一个级数的通项是等价无穷小量，但并不满足通项绝对值单调的条件，因此不能用 Leibniz 判别法。
+
+证明第二个级数发散的方法很多。例如研究由两个级数通项之差构成的第三个级数：$\sum_{n=2}^{\infty}c_n$，其中
+\[
+c_n=\frac{(-1)^n}{\sqrt n}-\frac{(-1)^n}{\sqrt{n+(-1)^n}}
+=\frac1{\sqrt n[\sqrt n+(-1)^n]}\sim\frac1n,
+\]
+可见这个级数是发散的正项级数，因此第二个级数一定发散。
+\end{xsolution}
+
+\begin{xremark}
+试用其他方法证明题中第二个级数发散，例如从第一项开始对相邻两项加括号，证明所得的级数发散，从而可推出原来的级数一定发散。
+\end{xremark}
+
+\begin{xremark}
+在变号级数中不能随意将通项用等价无穷小量来替换的根本原因也是由条件收敛所引起的。初学者需要在这里回顾命题 13.3.3 及其注。从本质上说，这里的问题与上册 4.4.3 小节对等价量代换法的错误分析中提到的问题是一样的。
+\end{xremark}
+
+\begin{xremark}
+这里要注意，对于变号级数，分析通项的等价量还是经常有用的。若级数绝对收敛，当然就可以用等价量判别法；对于条件收敛情况，能够知道通项的渐近性态也可能是有用的。下面就是一个例子。
+\end{xremark}
+
+\begin{xexample}[13.3.2]
+分析数列 $\left\{\binom{\alpha}{n}\right\}$ 的渐近性态，并用于讨论级数 $\sum_{n=1}^{\infty}\binom{\alpha}{n}$ 的敛散性，其中 $\alpha$ 不是非负整数，
+\[
+\binom{\alpha}{n}=\frac{\alpha(\alpha-1)\cdots(\alpha-n+1)}{n!},\qquad n=1,2,\ldots.
+\]
+\end{xexample}
+\begin{xsolution}
+（从例题 13.2.4 已知当 $\alpha>-1$ 时该数列为无穷小量。）对于给定的 $\alpha$，取正整数 $m>|\alpha+1|$，则对于 $n>m$ 可分析如下，其中出现的 $C_1$ 等均为常数：
+\begin{equation}
+\begin{aligned}
+\left|\binom{\alpha}{n}\right|
+&=C_1\frac{[m-(\alpha+1)][m+1-(\alpha+1)]\cdots[n-(\alpha+1)]}{m(m+1)\cdots n}\\
+&=C_1\prod_{k=m}^{n}\left(1-\frac{\alpha+1}{k}\right)
+=\exp\left[C_2+\sum_{k=m}^{n}\ln\left(1-\frac{\alpha+1}{k}\right)\right]\\
+&=\exp\left[C_2-(\alpha+1)\sum_{k=m}^{n}\frac1k+\sum_{k=m}^{n}\bigO\left(\frac1{k^2}\right)\right]\\
+&=\exp[C_3-(\alpha+1)\ln n+\littleo(1)]
+\sim\frac C{n^{\alpha+1}}.
+\end{aligned}
+\tag{13.24}
+\end{equation}
+其中利用了关于调和级数前 $n$ 项的渐近性态（上册 43 页）和级数 $\sum_{n=1}^{\infty}1/n^2$ 收敛的知识。最后出现的正常数 $C$ 将在后面用其他方法确定（见 (13.41)）。\footnote{当 $k\geq m$ 时，$\frac{|\alpha+1|}{k}\leq\frac{|\alpha+1|}{m}$。利用 $\ln(1-t)+t\sim-t^2/2$（$t\to0$），可见前面推导中的 $\bigO(1/k^2)$ 对于 $1/k^2$ 之比是一个与 $k$ 无关的有界量。}
+
+将此结果用于级数，就可知 $\alpha>0$ 是级数绝对收敛的充分必要条件，而当 $\alpha\leq-1$ 时级数通项不趋于 0，因此级数发散。当 $-1<\alpha<0$ 时级数不绝对收敛，从例题 13.2.4 可见级数为 Leibniz 型的交错级数，因此为条件收敛。
+\end{xsolution}
+
+\begin{xremark}
+渐近性态 (13.24) 见 [36] 等。这里的证明是沐定夷提供的。对于本题的传统方法是用 Raabe 判别法、Leibniz 判别法和例题 13.2.4 的结论。
+\end{xremark}
+
+\begin{xexample}[13.3.3]
+设数列 $\{a_n\}$ 单调减少趋于零，且级数 $\sum_{n=1}^{\infty}a_n$ 发散，证明：级数 $\sum_{n=1}^{\infty}a_n\sin nx$ 当 $x\neq k\pi$，$k=0,\pm1,\pm2,\ldots$ 时条件收敛。
+\end{xexample}
+\begin{xproof}
+由 Dirichlet 判别法，只需要证明级数 $\sum_{n=1}^{\infty}\sin nx$ 的部分和数列有界。事实上，对任意正整数 $n$，利用三角恒等式
+\[
+2\sin\frac x2(\sin x+\sin2x+\cdots+\sin nx)=\cos\frac x2-\cos\frac{(2n+1)x}{2},
+\]
+就可得到估计
+\[
+|\sin x+\sin2x+\cdots+\sin nx|\leq\frac1{|\sin(x/2)|}.
+\]
+这就证明了 $\sum_{n=1}^{\infty}\sin nx$ 的部分和数列有界，所以级数 $\sum_{n=1}^{\infty}a_n\sin nx$ 收敛。
+
+另一方面，利用 $|a_n\sin nx|\geq a_n\sin^2nx=\frac12(a_n-a_n\cos2nx)$，仿上可以证明级数 $\sum_{n=1}^{\infty}a_n\cos2nx$ 收敛，因而由题设级数 $\sum_{n=1}^{\infty}a_n$ 发散知级数 $\sum_{n=1}^{\infty}\frac12(a_n-a_n\cos2nx)$ 发散，因此由比较判别法知级数 $\sum_{n=1}^{\infty}|a_n\sin nx|$ 发散，这就证明了原来的级数 $\sum_{n=1}^{\infty}a_n\sin nx$ 条件收敛。
+\end{xproof}
+
+\begin{xremark}
+后半题和广义积分的例题 12.2.3 中当 $p=1$ 时（见上册 384 页）相同。
+\end{xremark}
+
+\begin{xexample}[13.3.4]
+证明：级数 $\sum_{n=1}^{\infty}\frac{(-1)^{\lfloor\sqrt n\rfloor}}n$ 收敛。
+\end{xexample}
+\begin{xsolution}
+将级数中相邻的同号项合并，从而组成一个交错级数 $\sum_{n=1}^{\infty}(-1)^na_n$，其中
+\[
+\begin{aligned}
+a_n&=\frac1{n^2}+\frac1{n^2+1}+\cdots+\frac1{(n+1)^2-1}\\
+&=\frac1{n^2}\sum_{k=0}^{2n}\frac1{1+k/n^2}
+=\frac1{n^2}\sum_{k=0}^{2n}\left[1-\frac{k}{n^2}+\bigO\left(\frac{k^2}{n^4}\right)\right]\\
+&=\frac1{n^2}\left[(2n+1)-\frac{2n+1}{n}+\bigO\left(\frac1n\right)\right]
+=\frac2n-\frac1{n^2}+\bigO\left(\frac1{n^3}\right).
+\end{aligned}
+\]
+由此即可知 $\{a_n\}$ 为无穷小量，且至少当 $n$ 充分大时单调减少：
+\[
+a_n-a_{n+1}=\frac2{n^2}+\bigO\left(\frac1{n^3}\right)>0.
+\]
+这表明原级数加括号后得到的级数收敛。由于括号中的项符号相同，所以可推知原级数收敛（见命题 13.3.2）。
+\end{xsolution}
+
+\begin{xremark}
+以上证明是沐定夷提供的。一般教科书中的方法是将 $a_n$ 的和式中的 $2n+1$ 项分析为前 $n$ 项和后 $n+1$ 项两部分，估计得到 $a_n<2/n$，又用类似的分析方法估计得到 $a_n>2/(n+1)$，因此 $a_n>a_{n+1}$。
+\end{xremark}
+
+下一个例题是对于一个具体的变号级数 $\sum_{n=1}^{\infty}\frac{(-1)^{n-1}}n=\ln2$ 来验证 Riemann 重排定理（即命题 13.3.4）中的部分结论。
+
+\begin{xexample}[13.3.5]
+设 $\sum_{n=1}^{\infty}a_n$ 是 $\sum_{n=1}^{\infty}\frac{(-1)^{n-1}}n$ 的一个重排，其中 $\{a_n\}$ 中正项之间的顺序以及负项之间的顺序与重排之前相同，又设在 $\sum_{n=1}^{\infty}a_n$ 的前 $n$ 项中有 $p_n$ 个正项，且存在极限 $\lim_{n\to\infty}p_n/n=p$，证明：
+\[
+\sum_{n=1}^{\infty}a_n=\ln2+\frac12\ln\left(\frac p{1-p}\right)
+\]
+（当 $p=0,1$ 时将右边的表达式理解为它在 $(0,1)$ 两端的广义极限 $-\infty$ 和 $+\infty$）。
+\end{xexample}
+\begin{xproof}
+直接计算 $\sum_{n=1}^{\infty}a_n$ 的部分和数列如下：
+\[
+\begin{aligned}
+S_n&=\left(1+\frac13+\cdots+\frac1{2p_n-1}\right)-\left(\frac12+\frac14+\cdots+\frac1{2(n-p_n)}\right)\\
+&=\left(1+\frac12+\cdots+\frac1{2p_n}\right)-\frac12\left(1+\frac12+\cdots+\frac1{p_n}\right)\\
+&\qquad-\frac12\left(1+\frac12+\cdots+\frac1{n-p_n}\right).
+\end{aligned}
+\]
+然后利用上册 43 页末的渐近等式
+\[
+1+\frac12+\cdots+\frac1n=\ln n+\gamma+\littleo(1),
+\]
+其中 $\gamma$ 为 Euler 常数，就可得到
+\[
+\begin{aligned}
+S_n&=[\ln(2p_n)+\gamma+\littleo(1)]-\frac12[\ln p_n+\gamma+\littleo(1)]-\frac12[\ln(n-p_n)+\gamma+\littleo(1)]\\
+&=\ln2+\frac12\ln\frac{p_n}{n-p_n}+\littleo(1)
+=\ln2+\frac12\ln\frac{p_n/n}{1-p_n/n}+\littleo(1).
+\end{aligned}
+\]
+令 $n\to\infty$ 可见结论为真。
+\end{xproof}
+
+\subsection{练习题}
+
+\begin{xexercise}
+\begin{enumerate}[label=\arabic*.]
+\item 讨论下列级数的绝对收敛性与条件收敛性：
+\[
+\begin{array}{ll}
+(1)\ \displaystyle\sum_{n=2}^{\infty}\frac{\sin(n\pi/12)}{\ln n};&
+(2)\ \displaystyle\sum_{n=1}^{\infty}\frac{(-1)^n2^{1/n}}{\sqrt n};\\[6pt]
+(3)\ \displaystyle\sum_{n=1}^{\infty}\frac{(-1)^n\cos^2n}{n};&
+(4)\ \displaystyle\sum_{n=1}^{\infty}\frac{\sin nx}{n}\left(1+\frac1n\right)^n;\\[6pt]
+(5)\ \displaystyle\sum_{n=1}^{\infty}\left(1+\frac12+\cdots+\frac1n\right)\frac{\sin nx}{n};&
+(6)\ \displaystyle\sum_{n=1}^{\infty}\sin\!\left(\pi\sqrt{n^2+a^2}\right);\\[6pt]
+(7)\ \displaystyle\sum_{n=1}^{\infty}(-1)^{n-1}\left[\frac{(2n-1)!!}{(2n)!!}\right]^p;&
+(8)\ \displaystyle\sum_{n=1}^{\infty}\frac{(-1)^n\sin n}{n};\\[6pt]
+(9)\ \displaystyle\sum_{n=1}^{\infty}\frac{(-1)^{n-1}}{[n+(-1)^{n-1}]^p};&
+(10)\ \displaystyle\sum_{n=2}^{\infty}\ln\left[1+\frac{(-1)^n}{n^p}\right];\\[6pt]
+(11)\ \displaystyle\sum_{n=2}^{\infty}\sin\left(n\pi+\frac1{\ln n}\right);&
+(12)\ \displaystyle\sum_{n=1}^{\infty}(-1)^n(n^{1/n}-1).
+\end{array}
+\]
+\item 将调和级数 $\sum_{n=1}^{\infty}1/n$ 的各项改变符号，其规则是每 $p$ 个正项后为 $q$ 个负项，然后再如此重复，但不改变各项原有的顺序。证明：所得级数当且仅当 $p=q$ 时收敛。
+\item 设 $0<a<1$，将级数 $\sum_{n=1}^{\infty}\frac{(-1)^{n-1}}{n^a}$ 按照每 $p$ 个正项后为 $q$ 个负项的规则进行重排，但保持正项之间和负项之间的原有顺序，证明：重排后的级数当且仅当 $p=q$ 时收敛。
+\item 设 $p,q>0$，讨论下列级数的绝对收敛性与条件收敛性：
+\[
+\text{(1) }1-\frac1{2^q}+\frac1{3^p}-\frac1{4^q}+\cdots+\frac1{(2n-1)^p}-\frac1{(2n)^q}+\cdots;
+\]
+\[
+\text{(2) }\sum_{n=1}^{\infty}\frac{(-1)^n(1+p)(2+p)\cdots(n+p)}{n!\,n^q}.
+\]
+\item 研究级数 $\sum_{n=1}^{\infty}\frac1{1+nx^n}$（若分母为零则去掉该项）的条件收敛性和绝对收敛性。
+\item 设数列 $\{a_n\}$ 严格单调减少且趋于零，证明下列级数收敛：
+\[
+\sum_{n=1}^{\infty}(-1)^n\frac{a_1+a_2+\cdots+a_n}{n}.
+\]
+\item 证明下列级数收敛：
+\[
+1-\frac13\left(1+\frac12\right)+\frac15\left(1+\frac12+\frac13\right)-\frac17\left(1+\frac12+\frac13+\frac14\right)+\cdots.
+\]
+\item （Du Bois-Reymond 判别法）设级数 $\sum_{n=2}^{\infty}(a_n-a_{n-1})$ 绝对收敛，级数 $\sum_{n=1}^{\infty}b_n$ 收敛，证明：$\sum_{n=1}^{\infty}a_nb_n$ 收敛。
+\item （Dedekind 判别法）设级数 $\sum_{n=2}^{\infty}(a_n-a_{n-1})$ 绝对收敛，$\lim_{n\to\infty}a_n=0$，级数 $\sum_{n=1}^{\infty}b_n$ 的部分和数列有界，证明：$\sum_{n=1}^{\infty}a_nb_n$ 收敛。
+\item 已知级数 $\sum_{n=1}^{\infty}a_n$ 发散，证明：级数 $\sum_{n=1}^{\infty}(1+1/n)a_n$ 也发散。
+\item 证明：当 $|q|<1$ 时，成立
+\[
+\left(\sum_{n=0}^{\infty}q^n\right)\left(\sum_{n=0}^{\infty}q^n\right)=\sum_{n=0}^{\infty}(n+1)q^n.
+\]
+\item 证明：级数 $\sum_{n=0}^{\infty}\frac{(-1)^n}{n+1}$ 与自身的 Cauchy 乘积是收敛级数。
+\item 设
+\[
+S(x)=\sum_{n=0}^{\infty}\frac{(-1)^nx^{2n+1}}{(2n+1)!},\qquad C(x)=\sum_{n=0}^{\infty}\frac{(-1)^nx^{2n}}{(2n)!},
+\]
+证明：$2S(x)C(x)=S(2x)$。
+\item 设级数 $\sum a_n/b_n$、$\sum(a_n/b_n)^2$ 均收敛，又对每个 $n$ 有 $b_n(a_n+b_n)\neq0$，证明：级数 $\sum\frac{a_n}{a_n+b_n}$ 收敛。
+\item 两个发散级数的 Cauchy 乘积可以是收敛的，试验证下列两个发散级数
+\[
+1-\sum_{n=1}^{\infty}\left(\frac32\right)^n,
+\qquad
+1+\sum_{n=1}^{\infty}\left(\frac32\right)^{n-1}\left(2^n+\frac1{2^{n+1}}\right)
+\]
+的 Cauchy 乘积是绝对收敛级数。
+\item \begin{enumerate}[label=(\arabic*)]
+\item 举例说明收敛级数与发散级数的乘积既可能收敛，也可能发散。
+\item 证明：对于正项收敛级数和正项发散级数，其乘积一定发散（假定其中的正项收敛级数的和大于 0）。
+\end{enumerate}
+\end{enumerate}
+\end{xexercise}
+
+\section{无穷乘积}
+
+正如研究数列的前后项之差引出无穷级数的研究，研究数列的前后项之比就引向无穷乘积的研究。本节利用无穷级数方面的已有工具，对无穷乘积的基本内容和例题作一个简单介绍。
+
+\subsection{基本内容}
+
+无穷乘积的记号为
+\[
+\prod_{n=1}^{\infty}p_n=p_1p_2\cdots p_n\cdots,
+\]
+其中假定通项 $p_n\neq0$，$n=1,2,\ldots$。\footnote{这是研究无穷乘积的基本前提，否则已不必讨论。}称 $P_n=\prod_{k=1}^{n}p_k$ 为它的第 $n$ 个部分乘积，$n=1,2,\ldots$。如果部分乘积数列 $\{P_n\}$ 有非零极限 $\lim_{n\to\infty}P_n=P\neq0$，则称这个无穷乘积收敛，并记 $\prod_{n=1}^{\infty}p_n=P$；如果数列 $\{P_n\}$ 发散或者 $\lim_{n\to\infty}P_n=0$，则称这个无穷乘积发散。我们也采用简化记号 $\prod p_n$。
+
+这里要指出，将 $\lim_{n\to\infty}P_n=0$ 的情况称为无穷乘积发散（于 0）完全是为了便于和无穷级数的结果对应起来，而并不是这种情况没有价值或没有意义。采取这个做法的好处从下面的必要条件已可看出。
+
+与无穷级数的通项趋于 0 是收敛的必要条件一样，当无穷乘积 $\prod p_n$ 收敛时，其通项必收敛于 1\footnote{在证明中已经利用了 $\{P_n\}$ 的极限非零的条件。又容易看出：若无穷乘积发散于 0，则其通项不一定收敛于 1。例如通项 $p_n=1/2$，$\forall n\in\NN_+$ 的无穷乘积就是如此。}：
+\[
+\lim_{n\to\infty}p_n=\lim_{n\to\infty}\frac{P_n}{P_{n-1}}=1.
+\]
+因此，总可以假设从某个 $n$ 起 $p_n>0$。为方便起见，在下面将 $p_n$ 改记为 $1+\alpha_n$，将无穷乘积 $\prod p_n$ 改记为 $\prod(1+\alpha_n)$，并假设 $|\alpha_n|<1$，$n=1,2,\ldots$。
+
+与上面关于通项的讨论完全类似，可以引进收敛无穷乘积 $\prod_{n=1}^{\infty}p_n$ 的余项
+\[
+Q_n=\prod_{k=n+1}^{\infty}p_k,
+\]
+并证明一定有 $\lim_{n\to\infty}Q_n=1$。
+
+通过对数将部分乘积变为和式，就不难建立以下结果：
+
+\begin{enumerate}[label=\arabic*.]
+\item 无穷乘积 $\prod_{n=1}^{\infty}(1+\alpha_n)$ 收敛的充分必要条件是级数 $\sum_{n=1}^{\infty}\ln(1+\alpha_n)$ 收敛。
+\item 若从某个 $n$ 起 $\alpha_n\geq0$，则无穷乘积 $\prod_{n=1}^{\infty}(1+\alpha_n)$ 收敛的充分必要条件是正项级数 $\sum_{n=1}^{\infty}\alpha_n$ 收敛。（若该级数发散，则无穷乘积发散于 $+\infty$。）
+\item 若从某个 $n$ 起 $\alpha_n\leq0$，则无穷乘积 $\prod_{n=1}^{\infty}(1+\alpha_n)$ 收敛的充分必要条件是负项级数 $\sum_{n=1}^{\infty}\alpha_n$ 收敛。（若该级数发散，则无穷乘积发散于 0。）
+\item 若 $\{\alpha_n\}$ 变号，但已知级数 $\sum_{n=1}^{\infty}\alpha_n$ 收敛，则有：(1) 当级数 $\sum_{n=1}^{\infty}\alpha_n^2$ 收敛时无穷乘积收敛；(2) 当级数 $\sum_{n=1}^{\infty}\alpha_n^2$ 发散时无穷乘积发散于 0（这里要利用等价关系 $\ln(1+x)-x\sim-x^2/2$（$x\to0$））。
+\item 若无穷乘积 $\prod_{n=1}^{\infty}(1+|\alpha_n|)$ 收敛，则称无穷乘积 $\prod_{n=1}^{\infty}(1+\alpha_n)$ 绝对收敛。不难证明绝对收敛的无穷乘积一定收敛，反之未必成立。由此又可建立无穷乘积条件收敛等与无穷级数类似的概念和结果。
+\end{enumerate}
+
+\subsection{例题}
+
+历史上第一个得到严格证明的无穷乘积是 Viète 在 1593 年发表的关于圆周率的 Viète 公式：
+\begin{equation}
+\frac2\pi=\sqrt{\frac12}\sqrt{\frac12+\frac12\sqrt{\frac12}}\sqrt{\frac12+\frac12\sqrt{\frac12+\frac12\sqrt{\frac12}}}\cdots.
+\tag{13.25}
+\end{equation}
+实际上这就是
+\begin{equation}
+\frac2\pi=\prod_{n=1}^{\infty}\cos\frac{\pi}{2^{n+1}}.
+\tag{13.26}
+\end{equation}
+Viète 公式是在微积分出现之前在分析方面的重要结果，它在人类对于圆周率的认识上也是一个突破，具有重要的历史意义（参见上册 114 页题 5）。
+
+在上册 362--363 页中建立的 Wallis 公式是历史上较早出现的另一个重要的无穷乘积，而且也是关于圆周率的结果。除了已经在那里介绍的几种常用形式（如 (11.27)，(11.29)，(11.30)）外，还可写成以下无穷乘积形式：
+\begin{equation}
+\prod_{n=1}^{\infty}\left[1-\frac1{(2n+1)^2}\right]=\frac\pi4,
+\qquad
+\prod_{n=1}^{\infty}\left(1-\frac1{4n^2}\right)=\frac2\pi.
+\tag{13.27}
+\end{equation}
+不难验证以上两个无穷乘积的收敛性和等式成立（作为练习）。
+
+在上册 25 页的 2.2.4 小节和 30 页的 2.3.2 小节中已有不少无穷乘积的练习题，当然在那里都以数列的形式出现（还可以注意上册 369 页的题 10）。
+
+下面是用无穷乘积理论研究数列的一些例题。首先简要地叙述关于 (13.24) 的另一个证明。
+
+\begin{xexample}[13.4.1]
+若 $\alpha$ 不是非负整数，则存在非零常数 $C$，使得
+\[
+\left|\binom{\alpha}{n}\right|=\left|\frac{\alpha(\alpha-1)\cdots(\alpha-n+1)}{n!}\right|\sim\frac C{n^{1+\alpha}}.
+\]
+\end{xexample}
+\begin{xproof}
+引入记号
+\[
+a_n=\left|\binom{\alpha}{n}\right|n^{1+\alpha},
+\]
+则只要证明 $\{a_n\}$ 有非零极限。注意关于 $\alpha$ 的条件使得 $a_n\neq0$，$n=1,2,\ldots$。
+
+恰如数列与无穷级数的联系一样，对于给定的一个非零数列 $\{a_n\}$，不难写出一个无穷乘积，使得它的部分乘积数列就是 $\{a_n\}$，从而就有
+\begin{equation}
+\lim_{n\to\infty}a_n=a_1\prod_{n=1}^{\infty}\frac{a_{n+1}}{a_n}.
+\tag{13.28}
+\end{equation}
+于是问题就变为证明右边的无穷乘积收敛（但无需计算出它的值）。本题的以下部分已经没有困难，留作为练习题。
+\end{xproof}
+
+下面是对于 Sapagof 判别法（命题 13.2.3）的新证明，它来自《美国数学月刊》(1988) 第 95 卷 942 页。为读者方便起见，将该命题内容重新写出如下。
+
+\begin{xexample}[13.4.2]
+设 $\{a_n\}$ 为单调减少的正数数列，则 $\lim_{n\to\infty}a_n=0$ 的充分必要条件是级数 $\sum_{n=1}^{\infty}\left(1-\frac{a_{n+1}}{a_n}\right)$ 发散。
+\end{xexample}
+\begin{xproof}
+将题中的级数通项记为 $b_n$。从条件知 $0<1-b_n=a_{n+1}/a_n<1$，$n=1,2,\ldots$。与上题一样，将数列 $\{a_n\}$ 的极限与一个无穷乘积联系起来：
+\[
+\lim_{n\to\infty}a_n=a_1\prod_{n=1}^{\infty}(1-b_n).
+\]
+但是要注意：目前关心的是右边的无穷乘积是否发散于 0。易见有等价关系：
+\[
+\lim_{n\to\infty}a_n=0\Longleftrightarrow\prod_{n=1}^{\infty}(1-b_n)\ \text{发散于 }0
+\Longleftrightarrow\sum_{n=1}^{\infty}[-\ln(1-b_n)]=+\infty.
+\]
+现在只需要证明下列两个正项级数同时发散：
+\begin{equation}
+\sum_{n=1}^{\infty}[-\ln(1-b_n)]=+\infty\Longleftrightarrow\sum_{n=1}^{\infty}b_n=+\infty.
+\tag{13.29}
+\end{equation}
+分两种情况讨论。(1) 若 $\{b_n\}$ 不是无穷小量，则两个级数的通项都不趋于 0，因此 (13.29) 成立；(2) 若 $\{b_n\}$ 是无穷小量，则从 $\ln(1-x)\sim-x$（$x\to0$）和比较判别法的极限形式 (13.12)，可见 (13.29) 也成立。
+\end{xproof}
+
+下面是分析中的重要结果，它是 Euler 首先用类比方法猜测出来的。我们将主要根据 [18] 第二卷的 408 小节给出证明。
+
+\begin{xexample}[13.4.3（Euler）]
+对所有 $x$ 值成立
+\begin{equation}
+\sin x=x\left(1-\frac{x^2}{\pi^2}\right)\left(1-\frac{x^2}{2^2\pi^2}\right)\cdots
+=x\prod_{n=1}^{\infty}\left(1-\frac{x^2}{n^2\pi^2}\right).
+\tag{13.30}
+\end{equation}
+\end{xexample}
+\begin{xproof}
+可以看出当 $x$ 为 $\pi$ 的整倍数时两边为 0。以下只需要讨论 $x$ 不是 $\pi$ 的整倍数的情况，这时容易验证右边的无穷乘积收敛。
+
+不难发现 $\sin(2n+1)\varphi$ 可展开为 $\sin\varphi$ 的 $2n+1$ 次多项式，且只含奇次幂项，因此可写成\footnote{例如用 de Moivre（棣莫弗）公式 $\cos(2n+1)\varphi+\ii\sin(2n+1)\varphi=(\cos\varphi+\ii\sin\varphi)^{2n+1}$ 或者数学归纳法即可。}
+\begin{equation}
+\sin(2n+1)\varphi=\sin\varphi\,P(\sin^2\varphi),
+\tag{13.31}
+\end{equation}
+其中 $P(u)$ 为 $u$ 的 $n$ 次多项式。将右边的 $\sin\varphi$ 除到左边并令 $\varphi\to0$，就可以定出 $P(0)=2n+1$。又利用 $\varphi_k=\frac{k\pi}{2n+1}$（$k=1,2,\ldots,n$）使 (13.31) 左边为 0，因此 $\sin^2\varphi_k$（$k=1,2,\ldots,n$）恰好是多项式 $P(u)$ 的所有根，这样就完全确定了多项式 $P(u)$。将所得表达式代入 (13.31) 的右边，并令 $x=(2n+1)\varphi$，得到
+\begin{equation}
+\sin x=(2n+1)\sin\frac{x}{2n+1}\prod_{k=1}^{n}\left(1-\frac{\sin^2\frac{x}{2n+1}}{\sin^2\frac{k\pi}{2n+1}}\right).
+\tag{13.32}
+\end{equation}
+以下采用与命题 2.5.2（上册 40 页）中完全类似的方法。（差别只在于那里是级数，而这里是乘积。）固定正整数 $m$，并令 $n>m$，将上式右边分解为
+\begin{equation}
+\sin x=U_m\cdot V_m,
+\tag{13.33}
+\end{equation}
+其中
+\begin{equation}
+U_m=(2n+1)\sin\frac{x}{2n+1}\prod_{k=1}^{m}\left(1-\frac{\sin^2\frac{x}{2n+1}}{\sin^2\frac{k\pi}{2n+1}}\right),
+\tag{13.34}
+\end{equation}
+\begin{equation}
+V_m=\prod_{k=m+1}^{n}\left(1-\frac{\sin^2\frac{x}{2n+1}}{\sin^2\frac{k\pi}{2n+1}}\right).
+\tag{13.35}
+\end{equation}
+在 (13.33) 中令 $n\to\infty$，这时左边与 $n$ 无关，从 (13.34) 得到
+\begin{equation}
+\lim_{n\to\infty}U_m=x\prod_{k=1}^{m}\left(1-\frac{x^2}{k^2\pi^2}\right),
+\tag{13.36}
+\end{equation}
+因此第二个因子 $V_m$ 的极限也存在。但这里重要的是对这个极限的估计。利用 (13.35)，$|\sin x|\leq|x|$ 以及 Jordan 不等式（见上册 253 页例题 8.5.6）可以得到
+\[
+\sin^2\frac{x}{2n+1}\leq\frac{x^2}{(2n+1)^2},
+\qquad
+\sin^2\frac{k\pi}{2n+1}\geq\frac4{\pi^2}\cdot\frac{k^2\pi^2}{(2n+1)^2},\quad k=1,2,\ldots,n,
+\]
+从而有对于 $V_m$ 的估计：
+\[
+1>\prod_{k=m+1}^{n}\left(1-\frac{\sin^2\frac{x}{2n+1}}{\sin^2\frac{k\pi}{2n+1}}\right)
+\geq\prod_{k=m+1}^{n}\left(1-\frac{x^2}{4k^2}\right)
+>\prod_{k=m+1}^{\infty}\left(1-\frac{x^2}{4k^2}\right).
+\]
+这样就得到对于极限 $\lim_{n\to\infty}V_m$ 的估计：
+\[
+1>\lim_{n\to\infty}V_m=\frac{\sin x}{\lim_{n\to\infty}U_m}
+=\frac{\sin x}{x\prod_{k=1}^{m}(1-x^2/(k^2\pi^2))}
+\geq\prod_{k=m+1}^{\infty}\left(1-\frac{x^2}{4k^2}\right).
+\]
+最后，利用上式右边是一个收敛无穷乘积的余项，因此当 $m\to\infty$ 时极限为 1，这样就从数列极限的夹逼定理得到所要的展开式。
+\end{xproof}
+
+\begin{xremark}
+在展开式 (13.30) 中令 $x=\pi/2$ 就得到 Wallis 公式 (13.27) 中的第二个公式，可见 Euler 的这个展开式是非常有力的结果。
+\end{xremark}
+
+\begin{xremark}
+关于展开式 (13.30) 的证明方法很多，可以参看《美国数学月刊》(1982) 第 89 卷 225--230 页的一个综述。
+\end{xremark}
+
+\begin{xremark}
+值得回顾 Euler 发现这个展开式的思维过程。他的出发点是将 $\sin x$ 与多项式作类比，由于 $\sin x$ 以所有 $k\pi$ 为零点（$k\in\ZZ$），因此猜测 (13.30) 会成立。他又将该式两边展开为 $x$ 的幂级数，从而得到
+\[
+\sum_{n=1}^{\infty}\frac1{n^2}=\frac{\pi^2}{6},\qquad
+\sum_{n=1}^{\infty}\frac1{n^4}=\frac{\pi^4}{90}
+\]
+等一系列重要结果。其中第一个级数的求和问题即所谓 Basel 问题，在 Euler 之前已有近百年的历史，包括 Bernoulli 兄弟在内的许多数学家都作过努力而没有成功。同时谁也想不到在它的答案中会出现圆周率 $\pi$。这是数学史上最精彩的故事之一，有着多方面的教育意义，详细内容请看 [40] 的第二章和 [17] 的第九章，本书在第十六章还会回到这个问题上来，并推导出 $p$ 为偶数时的 $p$ 级数和 $\zeta(p)$ 的计算公式。
+\end{xremark}
+
+在上册 400--401 页已经引进特殊函数 $\Gamma(x)=\int_0^{\infty}t^{x-1}\ee^{-t}\,\dd t$，$x>0$。它是阶乘 $n!$ 的连续化。现在我们介绍 $\Gamma$ 函数的无穷乘积定义，但是这里的定义域不局限于 $x>0$。关于在 $x>0$ 时两个定义的等价性证明见后面的例题 16.1.4。
+
+\begin{xexample}[13.4.4]
+对于 $x\neq0,-1,-2,\ldots$，定义
+\begin{equation}
+\Gamma(x)=\frac1x\prod_{n=1}^{\infty}\frac{(1+1/n)^x}{1+x/n}.
+\tag{13.37}
+\end{equation}
+从
+\[
+\frac{(1+1/n)^x}{1+x/n}=1+\frac{x(x-1)}{2n^2}+\littleo\left(\frac1{n^2}\right)
+\]
+可知定义中的无穷乘积绝对收敛，因此 $\Gamma$ 函数的上述定义是有意义的。
+
+写出上述无穷乘积的部分乘积
+\[
+\frac{(n+1)^x}{x(1+x)(1+x/2)\cdots(1+x/n)}
+=\left(\frac{n+1}{n}\right)^x\frac{n!n^x}{x(x+1)\cdots(x+n)},
+\]
+即有 Euler-Gauss 公式
+\begin{equation}
+\Gamma(x)=\lim_{n\to\infty}\frac{n!n^x}{x(x+1)\cdots(x+n)}.
+\tag{13.38}
+\end{equation}
+由此就有
+\[
+\frac{\Gamma(x+1)}{\Gamma(x)}=\lim_{n\to\infty}\frac{nx}{x+n+1}=x,
+\]
+即 $\Gamma(x+1)=x\Gamma(x)$。从 $\Gamma(1)=1$ 可见有 $\Gamma(n+1)=n!$。利用在上册 2.5.3 小节引进的 Euler 常数
+\[
+\gamma=\lim_{n\to\infty}\left[1+\frac12+\cdots+\frac1n-\ln(1+n)\right],
+\]
+可见有
+\[
+\ee^{\gamma x}=\prod_{n=1}^{\infty}\frac{\ee^{x/n}}{(1+1/n)^x}.
+\]
+将它与 $\Gamma$ 函数的乘积定义结合，就得到 $\Gamma$ 函数的 Weierstrass 公式
+\begin{equation}
+\frac1{\Gamma(x+1)}=\ee^{\gamma x}\prod_{n=1}^{\infty}\left(1+\frac xn\right)\ee^{-x/n}.
+\tag{13.39}
+\end{equation}
+在定义 (13.37) 中将 $x$ 换为 $-x$，得到
+\[
+\Gamma(1-x)=-x\Gamma(-x)=\prod_{n=1}^{\infty}\frac{(1+1/n)^{-x}}{1-x/n},
+\]
+与 (13.37) 一起就得到 $\Gamma$ 函数的余元公式：
+\begin{equation}
+\Gamma(x)\Gamma(1-x)=\frac\pi{\sin\pi x}.
+\tag{13.40}
+\end{equation}
+这里利用了正弦函数的无穷乘积公式 (13.30)，并在其中将 $x$ 换为 $\pi x$。若令 $x=1/2$ 代入，就得到 $\Gamma(1/2)=\sqrt\pi$。这也可从 Euler-Gauss 公式 (13.38) 和 Wallis 公式 (11.29) 得到。
+\end{xexample}
+
+\begin{xremark}
+将 Euler-Gauss 公式 (13.38) 与 $\binom{\alpha}{n}$ 比较就得到公式 (13.24) 的第三个证明，而且这一次还得到了其中的非零常数：
+\begin{equation}
+\left|\binom{\alpha}{n}\right|=\left|\frac{\alpha(\alpha-1)\cdots(\alpha-n+1)}{n!}\right|\sim\frac1{|\Gamma(-\alpha)|}\cdot\frac1{n^{1+\alpha}}.
+\tag{13.41}
+\end{equation}
+例如，对于 $\alpha=-1/2$，上式就是熟知的结果 (11.29)：
+\[
+\left|\binom{-1/2}{n}\right|=\frac{(2n-1)!!}{(2n)!!}\sim\frac1{\Gamma(1/2)}\cdot\frac1{\sqrt n}=\frac1{\sqrt{\pi n}}.
+\]
+\end{xremark}
+
+\subsection{练习题}
+
+\begin{xexercise}
+\begin{enumerate}[label=\arabic*.]
+\item 讨论下列无穷乘积的敛散性：
+\[
+\begin{array}{ll}
+(1)\ \displaystyle\prod_{n=1}^{\infty}\sqrt{\frac{n+1}{n+2}};&
+(2)\ \displaystyle\prod_{n=1}^{\infty}(1+x^{2n+1});\\[6pt]
+(3)\ \displaystyle\prod_{n=1}^{\infty}\sqrt[n]{1+\frac1n};&
+(4)\ \displaystyle\prod_{n=2}^{\infty}\left(\frac{n^2-1}{n^2+1}\right)^p;\\[6pt]
+(5)\ \displaystyle\prod_{n=2}^{\infty}\left[1+(-1)^n\frac1n\right];&
+(6)\ \displaystyle\prod_{n=1}^{\infty}\left[\frac1\ee\left(1+\frac1n\right)^n\right].
+\end{array}
+\]
+\item 设 $a,b>0$，求 $\lim_{n\to\infty}\frac{(a+1)(a+2)\cdots(a+n)}{(b+1)(b+2)\cdots(b+n)}$。
+\item 设数列 $\{a_n\}$ 的每一项满足条件 $0<a_n<\pi/2$，证明：级数 $\sum_{n=1}^{\infty}a_n^2$ 收敛的充分必要条件是无穷乘积 $\prod_{n=1}^{\infty}\cos a_n$ 收敛。
+\item 如果对正数数列 $\{a_n\}$ 存在极限
+\[
+\lim_{n\to\infty}n\left(\frac{a_n}{a_{n+1}}-1\right)=r>0,
+\]
+证明：级数 $\sum_{n=1}^{\infty}(-1)^{n-1}a_n$ 收敛。（可利用例题 13.4.2。）
+\item 讨论无穷乘积
+\[
+\prod_{n=n_0}^{\infty}\frac{(\alpha+n)(\beta+n)}{(1+n)(\gamma+n)}
+\]
+的敛散性，其中 $\alpha,\beta,\gamma$ 为参数，且设 $n_0$ 已足够大，使得乘积中出现的所有因子均大于 0。
+\item （Euler）对于 $0<x<1$，证明：
+\[
+(1+x)(1+x^2)(1+x^3)\cdots=\frac1{(1-x)(1-x^3)(1-x^5)\cdots}.
+\]
+\item （Stirling）证明：若级数
+\[
+\sum_{n=1}^{\infty}a_n(x^2-1^2)(x^2-2^2)\cdots(x^2-n^2)
+\]
+于某个 $x$ 值收敛，则级数对任何 $x$ 值都收敛。
+\item （Landau（兰道））证明：级数
+\[
+\sum_{n=1}^{\infty}\frac{n!a_n}{x(x+1)\cdots(x+n)}\qquad(x\neq0,-1,-2,\ldots)
+\]
+与 Dirichlet 级数 $\sum_{n=1}^{\infty}\frac{a_n}{n^x}$ 对同样的 $x$ 值收敛。
+\item 设正数数列 $\{a_n\}$ 满足条件
+\[
+\frac{a_n}{a_{n+1}}=1+\frac1n+\bigO(b_n),
+\]
+并已知级数 $\sum_{n=1}^{\infty}b_n$ 绝对收敛，证明：级数 $\sum_{n=1}^{\infty}a_n$ 发散。（可参考第 8 页的 Gauss 判别法。）
+\item （Stirling 公式的又一证明）用无穷乘积方法证明：数列
+\[
+\left\{\frac{n!\ee^n}{n^{n+1/2}}\right\}
+\]
+有非零极限，并求出此极限。\footnote{题 (6) 对于 $\lim_{n\to\infty}\frac{n^n}{n!\ee^n}=0$ 又提供了一个证明。}
+\end{enumerate}
+\end{xexercise}
+
+\section{对于教学的建议}
+
+\subsection{学习要点}
+
+\begin{enumerate}[label=\arabic*.]
+\item 正如本章开头所指出的那样，数项级数与上册第二章的数列极限有密切联系。建议在学习本章时能经常将级数内容与数列的相应内容加以比较。
+\item 无穷级数在一系列概念和方法上又与上一章的广义积分非常相似。虽然各种教科书在这两部分内容的安排次序上并不一致，但若能沟通两者之间的联系，则对于学习是很有帮助的。
+\item “$\lim_{n\to\infty}a_n=0$ 是级数 $\sum_{n=1}^{\infty}a_n$ 收敛的必要而非充分的条件”是体现无穷级数收敛特点的一条基本性质。
+\item 需要重点关心的一些级数是几何级数，$p$ 级数 $\sum_{n=1}^{\infty}\frac1{n^p}$，$\sum_{n=2}^{\infty}\frac1{n(\ln n)^p}$，Leibniz 型级数 $\sum_{n=1}^{\infty}\frac{(-1)^{n-1}}{n^p}$ 和 $\sum_{n=1}^{\infty}\frac{\sin n}{n^p}$。关于数项级数的绝大部分知识点可以通过对这些级数的讨论而得到展开。
+\item 比较判别法是正项级数收敛性判别法的基本出发点。要注意比较判别法对一般项级数来说，只有绝对收敛情况才有效。很能说明问题的例子是例题 13.3.1。必须明白：等价量判别法就是一种特殊的比较判别法；而对于条件收敛级数来说，比较判别法是不成立的。
+\item 如上册 75 页之 (4) 所说，在实数系的许多等价的基本定理中，Cauchy 收敛准则将在积分和级数中起主要作用。初学者不易掌握它的意义和用法是很自然的。本章的习题课应有部分时间用于围绕 Cauchy 收敛准则组织一些比较具体的例题，多角度地应用 Cauchy 收敛准则，以帮助学生学习这一基本工具。
+\item Abel 变换是估计乘积项之和 $|a_1b_1+a_2b_2+\cdots+a_nb_n|$ 的重要方法，它与分部积分公式、积分第二中值定理都有联系。程度好的学生应能学会用公式 (13.21)--(13.23) 来处理类似的问题。
+\item 证明一个级数发散有时比证明级数收敛更使学生感到困难。证明级数发散常用的方法有：
+\begin{enumerate}[label=(\arabic*)]
+\item 证明级数的通项不趋于零；
+\item 利用 Cauchy 收敛准则；
+\item 证明按某种方式加括号后所得的级数发散；
+\item 对正项级数，证明部分和数列无上界；
+\item 对正项级数，利用 §13.2 中的各种判别法；
+\item 把级数通项分解为一个收敛级数的通项与一个发散级数的通项之和。
+\end{enumerate}
+\end{enumerate}
+
+\subsection{参考题}
+
+\subsubsection*{第一组参考题}
+
+\begin{xreferenceproblem}
+\begin{enumerate}[label=\arabic*.]
+\item 试用两种方法证明：对于正数数列 $\{a_n\}$，必有
+\[
+\lim_{n\to\infty}\frac{a_n}{(1+a_1)(1+a_2)\cdots(1+a_n)}=0.
+\]
+\item （Abel-Pringsheim（普林斯海姆）定理）设正项级数 $\sum a_n$ 的通项单调减少，且已知级数收敛，证明：$\lim_{n\to\infty}na_n=0$。（举例说明，若通项非单调，则结论不成立。）
+\item 设正项级数 $\sum_{n=1}^{\infty}a_n$ 的通项单调减少，又已知级数 $\sum_{n=1}^{\infty}\frac{a_n}{\sqrt n}$ 收敛，证明：级数 $\sum_{n=1}^{\infty}a_n^2$ 收敛。
+\item 设正项级数 $\sum_{n=1}^{\infty}a_n$ 的通项单调减少收敛于 0。(1) 证明：级数 $\sum_{n=1}^{\infty}a_n$ 与级数 $\sum_{n=1}^{\infty}n(a_n-a_{n+1})$ 同敛散，且在收敛时具有相同的和。(2) 对于通项不是单调减少的情况，试举例说明上述“同敛散”的结论不再成立。
+\item 由于数列 $\{a_n\}$ 与无穷级数 $\sum_{n=1}^{\infty}(a_{n+1}-a_n)$ 具有相同的敛散性，试用级数理论讨论下列数列的敛散性：
+\begin{enumerate}[label=(\arabic*)]
+\item $a_n=1+\frac12+\cdots+\frac1n-\ln n$，$n=1,2,\ldots$；
+\item $a_n=1+\frac1{\sqrt2}+\cdots+\frac1{\sqrt n}-2\sqrt n$，$n=1,2,\ldots$；
+\item $a_n=\frac1{2\ln2}+\frac1{3\ln3}+\cdots+\frac1{n\ln n}-\ln\ln n$，$n=2,3,\ldots$。
+\end{enumerate}
+（题 (1) 即上册 43 页命题 2.5.6，题 (2) 见上册 56 页参考题 14，又可以与上册 371 页参考题 10 作比较。）
+\item 证明：(1) 若 $f$ 是 $[1,+\infty)$ 上的非负单调减少函数，则存在极限
+\[
+\lim_{n\to\infty}\left(\sum_{k=1}^{n}f(k)-\int_1^n f(x)\,\dd x\right)=A,
+\]
+且 $0\leq A\leq f(1)$；(2)
+\[
+\lim_{x\to+\infty}\sum_{n=1}^{\infty}\frac{x}{x^2+n^2}=\frac\pi2.
+\]
+\item 若函数 $f$ 在 $[-1,1]$ 上定义，且存在 $f''(0)$，证明：级数 $\sum_{n=1}^{\infty}f(1/n)$ 绝对收敛的充分必要条件是 $f(0)=f'(0)=0$。
+\item 设函数 $f$ 在 $[1,+\infty)$ 上单调增加且有极限 $f(+\infty)=A$。证明：(1) $\sum_{n=1}^{\infty}[f(n+1)-f(n)]$ 收敛，并求其和；(2) 又若 $f$ 在 $[1,+\infty)$ 上二次可微，且 $f''(x)<0$，则 $\sum_{n=1}^{\infty}f'(n)$ 也收敛。
+\item （二重正项级数的求和顺序交换定理）设对每个正整数 $n$，正项级数 $\sum_{k=1}^{\infty}a_{n,k}$ 收敛，且其和为 $a_n$；若级数 $\sum_{n=1}^{\infty}a_n$ 收敛，证明：
+\[
+\sum_{n=1}^{\infty}a_n=\sum_{n=1}^{\infty}\sum_{k=1}^{\infty}a_{n,k}=\sum_{k=1}^{\infty}\sum_{n=1}^{\infty}a_{n,k}.
+\]
+\item 对正整数 $m\geq2$，用 $s_m$ 表示级数 $\sum_{n=2}^{\infty}\frac1{n^m}$ 的和，证明：$\sum_{m=2}^{\infty}s_m=1$。
+\item 设正项级数 $\sum_{n=1}^{\infty}a_n$ 的通项单调减少趋于 0，且已知数列
+\[
+\left\{\sum_{k=1}^{n}(a_k-a_n)\right\}
+\]
+有界，证明：$\sum_{n=1}^{\infty}a_n$ 收敛。
+\item 设正项级数 $\sum_{n=1}^{\infty}a_n$ 收敛，且数列 $\{a_n-a_{n+1}\}$ 严格单调减少，证明：
+\[
+\lim_{n\to\infty}\left(\frac1{a_{n+1}}-\frac1{a_n}\right)=+\infty.
+\]
+\item 设正项级数 $\sum_{n=1}^{\infty}a_n$ 收敛，数列 $\{na_n\}$ 单调，证明：$\lim_{n\to\infty}na_n\ln n=0$。
+\item 设 $a_1=1$，$a_2=2$，$a_n=a_{n-1}+a_{n-2}$，$n=3,4,\ldots$，证明：$\sum_{n=1}^{\infty}1/a_n$ 收敛。（Fibonacci 数列的倒数所成级数收敛。）
+\item 设 $0<p<1$，$a_1>0$，$a_{n+1}=\frac{a_n}{1+a_n^p}$，$n=1,2,\ldots$，证明：$\sum_{n=1}^{\infty}a_n$ 收敛。
+\item 设正项级数 $\sum_{n=1}^{\infty}a_n$ 收敛，则对于 $p>\frac12$，证明：级数 $\sum_{n=1}^{\infty}\frac{\sqrt{a_n}}{n^p}$ 收敛。举例说明 $p=\frac12$ 时级数 $\sum_{n=1}^{\infty}\frac{\sqrt{a_n}}{n^{1/2}}$ 可能发散。
+\item 证明下列两个级数发散：(1) $\sum_{n=1}^{\infty}\sin n$；(2) $\sum_{n=1}^{\infty}\sin n^2$。
+\item 设正项级数 $\sum_{n=1}^{\infty}a_n$ 发散，讨论下列级数的敛散性：
+\[
+(1)\ \sum_{n=1}^{\infty}\frac{a_n}{1+n^2a_n^2};\qquad
+(2)\ \sum_{n=1}^{\infty}\frac{a_n}{1+na_n};\qquad
+(3)\ \sum_{n=1}^{\infty}\frac{a_n}{1+a_n};\qquad
+(4)\ \sum_{n=1}^{\infty}\frac{a_n}{1+a_n^2}.
+\]
+\item 设有收敛级数 $\sum_{n=1}^{\infty}a_n=S$，证明：(1)
+\[
+\lim_{n\to\infty}\frac{a_1+2a_2+\cdots+na_n}{n}=0;
+\]
+(2) 级数
+\[
+\sum_{n=1}^{\infty}\frac{a_1+2a_2+\cdots+na_n}{n(n+1)}
+\]
+收敛，且其和也是 $S$。
+\item 设级数 $\sum_{n=1}^{\infty}a_n=s$ 为条件收敛，$\sum_{n=1}^{\infty}a_{f(n)}=t$ 是 $\sum_{n=1}^{\infty}a_n$ 的一个重排。若 $t\neq s$，证明：对于任意 $N$，存在 $n$，使 $|n-f(n)|>N$。（这表明，对于条件收敛级数作重排时，如果每一项的新位置与原有位置之差不超过某个界限的话，则级数的和不会改变。）
+\end{enumerate}
+\end{xreferenceproblem}
+
+\subsubsection*{第二组参考题}
+
+\begin{xreferenceproblem}
+\begin{enumerate}[label=\arabic*.]
+\item 设正项级数 $\sum_{n=1}^{\infty}\frac1{a_n}$ 收敛，证明：级数
+\[
+\sum_{n=1}^{\infty}\frac{n^2a_n}{(a_1+a_2+\cdots+a_n)^2}
+\]
+收敛。
+\item 设 $a>0$，$a_n>0$，$n=1,2,\ldots$，证明：级数
+\[
+\sum_{n=1}^{\infty}\frac{a_n}{(a+a_1+\cdots+a_n)^{3/2}}
+\]
+收敛，且其和 $S\leq2/\sqrt a$。
+\item 设正项级数 $\sum_{n=1}^{\infty}a_n$ 收敛且存在 $M>0$，使对每个正整数 $n$ 成立
+\[
+a_k\leq Ma_n,\qquad n\leq k\leq2n,
+\]
+证明：$\lim_{n\to\infty}na_n=0$。
+\item 试构造两个发散的正项级数 $\sum a_n$ 与 $\sum b_n$，它们的通项都单调减少，但级数 $\sum_{n=1}^{\infty}\min\{a_n,b_n\}$ 收敛。
+\item （Frink（弗林克）判别法）设对正项级数 $\sum_{n=1}^{\infty}a_n$ 存在极限
+\[
+\lim_{n\to\infty}\left(\frac{a_{n+1}}{a_n}\right)^n=\lambda,
+\]
+则当 $\lambda<\ee^{-1}$ 时级数收敛，而当 $\lambda>\ee^{-1}$ 时级数发散。
+\item （Ermakov（叶尔马科夫）判别法）设 $f$ 在 $[a,+\infty)$ 上单调减少且大于 0，又知存在极限
+\[
+\lim_{x\to+\infty}\frac{\ee^xf(\ee^x)}{f(x)}=p,
+\]
+则正项级数 $\sum_{n=1}^{\infty}f(n)$ 当 $p<1$ 时收敛，而当 $p>1$ 时发散。
+\item （Lobachevski（罗巴切夫斯基）判别法）通项单调趋于 0 的正项级数 $\sum_{n=1}^{\infty}a_n$ 与级数 $\sum_{n=1}^{\infty}b_n2^{-n}$ 同敛散，其中 $b_n=\max\{k\mid a_k\geq2^{-n}\}$。
+\item 证明：下列两个无穷乘积收敛于自然对数的底 $\ee$：
+\begin{enumerate}[label=(\arabic*)]
+\item $\displaystyle\prod_{n=1}^{\infty}\left(1+\frac1{a_n}\right)$，其中 $a_1=1$，$a_n=n(a_{n-1}+1)$，$\forall n\geq2$；
+\item $\displaystyle 2\left(\frac21\right)^{1/2}\left(\frac23\cdot\frac43\right)^{1/4}\left(\frac45\cdot\frac65\cdot\frac67\cdot\frac87\right)^{1/8}\cdots$。
+\end{enumerate}
+（题 (2) 来自《美国数学月刊》(1980) 第 87 卷 391 页。）
+\item 证明：若 $p\leq1$，则级数 $\sum_{n=1}^{\infty}\frac{\cos(\ln n)}{n^p}$ 发散。
+\item 设级数 $\sum_{n=1}^{\infty}na_n$ 收敛，证明：(1) 对任一正整数 $k$，级数 $\sum_{n=1}^{\infty}na_{n+k}$ 收敛；(2)
+\[
+\lim_{k\to\infty}\sum_{n=1}^{\infty}na_{n+k}=0.
+\]
+\item 若对每一个满足 $\lim_{n\to\infty}b_n=0$ 的数列 $\{b_n\}$，级数 $\sum_{n=1}^{\infty}a_nb_n$ 收敛，证明：级数 $\sum_{n=1}^{\infty}a_n$ 绝对收敛。
+\item 若对每一个收敛级数 $\sum_{n=1}^{\infty}b_n$，级数 $\sum_{n=1}^{\infty}a_nb_n$ 收敛，证明：级数 $\sum_{n=1}^{\infty}|a_n-a_{n+1}|$ 必定收敛。
+\item 举出一个收敛级数 $\sum_{n=1}^{\infty}a_n$，使得级数 $\sum_{n=1}^{\infty}a_n^3$ 发散。
+\item 设函数 $f$ 在 $[1,+\infty)$ 上连续可微，且 $\int_1^{+\infty}|f'(x)|\,\dd x$ 收敛，证明：广义积分 $\int_1^{+\infty}f(x)\,\dd x$ 与无穷级数 $\sum_{n=1}^{\infty}f(n)$ 同敛散。
+\item 设 $p>0$，证明：交错级数 $\sum_{n=1}^{\infty}\frac{(-1)^{n-1}}{n^p}$ 的和 $S$ 满足估计 $\frac12<S<1$。
+\item 设级数 $\sum_{n=1}^{\infty}a_nb_n$ 收敛，又知 $\{b_n\}$ 单调减少收敛于 0，证明：
+\[
+\lim_{n\to\infty}(a_1+a_2+\cdots+a_n)b_n=0.
+\]
+（第一组参考题 19 之 (1) 为本题之特例。）
+\item 设级数 $\sum_{n=1}^{\infty}\frac{a_n}{n^p}$ 收敛，其中 $p>0$，证明：
+\[
+\lim_{n\to\infty}\frac{a_1+a_2+\cdots+a_n}{n^p}=0.
+\]
+\item 设级数 $\sum_{n=1}^{\infty}a_n$ 的部分和数列为 $\{S_n\}$，并令
+\[
+\sigma_n=\frac{S_1+S_2+\cdots+S_n}{n},\qquad n=1,2,\ldots.
+\]
+定义：若存在极限 $\lim_{n\to\infty}\sigma_n=\sigma$，则称级数 $\sum_{n=1}^{\infty}a_n$ 可以 Cesàro（切萨罗）求和（或称级数在 Cesàro 意义下可求和），并将极限值 $\sigma$ 称为级数的 Cesàro 和。证明：收敛级数一定可以 Cesàro 求和，且其 Cesàro 和与收敛级数在通常意义下的和相等，但反之不真。
+\item 证明：级数 $\sum_{n=1}^{\infty}a_n$ 可以 Cesàro 求和的必要条件是
+\[
+\lim_{n\to\infty}\frac{a_n}{n}=0.
+\]
+（这个条件比通常意义下级数 $\sum a_n$ 收敛时通项必须为无穷小量的必要条件弱得多。）
+\item 下列级数是否可以 Cesàro 求和？如果可以，试求出它们的 Cesàro 和。
+\[
+\text{(1) }1-1+1-1+\cdots;\qquad
+\text{(2) }1-2^2+3^2-4^2+\cdots;
+\]
+\[
+\text{(3) }1+0-1+1+0-1+\cdots;\qquad
+\text{(4) }\sin x+\sin2x+\sin3x+\cdots.
+\]
+\item 设级数 $\sum_{n=1}^{\infty}a_n$ 的通项满足条件 $\lim_{n\to\infty}na_n=0$，证明：该级数在通常意义下收敛的充分必要条件是级数可以 Cesàro 求和。
+\item 设级数 $\sum_{n=1}^{\infty}a_n$ 可以 Cesàro 求和，证明：该级数在通常意义下收敛的充分必要条件是
+\[
+\lim_{n\to\infty}\frac{a_1+2a_2+\cdots+na_n}{n}=0.
+\]
+\end{enumerate}
+\end{xreferenceproblem}
