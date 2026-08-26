@@ -50,12 +50,17 @@ x(t)y'(t)-y(t)x'(t)
 \dd x&=(\rho'\cos\theta-\rho\sin\theta)\,\dd\theta,\\
 \dd y&=(\rho'\sin\theta+\rho\cos\theta)\,\dd\theta,
 \end{align*}
-从而
+从而沿曲线$\rho=\rho(\theta)$有
 \[
  x\,\dd y-y\,\dd x
  =\rho^2(\theta)\,\dd\theta.
 \]
-将其代入(11.1)，并令$\theta$由$\theta_1$增至$\theta_2$，便得
+扇形边界还包括$\theta=\theta_1,\theta_2$上的两条径向线段。固定其中一个极角$\theta_i$，以$r$为参数写成$x=r\cos\theta_i,y=r\sin\theta_i$，则
+\[
+ x\,\dd y-y\,\dd x
+ =r\cos\theta_i\sin\theta_i\,\dd r-r\sin\theta_i\cos\theta_i\,\dd r=0.
+\]
+所以把整个封闭边界代入(11.1)，只有曲线$\rho=\rho(\theta)$这一段有贡献，得到
 \[
  S=\frac12\int_{\theta_1}^{\theta_2}\rho^2(\theta)\,\dd\theta,
 \]
@@ -847,66 +852,94 @@ Schwarz不等式给出
 
 \paragraph{题11}
 \begin{xsolution}
-记$I_k=[(k-1)/n,k/n]$。逐区间有
-\begin{align*}
-\int_{I_k}f(x)\,\dd x-\frac1nf\left(\frac kn\right)
-&=-\int_{(k-1)/n}^{k/n}\int_x^{k/n}f'(t)\,\dd t\,\dd x\\
-&=-\int_{(k-1)/n}^{k/n}\left(t-\frac{k-1}{n}\right)f'(t)\,\dd t.
-\end{align*}
-于是
+记
 \[
- nA_n=-\int_0^1w_n(t)f'(t)\,\dd t,
+ I_k=\left[\frac{k-1}{n},\frac kn\right],\qquad
+ m_k=\inf_{x\in I_k}f'(x),\qquad
+ M_k=\sup_{x\in I_k}f'(x).
 \]
-其中在$I_k$上$w_n(t)=n(t-(k-1)/n)\in[0,1]$。
-
-我们用如下标准事实：若$g\in R[0,1]$，则
+对$x\in I_k$，由Lagrange中值定理，存在$\xi$介于$x$与$k/n$之间，使
 \[
- \int_0^1w_n(t)g(t)\,\dd t\longrightarrow\frac12\int_0^1g(t)\,\dd t.
+ f(x)-f\left(\frac kn\right)
+ =f'(\xi)\left(x-\frac kn\right).
 \]
-证明只需先对阶梯函数验证（每个完整小区间上$w_n$的平均值为$1/2$），再利用Riemann可积函数可由阶梯函数在积分意义下任意逼近，且$0\le w_n\le1$。
-
-取$g=f'$，便得
+注意$x-k/n\le0$，故
 \[
- \lim_{n\to\infty}nA_n
- =-\frac12\int_0^1f'(t)\,\dd t
+ M_k\left(x-\frac kn\right)
+ \le f(x)-f\left(\frac kn\right)
+ \le m_k\left(x-\frac kn\right).
+\]
+在$I_k$上积分并对$k$求和，得到
+\[
+ -\frac1{2n^2}\sum_{k=1}^nM_k
+ \le A_n
+ \le-\frac1{2n^2}\sum_{k=1}^nm_k,
+\]
+即
+\[
+ -\frac12\sum_{k=1}^n\frac{M_k}{n}
+ \le nA_n
+ \le-\frac12\sum_{k=1}^n\frac{m_k}{n}.
+\]
+因为$f'\in R[0,1]$，左右两端分别是$f'$的上、下Darboux和乘以$-1/2$，且二者都趋于
+\[
+ -\frac12\int_0^1f'(x)\,\dd x
  =\frac12[f(0)-f(1)].
+\]
+由夹逼定理，
+\[
+ \boxed{\lim_{n\to\infty}nA_n=\frac12[f(0)-f(1)]}.
 \]
 \end{xsolution}
 
 \paragraph{题12}
 \begin{xsolution}
-仍将$[0,1]$分成长度$h=1/n$的小区间$I_k=[(k-1)h,kh]$，中点$m_k=(k-1/2)h$。由题8的分部积分恒等式，在$I_k$上
+令
 \[
- \int_{I_k}f(x)\,\dd x-hf(m_k)
- =\int_{I_k}K_k(t)f''(t)\,\dd t,
+ I_k=\left[\frac{k-1}{n},\frac kn\right],\qquad
+ c_k=\frac{2k-1}{2n},
 \]
-其中
+并记
 \[
- K_k(t)=
- \begin{cases}
- \dfrac12(t-(k-1)h)^2,&t\le m_k,\\[4pt]
- \dfrac12(kh-t)^2,&t\ge m_k.
- \end{cases}
+ m_k=\inf_{x\in I_k}f''(x),\qquad
+ M_k=\sup_{x\in I_k}f''(x).
+\]
+对每个$x\in I_k$，在$c_k$处用二阶Taylor公式，存在介于$x$与$c_k$之间的$\xi$使
+\[
+ f(x)-f(c_k)
+ =f'(c_k)(x-c_k)+\frac12f''(\xi)(x-c_k)^2.
+\]
+由于$(x-c_k)^2\ge0$，
+\[
+ \frac{m_k}{2}(x-c_k)^2
+ \le f(x)-f(c_k)-f'(c_k)(x-c_k)
+ \le\frac{M_k}{2}(x-c_k)^2.
+\]
+在$I_k$上积分；中间的一次项积分为0，且
+\[
+ \frac12\int_{I_k}(x-c_k)^2\,\dd x=\frac1{24n^3}.
 \]
 因此
 \[
- n^2B_n=\int_0^1q_n(t)f''(t)\,\dd t,
- \qquad q_n=n^2K_k\quad(t\in I_k).
+ \frac1{24n^3}\sum_{k=1}^nm_k
+ \le B_n
+ \le\frac1{24n^3}\sum_{k=1}^nM_k,
 \]
-在每个$I_k$上，$q_n\ge0$，且
+即
 \[
- \int_{I_k}q_n(t)\,\dd t
- =n^2\frac{h^3}{24}=\frac{h}{24}.
+ \frac1{24}\sum_{k=1}^n\frac{m_k}{n}
+ \le n^2B_n
+ \le\frac1{24}\sum_{k=1}^n\frac{M_k}{n}.
 \]
-与题11相同，用阶梯函数逼近Riemann可积函数可得：若$g\in R[0,1]$，则
+因$f''\in R[0,1]$，左右两端都趋于
 \[
- \int_0^1q_n(t)g(t)\,\dd t\longrightarrow\frac1{24}\int_0^1g(t)\,\dd t.
-\]
-取$g=f''$，得到
-\[
- \lim_{n\to\infty}n^2B_n
- =\frac1{24}\int_0^1f''(t)\,\dd t
+ \frac1{24}\int_0^1f''(x)\,\dd x
  =\frac1{24}[f'(1)-f'(0)].
+\]
+由夹逼定理，
+\[
+ \boxed{\lim_{n\to\infty}n^2B_n
+ =\frac1{24}[f'(1)-f'(0)]}.
 \]
 \end{xsolution}
 
@@ -1428,25 +1461,28 @@ P_n
 
 \paragraph{参考题5}
 \begin{xsolution}
-在$0\le x\le1$上有
+对左边积分作代换$x=\sin t$，对右边积分作代换$x=\cos t$，分别得到
 \[
- \cos x\ge1-\frac{x^2}{2},
- \qquad
- \sin x\le x.
+ \int_0^1\frac{\cos x}{\sqrt{1-x^2}}\,\dd x
+ =\int_0^{\pi/2}\cos(\sin t)\,\dd t,
 \]
-所以
 \[
- \cos x-\sin x\ge1-x-\frac{x^2}{2}.
+ \int_0^1\frac{\sin x}{\sqrt{1-x^2}}\,\dd x
+ =\int_0^{\pi/2}\sin(\cos t)\,\dd t.
 \]
-于是
-\begin{align*}
-&\int_0^1\frac{\cos x-\sin x}{\sqrt{1-x^2}}\,\dd x\\
-&\quad\ge
- \int_0^1\frac{1-x-x^2/2}{\sqrt{1-x^2}}\,\dd x\\
-&\quad=\frac\pi2-1-\frac\pi8
- =\frac{3\pi}{8}-1>0,
-\end{align*}
-其中最后一步可用$\pi>8/3$。故题设不等式成立。
+当$0<t<\pi/2$时，$\sin t<t$，而$\cos$在$[0,\pi/2]$上严格递减，故
+\[
+ \cos(\sin t)>\cos t.
+\]
+又因$0<\cos t<1$且对$u>0$有$\sin u<u$，所以
+\[
+ \sin(\cos t)<\cos t.
+\]
+从而在$0<t<\pi/2$上恒有
+\[
+ \cos(\sin t)>\sin(\cos t).
+\]
+两边积分即得题设不等式（事实上为严格不等式）。
 \end{xsolution}
 
 \paragraph{参考题6}
@@ -1931,11 +1967,23 @@ S_n
 
 \paragraph{参考题6}
 \begin{xsolution}
-记$c=g(b)$，即$f(c)=b$。对连续严格增加函数及其反函数，有面积恒等式
+记$c=g(b)$，即$f(c)=b$。先证明连续严格增加函数与其反函数的面积恒等式
 \[
  \int_0^cf(x)\,\dd x+\int_0^bg(y)\,\dd y=bc.
 \]
-该恒等式可直接由曲线$y=f(x)$下方与其反函数曲线左方的互补面积得到，也可用Riemann和严格证明。
+取$[0,c]$的分划
+\[
+ 0=x_0<x_1<\cdots<x_n=c,
+ \qquad y_i=f(x_i).
+\]
+则$0=y_0<y_1<\cdots<y_n=b$，且$g(y_i)=x_i$。于是$f$的右端点和与$g$的左端点和满足
+\begin{align*}
+&\sum_{i=1}^ny_i(x_i-x_{i-1})
+ +\sum_{i=1}^nx_{i-1}(y_i-y_{i-1})\\
+&\qquad=\sum_{i=1}^n(x_iy_i-x_{i-1}y_{i-1})
+ =cb.
+\end{align*}
+令分划的最大子区间长度趋于0。因$f$在$[0,c]$上一致连续，所诱导的$y$分划的最大子区间长度也趋于0；两项Riemann和分别趋于上述两个积分，故面积恒等式成立。
 
 因此
 \[
@@ -2176,21 +2224,34 @@ $f$在$(0,1)$无零点，故不妨设$f>0$；若$f<0$则用$-f$代替。令$x_0\
  I=\int_a^b\abs{f(x)}\,\dd x,
  \qquad K=\frac{4I}{(b-a)^2}.
 \]
-反设对所有$x\in[a,b]$都有$\abs{f'(x)}\le K$。由$f(a)=f(b)=0$，
+因$f$非常值且$f(a)=f(b)=0$，故$I>0$，从而$K>0$。
+
+反设对所有$x\in(a,b)$都有$\abs{f'(x)}\le K$。对任意$x\in(a,b)$，分别在$[a,x]$与$[x,b]$上应用Lagrange中值定理，得到
+\[
+ \abs{f(x)}\le K(x-a),
+ \qquad
+ \abs{f(x)}\le K(b-x).
+\]
+因此在整个$[a,b]$上
 \[
  \abs{f(x)}\le K\min\{x-a,b-x\}.
 \]
-积分得到
+积分得
 \[
- I\le K\frac{(b-a)^2}{4}=I.
+ I\le K\int_a^b\min\{x-a,b-x\}\,\dd x
+ =K\frac{(b-a)^2}{4}=I.
 \]
-因此实际上处处必须达到积分等号，即连续函数$\abs{f}$必须等于帐篷函数
+故非负连续函数
 \[
- K\min\{x-a,b-x\}.
+ K\min\{x-a,b-x\}-\abs{f(x)}
 \]
-若$K=0$则$f\equiv0$，与$f$非常值矛盾；若$K>0$，该帐篷函数在中点不可微，而$f$可微，也矛盾。
+的积分为0，只能处处为0，即
+\[
+ \abs{f(x)}=K\min\{x-a,b-x\},\qquad a\le x\le b.
+\]
+令$m=(a+b)/2$。右边在$m$处等于$K(b-a)/2>0$，所以$f(m)\ne0$；因$f$可微，$\abs{f}$也在$m$处可微。但右端的帐篷函数在$m$处不可微，矛盾。
 
-故反设不成立，至少存在$\xi\in[a,b]$使
+故反设不成立，存在$\xi\in(a,b)$使
 \[
  \abs{f'(\xi)}>K
  =\frac4{(b-a)^2}\int_a^b\abs{f(x)}\,\dd x.
