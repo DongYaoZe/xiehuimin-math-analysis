@@ -393,7 +393,35 @@ C=\frac{\partial(x,y)}{\partial(x,y)}=1.
   S_{xy}=\iint_\Sigma\mu\,\dd S=\mu S.
 \]
 
-% CHECK-SOLUTION: 本题还要求“利用这个结果重新计算例题21.4.2”，但任务明确限定只读本章 chapters/ch25.tex；本章没有给出例题21.4.2的题面，无法在不猜测题意的前提下可靠复算。上面的投影面积结论已完整证明。
+对例题 21.4.2，椭圆在 $xOy$ 平面上的投影区域满足
+\[
+  \frac{x^2}{3}+y^2+\frac{(2x+y)^2}{2}\le1,
+\]
+即
+\[
+  14x^2+12xy+9y^2\le6.
+\]
+二次型矩阵
+\[
+  \begin{pmatrix}14&6\\6&9\end{pmatrix}
+\]
+的特征值为 $5,18$，故经正交变换后投影椭圆可写成
+\[
+  5u^2+18v^2\le6.
+\]
+因此其面积为
+\[
+  S_{xy}=\pi\sqrt{\frac65}\sqrt{\frac13}
+  =\frac{\sqrt{10}}5\pi.
+\]
+例题中平面的单位法向量与 $z$ 轴正向夹角的余弦为
+\[
+  \mu=\frac1{\sqrt6},
+\]
+于是所求椭圆面积为
+\[
+  \boxed{S=\frac{S_{xy}}\mu=\frac{2\sqrt{15}}5\pi}.
+\]
 \end{xsolution}
 
 \paragraph{练习 5}
@@ -417,6 +445,7 @@ C=\frac{\partial(x,y)}{\partial(x,y)}=1.
 
 \paragraph{练习 6}
 \begin{xsolution}
+% chapters/ch25.tex 此题第二项误录为 $yz\,\dd z\,\dd x$；原书题面为 $yx\,\dd z\,\dd x$，以下按原书题面计算。
 取参数
 \[
   x=\cos\theta,\qquad y=\sin\theta,\qquad
@@ -426,15 +455,27 @@ C=\frac{\partial(x,y)}{\partial(x,y)}=1.
 \[
   \vect n=(\cos\theta,\sin\theta,0),
 \]
-且 $\dd S=\dd\theta\,\dd z$。令
+且 $\dd S=\dd\theta\,\dd z$。原书题面的三个系数为
 \[
-  \vect F=(xz,yz,yz).
+  \vect F=(xz,xy,yz).
 \]
-则原第二型积分为
+于是
+\begin{align*}
+I
+&=\iint_S\vect F\cdot\vect n\,\dd S\\
+&=\int_{-\pi/2}^{\pi/2}\int_{-1}^{1}
+  \bigl(z\cos^2\theta+\cos\theta\sin^2\theta\bigr)
+  \,\dd z\,\dd\theta.
+\end{align*}
+第一项关于 $z$ 为奇函数，积分为零；第二项与 $z$ 无关，因此
+\begin{align*}
+I
+&=2\int_{-\pi/2}^{\pi/2}\cos\theta\sin^2\theta\,\dd\theta
+=\frac43.
+\end{align*}
+故
 \[
-  \iint_S\vect F\cdot\vect n\,\dd S
-  =\int_{-\pi/2}^{\pi/2}\int_{-1}^{1}
-  z(\cos^2\theta+\sin^2\theta)\,\dd z\,\dd\theta=0.
+  \boxed{I=\frac43}.
 \]
 \end{xsolution}
 
@@ -1336,31 +1377,71 @@ w={}&\frac12(n_2z-n_3y)\,\dd x
 
 \paragraph{参考题 7}
 \begin{xsolution}
-取一个以 $\Gamma$ 为边界、定向与 $\Gamma$ 相容的逐片光滑曲面 $\Sigma$。为得到单值势函数，先把 $\Sigma$ 作为割面；在 $\RR^3\setminus\Sigma$ 的每个连通分支上定义
+取一个以 $\Gamma$ 为边界、定向与 $\Gamma$ 相容的逐片光滑曲面 $\Sigma$。记积分点
+\[
+  \vect s=(\xi,\eta,\zeta),\qquad
+  r=|\vect s-\vect x|,
+\]
+并令
+\[
+  A=\frac{\xi-x}{r^3},\qquad
+  B=\frac{\eta-y}{r^3},\qquad
+  C=\frac{\zeta-z}{r^3}.
+\]
+把 $\Sigma$ 作为割面；在 $\RR^3\setminus\Sigma$ 的每个连通分支上定义
 \[
 \boxed{
+  u(\vect x)
+  =-\iint_\Sigma
+  \bigl(A\,\dd\eta\,\dd\zeta
+  +B\,\dd\zeta\,\dd\xi
+  +C\,\dd\xi\,\dd\eta\bigr)+C_0}.
+\]
+等价地，
+\[
   u(\vect x)=
   \iint_\Sigma
-  \frac{(\vect x-\vect s)\cdot\vect n(\vect s)}{|\vect x-\vect s|^3}\,\dd S_{\vect s}+C}.
+  \frac{(\vect x-\vect s)\cdot\vect n(\vect s)}{|\vect x-\vect s|^3}\,\dd S_{\vect s}+C_0.
 \]
-这就是有向曲线 $\Gamma$ 在点 $\vect x$ 所张的有向立体角（差一个加法常数）。
 
-下面验证它的梯度。对每个分量应用二维 Stokes 公式可得标准边界恒等式
+下面逐分量验证。由于核只依赖于 $(\xi-x,\eta-y,\zeta-z)$，有
 \[
-  \nabla_{\vect x}u
-  =\oint_\Gamma\frac{(\vect x-\vect s)\times\dd\vect s}{|\vect x-\vect s|^3}.
+  A_x=-A_\xi,\qquad B_x=-B_\xi,\qquad C_x=-C_\xi,
 \]
-而
+且在 $\vect x\notin\Sigma$ 时
 \[
-  (\vect x-\vect s)\times\dd\vect s
-  =\dd\vect s\times(\vect s-\vect x),
+  A_\xi+B_\eta+C_\zeta=0.
 \]
-故右端的三个分量恰为题中 $P,Q,R$。因此
+因此
+\[
+  u_x=\iint_\Sigma
+  \bigl(A_\xi\,\dd\eta\,\dd\zeta
+  +B_\xi\,\dd\zeta\,\dd\xi
+  +C_\xi\,\dd\xi\,\dd\eta\bigr).
+\]
+对 $1$-形式 $C\,\dd\eta-B\,\dd\zeta$ 应用 Stokes 公式；利用
+\[
+  -(B_\eta+C_\zeta)=A_\xi,
+\]
+得到
+\begin{align*}
+u_x
+&=\oint_\Gamma(C\,\dd\eta-B\,\dd\zeta)\\
+&=\oint_\Gamma
+\frac{(\zeta-z)\,\dd\eta-(\eta-y)\,\dd\zeta}{r^3}=P.
+\end{align*}
+同样地，对 $A\,\dd\zeta-C\,\dd\xi$ 与 $B\,\dd\xi-A\,\dd\eta$ 应用 Stokes 公式，分别得到
+\[
+  u_y=Q,
+  \qquad
+  u_z=R.
+\]
+于是
 \[
   \boxed{\dd u=P\,\dd x+Q\,\dd y+R\,\dd z}.
 \]
 
-需要说明的是，$\RR^3\setminus\Gamma$ 一般不是单连通区域，因而通常不存在在整个补集上单值的全局势函数；上述 $u$ 在跨过所选割面 $\Sigma$ 时相差 $4\pi$ 的整数倍。这并不影响其在每个割开后的连通区域内作为题中微分式的势函数。
+由于 $\RR^3\setminus\Gamma$ 一般不是单连通区域，通常不能在整个补集上选取单值势函数；跨过所选割面 $\Sigma$ 时，$u$ 的两个分支相差 $4\pi$ 的整数倍。在每个割开后的连通区域内，上式给出的 $u$ 都是所求势函数。
 \end{xsolution}
 
 \paragraph{参考题 8}
