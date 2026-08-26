@@ -1,0 +1,1476 @@
+% 第4章 函数极限——习题解答
+% 基于 chapters/ch04.tex，按原章题目出现顺序编排。
+
+\section*{第4章　函数极限习题解答}
+
+\subsection*{4.1.3　思考题}
+
+\paragraph{思考题 1}
+\begin{xsolution}
+(1) 可以。若原定义成立，则对给定的 $\varepsilon>0$，用原定义中的 $\varepsilon$ 即得
+$\abs{f(x)-A}<\varepsilon$，从而当然有 $\abs{f(x)-A}\leq\varepsilon$。
+反过来，若题中条件成立，则对任意 $\varepsilon>0$，把题中条件应用于 $\varepsilon/2$，可得某个 $\delta>0$，使
+\[
+  0<\abs{x-a}<\delta\quad\Longrightarrow\quad
+  \abs{f(x)-A}\leq\frac\varepsilon2<\varepsilon.
+\]
+故与原定义等价。
+
+(2) 当且仅当常数 $k>0$ 时可以。若 $k>0$，原定义推出题中条件是直接的；反过来，对给定的 $\varepsilon>0$，在题中条件中取 $\varepsilon/k$，便得
+$\abs{f(x)-A}<\varepsilon$。若 $k\leq0$，右端 $k\varepsilon\leq0$，一般不可能满足严格不等式，故不能作为等价定义。
+
+(3) 可以。若极限为 $A$，对每个 $n\in\NN_+$，把原定义中的 $\varepsilon$ 取为 $1/n$ 即可。反过来，任给 $\varepsilon>0$，取 $n\in\NN_+$ 使 $1/n<\varepsilon$。由题设存在 $\delta>0$，使得
+\[
+  0<\abs{x-a}<\delta\quad\Longrightarrow\quad
+  \abs{f(x)-A}<\frac1n<\varepsilon.
+\]
+故极限为 $A$。
+
+(4) 可以。原定义若成立，给定 $\varepsilon>0$ 后先取相应的 $\delta>0$，再取 $n$ 足够大使 $1/n<\delta$，则在 $O_{1/n}(a)-\{a\}$ 中成立所需不等式。反过来，题中条件本身就是把原定义中的 $\delta$ 限制成 $1/n$ 的特殊形式，因此令 $\delta=1/n$ 即得原定义。
+\end{xsolution}
+
+\paragraph{思考题 2}
+\begin{xsolution}
+(1) 不能。该条件要求存在一个固定的 $\delta>0$，使得对任意 $\varepsilon>0$ 都有
+$\abs{f(x)-A}<\varepsilon$。于是对该去心邻域中的每个 $x$，只能有 $f(x)=A$。这比“极限为 $A$”强得多。例如 $f(x)=A+x-a$ 在 $a$ 处极限为 $A$，但不满足题中条件。
+
+(2) 不能。该条件只表达了某种局部有界性，并不能保证函数趋于一个确定的数。例如
+\[
+  f(x)=\sin\frac1{x-a}
+\]
+在 $a$ 的任意足够小去心邻域内都有界，故对每个 $\delta$ 都可取某个 $\varepsilon$ 使题中不等式成立，但 $f$ 在 $a$ 处没有极限。
+
+(3) 不能作为严格的数学定义。“充分靠近”“越来越接近”都没有给出可核验的量词关系。只有把它精确化为
+\[
+  \forall\varepsilon>0,\ \exists\delta>0,\quad
+  0<\abs{x-a}<\delta\Longrightarrow\abs{f(x)-A}<\varepsilon
+\]
+之后，才成为极限的定义。
+\end{xsolution}
+
+\paragraph{思考题 3}
+\begin{xsolution}
+(1) “$f(x)$ 在点 $a$ 不收敛于 $A$”的正面叙述为：存在 $\varepsilon_0>0$，使得对每个 $\delta>0$，都能找到 $x$ 满足
+\[
+  0<\abs{x-a}<\delta,\qquad \abs{f(x)-A}\geq\varepsilon_0.
+\]
+
+(2) “$f(x)$ 在点 $a$ 处没有有限极限”的正面叙述为：对每个 $A\in\RR$，都存在一个 $\varepsilon_A>0$，使得对每个 $\delta>0$，都能找到 $x$ 满足
+\[
+  0<\abs{x-a}<\delta,\qquad \abs{f(x)-A}\geq\varepsilon_A.
+\]
+\end{xsolution}
+
+\paragraph{思考题 4}
+\begin{xsolution}
+各否定命题可写成下列形式。
+\begin{enumerate}[label=(\arabic*)]
+  \item $\displaystyle\lim_{x\to\infty}f(x)\ne A$：存在 $\varepsilon_0>0$，对每个 $M>0$，存在 $x$ 使
+  \[
+    \abs{x}>M,\qquad \abs{f(x)-A}\geq\varepsilon_0.
+  \]
+  \item $\displaystyle\lim_{x\to-\infty}f(x)\ne A$：存在 $\varepsilon_0>0$，对每个 $M>0$，存在 $x<-M$ 使
+  \[
+    \abs{f(x)-A}\geq\varepsilon_0.
+  \]
+  \item $\displaystyle\lim_{x\to a}f(x)\ne\infty$：存在 $G_0>0$，对每个 $\delta>0$，存在 $x$ 使
+  \[
+    0<\abs{x-a}<\delta,\qquad \abs{f(x)}\leq G_0.
+  \]
+  \item $\displaystyle\lim_{x\to a^-}f(x)\ne A$：存在 $\varepsilon_0>0$，对每个 $\delta>0$，存在
+  $x\in(a-\delta,a)$ 使
+  \[
+    \abs{f(x)-A}\geq\varepsilon_0.
+  \]
+  \item $\displaystyle\lim_{x\to a^+}f(x)\ne+\infty$：存在 $G_0>0$，对每个 $\delta>0$，存在
+  $x\in(a,a+\delta)$ 使
+  \[
+    f(x)\leq G_0.
+  \]
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{4.1.4 例题后的思考题：多项式极限}
+\begin{xsolution}
+设
+\[
+  p_n(x)=a_0x^n+a_1x^{n-1}+\cdots+a_n.
+\]
+有
+\[
+  p_n(x)-p_n(a)=(x-a)Q(x),
+\]
+其中 $Q$ 为某个多项式。只考察 $\abs{x-a}<1$，则 $\abs{x}\leq\abs a+1$，故 $Q(x)$ 在这个邻域内可用一个常数 $C\geq0$ 控制，即 $\abs{Q(x)}\leq C$。若 $C=0$，结论立即成立；若 $C>0$，对任意 $\varepsilon>0$ 取
+\[
+  \delta=\min\left\{1,\frac\varepsilon C\right\}.
+\]
+当 $0<\abs{x-a}<\delta$ 时，
+\[
+  \abs{p_n(x)-p_n(a)}=\abs{x-a}\,\abs{Q(x)}
+  \leq C\abs{x-a}<\varepsilon.
+\]
+故 $\lim_{x\to a}p_n(x)=p_n(a)$。
+\end{xsolution}
+
+\paragraph{命题 4.1.1 后的思考题：复合函数极限的三种可能}
+\begin{xsolution}
+记
+\[
+  E=\{x:g(x)=A\},\qquad F=\{x:g(x)\ne A\}.
+\]
+由于 $g(x)\to A$，在 $F$ 中沿任意趋于 $a$ 的点列，$g(x)\to A$ 且 $g(x)\ne A$，所以
+$f(g(x))\to B$。
+
+若 $E$ 在 $a$ 的某个去心邻域内为空，则 $f(g(x))\to B$。若 $F$ 在 $a$ 的某个去心邻域内为空，则在该邻域内 $g(x)=A$，故 $f(g(x))\equiv f(A)$，极限为 $f(A)$。
+
+只剩下 $E,F$ 都在 $a$ 处有聚点的情形。此时可分别取 $x_n\in E$、$y_n\in F$，使 $x_n\to a$、$y_n\to a$。于是
+\[
+  f(g(x_n))=f(A),\qquad f(g(y_n))\to B.
+\]
+若 $f(A)=B$，则两类点都趋向同一数，故复合极限为 $B=f(A)$；若 $f(A)\ne B$，由 Heine 归结原理，复合极限不存在。因此只有题中列出的三种可能。
+\end{xsolution}
+
+\subsection*{4.1.5　练习题}
+
+\paragraph{题 1}
+\begin{xsolution}
+有理化得
+\[
+  \frac{\sqrt{1+x}-\sqrt{1-x}}x
+  =\frac{2}{\sqrt{1+x}+\sqrt{1-x}}=:F(x).
+\]
+当 $\abs x<1/2$ 时，分母大于 1。设
+$s=\sqrt{1+x}+\sqrt{1-x}$，则
+\[
+  4-s^2=2\bigl(1-\sqrt{1-x^2}\bigr)
+  =\frac{2x^2}{1+\sqrt{1-x^2}}\leq2x^2.
+\]
+又 $2+s>2$，故
+\[
+  \abs{2-s}=\frac{4-s^2}{2+s}\leq x^2,
+  \qquad
+  \abs{F(x)-1}=\frac{\abs{2-s}}s\leq x^2.
+\]
+给定 $\varepsilon>0$，取
+$\delta=\min\{1/2,\sqrt\varepsilon\}$，则 $0<\abs x<\delta$ 时有 $\abs{F(x)-1}<\varepsilon$。故极限为 1。
+\end{xsolution}
+
+\paragraph{题 2}
+\begin{xsolution}
+对 $x\ne1$，
+\[
+  \frac{x^2+x-2}{x(x^2-3x+2)}
+  =\frac{x+2}{x(x-2)}=:F(x).
+\]
+于是
+\[
+  F(x)+3=\frac{(3x-2)(x-1)}{x(x-2)}.
+\]
+若 $\abs{x-1}<1/4$，则 $\abs x\geq3/4$、$\abs{x-2}\geq3/4$，且 $\abs{3x-2}<2$，从而
+\[
+  \abs{F(x)+3}\leq4\abs{x-1}.
+\]
+对给定 $\varepsilon>0$，取
+$\delta=\min\{1/4,\varepsilon/4\}$，即得 $\abs{F(x)+3}<\varepsilon$。故极限为 $-3$。
+\end{xsolution}
+
+\paragraph{题 3}
+\begin{xsolution}
+当 $x>2$ 时，
+\[
+  0<\frac{x+1}{x^2-x}
+  =\frac{x+1}{x(x-1)}
+  \leq\frac{(3/2)x}{x(x/2)}=\frac3x.
+\]
+给定 $\varepsilon>0$，取 $M=\max\{2,3/\varepsilon\}$。当 $x>M$ 时，上式小于 $\varepsilon$，故极限为 0。
+\end{xsolution}
+
+\paragraph{题 4}
+\begin{xsolution}
+分子在 $x=-1$ 处的值为 $4-a$。若 $a\ne4$，当 $x\to-1$ 时分子趋于非零常数，而分母 $x+1\to0$，不可能有有限极限。因此必须 $a=4$。此时
+\[
+  x^3-4x^2-x+4=(x+1)(x^2-5x+4),
+\]
+所以
+\[
+  \lim_{x\to-1}\frac{x^3-4x^2-x+4}{x+1}
+  =(-1)^2-5(-1)+4=10.
+\]
+故 $a=4$，极限为 10。
+\end{xsolution}
+
+\paragraph{题 5}
+\begin{xsolution}
+有限极限存在首先要求分子在 $x=2$ 处为 0，即
+\[
+  4+2a+b=0.
+\]
+于是
+\[
+  x^2+ax+b=(x-2)(x+a+2),
+\]
+故
+\[
+  \lim_{x\to2}\frac{x^2+ax+b}{x^2-x-2}
+  =\frac{a+4}{3}.
+\]
+令其等于 2，得 $a=2$，进而 $b=-8$。
+\end{xsolution}
+
+\paragraph{题 6}
+\begin{xsolution}
+若 $a>1$，则 $a+\sin(1/x)\geq a-1>0$，故对 $x\to0^+$，
+\[
+  \frac{a+\sin(1/x)}x\geq\frac{a-1}{x}\to+\infty.
+\]
+若 $a<-1$，则 $a+\sin(1/x)\leq a+1<0$，故
+\[
+  \frac{a+\sin(1/x)}x\leq\frac{a+1}{x}\to-\infty.
+\]
+若 $-1\leq a\leq1$，可取趋于 0 的正数列 $x_n$ 使
+$\sin(1/x_n)=-a$，于是相应商恒为 0，因此不可能趋于 $+\infty$ 或 $-\infty$。
+所以
+\[
+  a>1\Rightarrow+\infty,\qquad a<-1\Rightarrow-\infty,
+\]
+其余 $a$ 均不成立。
+\end{xsolution}
+
+\paragraph{题 7}
+\begin{xsolution}
+利用对 $u>0$ 成立的基本不等式
+\[
+  1-\frac1u\leq\ln u\leq u-1
+\]
+可得：当 $1/2<u<3/2$ 时，
+\[
+  \abs{\ln u}\leq2\abs{u-1}.
+\]
+令 $u=x/a$。若 $\abs{x-a}<a/2$，则 $1/2<u<3/2$，于是
+\[
+  \abs{\ln x-\ln a}
+  =\abs{\ln(x/a)}
+  \leq\frac2a\abs{x-a}.
+\]
+给定 $\varepsilon>0$，取
+\[
+  \delta=\min\left\{\frac a2,\frac{a\varepsilon}2\right\},
+\]
+便有 $0<\abs{x-a}<\delta$ 时 $\abs{\ln x-\ln a}<\varepsilon$。故
+$\lim_{x\to a}\ln x=\ln a$。
+\end{xsolution}
+
+\paragraph{题 8}
+\begin{xsolution}
+先证 $h\to0$ 时 $\ee^h\to1$。对 $0\leq u<1$，由指数函数的基本估计
+$\ee^u\leq(1-u)^{-1}$，当 $0\leq u\leq1/2$ 时有
+\[
+  0\leq\ee^u-1\leq\frac{u}{1-u}\leq2u.
+\]
+对 $-1/2\leq h<0$，令 $u=-h$，则
+\[
+  0\leq1-\ee^h=1-\ee^{-u}\leq\ee^u-1\leq2u=2\abs h.
+\]
+故 $\abs{\ee^h-1}\leq2\abs h$（$\abs h\leq1/2$）。
+
+现在
+\[
+  \abs{\ee^x-\ee^a}=\ee^a\abs{\ee^{x-a}-1}.
+\]
+给定 $\varepsilon>0$，取
+\[
+  \delta=\min\left\{\frac12,\frac{\varepsilon}{2\ee^a}\right\}.
+\]
+当 $\abs{x-a}<\delta$ 时，右端小于 $\varepsilon$，所以
+$\lim_{x\to a}\ee^x=\ee^a$。
+\end{xsolution}
+
+\paragraph{题 9}
+\begin{xsolution}
+若 $\lim_{t\to0}f(t)=L$，因 $x^3\to0$ 且 $x\ne0$ 时 $x^3\ne0$，复合函数极限法则给出
+\[
+  \lim_{x\to0}f(x^3)=L.
+\]
+反过来，若 $\lim_{x\to0}f(x^3)=L$，对任意趋于 0 的实数 $t\ne0$，令 $x=\sqrt[3]t$，则 $x\to0$，且
+$f(t)=f(x^3)\to L$。故 $\lim_{t\to0}f(t)=L$。因此二者同时存在或同时不存在，存在时极限相等。
+\end{xsolution}
+
+\paragraph{题 10}
+\begin{xsolution}
+不一定。若 $\lim_{x\to0}f(x)$ 存在，则由复合函数极限法则，$\lim_{x\to0}f(x^2)$ 必存在且等于同一极限；反之不成立。
+
+例如定义
+\[
+  f(t)=\begin{cases}
+    0,&t\geq0,\\
+    1,&t<0.
+  \end{cases}
+\]
+则 $f(x^2)\equiv0$，所以 $\lim_{x\to0}f(x^2)=0$，但 $f(t)$ 在 $t=0$ 的左右极限分别为 1 和 0，故 $\lim_{t\to0}f(t)$ 不存在。
+\end{xsolution}
+
+\paragraph{题 11}
+\begin{xsolution}
+设 $a\in\RR$ 任意。任一去心邻域中都同时含有有理数和无理数。
+
+直接用定义证明：若假设 $D(x)\to A$，取 $\varepsilon=1/3$。对任意足够小的去心邻域，选有理数 $r$ 和无理数 $s$，则应同时有
+\[
+  \abs{1-A}<\frac13,\qquad \abs{0-A}<\frac13,
+\]
+由三角不等式将推出 $1<2/3$，矛盾。
+
+用 Heine 归结原理也可证明。可分别取有理数列 $r_n\to a$ 和无理数列 $s_n\to a$，并令各项都不等于 $a$。则
+\[
+  D(r_n)=1,\qquad D(s_n)=0,
+\]
+两像数列极限不同，故 $D$ 在 $a$ 处无极限。
+
+还可用 Cauchy 收敛准则：取 $\varepsilon=1/2$。任意去心邻域中可取一有理点 $r$ 与一无理点 $s$，于是
+$\abs{D(r)-D(s)}=1>1/2$，不满足 Cauchy 条件。
+因此 $D$ 在每一点都没有极限。
+\end{xsolution}
+
+\paragraph{题 12}
+\begin{xsolution}
+取
+\[
+  f(x)=(x-1)D(x),
+\]
+其中 $D$ 为 Dirichlet 函数。因为 $\abs{D(x)}\leq1$，当 $x\to1$ 时
+\[
+  \abs{f(x)}\leq\abs{x-1}\to0,
+\]
+故 $f$ 在 $x=1$ 处极限为 0。
+
+若 $a\ne1$，取有理数列 $r_n\to a$ 与无理数列 $s_n\to a$，则
+\[
+  f(r_n)=r_n-1\to a-1\ne0,
+  \qquad f(s_n)=0.
+\]
+由 Heine 归结原理，$f$ 在 $a$ 处没有极限。因此只有 $x=1$ 处有极限。
+\end{xsolution}
+
+\paragraph{题 13}
+\begin{xsolution}
+设 $T>0$ 为 $f$ 的一个周期。任取 $x\in\RR$，有
+\[
+  x+nT\to+\infty,\qquad f(x+nT)=f(x).
+\]
+由 $\lim_{t\to+\infty}f(t)=0$，令 $n\to\infty$ 得 $f(x)=0$。由于 $x$ 任意，故 $f(x)\equiv0$。
+\end{xsolution}
+
+\paragraph{题 14}
+\begin{xsolution}
+设有理分式函数 $R(x)=P(x)/Q(x)$ 是周期函数，周期为 $T>0$。
+
+若 $Q$ 有实零点 $x_0$，则周期性将使 $x_0+nT$（$n\in\ZZ$）都成为极点；但非零多项式 $Q$ 只有有限个零点，矛盾。因此若 $R$ 在其定义域上周期，只可能没有实极点。
+
+再考察 $x\to+\infty$。若 $\deg P>\deg Q$，则 $\abs{R(x)}\to\infty$。但固定一个 $x_0$，有 $R(x_0+nT)=R(x_0)$，与此矛盾。故 $\deg P\leq\deg Q$，从而 $R(x)$ 在 $+\infty$ 有有限极限 $L$。对任意 $x$，
+\[
+  R(x)=R(x+nT)\to L,
+\]
+所以 $R(x)=L$。因此周期有理分式函数只能是常值函数，任何非常值有理分式函数都不可能是周期函数。
+\end{xsolution}
+
+\subsection*{4.2.2　命题 4.2.1（原书将证明留给读者）}
+\begin{xsolution}
+先设 $A$ 为有限数。若 $\lim_{x\to a}f(x)=A$，则把两侧定义限制在 $x<a$ 或 $x>a$，立即得到
+$f(a^-)=f(a^+)=A$。
+
+反之，若左右极限都等于 $A$，给定 $\varepsilon>0$，分别存在 $\delta_1,\delta_2>0$，使
+\[
+  a-\delta_1<x<a\Longrightarrow\abs{f(x)-A}<\varepsilon,
+\]
+\[
+  a<x<a+\delta_2\Longrightarrow\abs{f(x)-A}<\varepsilon.
+\]
+取 $\delta=\min\{\delta_1,\delta_2\}$，则 $0<\abs{x-a}<\delta$ 时无论 $x<a$ 还是 $x>a$ 都有
+$\abs{f(x)-A}<\varepsilon$，故两侧合成为 $\lim_{x\to a}f(x)=A$。
+
+当 $A=+\infty$ 或 $-\infty$ 时，把上述 $\varepsilon$ 条件分别换成 $f(x)>G$ 或 $f(x)<-G$；当 $A=\infty$ 表示无确定符号的无穷大量时，换成 $\abs{f(x)}>G$。同样取两个单侧邻域半径的最小值即可，证明完全相同。
+\end{xsolution}
+
+\subsection*{4.2.3　思考题}
+
+\paragraph{思考题 1}
+\begin{xsolution}
+以下均假定极限值 $A$ 为有限数。
+
+对 $\boldsymbol{x\to+\infty}$：
+\begin{enumerate}
+  \item 唯一性：若 $\lim_{x\to+\infty}f(x)=A$，则极限值唯一。
+  \item 尾部有界性：存在 $M,C>0$，使 $x>M$ 时 $\abs{f(x)}\leq C$。
+  \item 尾部保号性：若 $A>0$（或 $A<0$），则存在 $M$，使 $x>M$ 时 $f(x)>0$（或 $f(x)<0$）。
+  \item 比较定理：若充分大的 $x$ 上 $f(x)\leq g(x)$，且两者极限分别为 $A,B$，则 $A\leq B$。
+  \item 夹逼定理：若充分大的 $x$ 上 $f(x)\leq h(x)\leq g(x)$，且 $f,g\to A$，则 $h\to A$。
+  \item Heine 归结原理：$f(x)\to A$ 的充要条件是对每个 $x_n\to+\infty$，都有 $f(x_n)\to A$。
+  \item Cauchy 收敛准则：$f$ 在 $+\infty$ 有有限极限的充要条件是
+  \[
+    \forall\varepsilon>0,\ \exists M>0,\quad x',x''>M
+    \Longrightarrow\abs{f(x')-f(x'')}<\varepsilon.
+  \]
+\end{enumerate}
+
+对 $\boldsymbol{x\to a^+}$，把“$x>M$”换成“$a<x<a+\delta$”即可。具体地：极限唯一；若极限有限则在某个右邻域有界；极限为正（负）则在某个右邻域保正（负）；右邻域上的次序可传到极限；同一右邻域中的夹逼成立；Heine 条件为对每个满足 $x_n>a$、$x_n\to a$ 的数列有 $f(x_n)\to A$；Cauchy 条件为
+\[
+  \forall\varepsilon>0,\ \exists\delta>0,\quad
+  x',x''\in(a,a+\delta)
+  \Longrightarrow\abs{f(x')-f(x'')}<\varepsilon.
+\]
+\end{xsolution}
+
+\paragraph{思考题 2}
+\begin{xsolution}
+(1) 若 $f+g$ 有有限极限，而 $f$ 有有限极限，则
+$g=(f+g)-f$ 也有有限极限；同理，若 $g$ 有有限极限，则 $f$ 也有。因此在“有限极限是否存在”这一意义下，$f,g$ 要么同时收敛，要么同时不收敛。后二者同时不收敛时和仍可收敛，例如
+\[
+  f(x)=\sin\frac1{x-a},\qquad g(x)=-\sin\frac1{x-a},
+\]
+两者在 $a$ 处都无极限，而 $f+g\equiv0$。
+
+(2) 不一定。若 $\lim f=A\ne0$，而 $\lim g$ 不存在，则 $\lim(fg)$ 也不可能存在；否则
+$g=(fg)/f$ 将有极限，矛盾。若 $A=0$，乘积极限可能存在，也可能不存在。例如在 $x\to0$ 时，
+\[
+  f(x)=x,\quad g(x)=\sin\frac1x
+\]
+满足 $g$ 无极限而 $fg\to0$；而取 $f(x)\equiv1$、$g(x)=\sin(1/x)$ 时，乘积仍无极限。
+\end{xsolution}
+
+\paragraph{思考题 3}
+\begin{xsolution}
+(1) 错误在于把除法极限定理用于分母极限不存在的情形。事实上
+\[
+  \frac{x-2}{\sin\frac1{x-2}}
+\]
+在 $x\to2$ 时没有极限。令 $t=1/(x-2)$。沿 $t_n=2n\pi+\pi/2$，有
+\[
+  \frac1{t_n\sin t_n}\to0;
+\]
+而沿 $s_n=n\pi+1/n^2$，有
+$s_n\sin s_n\to0$，从而该商的绝对值趋于无穷。故极限不存在。
+
+(2) 错误在于把乘法极限定理用于 $\sin x$ 无极限的情形。正确证明应使用有界性：
+\[
+  \abs{\frac{\sin x}{x}}\leq\frac1{\abs x}\to0,
+\]
+故极限确实为 0，但题中的运算过程不合法。
+\end{xsolution}
+
+\paragraph{思考题 4}
+\begin{xsolution}
+设
+\[
+  \lim_{x\to a}f(x)=A,\qquad \lim_{x\to a}g(x)=B.
+\]
+用定义证明：给定 $\varepsilon>0$，分别取 $\delta_1,\delta_2>0$，使得
+\[
+  0<\abs{x-a}<\delta_1\Rightarrow\abs{f(x)-A}<\frac\varepsilon2,
+\]
+\[
+  0<\abs{x-a}<\delta_2\Rightarrow\abs{g(x)-B}<\frac\varepsilon2.
+\]
+令 $\delta=\min\{\delta_1,\delta_2\}$，则
+\[
+  \abs{f(x)+g(x)-(A+B)}
+  \leq\abs{f(x)-A}+\abs{g(x)-B}<\varepsilon.
+\]
+所以 $\lim_{x\to a}(f+g)=A+B$。
+
+用 Heine 归结原理证明：任取 $x_n\ne a$ 且 $x_n\to a$。由 Heine 原理，
+$f(x_n)\to A$、$g(x_n)\to B$。由数列极限的加法法则，
+$f(x_n)+g(x_n)\to A+B$。对任意这样的数列都成立，再用 Heine 原理的充分性即得函数极限结论。
+\end{xsolution}
+
+\paragraph{思考题 5}
+\begin{xsolution}
+无确定符号的“$\infty$”只表示绝对值趋于无穷，并不能给出大小方向，因此普通夹逼定理中的次序信息不足。以 $x\to+\infty$ 为例，取
+\[
+  f(x)=-x^2,\qquad h(x)=0,\qquad g(x)=x^2.
+\]
+恒有 $f(x)\leq h(x)\leq g(x)$，且 $\abs{f(x)}\to\infty$、$\abs{g(x)}\to\infty$，即两端都属于无确定符号的无穷大量；但 $h(x)\equiv0$ 并非无穷大量。这说明这种情形下夹逼定理不成立。
+\end{xsolution}
+
+\paragraph{4.2.4 例题后的思考题：Heine 推论在 $+\infty$ 的形式}
+\begin{xsolution}
+命题为：函数 $f$ 在 $+\infty$ 存在有限极限的充分必要条件是，对每个严格单调增加且趋于 $+\infty$ 的数列 $\{x_n\}$，数列 $\{f(x_n)\}$ 都收敛。
+
+必要性直接由函数极限推出。证充分性。先证所有这样的像数列必收敛于同一极限。若存在两个严格递增正无穷大数列 $\{x_n\},\{y_n\}$，使
+$f(x_n)\to A_1$、$f(y_n)\to A_2$ 且 $A_1\ne A_2$，可递归选取子列
+\[
+  x_{n_1}<y_{m_1}<x_{n_2}<y_{m_2}<\cdots,
+\]
+并令 $z_{2k-1}=x_{n_k}$、$z_{2k}=y_{m_k}$。则 $\{z_n\}$ 严格递增且趋于 $+\infty$，但 $\{f(z_n)\}$ 的奇、偶子列极限不同，故发散，与题设矛盾。因此所有像数列有同一极限 $A$。再用例题 4.2.4 的充分性，得到 $\lim_{x\to+\infty}f(x)=A$。
+\end{xsolution}
+
+\subsection*{4.2.5　练习题}
+
+\paragraph{题 1}
+\begin{xsolution}
+(1) 令 $c=\ln a>0$。取整数 $m>k$。由指数函数的幂级数中各项非负，$x>0$ 时
+\[
+  \ee^{cx}\geq\frac{(cx)^m}{m!}.
+\]
+于是
+\[
+  0\leq\frac{x^k}{a^x}=\frac{x^k}{\ee^{cx}}
+  \leq\frac{m!}{c^m x^{m-k}}\to0.
+\]
+
+(2) 令 $t=\ln x$，则 $t\to+\infty$，且
+\[
+  \frac{\ln x}{x^k}=\frac{t}{\ee^{kt}}\to0
+\]
+由 (1) 的同一估计（取幂次 1）即得。
+
+(3) 对 $a>0$，
+\[
+  \sqrt[x]a=\exp\left(\frac{\ln a}{x}\right)\to\ee^0=1
+  \qquad(x\to\infty).
+\]
+
+(4) 由 (2) 取 $k=1$，$\ln x/x\to0$，故
+\[
+  \sqrt[x]x=\exp\left(\frac{\ln x}{x}\right)\to1.
+\]
+\end{xsolution}
+
+\paragraph{题 2}
+\begin{xsolution}
+当 $y>0$ 时分子分母同除以 $y^{3/2}$：
+\[
+  \frac{\sqrt{1+y^3}}{\sqrt{y^2+y^3}+y}
+  =\frac{\sqrt{1+y^{-3}}}{\sqrt{1+y^{-1}}+y^{-1/2}}\to1.
+\]
+故极限为 1。
+\end{xsolution}
+
+\paragraph{题 3}
+\begin{xsolution}
+对充分大的 $x$，底数为正。取对数：
+\[
+  \frac{x-1}{x+2}\ln\frac{x^2-1}{x^2+1}
+  =\frac{x-1}{x+2}\ln\left(1-\frac2{x^2+1}\right)\to0,
+\]
+因为第一因子趋于 1，第二因子趋于 0。故原极限为 $\ee^0=1$。
+\end{xsolution}
+
+\paragraph{题 4}
+\begin{xsolution}
+令 $y=(1+x)^{1/n}$，则 $y\to1$，且
+\[
+  x=y^n-1=(y-1)(1+y+\cdots+y^{n-1}).
+\]
+所以
+\[
+  \frac{\sqrt[n]{1+x}-1}{x}
+  =\frac1{1+y+\cdots+y^{n-1}}\to\frac1n.
+\]
+\end{xsolution}
+
+\paragraph{题 5}
+\begin{xsolution}
+令 $t=bx$。因 $b\ne0$，$x\to0$ 时 $t\to0$，于是
+\[
+  \frac{f(bx)}x=b\frac{f(t)}t\to bl.
+\]
+故所求极限为 $bl$。
+\end{xsolution}
+
+\paragraph{题 6}
+\begin{xsolution}
+有理化可得
+\[
+  \frac{\sqrt{1+\sin x}-\sqrt{1-\sin x}}{\sin x}
+  =\frac2{\sqrt{1+\sin x}+\sqrt{1-\sin x}}\to1.
+\]
+\end{xsolution}
+
+\paragraph{题 7}
+\begin{xsolution}
+设 $f$ 单调增加且有上界。令
+\[
+  A=\sup\{f(x):x>a\}.
+\]
+给定 $\varepsilon>0$，由上确界定义存在 $x_0>a$ 使 $f(x_0)>A-\varepsilon$。当 $x>x_0$ 时，单调性给出
+\[
+  A-\varepsilon<f(x_0)\leq f(x)\leq A,
+\]
+故 $\abs{f(x)-A}<\varepsilon$，即 $f(x)\to A$。若 $f$ 单调减少且有下界，则以值域下确界作同样证明。故单调有界函数在 $+\infty$ 必有有限极限。
+\end{xsolution}
+
+\paragraph{题 8}
+\begin{xsolution}
+(1) 任取 $x\in(a,b)$。因 $x_n\to b$，充分大的 $n$ 有 $x_n>x$，从而
+$f(x)\leq f(x_n)$。令 $n\to\infty$ 得 $f(x)\leq A$，故 $A$ 是上界。
+
+(2) 给定 $\varepsilon>0$，由 $f(x_n)\to A$ 可取 $n_0$ 使
+$f(x_{n_0})>A-\varepsilon$。当 $x\in(x_{n_0},b)$ 时，由单调性和 (1)，
+\[
+  A-\varepsilon<f(x_{n_0})\leq f(x)\leq A.
+\]
+因此 $\lim_{x\to b^-}f(x)=A$。
+\end{xsolution}
+
+\paragraph{题 9}
+\begin{xsolution}
+取 $\varepsilon=A-c>0$。由 $f(x)\to A$，存在 $M>0$，当 $x>M$ 时
+\[
+  \abs{f(x)-A}<A-c.
+\]
+于是 $f(x)>A-(A-c)=c$。
+\end{xsolution}
+
+\paragraph{题 10}
+\begin{xsolution}
+记 $L=f(a^-)$、$R=f(a^+)$，且 $L<R$。取
+$\varepsilon=(R-L)/3$。由两个单侧极限，存在 $\delta_1,\delta_2>0$，使
+\[
+  a-\delta_1<x<a\Rightarrow f(x)<L+\varepsilon,
+\]
+\[
+  a<y<a+\delta_2\Rightarrow f(y)>R-\varepsilon.
+\]
+又
+\[
+  L+\varepsilon<R-\varepsilon.
+\]
+取 $\delta=\min\{\delta_1,\delta_2\}$，即得题设范围内 $f(x)<f(y)$。
+\end{xsolution}
+
+\paragraph{题 11}
+\begin{xsolution}
+以 $f$ 在 $(a,b)$ 上单调增加为例。取一个严格增加且趋于 $b$ 的数列 $x_n\in(a,b)$。则 $f(x_n)$ 单调增加，故它要么收敛于有限数 $A$，要么趋于 $+\infty$。
+
+若 $f(x_n)\to A<+\infty$，先说明 $f(x)\leq A$ 对每个 $x<b$ 成立：固定 $x$，充分大的 $n$ 有 $x_n>x$，故 $f(x)\leq f(x_n)\to A$。给定 $\varepsilon>0$，取 $N$ 使 $f(x_N)>A-\varepsilon$。当 $x_N<x<b$ 时
+\[
+  A-\varepsilon<f(x_N)\leq f(x)\leq A,
+\]
+所以 $f(x)\to A$（$x\to b^-$）。
+
+若 $f(x_n)\to+\infty$，给定 $G>0$，取 $N$ 使 $f(x_N)>G$，则 $x_N<x<b$ 时 $f(x)>G$，故 $f(x)\to+\infty$。单调减少情形同理。这个证明也说明了单侧 Heine 原理中只考察适当的单调数列已足够。
+\end{xsolution}
+
+\subsection*{4.3　原书要求会证明的四个基本极限}
+
+\paragraph{基本极限 1}
+\begin{xsolution}
+由
+\[
+  \frac{\tan x}{x}=\frac{\sin x}{x}\cdot\frac1{\cos x}
+\]
+及 $\sin x/x\to1$、$\cos x\to1$，得
+$\lim_{x\to0}\tan x/x=1$。
+\end{xsolution}
+
+\paragraph{基本极限 2}
+\begin{xsolution}
+利用 $1-\cos x=2\sin^2(x/2)$，
+\[
+  \frac{1-\cos x}{x^2}
+  =\frac12\left(\frac{\sin(x/2)}{x/2}\right)^2\to\frac12.
+\]
+\end{xsolution}
+
+\paragraph{基本极限 3}
+\begin{xsolution}
+由第二个重要极限
+$(1+x)^{1/x}\to\ee$，并利用 $\ln$ 的连续性，
+\[
+  \frac{\ln(1+x)}x
+  =\ln\bigl((1+x)^{1/x}\bigr)\to\ln\ee=1.
+\]
+\end{xsolution}
+
+\paragraph{基本极限 4}
+\begin{xsolution}
+若 $a=1$，结论显然为 0。设 $a>0,a\ne1$，令 $y=a^x-1$，则 $y\to0$，且
+$\ln(1+y)=x\ln a$。于是
+\[
+  \frac{a^x-1}{x}
+  =\ln a\,\frac{y}{\ln(1+y)}\to\ln a.
+\]
+\end{xsolution}
+
+\subsection*{4.3.3　例题 4.3.1--4.3.3（原书证明从略）}
+
+\paragraph{例题 4.3.1}
+\begin{xsolution}
+令 $u=g(t)$。题设给出 $u\to0$，且在 $t\ne t_0$ 的相应邻域内 $u\ne0$。因此可直接应用第一个重要极限：
+\[
+  \frac{\sin g(t)}{g(t)}=\frac{\sin u}{u}\to1.
+\]
+\end{xsolution}
+
+\paragraph{例题 4.3.2}
+\begin{xsolution}
+令 $u=1/g(t)$，则无论 $g(t)\to+\infty$ 还是 $g(t)\to-\infty$，都有 $u\to0$，且
+\[
+  \left(1+\frac1{g(t)}\right)^{g(t)}=(1+u)^{1/u}\to\ee.
+\]
+\end{xsolution}
+
+\paragraph{例题 4.3.3}
+\begin{xsolution}
+令 $u=g(t)$。由 $u\to0$ 且 $u\ne0$，基本极限给出
+\[
+  \frac{\ln(1+g(t))}{g(t)}=\frac{\ln(1+u)}u\to1.
+\]
+\end{xsolution}
+
+\subsection*{4.3.4　练习题}
+
+\paragraph{题 1}
+\begin{xsolution}
+\begin{enumerate}[label=(\arabic*)]
+  \item 利用 $\arctan x=\pi/2-\arctan(1/x)$，令
+  $u=(2/\pi)\arctan(1/x)\sim2/(\pi x)$。则
+  \[
+    x\ln\left(\frac2\pi\arctan x\right)
+    =x\ln(1-u)\to-\frac2\pi,
+  \]
+  故极限为 $\ee^{-2/\pi}$。
+
+  \item 令 $h=x-\pi/2$。则
+  $\sin x=\cos h=1-\frac12h^2+\littleo(h^2)$，且
+  $\tan x=-\cot h\sim-1/h$。所以
+  \[
+    \tan x\,\ln(\sin x)
+    \sim\left(-\frac1h\right)\left(-\frac12h^2\right)\to0,
+  \]
+  原极限为 1。
+
+  \item
+  \[
+    x^2\ln\frac{x^2-1}{x^2+1}
+    =x^2\ln\left(1-\frac2{x^2+1}\right)\to-2,
+  \]
+  故极限为 $\ee^{-2}$。
+
+  \item 令 $h=\pi/2-x\to0^+$，则 $\cos x=\sin h$，故
+  \[
+    \ln\bigl((\cos x)^{\pi/2-x}\bigr)=h\ln(\sin h)
+    =h\ln h+h\ln\frac{\sin h}{h}\to0.
+  \]
+  因而极限为 1。
+
+  \item
+  \[
+    \frac{\sin2x-2\sin x}{x^3}
+    =2\frac{\sin x}{x}\frac{\cos x-1}{x^2}\to2\cdot1\cdot\left(-\frac12\right)=-1.
+  \]
+
+  \item 令 $h=1-x\to0$，则
+  \[
+    (1-x)\tan\frac{\pi x}{2}
+    =h\cot\frac{\pi h}{2}
+    =\frac2\pi\frac{(\pi h/2)}{\tan(\pi h/2)}\to\frac2\pi.
+  \]
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{题 2}
+\begin{xsolution}
+(1) 由于 $\abs{\sin x}\leq1$，
+\[
+  \abs{\frac{\sin x}{x}}\leq\frac1x\to0,
+\]
+故正确值是 0。
+
+(2) 取对数：
+\[
+  \ln\bigl((1+x)^{1/x}\bigr)=\frac{\ln(1+x)}x\to0
+  \qquad(x\to+\infty),
+\]
+因为 $\ln(1+x)=\littleo(x)$。故正确值是 1。
+\end{xsolution}
+
+\paragraph{题 3}
+\begin{xsolution}
+由
+\[
+  a^{1/n}=1+\frac{\ln a}{n}+\littleo\left(\frac1n\right),\qquad
+  b^{1/n}=1+\frac{\ln b}{n}+\littleo\left(\frac1n\right),
+\]
+可得
+\[
+  \frac{a^{1/n}+b^{1/n}}2
+  =1+\frac{\ln a+\ln b}{2n}+\littleo\left(\frac1n\right).
+\]
+于是
+\[
+  \left(\frac{a^{1/n}+b^{1/n}}2\right)^n
+  \to\exp\left(\frac{\ln a+\ln b}{2}\right)=\sqrt{ab}.
+\]
+\end{xsolution}
+
+\paragraph{题 4}
+\begin{xsolution}
+对每个 $i$，
+\[
+  a_i^x=\ee^{x\ln a_i}=1+x\ln a_i+\littleo(x).
+\]
+因此
+\[
+  \frac1n\sum_{i=1}^n a_i^x
+  =1+x\left(\frac1n\sum_{i=1}^n\ln a_i\right)+\littleo(x).
+\]
+记 $c=\frac1n\sum\ln a_i$，则
+\[
+  \ln f(x)=\frac1x\ln(1+cx+\littleo(x))\to c.
+\]
+故
+\[
+  \lim_{x\to0}f(x)=\ee^c=(a_1a_2\cdots a_n)^{1/n}.
+\]
+\end{xsolution}
+
+\paragraph{题 5}
+\begin{xsolution}
+反复使用 $\sin u=2\sin(u/2)\cos(u/2)$，得到
+\[
+  \sin x=2^n\sin\frac{x}{2^n}\prod_{k=1}^n\cos\frac{x}{2^k}.
+\]
+因此对固定 $x$，
+\[
+  \prod_{k=1}^n\cos\frac{x}{2^k}
+  =\frac{\sin x}{2^n\sin(x/2^n)}
+  =\frac{\sin x}{x}\cdot\frac{x/2^n}{\sin(x/2^n)}
+  \to\frac{\sin x}{x},
+\]
+在 $x=0$ 时按连续延拓理解为 1。
+
+取 $x=\pi/2$，得
+\[
+  \prod_{k=1}^{\infty}\cos\frac{\pi}{2^{k+1}}=\frac2\pi.
+\]
+而半角公式依次给出
+\[
+  \cos\frac\pi4=\sqrt{\frac12},
+  \quad
+  \cos\frac\pi8=\sqrt{\frac12+\frac12\sqrt{\frac12}},
+\]
+并继续产生题中嵌套根式。取上式倒数即得 Viète 公式。
+\end{xsolution}
+
+\subsection*{4.4.2　思考题}
+
+\paragraph{思考题 1}
+\begin{xsolution}
+“无穷小量”“无穷大量”都必须依附于一个极限过程，不能只看数值的绝对大小。因此固定常数
+$10^{-10000}$、$\ee^{-10^{10}}$ 虽然很小，仍只是非零常数，不是无穷小量；固定常数
+$10^{10000}$、$\ee^{10^{10}}$ 虽然很大，仍是有限数，不是无穷大量。
+
+$x$、$\sin x$ 是否为无穷小量要看极限过程。例如 $x\to0$ 时两者都是无穷小量，而 $x\to+\infty$ 时 $x$ 不是无穷小量，$\sin x$ 也不趋于 0。类似地，$x^n$、$a^x$（$a>1$）在 $x\to+\infty$ 时是无穷大量，但在别的极限过程中未必如此。
+\end{xsolution}
+
+\paragraph{思考题 2}
+\begin{xsolution}
+\begin{enumerate}[label=(\arabic*)]
+  \item $\displaystyle\lim_{x\to0}\frac{\sin x}{x}=1$。
+  \item $\displaystyle\lim_{x\to+\infty}\frac{\sin x}{x}=0$，因为绝对值不超过 $1/x$。
+  \item $\displaystyle\lim_{x\to0}x\sin\frac1x=0$，因为绝对值不超过 $\abs x$。
+  \item $\displaystyle\lim_{x\to\infty}x\sin\frac1x=1$，因为令 $t=1/x\to0$ 后
+  $x\sin(1/x)=\sin t/t\to1$。
+  \item $\displaystyle\lim_{x\to0}x\sin x=0$，例如 $\abs{x\sin x}\leq\abs x$。
+  \item $\displaystyle\lim_{x\to\infty}x\sin x$ 不存在。沿 $x_n=n\pi$ 值恒为 0；沿
+  $y_n=2n\pi+\pi/2$，值 $y_n\to+\infty$。
+  \item $\displaystyle\lim_{x\to0}\frac1x\sin\frac1x$ 不存在。沿 $x_n=1/(n\pi)$ 值为 0；沿
+  $y_n=1/(2n\pi+\pi/2)$，值为 $2n\pi+\pi/2\to+\infty$。
+  \item $\displaystyle\lim_{x\to\infty}\frac1x\sin\frac1x=0$。令 $t=1/x$，则
+  $t\sin t\to0$。
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{思考题 3}
+\begin{xsolution}
+这些式子中的等号按本章约定表示相应函数类的包含关系。
+\begin{enumerate}[label=(\arabic*)]
+  \item 可以。$\littleo(1)\subset\bigO(1)$，因为无穷小量必局部有界。
+  \item 不可以。例如常函数 1 属于 $\bigO(1)$，但不属于 $\littleo(1)$。
+  \item 可以。若 $f=\littleo(x^2)$，则
+  \[
+    \frac{f(x)}x=\frac{f(x)}{x^2}x\to0,
+  \]
+  故 $f=\littleo(x)$。
+  \item 可以。若 $f=\bigO(x^2)$，则 $\abs{f(x)}\leq Cx^2$，从而
+  $\abs{f(x)/x}\leq C\abs x\to0$，故 $f=\littleo(x)$。
+  \item 可以。若 $r(x)=\littleo(x^2)$，则
+  \[
+    \frac{x r(x)}{x^3}=\frac{r(x)}{x^2}\to0,
+  \]
+  故 $x\littleo(x^2)=\littleo(x^3)$。
+  \item 不可以。由 $f=\bigO(x^2)$ 只能推出 $f/x=\bigO(x)$。取 $f(x)=x^2$，则
+  $f(x)/x=x$，而 $x$ 不是 $\littleo(x)$。
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{思考题 4}
+\begin{xsolution}
+函数 $y=\ee^{1/x}$ 在 $x=0$ 两侧分别形成两支。对 $x>0$，当 $x\to0^+$ 时 $1/x\to+\infty$，故
+\[
+  \ee^{1/x}\to+\infty.
+\]
+对 $x<0$，当 $x\to0^-$ 时 $1/x\to-\infty$，故
+\[
+  \ee^{1/x}\to0,
+\]
+也就是 $\ee^{1/x}=\littleo(1)$（$x\to0^-$）。此外 $x\to\pm\infty$ 时 $\ee^{1/x}\to1$，所以图像在两端都以 $y=1$ 为水平渐近线。
+\end{xsolution}
+
+\subsection*{4.4.4　练习题}
+
+\paragraph{题 1}
+\begin{xsolution}
+\begin{enumerate}[label=(\arabic*)]
+  \item
+  \[
+    \sqrt{1+\tan x}-\sqrt{1-\tan x}
+    =\frac{2\tan x}{\sqrt{1+\tan x}+\sqrt{1-\tan x}}
+    \sim x.
+  \]
+  因而是一阶无穷小量。
+
+  \item
+  \[
+    \ln x-\ln a=\ln\left(1+\frac{x-a}{a}\right)
+    \sim\frac{x-a}{a},
+  \]
+  因而是一阶无穷小量。
+
+  \item
+  \[
+    a^{x^2}-1=\ee^{x^2\ln a}-1\sim(\ln a)x^2.
+  \]
+  若 $a\ne1$，它是二阶无穷小量；若 $a=1$，函数恒为 0，不具有题目定义下的有限正阶，可视为高于任意有限阶。
+
+  \item
+  \[
+    a^{x^2}-b^{x^2}
+    =(\ln a-\ln b)x^2+\littleo(x^2).
+  \]
+  若 $a\ne b$，是二阶无穷小量；若 $a=b$，恒为 0，不具有有限正阶。
+
+  \item 令 $h=x-1$。有
+  \[
+    x+\cos\frac{\pi x}{2}
+    =1+h-\sin\frac{\pi h}{2}
+    =1+\left(1-\frac\pi2\right)h+\littleo(h).
+  \]
+  因此
+  \[
+    \ln\left(x+\cos\frac{\pi x}{2}\right)
+    \sim\left(1-\frac\pi2\right)(x-1),
+  \]
+  是一阶无穷小量。
+
+  \item 令 $h=x-1\to0^+$。则
+  \[
+    \ln x\ln(x-1)=\ln(1+h)\ln h\sim h\ln h\to0.
+  \]
+  对任意 $\alpha<1$，$h^{1-\alpha}\ln h\to0$；对 $\alpha=1$，商为 $\ln h\to-\infty$；对 $\alpha>1$，商的绝对值也趋于无穷。因此不存在 $\alpha>0$ 使与 $h^\alpha$ 的商趋于非零有限数，即该无穷小量没有阶；但它比任意 $\alpha<1$ 阶无穷小量更高阶。
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{题 2}
+\begin{xsolution}
+设
+\[
+  L=\lim_{x\to0}\frac{f(x)}x.
+\]
+则
+\[
+  f(x)=Lx+\littleo(x),
+  \qquad
+  f\left(\frac x2\right)=\frac L2x+\littleo(x).
+\]
+相减得
+\[
+  f(x)-f\left(\frac x2\right)=\frac L2x+\littleo(x).
+\]
+题设左端为 $\littleo(x)$，两边除以 $x$ 后令 $x\to0$，得到 $L/2=0$，故 $L=0$。于是
+$f(x)/x\to0$，即 $f(x)=\littleo(x)$。
+\end{xsolution}
+
+\paragraph{题 3}
+\begin{xsolution}
+第一层关系由 4.2.5 题 1(2) 直接得到：
+\[
+  \frac{\ln x}{x^\varepsilon}\to0.
+\]
+第二层由 4.2.5 题 1(1) 得到：
+\[
+  \frac{x^\varepsilon}{a^x}\to0\qquad(a>1).
+\]
+最后
+\[
+  \frac{a^x}{x^x}
+  =\exp\bigl(x\ln a-x\ln x\bigr)
+  =\exp\bigl(-x(\ln x-\ln a)\bigr)\to0,
+\]
+因为 $\ln x-\ln a\to+\infty$。故
+\[
+  \ln x\ll x^\varepsilon\ll a^x\ll x^x.
+\]
+\end{xsolution}
+
+\paragraph{题 4}
+\begin{xsolution}
+\begin{enumerate}[label=(\arabic*)]
+  \item 把指数项提出：
+  \begin{align*}
+    \ln(\sin^2x+\ee^x)-x
+    &=\ln(1+\ee^{-x}\sin^2x)
+      \sim\ee^{-x}\sin^2x\sim x^2,\\
+    \ln(x^2+\ee^{2x})-2x
+    &=\ln(1+x^2\ee^{-2x})
+      \sim x^2\ee^{-2x}\sim x^2.
+  \end{align*}
+  故极限为 1。
+
+  \item
+  \[
+    (x+1)[\ln(x^2+x)-2\ln(x+1)]
+    =(x+1)\ln\frac{x}{x+1}
+    =(x+1)\ln\left(1-\frac1{x+1}\right)\to-1.
+  \]
+
+  \item 由 $(1+x)^\alpha-1\sim\alpha x$，
+  \[
+    \sqrt{1+x}-\sqrt[6]{1+x}
+    \sim\left(\frac12-\frac16\right)x=\frac x3,
+  \]
+  \[
+    \sqrt[3]{1+x}-1\sim\frac x3,
+  \]
+  故极限为 1。
+
+  \item 令 $u=\cos x-1\sim-x^2/2$。则
+  \[
+    \sqrt{\cos x}-\sqrt[3]{\cos x}
+    =(1+u)^{1/2}-(1+u)^{1/3}
+    \sim\left(\frac12-\frac13\right)u
+    \sim-\frac{x^2}{12}.
+  \]
+  又 $\sin^2x\sim x^2$，故极限为 $-1/12$。
+
+  \item
+  \begin{align*}
+    (3+2\sin x)^x-3^x
+    &=3^x\left[\left(1+\frac23\sin x\right)^x-1\right].
+  \end{align*}
+  令
+  $w=x\ln(1+\frac23\sin x)$，则 $w\sim\frac23x^2$，并且 $\ee^w-1\sim w$。故分子
+  $\sim\frac23x^2$。又 $\tan^2x\sim x^2$，所以极限为 $2/3$。
+
+  \item 利用三阶展开
+  \[
+    \arcsin t=t+\frac16t^3+\littleo(t^3),
+  \]
+  得
+  \[
+    \frac{\arcsin t}{t}=1+\frac16t^2+\littleo(t^2).
+  \]
+  因而
+  \[
+    \frac1{t^2}\ln\frac{\arcsin t}{t}\to\frac16,
+  \]
+  所求极限为 $\ee^{1/6}$。
+\end{enumerate}
+\end{xsolution}
+
+\subsection*{4.5.2　参考题}
+
+\paragraph{参考题 1}
+\begin{xsolution}
+先设 $f$ 单调增加。对任意固定的 $x\in(a,b)$，因 $x_n\to a^+$，充分大的 $n$ 有 $x_n<x$，故
+$f(x_n)\leq f(x)$。令 $n\to\infty$ 得
+\[
+  A\leq f(x),\qquad x\in(a,b).
+\]
+即 $A$ 是值域的下界。
+
+给定 $\varepsilon>0$，由 $f(x_n)\to A$，取 $n_0$ 使
+$f(x_{n_0})<A+\varepsilon$。令 $\delta=x_{n_0}-a>0$。若
+$a<x<a+\delta=x_{n_0}$，由单调增加性及上面的下界性质，
+\[
+  A\leq f(x)\leq f(x_{n_0})<A+\varepsilon.
+\]
+因此 $\abs{f(x)-A}<\varepsilon$，即 $\lim_{x\to a^+}f(x)=A$。
+
+若 $f$ 单调减少，则同理先得到 $f(x)\leq A$，再取 $n_0$ 使
+$f(x_{n_0})>A-\varepsilon$，在 $(a,x_{n_0})$ 上夹逼即可。
+\end{xsolution}
+
+\paragraph{参考题 2}
+\begin{xsolution}
+因 $x_n\in[a,b]$，只需证明 $x_n-a\to0$。若不然，则存在 $\varepsilon_0>0$ 和子列 $x_{n_k}$，使
+$x_{n_k}\geq a+\varepsilon_0$；可取 $a+\varepsilon_0\leq b$。由 $f$ 严格单调增加，
+\[
+  f(x_{n_k})\geq f(a+\varepsilon_0)>f(a),
+\]
+这与 $f(x_n)\to f(a)$ 矛盾。因此对每个 $\varepsilon>0$，充分大的 $n$ 都有
+$a\leq x_n<a+\varepsilon$，故 $x_n\to a$。
+\end{xsolution}
+
+\paragraph{参考题 3}
+\begin{xsolution}
+先讨论命题 4.2.3。
+
+(1) 若把“每个数列”限制为“每个单调数列”，结论仍成立。必要性当然成立。反过来，若
+$\lim_{x\to a}f(x)\ne A$，则存在 $\varepsilon_0>0$，可取一列坏点 $y_n\to a$，满足
+$y_n\ne a$ 且 $\abs{f(y_n)-A}\geq\varepsilon_0$。在 $y_n-a$ 中至少有一侧出现无穷多次；从该侧子列中可递归选取到 $a$ 的距离严格递减的子列，于是得到一个单调趋于 $a$ 的数列，而其像不趋于 $A$，矛盾。
+
+(2) 若增加条件
+$\abs{x_{n+1}-a}<\abs{x_n-a}$，结论也仍成立。若极限不是 $A$，由否定定义可递归选取
+$x_n$，使
+\[
+  0<\abs{x_{n+1}-a}<\min\left\{\frac1{n+1},\abs{x_n-a}\right\},
+  \qquad
+  \abs{f(x_n)-A}\geq\varepsilon_0.
+\]
+则该数列满足新增条件，却有 $f(x_n)\not\to A$，矛盾。
+
+再讨论命题 4.2.4 的推论形式。
+
+对改动 (1)，结论不再成立。令
+\[
+  f(x)=\begin{cases}
+    0,&x<a,\\
+    1,&x>a.
+  \end{cases}
+\]
+任一单调且趋于 $a$、各项不等于 $a$ 的数列最终只能位于 $a$ 的一侧，因此对应的 $f(x_n)$ 总收敛；但 $f$ 在 $a$ 处没有两侧极限。
+
+对改动 (2)，结论仍成立。题设保证每个“到 $a$ 的距离严格递减”的数列的像都收敛。若两个这样的数列的像分别收敛于不同的 $A_1,A_2$，可交替选取两列的子列，使合并后到 $a$ 的距离仍严格递减；合并像数列的奇、偶子列便趋于不同极限，矛盾。因此所有这类像数列收敛于同一 $A$。再由上面对命题 4.2.3 的 (2) 结论，得到 $f(x)\to A$。
+\end{xsolution}
+
+\paragraph{参考题 4}
+\begin{xsolution}
+用和差化积公式，
+\[
+  \sin\sqrt{x+1}-\sin\sqrt{x}
+  =2\cos\frac{\sqrt{x+1}+\sqrt{x}}2
+    \sin\frac{\sqrt{x+1}-\sqrt{x}}2.
+\]
+而
+\[
+  \Delta_x:=\sqrt{x+1}-\sqrt{x}
+  =\frac1{\sqrt{x+1}+\sqrt{x}}
+  \sim\frac1{2\sqrt{x}}.
+\]
+故
+\[
+  \abs{\sin\sqrt{x+1}-\sin\sqrt{x}}
+  \leq2\sin\frac{\Delta_x}{2}\leq\Delta_x\to0.
+\]
+所以极限为 0，并且该无穷小量是 $\bigO(x^{-1/2})$。
+
+进一步，
+\[
+  \sin\sqrt{x+1}-\sin\sqrt{x}
+  =\frac{\cos(\sqrt{x}+\littleo(1))}{2\sqrt{x}}
+   +\littleo(x^{-1/2}).
+\]
+沿 $x_n=(2n\pi)^2$，乘以 $\sqrt{x_n}$ 后趋于 $1/2$；沿
+$y_n=(2n\pi+\pi/2)^2$，乘以 $\sqrt{y_n}$ 后趋于 0。因此它不是确定的 $1/2$ 阶无穷小量。对任意 $\alpha<1/2$，它是 $\littleo(x^{-\alpha})$；而对 $\alpha>1/2$，沿前一数列与 $x^{-\alpha}$ 的商绝对值无界。故它没有确定的阶。
+\end{xsolution}
+
+\paragraph{参考题 5}
+\begin{xsolution}
+记
+\[
+  F(x)=\left(\frac1x\frac{a^x-1}{a-1}\right)^{1/x}.
+\]
+当 $a>1$ 时，
+\begin{align*}
+  \ln F(x)
+  &=\frac1x\left[\ln(a^x-1)-\ln x-\ln(a-1)\right]\\
+  &=\ln a+\frac1x\ln(1-a^{-x})
+    -\frac{\ln x}{x}-\frac{\ln(a-1)}x\to\ln a.
+\end{align*}
+故 $F(x)\to a$。
+
+当 $0<a<1$ 时，
+\[
+  \frac{a^x-1}{a-1}=\frac{1-a^x}{1-a}\to\frac1{1-a},
+\]
+所以底数等价于 $1/[x(1-a)]$。于是
+\[
+  \ln F(x)=\frac1x\left[-\ln x-\ln(1-a)+\littleo(1)\right]\to0,
+\]
+故 $F(x)\to1$。综上
+\[
+  \boxed{\lim F(x)=
+  \begin{cases}
+    a,&a>1,\\
+    1,&0<a<1.
+  \end{cases}}
+\]
+\end{xsolution}
+
+\paragraph{参考题 6}
+\begin{xsolution}
+(1) 因 $\abs{f(x)}\leq\abs{\sin x}$，对 $x\ne0$ 有
+\[
+  \abs{\frac{f(x)}x}\leq\abs{\frac{\sin x}{x}}.
+\]
+另一方面
+\[
+  \frac{f(x)}x
+  =\sum_{k=1}^n a_k\frac{\sin(kx)}x
+  =\sum_{k=1}^n k a_k\frac{\sin(kx)}{kx}
+  \to\sum_{k=1}^n k a_k.
+\]
+令 $x\to0$，右侧控制量趋于 1，故
+\[
+  \abs{a_1+2a_2+\cdots+na_n}\leq1.
+\]
+
+(2) 相应的不等式仍是
+\[
+  \boxed{\abs{a_1+2a_2+\cdots+na_n}\leq1}.
+\]
+事实上对 $x>0$，题设给出 $\abs{f(x)/x}\leq1$，而
+\[
+  \frac{f(x)}x
+  =\sum_{k=1}^n a_k\frac{\ln(1+kx)}x
+  =\sum_{k=1}^n k a_k\frac{\ln(1+kx)}{kx}
+  \to\sum_{k=1}^n k a_k
+  \qquad(x\to0^+).
+\]
+取极限即得所述不等式。
+\end{xsolution}
+
+\paragraph{参考题 7}
+\begin{xsolution}
+利用
+\[
+  \sin(nx)=nx-\frac{n^3x^3}{6}+\littleo(x^3),
+  \qquad
+  n\sin x=nx-\frac{nx^3}{6}+\littleo(x^3),
+\]
+相减后除以 $x^3$，得到
+\[
+  \lim_{x\to0}\frac{\sin nx-n\sin x}{x^3}
+  =-\frac{n^3-n}{6}
+  =-\frac{n(n^2-1)}6.
+\]
+\end{xsolution}
+
+\paragraph{参考题 8}
+\begin{xsolution}
+固定 $m$ 和 $x$，记
+$c=\cos(\pi m!x)$。由于 $\abs c\leq1$，
+\[
+  \lim_{n\to\infty}c^{2n}
+  =\begin{cases}
+    1,&\abs c=1,\\
+    0,&\abs c<1.
+  \end{cases}
+\]
+而 $\abs{\cos(\pi y)}=1$ 当且仅当 $y\in\ZZ$。因此内层极限恰是事件
+$m!x\in\ZZ$ 的示性函数。
+
+若 $x=p/q\in\QQ$（约分后 $q>0$），则对所有 $m\geq q$，$q\mid m!$，从而
+$m!x\in\ZZ$，内层极限最终恒为 1，外层极限为 1。若 $x\notin\QQ$，则任何 $m$ 都有
+$m!x\notin\ZZ$，内层极限恒为 0，外层极限为 0。故该二重极限恰等于 Dirichlet 函数 $D(x)$。
+\end{xsolution}
+
+\paragraph{参考题 9}
+\begin{xsolution}
+(1) 设 $L=f(+\infty)$。任取 $x>0$，由 $f(2x)=f(x)$ 反复得到
+\[
+  f(x)=f(2^n x).
+\]
+令 $n\to\infty$，右端趋于 $L$，故 $f(x)=L$。所以 $f$ 为常值函数。
+
+(2) 由 $f(ax)=f(x)$ 也有 $f(a^{-1}x)=f(x)$。若 $a>1$，轨道
+$a^n x\to+\infty$、$a^{-n}x\to0^+$；若 $0<a<1$，两者角色互换。因此无论给定的是有限极限
+$f(+\infty)$ 还是 $f(0^+)$，对每个固定 $x>0$，总可沿一个保持函数值不变且趋向相应端点的轨道取极限，得到 $f(x)$ 等于该端点极限。故 $f$ 恒为常数。
+\end{xsolution}
+
+\paragraph{参考题 10}
+\begin{xsolution}
+由 $f(0)=bf(0)$ 且 $b>1$，先得 $f(0)=0$。由 $f$ 在 0 邻近有界，存在 $\delta,M>0$，使
+$\abs y<\delta$ 时 $\abs{f(y)}\leq M$。
+
+对充分小的 $x\ne0$，选整数 $n=n(x)\geq0$ 使
+\[
+  \frac\delta a\leq a^n\abs x<\delta.
+\]
+反复使用 $f(ax)=bf(x)$，有
+\[
+  \abs{f(x)}=b^{-n}\abs{f(a^n x)}\leq Mb^{-n}.
+\]
+当 $x\to0$ 时，为满足上述夹逼所需的 $n(x)\to\infty$，所以 $Mb^{-n(x)}\to0$。因此
+$\lim_{x\to0}f(x)=0$。
+\end{xsolution}
+
+\paragraph{参考题 11}
+\begin{xsolution}
+记
+\[
+  R(x)=\frac{f(2x)}{f(x)}\to1.
+\]
+极限存在意味着充分大的 $x$ 上 $f(x)\ne0$。由于 $f$ 单调增加，它在充分大处符号固定。
+
+先设 $a\geq1$，取整数 $m$ 使 $a\leq2^m$。注意
+\[
+  \frac{f(2^m x)}{f(x)}
+  =\prod_{j=0}^{m-1}\frac{f(2^{j+1}x)}{f(2^j x)}\to1.
+\]
+若 $f$ 最终为正，由单调性
+\[
+  1\leq\frac{f(ax)}{f(x)}\leq\frac{f(2^m x)}{f(x)};
+\]
+若 $f$ 最终为负，除以负数后不等号反向，得到
+\[
+  1\geq\frac{f(ax)}{f(x)}\geq\frac{f(2^m x)}{f(x)}.
+\]
+两种情形都由夹逼得 $f(ax)/f(x)\to1$。
+
+若 $0<a<1$，令 $c=1/a>1$，把已证结论用于 $c$ 和变量 $y=ax$：
+\[
+  \frac{f(x)}{f(ax)}=\frac{f(cy)}{f(y)}\to1.
+\]
+取倒数即得 $f(ax)/f(x)\to1$。
+\end{xsolution}
+
+\paragraph{参考题 12}
+\begin{xsolution}
+记
+\[
+  \Delta f(t)=f(t+1)-f(t),
+  \qquad \lim_{t\to+\infty}\Delta f(t)=L.
+\]
+对 $x>2$，写成
+\[
+  x=m+r,\qquad m\in\NN,\quad 1\leq r<2.
+\]
+则望远镜求和给出
+\[
+  f(x)=f(r)+\sum_{k=0}^{m-1}\Delta f(r+k).
+\]
+因 $f$ 在有界子区间上有界，$f(r)$ 在 $r\in[1,2)$ 时一致有界。
+
+若 $L$ 有限，给定 $\varepsilon>0$，存在 $M$ 使 $t>M$ 时
+$L-\varepsilon<\Delta f(t)<L+\varepsilon$。上式中落在 $t\leq M$ 的项数有统一上界，且这些项也一致有界；其总贡献除以 $x$ 后趋于 0。其余 $m+\bigO(1)$ 项均位于上述区间，因此
+\[
+  L-\varepsilon+\littleo(1)
+  \leq\frac{f(x)}x
+  \leq L+\varepsilon+\littleo(1).
+\]
+令 $x\to\infty$ 再令 $\varepsilon\to0$，得 $f(x)/x\to L$。
+
+若 $L=+\infty$，给定 $G>0$，充分大的 $t$ 有 $\Delta f(t)>G$，同样望远镜求和得
+$\liminf f(x)/x\geq G$；因 $G$ 任意，极限为 $+\infty$。$L=-\infty$ 同理。因此题中等式在三种情形下都成立。
+\end{xsolution}
+
+\paragraph{参考题 13}
+\begin{xsolution}
+设
+\[
+  q(t)=\frac{f(t+1)-f(t)}{t^n}\to L.
+\]
+仍写 $x=m+r$，其中 $1\leq r<2$。则
+\[
+  f(x)=f(r)+\sum_{k=0}^{m-1}q(r+k)(r+k)^n.
+\]
+对固定的非负整数 $n$，有一致渐近公式
+\[
+  \sum_{k=0}^{m-1}(r+k)^n
+  =\frac{m^{n+1}}{n+1}+\bigO(m^n)
+  \sim\frac{x^{n+1}}{n+1},
+  \qquad 1\leq r<2.
+\]
+这里可由单调函数 $t^n$ 的积分夹逼或通常的幂和估计得到。
+
+若 $L$ 有限，给定 $\varepsilon>0$，除去有限个起始项后有
+$L-\varepsilon<q(r+k)<L+\varepsilon$。起始项和 $f(r)$ 均只给出
+$\bigO(1)$ 的总影响，而后续项以正权 $(r+k)^n$ 加权。除以 $x^{n+1}$ 并用上面的幂和渐近式，得到
+\[
+  \frac{L-\varepsilon}{n+1}+\littleo(1)
+  \leq\frac{f(x)}{x^{n+1}}
+  \leq\frac{L+\varepsilon}{n+1}+\littleo(1).
+\]
+所以极限为 $L/(n+1)$。若 $L=+\infty$ 或 $-\infty$，用任意大的正下界或任意小的负上界代替 $L\pm\varepsilon$，同样得到相应无穷极限。故
+\[
+  \lim_{x\to+\infty}\frac{f(x)}{x^{n+1}}
+  =\frac1{n+1}\lim_{x\to+\infty}\frac{f(x+1)-f(x)}{x^n}.
+\]
+\end{xsolution}
+
+\paragraph{参考题 14}
+\begin{xsolution}
+记
+\[
+  \Delta_T f(x)=f(x+T)-f(x),\qquad
+  \Delta_T g(x)=g(x+T)-g(x)>0.
+\]
+对充分大的 $x$，写
+\[
+  x=r+kT,\qquad r\in[a,a+T),\quad k\in\NN.
+\]
+望远镜求和得到
+\[
+  f(x)=f(r)+\sum_{j=0}^{k-1}\Delta_T f(r+jT),
+  \qquad
+  g(x)=g(r)+\sum_{j=0}^{k-1}\Delta_T g(r+jT).
+\]
+因 $f,g$ 在每个有界子区间上有界，$r\in[a,a+T)$ 所产生的初值以及任意固定有限段的和均一致有界；又 $g(x)\to+\infty$，这些有界初始量除以 $g(x)$ 后趋于 0。
+
+先设 $l$ 有限。给定 $\varepsilon>0$，存在 $M$，使 $y>M$ 时
+\[
+  l-\varepsilon<\frac{\Delta_T f(y)}{\Delta_T g(y)}<l+\varepsilon.
+\]
+由于每个权重 $\Delta_T g(y)$ 都为正，把充分靠后的增量相加便有
+\[
+  (l-\varepsilon)\sum\Delta_T g
+  <\sum\Delta_T f
+  <(l+\varepsilon)\sum\Delta_T g.
+\]
+前面遗漏的有限段只贡献一致有界量，而后面的 $\sum\Delta_T g$ 与 $g(x)$ 只差有界初始量。因此除以 $g(x)$ 并令 $x\to\infty$，得到
+\[
+  l-\varepsilon\leq\liminf\frac{f(x)}{g(x)}
+  \leq\limsup\frac{f(x)}{g(x)}\leq l+\varepsilon.
+\]
+再令 $\varepsilon\to0$ 即得 $f(x)/g(x)\to l$。
+
+若 $l=+\infty$，对任意 $G>0$，充分大的 $y$ 有
+$\Delta_T f(y)>G\Delta_T g(y)$，望远镜求和后得
+$\liminf f(x)/g(x)\geq G$，故极限为 $+\infty$；$l=-\infty$ 同理。
+\end{xsolution}
+
+\paragraph{参考题 15}
+\begin{xsolution}
+记
+\[
+  h(x)=f(x)-f\left(\frac x2\right)=\littleo(x).
+\]
+由于 $f(x)\to0$（$x\to0$），对固定的 $x$，当 $N\to\infty$ 时
+$f(x/2^N)\to0$。故望远镜展开
+\[
+  f(x)
+  =\sum_{k=0}^{\infty}
+   \left[f\left(\frac{x}{2^k}\right)-f\left(\frac{x}{2^{k+1}}\right)\right]
+  =\sum_{k=0}^{\infty}h\left(\frac{x}{2^k}\right).
+\]
+给定 $\varepsilon>0$，由 $h(t)=\littleo(t)$，存在 $\delta>0$，使
+$0<\abs t<\delta$ 时
+\[
+  \abs{h(t)}<\varepsilon\abs t.
+\]
+若 $0<\abs x<\delta$，则对所有 $k\geq0$ 都有
+$\abs{x/2^k}<\delta$，于是
+\[
+  \abs{f(x)}
+  \leq\sum_{k=0}^{\infty}\varepsilon\frac{\abs x}{2^k}
+  =2\varepsilon\abs x.
+\]
+所以
+\[
+  \limsup_{x\to0}\abs{\frac{f(x)}x}\leq2\varepsilon.
+\]
+因 $\varepsilon$ 任意，得到 $f(x)/x\to0$，即
+$f(x)=\littleo(x)$（$x\to0$）。
+\end{xsolution}
