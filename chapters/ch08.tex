@@ -6,3 +6,2474 @@
 \chapter{微分学的应用}
 
 % BEGIN TRANSCRIPTION
+
+有了微分学中值定理和 Taylor 定理后，我们在函数研究方面就有了强有力的工具。本章将分专题介绍这些工具是如何应用的。虽然其中多数问题可能在过去已经遇到过，但只有在学了微分学的知识之后，我们才有条件来讨论解决这些问题的一般性方法。
+
+§8.1 介绍求函数极限的两个主要方法——L'Hospital 法则和带 Peano 余项的 Taylor 公式。§8.2 是早已熟悉的判定函数的单调性。§8.3 是用微分学方法求函数的极值和最值。在 §8.4 中对于凸函数的基本性质作较全面的介绍。§8.5 的主题是用各种不同的方法证明不等式。§8.6 为函数作图。§8.7 是以方程求根为中心的近似计算。最后一节为学习要点和两组参考题。
+
+\section{函数极限的计算}
+
+\subsection{L'Hospital 法则}
+
+从数学分析的学习开始，极限计算就是一大难题。这种状况在有了 L'Hospital 法则后才可以说有了根本的改变。由于这个法则将求不定式极限归之于简单的导数计算，而且（在条件满足时）可以连续使用，许多看似复杂的问题就可迎刃而解。关于 L'Hospital 法则的叙述、证明以及应用时的注意事项等在数学分析的教科书中都有详细的介绍，其基本思想又与 §2.4 完全相同，这里不再重复。\footnote{L'Hospital 法则的一个精彩的几何证明见 [59] 第一册的命题 2.10。}因同样的理由，也不准备举很多常规性的例题和练习题。
+
+这里只强调指出一点，即虽然 L'Hospital 法则确实是计算极限的强有力工具，但毕竟“一花独放不是春”，初学者要学会将 L'Hospital 法则的使用与其他工具相结合，这样才能有更好的效果。这里所说的其他工具包括在前面各章中已经介绍的多种方法，如等价量代换法、变量代换法、不定式因子的分离、各种恒等变换、无穷小增量公式等，也包括在下一个小节将要介绍的带 Peano 余项的 Taylor 公式等。总之，若初学者在用 L'Hospital 法则时出现复杂的计算或甚至失败，原因往往不是 L'Hospital 法则不好，而是你对于它的认识有误。不要认为既然 L'Hospital 法则这样有力，那么其他（已经学过的）方法都可以不要了。
+
+先看下面几个简单问题，它们在第四章中很难解决，现在用 L'Hospital 法则来做就成为容易的问题了（回顾那里的例题 4.4.5）。但从下面又可看出，这里也需要与其他工具结合。
+
+\begin{xexample}[8.1.1]
+计算极限
+\[
+  \lim_{x\to0}\frac{\sin x-x}{x^3}.
+\]
+\end{xexample}
+\begin{xsolution}
+用 L'Hospital 法则可计算如下：
+\[
+  \lim_{x\to0}\frac{\sin x-x}{x^3}
+  =\lim_{x\to0}\frac{\cos x-1}{3x^2}
+  =-\frac16.
+\]
+最后一步利用了已知的等价关系 $1-\cos x\sim\frac12x^2\ (x\to0)$。
+\end{xsolution}
+
+\begin{xexample}[8.1.2]
+计算极限
+\[
+  \lim_{x\to0}\frac{x-\tan x}{x^3}.
+\]
+\end{xexample}
+\begin{xsolution}
+\textbf{解 1}\quad 不用其他工具，连用三次 L'Hospital 法则就可以解决问题：
+\begin{align*}
+  \lim_{x\to0}\frac{x-\tan x}{x^3}
+  &=\lim_{x\to0}\frac{1-\operatorname{sec}^2x}{3x^2}
+   =\lim_{x\to0}\frac{-2\operatorname{sec}^2x\tan x}{6x}\\
+  &=-\lim_{x\to0}\frac{2\operatorname{sec}^2x\tan^2x+\operatorname{sec}^4x}{3}
+   =-\frac13.
+\end{align*}
+
+\textbf{解 2}\quad 实际上用一次 L'Hospital 法则就够了：
+\[
+  \lim_{x\to0}\frac{x-\tan x}{x^3}
+  =\lim_{x\to0}\frac{1-\operatorname{sec}^2x}{3x^2}
+  =\lim_{x\to0}\frac{-\tan^2x}{3x^2}
+  =-\frac13.
+\]
+\end{xsolution}
+
+再举一个有多种解法的例子。
+
+\begin{xexample}[8.1.3]
+计算
+\[
+  \lim_{x\to0}\frac{1-\cos x^2}{x^3\sin x}.
+\]
+\end{xexample}
+\begin{xsolution}
+\textbf{解 1}\quad 直接用 L'Hospital 法则三次，得到
+\begin{align*}
+  \lim_{x\to0}\frac{1-\cos x^2}{x^3\sin x}
+  &=\lim_{x\to0}\frac{2x\sin x^2}{3x^2\sin x+x^3\cos x}\\
+  &=\lim_{x\to0}\frac{4x\cos x^2}{(3-x^2)\sin x+5x\cos x}\\
+  &=\lim_{x\to0}\frac{4\cos x^2-8x^2\sin x^2}{(8-x^2)\cos x-7x\sin x}
+  =\frac12.
+\end{align*}
+
+\textbf{解 2}\quad 实际上不需要微分学知识，用等价量代换法即可解决：
+\begin{align*}
+  \lim_{x\to0}\frac{1-\cos x^2}{x^3\sin x}
+  &=\lim_{x\to0}\frac{2\sin^2\frac{x^2}{2}}{x^3\sin x}\\
+  &=\lim_{x\to0}\left(\frac{\sin\frac{x^2}{2}}{\frac{x^2}{2}}\right)^2
+      \left(\frac{x}{2\sin x}\right)
+  =\frac12.
+\end{align*}
+
+\textbf{解 3}\quad 若利用当 $x\to0$ 时成立
+\[
+  \cos x^2=1-\frac{(x^2)^2}{2}+\littleo((x^2)^2),
+  \qquad
+  \sin x=x+\littleo(x),
+\]
+则就有
+\begin{align*}
+  \lim_{x\to0}\frac{1-\cos x^2}{x^3\sin x}
+  &=\lim_{x\to0}\frac{\frac{x^4}{2}+\littleo(x^4)}{x^3(x+\littleo(x))}\\
+  &=\lim_{x\to0}\frac{\frac{x^4}{2}+\littleo(x^4)}{x^4+\littleo(x^4)}
+  =\lim_{x\to0}\frac{\frac12+\littleo(1)}{1+\littleo(1)}
+  =\frac12.
+\end{align*}
+\end{xsolution}
+
+下面是在 §2.5 计算数 $\ee$ 时留下的问题，即证明公式 (2.15) 中的等价关系。
+
+\begin{xexample}[8.1.4]
+设
+\[
+  \delta_n=\ee-\left(1+\frac1n\right)^n,
+\]
+计算极限 $\displaystyle\lim_{n\to\infty}n\delta_n$。
+\end{xexample}
+\begin{xsolution}
+根据第四章的 Heine 归结原理（即命题 4.2.3），只要计算函数极限
+\[
+  \lim_{x\to0+}\frac{\ee-(1+x)^{1/x}}{x}.
+\]
+这是 $0/0$ 型的不定式问题。用 L'Hospital 法则，得到
+\begin{align*}
+  \lim_{x\to0+}\frac{\ee-(1+x)^{1/x}}{x}
+  &=\lim_{x\to0+}\left\{-[(1+x)^{1/x}]\cdot
+    \frac{\frac{x}{1+x}-\ln(1+x)}{x^2}\right\}\\
+  &=-\ee\cdot\lim_{x\to0+}\frac{\frac{x}{1+x}-\ln(1+x)}{x^2}\\
+  &=-\ee\cdot\lim_{x\to0+}
+    \frac{\frac1{(1+x)^2}-\frac1{1+x}}{2x}\\
+  &=-\ee\cdot\lim_{x\to0+}\frac{-1}{2(1+x)^2}
+  =\frac{\ee}{2}.
+\end{align*}
+
+\begin{xremark}
+实际上本题的答案就是例题 7.2.4 中的函数 $f(x)$ 的导数 $f'(0)$（乘 $-1$）。
+\end{xremark}
+\end{xsolution}
+
+用 L'Hospital 法则可以对带 Peano 余项的 Taylor 公式给出新证明。
+
+\begin{xexample}[8.1.5]
+用 L'Hospital 法则证明：若 $f$ 在点 $x_0$ 存在 $f^{(n)}(x_0)$，则有
+\[
+  f(x)=f(x_0)+f'(x_0)(x-x_0)+\frac{f''(x_0)}{2!}(x-x_0)^2+\cdots
+  +\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n+\littleo((x-x_0)^n)
+  \quad(x\to x_0).
+\]
+\end{xexample}
+\begin{xproof}
+如在第七章的 (7.19) 那样引进余项
+\[
+  r_n(x)=f(x)-\left[f(x_0)+f'(x_0)(x-x_0)+\frac{f''(x_0)}{2!}(x-x_0)^2+\cdots
+  +\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n\right],
+\]
+它满足以下的 $n+1$ 个条件：
+\begin{equation}
+  r_n(x_0)=0,\quad r_n'(x_0)=0,\quad\cdots,\quad r_n^{(n)}(x_0)=0.
+  \tag{8.1}
+  \label{eq:8.1}
+\end{equation}
+只需要证明
+\[
+  \lim_{x\to x_0}\frac{r_n(x)}{(x-x_0)^n}=0,
+\]
+这是 $0/0$ 型的不定式。用 L'Hospital 法则如下：
+\[
+  \lim_{x\to x_0}\frac{r_n(x)}{(x-x_0)^n}
+  =\lim_{x\to x_0}\frac{r_n'(x)}{n(x-x_0)^{n-1}}
+  =\cdots
+  =\lim_{x\to x_0}\frac{r_n^{(n-1)}(x)}{n!(x-x_0)}.
+\]
+在以上的 $n-1$ 次应用 L'Hospital 法则中，利用了 (8.1) 中的前 $n-1$ 个条件。从条件 $r_n^{(n-1)}(x_0)=0$ 可见上面的最后一式仍然是 $0/0$ 型的不定式。但这里不能再用 L'Hospital 法则，与命题 7.2.2 中一样，从导数定义出发，即可利用条件 $r_n^{(n)}(x_0)=0$ 得到所要求证的结果。
+\end{xproof}
+
+\subsection{Taylor 公式与极限计算}
+
+先介绍用 Taylor 公式对错误使用等价量代换法进行分析的一个例子。
+
+\begin{xexample}[8.1.6]
+根据实际教学情况，在用 L'Hospital 法则计算例题 8.1.4 中的极限时，很多学生在最后一步不再用 L'Hospital 法则，而作以下计算：
+\[
+  \lim_{x\to0}\frac{\frac{x}{1+x}-\ln(1+x)}{x^2}
+  =\lim_{x\to0}\frac{\frac{x}{1+x}-x}{x^2}
+  =\lim_{x\to0}\frac{x-(1+x)x}{(1+x)x^2}=-1,
+\]
+但正确答案却是 $-1/2$。问题当然出在不恰当地使用了等价量代换法。因为根据 4.4.3 小节，应当按照 (4.8) 或 (4.9) 的方式才能用等价量代换。
+
+用 Taylor 公式进行分析就可一目了然。分子的两项可用 Taylor 公式写出为
+\[
+  \frac{x}{1+x}=x-x^2+\littleo(x^2)\quad(x\to0),
+\]
+\[
+  \ln(1+x)=x-\frac12x^2+\littleo(x^2)\quad(x\to0).
+\]
+可见这两项相减后，$x$ 的一次项恰好对消，因此起作用的是在两个展开式中的 $x^2$ 项的系数。正确的计算为
+\[
+  \lim_{x\to0}\frac{\frac{x}{1+x}-\ln(1+x)}{x^2}
+  =\lim_{x\to0}\frac{(x-x^2)-(x-\frac12x^2)+\littleo(x^2)}{x^2}
+  =-\frac12.
+\]
+由此可见，前面的错误原因在于用 $x$ 替换 $\ln(1+x)$ 时太粗糙了，丢掉了在该问题中起关键作用的二次项。
+
+从 Taylor 公式的应用来看，问题是在每一个具体场合究竟应当写出多少项？当然这需要尝试。再以上面的分子为例，将 $\ln(1+x)$ 写为 $x+\littleo(x)\ (x\to0)$，这也是 Taylor 公式，并没有错误。如果将第一项也写为 $x+\littleo(x)$，就会发现仅仅写出一次项的系数是不够的。
+\end{xexample}
+
+以上错误还说明，学生在刚学了 Taylor 公式后一般还不会在求函数极限时加以使用，在计算时仍停留在使用无穷小增量公式（也就是 $n=1$ 的带 Peano 余项的最简单的 Taylor 公式）的知识水平上。解决这个问题的方法是实践和教师的引导。
+
+带有 Peano 余项的 Taylor 公式在求极限中有广泛的应用是不奇怪的，因为 Peano 余项本身就是对于无穷小量的一个刻画。下面是应用 Taylor 公式求极限的第一个例子（为清楚起见用 $\exp(x)$ 表示 $\ee^x$）。
+
+\paragraph{例题 8.1.4 的解 2}
+用 Taylor 公式作下列计算：
+\begin{align*}
+  \delta_n
+  &=\ee-\left(1+\frac1n\right)^n
+   =\ee-\exp\left[n\ln\left(1+\frac1n\right)\right]\\
+  &=\ee-\exp\left[n\left(\frac1n-\frac1{2n^2}+\bigO\left(\frac1{n^3}\right)\right)\right]\\
+  &=\ee-\exp\left[1-\frac1{2n}+\bigO\left(\frac1{n^2}\right)\right]\\
+  &=\ee\left(1-\exp\left[-\frac1{2n}+\bigO\left(\frac1{n^2}\right)\right]\right)\\
+  &=\ee\left[1-\left(1-\frac1{2n}+\bigO\left(\frac1{n^2}\right)\right)\right]\\
+  &=\frac{\ee}{2n}+\bigO\left(\frac1{n^2}\right).
+\end{align*}
+可见
+\[
+  \lim_{n\to\infty}n\delta_n=\frac{\ee}{2}.
+\]
+\begin{xremark}
+例题 7.2.4 已经提供了本题的一种解法，实质上与此相同。此外，本章第一组参考题 6 又提供了另一个解法。
+\end{xremark}
+
+在用 L'Hospital 法则时，如果逐次求导运算会使表达式变得很复杂，则往往不如用 Taylor 公式或结合其他工具为好。
+
+\begin{xexample}[8.1.7]
+求
+\[
+  \lim_{x\to0}\frac{1-(\cos x)^{\sin x}}{x^3}.
+\]
+\end{xexample}
+\begin{xsolution}
+记所求的极限为 $I$，写出分子的 Maclaurin 公式：
+\begin{align*}
+  1-(\cos x)^{\sin x}
+  &=1-\ee^{\sin x\ln\cos x}\\
+  &=1-[1+\sin x\ln\cos x+\littleo(\sin x\ln\cos x)]\\
+  &=-\sin x\ln\cos x+\littleo(\sin x\ln\cos x)\quad(x\to0),
+\end{align*}
+然后如下计算即可得到答案：
+\begin{align*}
+  I
+  &=\lim_{x\to0}\frac{-\sin x\ln\cos x}{x^3}
+   =\lim_{x\to0}\frac{-\ln\cos x}{x^2}\\
+  &=\lim_{x\to0}\frac{-\ln[1+(-\frac{x^2}{2}+\littleo(x^3))]}{x^2}\\
+  &=\lim_{x\to0}\frac{\frac{x^2}{2}+\littleo(x^3)+\littleo(x^2)}{x^2}
+   =\frac12.
+\end{align*}
+\end{xsolution}
+
+在下一个例题的几种解法中我们可以看到各种工具的结合使用。
+
+\begin{xexample}[8.1.8]
+求极限
+\[
+  \lim_{x\to0}\frac{\cos(\sin x)-\cos x}{x^4}.
+\]
+\end{xexample}
+\begin{xsolution}
+\textbf{解 1}\quad 可以看出只要计算分子的 Maclaurin 展开式直到 $x^4$ 项即可：
+\begin{align*}
+  \cos(\sin x)-\cos x
+  &=1-\frac1{2!}(\sin x)^2+\frac1{4!}(\sin x)^4
+    -\left(1-\frac1{2!}x^2+\frac1{4!}x^4\right)+\littleo(x^5)\\
+  &=-\frac12\left(x-\frac16x^3\right)^2+\frac1{24}x^4+\frac12x^2-\frac1{24}x^4+\littleo(x^5)\\
+  &=-\frac12\left(x^2-\frac13x^4\right)+\frac12x^2+\littleo(x^5)\\
+  &=\frac16x^4+\littleo(x^5)\quad(x\to0),
+\end{align*}
+因此所求的极限为 $1/6$。
+
+\textbf{解 2}\quad 在写出 $\cos(\sin x)-\cos x$ 的展开式后，可以看出只要计算如下：
+\begin{align*}
+  \lim_{x\to0}\frac{\cos(\sin x)-\cos x}{x^4}
+  &=\lim_{x\to0}\left(\frac12\cdot\frac{x^2-\sin^2x}{x^4}\right)\\
+  &=\frac12\lim_{x\to0}\left(\frac{x+\sin x}{x}\cdot\frac{x-\sin x}{x^3}\right)
+  =\frac16.
+\end{align*}
+
+\textbf{解 3}\quad 利用分子的特殊形式，应用 Lagrange 中值定理即可得到
+\[
+  \cos(\sin x)-\cos x=-\sin\xi(\sin x-x),
+\]
+其中 $\xi$ 在 $x$ 与 $\sin x$ 之间。因此就可以计算如下：
+\begin{align*}
+  \lim_{x\to0}\frac{\cos(\sin x)-\cos x}{x^4}
+  &=\lim_{x\to0}\frac{-\sin\xi(\sin x-x)}{x^4}\\
+  &=-\lim_{x\to0}\left(\frac{\sin\xi}{\xi}\cdot\frac{\xi}{x}\cdot\frac{\sin x-x}{x^3}\right)
+  =\frac16.
+\end{align*}
+
+\textbf{解 4}\quad 本题也可以用三角函数的和差化积公式来做，计算如下：
+\begin{align*}
+  \lim_{x\to0}\frac{\cos(\sin x)-\cos x}{x^4}
+  &=\lim_{x\to0}\left[-\frac1{x^4}\cdot2\sin\left(\frac{\sin x-x}{2}\right)
+  \cdot\sin\left(\frac{\sin x+x}{2}\right)\right]\\
+  &=-2\lim_{x\to0}\left(\frac1{x^4}\cdot\frac{\sin x-x}{2}\cdot\frac{\sin x+x}{2}\right)\\
+  &=-\lim_{x\to0}\frac{\sin x-x}{x^3}=\frac16.
+\end{align*}
+注意这里使用了多次等价量代换，使问题大大简化了。
+\end{xsolution}
+
+\begin{xexample}[8.1.9]
+设函数 $f$ 满足条件 $f(0)=0$，且存在 $f''(0)$，证明：函数
+\[
+  g(x)=
+  \begin{cases}
+    \dfrac{f(x)}{x}, & x\ne0,\\
+    f'(0), & x=0
+  \end{cases}
+\]
+的导函数 $g'$ 在 $x=0$ 处连续，且 $g'(0)=\dfrac12f''(0)$。
+\end{xexample}
+\begin{xsolution}
+这时 $f$ 在 $x=0$ 的某邻域上可微，因此当 $x\ne0$ 时可按定义求出
+\begin{equation}
+  g'(x)=\frac{f'(x)x-f(x)}{x^2}.
+  \tag{8.2}
+  \label{eq:8.2}
+\end{equation}
+余下只有一个问题，即证明 $g'(0)=\frac12f''(0)$ 且 $\lim_{x\to0}g'(x)=g'(0)$。
+
+应用 7.1.2 小节的导数极限定理，只要证明：(1) $g$ 在 $x=0$ 处连续；(2) $g'$ 在 $x=0$ 处有极限，并求出此极限。（若不用导数极限定理，则需另行计算 $g'(0)$。）
+
+(1) 从 $g$ 的定义即可得到
+\[
+  \lim_{x\to0}g(x)=\lim_{x\to0}\frac{f(x)}{x}
+  =\lim_{x\to0}\frac{f(x)-f(0)}x=f'(0)=g(0).
+\]
+
+(2) 利用带 Peano 余项的 Maclaurin 公式：
+\[
+  f(x)=f'(0)x+\frac12f''(0)x^2+\littleo(x^2)\quad(x\to0),
+\]
+\[
+  f'(x)=f'(0)+f''(0)x+\littleo(x)\quad(x\to0),
+\]
+将它们代入 (8.2)，就在 $x\ne0$ 时有
+\[
+  g'(x)=\frac{(f'(0)+f''(0)x)x-(f'(0)x+\frac12f''(0)x^2)+\littleo(x^2)}{x^2}
+  =\frac12f''(0)+\littleo(1)\quad(x\to0).
+\]
+因此存在极限 $\lim_{x\to0}g'(x)=\frac12f''(0)$，再应用导数极限定理即得所要的结论。
+
+\begin{xremark}
+\textbf{注 1}\quad 比较 $f$ 和 $g$ 的 Maclaurin 展开式：
+\[
+  f(x)=f'(0)x+\frac{f''(0)}2x^2+\littleo(x^2)\quad(x\to0),
+\]
+\[
+  g(x)=f'(0)+\frac{f''(0)}2x+\littleo(x)\quad(x\to0),
+\]
+可以发现，后一个公式可以由前一个除以 $x$ 得到，恰与 $x\ne0$ 时 $g(x)$ 的定义一致。但是在证明 $g(0)=f'(0)$ 和 $g'(0)=\frac12f''(0)$ 之前，当然还不知道由这样的形式运算得到的结果是否是 $g$ 的 Maclaurin 展开式。因此可以认为，本例题的意义就在于对这样的形式运算作出了严格证明。
+
+\textbf{注 2}\quad 这个例题的结论可以推广。只要多次应用导数极限定理，就可以证明：若 $f(0)=0$，且存在 $f^{(n+1)}(0)$，则上述 $g(x)$ 的 $n$ 阶导函数 $g^{(n)}$ 在 $x=0$ 处连续，且
+\[
+  g^{(n)}(0)=\frac{f^{(n+1)}(0)}{n+1}.
+\]
+（这将作为本章的第二组参考题 2。）
+
+\textbf{注 3}\quad 应用上述推广，就可以为上一章的例题 7.2.3 和 7.2.4 中的计算提供理论根据。这里的结果可以简述为：如果 $f(x)$ 满足 $f(0)=0$，又存在 $f^{(n+1)}(0)$，则如下定义的函数：
+\[
+  g(x)=
+  \begin{cases}
+    \dfrac{f(x)}{x}, & x\ne0,\\
+    f'(0), & x=0
+  \end{cases}
+\]
+在 $x=0$ 处存在 $g^{(n)}(0)$，且有 Maclaurin 展开式：
+\[
+  g(x)=f'(0)+f''(0)x+\frac{f'''(0)}{2!}x^2+\cdots
+  +\frac{f^{(n+1)}(0)}{(n+1)!}x^n+\littleo(x^n)\quad(x\to0).
+\]
+因此，形式上这个展开式可以从 $f$ 的 Maclaurin 展开式除以 $x$ 得到。在例题 7.2.3 和 7.2.4 中对于 $\sin x$ 和 $\ln(1+x)$ 就是这样做的，但当时没有能够证明其合理性。
+\end{xremark}
+\end{xsolution}
+
+下一个例题与例题 2.4.2 类似，但需要用到 Taylor 公式的知识才能解决。
+
+\begin{xexample}[8.1.10]
+设 $x_0\in(0,\frac\pi2)$，$x_n=\sin x_{n-1}$，$n\in\NN_+$，证明：
+\[
+  x_n\sim\sqrt{\frac3n}\quad(n\to\infty).
+\]
+\end{xexample}
+\begin{xproof}
+数列 $\{x_n\}$ 为严格单调减少数列，收敛于 0（请读者补充证明）。以下用 Stolz 定理计算：
+\begin{align*}
+  \lim_{n\to\infty}nx_n^2
+  &=\lim_{n\to\infty}\frac{n}{1/x_n^2}
+   =\lim_{n\to\infty}\frac1{\frac1{x_{n+1}^2}-\frac1{x_n^2}}\\
+  &=\lim_{n\to\infty}\frac{x_n^2x_{n+1}^2}{x_n^2-x_{n+1}^2}
+   =\lim_{n\to\infty}\frac{x_n^2\sin^2x_n}{\frac13x_n^4+\littleo(x_n^5)}
+   =3,
+\end{align*}
+在其中用了 $x_{n+1}=\sin x_n=x_n-\frac16x_n^3+\littleo(x_n^4)$。
+
+\begin{center}
+  \includegraphics[width=.48\linewidth]{figures/upper/ch08/fig-8-1.png}
+\end{center}
+
+\begin{xremark}
+在图 8.1 上用蛛网工作法（见 2.6.2 小节）作出了数列的前几项，可以看出数列 $\{x_n\}$ 收敛于 0 一定很慢。本题的结果对此作出了渐近的刻画。
+\end{xremark}
+\end{xproof}
+
+\subsection{练习题}
+
+\begin{xexercise}
+\begin{enumerate}
+  \item 以下几个函数极限均不宜用 L'Hospital 法则，为什么？
+  \begin{enumerate}[label=(\arabic*)]
+    \item $\displaystyle\lim_{x\to1}\frac{x}{x+1}$；
+    \item $\displaystyle\lim_{x\to+\infty}\frac{x+\sin x}{x-\sin x}$；
+    \item $\displaystyle\lim_{x\to+\infty}\frac{\ee^x+\ee^{-x}}{\ee^x-\ee^{-x}}$；
+    \item $\displaystyle\lim_{x\to+\infty}\frac{x}{\sqrt{1+x^2}}$。
+  \end{enumerate}
+
+  \item 求下列极限：
+  \begin{enumerate}[label=(\arabic*)]
+    \item $\displaystyle\lim_{x\to0}\frac{a^{x^2}-b^{x^2}}{(a^x-b^x)^2}$；
+    \item $\displaystyle\lim_{x\to+\infty}\left[\left(x^3-x^2+\frac x2\right)\ee^{1/x}-\sqrt{1+x^6}\right]$；
+    \item $\displaystyle\lim_{x\to0+}\left(\ln\frac1x\right)^x$；
+    \item $\displaystyle\lim_{x\to+\infty}\left(\frac\pi2-\arctan x\right)^{1/\ln x}$。
+  \end{enumerate}
+
+  \item 确定 $a,b$，使得当 $x\to0$ 时，下列函数为尽可能高阶的无穷小量：
+  \begin{enumerate}[label=(\arabic*)]
+    \item $f(x)=x-(a+b\cos x)\sin x$；
+    \item $f(x)=\ee^x-\dfrac{1+ax}{1+bx}$；
+    \item $f(x)=\cot x-\dfrac{1+ax^2}{x+bx^3}$；
+    \item $f(x)=\cos x-\dfrac{1+ax^2}{1+bx^2}$。
+  \end{enumerate}
+
+  \item 应用 Taylor 公式求下列极限：
+  \begin{enumerate}[label=(\arabic*)]
+    \item $\displaystyle\lim_{x\to0}\left(\frac1x-\frac1{\sin x}\right)$；
+    \item $\displaystyle\lim_{x\to0}\frac{\ee^{x^3}-1-x^3}{\sin^6 2x}$；
+    \item $\displaystyle\lim_{n\to\infty}n^2\ln\left(n\sin\frac1n\right)$；
+    \item $\displaystyle\lim_{n\to\infty}(-1)^n n\sin\bigl(\sqrt{n^2+2}\,\pi\bigr)$；
+    \item $\displaystyle\lim_{x\to0}\frac{\sin(\tan x)-\tan(\sin x)}{x^7}$；
+    \item $\displaystyle\lim_{x\to0}\frac{x\sin(\sin x)-\sin^2x}{x^6}$。
+  \end{enumerate}
+
+  \item 设存在 $f''(a)$，证明：
+  \[
+    \lim_{h\to0}\frac{f(a+2h)-2f(a+h)+f(a)}{h^2}=f''(a).
+  \]
+
+  \item 设 $f$ 在某邻域 $O(x_0)$ 上二阶连续可微，$f'(x_0)\ne0$，$f(x)\ne f(x_0)$，$\forall x\ne x_0$。求
+  \[
+    \lim_{x\to x_0}\left[\frac1{f(x)-f(x_0)}-\frac1{f'(x_0)(x-x_0)}\right].
+  \]
+
+  \item 设 $f$ 在 $[0,+\infty)$ 上二阶连续可微，且 $f''(x)>0$，$f(0)=f'(0)=0$。试求极限
+  \[
+    \lim_{x\to0+}\frac{xf(u)}{uf(x)},
+  \]
+  其中 $u$ 是函数 $f$ 的图像在点 $(x,f(x))$ 处的切线在 $x$ 轴上的截距。
+
+  \item 令
+  \[
+    f(x)=\lim_{n\to\infty}n^x\left[\left(1+\frac1{n+1}\right)^{n+1}-\left(1+\frac1n\right)^n\right],
+  \]
+  确定其定义域和值域。
+
+  \item 设 $x_1>0$，$x_{n+1}=\ln(1+x_n)$，$n\in\NN_+$，证明：$\displaystyle\lim_{n\to\infty}nx_n=2$。
+
+  \item 设 $x_0=\ln a$，$a>0$，$x_n=\displaystyle\sum_{k=0}^{n-1}\ln(a-x_k)$，$n\in\NN_+$，求 $\displaystyle\lim_{n\to\infty}x_n$。
+\end{enumerate}
+\end{xexercise}
+
+\section{函数的单调性}
+
+设函数 $f\in C(I)$，在 $I$ 的内点处处可微，则有以下结论。
+
+1. $f$ 为区间 $I$ 上的单调函数的充分必要条件是导数不变号。
+
+2. $f$ 为区间 $I$ 上的严格单调函数的充分必要条件是除了导数不变号外，还在集合 $\{x\in I\mid f'(x)=0\}$ 中不包含任何长度大于零的区间。
+
+证明的方法是用 Lagrange 中值定理。这在教科书中都有，不再重复。
+
+从数列极限和函数极限的学习开始，单调性就一直起着重要的作用。现在以导数为工具，给出了判定单调性的新的有效方法，可以说解决了函数研究中的一个基本问题。搞清了函数的不同单调区间，也就知道了函数图像的上升与下降，这对解决许多问题都是有帮助的。
+
+\subsection{例题}
+
+虽然函数的单调性与导数有如上所说的密切关系，但仅仅由一个点上的导数符号不能得出单调性。请将下一个例题与命题 7.1.1 联系起来考虑这个问题。
+
+\begin{xexample}[8.2.1]
+问：由函数在一个点上的导数符号大于（小于）0 能否推出函数在该点的一个充分小的邻域上为单调？
+\end{xexample}
+\begin{xsolution}
+答案是不能。举例如下：令
+\[
+  f(x)=
+  \begin{cases}
+    x+2x^2\sin\dfrac1x, & x\ne0,\\
+    0, & x=0.
+  \end{cases}
+\]
+则易求出 $f'(0)=1>0$。又可以求出当 $x\ne0$ 时的导函数表达式为
+\[
+  f'(x)=1+4x\sin\frac1x-2\cos\frac1x.
+\]
+取 $x=1/(n\pi)$，则有
+\[
+  f'\left(\frac1{n\pi}\right)=1-2(-1)^n,
+\]
+可见在 $x=0$ 的任意邻近导函数 $f'(x)$ 都不保号，因此在 $x=0$ 的每个邻域上 $f$ 都不是单调的（该函数在 $x>0$ 部分的图像见图 8.2(a)）。
+\end{xsolution}
+
+\begin{xremark}
+在任何一个区间上不单调的连续函数和可微函数都是存在的（见 [57]）。
+\end{xremark}
+
+\begin{xexample}[8.2.2]
+问：函数在其极值点的每一侧邻近是否一定具有单调性？
+\end{xexample}
+\begin{xsolution}
+答案是不一定。举例如下：令
+\[
+  f(x)=
+  \begin{cases}
+    0, & x=0,\\
+    -x^2\left(2+\sin\dfrac1x\right), & x\ne0,
+  \end{cases}
+\]
+则 $f$ 在 $x=0$ 处取到极大值 0。从不等式
+\[
+  -3x^2\le f(x)\le -x^2
+\]
+即可求出 $f'(0)=0$。但当 $x\ne0$ 时
+\[
+  f'(x)=-4x-2x\sin\frac1x+\cos\frac1x,
+\]
+因此在极值点 $x=0$ 两侧的任意邻近都不可能是单调的（见图 8.2(b)）。
+\end{xsolution}
+
+\begin{center}
+  \includegraphics[width=.72\linewidth]{figures/upper/ch08/fig-8-2.png}
+\end{center}
+
+\begin{xexample}[8.2.3]
+设函数
+\[
+  f(x)=\left(1+\frac1x\right)^{x+\alpha},
+\]
+证明：当 $\alpha\ge\frac12$ 时，$f$ 于 $x>0$ 时严格单调减少；而当 $\alpha<\frac12$ 时，则 $f$ 于 $x$ 充分大时严格单调增加。
+\end{xexample}
+\begin{xproof}
+用对数求导法，可以写出
+\[
+  f'(x)=f(x)\left[\ln\left(1+\frac1x\right)-\frac{x+\alpha}{x^2+x}\right].
+\]
+将上式右边记为 $f(x)\cdot u(x)$，则 $f'$ 与 $u$ 同号。由于有
+\[
+  \lim_{x\to+\infty}u(x)=0,
+\]
+只要观察 $u$ 是否单调即可判定其符号。计算得到
+\[
+  u'(x)=\frac{\alpha+(2\alpha-1)x}{x^2(1+x)^2}.
+\]
+可见当 $\alpha\ge\frac12$ 和 $x>0$ 时有 $u'(x)>0$，因此 $u$ 为严格单调增加函数，所以当 $x>0$ 时 $u(x)<0$ 成立。这保证了 $f$ 在 $x>0$ 时严格单调减少。当 $\alpha<\frac12$ 时，则至少在 $x$ 充分大时 $u'(x)<0$，所以有 $u(x)>0$。这保证了函数 $f$ 在 $x$ 充分大时严格单调增加。
+\end{xproof}
+
+将单调性分析与连续函数的零点存在定理相结合，就可以确定方程的根的个数。以下是在一维动力系统的研究中出现的一个代数方程。
+
+\begin{xexample}[8.2.4]
+证明：对每个正整数 $n$，方程
+\[
+  x^{n+2}-2x^n-1=0
+\]
+只有唯一正根。
+\end{xexample}
+\begin{xproof}
+记方程左边的表达式为 $f(x)$。从 $f(\sqrt2)=-1$ 和 $f(+\infty)=+\infty$ 可见方程有大于 $\sqrt2$ 的正根。为了知道 $f$ 的单调性，求导后得到
+\[
+  f'(x)=(n+2)x^{n+1}-2nx^{n-1}
+  =(n+2)x^{n-1}\left(x^2-\frac{2n}{n+2}\right).
+\]
+因此函数 $f$ 在点
+\[
+  \xi=\sqrt{\frac{2n}{n+2}}\ (<\sqrt2)
+\]
+的导数值为 0。函数 $f$ 在区间 $[0,\xi]$ 上严格单调减少，而在区间 $[\xi,+\infty)$ 上严格单调增加。又从 $f(0)=-1$，就知道 $f(x)=0$ 除了上述大于 $\sqrt2$ 的一个正根外没有其他正根。
+\end{xproof}
+
+\begin{xexample}[8.2.5]
+设 $a>0$，确定方程
+\[
+  f(x)=ax-\ln x=0
+\]
+恰有两个正根的条件。
+\end{xexample}
+\begin{xsolution}
+从 $f'(x)=a-1/x$ 可见在 $(0,a^{-1}]$ 上 $f$ 严格单调减少，而在 $[a^{-1},+\infty)$ 上 $f$ 严格单调增加。又由于
+\[
+  f(0+)=+\infty,\qquad
+  f(+\infty)=\lim_{x\to+\infty}x\left(a-\frac{\ln x}{x}\right)=+\infty,
+\]
+可见方程 $f(x)=0$ 有两个正根的条件是
+\[
+  f\left(\frac1a\right)=1-\ln\frac1a<0.
+\]
+由此可以确定 $a$ 应当满足条件 $a<1/\ee$。
+\end{xsolution}
+
+\subsection{练习题}
+
+\begin{xexercise}
+\begin{enumerate}
+  \item 问：单调函数若可微，则其导函数是否也单调？反之又如何？请举例说明。
+
+  \item 证明：函数 $\left(1+\frac1x\right)^x$ 在区间 $(-\infty,-1)$ 和 $(0,+\infty)$ 上单调增加。
+
+  \item 设 $f$ 在 $[0,+\infty)$ 上可微，$f(0)=0$ 且 $f'$ 严格单调增加，证明：$\dfrac{f(x)}x$ 在 $(0,+\infty)$ 上也严格单调增加。
+
+  \item 设 $f,g$ 在 $[0,a]$ 上连续，在 $(0,a)$ 上可微，$f(0)=g(0)=0$，$f',g'>0$，证明：如果 $f'/g'$ 单调增加，则 $f/g$ 也单调增加。
+
+  \item 设 $f$ 在区间 $[a,+\infty)$ 上二阶可微，并且满足条件：(1) $f(a)>0$；(2) $f'(a)<0$；(3) 在 $x>a$ 时 $f''(x)\le0$，证明：$f(x)$ 在 $(a,+\infty)$ 内有且只有一个零点。
+
+  \item 设 $f\in C[a,+\infty)$，且当 $x>a$ 时成立 $f'(x)>k>0$，其中 $k$ 为常数，证明：若 $f(a)<0$，则于区间 $(a,a-f(a)/k)$ 内方程 $f(x)=0$ 有且只有一个实根。
+
+  \item 设 $a>0$，证明：方程
+  \[
+    a\ee^x=1+x+\frac{x^2}{2}
+  \]
+  只有一个实根。
+
+  \item 证明：方程
+  \[
+    f(x)=\left(\frac2\pi-1\right)\ln x-\ln2+\ln(1+x^2)=0
+  \]
+  在开区间 $(0,1)$ 内只有一个实根。
+\end{enumerate}
+\end{xexercise}
+
+\section{函数的极值与最值}
+
+关于极值与最值的基本事实如下：
+
+1. 根据 7.1.1 小节给出的定义，极值点必须是函数的定义域中的内点。这就是说，极值点必须有一个邻域在函数的定义域中。
+
+2. 若函数 $f$ 在点 $x_0$ 两侧（邻近）均为单调，且具有相反的单调性，则 $x_0$ 为极值点。
+
+3. 根据 Fermat 定理，函数的极值点或是函数的不可导点（包括不连续点），或是函数的导数等于零的点。
+
+4. 若函数 $f$ 在点 $x_0$ 处二阶可微，$f'(x_0)=0$，$f''(x_0)\ne0$，则 $x_0$ 一定是极值点。此时，若 $f''(x_0)>0$，则 $x_0$ 是极小值点；而若 $f''(x_0)<0$，则 $x_0$ 是极大值点。
+
+5. 若函数 $f$ 在点 $x_0$ 处为 $n$ 阶可微，$f'(x_0)=f''(x_0)=\cdots=f^{(n-1)}(x_0)=0$，但 $f^{(n)}(x_0)\ne0$，则有以下结论（证明见例题 8.3.1）：
+
+(1) 若 $n$ 为奇数，则 $x_0$ 一定不是极值点；
+
+(2) 若 $n$ 为偶数，则 $x_0$ 一定是 $f$ 的极值点。若 $f^{(n)}(x_0)>0$，则 $x_0$ 是极小值点；若 $f^{(n)}(x_0)<0$，则 $x_0$ 是极大值点。
+
+6. 以上 2,4,5 三项所列出的条件都是充分而非必要的条件。目前还不知道函数在某个点达到极值的充分必要条件是什么。
+
+7. 若函数 $f$ 在点 $x_0$ 有任意阶的导数，而且所有这些导数值都等于 0，则函数仍然可能在点 $x_0$ 处达到或不达到极值。前者的例子见例题 6.2.4，其中的函数在点 $x=0$ 的任意阶导数为 0，又在该点取到极小值（见图 6.4）。后者的例子可以从例题 6.2.4 中的函数经适当改造后得到（留作\textbf{思考题}）。
+
+8. 若函数在内点达到最值，则同时也达到极值。
+
+9. 在闭区间或半闭半开区间上定义的函数的最值点位置只有两种可能：(1) 端点，(2) 极值点。这是寻找函数最值点的基本原则。
+
+\subsection{例题}
+
+\begin{xexample}[8.3.1]
+若函数 $f$ 在点 $x_0$ 处 $n$ 阶可微，且满足条件
+\[
+  f'(x_0)=f''(x_0)=\cdots=f^{(n-1)}(x_0)=0,\qquad f^{(n)}(x_0)\ne0,
+\]
+则有结论：(1) 若 $n$ 为奇数，则 $x_0$ 一定不是 $f$ 的极值点；(2) 若 $n$ 为偶数，则当 $f^{(n)}(x_0)>0$（$<0$）时，$x_0$ 是函数 $f$ 的极小值点（极大值点）。
+\end{xexample}
+\begin{xproof}
+这时 $f$ 在 $x_0$ 的 Taylor 公式为
+\[
+  f(x)=f(x_0)+\frac1{n!}f^{(n)}(x_0)(x-x_0)^n+\littleo((x-x_0)^n)\quad(x\to x_0).
+\]
+将它改写成
+\begin{equation}
+  f(x)-f(x_0)=\frac1{n!}[f^{(n)}(x_0)+\littleo(1)](x-x_0)^n\quad(x\to x_0).
+  \tag{8.3}
+  \label{eq:8.3}
+\end{equation}
+由于 $f^{(n)}(x_0)\ne0$，则存在 $\delta>0$，当 $x\in O_\delta(x_0)$ 时，公式 (8.3) 右边的方括号中的表达式的符号完全由 $f^{(n)}(x_0)$ 确定。
+
+若 $n$ 为奇数，则可以从 (8.3) 看出当 $x\in(x_0-\delta,x_0)$ 和 $x\in(x_0,x_0+\delta)$ 时，$f(x)-f(x_0)$ 异号，因此 $x_0$ 一定不是极值点。
+
+若 $n$ 为偶数，则公式 (8.3) 表明，当 $x\in O_\delta(x_0)-\{x_0\}$ 时，$f(x)-f(x_0)$ 与 $n$ 阶导数 $f^{(n)}(x_0)$ 的符号一致。因此当 $f^{(n)}(x_0)>0$ 时，$x_0$ 是 $f$ 的极小值点。反之，若 $f^{(n)}(x_0)<0$，则 $x_0$ 是 $f$ 的极大值点。
+\end{xproof}
+
+\begin{xremark}
+$n=1$ 时这就是 Fermat 定理（命题 7.1.2），即从 $f'(x_0)\ne0$ 可推出 $x_0$ 不是 $f$ 的极值点。上述证明就是那里的证 2。
+\end{xremark}
+
+\begin{xexample}[8.3.2]
+证明：$x=0$ 是
+\[
+  f(x)=\ee^x+\ee^{-x}+2\cos x
+\]
+的极小值点。
+\end{xexample}
+\begin{xproof}
+计算得到 $f'(0)=f''(0)=f'''(0)=0$，$f^{(4)}(0)=4$。用上一命题的结论可见 $x=0$ 是 $f(x)$ 的极小值点。
+\end{xproof}
+
+现在可以解决在 §2.5 中引进数 $\ee$ 时所提出的下列问题。
+
+\begin{xexample}[8.3.3]
+已知正数 $a$，把它分成若干部分，如果要求各部分的乘积达到最大，应该怎样分法？
+\end{xexample}
+\begin{xsolution}
+设将 $a$ 分成 $n$ 份，然后相乘。由平均值定理知道，若给定 $n$，则应将 $a$ 分成相等的 $n$ 份最为有利。这时所得到的乘积为
+\[
+  \left(\frac an\right)^n.
+\]
+问题是如何取 $n$ 才能使这个乘积最大。
+
+令 $x=a/n$，则上述乘积为 $(x^{1/x})^a$。因此所提的问题和求函数
+\begin{equation}
+  f(x)=x^{1/x}\quad(x>0)
+  \tag{8.4}
+  \label{eq:8.4}
+\end{equation}
+的最大值有密切关系。
+
+求 $f(x)$ 的导数，得到
+\[
+  f'(x)=f(x)\left(\frac{\ln x}{x}\right)'=f(x)\cdot\frac1{x^2}(1-\ln x).
+\]
+可见导函数 $f'(x)$ 只有一个零点 $x=\ee$。从导函数的表达式可见，在 $(0,\ee)$ 上 $f$ 严格单调增加，而在 $(\ee,+\infty)$ 上 $f$ 严格单调减少。因此 $x=\ee$ 是函数 $f$ 的最大值点（见图 8.3）。
+
+\begin{center}
+  \includegraphics[width=.36\linewidth]{figures/upper/ch08/fig-8-3.png}
+\end{center}
+
+由于在一开始时令 $x=a/n$，所以要求 $a/x$ 为正整数。如果 $a/\ee$ 不是正整数，则应当取 $n$ 为多少？
+
+若 $0<a<\ee$，则可以看出 $n=1$，也就是说不分比分好。若 $a/\ee\notin\NN_+$ 且 $a>\ee$，则总可以找到一个正整数 $n$，使得
+\[
+  \frac{a}{n+1}<\ee<\frac an.
+\]
+然后比较 $f\left(\frac{a}{n+1}\right)$ 和 $f\left(\frac an\right)$ 的大小，决定将 $a$ 分成 $n$ 份还是 $n+1$ 份。
+
+\begin{xremark}
+\textbf{注 1}\quad 另一个与此相关的问题是：若 $a\in\NN_+$，且要求所分成的每一份都是正整数，则应当如何分才能使乘积最大？
+
+这个问题的答案是：首先每一份应当不是 2 就是 3，也就是说与数 $\ee$ 尽可能接近。一旦知道这个结论后，可以用数学归纳法来证明它，并不需要上述微分学的知识。然后，由于 $2+2+2=3+3$，但 $2^3<3^2$，因此在将正整数 $a$ 分成若干个 2 与 3 之和时，2 最多出现两次。这样就将分法完全确定下来，并保证乘积最大。
+
+最后将分法小结如下：设 $a\in\NN_+$。(1) 若 $a$ 是 3 的倍数，则每一份为 3；(2) 若 $a\equiv1\pmod3$，则取两份 2，其余均为 3；(3) 若 $a\equiv2\pmod3$，则取一份 2，其余均为 3。
+
+\textbf{注 2}\quad 在 (8.4) 中的函数的最大值也可以从不等式
+\[
+  \ee^u\ge1+u
+\]
+得到，其中仅当 $u=0$ 时成立等号。这从带 Lagrange 余项的 Taylor 公式（其中 $0<\theta<1$）
+\[
+  \ee^u=1+u+\frac{\ee^{\theta u}}{2!}u^2\ge1+u
+\]
+就可以得到。然后令
+\[
+  u=\frac{x-\ee}{\ee}
+\]
+代入，略加整理，即可得到不等式
+\[
+  \ee^{1/\ee}\ge x^{1/x},
+\]
+当且仅当 $x=\ee$ 时成立等号。
+\end{xremark}
+\end{xsolution}
+
+\begin{xexample}[8.3.4]
+问：能通过图 8.4 的直角河道的最长船身是多少？
+\end{xexample}
+\begin{xsolution}
+在图上我们看到宽度为 $a$ 和 $b$ 的河道成直角相接。现在设想将船简化为一个直线段。在图上经过河岸的突出角作出一条斜线段。以图示的角度 $\theta$ 为这个线段位置的参数，$0<\theta<\frac12\pi$。可以看出，能通过直角河道的船身长度在任何情况都不会超出这个线段的长度 $l(\theta)$。由于这对每个 $\theta$ 都成立，因此能通过这个河道的最长船身不会超过
+\[
+  \min_{0<\theta<\pi/2}\{l(\theta)\}.
+\]
+
+\begin{center}
+  \includegraphics[width=.38\linewidth]{figures/upper/ch08/fig-8-4.png}
+\end{center}
+
+另一方面，可以看出，在用一个直线段来表示船时，只要船身不超过这个最小值，船就能够通过这个直角河道。所以求最大船长的问题就转变成为求函数 $l(\theta)$ 的最小值问题，这里自变量 $\theta$ 的范围是 $(0,\pi/2)$。
+
+容易写出函数 $l(\theta)$ 的表达式：
+\[
+  l(\theta)=a\operatorname{sec}\theta+b\operatorname{csc}\theta,
+  \qquad 0<\theta<\frac\pi2.
+\]
+求导得到
+\[
+  l'(\theta)=\frac{a\sin\theta}{\cos^2\theta}-\frac{b\cos\theta}{\sin^2\theta}
+  =\frac1{\sin^2\theta\cos^2\theta}(a\sin^3\theta-b\cos^3\theta).
+\]
+由于当 $\theta$ 从 0 变到 $\frac12\pi$ 时最后一个因子 $a\sin^3\theta-b\cos^3\theta$ 的值从 $-b$ 到 $a$ 严格单调增加，因此 $l'(\theta)$ 存在唯一的零点
+\[
+  \theta_0=\arctan\sqrt[3]{\frac ba}.
+\]
+从 $l'(\theta)$ 的符号变化可见 $\theta_0$ 是函数 $l(\theta)$ 的最小值点。
+
+最后计算出 $l(\theta)$ 的最小值
+\[
+  l(\theta_0)=\left(a^{2/3}+b^{2/3}\right)^{3/2},
+\]
+这就是能通过所示直角河道的最大船身长度。由于我们无法考虑各种船的具体形状，而是将船简化为一个直线段，因此所求出的数值只有参考价值。但是这个值肯定是能通过的船身长度的一个上界。
+\end{xsolution}
+
+\subsection{练习题}
+
+\begin{xexercise}
+\begin{enumerate}
+  \item 设 $f\in C(I)$，$I$ 为区间，证明：若 $x_0\in I$ 是 $f$ 的唯一极值点，则 $x_0$ 一定是最值点；又若 $x_0$ 是极小值点（极大值点），则它也是 $f$ 的唯一最小值点（唯一最大值点）。
+
+  \item 求出方程 $x^3+px+q=0$ 有三个不同实根的充分必要条件。
+
+  \item 求出方程 $\dfrac1{x^2}+px+q=0$ 有三个不同实根的充分必要条件。
+
+  \item 证明：$f(x)=a^2\ee^{\lambda x}+b^2\ee^{-\lambda x}$（$a,b>0$）存在与 $\lambda$ 无关的极小值。
+
+  \item 证明：$y=\dfrac{ax+b}{cx+d}$ 若不是常值函数，则不会有极值。
+
+  \item 比较两个数的大小：(1) $\pi^{\ee}$ 和 $\ee^\pi$；(2) $(\sqrt n)^{\sqrt{n+1}}$ 和 $(\sqrt{n+1})^{\sqrt n}$。
+
+  \item 考虑下列几何极值问题（能用初等方法做就不一定用微分学工具）：
+  \begin{enumerate}[label=(\arabic*)]
+    \item 在面积为定值的三角形中，什么三角形的周长最小？
+    \item 在周长为定值的三角形中，什么三角形的面积最大？
+    \item 在椭圆 $\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1$ 内，各边平行于坐标轴的内接矩形中，面积最大的矩形的长和宽分别为多少？
+    \item 在椭圆 $\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1$ 内，各边平行于坐标轴的内接矩形中，周长最大的矩形的长和宽为多少？
+  \end{enumerate}
+
+  \item 考虑给定边界值的二阶线性非齐次微分方程
+  \[
+    y''+p(x)y'+q(x)y=r(x),\quad a<x<b,\quad y(a)=A,\quad y(b)=B,
+  \]
+  其中 $p,q,r$ 是给定的函数，$A$ 和 $B$ 是给定的数。又设 $q(x)<0$，$\forall x\in(a,b)$，证明：如果这个微分方程在闭区间 $[a,b]$ 上存在解，则必唯一。
+\end{enumerate}
+\end{xexercise}
+
+\begin{xremark}
+前面与极值问题有关的材料还有 5.3.3 小节的题 9，第五章第二组参考题 16--18。
+\end{xremark}
+
+\section{函数的凸性}
+
+凸函数是有广泛应用的一类重要函数。它与凸集的研究一起已形成为一个专门的方向——凸分析。有关凸函数的试题经常在考研试卷中出现，有时在高考试卷中也会出现。本节将介绍凸函数的基本事实。关于用凸函数为工具来证明不等式则将在下一节的 8.5.2 小节内介绍。与积分有关的凸函数性质见第十一章的 11.2.1 小节的凸函数不等式和部分参考题。
+
+\subsection{基本命题}
+
+\begin{xdefinition}
+设函数 $f$ 在区间 $I$ 上定义。若对每一对点 $x_1,x_2\in I$，$x_1\ne x_2$ 和每个 $\lambda\in(0,1)$，成立不等式
+\begin{equation}
+  f(\lambda x_1+(1-\lambda)x_2)\le\lambda f(x_1)+(1-\lambda)f(x_2),
+  \tag{8.5}
+  \label{eq:8.5}
+\end{equation}
+则称 $f$ 为区间 $I$ 上的\textbf{下凸函数}。又若在 (8.5) 中成立严格不等号，则称 $f$ 为区间 $I$ 上的\textbf{严格下凸函数}。若函数 $-f$ 为下凸函数（严格下凸函数），则称 $f$ 为\textbf{上凸函数}（严格上凸函数）。下凸函数和上凸函数统称为凸函数。
+\end{xdefinition}
+
+\begin{xremark}
+请读者注意：下凸函数和上凸函数的名称在我国的数学分析教学中使用已久，它们与向下凸和向上凸的直观说法一致，方便易记；但也有很多教科书和其他文献使用凸函数和凹函数的名称，因为下凸函数和上凸函数在英语中分别为 convex function 和 concave function。
+\end{xremark}
+
+凸函数的定义有明显的几何意义。在图 8.5 中我们看到下凸条件 (8.5) 表明，连接该函数图像 $y=f(x)$ 上的任意两点的直线段应当在相应的曲线段的上方。在下一个命题中我们将对条件 (8.5) 作进一步的发掘，从而得到更多的等价条件，这在研究凸函数时非常有用。
+
+\begin{xtheorem}[8.4.1]
+函数 $f$ 在区间 $I$ 上为下凸的充分必要条件是对于区间 $I$ 中的任意三点 $x_1<x_2<x_3$，成立不等式
+\begin{equation}
+  \frac{f(x_2)-f(x_1)}{x_2-x_1}
+  \le\frac{f(x_3)-f(x_1)}{x_3-x_1}
+  \le\frac{f(x_3)-f(x_2)}{x_3-x_2}.
+  \tag{8.6}
+  \label{eq:8.6}
+\end{equation}
+又如在不等式中的不等号“$\le$”都改为严格的不等号“$<$”，则就是严格下凸的充分必要条件。
+\end{xtheorem}
+
+\paragraph{分析}
+在证明之前先分析条件 (8.6) 的意义。
+
+\begin{center}
+  \includegraphics[width=.42\linewidth]{figures/upper/ch08/fig-8-5.png}
+\end{center}
+
+如图 8.5 所示，将坐标平面上的三个点 $(x_1,f(x_1))$，$(x_2,f(x_2))$，$(x_3,f(x_3))$ 记为点 $A,B,C$，又用 $k(\overline{AB})$，$k(\overline{BC})$，$k(\overline{AC})$ 表示直线段 $AB,BC,AC$ 的斜率，则可以将条件 (8.6) 改写为
+\begin{equation}
+  k(\overline{AB})\le k(\overline{AC})\le k(\overline{BC}).
+  \tag{8.7}
+  \label{eq:8.7}
+\end{equation}
+但这个条件实际上含有三个不等式：
+\begin{equation}
+  k(\overline{AB})\le k(\overline{AC}),\qquad
+  k(\overline{AB})\le k(\overline{BC}),\qquad
+  k(\overline{AC})\le k(\overline{BC}).
+  \tag{8.8}
+  \label{eq:8.8}
+\end{equation}
+利用行列式计算容易得到下列等式：
+\begin{align*}
+\begin{vmatrix}
+1&1&1\\
+x_1&x_2&x_3\\
+f(x_1)&f(x_2)&f(x_3)
+\end{vmatrix}
+&=
+\begin{vmatrix}
+x_2-x_1&x_3-x_1\\
+f(x_2)-f(x_1)&f(x_3)-f(x_1)
+\end{vmatrix}\\
+&=
+\begin{vmatrix}
+x_2-x_1&x_3-x_2\\
+f(x_2)-f(x_1)&f(x_3)-f(x_2)
+\end{vmatrix}\\
+&=
+\begin{vmatrix}
+x_3-x_1&x_3-x_2\\
+f(x_3)-f(x_1)&f(x_3)-f(x_2)
+\end{vmatrix}.
+\end{align*}
+由于三个二阶行列式非负的条件恰好分别对应了 (8.8) 中的三个不等式，因此这三个不等式相互等价。\footnote{用向量代数中的外积和混合积可对以上四个行列式非负的条件给出几何解释，这里从略。}这样在下面命题 8.4.1 的证明中只需要证明下凸函数的定义和这三个不等式中的某一个等价即可。
+
+\paragraph{命题 8.4.1 的证明}
+（只写出下凸函数的证明，关于严格下凸函数的证明从略。）由给定的 $x_1<x_2<x_3$ 可以计算出
+\[
+  \lambda=\frac{x_3-x_2}{x_3-x_1},
+\]
+它满足条件 $0<\lambda<1$ 和等式
+\[
+  x_2=\lambda x_1+(1-\lambda)x_3.
+\]
+先证必要性。由于 $f$ 下凸，有
+\[
+  f(x_2)\le\lambda f(x_1)+(1-\lambda)f(x_3).
+\]
+将 $\lambda$ 的表达式代入，再加整理，就得到
+\[
+  (x_3-x_1)[f(x_2)-f(x_1)]\le(x_2-x_1)[f(x_3)-f(x_1)],
+\]
+这就是 $k(\overline{AB})\le k(\overline{AC})$。
+
+再证充分性。任取一个不等式，例如 $k(\overline{AB})\le k(\overline{AC})$，就可以改写为
+\[
+  f(\lambda x_1+(1-\lambda)x_3)\le\lambda f(x_1)+(1-\lambda)f(x_3).
+\]
+由于 $x_1<x_2<x_3$，同时它们又是区间 $I$ 中的任意三点，因此就证明了 $f$ 在 $I$ 上为下凸函数。
+
+\begin{xtheorem}[8.4.2]
+开区间上的凸函数必是连续函数。
+\end{xtheorem}
+\paragraph{分析}
+先作几何观察。不妨只讨论下凸函数。设 $f$ 为开区间 $I$ 上的下凸函数，点 $x_0\in I$。如图 8.6 所示，在开区间 $I$ 中于 $x_0$ 两侧取 $x_1<x_0<x_2$，记坐标平面上的点 $(x_1,f(x_1))$，$(x_0,f(x_0))$，$(x_2,f(x_2))$ 为 $A,B,C$。先从几何上分析如何可以证明 $f$ 于点 $x_0$ 右连续。
+
+取 $x_0<x<x_2$，并在图 8.6 上标出三个点 $a,b,c$，它们分别是在坐标平面上过点 $(x,0)$ 而平行于 $y$ 轴的直线与直线段 $BC$、曲线 $y=f(x)$ 和直线段 $AB$ 的延长线的交点。容易看出，在 $x\to x_0+$ 时，点 $a$ 和 $c$ 沿直线趋于点 $B$，若能证明点 $b$ 确实在 $a,c$ 之间，则证明就完成了。以下即是将这些几何上的观察翻译成分析语言。
+
+\begin{center}
+  \includegraphics[width=.43\linewidth]{figures/upper/ch08/fig-8-6.png}
+\end{center}
+
+\begin{xproof}
+对 $x_1<x_0<x$ 和 $x_0<x<x_2$ 分别应用命题 8.4.1，就得到
+\begin{equation}
+  k(\overline{BC})\le k(\overline{Bb})\le k(\overline{Ba}).
+  \tag{8.9}
+  \label{eq:8.9}
+\end{equation}
+由于 $x_0<x$，不等式 (8.9) 等价于在 $a,b,c$ 三点的纵坐标之间的下列序关系：
+\[
+  \frac{x-x_0}{x_0-x_1}[f(x_0)-f(x_1)]+f(x_0)
+  \le f(x)
+  \le\frac{x_2-x}{x_2-x_0}f(x_0)+\frac{x-x_0}{x_2-x_0}f(x_2).
+\]
+令 $x\to x_0+$，用夹逼定理，就得到
+\[
+  \lim_{x\to x_0+}f(x)=f(x_0).
+\]
+关于 $f$ 在点 $x_0$ 为左连续的证明完全类似，从略。
+\end{xproof}
+
+\begin{xremark}
+若凸函数的定义域不是开区间，则在端点处可以不连续。例如，
+\[
+  f(x)=
+  \begin{cases}
+    1,&x=0,1,\\
+    0,&0<x<1
+  \end{cases}
+\]
+在闭区间 $[0,1]$ 上是下凸函数，但在端点处不连续。
+\end{xremark}
+
+\begin{xtheorem}[8.4.3]
+若 $f$ 为开区间 $I$ 上的下凸函数，则
+
+(1) $f$ 处处存在有限的两个单侧导数，而且成立不等式 $f'_-(x)\le f'_+(x)$，$x\in I$；
+
+(2) 对任何 $x,y\in I$，$x<y$，成立不等式
+\[
+  f'_-(x)\le f'_+(x)\le f'_-(y)\le f'_+(y),
+\]
+由此知道 $f'_-$ 和 $f'_+$ 均为单调增加函数。
+\end{xtheorem}
+\begin{xproof}
+只要利用不等式 (8.6) 和图 8.5、8.6 就够了。
+
+(1) 利用 (8.8) 中的第二个不等式，在图 8.6 上有 $k(\overline{Bb})\le k(\overline{BC})$，而且可以看出当 $x\to x_0+$ 时，$k(\overline{Bb})$ 单调减少，同时又以 $k(\overline{Bc})$ 为下界，因此一定有极限。这就证明了 $f'_+(x_0)$ 存在。类似地可以证明 $f'_-(x_0)$ 的存在性。
+
+(2) 观察图 8.5，利用 (8.6)，再分别令 $x_2\to x_1+$ 和 $x_2\to x_3-$，由于在 (1) 中已经证明了两个单侧导数的存在性，因此就得到 $f'_+(x_1)\le k(\overline{AC})\le f'_-(x_3)$。将 $x_1,x_3$ 改记为 $x,y$ 即可。
+\end{xproof}
+
+\begin{xremark}
+由于命题 8.4.3 的证明不需要用命题 8.4.2 的结论，因此很多文献中将后者作为前者的推论得到，即从两个单侧导数存在推出连续。从命题 8.4.2 的证明可见，直接证明连续性也是容易的。
+\end{xremark}
+
+\begin{xtheorem}[8.4.4]
+设 $f$ 在区间 $I$ 上可微，则
+
+(1) $f$ 在 $I$ 上为下凸函数的充分必要条件是 $f'$ 在 $I$ 上为单调增加函数；
+
+(2) $f$ 在 $I$ 上为严格下凸函数的充分必要条件是 $f'$ 在 $I$ 上严格单调增加。
+\end{xtheorem}
+\begin{xproof}
+先给出 (1) 的充分性部分的证明。利用命题 8.4.1 和对其结果（在证明前）的分析，可见只需要证明对曲线 $y=f(x)$ 上自左到右的任意不同三点 $A,B,C$ 成立
+\[
+  k(\overline{AB})\le k(\overline{BC}).
+\]
+设 $f'$ 在区间 $I$ 上单调增加。取 $x_1,x_2\in I$，$x_1<x_2$，$\lambda\in(0,1)$。引入
+\[
+  x_\lambda=\lambda x_1+(1-\lambda)x_2.
+\]
+将点 $(x_1,f(x_1))$，$(x_\lambda,f(x_\lambda))$，$(x_2,f(x_2))$ 分别记为 $A,B,C$，则就有
+\[
+  k(\overline{AB})=\frac{f(x_\lambda)-f(x_1)}{x_\lambda-x_1},
+  \qquad
+  k(\overline{BC})=\frac{f(x_2)-f(x_\lambda)}{x_2-x_\lambda}.
+\]
+对右边的两个差商用 Lagrange 微分中值定理，分别得到 $f'(\xi_1)$ 和 $f'(\xi_2)$，其中
+\[
+  \xi_1\in(x_1,x_\lambda),\qquad \xi_2\in(x_\lambda,x_2).
+\]
+由于 $\xi_1<\xi_2$，利用条件 $f'$ 为单调增加，因此有
+\begin{equation}
+  f'(\xi_1)\le f'(\xi_2).
+  \tag{8.10}
+  \label{eq:8.10}
+\end{equation}
+这样就得到所要的结果
+\[
+  k(\overline{AB})\le k(\overline{BC}).
+\]
+
+(1) 的必要性部分可由命题 8.4.3 之 (2) 得出。
+
+关于 (2) 的证明只概述如下：充分性部分可从上面看出。由于 $f'$ 严格单调增加，因此从 $\xi_1<\xi_2$ 可见不等式 (8.10) 成立严格不等号，即有 $k(\overline{AB})<k(\overline{BC})$。由命题 8.4.1 的证明过程可知这时就保证了 $f$ 严格下凸。
+
+又若 $f'$ 单调增加但不是严格单调增加，则在区间 $I$ 上存在点 $x_1<x_2$，使得 $f'(x)$ 在子区间 $[x_1,x_2]$ 上为常值函数，从而 $f$ 在区间 $[x_1,x_2]$ 上是线性函数，而不可能是严格下凸函数。这样就完成了必要性的证明。
+\end{xproof}
+
+\begin{xtheorem}[8.4.5]
+若 $f$ 是区间 $I$ 上的可微下凸函数，则经过点 $(x_0,f(x_0))$（$x_0\in I$）的切线一定在曲线 $y=f(x)$ 的下方，即成立不等式
+\[
+  f(x)\ge f(x_0)+f'(x_0)(x-x_0),\qquad\forall x\in I.
+\]
+又若 $f$ 严格下凸，则上述不等式成立等号的充分必要条件是 $x=x_0$。
+\end{xtheorem}
+\begin{xproof}
+将上述不等式的右边移项到左边，然后用 Lagrange 中值定理，就有
+\[
+  f(x)-f(x_0)-f'(x_0)(x-x_0)=(f'(\xi)-f'(x_0))(x-x_0),
+\]
+其中 $\xi\in(x_0,x)$ 或 $(x,x_0)$。用命题 8.4.4 可见上式非负，而在 $f$ 为严格下凸时，$f'$ 为严格单调，因此仅当 $x=x_0$ 时为 0。
+\end{xproof}
+
+\begin{xremark}
+称直线 $y=f(x_0)+f'(x_0)(x-x_0)$ 为凸函数 $f$ 在点 $(x_0,f(x_0))$ 处的\textbf{支撑线}。若去掉可微条件，则仍存在相应的支撑线，见 8.4.2 小节的题 11。
+\end{xremark}
+
+\begin{xtheorem}[8.4.6]
+设函数 $f$ 于区间 $I$ 上二阶可微，则
+
+(1) $f$ 在 $I$ 上为下凸函数的充分必要条件是在 $I$ 上处处有 $f''(x)\ge0$；
+
+(2) $f$ 在 $I$ 上为严格下凸函数的充分必要条件是在 $I$ 上处处有 $f''(x)\ge0$，而且在任一正长度的子区间上 $f''(x)$ 不恒等于零。
+\end{xtheorem}
+
+这个命题可以从命题 8.4.4 的结论直接得出，但也可以证明如下。
+
+\begin{xproof}
+（只证明 (1)）先证必要性。对区间的内点 $x$，取 $h>0$ 充分小，就可以由下凸性推出不等式
+\[
+  f(x)\le\frac12[f(x-h)+f(x+h)].
+\]
+这保证了下列极限非负：
+\[
+  \lim_{h\to0}\frac{f(x+h)-2f(x)+f(x-h)}{h^2}=f''(x).
+\]
+对端点可由 Darboux 定理推出。
+
+再证充分性。如命题 8.4.4 证明一开始那样对 $x_1<x_2$ 和 $0<\lambda<1$ 引入 $x_\lambda$，并写出 $f(x_1)$ 和 $f(x_2)$ 在点 $x_\lambda$ 的带 Lagrange 型余项的 Taylor 公式：
+\[
+  f(x_1)=f(x_\lambda)+f'(x_\lambda)(x_1-x_\lambda)+\frac12f''(\xi_1)(x_1-x_\lambda)^2,
+\]
+\[
+  f(x_2)=f(x_\lambda)+f'(x_\lambda)(x_2-x_\lambda)+\frac12f''(\xi_2)(x_2-x_\lambda)^2,
+\]
+其中 $\xi_1\in(x_1,x_\lambda)$，$\xi_2\in(x_\lambda,x_2)$。将第一式乘 $\lambda$ 与第二式乘 $(1-\lambda)$ 相加，利用二阶导数非负和 $x_\lambda=\lambda x_1+(1-\lambda)x_2$，就得到所要的不等式
+\[
+  \lambda f(x_1)+(1-\lambda)f(x_2)\ge f(x_\lambda).
+\]
+\end{xproof}
+
+\begin{xtheorem}[8.4.7（下凸函数的 Jensen（詹森）不等式）]
+如 $f$ 为区间 $I$ 上的二阶可微下凸函数，则对任何 $x_1,x_2,\ldots,x_n\in I$ 与满足条件 $\lambda_1+\lambda_2+\cdots+\lambda_n=1$ 的 $n$ 个正数 $\lambda_1,\lambda_2,\ldots,\lambda_n$ 成立不等式
+\begin{equation}
+  \lambda_1f(x_1)+\lambda_2f(x_2)+\cdots+\lambda_nf(x_n)
+  \ge f(\lambda_1x_1+\lambda_2x_2+\cdots+\lambda_nx_n).
+  \tag{8.11}
+  \label{eq:8.11}
+\end{equation}
+又若 $f$ 严格下凸，则上述不等式成立等号的充分必要条件是
+\begin{equation}
+  x_1=x_2=\cdots=x_n.
+  \tag{8.12}
+  \label{eq:8.12}
+\end{equation}
+\end{xtheorem}
+\begin{xproof}
+记 $\bar x=\lambda_1x_1+\lambda_2x_2+\cdots+\lambda_nx_n$（即数 $x_1,x_2,\ldots,x_n$ 的加权平均值），并写出 $f(x_i)$（$i=1,2,\ldots,n$）在点 $\bar x$ 的带 Lagrange 余项的 Taylor 公式：
+\[
+  f(x_i)=f(\bar x)+f'(\bar x)(x_i-\bar x)+\frac{f''(\xi_i)}{2!}(x_i-\bar x)^2,
+  \quad i=1,2,\ldots,n.
+\]
+将这 $n$ 个公式分别乘以 $\lambda_1,\lambda_2,\ldots,\lambda_n$ 后相加，利用条件 $\lambda_1+\lambda_2+\cdots+\lambda_n=1$ 和二阶导数非负，就得到 Jensen 不等式：
+\[
+  \lambda_1f(x_1)+\lambda_2f(x_2)+\cdots+\lambda_nf(x_n)
+  \ge f(\bar x)+f'(\bar x)(\bar x-\bar x)=f(\bar x).
+\]
+以下讨论当 $f$ 严格下凸时，在 Jensen 不等式中成立等号的条件。
+
+若在上述不等式中成立等号，则由于每个 $\lambda_i>0$（$i=1,2,\ldots,n$），从以上证明过程可以看出只能是对每个 $i=1,2,\ldots,n$ 成立
+\[
+  f(x_i)=f(\bar x)+f'(\bar x)(x_i-\bar x).
+\]
+用命题 8.4.5，可见只能有 $x_i=\bar x$。
+
+反之是明显的。若条件 (8.12) 成立，则对每个 $i=1,2,\ldots,n$ 有 $x_i=\bar x$，因此在上面的不等式中成立等号。
+\end{xproof}
+
+\begin{xremark}
+命题中的二阶可微条件并非必要（作为下面的练习题 1）。但从应用来看，用二阶导数来检验凸性较为方便。这在 8.5.2 小节中有很多例题可供参考。
+\end{xremark}
+
+以下是一个与凸性密切相关的概念，它在许多方面有应用。
+
+\begin{xdefinition}
+称曲线 $y=f(x)$ 上的点 $(x_0,f(x_0))$ 为\textbf{拐点}（或\textbf{变曲点}），如果在该点两侧邻近的曲线具有不同的严格凸性。
+\end{xdefinition}
+
+关于拐点的基本命题见下面练习题的最后几个题。
+
+\subsection{练习题}
+
+\begin{xexercise}
+\begin{enumerate}
+  \item 在不假定函数 $f$ 可微的条件下，证明 Jensen 不等式 (8.11) 仍然成立。
+
+  \item 设 $f$ 是区间 $(a,b)$ 上的上凸函数，且 $f(x)>0$，证明：函数 $1/f$ 是区间 $(a,b)$ 上的下凸函数。又问：若在上题中将 $f$ 的上凸条件改为下凸，则有何结论？
+
+  （本题的变形是对 $f$ 加上一阶可微或二阶可微条件。）
+
+  \item 设 $f,g$ 是 $(a,b)$ 上的下凸函数，证明：$\max\{f,g\}$ 也是 $(a,b)$ 上的下凸函数。
+
+  \item 设 $f$ 和 $g$ 均为区间 $I$ 上的单调增加非负下凸函数，证明：$f\cdot g$ 为区间 $I$ 上的下凸函数。
+
+  \item 设 $f$ 在区间 $I$ 上为下凸函数，证明：$F(x)=\ee^{f(x)}$ 也是 $I$ 上的下凸函数。
+
+  \item 设 $f$ 和 $g$ 为 $(-\infty,+\infty)$ 上的下凸函数，问：复合函数 $f\circ g$ 是否一定是 $(-\infty,+\infty)$ 上的下凸函数？
+
+  \item 设 $f$ 为 $(-\infty,+\infty)$ 上的下凸函数，证明：或者 $f$ 为单调函数，或者存在点 $c$，使得 $f$ 在 $(-\infty,c]$ 上单调减少，而在 $[c,+\infty)$ 上单调增加。
+
+  \item 设 $f$ 在 $(-\infty,+\infty)$ 上有界，且处处有 $f''(x)\ge0$，证明：$f$ 只能是常值函数。
+
+  \item 设 $f$ 在 $(a,b)$ 上 $n$ 阶可微（$n>2$），$f^{(n)}(x)>0$。又有 $x_0\in(a,b)$，使对于 $k=1,2,\ldots,n-1$ 成立 $f^{(k)}(x_0)=0$，证明：
+  \begin{enumerate}[label=(\arabic*)]
+    \item $n$ 为奇数时，$f$ 在 $(a,b)$ 上严格单调增加；
+    \item $n$ 为偶数时，$f$ 在 $(a,b)$ 上严格下凸。
+  \end{enumerate}
+
+  \item 设 $f$ 在开区间 $(c,d)$ 上为下凸函数，则 $f$ 一定满足内闭的 Lipschitz 条件。（这就是说对每个有界闭区间 $[a,b]\subset(c,d)$，存在 $M>0$，对所有 $x_1,x_2\in[a,b]$，成立 $|f(x_1)-f(x_2)|\le M|x_1-x_2|$。）
+
+  \item 证明：$f$ 在开区间 $I$ 上为下凸函数的充分必要条件是对每个 $c\in I$，存在 $a$，使在区间 $I$ 上成立不等式 $f(x)\ge a(x-c)+f(c)$（称 $y=a(x-c)+f(c)$ 为支撑线）。
+
+  \item 设 $f$ 在 $[a,+\infty)$ 上为凸函数，证明：$\displaystyle\lim_{x\to+\infty}\frac{f(x)}x$ 一定有意义。
+
+  \item 设 $f$ 在 $(-\infty,+\infty)$ 上为凸函数，又有 $\displaystyle\lim_{x\to\pm\infty}\frac{f(x)}x=0$，证明：$f$ 是常值函数。
+
+  \item 设 $f$ 是 $[a,b]$ 上的凸函数，如果有 $c\in(a,b)$ 使得 $f(a)=f(c)=f(b)$，证明：$f(x)$ 是 $[a,b]$ 上的常值函数。
+
+  \item 设 $a<b<c<d$，证明：若 $f$ 在 $[a,c]$ 和 $[b,d]$ 上是下凸函数，则 $f$ 也是 $[a,d]$ 上的下凸函数。
+
+  \item 证明：不存在三次或三次以上的奇次多项式为 $(-\infty,+\infty)$ 上的凸函数。
+
+  \item 设 $f$ 在区间 $(a,b)$ 上二阶可微，$f''$ 无零点，证明：对该区间内的任何两点 $a<x_1<x_2<b$ 用 Lagrange 中值定理得到 $f(x_1)-f(x_2)=f'(\xi)(x_1-x_2)$ 时，其中的中值 $\xi\in(x_1,x_2)$ 总是唯一的。
+
+  \item 若曲线 $y=f(x)$ 以 $(x_0,f(x_0))$ 为拐点，且存在 $f'''(x_0)$，证明：$f'''(x_0)=0$。
+
+  \item 问：若已知有 $f'''(x_0)=0$，则点 $(x_0,f(x_0))$ 是否一定是曲线 $y=f(x)$ 的拐点？
+
+  \item 设 $f$ 在点 $x_0$ 处 $n$（$n>2$）阶可微，且满足条件 $f''(x_0)=\cdots=f^{(n-1)}(x_0)=0$，但 $f^{(n)}(x_0)\ne0$，请参考例题 8.3.1 写出点 $(x_0,f(x_0))$ 是拐点的充分必要条件并作出证明。
+\end{enumerate}
+\end{xexercise}
+
+\section{不等式}
+
+不等式在数学中十分重要，内容极为丰富。在本节中我们用导数为工具来证明一些不等式。其中用凸函数为工具的例题则在 8.5.2 小节中作专门介绍。与积分有关的不等式见 §11.2。这方面的部分参考书为 [2, 22, 30, 48, 62, 63]。
+
+\subsection{例题}
+
+例题 8.5.1 是用 Lagrange 中值定理证明不等式的典型例子。在图 8.7 中显示了不等式的几何意义。
+
+\begin{xexample}[8.5.1]
+证明：在 $x>-1$，$x\ne0$ 时，成立不等式
+\[
+  \frac{x}{1+x}<\ln(1+x)<x.
+\]
+\end{xexample}
+\begin{xproof}
+记 $f(x)=\ln(1+x)$，从中值定理得到
+\[
+  \ln(1+x)=f(x)-f(0)=\frac{x}{1+\theta x},\qquad0<\theta<1.
+\]
+对 $x>0$ 和 $-1<x<0$ 分别讨论就可以得到
+\[
+  \frac{x}{1+x}<\frac{x}{1+\theta x}<x.
+\]
+\end{xproof}
+
+\begin{center}
+  \includegraphics[width=.34\linewidth]{figures/upper/ch08/fig-8-7.png}
+\end{center}
+
+\begin{xremark}
+回顾第二章中的不等式 (2.16)，即
+\[
+  \frac1{n+1}<\ln\left(1+\frac1n\right)<\frac1n,
+\]
+可以看到它只是本例题在 $x=1/n$ 时的特例。当时的不等式 (2.16) 来自于对数 $\ee$ 的研究，在那里只用了一个工具——平均值不等式。
+\end{xremark}
+
+Cauchy 中值定理在证明不等式中也有应用。
+
+\begin{xexample}[8.5.2]
+证明：对 $0<a<b\le\dfrac\pi2$，成立不等式
+\[
+  \frac{\sin a}{a}>\frac{\sin b}{b}.
+\]
+\end{xexample}
+\begin{xproof}
+这等价于证明函数 $\dfrac{\sin x}{x}$ 在区间 $(0,\dfrac\pi2]$ 上严格单调减少。（该函数的图像见图 4.2(a) 和 8.8(b)。）这里用 Cauchy 中值定理来作出证明。令 $f(x)=\sin x$，$g(x)=\sin\dfrac ba x$。从 Cauchy 中值定理知道存在 $\xi\in(0,a)$，使成立
+\[
+  \frac{\sin a}{\sin b}
+  =\frac{f(a)-f(0)}{g(a)-g(0)}
+  =\frac{f'(\xi)}{g'(\xi)}.
+\]
+由于 $f'(\xi)=\cos\xi$，$g'(\xi)=\dfrac ba\cos\dfrac ba\xi$，而 $\cos u$ 在 $0<u<\dfrac\pi2$ 上严格单调减少，因此就得到所要的结果
+\[
+  \frac{\sin a}{\sin b}
+  =\frac ab\cdot\frac{\cos\xi}{\cos\frac ba\xi}>
+  \frac ab.
+\]
+\end{xproof}
+
+\begin{xremark}
+这个例题的证明方法很多，这里再举出两个。
+
+(1) 在区间 $(0,\pi/2]$ 上定义辅助函数 $F(x)=\sin x/x$，求导即可。
+
+(2) 利用 8.2.2 小节的题 4，在 $[0,\pi/2]$ 上取 $f(x)=x$，$g(x)=\sin x$，由于 $f'(x)/g'(x)=\operatorname{sec}x$ 单调增加，因此 $x/\sin x$ 也单调增加。
+\end{xremark}
+
+利用单调性证明不等式的例子很多。一个典型例题就是
+
+\begin{xexample}[8.5.3]
+证明：在 $x>0$ 时，成立
+\[
+  \sin x>x-\frac{x^3}{6}.
+\]
+\end{xexample}
+\begin{xproof}
+令 $F(x)=\sin x-x+\dfrac{x^3}{6}$，则有 $F(0)=0$。因此只要证明当 $x>0$ 时成立 $F'(x)>0$，就可以从 $F$ 单调增加知道在 $x>0$ 时成立 $F(x)>0$。由于 $F'(0)=0$，又发现问题归结为证明 $F''(x)>0$（$x>0$）。由于 $F''(x)=-\sin x+x$，可见这已满足。由此反推即可。
+\end{xproof}
+
+证明不等式的另一个方法是将它转化为极值问题。下面就是一个典型例子（见 [30]），它在本书第十二章中有用。
+
+\begin{xexample}[8.5.4]
+设 $a\ge1$，证明：在 $x\in[0,a]$ 时成立不等式
+\[
+  0\le\ee^{-x}-\left(1-\frac xa\right)^a
+  \le\frac{x^2}{a}\ee^{-x}.
+\]
+\end{xexample}
+\begin{xproof}
+先证明左边的不等式（这时只要 $a>0$）。将中间的表达式记为 $f(x)$，则只要证明 $f$ 在区间 $[0,a]$ 上的最小值非负即可。由于 $f(0)=0$，$f(a)=\ee^{-a}>0$，因此只要证明若 $f$ 有极值，则该极值非负。
+
+若 $f'$ 没有零点，则无极值；若 $f'$ 有零点，记为 $\xi$，就有
+\[
+  f'(\xi)=-\ee^{-\xi}+\left(1-\frac\xi a\right)^{a-1}=0.
+\]
+由此即可计算出
+\[
+  f(\xi)=\ee^{-\xi}-\left(1-\frac\xi a\right)^a
+  =\frac\xi a\cdot\ee^{-\xi}\ge0.
+\]
+因此左边不等式成立。对右边不等式的证明留作为 8.5.3 小节的练习题 16。
+\end{xproof}
+
+\begin{xremark}
+在证明右边的不等式时，如果先乘以 $\ee^x$，则计算方便一些（见 [44]）。但这不是实质性的技巧。
+\end{xremark}
+
+下面是用一元微分学对平均值不等式的一个证明。它是由 Liouville（刘维尔）提出的（又为后人多次“发现”）。
+
+\begin{xexample}[8.5.5]
+用 Liouville 方法证平均值不等式，即对非负数 $x_1,x_2,\ldots,x_n$ 有
+\[
+  \frac{x_1+x_2+\cdots+x_n}{n}\ge\sqrt[n]{x_1x_2\cdots x_n},
+\]
+其中等号成立的充分必要条件是 $x_1=x_2=\cdots=x_n$。
+\end{xexample}
+\begin{xproof}
+若在 $x_1,x_2,\ldots,x_n$ 中有 0 出现，则不等式已成立。同时也可看出成立等号的条件是其中每个数为 0。因此在下面设 $x_1,x_2,\ldots,x_n$ 全为正数。
+
+用数学归纳法。在 $n=2$ 时已知成立。现设平均值不等式对 $n$ 已成立，讨论 $n+1$ 的情况。
+
+构造辅助函数
+\[
+  y=\left(\frac{\sum_{i=1}^{n+1}x_i}{n+1}\right)^{n+1}
+  -\prod_{i=1}^{n+1}x_i,
+\]
+并将 $x_{n+1}$ 看成是自变量，$y$ 是因变量。求导得到
+\[
+  \frac{\dd y}{\dd x_{n+1}}
+  =\left(\frac{\sum_{i=1}^{n+1}x_i}{n+1}\right)^n
+  -\prod_{i=1}^n x_i.
+\]
+可以看出这个导函数是 $(x_{n+1})$ 的严格单调增加函数。求出它的零点
+\begin{equation}
+  x_{n+1}=-\sum_{i=1}^n x_i+(n+1)\left(\prod_{i=1}^n x_i\right)^{1/n}.
+  \tag{8.13}
+  \label{eq:8.13}
+\end{equation}
+可见 $y$ 在该点取到最小值。记这个最小值为 $m$，则可以计算出
+\begin{align*}
+  m
+  &=\prod_{i=1}^n x_i\left(\frac{\sum_{i=1}^{n+1}x_i}{n+1}-x_{n+1}\right)\\
+  &=\prod_{i=1}^n x_i\left[
+    \left(\prod_{i=1}^n x_i\right)^{1/n}
+    +\sum_{i=1}^n x_i
+    -(n+1)\left(\prod_{i=1}^n x_i\right)^{1/n}
+  \right]\\
+  &=\prod_{i=1}^n x_i\left[
+    \sum_{i=1}^n x_i-n\left(\prod_{i=1}^n x_i\right)^{1/n}
+  \right].
+\end{align*}
+对最后一式的第二个因子用归纳假设，可见最小值 $m\ge0$。因此得到 $y\ge m\ge0$，即已经得到了所要求证的不等式。
+
+若在 $n+1$ 的平均值不等式中成立等号，则有 $y=0$，从而有 $y=m=0$。从 $m$ 的表达式和归纳假设可得 $x_1=x_2=\cdots=x_n$。又由 $y=m$ 可见 $x_{n+1}$ 满足等式 (8.13)，从而有 $x_{n+1}=x_1=\cdots=x_n$。
+\end{xproof}
+
+下面的 Jordan（若尔当）不等式是关于正弦函数的一个基本不等式。图 8.8(a) 是该不等式的几何意义，在图 8.8(b) 中作出了证 1 中的辅助函数 $\sin x/x$ 的图像。
+
+\begin{xexample}[8.5.6（Jordan 不等式）]
+设 $0\le x\le\dfrac\pi2$，则成立不等式
+\[
+  \sin x\ge\frac2\pi x.
+\]
+\end{xexample}
+\begin{xproof}
+\textbf{证 1}\quad 在 $x=0$ 时不等式已成立。对 $0<x\le\pi/2$ 可以引入辅助函数（见图 8.8(b)）
+\[
+  F(x)=\frac{\sin x}{x}.
+\]
+从例题 8.5.2 知 $F(x)$ 在 $(0,\pi/2]$ 上严格单调减少，从而在 $0<x\le\pi/2$ 时成立
+\[
+  F\left(\frac\pi2\right)=\frac2\pi\le F(x)=\frac{\sin x}{x}.
+\]
+这等价于所要求证的不等式。
+
+\textbf{证 2}\quad 构造辅助函数
+\[
+  \varphi(x)=\sin x-\frac2\pi x,
+\]
+则只要证明在区间 $[0,\pi/2]$ 上函数 $\varphi(x)$ 非负。
+
+在区间的两个端点上有
+\[
+  \varphi(0)=\varphi\left(\frac\pi2\right)=0.
+\]
+计算
+\[
+  \varphi'(x)=\cos x-\frac2\pi,
+\]
+可见 $\varphi'(x)$ 在区间 $[0,\pi/2]$ 上严格单调减少。由于 $\varphi'(0)>0$，$\varphi'(\pi/2)<0$，因此存在唯一的点 $\xi\in(0,\pi/2)$，使得 $\varphi'(\xi)=0$。这样就知道在 $0\le x\le\xi$ 时函数 $\varphi(x)$ 严格单调增加，因此有 $\varphi(x)\ge\varphi(0)=0$；而在 $\xi\le x\le\pi/2$ 时 $\varphi(x)$ 严格单调减少，因此有 $\varphi(x)\ge\varphi(\pi/2)=0$。这样就证明了在区间 $[0,\pi/2]$ 上处处成立 $\varphi(x)\ge0$。
+\end{xproof}
+
+\begin{center}
+  \includegraphics[width=.68\linewidth]{figures/upper/ch08/fig-8-8.png}
+\end{center}
+
+\begin{xremark}
+从图 8.8(a) 可以想到，若 $y=\sin x$ 在 $[0,\pi/2]$ 上为上凸函数，则就可以得到 Jordan 不等式。从 $y''=-\sin x$ 可见这是对的。因此就得到了 Jordan 不等式的第三个证明。
+\end{xremark}
+
+用 Taylor 公式也是证明不等式的一种方法。例如下一个例题中就同时提供了关于函数 $\ln(1+x)$ 的许多不等式。
+
+\begin{xexample}[8.5.7]
+当 $x>0$ 时，证明：对每个正整数 $n$ 成立不等式
+\[
+  x-\frac{x^2}{2}+\frac{x^3}{3}-\cdots-\frac{x^{2n}}{2n}
+  <\ln(1+x)<
+  x-\frac{x^2}{2}+\frac{x^3}{3}-\cdots+\frac{x^{2n-1}}{2n-1}.
+\]
+\end{xexample}
+\begin{xproof}
+写出函数 $\ln(1+x)$ 的带 Lagrange 余项的 Maclaurin 公式：
+\[
+  \ln(1+x)=x-\frac{x^2}{2}+\frac{x^3}{3}-\cdots
+  +(-1)^{n-1}\frac{x^n}{n}
+  +\frac{(-1)^n}{n+1}\cdot\frac{x^{n+1}}{(1+\theta x)^{n+1}},
+\]
+其中 $0<\theta<1$。由于 $x>0$，右边的余项的符号由 $(-1)^n$ 决定。当 $n$ 为偶数时该项大于 0，而当 $n$ 为奇数时该项小于 0。这样就得到所要求证的不等式。
+\end{xproof}
+
+\subsection{用凸性证不等式}
+
+这里的基本工具是 Jensen 不等式 (8.11)（见命题 8.4.7）。在那里已经提到，该不等式对所有下凸函数成立，而并不要求二阶可微的条件。但用二阶导数的符号来验证一个给定函数是否下凸还是一个很实际的方法。
+
+在下面的前三个不等式统称为经典不等式。由于它们在数学中的重要性，均作为命题给出。第一个不等式即平均值不等式（命题 1.3.3）的推广。
+
+\begin{xtheorem}[8.5.1（广义的算术平均值－几何平均值不等式）]
+设有非负数 $x_1,\ldots,x_n$ 和正数 $\lambda_1,\ldots,\lambda_n$，且 $\lambda_1+\cdots+\lambda_n=1$，则成立不等式
+\begin{equation}
+  \prod_{k=1}^n x_k^{\lambda_k}\le\sum_{k=1}^n\lambda_kx_k,
+  \tag{8.14}
+  \label{eq:8.14}
+\end{equation}
+其中当且仅当 $x_1=x_2=\cdots=x_n$ 时成立等号。
+\end{xtheorem}
+\begin{xproof}
+令 $f(u)=-\ln u$，$u>0$。由于 $f''(u)=1/u^2>0$，因此 $f(u)$ 是严格下凸函数（用命题 8.4.6）。用 Jensen 不等式 (8.11) 得到
+\[
+  -\ln\left(\sum_{k=1}^n\lambda_kx_k\right)
+  \le-\sum_{k=1}^n\lambda_k\ln x_k.
+\]
+移项并利用对数函数的单调性，即可得到所要求证的不等式。关于其中成立等号的条件已在命题 8.4.7 中得到证明。
+\end{xproof}
+
+\begin{xremark}
+若取 $\lambda_i=1/n$，$i=1,2,\ldots,n$，就得到普通的平均值不等式。此外，与平均值不等式类似，有许多不同的方法可以证明以上的广义平均值不等式。
+\end{xremark}
+
+第二个要介绍的 Hölder（赫尔德）不等式是在第一章中的 Cauchy 不等式（见命题 1.3.5）的推广，它在数学的许多领域中起重要作用，也可以用于证明广义的平均值不等式。
+
+\begin{xtheorem}[8.5.2（Hölder 不等式）]
+设 $x_1,x_2,\ldots,x_n$ 和 $y_1,y_2,\ldots,y_n$ 均为非负数，又有 $p>1$，$q>1$，且满足（共轭）条件
+\[
+  \frac1p+\frac1q=1,
+\]
+则成立不等式
+\begin{equation}
+  \sum_{k=1}^n x_ky_k
+  \le\left(\sum_{k=1}^n x_k^p\right)^{1/p}
+  \left(\sum_{k=1}^n y_k^q\right)^{1/q},
+  \tag{8.15}
+  \label{eq:8.15}
+\end{equation}
+其中成立等号的充分必要条件是数组 $x_1^p,x_2^p,\ldots,x_n^p$ 和 $y_1^q,y_2^q,\ldots,y_n^q$ 成比例。
+\end{xtheorem}
+\begin{xproof}
+先对于至少有一个数组中的每个数都大于 0 的情况作出证明。为确定起见，不妨设 $y_1,y_2,\ldots,y_n$ 中的每个数都大于 0，则可证明如下。
+
+取函数 $f(u)=u^p$，$u\ge0$。由于 $f''(u)=p(p-1)u^{p-2}\ge0$，因此 $f(u)$ 是严格下凸函数。令
+\[
+  \lambda_k=\frac{y_k^q}{\sum_{i=1}^n y_i^q},
+  \qquad
+  u_k=x_ky_k^{1-q},
+  \qquad k=1,2,\ldots,n,
+\]
+并代入 Jensen 不等式 (8.11)，就有
+\begin{equation}
+  \left(\frac{\sum_{k=1}^n x_ky_k}{\sum_{k=1}^n y_k^q}\right)^p
+  \le\sum_{k=1}^n\left[
+    \frac{y_k^q}{\sum_{i=1}^n y_i^q}\cdot(x_ky_k^{1-q})^p
+  \right]
+  =\frac{\sum_{k=1}^n x_k^p}{\sum_{k=1}^n y_k^q}.
+  \tag{8.16}
+  \label{eq:8.16}
+\end{equation}
+其中利用了 $p,q$ 满足条件 $p+q-pq=0$。两边开 $p$ 次根，并略加整理即得
+\[
+  \sum_{k=1}^n x_ky_k
+  \le\left(\sum_{k=1}^n x_k^p\right)^{1/p}
+  \left(\sum_{k=1}^n y_k^q\right)^{1-1/p}
+  =\left(\sum_{k=1}^n x_k^p\right)^{1/p}
+  \left(\sum_{k=1}^n y_k^q\right)^{1/q}.
+\]
+关于在 Hölder 不等式中成立等号的条件也可从 Jensen 不等式得到，即 $u_1=u_2=\cdots=u_n$。从 $u_k$ 的表达式，可以将这个条件写成为：存在常数 $C$，使成立 $x_k^p=Cy_k^q$，$k=1,2,\ldots,n$。由不等式 (8.15) 的对称性，对 $x_1,x_2,\ldots,x_n$ 中每个数大于 0 的情况的证明完全相同。而在不等式中成立等号的条件可统一写成为：存在两个不全为 0 的数 $\lambda$ 和 $\mu$，使成立
+\begin{equation}
+  \lambda x_k^p=\mu y_k^q,\qquad k=1,2,\ldots,n.
+  \tag{8.17}
+  \label{eq:8.17}
+\end{equation}
+现在讨论其余情况，即在两个数组中都有某些数为 0 的情况。
+
+若有一个数组中的数全为 0，则不等式 (8.15) 成立等号，且只要在 $\lambda$ 和 $\mu$ 中取一个为 0，就可以使得 (8.17) 成立。
+
+对于两个数组都有部分数为 0，但不是全为 0 的情况，可以取定 $y_1,y_2,\ldots,y_n$，将其中为 0 的数（以及在数组 $x_1,x_2,\ldots,x_n$ 中相同下标的数）剔除，就可以归结为前面的情况来证明。又从不等式 (8.15) 可直接看出，如有某个 $y_k=0$，且在不等式中成立等号，则相应地也一定有 $x_k=0$。因此条件 (8.17) 仍然成立。
+\end{xproof}
+
+第三个不等式就是下面的 Minkowski（闵可夫斯基）不等式。当其中的参数 $p=2$ 时就是 $n$ 维 Euclid（欧几里得）空间的三点不等式（或三角形不等式）。
+
+\begin{xtheorem}[8.5.3（Minkowski 不等式）]
+设 $x_1,x_2,\ldots,x_n$ 和 $y_1,y_2,\ldots,y_n$ 均为非负数，又有 $p>1$，则成立不等式
+\begin{equation}
+  \left[\sum_{k=1}^n(x_k+y_k)^p\right]^{1/p}
+  \le\left(\sum_{k=1}^n x_k^p\right)^{1/p}
+  +\left(\sum_{k=1}^n y_k^p\right)^{1/p},
+  \tag{8.18}
+  \label{eq:8.18}
+\end{equation}
+当且仅当数组 $x_1,x_2,\ldots,x_n$ 和 $y_1,y_2,\ldots,y_n$ 成比例时成立等号。
+\end{xtheorem}
+\begin{xproof}
+只需对 $p>1$ 作出证明。令
+\[
+  f(u)=\left(1-u^{1/p}\right)^p,\qquad0<u<1,
+\]
+并计算导数
+\[
+  f'(u)=-\left(1-u^{1/p}\right)^{p-1}u^{1/p-1},
+\]
+\[
+  f''(u)=\left(1-\frac1p\right)\left(1-u^{1/p}\right)^{p-2}u^{1/p-2}.
+\]
+可见 $f(u)$ 是严格下凸函数。令
+\[
+  \lambda_k=\frac{(x_k+y_k)^p}{\sum_{i=1}^n(x_i+y_i)^p},
+  \qquad
+  u_k=\left(\frac{x_k}{x_k+y_k}\right)^p,
+\]
+这里假定每个 $x_k+y_k\ne0$（$k=1,2,\ldots,n$）成立。这使得每个 $u_k$ 有意义，同时保证 $\lambda_k>0$ 成立。
+
+将上述 $\lambda_k,u_k$（$k=1,2,\ldots,n$）代入 Jensen 不等式 (8.11)，就有
+\[
+  \left[
+    1-\left(\sum_{k=1}^n\frac{x_k^p}{\sum_{i=1}^n(x_i+y_i)^p}\right)^{1/p}
+  \right]^p
+  \le\sum_{k=1}^n\frac{(x_k+y_k)^p}{\sum_{i=1}^n(x_i+y_i)^p}
+  \left(1-\frac{x_k}{x_k+y_k}\right)^p
+  =\frac{\sum_{k=1}^n y_k^p}{\sum_{k=1}^n(x_k+y_k)^p}.
+\]
+在上式两边开 $p$ 次根并加以整理，就可得到所要的 Minkowski 不等式。
+
+若在该不等式中成立等号，则从 Jensen 不等式知道有 $u_1=u_2=\cdots=u_n$。由此可得到两个数组成比例的结论。
+
+最后，若对某些（但不是所有）$k$ 有 $x_k+y_k=0$，则由于 $x_k\ge0$ 和 $y_k\ge0$，就有 $x_k=y_k=0$。因此在将它们剔除后就可以归结为前面的情况，而且并不影响在等号成立时两个数组成比例的结论。对于两个数组全由 0 组成的极端情况，命题明显成立。
+\end{xproof}
+
+\begin{xremark}
+\textbf{注 1}\quad 在 $p=2$ 时两个数组中的数的非负性要求可以取消，但这时成立等号的条件应当改写为：存在两个不全为 0 的非负数 $\lambda$ 和 $\mu$，使得成立
+\[
+  \lambda x_k=\mu y_k,\qquad k=1,2,\ldots,n.
+\]
+读者可以思考这个条件在 $n$ 维 Euclid 空间中的几何意义。
+
+\textbf{注 2}\quad 证明 Minkowski 不等式的方法很多，例如用数学归纳法或 Hölder 不等式都可以证明它。
+\end{xremark}
+
+下面的不等式是第一章中的 Bernoulli 不等式（命题 1.3.1）的推广。它也可以用凸性来证明，读者如果对比两者的结论和所用的工具，就可以对于自己已经向前走了多远有一个了解。
+
+\begin{xtheorem}[8.5.4（Bernoulli 不等式）]
+在 $x>-1$ 时，对于 $0<\alpha<1$ 成立不等式
+\[
+  (1+x)^\alpha\le1+\alpha x,
+\]
+而对于 $\alpha<0$ 和 $\alpha>1$ 则成立相反的不等式
+\[
+  (1+x)^\alpha\ge1+\alpha x,
+\]
+而且在这些不等式中仅当 $x=0$ 时成立等号。
+\end{xtheorem}
+\begin{xproof}
+对于函数 $f(x)=(1+x)^\alpha$ 计算导数：
+\[
+  f'(x)=\alpha(1+x)^{\alpha-1},
+  \qquad
+  f''(x)=\alpha(\alpha-1)(1+x)^{\alpha-2},
+\]
+就可以知道，当 $0<\alpha<1$ 时 $f(x)$ 是严格上凸函数，而当 $\alpha<0$ 和 $\alpha>1$ 时 $f(x)$ 是严格下凸函数。另一方面 $y=1+\alpha x$ 是曲线 $y=f(x)$ 在点 $(0,1)$ 处的切线。应用命题 8.4.5，就有所要的不等式，包括成立等号的条件。
+\end{xproof}
+
+\subsection{练习题}
+
+\begin{xexercise}
+\begin{enumerate}
+  \item 证明：当 $x>1$ 时，成立
+  \[
+    \ln x>\frac{2(x-1)}{x+1}.
+  \]
+
+  \item 证明：当 $0<a<b$ 时，成立不等式
+  \[
+    a\ln a+b\ln b>(a+b)\cdot[\ln(a+b)-\ln2].
+  \]
+
+  \item 证明：对任意 $0<x_1<x_2$，成立不等式
+  \[
+    \frac{x_2-x_1}{x_2}<\ln\frac{x_2}{x_1}<\frac{x_2-x_1}{x_1}.
+  \]
+
+  \item 证明以下不等式：
+  \begin{enumerate}[label=(\arabic*)]
+    \item $\displaystyle a^{\frac{x_1+x_2+\cdots+x_n}{n}}
+    \le\frac1n(a^{x_1}+a^{x_2}+\cdots+a^{x_n})$，其中 $a>0$；
+    \item $\displaystyle\left(\frac{x_1+x_2+\cdots+x_n}{n}\right)^p
+    \le\frac1n(x_1^p+x_2^p+\cdots+x_n^p)$，其中 $p>1$；
+    \item 当 $x_1,x_2,\ldots,x_n>0$ 时，
+    \[
+      \frac{x_1+x_2+\cdots+x_n}{n}
+      \le\left(x_1^{x_1}x_2^{x_2}\cdots x_n^{x_n}\right)^{\frac1{x_1+x_2+\cdots+x_n}}.
+    \]
+  \end{enumerate}
+
+  \item 证明：对于 $0<\alpha<1$ 和 $x>0$ 成立 $x^\alpha-\alpha x+\alpha-1\le0$，而当 $\alpha>1$ 时不等式反向成立。
+
+  \item 从命题 2.5.1 已知，对每个 $n\in\NN_+$，成立不等式
+  \[
+    \left(1+\frac1n\right)^n\le\ee\le\left(1+\frac1n\right)^{n+1}.
+  \]
+  作为进一步的发展，求出最大的 $\alpha$ 和最小的 $\beta$，使得
+  \[
+    \left(1+\frac1n\right)^{n+\alpha}\le\ee\le
+    \left(1+\frac1n\right)^{n+\beta},\qquad\forall n\in\NN_+.
+  \]
+  （本题与例题 8.2.3 有联系。）
+
+  \item 证明：对 $0<a<b$，成立以下不等式：
+  \[
+    a<\frac2{\frac1a+\frac1b}<\sqrt{ab}<\frac{b-a}{\ln b-\ln a}<\frac{a+b}{2}
+    <\sqrt{\frac{a^2+b^2}{2}}<b.
+  \]
+
+  \item 对于 $2n$ 个正数 $x_1,x_2,\ldots,x_n$ 和 $\lambda_1,\lambda_2,\ldots,\lambda_n$，且 $\lambda_1+\lambda_2+\cdots+\lambda_n=1$，定义加权的 $t$ 阶平均值（或 $t$ 阶和）为
+  \[
+    M_t(x,\lambda)=\left(\sum_{i=1}^n\lambda_i x_i^t\right)^{1/t}.
+  \]
+  它在 $t=-1$ 时为调和平均值，$t=1$ 时为算术平均值，$t=2$ 时为平方平均值（即均方根值）。又若在 $t=0,+\infty,-\infty$ 时用极限作补充定义，则在 $t=0$ 时为几何平均值，$t=+\infty$ 时为 $\max\{x\}$，$t=-\infty$ 时为 $\min\{x\}$。这样就使 $M_t(x,\lambda)$ 在 $-\infty\le t\le+\infty$ 上处处有定义。证明：$M_t(x,\lambda)$ 是 $t$ 的单调增加函数，在 $n>1$ 且 $x_1,x_2,\ldots,x_n$ 不全相等时为 $t$ 的严格单调增加函数。
+
+  \item 证明：若将 Minkowski 不等式 (8.18) 中的参数 $p\ge1$ 的条件改为 $0<p<1$，则不等式反向成立。
+
+  \item 证明 Young（杨氏）不等式：若 $x,y\ge0$，$p,q>1$，$\dfrac1p+\dfrac1q=1$，则成立不等式
+  \[
+    x^{1/p}y^{1/q}\le\frac xp+\frac yq.
+  \]
+
+  \item 试用 Young 不等式证明：
+  \begin{enumerate}[label=(\arabic*)]
+    \item 广义的算术平均值－几何平均值不等式；
+    \item Hölder 不等式。
+  \end{enumerate}
+
+  \item 设 $f$ 和 $\varphi$ 在 $x\ge a$ 时可微，$f(a)=\varphi(a)$，且当 $x\ge a$ 时，成立 $|f'(x)|\le\varphi'(x)$，证明：当 $x\ge a$ 时，成立
+  \[
+    |f(x)-f(a)|\le\varphi(x)-\varphi(a).
+  \]
+
+  \item 设 $f$ 满足 $f(1)=1$，且当 $x\ge1$ 时有
+  \[
+    f'(x)=\frac1{x^2+f^2(x)}.
+  \]
+  证明：极限 $\displaystyle\lim_{x\to+\infty}f(x)$ 存在，且小于 $1+\pi/4$。
+
+  \item 设 $A=(a_{ij})_{1\le i,j\le n}$ 是每行每列的和均等于 1 的非负元素矩阵，又有
+  \[
+    \begin{pmatrix}y_1\\\vdots\\y_n\end{pmatrix}
+    =A\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix},
+  \]
+  其中两个向量的所有元素也都是非负数，证明：$y_1\cdots y_n\ge x_1\cdots x_n$。
+
+  \item 若记
+  \[
+    T_n(x)=x-\frac1{3!}x^3+\cdots+\frac{(-1)^n}{(2n+1)!}x^{2n+1}
+    =\sum_{k=0}^n\frac{(-1)^k}{(2k+1)!}x^{2k+1}
+  \]
+  % SOURCE-ERR: 原书右端求和下标印作 k=1，与左端首项 x 不一致；此处按显然应为 k=0 修正。
+  为 $\sin x$ 在 $x=0$ 处的 $2n+1$ 次 Taylor 多项式，证明：
+  \[
+    \sin x>\sum_{k=0}^n\frac{(-1)^k}{(2k+1)!}x^{2k+1},
+    \quad\text{其中 }x>0,\ n\text{ 为奇数},
+  \]
+  \[
+    \sin x<\sum_{k=0}^n\frac{(-1)^k}{(2k+1)!}x^{2k+1},
+    \quad\text{其中 }x>0,\ n\text{ 为偶数}.
+  \]
+  （例题 8.5.3 是本题的一个特例。类似地，可以建立关于 $\cos x$ 的结果。）
+
+  \item 证明例题 8.5.4 中右边的不等式。
+\end{enumerate}
+\end{xexercise}
+
+\section{函数作图}
+
+在用微分学知识作函数 $y=f(x)$ 的图像时，应注意以下基本内容：
+
+1. 基本初等函数的图像（中学数学中的基本内容）。
+
+2. 多项式函数 $y=a_0x^n+a_1x^{n-1}+\cdots+a_n$ 的图像，特别是其中 $n=2,3$ 时的所有可能情况，以及 $n$ 为奇数和偶数时的各种可能情况。
+
+3. 利用某个函数的已知图像经过简单变换得到新的图像的方法。这里的内容有，设已知 $y=f(x)$ 的图像，求以下函数的图像：
+\begin{enumerate}[label=(\arabic*)]
+  \item $y=f(-x)$；
+  \item $y=-f(x)$；
+  \item $y=-f(-x)$；
+  \item $x=f(y)$；
+  \item $y=f(x+a)$；
+  \item $y=f(kx)$；
+  \item $y=kf(x)$；
+  \item $y=f(x)+a$；
+  \item $y=|f(x)|$。
+\end{enumerate}
+
+4. 已知函数 $y=f(x)$ 和 $y=g(x)$ 的图像，作出函数 $y=f(x)+g(x)$，$y=f(x)-g(x)$，$y=f(x)\cdot g(x)$ 的图像。
+
+\begin{xremark}
+熟练掌握以上技巧对于作出函数的大致图像（即所谓作草图）有很大帮助。作草图时不需要微分学的知识，但是若能将作草图的方法与微分学相结合，就可以既迅速又准确地作出函数的图像。
+\end{xremark}
+
+对于函数 $y=f(x)$ 的一般作图步骤在教科书中均有介绍，这里不必重复。对于用参数方程表示的函数 $x=x(t),y=y(t)$ 的作图问题，一般是先分别作出 $x=x(t)$ 和 $y=y(t)$ 的图像，然后再拼成为一张图（见下面的例题）。对于用方程 $F(x,y)=0$ 确定的隐函数，往往引入参数 $t$ 而转化为上一问题。
+
+\subsection{例题}
+
+\begin{xexample}[8.6.1]
+作出用参数方程
+\[
+  x=2t-4t^3,\qquad y=t^2-3t^4
+\]
+给出的曲线图像。
+\end{xexample}
+\begin{xsolution}
+$x(t)$ 和 $y(t)$ 只是 $t$ 的三次和四次多项式，容易分别作出它们的图像如图 8.9(a)、8.9(b) 所示：
+
+\begin{center}
+  \includegraphics[width=.70\linewidth]{figures/upper/ch08/fig-8-9.png}
+\end{center}
+
+关于三次多项式 $x(t)=2t-4t^3$ 的主要分析如下：$x(t)$ 是奇函数；导函数 $x'_t=2-12t^2$ 的零点为 $t=\pm1/\sqrt6$，其中 $-1/\sqrt6\approx-0.4082$ 是极小值点，极小值为 $-2\sqrt6/9\approx-0.5443$，$1/\sqrt6\approx0.4082$ 是极大值点，极大值为 $2\sqrt6/9\approx0.5443$；$x(t)$ 有三个零点：0 和 $\pm\sqrt2/2\approx\pm0.7071$。
+
+关于四次多项式 $y=t^2-3t^4$ 的主要分析如下：$y(t)$ 是偶函数，导函数 $y'_t=2t-12t^3$ 有三个零点：0 和 $\pm1/\sqrt6\approx\pm0.4082$，其中 $t=0$ 为极小值点，极小值为 0，其他两个零点是 $y(t)$ 的极大值点，极大值为 $1/12\approx0.0833$；$y(t)$ 除了二重零点 0 之外还有两个零点：$\pm\sqrt3/3\approx\pm0.5774$。
+
+现在已经可以将以上分析合并以得到所要求的参数方程的图像，这就是图 8.10，其中参数 $t$ 的变化范围为从 $-0.95$ 到 $0.95$。
+
+\begin{center}
+  \includegraphics[width=.36\linewidth]{figures/upper/ch08/fig-8-10.png}
+\end{center}
+
+图 8.10 的作法如下。首先，当 $x$ 换为 $-x$ 时，对应的参数值 $t$ 也反号，但 $y$ 是 $t$ 的偶函数，从而可见在 $xOy$ 坐标系中曲线关于 $y$ 轴对称。因此以下只需讨论参数 $t>0$ 的情况。根据 6.2.3 小节的参数方程求导法则，就有
+\[
+  \frac{\dd y}{\dd x}=\frac{y'_t}{x'_t}
+  =t\cdot\frac{1-6t^2}{1-6t^2},
+\]
+因此当 $t\ne1/\sqrt6\approx0.4082$ 时，就得到
+\[
+  \frac{\dd y}{\dd x}=t.
+\]
+从前面对 $x'_t$ 和 $y'_t$ 的分析已经知道当 $t=1/\sqrt6$ 时这两个导数均为 0，我们将这样的点称为奇点。这是本例中的主要困难。由于关于 $y$ 轴对称，因此有两个奇点：$(\pm2\sqrt6/9,1/12)$，两个坐标的近似值为 $\pm0.5443$ 和 $0.0833$。
+
+当 $t$ 从 0 变化到 $1/\sqrt6$ 时，由于 $y'_x=t$，而 $x(t)$ 和 $y(t)$ 均为 $t$ 的严格单调增加函数，因此可以知道 $y$ 是 $x$ 的严格单调增加函数。又由于导函数 $y'_x$ 也是 $x$ 的严格单调增加函数，因此 $y=y(x)$ 是下凸函数。
+
+从同样的分析可以知道，当 $t$ 从 $1/\sqrt6$ 起增加时，$y$ 是 $x$ 的严格单调增加函数，而且是上凸函数。
+
+从前面已经得到的导数公式可以知道，有
+\[
+  \lim_{t\to1/\sqrt6}\frac{\dd y}{\dd x}=\frac1{\sqrt6}\approx0.4082,
+\]
+因此在奇点处存在切线。确切地说，在奇点 $(2\sqrt6/9,1/12)$ 的左侧邻近，存在 $y=y(x)$ 的两个分支，它们在 $x=2\sqrt6/9$ 处存在相同的左侧导数。（这里对每一支可以应用命题 7.1.7，即单侧导数极限定理。）我们将这样的奇点称为尖点。
+% SOURCE-ERR: 原书此处印作“在 x=1/\sqrt6 处”，与前文奇点横坐标 2\sqrt6/9 不一致；此处按奇点坐标修正。
+
+根据对称性就可以得到 $t<0$ 时的曲线图像。此外，从表达式可以知道不存在任何渐近线。
+
+值得注意的是，参数方程 $x=x(t)$ 和 $y=y(t)$ 都是简单的多项式，但在 $xOy$ 平面上的曲线却会出现复杂的性态。这个例子就是在\textbf{突变理论}（Catastrophe Theory）中燕尾突变（Swallowtail Catastrophe）的分歧集合的图像（见 [52]）。图 8.10 就是燕尾突变这个名称的由来。此外，本题又见于《数学译林》(1992) 第 4 期《数学的基本要求》一文中的题 6。
+
+\begin{xremark}
+\textbf{注 1}\quad 以上关于凸性的结论是从导函数 $y'_x$ 的单调性得到的，即利用了命题 8.4.4。也可以直接计算出
+\[
+  y''_{xx}=(y'_x)'_x=\frac{(y'_x)'_t}{x'_t}
+  =\frac1{2(1-6t^2)},
+\]
+然后用命题 8.4.6 作出结论。
+
+\textbf{注 2}\quad 当 $t\to0$ 时 $x(t)$ 和 $y(t)$ 均为无穷小量，且有
+\[
+  y(t)\sim\frac14x(t)^2\quad(t\to0).
+\]
+这是对图 8.10 上的曲线在原点附近的渐近描述。
+
+\textbf{注 3}\quad 在 [59] 的第一册中，对 [27] 中关于函数作图的 §1.4 和 §2.12 有较详细的讲解与分析，并在附录 1 和附录 2 中，利用软件 PSTricks 分别作出了这两节的作图题的全部答案。（附录 1 中的习题号为 237--380，附录 2 中的习题号为 1471--1555。）
+\end{xremark}
+\end{xsolution}
+
+\subsection{练习题}
+
+\begin{xexercise}
+\begin{enumerate}
+  \item 随手画出一条曲线代表 $y=f(x)$，然后试画出其一阶导函数和二阶导函数的图形（本题是《数学译林》(1992) 第 4 期《数学的基本要求》一文中的第 1 题）。
+
+  \item 证明：曲线
+  \[
+    y=\frac{x+1}{x^2+1}
+  \]
+  有位于同一直线上的三个拐点，并作图。
+
+  \item 作出以下函数的图像：
+  \begin{enumerate}[label=(\arabic*)]
+    \item $\displaystyle y=\left(1+\frac1x\right)^x\quad(x>0)$；
+    \item $\displaystyle y=\frac1{1+x^2}\ee^{\frac1{1-x^2}}$；
+    \item $\displaystyle y=\frac{x^4}{(1+x)^3}$；
+    \item $\displaystyle y=(1+x^2)\ee^{-x^2}$；
+    \item $\displaystyle y=\frac{\ln x}{x}\quad(x>0)$；
+    \item $\displaystyle y=x^{2/3}\ee^{-x}$；
+    \item $\displaystyle y=\frac{(x-1)^3}{(x+1)^2}$；
+    \item $\displaystyle y=\sqrt{\frac{x^3}{x-a}}\quad(a>0)$；
+    \item $y=x^x\quad(x>0)$；
+    \item $y=x^{1/x}\quad(x>0)$。
+  \end{enumerate}
+
+  \item 证明：方程 $x^y=y^x$ 在第一象限内的图像由一条直线和一条曲线组成，并作出此图像。
+
+  \item 作出以下用参数方程给出的曲线：
+  \begin{enumerate}[label=(\arabic*)]
+    \item $x=t^2-2$，$y=t(t^2-2)$；
+    \item $x=2t-t^2$，$y=3t-t^3$；
+    \item $\displaystyle x=\frac{3t}{1+t^3}$，$\displaystyle y=\frac{3t^2}{1+t^3}$；
+    \item $x=t-t^3$，$y=1-t^4$；
+    \item $x=a(t-\sin t)$，$y=a(1-\cos t)$（摆线）；
+    \item $x=a(\cos t+t\sin t)$，$y=a(\sin t-t\cos t)$（圆的渐开线）。
+  \end{enumerate}
+\end{enumerate}
+\end{xexercise}
+
+\section{方程求根与近似计算}
+
+方程求根是一个很有实际意义的问题，在本书中到目前为止也已多次出现。实际上，研究迭代生成数列的动机之一就是求方程的近似解。这方面的一个基本定理就是连续函数的零点存在定理。在例题 5.2.1 的注 2 中已经指出，用闭区间套定理给出的二分法证明同时就提供了一种近似求根方法。在这一节中我们将介绍 Newton（牛顿）求根法。它不仅对方程求根问题是一种有效的计算方法，同时在整个计算数学领域中都是重要的基本方法。在数学分析教材中关于方程求根的材料还可以参看 [14] 第一卷的第四章第 5 节，[26] 的第一卷第八章。
+
+\subsection{迭代算法的收敛速度}
+
+在第二章的 2.5.2 小节中已经看到，在求自然对数的底 $\ee$ 的近似值时，不同的计算方法的效果完全不一样。这是因为在那里的两个数列收敛于 $\ee$ 的速度有明显的不同。因此在作迭代计算时必须考虑方法的效率。在本小节我们将引进迭代算法的阶的概念，为下一节介绍 Newton 求根法作好准备。同时还介绍计算圆周率的两种不同的迭代算法。
+
+现在引入迭代算法的阶的定义。设某个迭代算法的第 $n$ 次计算的误差为 $\varepsilon_n$。若存在一个常数 $\alpha$，使得接连两次的误差之间满足递推估计式
+\begin{equation}
+  k\varepsilon_n^\alpha\le\varepsilon_{n+1}\le K\varepsilon_n^\alpha,
+  \tag{8.19}
+  \label{eq:8.19}
+\end{equation}
+其中 $k,K$ 为两个正常数，则称此算法为 $\alpha$ 阶算法。其特例之一是存在极限
+\begin{equation}
+  \lim_{n\to\infty}\frac{\varepsilon_{n+1}}{\varepsilon_n^\alpha}=A\ne0,
+  \tag{8.20}
+  \label{eq:8.20}
+\end{equation}
+则算法的阶为 $\alpha$。这时当 $n$ 足够大时成立 $\varepsilon_{n+1}\approx A\varepsilon_n^\alpha$。又若对某个算法只知道公式 (8.19) 右边的不等式成立，则可以说该算法的阶不低于 $\alpha$。
+
+对于一般的收敛数列来说，若有 $\lim_{n\to\infty}x_n=a$，而误差 $\varepsilon_n=|x_n-a|$（$n\in\NN_+$）满足 (8.19) 或 (8.20)，则称这个数列的收敛速度为 $\alpha$ 阶。
+
+在 $\alpha=1$ 时的算法称为一阶（线性）算法。不难看出一阶算法的收敛速度是比较慢的。为简单起见，不妨设有 $\varepsilon_{n+1}\approx C\varepsilon_n$，$C$ 为某个正常数，则就可以得到
+\begin{equation}
+  \varepsilon_n\approx C^n\varepsilon_0.
+  \tag{8.21}
+  \label{eq:8.21}
+\end{equation}
+可见常数 $C$ 必须小于 1，而且越小越好。又可以看出，为了使精度达到 $10^{-n}$ 所需的迭代次数总是 $O(n)$ 的量级。
+
+具有一阶收敛速度的数列在第二章中很多。从 (8.20) 可见，只要 $\{x_n\}$ 为无穷小量，且满足
+\[
+  \lim_{n\to\infty}\left|\frac{x_{n+1}}{x_n}\right|=A\ne0
+\]
+（参见 2.7.3 小节的第一组参考题中的题 4），则 $\{x_n\}$ 就是一阶收敛于 0 的数列。（当然在第二章中还有许多收敛速度远低于一阶的数列。）现在举出一个一阶算法的重要例子。这就是计算圆周率的 Archimedes-刘徽算法（见第二章第一组参考题 20）。
+
+\begin{xexample}[8.7.1]
+设 $a_1>b_1>0$，并用递推公式
+\begin{equation}
+  a_{n+1}=\frac{2a_nb_n}{a_n+b_n},
+  \qquad
+  b_{n+1}=\sqrt{a_{n+1}b_n},
+  \qquad n\in\NN_+
+  \tag{8.22}
+  \label{eq:8.22}
+\end{equation}
+作迭代，证明：$\{a_n\}$ 和 $\{b_n\}$ 以一阶速度收敛于同一极限。
+\end{xexample}
+\begin{xproof}
+在这里只对收敛速度进行分析。应用与例题 2.3.5 中类似的方法即可证明 $\{a_n\}$ 和 $\{b_n\}$ 收敛于同一极限。记此极限为 $A>0$，即有
+\[
+  \lim_{n\to\infty}a_n=\lim_{n\to\infty}b_n=A,
+\]
+又记
+\[
+  \varepsilon_n=a_n-b_n,\qquad n\in\NN_+,
+\]
+则可以对收敛速度分析如下。首先进行恒等式运算
+\begin{align*}
+  a_{n+1}^2-b_{n+1}^2
+  &=a_{n+1}^2-a_{n+1}b_n=a_{n+1}(a_{n+1}-b_n)\\
+  &=a_{n+1}\cdot\frac{2a_nb_n-b_n(a_n+b_n)}{a_n+b_n}
+  =\frac{a_{n+1}b_n(a_n-b_n)}{a_n+b_n},
+\end{align*}
+因此得到
+\[
+  \varepsilon_{n+1}
+  =\frac{a_{n+1}b_n}{(a_{n+1}+b_{n+1})(a_n+b_n)}\cdot\varepsilon_n.
+\]
+利用 $\{a_n\}$ 和 $\{b_n\}$ 收敛于同一极限 $A>0$，就有近似估计
+\[
+  \varepsilon_{n+1}\approx\frac14\varepsilon_n,
+\]
+因此收敛速度为一阶。
+\end{xproof}
+
+\begin{xremark}
+\textbf{注 1}\quad 若取 $a_1=2\sqrt3$，$b_1=3$，即单位圆的外切和内接正六边形的半周长，可以证明极限 $A=\pi$。这就是计算圆周率的 Archimedes-刘徽算法。从以上分析有
+\[
+  \left(\frac14\right)^5=\frac1{2^{10}}\approx0.001,
+\]
+可见这种算法每迭代 5 次大致可以增加 3 位新的有效数字。这个估计与用这个算法求出的计算量实际计算完全符合。
+
+\textbf{注 2}\quad Archimedes-刘徽算法有个变形：令 $A_n=1/a_n$，$B_n=1/b_n$，有递推式：
+\begin{equation}
+  A_{n+1}=\frac{A_n+B_n}{2},
+  \qquad
+  B_{n+1}=\sqrt{A_{n+1}B_n}.
+  \tag{8.23}
+  \label{eq:8.23}
+\end{equation}
+与算法 (8.22) 比较，每次迭代的计算量少得多。但是这个改进并没有提高收敛速度。若仍令 $\varepsilon_n=B_n-A_n$，则还是得到 $\varepsilon_{n+1}\approx\frac14\varepsilon_n$。
+\end{xremark}
+
+当 $\alpha=2$ 时算法为二阶收敛（也称为平方收敛）。这时情况大不相同。为简便起见，只考虑误差递推估计的单侧不等式
+\begin{equation}
+  \varepsilon_{n+1}\le K\varepsilon_n^2.
+  \tag{8.24}
+  \label{eq:8.24}
+\end{equation}
+上式两边乘以常数 $K$，就有 $K\varepsilon_{n+1}\le(K\varepsilon_n)^2$。因此可以继续做下去，得到
+\[
+  K\varepsilon_{n+1}\le(K\varepsilon_n)^2\le(K\varepsilon_{n-1})^4\le\cdots\le(K\varepsilon_0)^{2^{n+1}}.
+\]
+这样就得到
+\begin{equation}
+  \varepsilon_n\le\frac1K(K\varepsilon_0)^{2^n}.
+  \tag{8.25}
+  \label{eq:8.25}
+\end{equation}
+这里的常数 $K$ 不一定要小于 1，只要取初始值足够好，使得 $K\varepsilon_0<1$ 即可。这时在公式 (8.25) 右边的表达式收敛于 0 的速度是非常快的。
+
+下一个例题是对在第二章中的例题 2.3.5（其中的极限是 Gauss 的算术几何平均值）进行收敛速度的分析。
+
+\begin{xexample}[8.7.2]
+从 $0<b<a$ 出发，设 $a_0=a$，$b_0=b$，并用递推公式
+\begin{equation}
+  a_n=\frac{a_{n-1}+b_{n-1}}2,
+  \qquad
+  b_n=\sqrt{a_{n-1}b_{n-1}},
+  \qquad n\in\NN_+
+  \tag{8.26}
+  \label{eq:8.26}
+\end{equation}
+作迭代，证明：$\{a_n\}$ 和 $\{b_n\}$ 以二阶速度收敛于同一极限。
+\end{xexample}
+\begin{xproof}
+记极限为 $AG(a,b)$，$\varepsilon_n=a_n-b_n$，$n\in\NN_+$。利用恒等式
+\[
+  a_{n+1}^2-b_{n+1}^2=\frac14(a_n-b_n)^2,
+\]
+就可以得到
+\[
+  \varepsilon_{n+1}
+  =\frac1{4(a_{n+1}+b_{n+1})}\varepsilon_n^2
+  \approx\frac1{8AG(a,b)}\varepsilon_n^2,
+\]
+因此是二阶算法。
+\end{xproof}
+
+\begin{xremark}
+迭代公式 (8.26) 与 (8.23) 很相似，但实际上收敛速度完全不同。
+\end{xremark}
+
+在 1976 年出现了 Salamin-Brent 算法。它就是以 (8.26) 和上述分析为基础的。由于收敛速度快，因此成为一类重要的算法，具有广泛的应用。自此以后计算圆周率 $\pi$ 的新纪录很多都是用这类新算法得到的。目前已经有计算 $\pi$ 的任意高阶的算法。下面列出计算 $\pi$ 的二阶算法中的一个算法，以及它的计算效果。关于它以及其他有关材料可以从 [4, 1] 中找到，还可以参看 [60] 第六章的圆周率及其计算。
+
+\paragraph{Salamin-Brent 算法}
+令 $a_0=1$，$b_0=s_0=1/\sqrt2$，并用递推公式
+\[
+  a_n=\frac{a_{n-1}+b_{n-1}}2,
+\]
+\[
+  b_n=\sqrt{a_{n-1}b_{n-1}},
+\]
+\[
+  s_n=s_{n-1}-2^n(a_n^2-b_n^2),
+\]
+\[
+  p_n=\frac{2a_n^2}{s_n}
+\]
+作迭代，则 $\{p_n\}$ 二阶收敛于 $\pi$。
+
+它的计算结果为
+\[
+\begin{array}{c|ccccccccc|c|c}
+\text{迭代次数}&1&2&3&4&5&6&7&8&9&\cdots&25\\\hline
+\text{有效位数}&1&4&9&20&42&85&173&347&697&\cdots&\ge4.5\times10^6
+\end{array}
+\]
+从上面的计算结果可以看到，每迭代一次，有效位数几乎增加一倍。实际上，这是二阶算法的共同特征。从公式 (8.24) 可以知道，若常数 $K<1$，则一定如此。这在下面的简单例题中可以看得很清楚。
+
+\begin{xexample}[8.7.3]
+从初始值 $x_0=1$ 开始，用迭代算法
+\[
+  x_{n+1}=\frac12x_n+\frac1{x_n}
+\]
+求无理数 $\sqrt2$ 的近似值，观察有效位数的增长情况。
+\end{xexample}
+\begin{xsolution}
+前几个值很容易计算：
+\[
+  x_2=1.5,\qquad x_3\approx1.417,\qquad x_4\approx1.414216.
+\]
+与 $\sqrt2=1.4142135623\cdots$ 比较，可见有效位数分别为 1,3,6。为了继续计算下去，我们需要使用如 Mathematica 那样的软件。具体地说，即每次将 $x_n$ 与 $\sqrt2$ 都计算到足够多的位数，然后进行比较，从而确定第 $n$ 次近似值 $x_n$ 的有效位数。这里只列出实际计算结果：
+\[
+\begin{array}{c|cccccccc}
+\text{迭代次数}&1&2&3&4&5&6&7&8\\\hline
+\text{有效位数}&1&3&6&12&25&49&98&196
+\end{array}
+\]
+实际上，不难直接验证在这个例题中的迭代算法确实为二阶算法。用 §2.5 的方法知数列 $\{x_n\}$ 从 $x_2$ 起严格单调减少收敛于 $\sqrt2$。然后估计迭代误差
+\[
+  0<\varepsilon_{n+1}=x_{n+1}-\sqrt2
+  =\frac12x_n+\frac1{x_n}-\sqrt2
+  =\frac{(x_n-\sqrt2)^2}{2x_n}
+  \approx\frac1{2\sqrt2}\varepsilon_n^2,
+\]
+可见恰好为二阶算法。
+
+我们即将看到，这个开平方根的算法就是 Newton 求根法的一个例子。
+\end{xsolution}
+
+\subsection{Newton 求根法}
+
+可以从不同的角度来导出 Newton 求根法（也称为 Newton-Raphson（拉弗森）求根法）。第一种推导方法完全来自于 Newton 求根法的几何意义。从图 8.11 上可以看出已有 $f(a)<0$ 和 $f(b)>0$，因此从连续函数的零点存在定理知道在区间 $(a,b)$ 内方程 $f(x)=0$ 一定有根。在图上记这个根为 $\xi$，问题是如何计算出根 $\xi$ 的近似值。
+
+以 $b=x_0$ 为初值，在点 $B(b,f(b))$ 作曲线 $y=f(x)$ 的切线，与 $x$ 轴的交点记为 $x_1$。然后再在点 $(x_1,f(x_1))$ 作曲线 $y=f(x)$ 的切线，与 $x$ 轴交于点 $x_2$。如此进行下去，不难得到一般的递推公式是
+\begin{equation}
+  x_{n+1}=x_n-\frac{f(x_n)}{f'(x_n)}.
+  \tag{8.27}
+  \label{eq:8.27}
+\end{equation}
+
+\begin{center}
+  \includegraphics[width=.42\linewidth]{figures/upper/ch08/fig-8-11.png}
+\end{center}
+
+从图 8.11 可以看出，所得到的数列 $\{x_n\}$ 有可能会很快收敛到方程 $f(x)=0$ 的根 $\xi$。这就是 Newton 求根法，也称为 Newton 切线法。
+
+但这里实际上有许多问题需要研究。首先，若设方程 $f(x)=0$ 在区间 $(a,b)$ 中只有唯一的一个根 $\xi$，是否一定成立
+\[
+  \lim_{n\to\infty}x_n=\xi.
+\]
+其次，这个算法的收敛速度如何？此外还有一个如何取初始值的问题。在图 8.11 上从点 $A(a,f(a))$ 也作出了曲线 $y=f(x)$ 的切线，但它与 $x$ 轴的交点（在图上未画出）很可能会越出函数 $f(x)$ 的定义域。
+
+可以从完全不同的角度导出 Newton 求根法。例如，假定已得到根 $\xi$ 的第 $n$ 个近似值 $x_n$，又设 $f$ 二阶可微，则可以写出带 Lagrange 余项的 Taylor 展开式：
+\begin{equation}
+  0=f(\xi)=f(x_n)+f'(x_n)(\xi-x_n)+\frac{f''(\theta_n)}2(\xi-x_n)^2,
+  \tag{8.28}
+  \label{eq:8.28}
+\end{equation}
+其中的中值 $\theta_n$ 在 $x_n$ 和 $\xi$ 之间，在公式 (8.28) 中弃去右边的最后一项，并将由此得到的根 $\xi$ 的近似值记为 $x_{n+1}$，就得到了前面已有的公式 (8.27)。在将 Newton 求根法推广到高维空间时用这种局部线性化的方法没有本质上的困难。
+
+现在给出保证 Newton 求根法能够成功的一组充分条件，并证明它的收敛速度恰好是二阶。为直观起见，下面所述的条件均与图 8.11 一致。读者可自行写出与这组充分条件平行的其他充分条件。
+
+\begin{xtheorem}[8.7.1]
+设函数 $f(x)$ 在区间 $[a,b]$ 上二阶连续可微，且满足以下条件：
+\begin{enumerate}[label=(\arabic*)]
+  \item $f(a)<0$，$f(b)>0$；
+  \item $f'(x)>0$，$\forall x\in[a,b]$；
+  \item $f''(x)>0$，$\forall x\in[a,b]$；
+  \item 取 $x_0=b$ 为初始值；
+\end{enumerate}
+那么就有
+\begin{enumerate}[label=(\arabic*)]
+  \item 方程 $f(x)=0$ 在区间 $(a,b)$ 内存在唯一的根 $\xi$；
+  \item 由递推公式 (8.27) 得到的数列 $\{x_n\}$ 是在区间 $[a,b]$ 中的严格单调减少数列，且以 $\xi$ 为极限；
+  \item 数列 $\{x_n\}$ 的收敛速度为二阶。
+\end{enumerate}
+\end{xtheorem}
+\begin{xproof}
+从连续函数的零点存在定理知道方程 $f(x)=0$ 在 $(a,b)$ 中有根。从 $f'(x)$ 在区间上处处大于 0 可知函数 $f(x)$ 严格单调增加，因此方程的根唯一。
+
+从公式 (8.28) 和 $f''(x)>0$，$\forall x\in[a,b]$ 可见，成立
+\[
+  f(x_n)+f'(x_n)(\xi-x_n)<0,\qquad\forall n\in\NN_+.
+\]
+由此即可得到
+\[
+  \xi<x_n-\frac{f(x_n)}{f'(x_n)}=x_{n+1},\qquad\forall n\in\NN_+.
+\]
+从递推公式 (8.27) 又可看出只要 $f(x_n)>0$，就有
+\[
+  x_{n+1}<x_n
+\]
+成立。由于初始值 $x_0=b$ 处有 $f(b)>0$，而当 $x_n>\xi$ 时就有 $f(x_n)>0$，因此就保证了数列 $\{x_n\}$ 是严格单调减少数列，且以 $\xi$ 为下界。记该数列的极限为 $\eta$，在公式 (8.27) 两边令 $n\to\infty$，得到
+\[
+  \eta=\eta-\frac{f(\eta)}{f'(\eta)},
+\]
+可见 $f(\eta)=0$。由于方程 $f(x)=0$ 在 $[a,b]$ 中的根唯一，因此 $\eta=\xi$。这样就证明了 Newton 求根法所得的迭代数列 $\{x_n\}$ 收敛于方程在区间 $[a,b]$ 中的唯一根。
+
+现在用 Taylor 公式 (8.28) 估计迭代误差
+\begin{align*}
+  0<x_{n+1}-\xi
+  &=x_n-\frac{f(x_n)}{f'(x_n)}-\xi\\
+  &=\frac{(x_n-\xi)f'(x_n)-f(x_n)}{f'(x_n)}\\
+  &=\frac{f''(\theta_n)(x_n-\xi)^2}{2f'(x_n)},
+\end{align*}
+其中 $\theta_n\in(\xi,x_n)$。利用 $f''$ 连续且处处大于 0，就有
+\[
+  \lim_{n\to\infty}\frac{x_{n+1}-\xi}{(x_n-\xi)^2}
+  =\frac{f''(\xi)}{2f'(\xi)}\ne0.
+\]
+因此 $\{x_n\}$ 二阶收敛于 $\xi$。
+\end{xproof}
+
+\begin{xremark}
+\textbf{注 1}\quad 容易看到在命题中的某些条件可以放宽，而仍保证迭代数列为二阶收敛或不低于二阶收敛。但另一方面也可以举出各种例子，说明在 4 个条件中的某些条件不成立时，Newton 求根法可能失败。一般而言，Newton 求根法在有拐点、重根和多根时会有困难。
+
+\textbf{注 2}\quad 不难得到 Newton 求根法的先验估计和事后估计（可以与命题 3.4.4，即压缩映射原理中的结果作比较）。由于 $f$ 在 $[a,b]$ 上二阶连续可微，因此在命题的条件下 $f''$ 在 $[a,b]$ 上有最大值 $M>0$，而 $f'(x)$ 在 $[a,b]$ 上有最小值 $m=f'(a)>0$。从证明中关于迭代误差的估计有
+\[
+  |x_{n+1}-\xi|\le\frac{M}{2m}|x_n-\xi|^2,
+\]
+代入公式 (8.25) 就得到
+\[
+  |x_n-\xi|\le\frac{2m}{M}
+  \left(\frac{M}{2m}|x_0-\xi|\right)^{2^n}.
+\]
+在计算前，用它可以估计为达到指定精度所需的迭代次数，即先验估计。
+
+注意：为了满足 $\dfrac{M}{2m}|x_0-\xi|<1$ 的要求，区间 $[a,b]$ 的长度应当满足不等式
+\[
+  b-a<\frac{2m}{M}.
+\]
+但从命题的证明知道，即使这个条件不成立，迭代数列仍然二阶收敛。
+
+再利用 Lagrange 中值定理得到
+\[
+  |f(x_n)-f(\xi)|=|f(x_n)|\ge m|x_n-\xi|,
+\]
+又用 Taylor 公式有
+\begin{align*}
+  f(x_n)
+  &=f(x_{n-1})+f'(x_{n-1})(x_n-x_{n-1})
+    +\frac{f''(\eta)}2(x_n-x_{n-1})^2\\
+  &=\frac{f''(\eta)}2(x_n-x_{n-1})^2,
+\end{align*}
+其中 $\eta$ 在 $x_n$ 与 $x_{n-1}$ 之间，就可以得到
+\[
+  |x_n-\xi|\le\frac1m|f(x_n)|
+  \le\frac{M}{2m}|x_n-x_{n-1}|^2.
+\]
+这可用于从相继两次计算的结果去估计当时的误差大小，即事后估计。
+\end{xremark}
+
+\begin{xexample}[8.7.4]
+用 Newton 求根法导出开平方根的迭代算法。
+\end{xexample}
+\begin{xsolution}
+设要求正数 $A$ 的平方根。取函数 $f(x)=x^2-A$，求 $\sqrt A$ 的问题就成为方程求根问题了。将 $f$ 代入迭代公式 (8.27) 中，就得到
+\[
+  x_{n+1}=x_n-\frac{x_n^2-A}{2x_n}
+  =\frac{x_n}{2}+\frac{A}{2x_n}.
+\]
+\end{xsolution}
+
+\begin{xremark}
+\textbf{注 1}\quad 在 $A=2$ 时就得到例题 8.7.3 中的算法。实际上本题的算法已在 2.6.3 小节的练习题 8 中出现。其中练习题 9 还给出了求平方根的一个三阶算法。
+
+\textbf{注 2}\quad 这个算法的历史可以上溯到古代巴比伦文明（见 [35]）。其思路可能是：如果 $x$ 是 $\sqrt A$ 的一个近似值，那么 $A/x$ 也是一个近似值，这两个近似值的乘积等于 $A$，而且分别在 $\sqrt A$ 的两侧，因此取算术平均值可能会得到更好的结果。
+\end{xremark}
+
+\subsection{练习题}
+
+本节的计算题应当根据在学习中所能使用的计算工具来安排，下面的题中只有第 1 题是计算题，且只需用计算器。
+
+\begin{xexercise}
+\begin{enumerate}
+  \item 用 Newton 求根法计算（要求精确到 $0.0001$）：
+  \begin{enumerate}[label=(\arabic*)]
+    \item $x^3-2x^2-4x-7=0$ 在 $[3,4]$ 之间的根的近似值；
+    \item $\sin x=1-x$ 的根的近似值。
+  \end{enumerate}
+
+  \item 在命题 8.7.1 中给出了保证 Newton 求根法成功的充分条件，其中共有 4 项要求。试举出例子，说明不满足其中的某些要求时，用 Newton 求根法有可能失败。
+
+  \item 证明：在例题 5.2.1 中提供的二分法是方程求根的一阶算法。
+
+  \item 证明：2.6.3 小节的题 9 中的算法是求平方根的三阶算法。
+
+  \item 设 $A>0$，为计算立方根 $\sqrt[3]A$，从 $x_0>0$ 出发用递推公式
+  \[
+    x_{n+1}=\frac{x_n(x_n^3+2A)}{2x_n^3+A}
+  \]
+  作迭代，证明数列 $\{x_n\}$ 收敛，求出其极限，并确定其收敛的阶。
+
+  \item 用 Newton 求根法设计一个求 $\sqrt[k]A$（$A>0,k>0$）的迭代算法，并对其收敛速度作出分析。
+
+  \item 用 Newton 求根法设计一个求 $1/A$ 的迭代算法，其中只用加法和乘法运算，并对其收敛速度作出分析。
+\end{enumerate}
+\end{xexercise}
+
+\section{对于教学的建议}
+
+微分学的应用极其广泛，本章只介绍了其中的一部分内容，主要是对于函数的研究，还包括极限计算与方程求根的近似计算方法。其他如曲率、渐屈线与渐伸线等在几何学上的应用均未收入。有需要的读者可以从 [14, 8, 27, 59, 72] 等文献中找到微分学应用方面的更多材料。
+
+\subsection{学习要点}
+
+1. L'Hospital 法则无疑是求函数极限的首选工具。但是若使用不当则会带来复杂的计算。如何能综合使用包括 Taylor 公式在内的各种方法，初学者需要通过大量的训练才能掌握。今后学了积分学和无穷级数等知识后，还会提供计算极限的许多新工具，因此计算极限这一主题并非到此为止。复习考研的学生尤其要注意这一点。
+
+2. 函数的单调性分析（即确定其单调区间）以及函数极值和最值的确定，这些都是函数研究中的基本问题。这方面可以参考 [27, 59] 的 §2.7，§2.11。对具有实际背景的极值应用问题感兴趣的读者，可以从 [27, 59] 的 §2.13 得到丰富多彩的材料（例题 8.3.4 即是 [27] 中的习题 1587）。
+
+3. 凸函数在数学中是一类很重要的函数，在理论和应用上均有其独特的地位。有关凸函数的考题在考研中也是常见的。本章对凸函数和有关的不等式作了基本的介绍。请读者注意其中每个结论均有明显的几何意义，由此出发不难掌握有关的结论和证明。此外，在凸函数中的许多有关问题可以从不用导数、利用一阶导数和利用二阶导数三个层次来进行研究。一个典型例子就是在本书中出现多次的 Jensen 不等式（即命题 8.4.7）。
+
+4. 不等式在几乎每个数学领域中都是一个重要主题。可以看出，与本书第一章 §1.3 的初等不等式相比，在本章中我们对不等式的认识上升到了一个全新的水平。事实上在今后，随着数学分析（以及其他课程）的学习，不等式会一再出现，在内容和方法上都会有层出不穷的新东西。例如在 8.5.2 小节中的三个经典不等式在积分学和无穷级数中就都会遇到，这方面的内容极其丰富。§8.5 是用微分学来研究不等式，在后面的 §11.2 则是用积分学来研究不等式。应当指出，[30] 是我国学者所写的不等式方面的专著，材料极其丰富，很有参考价值。
+
+5. 微分学在函数作图方面的应用是明显的。但是应当看到，除了用微分学的作图方法之外，还存在另外一种作草图的简便方法。这就是利用曲线的“四则运算”和移位、按比例放大缩小等技巧，将曲线的大致趋势迅速确定出来。值得注意的是在部分教科书中还专门介绍了这个方法（例如见 [42, 72]）。在经典习题集 [27] 中为此将这两种不同的作图方法的练习分别安排在 §1.4 和 §2.12 中。希望上习题课的教师注意不要漏掉这方面的训练。在 [59] 的 §1.4 和 §2.12 有很多详细解答的例题可供参考。
+
+6. 近似计算问题应当在数学分析的教学中占有一定的分量。尽早培养学生在这方面的意识是数学分析在今后的改革方向之一。从第二章开始，本书注意了介绍这方面的内容。当然这里还有许多不足之处。若有可能，希望在数学分析的教学中加入简单编程计算和使用 Mathematica 等软件的内容。实际上本书的部分例题就是用 Mathematica 来计算的（例如例题 8.7.3）。
+
+7. \textbf{对习题课的建议}\quad 本章习题课的材料很丰富，都比较具体。需要注意的是不要在习题课上草草过场，对有关材料要充分展开。通过应用微分学解决实际问题，让学生加强应用的意识，提高应用的能力。凸函数、不等式都是很重要的题材，需要在习题课上专门花时间训练。
+
+\subsection{参考题}
+
+\paragraph{第一组参考题}
+
+\begin{xreferenceproblem}
+\begin{enumerate}
+  \item
+  \begin{enumerate}[label=(\arabic*)]
+    \item 设 $\displaystyle\lim_{x\to+\infty}[f(x)+f'(x)]=0$，证明：$\displaystyle\lim_{x\to+\infty}f(x)=0$；
+    \item 设 $|f(x)+f'(x)|\le1$，$f(x)$ 在 $(-\infty,+\infty)$ 上有界，证明：$|f(x)|\le1$。
+  \end{enumerate}
+
+  \item 设 $f(x)$ 在 $x=0$ 的某邻域上二阶可微，且
+  \[
+    \lim_{x\to0}\left(1+x+\frac{f(x)}x\right)^{1/x}=\ee^3.
+  \]
+  求 $f(0)$，$f'(0)$，$f''(0)$ 和
+  \[
+    \lim_{x\to0}\left(1+\frac{f(x)}x\right)^{1/x}.
+  \]
+
+  \item 例题 8.1.10 可以推广如下：设正数列 $\{x_n\}$ 为满足递推公式 $x_{n+1}=f(x_n)$ 的无穷小量，函数 $f$ 有 Maclaurin 展开式
+  \[
+    f(x)=x+Ax^k+\littleo(x^k)\quad(x\to0),
+  \]
+  其中 $k$ 为大于 1 的某正整数，系数 $A\ne0$，证明：有 $\alpha>0$，使得存在非零极限 $\displaystyle\lim_{n\to\infty}nx_n^\alpha$，并求出此极限。
+
+  \item 设 $f\in C[a,b]$，证明：$f$ 在 $(a,b)$ 内没有极值点的充分必要条件是 $f$ 在区间 $[a,b]$ 上为严格单调函数。
+
+  \item 证明关于三点不等式（命题 1.3.4）的一个推广：在 $0<p<1$ 时，成立不等式
+  \[
+    |a+b|^p\le|a|^p+|b|^p.
+  \]
+
+  \item 证明：对每个正整数 $n$，成立不等式
+  \[
+    \frac{\ee}{2n+2}<\ee-\left(1+\frac1n\right)^n<\frac{\ee}{2n+1}.
+  \]
+
+  \item 证明：当 $0<x<\dfrac\pi2$ 时，成立不等式
+  \[
+    \left(\frac{\sin x}{x}\right)^3>\cos x.
+  \]
+
+  \item 证明：当 $0<x<\dfrac\pi2$ 时，成立不等式 $2\sin x+\tan x>3x$。
+
+  \item 证明：当 $0<x<1$ 时，成立不等式
+  \[
+    \pi<\frac{\sin\pi x}{x(1-x)}\le4.
+  \]
+
+  \item 证明：当 $x\in[0,\pi/2]$ 时，成立比 Jordan 不等式（例题 8.5.6）更好的结果：
+  \[
+    \sin x\ge\frac2\pi x+\frac1{12\pi}x(\pi^2-4x^2).
+  \]
+
+  \item 证明：对 $n$ 个正数 $x_1,x_2,\ldots,x_n$，成立不等式
+  \[
+    \frac{x_1x_2\cdots x_n}{(x_1+x_2+\cdots+x_n)^n}
+    \le
+    \frac{(1+x_1)(1+x_2)\cdots(1+x_n)}{(n+x_1+x_2+\cdots+x_n)^n},
+  \]
+  并讨论成立等号的条件。
+
+  \item 证明：当 $x\in(0,\pi/4)$ 时，成立 $(\sin x)^{\cos x}<(\cos x)^{\sin x}$；而在 $x\in(\pi/4,\pi/2)$ 时，不等式反向。
+
+  \item 设 $p>1$，$a,b>0$，证明：
+  \begin{enumerate}[label=(\arabic*)]
+    \item 当 $t>0$ 时，成立
+    \[
+      \frac1p t^{1/p-1}a+\left(1-\frac1p\right)t^{1/p}b
+      \ge a^{1/p}b^{1-1/p};
+    \]
+    \item 当 $0<t<1$ 时，成立
+    \[
+      t^{1-p}a^p+(1-t)^{1-p}b^p\ge(a+b)^p.
+    \]
+  \end{enumerate}
+
+  \item 设 $p(x)$ 为三次多项式，$p(a)=p(b)=0$，证明：$p(x)$ 在 $[a,b]$ 上不变号的充分必要条件是 $p'(a)p'(b)\le0$。
+
+  \item 证明在 $\RR$ 上的任何可微函数都不可能满足下列函数方程：
+  \begin{enumerate}[label=(\arabic*)]
+    \item $g(g(x))=-x^3+x+1$；
+    \item $g(g(x))=-x^3+x^2+1$；
+    \item $g(g(x))=x^2-3x+3$。
+  \end{enumerate}
+
+  \item 设 $f$ 在 $[0,1]$ 上二阶可微，$f(0)=f(1)=0$，$\displaystyle\min_{0\le x\le1}\{f(x)\}=-1$，证明：存在 $\xi\in(0,1)$，使成立 $f''(\xi)\ge8$。
+
+  \item 设 $f$ 在 $[-1,1]$ 上二阶可微，$f(0)=f'(0)=0$，$f(1)=1$，$f(-1)=0$，证明：存在 $\xi\in(-1,1)$，使成立 $f''(\xi)=3$。
+
+  \item 设 $f,g$ 在 $[a,b]$ 上连续可微，$f(a)=f(b)=0$，Wronski（朗斯基）行列式
+  \[
+    W(f,g)=
+    \begin{vmatrix}
+      f(x)&g(x)\\
+      f'(x)&g'(x)
+    \end{vmatrix}
+    \ne0,\qquad\forall x\in[a,b],
+  \]
+  证明：$g(x)$ 在 $(a,b)$ 中有零点。
+\end{enumerate}
+\end{xreferenceproblem}
+
+\paragraph{第二组参考题}
+
+\begin{xreferenceproblem}
+\begin{enumerate}
+  \item 设 $f$ 在 $(0,+\infty)$ 上单调减少、可微，且满足不等式 $0<f(x)<|f'(x)|$，证明：当 $0<x<1$ 时，成立不等式
+  \[
+    xf(x)>\frac1x f\left(\frac1x\right).
+  \]
+
+  \item 若 $f(0)=0$，且存在 $f^{(n+1)}(0)$，定义
+  \[
+    g(x)=
+    \begin{cases}
+      \dfrac{f(x)}x,&x\ne0,\\
+      f'(0),&x=0,
+    \end{cases}
+  \]
+  证明：$g(x)$ 的 $n$ 阶导函数 $g^{(n)}(x)$ 在 $x=0$ 连续，且
+  \[
+    g^{(n)}(0)=\frac1{n+1}f^{(n+1)}(0).
+  \]
+  （例题 8.1.9 的推广。）
+
+  \item 设 $f$ 在点 $a$ 存在 $f^{(n)}(a)$，且 $f(a)=0$。令 $F(x)=[f(x)]^n$，证明：对于 $k=0,1,\ldots,n-1$，$F^{(k)}(a)=0$。又举例说明：导数 $f^{(n)}(a)$ 存在的条件不能去掉。
+
+  \item 记
+  \[
+    P_n(x)=1+\frac{x}{1!}+\frac{x^2}{2!}+\cdots+\frac{x^n}{n!},\qquad n\in\NN_+,
+  \]
+  证明：
+  \begin{enumerate}[label=(\arabic*)]
+    \item $n$ 为偶数时，$P_n(x)>0$，$\forall x\in\RR$；
+    \item $n$ 为奇数时，$P_n(x)$ 有唯一的实零点；
+    \item 若将 $P_{2n+1}(x)$ 的零点记为 $x_n$，$n\in\NN_+$，则 $\{x_n\}$ 是严格单调减少的负无穷大量；
+    \item 当 $x<0$ 时，成立不等式 $P_{2n}(x)>\ee^x>P_{2n+1}(x)$；
+    \item 当 $x>0$ 时，成立不等式 $\ee^x>P_n(x)\ge\left(1+\dfrac xn\right)^n$；
+    \item 对一切 $x\in\RR$，成立 $\displaystyle\lim_{n\to\infty}P_n(x)=\ee^x$。
+  \end{enumerate}
+
+  \item 定义 $x_0=a$，$x_1=b$，
+  \[
+    x_{n+1}=\frac{(2n-1)x_n+x_{n-1}}{2n},
+  \]
+  求 $\displaystyle\lim_{n\to\infty}x_n$。
+
+  \item 设 $0<x_0<y_0\le\dfrac\pi2$，并用递推公式 $x_{n+1}=\sin x_n$ 和 $y_{n+1}=\sin y_n$ 生成两个数列 $\{x_n\}$ 和 $\{y_n\}$，证明：
+  \[
+    \lim_{n\to\infty}\frac{x_n}{y_n}=1.
+  \]
+
+  \item 证明：若函数
+  \[
+    y=\frac{ax^2+2bx+c}{\alpha x^2+2\beta x+\gamma}\qquad(a\ne0)
+  \]
+  有三个拐点，则它们必在一条直线上。
+
+  \item 下凸函数的 Jensen 定义是：称函数 $f$ 在区间 $I$ 上为下凸，如果对所有 $x_1,x_2\in I$，成立
+  \[
+    f\left(\frac{x_1+x_2}{2}\right)\le\frac12[f(x_1)+f(x_2)].
+  \]
+  证明：对连续函数来说，下凸的 Jensen 定义和 §8.4 中的下凸定义等价。
+
+  （确实存在按 Jensen 定义为下凸但不满足 §8.4 中的下凸定义的函数，例题 5.1.3 的不连续解就是如此（参见 [54, 56, 58]）。）
+
+  \item 设 $f$ 在区间 $(a,b)$ 上按 Jensen 定义为下凸函数，且至多只有第一类间断点，证明：$f$ 在 $(a,b)$ 上连续。
+
+  \item 设 $f$ 在区间 $(a,b)$ 上按 Jensen 定义为下凸函数，且在 $(a,b)$ 内的每个闭子区间上有界，证明：$f$ 在 $(a,b)$ 上连续。
+
+  \item 函数 $f$ 在区间 $(-1,1)$ 上二阶可微，$f(0)=f'(0)=0$，且在该区间上满足不等式
+  \[
+    |f''(x)|\le|f(x)|+|f'(x)|,
+  \]
+  证明：$f(x)\equiv0$。
+
+  \item 设 $f(x)$ 为区间 $I$ 上的可微函数，满足微分方程 $f'(x)=g(f(x))$，其中 $g$ 是在 $f$ 的值域上有定义的函数，证明：$f$ 一定是单调函数。
+
+  \item 证明：在 $(-\infty,+\infty)$ 上二阶可微的函数 $f$ 不可能对于一切 $x$，同时满足不等式
+  \[
+    f(x)>0,\qquad f'(x)>0,\qquad f''(x)<0.
+  \]
+
+  \item 设 $f$ 在 $\RR$ 上三阶可微，证明：存在一个点 $a$ 使得
+  \[
+    f(a)f'(a)f''(a)f'''(a)\ge0.
+  \]
+
+  \item 设 $p(x)$ 是多项式，证明：若对每个 $x$ 成立不等式
+  \[
+    p'''(x)-p''(x)-p'(x)+p(x)\ge0,
+  \]
+  则 $p(x)\ge0$ 对每个 $x$ 成立。
+
+  \item 设 $P$ 为多项式，$P(x)=0$ 有 $n$ 个大于 1 的互异实根。令
+  \[
+    Q(x)=(x^2+1)P(x)P'(x)+x[(P(x))^2+(P'(x))^2],
+  \]
+  证明：$Q(x)=0$ 至少有 $2n-1$ 个互异实根。
+
+  （下面两个题用于证明在第二章第二组参考题 18 中所用到的结论。）
+
+  \item 设 $f(x)=a^x$，证明：
+  \begin{enumerate}[label=(\arabic*)]
+    \item 如 $a>\ee^{1/\ee}$，则 $f$ 无不动点；
+    \item 如 $a=\ee^{1/\ee}$，则 $f$ 恰有一个不动点；
+    \item 如 $1<a<\ee^{1/\ee}$，则 $f$ 有两个不动点。
+  \end{enumerate}
+
+  \item 设 $g(x)=a^{a^x}$，证明：
+  \begin{enumerate}[label=(\arabic*)]
+    \item 如 $\ee^{-\ee}\le a<1$，则 $g$ 只有一个不动点；
+    \item 如 $0<a<\ee^{-\ee}$，则 $g$ 有三个不动点。
+  \end{enumerate}
+
+  \item 讨论三角方程
+  \[
+    a\sin\theta+b\cos\theta-\sin\theta\cos\theta=0
+  \]
+  在 $[0,2\pi)$ 中的实根个数。
+
+  \item 从平面上的一个定点向一个给定的椭圆可以引出多少条法线？讨论在什么区域上法线的条数最多。（参见后面 412 页上关于本题所附的图 1 和图 2。）
+
+  （本题以及类似的问题最早是由 Apollonius（阿波罗尼奥斯，约公元前 262—前 190 年）提出和解决的。又见于《数学译林》(1992) 第 4 期，即 V. I. Arnold 给出的《构成对物理专业学生的最低限度的数学的一百个问题》中的第 7 题。）
+\end{enumerate}
+\end{xreferenceproblem}
