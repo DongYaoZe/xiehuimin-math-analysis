@@ -441,22 +441,19 @@ $\{a_n+b_n\}$ 必发散。否则若它收敛，则
 
 \paragraph{2.2.4 练习题 4}
 \begin{xsolution}
-把
+按题目提示计算 $s_n-as_n$。有
+\begin{align*}
+  (1-a)s_n
+  &=a+2(a^2+a^3+\cdots+a^n)-(2n-1)a^{n+1}\\
+  &=a+\frac{2a^2(1-a^{n-1})}{1-a}-(2n-1)a^{n+1}.
+\end{align*}
+因 $\abs a<1$，有 $a^n\to0$ 且 $na^n\to0$，故令 $n\to\infty$ 得
 \[
-  s_n=\sum_{k=1}^n(2k-1)a^k
+  (1-a)\lim_{n\to\infty}s_n
+  =a+\frac{2a^2}{1-a}
+  =\frac{a(1+a)}{1-a}.
 \]
-与 $as_n$ 相减，或直接使用几何级数求导的有限形式。因 $\abs a<1$，极限等于无穷和
-\[
-  \sum_{k=1}^\infty(2k-1)a^k
-  =2\sum_{k=1}^\infty ka^k-\sum_{k=1}^\infty a^k.
-\]
-利用
-\[
-  \sum_{k=1}^\infty a^k=\frac a{1-a},
-  \qquad
-  \sum_{k=1}^\infty ka^k=\frac a{(1-a)^2},
-\]
-得到
+因此
 \[
   \boxed{\lim_{n\to\infty}s_n=\frac{a(1+a)}{(1-a)^2}}.
 \]
@@ -860,15 +857,25 @@ $S_n$ 单调增加，只需证有上界。按二进制分组：若 $2^{m-1}<n\le
 
 \paragraph{2.4.3 练习题 7}
 \begin{xsolution}
-把奇偶项分别处理。对偶数项，
+把奇偶项分别处理。由题设，
 \[
-  x_{2m}=x_0+\sum_{k=1}^m(x_{2k}-x_{2k-2}).
+  x_{2k}-x_{2k-2}\to0,
+  \qquad
+  x_{2k+1}-x_{2k-1}\to0.
 \]
-因括号中的数列趋于 $0$，由 Cauchy 命题
+对偶数项，当 $m\ge2$ 时
 \[
-  \frac{x_{2m}-x_0}{m}\to0,
+  x_{2m}-x_2=\sum_{k=2}^m(x_{2k}-x_{2k-2}).
 \]
-所以 $x_{2m}/(2m)\to0$。奇数项完全相同，故
+由 Cauchy 命题，
+\[
+  \frac{x_{2m}-x_2}{m-1}\to0,
+\]
+从而 $x_{2m}/(2m)\to0$。同理
+\[
+  x_{2m+1}-x_1=\sum_{k=1}^m(x_{2k+1}-x_{2k-1}),
+\]
+故 $x_{2m+1}/(2m+1)\to0$。于是
 \[
   \boxed{\frac{x_n}{n}\to0}.
 \]
@@ -953,10 +960,18 @@ $S_n$ 单调增加，只需证有上界。按二进制分组：若 $2^{m-1}<n\le
     \left(1+\frac1{2n}\right)^n
     =\left[\left(1+\frac1{2n}\right)^{2n}\right]^{1/2}\to\ee^{1/2}.
   \]
-  \item 同理
+  \item 由上述对数不等式，
   \[
-    \left(1+\frac2n\right)^n
-    =\left[\left(1+\frac1{n/2}\right)^{n/2}\right]^2\to\ee^2.
+    \frac{2n}{n+2}
+    <n\ln\left(1+\frac2n\right)<2.
+  \]
+  两端都趋于 $2$，故
+  \[
+    n\ln\left(1+\frac2n\right)\to2,
+  \]
+  从而
+  \[
+    \left(1+\frac2n\right)^n\to\ee^2.
   \]
   \item
   \[
@@ -1850,7 +1865,11 @@ $n=2$ 时直接成立。若把右端记为
 
 \paragraph{第一组参考题 17}
 \begin{xsolution}
-由 $(1-x_n)x_{n+1}\ge1/4$ 且 $x_{n+1}>0$ 可知 $x_n<1$。同时
+题设给出 $x_n<1$，所以 $1-x_n>0$。由
+\[
+  (1-x_n)x_{n+1}\ge\frac14
+\]
+进一步得到 $x_{n+1}>0$，并且
 \[
   x_{n+1}\ge\frac1{4(1-x_n)}.
 \]
@@ -2244,26 +2263,29 @@ Abel 变换给出
 \[
   u_n=\sum_{j=n+1}^{\infty}u_j^2,
 \]
-因而 $u_n\ge0$，且
+因而 $u_n\ge0$，并且
 \[
-  u_n-u_{n+1}=u_{n+1}^2.
+  u_n-u_{n+1}=u_{n+1}^2\ge0.
 \]
-又已知部分和 $u_1+\cdots+u_n$ 有有限极限，所以非负级数 $\sum u_n$ 收敛，特别有 $u_n\to0$。
+所以 $\{u_n\}$ 单调减少。又因部分和 $u_1+\cdots+u_n$ 有有限极限，非负级数 $\sum_{n=1}^{\infty}u_n$ 收敛。于是可取 $N$，使
+\[
+  \sum_{j=N+1}^{\infty}u_j<1.
+\]
+对任意 $n\ge N$，由单调性知 $u_j\le u_{n+1}$（$j\ge n+1$），故
+\[
+  u_n=\sum_{j=n+1}^{\infty}u_j^2
+  \le u_{n+1}\sum_{j=n+1}^{\infty}u_j
+  <u_{n+1}
+\]
+只要 $u_{n+1}>0$。这与 $u_n\ge u_{n+1}$ 矛盾，因此 $u_{n+1}=0$，进而 $u_n=0$。故从第 $N$ 项起全为 $0$。
 
-若不是所有 $u_n$ 都为 $0$，则从某项起 $u_n>0$。此时
+再由
 \[
-  \frac1{u_{n+1}}-\frac1{u_n}
-  =\frac{u_n-u_{n+1}}{u_nu_{n+1}}
-  =\frac{u_{n+1}}{u_n}
-  =\frac1{1+u_{n+1}}\to1.
+  u_k=u_{k+1}+u_{k+1}^2
 \]
-由 Stolz 定理
+逐项向前递推，得到 $u_{N-1}=\cdots=u_0=0$。所以
 \[
-  \frac{1/u_n}{n}\to1,
-\]
-即 $nu_n\to1$。于是充分大的 $n$ 有 $u_n>1/(2n)$，这与 $\sum u_n$ 收敛矛盾。因此只能有
-\[
-  \boxed{u_n=0\quad\text{对所有 }n}.
+  \boxed{u_n=0\quad\text{对所有 }n\ge0}.
 \]
 \end{xsolution}
 
@@ -2390,11 +2412,19 @@ Abel 变换给出
 \[
   x_n=y_n=\frac1{\sqrt n}.
 \]
-则在 $n/4\le k\le3n/4$ 的约 $n/2$ 个指标上，
+这时
 \[
-  \frac1{\sqrt{k(n+1-k)}}\ge\frac2{n+1},
+  z_n=\sum_{k=1}^n\frac1{\sqrt{k(n+1-k)}}.
 \]
-故卷积和始终有一个趋近于 $1$ 的正下界，不能趋于 $0$。
+因为对 $1\le k\le n$ 恒有
+\[
+  k(n+1-k)\le\frac{(n+1)^2}{4},
+\]
+所以
+\[
+  z_n\ge\frac{2n}{n+1}\to2.
+\]
+故 $z_n$ 不趋于 $0$。
 \end{xsolution}
 
 \paragraph{第二组参考题 14}
@@ -3469,7 +3499,7 @@ Euler 常数与调和和的关系为
 \]
 于是 $x_n>a/2>0$。
 
-逆命题不成立。例如 $x_n=1+(-1)^n/2$ 对所有 $n$ 都为正，但数列不收敛，更谈不上收敛到正数 $a$。
+逆命题不成立。例如 $x_n=1/n$ 对所有 $n$ 都为正，而且数列收敛，但其极限为 $0$，并非正数。
 \end{xsolution}
 
 \paragraph{第四次习题课单元测验 3}
