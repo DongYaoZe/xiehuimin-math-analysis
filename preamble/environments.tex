@@ -72,36 +72,74 @@
     {\xieEnvTitle{#1}{#2}}%
 }
 
+% Exercise/solution material occurs several thousand times in the inline
+% edition.  Using an enhanced breakable tcolorbox for every such unit makes a
+% full-book cloud build prohibitively slow.  These flow blocks keep the same
+% visual hierarchy with light rules and indentation while remaining ordinary
+% page-breakable TeX paragraphs.
+\newcommand{\xieFlowBegin}[3]{%
+  \par\addvspace{.72em plus .15em}%
+  \Needspace{4\baselineskip}%
+  {\color{#1}\hrule height .55pt}%
+  \nobreak\vspace{.42em}%
+  \begingroup
+  \setlength{\leftskip}{.65em}%
+  \setlength{\rightskip}{.25em}%
+  \xieNumberedTitle{#1}{#2}{#3}%
+}
+\newcommand{\xieFlowEnd}[1]{%
+  \par\endgroup
+  \vspace{.32em}%
+  {\color{#1!55}\hrule height .28pt}%
+  \par\addvspace{.72em plus .15em}%
+}
+\newcommand{\xieSolutionBegin}{%
+  \par\addvspace{.54em plus .12em}%
+  \Needspace{4\baselineskip}%
+  {\color{xieTeal!70}\hrule height .38pt}%
+  \nobreak\vspace{.36em}%
+  \begingroup
+  \setlength{\leftskip}{.85em}%
+  \setlength{\rightskip}{.25em}%
+  \xieEnvTitle{xieTeal}{解答}%
+}
+\newcommand{\xieSolutionEnd}{%
+  \par\endgroup
+  \vspace{.25em}%
+  {\color{xieRule}\hrule height .25pt}%
+  \par\addvspace{.6em plus .12em}%
+}
+
 \NewDocumentEnvironment{xdefinition}{o}
-  {\begin{tcolorbox}[xie/theorem]\xieNumberedTitle{xieNavy}{定义}{#1}}
+  {\Needspace{6\baselineskip}\begin{tcolorbox}[xie/theorem]\xieNumberedTitle{xieNavy}{定义}{#1}}
   {\end{tcolorbox}}
 \NewDocumentEnvironment{xtheorem}{o}
-  {\begin{tcolorbox}[xie/theorem]\xieNumberedTitle{xieNavy}{定理}{#1}}
+  {\Needspace{6\baselineskip}\begin{tcolorbox}[xie/theorem]\xieNumberedTitle{xieNavy}{定理}{#1}}
   {\end{tcolorbox}}
 \NewDocumentEnvironment{xlemma}{o}
-  {\begin{tcolorbox}[xie/theorem]\xieNumberedTitle{xieNavy}{引理}{#1}}
+  {\Needspace{6\baselineskip}\begin{tcolorbox}[xie/theorem]\xieNumberedTitle{xieNavy}{引理}{#1}}
   {\end{tcolorbox}}
 \NewDocumentEnvironment{xproposition}{o}
-  {\begin{tcolorbox}[xie/theorem]\xieNumberedTitle{xieNavy}{命题}{#1}}
+  {\Needspace{6\baselineskip}\begin{tcolorbox}[xie/theorem]\xieNumberedTitle{xieNavy}{命题}{#1}}
   {\end{tcolorbox}}
 
 \NewDocumentEnvironment{xexample}{o}
-  {\begin{tcolorbox}[xie/example]\xieNumberedTitle{xieGold}{例}{#1}}
-  {\end{tcolorbox}}
+  {\xieFlowBegin{xieGold}{例}{#1}}
+  {\xieFlowEnd{xieGold}}
 
 \NewDocumentEnvironment{xexercise}{o}
-  {\begin{tcolorbox}[xie/problem]\xieNumberedTitle{xieGreen}{练习}{#1}}
-  {\end{tcolorbox}}
+  {\xieFlowBegin{xieGreen}{练习}{#1}}
+  {\xieFlowEnd{xieGreen}}
 \NewDocumentEnvironment{xthought}{o}
-  {\begin{tcolorbox}[xie/thought]\xieNumberedTitle{xieRose}{思考题}{#1}}
-  {\end{tcolorbox}}
+  {\xieFlowBegin{xieRose}{思考题}{#1}}
+  {\xieFlowEnd{xieRose}}
 \NewDocumentEnvironment{xreferenceproblem}{o}
-  {\begin{tcolorbox}[xie/problem]\xieNumberedTitle{xieTeal}{参考题}{#1}}
-  {\end{tcolorbox}}
+  {\xieFlowBegin{xieTeal}{参考题}{#1}}
+  {\xieFlowEnd{xieTeal}}
 
 \NewDocumentEnvironment{xsolution}{}
-  {\begin{tcolorbox}[xie/solution]\xieEnvTitle{xieTeal}{解答}}
-  {\end{tcolorbox}}
+  {\xieSolutionBegin}
+  {\xieSolutionEnd}
 
 \NewDocumentEnvironment{xproof}{}
   {\par\smallskip\Needspace{3\baselineskip}\noindent\textcolor{xieNavy}{\sffamily\bfseries 证明}\quad\ignorespaces}

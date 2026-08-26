@@ -1,13 +1,24 @@
 % Canonical notation for the transcription project.
 % Agents must use these macros rather than inventing local variants.
-\newcommand{\dd}{\mathop{}\!\mathrm{d}}
-\newcommand{\ee}{\mathrm{e}}
-\newcommand{\ii}{\mathrm{i}}
-\newcommand{\RR}{\mathbb{R}}
-\newcommand{\CC}{\mathbb{C}}
-\newcommand{\NN}{\mathbb{N}}
-\newcommand{\ZZ}{\mathbb{Z}}
-\newcommand{\QQ}{\mathbb{Q}}
+% beautybook loads several mathematics helpers (including physics), so a few
+% canonical commands may already exist.  Normalize them deliberately instead
+% of triggering "already defined" errors.
+\providecommand{\dd}{}
+\renewcommand{\dd}{\mathop{}\!\mathrm{d}}
+\providecommand{\ee}{}
+\renewcommand{\ee}{\mathrm{e}}
+\providecommand{\ii}{}
+\renewcommand{\ii}{\mathrm{i}}
+\providecommand{\RR}{}
+\renewcommand{\RR}{\mathbb{R}}
+\providecommand{\CC}{}
+\renewcommand{\CC}{\mathbb{C}}
+\providecommand{\NN}{}
+\renewcommand{\NN}{\mathbb{N}}
+\providecommand{\ZZ}{}
+\renewcommand{\ZZ}{\mathbb{Z}}
+\providecommand{\QQ}{}
+\renewcommand{\QQ}{\mathbb{Q}}
 \newcommand{\vect}[1]{\bm{#1}}
 \newcommand{\mat}[1]{\mathbf{#1}}
 \newcommand{\Dop}{\mathrm{D}}
@@ -15,12 +26,20 @@
 \newcommand{\littleo}{\mathrm{o}}
 \newcommand{\const}{\mathrm{const}}
 \DeclareMathOperator{\sgn}{sgn}
+\let\rank\relax
 \DeclareMathOperator{\rank}{rank}
 \DeclareMathOperator{\diam}{diam}
 \DeclareMathOperator{\dist}{dist}
+\let\grad\relax
 \DeclareMathOperator{\grad}{grad}
+\let\curl\relax
 \DeclareMathOperator{\curl}{curl}
 \DeclareMathOperator{\diver}{div}
+% physics defines \abs and \norm with different argument parsing.  The source
+% corpus uses both \abs x and \abs*{...}, so restore the mathtools paired-
+% delimiter interface used by this project.
+\let\abs\relax
+\let\norm\relax
 \DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
 \DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
 \DeclarePairedDelimiter{\paren}{(}{)}

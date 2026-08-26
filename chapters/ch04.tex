@@ -713,7 +713,7 @@ Heine 归结原理的推论在这里也成立。试证之。
 函数 $\frac{\sin x}{x}$ 在理论和应用（例如信号处理）方面都很重要，也是数学分析中的重要例子。它在 $x>0$ 的图像见图 4.2 (a)（又见图 8.7 (b)）。在例题 8.5.2 中研究了它的单调性。在 $x=0$ 处补充定义函数值为 1 后，可以证明函数在该点无限次可微，它的 Maclaurin（麦克劳林）公式见例题 7.2.3（参见例题 8.1.9 的注解 3）。它在积分学中还会一再出现（如例题 11.3.1, 11.3.2, 12.3.6 等）。
 \end{xremark}
 
-\subsection{\texorpdfstring{$\displaystyle\lim_{x\to0}(1+x)^{1/x}=\ee$}{极限 (1+x)^(1/x) = e}}
+\subsection{\texorpdfstring{$\displaystyle\lim_{x\to0}(1+x)^{1/x}=\ee$}{极限 (1+x) 的 1/x 次幂 = e}}
 
 这是 §2.5 的极限 $\lim_{n\to\infty}(1+\frac1n)^n=\ee$ 的重要推广。
 
@@ -837,11 +837,15 @@ Heine 归结原理的推论在这里也成立。试证之。
 求 $\displaystyle\lim_{x\to\infty}\left(\sin\frac1x+\cos\frac1x\right)^x$。
 \end{xexample}
 \begin{xsolution}
-与上一题类似，可将原式改写如下：
-\begin{align*}
-  \lim_{x\to\infty}\left[1+\left(\sin\frac1x+\cos\frac1x-1\right)\right]^x
-  =\lim_{x\to\infty}\left[1+\left(\sin\frac1x+\cos\frac1x-1\right)\right]^{\frac{x}{\sin(1/x)+\cos(1/x)-1}(\sin(1/x)+\cos(1/x)-1)}.
-\end{align*}
+与上一题类似，令
+\[
+  u_x=\sin\frac1x+\cos\frac1x-1,
+\]
+则原式可改写为
+\[
+  \lim_{x\to\infty}(1+u_x)^x
+  =\lim_{x\to\infty}\left((1+u_x)^{1/u_x}\right)^{xu_x}.
+\]
 可见只要计算出
 \[
   \lim_{x\to\infty}x\left(\sin\frac1x+\cos\frac1x-1\right)

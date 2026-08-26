@@ -2548,7 +2548,7 @@
           "title": "练习题",
           "kind": "练习题",
           "qualifier": "",
-          "context": "\\texorpdfstring{$\\RR^n$ 中的几个基本定理}{R^n 中的几个基本定理} / 例题",
+          "context": "\\texorpdfstring{$\\RR^n$ 中的几个基本定理}{R n 维空间中的几个基本定理} / 例题",
           "mode": "environment",
           "body_numbers": [
             1,
@@ -3525,7 +3525,7 @@
           "title": "练习题",
           "kind": "练习题",
           "qualifier": "",
-          "context": "Gauss 公式与 Stokes 公式 / \\texorpdfstring{$\\RR^3$ 中曲线积分与路径无关的条件}{R^3 中曲线积分与路径无关的条件}",
+          "context": "Gauss 公式与 Stokes 公式 / \\texorpdfstring{$\\RR^3$ 中曲线积分与路径无关的条件}{R 三维空间中曲线积分与路径无关的条件}",
           "mode": "environment",
           "body_numbers": [
             1,

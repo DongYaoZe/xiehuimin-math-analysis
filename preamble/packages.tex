@@ -19,3 +19,32 @@
 \setlength{\belowdisplayskip}{.65em plus .2em minus .15em}
 \setlength{\abovedisplayshortskip}{.4em plus .15em}
 \setlength{\belowdisplayshortskip}{.45em plus .15em}
+
+
+% The unified edition is long enough for four-digit Arabic page numbers.
+% Reserve enough room in section-level TOC entries so page numbers >= 1000
+% do not protrude into the right margin.
+\titlecontents{section}
+[4.5em]
+{\contentsmargin{3.2em}}
+{\hyperlink{section.\thecontentslabel}{\contentslabel{2.2em}}}
+{\hspace*{-2.2em}}
+{\titlerule*[1pc]{.}\contentspage\hspace*{1.5mm}}
+\titlecontents{subsection}
+[7.3em]
+{\contentsmargin{3.2em}}
+{\hyperlink{subsection.\thecontentslabel}{\contentslabel{2.7em}}}
+{\hspace*{-2.7em}}
+{\titlerule*[1pc]{.}\contentspage\hspace*{1.5mm}}
+\titlecontents{subsubsection}
+[10.7em]
+{\contentsmargin{3.2em}}
+{\hyperlink{subsubsection.\thecontentslabel}{\contentslabel{3.3em}}}
+{\hspace*{-3.3em}}
+{\titlerule*[1pc]{.}\contentspage\hspace*{1.5mm}}
+
+% FandolSong has no real small-caps face.  Beautybook requests small caps in
+% a few heading styles; declare the same upright fallback silently instead of
+% emitting an NFSS substitution warning for Chinese text.
+\DeclareFontShape{TU}{FandolSong-Regular(0)}{m}{sc}
+  {<->ssub*FandolSong-Regular(0)/m/n}{}

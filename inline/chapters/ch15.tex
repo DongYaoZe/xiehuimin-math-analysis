@@ -95,11 +95,14 @@ Fourier 级数是一类特殊的三角级数，它的特殊性在于其系数是
 
 \begin{xproof}
 因为 $f$ 是以 $2\pi$ 为周期的连续函数，因此 $f(-\pi)=f(\pi)$，由此即可推出 $a'_0=0$。然后由分部积分公式\footnote{这里需要将上册 319 页的分部积分公式 (10.11) 稍作推广，并参见上册 315 页注 2。}可得
-\[
-  \pi a'_n=\int_{-\pi}^{\pi}f'(x)\cos nx\,\dd x
-  =\left.f(x)\cos nx\right|_{-\pi}^{\pi}-\int_{-\pi}^{\pi}f(x)\,\dd(\cos nx)
-  =n\int_{-\pi}^{\pi}f(x)\sin nx\,\dd x=n\pi b_n.
-\]
+\begin{align*}
+  \pi a'_n
+  &=\int_{-\pi}^{\pi}f'(x)\cos nx\,\dd x\\
+  &=\left.f(x)\cos nx\right|_{-\pi}^{\pi}
+    -\int_{-\pi}^{\pi}f(x)\,\dd(\cos nx)\\
+  &=n\int_{-\pi}^{\pi}f(x)\sin nx\,\dd x
+   =n\pi b_n.
+\end{align*}
 这就是 $b_n=a'_n/n$。类似地可以证明 $a_n=-b'_n/n$。
 \end{xproof}
 
