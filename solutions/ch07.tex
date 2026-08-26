@@ -1,0 +1,2405 @@
+% 第7章题目解答
+% 按原章顺序收录思考题、练习题与参考题；普通例题已有原书解答者不重复。
+
+\section*{第7章 微分学的基本定理——题目解答}
+
+\subsection*{§7.1 微分学中值定理}
+
+\paragraph{思考题（Rolle 定理的 Samuleson 证明）}
+% SOLVED-ITEM
+\begin{xsolution}
+可以构造一个例子，使闭区间套收敛到的点虽然满足 $f'(\xi)=0$，却不是极值点。
+
+在 $[-1,1]$ 上定义
+\[
+  f(0)=0,
+  \qquad
+  f(x)=x^3\sin\bigl(\pi\log_2\abs{x}\bigr)\quad(x\neq0).
+\]
+由于 $\abs{f(x)}\leqslant\abs{x}^3$，有
+\[
+  f'(0)=\lim_{x\to0}\frac{f(x)-f(0)}x
+  =\lim_{x\to0}x^2\sin\bigl(\pi\log_2\abs{x}\bigr)=0.
+\]
+而对每个正整数 $m$，
+\[
+  f(2^{-m})=f(-2^{-m})=0.
+\]
+因此在 Samuleson 构造中可以依次选取
+\[
+  [a_m,b_m]=[-2^{-m},2^{-m}],\qquad m=0,1,2,\ldots.
+\]
+这些区间满足 $f(a_m)=f(b_m)$，且
+\[
+  b_{m+1}-a_{m+1}=\frac12(b_m-a_m),
+\]
+所以闭区间套收敛到 $\xi=0$。
+
+另一方面，$f$ 在 $0$ 的任意邻域内都取正值和负值。例如选取
+\[
+  \abs{x}=2^{-m-1/2}
+  \quad\text{与}\quad
+  \abs{x}=2^{-m-3/2},
+\]
+正弦因子符号相反。因此 $0$ 不是 $f$ 的极大值点或极小值点。这个例子说明 Samuleson 证明得到的 $\xi$ 不必是极值点。
+\end{xsolution}
+
+\paragraph{思考题（用面积法证明 Cauchy 中值定理）}
+% SOLVED-ITEM
+\begin{xsolution}
+仿照 Lagrange 中值定理的面积证明，定义
+\[
+  \Delta(t)=
+  \begin{vmatrix}
+    1&1&1\\
+    g(a)&g(b)&g(t)\\
+    f(a)&f(b)&f(t)
+  \end{vmatrix}.
+\]
+显然 $\Delta(a)=\Delta(b)=0$。由 Rolle 定理，存在 $\xi\in(a,b)$ 使 $\Delta'(\xi)=0$。直接求导得
+\[
+  0=\Delta'(\xi)
+  =
+  \begin{vmatrix}
+    g(b)-g(a)&g'(\xi)\\
+    f(b)-f(a)&f'(\xi)
+  \end{vmatrix},
+\]
+即
+\[
+  [g(b)-g(a)]f'(\xi)-[f(b)-f(a)]g'(\xi)=0.
+\]
+若 $g'(\xi)=0$，由 $g(b)-g(a)\neq0$ 可推出 $f'(\xi)=0$，这与
+\[
+  f'^2(\xi)+g'^2(\xi)\neq0
+\]
+矛盾。因此 $g'(\xi)\neq0$，从而
+\[
+  \frac{f(b)-f(a)}{g(b)-g(a)}
+  =\frac{f'(\xi)}{g'(\xi)}.
+\]
+这就是 Cauchy 中值定理。
+\end{xsolution}
+
+\paragraph{导函数的两个定理——思考题 1}
+% SOLVED-ITEM
+\begin{xsolution}
+否。右连续条件不能删去。取 $a=0$，并在 $[0,1]$ 上定义
+\[
+  f(0)=1,
+  \qquad
+  f(x)=0\quad(0<x\leqslant1).
+\]
+则在 $(0,1)$ 上 $f'(x)=0$，所以
+\[
+  \lim_{x\to0+}f'(x)=0.
+\]
+但
+\[
+  \frac{f(x)-f(0)}x=-\frac1x\to-\infty,
+\]
+故 $f'_+(0)$ 不等于上述导函数极限。这里失败的原因正是 $f$ 在 $0$ 不右连续。
+\end{xsolution}
+
+\paragraph{导函数的两个定理——思考题 2}
+% SOLVED-ITEM
+\begin{xsolution}
+这种情形对导函数实际上不可能发生。若所谓“无穷大量但无确定符号”是指
+\[
+  \abs{f'(x)}\to+\infty\qquad(x\to a+)
+\]
+而 $f'(x)$ 在任意右邻域内都改变符号，则可取趋于 $a$ 的两列点 $x_n,y_n$，使
+\[
+  f'(x_n)>0,
+  \qquad
+  f'(y_n)<0.
+\]
+导函数具有 Darboux 介值性质，因此在 $x_n,y_n$ 之间必有 $z_n$ 使 $f'(z_n)=0$。又 $z_n\to a+$，这与 $\abs{f'(x)}\to+\infty$ 矛盾。
+
+所以若导函数的绝对值趋于无穷大，则在充分靠近 $a$ 时符号必定固定，只可能有 $f'(x)\to+\infty$ 或 $f'(x)\to-\infty$ 两种情形；不存在题中所说的第三种情形。
+\end{xsolution}
+
+\paragraph{导函数的两个定理——思考题 3}
+% SOLVED-ITEM
+\begin{xsolution}
+否。取
+\[
+  f(0)=0,
+  \qquad
+  f(x)=x^2\sin\frac1x\quad(x\neq0).
+\]
+则
+\[
+  f'_+(0)=\lim_{x\to0+}x\sin\frac1x=0.
+\]
+但对 $x\neq0$，
+\[
+  f'(x)=2x\sin\frac1x-\cos\frac1x,
+\]
+当 $x\to0+$ 时没有极限。因此 $f'_+(a)$ 存在并不能推出 $f'(a+)$ 存在。
+\end{xsolution}
+
+\subsection*{§7.1.4 练习题}
+
+\paragraph{练习题 1(1)}
+% SOLVED-ITEM
+\begin{xsolution}
+令
+\[
+  F(x)=\ee^x-ax^2-bx-c.
+\]
+若原方程有四个不同实根，则由 Rolle 定理连续使用三次，$F'''$ 至少有一个实零点。但
+\[
+  F'''(x)=\ee^x>0,
+\]
+矛盾。因此不同实根至多有三个。
+\end{xsolution}
+
+\paragraph{练习题 1(2)}
+% SOLVED-ITEM
+\begin{xsolution}
+构造
+\[
+  F(x)=ax^4+bx^3+cx^2-(a+b+c)x.
+\]
+有 $F(0)=F(1)=0$。故由 Rolle 定理，存在 $\xi\in(0,1)$，使
+\[
+  0=F'(\xi)=4a\xi^3+3b\xi^2+2c\xi-(a+b+c).
+\]
+于是原方程在 $(0,1)$ 内至少有一个根。
+\end{xsolution}
+
+\paragraph{练习题 1(3)}
+% SOLVED-ITEM
+\begin{xsolution}
+若 $f$ 有 $n+1$ 个不同实根，连续应用 Rolle 定理 $n$ 次可知 $f^{(n)}$ 至少有一个零点。而
+\[
+  f^{(n)}(x)=n!a_n,
+\]
+故 $a_n=0$。此时 $f$ 的次数至多为 $n-1$，但仍有 $n+1$ 个不同实根。对降次后的多项式重复同一论证，依次得到
+\[
+  a_{n-1}=a_{n-2}=\cdots=a_0=0.
+\]
+因此 $f(x)\equiv0$。
+\end{xsolution}
+
+\paragraph{练习题 1(4)}
+% SOLVED-ITEM
+\begin{xsolution}
+设
+\[
+  P(x)=x^5+ax^4+bx^3+cx^2+dx+e.
+\]
+若 $P$ 有五个不同实根，则连续应用 Rolle 定理三次，$P'''$ 至少有两个不同实根。可是
+\[
+  P'''(x)=60x^2+24ax+6b=6(10x^2+4ax+b).
+\]
+一个二次多项式有两个不同实根必须满足判别式严格为正，即
+\[
+  16a^2-40b>0,
+\]
+等价于 $2a^2>5b$，与题设 $2a^2\leqslant5b$ 矛盾。因此 $P=0$ 不可能有五个不同实根。
+\end{xsolution}
+
+\paragraph{练习题 1(5)}
+% SOLVED-ITEM
+\begin{xsolution}
+令
+\[
+  G(x)=(x^2-1)^n=(x-1)^n(x+1)^n.
+\]
+证明一个归纳结论：对 $k=0,1,\ldots,n$，$G^{(k)}$ 在 $(-1,1)$ 内至少有 $k$ 个不同零点；当 $k<n$ 时，$\pm1$ 还是 $G^{(k)}$ 的零点。
+
+$k=0$ 时显然成立。设 $G^{(k)}$ 在 $(-1,1)$ 内有不同零点
+\[
+  -1<z_1<\cdots<z_k<1,
+\]
+且 $G^{(k)}(\pm1)=0$。在
+\[
+  [-1,z_1],[z_1,z_2],\ldots,[z_k,1]
+\]
+上分别应用 Rolle 定理，得到 $G^{(k+1)}$ 在 $(-1,1)$ 内至少有 $k+1$ 个不同零点。又因 $G$ 在 $\pm1$ 都有 $n$ 重零点，所以当 $k+1<n$ 时 $G^{(k+1)}(\pm1)=0$。归纳完成。
+
+取 $k=n$，可知 $G^{(n)}$ 在 $(-1,1)$ 内至少有 $n$ 个不同零点。由于
+\[
+  P_n(x)=\frac{1}{2^n n!}G^{(n)}(x)
+\]
+是 $n$ 次多项式，所以它恰有 $n$ 个不同实根，且都在 $(-1,1)$ 内。
+\end{xsolution}
+
+\paragraph{练习题 1(6)}
+% SOLVED-ITEM
+\begin{xsolution}
+令
+\[
+  H(x)=x^n\ee^{-x},\qquad x\geqslant0.
+\]
+对每个 $k\geqslant0$，$H^{(k)}(x)$ 都是 $\ee^{-x}$ 乘以一个多项式，因此
+\[
+  \lim_{x\to+\infty}H^{(k)}(x)=0.
+\]
+同时 $H$ 在 $0$ 有 $n$ 重零点，所以当 $k<n$ 时 $H^{(k)}(0)=0$。
+
+从 $H(0)=0$ 和 $H(+\infty)=0$ 出发，用无限区间上的 Rolle 定理，$H'$ 在 $(0,+\infty)$ 至少有一个零点。归纳地，若 $H^{(k)}$ 在 $(0,+\infty)$ 已有
+\[
+  0<z_1<\cdots<z_k
+\]
+这 $k$ 个不同零点，则 $H^{(k)}(0)=0$，并且 $H^{(k)}(+\infty)=0$。在相邻零点之间应用 Rolle 定理，再在 $[z_k,+\infty)$ 上应用无限区间版本的 Rolle 定理，可得 $H^{(k+1)}$ 至少有 $k+1$ 个不同正零点。
+
+故 $H^{(n)}$ 至少有 $n$ 个不同正零点。又
+\[
+  L_n(x)=\ee^x H^{(n)}(x),
+\]
+且 $\ee^x>0$，所以 $L_n$ 与 $H^{(n)}$ 有相同零点。$L_n$ 是 $n$ 次多项式，因而恰有 $n$ 个不同正根。
+\end{xsolution}
+
+\paragraph{练习题 2}
+% SOLVED-ITEM
+\begin{xsolution}
+由 $f(a)=f(b)$。先设
+\[
+  f'_+(a)>0,\qquad f'_-(b)>0.
+\]
+根据单侧导数的定义，充分靠近 $a$ 的右侧有 $f(x)>f(a)$；充分靠近 $b$ 的左侧，由于 $x-b<0$ 而 $f'_-(b)>0$，有 $f(x)<f(b)$。因此 $f$ 在 $[a,b]$ 上的最大值和最小值都不可能只在端点取得，必分别在两个不同的内点取得。Fermat 定理给出两个不同的零点 $\xi_1,\xi_2\in(a,b)$，满足
+\[
+  f'(\xi_1)=f'(\xi_2)=0.
+\]
+
+若 $f'_+(a)<0$ 且 $f'_-(b)<0$，将上述“最大值”和“最小值”的角色互换即可。由于题设乘积为正，只可能是这两种情形。因此 $f'$ 在 $(a,b)$ 至少有两个零点。
+\end{xsolution}
+
+\paragraph{练习题 3}
+% SOLVED-ITEM
+\begin{xsolution}
+在 $[a,b]$ 上对函数 $f$ 与 $g(x)=\ln x$ 应用 Cauchy 中值定理。由于 $0<a<b$ 且
+\[
+  g'(x)=\frac1x\neq0,
+\]
+存在 $\xi\in(a,b)$ 使
+\[
+  \frac{f(b)-f(a)}{\ln b-\ln a}
+  =\frac{f'(\xi)}{1/\xi}=\xi f'(\xi).
+\]
+整理即得
+\[
+  f(b)-f(a)=\ln\frac ba\,\xi f'(\xi).
+\]
+\end{xsolution}
+
+\paragraph{练习题 4}
+% SOLVED-ITEM
+\begin{xsolution}
+不必讨论 $x^2$ 是否满足 Cauchy 中值定理的附加条件。直接构造
+\[
+  F(x)=(b^2-a^2)f(x)-[f(b)-f(a)]x^2.
+\]
+有
+\[
+  F(b)-F(a)=0.
+\]
+故存在 $\xi\in(a,b)$ 使 $F'(\xi)=0$，即
+\[
+  (b^2-a^2)f'(\xi)-2\xi[f(b)-f(a)]=0.
+\]
+这正是所求等式。
+\end{xsolution}
+
+\paragraph{练习题 5}
+% SOLVED-ITEM
+\begin{xsolution}
+令
+\[
+  F(x)=[f(x)-f(a)][g(b)-g(x)].
+\]
+则 $F(a)=F(b)=0$，故存在 $\xi\in(a,b)$ 使 $F'(\xi)=0$。于是
+\[
+  f'(\xi)[g(b)-g(\xi)]-[f(\xi)-f(a)]g'(\xi)=0.
+\]
+因 $g'$ 在 $(a,b)$ 无零点，Darboux 性质说明 $g'$ 保持同号，所以 $g$ 严格单调，因而 $g(b)-g(\xi)\neq0$；同时 $g'(\xi)\neq0$。两边相除即得
+\[
+  \frac{f'(\xi)}{g'(\xi)}
+  =\frac{f(\xi)-f(a)}{g(b)-g(\xi)}.
+\]
+\end{xsolution}
+
+\paragraph{练习题 6}
+% SOLVED-ITEM
+\begin{xsolution}
+若存在 $x_0>a$ 使 $f(x_0)=f(a)$，则直接在 $[a,x_0]$ 上用 Rolle 定理即可。
+
+以下设对所有 $x>a$ 都有 $f(x)\neq f(a)$。由连续性，$f(x)-f(a)$ 在 $(a,+\infty)$ 保持同号。不妨设其为正。任取 $x_1>a$。由
+\[
+  f(x)\to f(a)\qquad(x\to+\infty),
+\]
+可取 $x_2>x_1$，使
+\[
+  0<f(x_2)-f(a)<f(x_1)-f(a).
+\]
+由介值定理，在 $(a,x_1)$ 中存在 $y$ 使 $f(y)=f(x_2)$。于是对 $[y,x_2]$ 用 Rolle 定理，得到某 $\xi\in(y,x_2)$ 满足 $f'(\xi)=0$。若 $f(x)-f(a)<0$，论证完全相同。
+\end{xsolution}
+
+\paragraph{练习题 7}
+% SOLVED-ITEM
+\begin{xsolution}
+令
+\[
+  g(x)=\frac{x}{1+x^2},
+  \qquad
+  h(x)=f(x)-g(x).
+\]
+由 $0\leqslant f(0)\leqslant0$ 得 $h(0)=0$。又因
+\[
+  0\leqslant f(x)\leqslant g(x),
+  \qquad
+  g(x)\to0\quad(x\to+\infty),
+\]
+夹逼可得 $f(x)\to0$，故 $h(x)\to0=h(0)$。由练习题 6 的无限区间 Rolle 定理，存在 $\xi>0$ 使 $h'(\xi)=0$。因此
+\[
+  f'(\xi)=g'(\xi)=\frac{1-\xi^2}{(1+\xi^2)^2}.
+\]
+\end{xsolution}
+
+\paragraph{练习题 8(1)}
+% SOLVED-ITEM
+\begin{xsolution}
+对 $f(x)=ax^2+bx+c$，
+\[
+  f(x+\Delta x)-f(x)
+  =(2ax+b)\Delta x+a(\Delta x)^2,
+\]
+而
+\[
+  f'(x+\theta\Delta x)\Delta x
+  =[2a(x+\theta\Delta x)+b]\Delta x.
+\]
+当 $\Delta x\neq0$ 时比较两式，因 $a\neq0$ 得
+\[
+  \theta=\frac12.
+\]
+故 $\lim_{\Delta x\to0}\theta=1/2$。
+\end{xsolution}
+
+\paragraph{练习题 8(2)}
+% SOLVED-ITEM
+\begin{xsolution}
+设 $x>0$ 且 $x+\Delta x>0$。对 $f(x)=1/x$，
+\[
+  f(x+\Delta x)-f(x)
+  =-\frac{\Delta x}{x(x+\Delta x)},
+\]
+而
+\[
+  f'(x+\theta\Delta x)\Delta x
+  =-\frac{\Delta x}{(x+\theta\Delta x)^2}.
+\]
+故当 $\Delta x\neq0$ 时
+\[
+  x+\theta\Delta x=\sqrt{x(x+\Delta x)},
+\]
+从而
+\[
+  \theta
+  =\frac{\sqrt{x(x+\Delta x)}-x}{\Delta x}
+  =\frac{x}{\sqrt{x(x+\Delta x)}+x}.
+\]
+于是
+\[
+  \lim_{\Delta x\to0}\theta=\frac12.
+\]
+\end{xsolution}
+
+\paragraph{练习题 9}
+% SOLVED-ITEM
+\begin{xsolution}
+有恒等式
+\[
+  \sqrt{x+1}-\sqrt{x}
+  =\frac1{\sqrt{x+1}+\sqrt{x}}.
+\]
+令
+\[
+  2\sqrt{x+\theta(x)}=\sqrt{x+1}+\sqrt{x},
+\]
+则
+\[
+  \theta(x)
+  =\frac{1-2x+2\sqrt{x(x+1)}}4
+  =\frac14+\frac12\bigl(\sqrt{x(x+1)}-x\bigr).
+\]
+因此所要求的等式成立。对 $x\geqslant0$，
+\[
+  0\leqslant\sqrt{x(x+1)}-x
+  =\frac{x}{\sqrt{x(x+1)}+x}\leqslant\frac12,
+\]
+其中最后一个不等式等价于 $\sqrt{x^2+x}\leqslant x+1/2$。故
+\[
+  \frac14\leqslant\theta(x)\leqslant\frac12.
+\]
+此外，
+\[
+  \lim_{x\to0+}\bigl(\sqrt{x(x+1)}-x\bigr)=0,
+\]
+所以 $\theta(x)\to1/4$；而
+\[
+  \sqrt{x(x+1)}-x
+  =\frac1{\sqrt{1+1/x}+1}\to\frac12
+  \qquad(x\to+\infty),
+\]
+故 $\theta(x)\to1/2$。
+\end{xsolution}
+
+\paragraph{练习题 10}
+% SOLVED-ITEM
+\begin{xsolution}
+设 $f'$ 在区间 $I$ 上单调。单调函数若在某点不连续，只可能发生跳跃型间断，即左右极限之间存在一个非空开区间，其中的值在该点附近不能取得。但 $f'$ 是导函数，具有 Darboux 介值性质：任意两点处的导数值之间的每个中间值都必须在两点之间被取得。两者矛盾。
+
+更具体地，若 $f'$ 单调递增而在 $c$ 不连续，则
+\[
+  f'(c-)<f'(c+).
+\]
+取 $y$ 严格位于二者之间，并且取 $y\neq f'(c)$。对充分靠近 $c$ 的 $u<c<v$，有 $f'(u)<y<f'(v)$，Darboux 定理要求存在 $w\in(u,v)$ 使 $f'(w)=y$；但由单调性，若 $w<c$ 则 $f'(w)\leqslant f'(c-)<y$，若 $w>c$ 则 $f'(w)\geqslant f'(c+)>y$，而 $w=c$ 又因 $y\neq f'(c)$ 不可能，矛盾。单调递减同理。因此 $f'$ 必连续。
+\end{xsolution}
+
+\paragraph{练习题 11}
+% SOLVED-ITEM
+\begin{xsolution}
+若 $f(a)$ 是最大值，则对 $a<x\leqslant b$ 有
+\[
+  \frac{f(x)-f(a)}{x-a}\leqslant0.
+\]
+令 $x\to a+$，得到 $f'_+(a)\leqslant0$。
+
+若 $f(b)$ 是最大值，则对 $a\leqslant x<b$ 有 $f(x)-f(b)\leqslant0$ 且 $x-b<0$，故
+\[
+  \frac{f(x)-f(b)}{x-b}\geqslant0.
+\]
+令 $x\to b-$，得到 $f'_-(b)\geqslant0$。
+\end{xsolution}
+
+\paragraph{练习题 12}
+% SOLVED-ITEM
+\begin{xsolution}
+先由 $\arcsin x$ 的定义可知必须有 $\abs{x}\leqslant1$。令
+\[
+  y=\arcsin x\in\left[-\frac\pi2,\frac\pi2\right].
+\]
+则 $x=\sin y$，且 $\sqrt{1-x^2}=\cos y\geqslant0$，于是
+\[
+  2x\sqrt{1-x^2}=2\sin y\cos y=\sin2y.
+\]
+所求等式等价于
+\[
+  2y=\arcsin(\sin2y).
+\]
+由于 $\arcsin$ 的值域为 $[-\pi/2,\pi/2]$，上式成立当且仅当
+\[
+  -\frac\pi2\leqslant2y\leqslant\frac\pi2,
+\]
+即 $\abs{y}\leqslant\pi/4$。这又等价于
+\[
+  \abs{x}=\abs{\sin y}\leqslant\sin\frac\pi4=\frac1{\sqrt2}.
+\]
+故结论成立。
+\end{xsolution}
+
+\paragraph{练习题 13}
+% SOLVED-ITEM
+\begin{xsolution}
+由 $f''(x)\equiv0$，函数 $f'$ 在区间 $I$ 上导数恒为零，因此 $f'$ 为常值函数，记为 $A$。于是 $(f(x)-Ax)'=0$，故 $f(x)-Ax$ 也是常数。存在常数 $B$ 使
+\[
+  f(x)=Ax+B.
+\]
+因此 $f$ 是线性函数（包括常值函数这一退化情形）。
+\end{xsolution}
+
+\paragraph{练习题 14}
+% SOLVED-ITEM
+\begin{xsolution}
+反证。若 $f'$ 在 $(a,b)$ 有界，设 $\abs{f'(x)}\leqslant M$。固定 $c\in(a,b)$。对任意 $x\in(a,b)$，在 $x,c$ 之间应用 Lagrange 中值定理，存在 $\xi$ 使
+\[
+  \abs{f(x)-f(c)}=\abs{f'(\xi)}\abs{x-c}
+  \leqslant M\abs{x-c}.
+\]
+因为 $(a,b)$ 有界，$\abs{x-c}\leqslant b-a$，从而
+\[
+  \abs{f(x)}\leqslant\abs{f(c)}+M(b-a),
+\]
+即 $f$ 有界，与题设矛盾。因此 $f'$ 必无界。
+\end{xsolution}
+
+\paragraph{练习题 15}
+% SOLVED-ITEM
+\begin{xsolution}
+反证。若 $f'$ 在 $0$ 的某个右邻域有下界，则存在 $M>0$ 与 $\delta\in(0,a)$，使
+\[
+  f'(x)\geqslant-M,
+  \qquad0<x<\delta.
+\]
+任取 $0<x<\delta$，在 $[x,\delta]$ 上应用 Lagrange 中值定理，存在 $\xi\in(x,\delta)$ 使
+\[
+  f(\delta)-f(x)=f'(\xi)(\delta-x)\geqslant-M(\delta-x).
+\]
+因此
+\[
+  f(x)\leqslant f(\delta)+M\delta,
+\]
+这说明 $f(x)$ 在 $x\to0+$ 时有统一上界，与 $f(0+)=+\infty$ 矛盾。故 $f'$ 在 $0$ 的右侧无下界。
+\end{xsolution}
+
+\paragraph{练习题 16}
+% SOLVED-ITEM
+\begin{xsolution}
+若不存在 $\xi\in(a,b)$ 使 $f'(\xi)>0$，则对所有 $x\in(a,b)$ 都有 $f'(x)\leqslant0$。于是对任意 $a\leqslant x_1<x_2\leqslant b$，由 Lagrange 中值定理，
+\[
+  f(x_2)-f(x_1)=f'(\eta)(x_2-x_1)\leqslant0,
+\]
+故 $f$ 在 $[a,b]$ 上单调不增。又 $f(a)=f(b)$，于是对任意 $x\in[a,b]$，
+\[
+  f(a)\geqslant f(x)\geqslant f(b)=f(a),
+\]
+所以 $f$ 为常值函数，矛盾。故必存在 $\xi$ 使 $f'(\xi)>0$。
+\end{xsolution}
+
+\paragraph{练习题 17}
+% SOLVED-ITEM
+\begin{xsolution}
+设连接 $A,B$ 的直线为
+\[
+  \ell(x)=f(0)+[f(1)-f(0)]x,
+\]
+并令 $g(x)=f(x)-\ell(x)$。由 $A,C,B$ 都在直线与曲线的交点上，
+\[
+  g(0)=g(c)=g(1)=0.
+\]
+在 $[0,c]$、$[c,1]$ 上分别用 Rolle 定理，存在
+\[
+  \eta_1\in(0,c),\qquad \eta_2\in(c,1)
+\]
+使 $g'(\eta_1)=g'(\eta_2)=0$。再在 $[\eta_1,\eta_2]$ 上对 $g'$ 用 Rolle 定理，存在 $\xi\in(0,1)$ 使
+\[
+  g''(\xi)=0.
+\]
+而 $\ell''=0$，故 $g''=f''$，从而 $f''(\xi)=0$。
+\end{xsolution}
+
+\paragraph{练习题 18}
+% SOLVED-ITEM
+\begin{xsolution}
+由于 $f'$ 在 $(a,b)$ 无零点，由 Darboux 定理知 $f'$ 保持同号，故 $f(b)\neq f(a)$。
+
+先对 $f$ 用 Lagrange 中值定理，存在 $\xi\in(a,b)$ 使
+\[
+  f(b)-f(a)=f'(\xi)(b-a).
+\]
+再对 $f$ 与 $g(x)=\ee^x$ 用 Cauchy 中值定理，存在 $\eta\in(a,b)$ 使
+\[
+  \frac{f(b)-f(a)}{\ee^b-\ee^a}
+  =\frac{f'(\eta)}{\ee^\eta}.
+\]
+比较两式，得到
+\[
+  f'(\xi)(b-a)
+  =(\ee^b-\ee^a)f'(\eta)\ee^{-\eta}.
+\]
+因 $f'(\eta)\neq0$，可除得
+\[
+  \frac{f'(\xi)}{f'(\eta)}
+  =\frac{\ee^b-\ee^a}{b-a}\ee^{-\eta}.
+\]
+\end{xsolution}
+
+\paragraph{练习题 19(1)}
+% SOLVED-ITEM
+\begin{xsolution}
+令 $h(x)=f(x)-x$。则
+\[
+  h\left(\frac12\right)=\frac12>0,
+  \qquad
+  h(1)=-1<0.
+\]
+由连续函数零点定理，存在 $\eta\in(1/2,1)$ 使 $h(\eta)=0$，即 $f(\eta)=\eta$。
+\end{xsolution}
+
+\paragraph{练习题 19(2)}
+% SOLVED-ITEM
+\begin{xsolution}
+固定任意 $\lambda\in\RR$，仍令 $h(x)=f(x)-x$。由 $f(0)=0$ 及第 (1) 问，
+\[
+  h(0)=h(\eta)=0.
+\]
+构造
+\[
+  H(x)=\ee^{-\lambda x}h(x),\qquad0\leqslant x\leqslant\eta.
+\]
+有 $H(0)=H(\eta)=0$，故存在 $\xi\in(0,\eta)$ 使 $H'(\xi)=0$。而
+\[
+  H'(x)=\ee^{-\lambda x}[h'(x)-\lambda h(x)]
+  =\ee^{-\lambda x}[f'(x)-1-\lambda(f(x)-x)].
+\]
+因此
+\[
+  f'(\xi)-\lambda(f(\xi)-\xi)=1.
+\]
+\end{xsolution}
+
+\paragraph{练习题 20}
+% SOLVED-ITEM
+\begin{xsolution}
+若 $f'(x)\equiv A$，则
+\[
+  [f(x)-Ax]'=0,
+\]
+所以存在常数 $B$ 使 $f(x)=Ax+B$，即 $f$ 为线性函数。
+
+反之，若 $f(x)=Ax+B$，则 $f'(x)=A$ 在 $I$ 上为常值函数。故两条件互为充分必要条件。
+\end{xsolution}
+
+\subsection*{§7.2.4 练习题}
+
+\paragraph{练习题 1}
+% SOLVED-ITEM
+\begin{xsolution}
+利用本章中
+\[
+  x\cot x
+  =1-\sum_{k=1}^N\frac{\overline B_k2^{2k}}{(2k)!}x^{2k}
+  +\littleo(x^{2N})
+  \qquad(x\to0)
+\]
+以及恒等式
+\[
+  \csc x=\cot\frac x2-\cot x,
+\]
+得到
+\[
+  x\csc x
+  =1+\sum_{k=1}^N
+  \frac{(2^{2k}-2)\overline B_k}{(2k)!}x^{2k}
+  +\littleo(x^{2N}).
+\]
+前几项为
+\[
+  x\csc x
+  =1+\frac{x^2}{6}+\frac{7x^4}{360}
+  +\frac{31x^6}{15120}+\frac{127x^8}{604800}
+  +\littleo(x^8).
+\]
+
+又由 $\frac{\dd}{\dd x}\ln\cos x=-\tan x$，并使用本章的 $\tan x$ 展开式逐项确定系数，可得
+\[
+  \ln\cos x
+  =-\sum_{k=1}^N
+  \frac{\overline B_k(2^{2k}-1)2^{2k}}
+       {2k(2k)!}x^{2k}
+  +\littleo(x^{2N}),
+\]
+即
+\[
+  \ln\cos x
+  =-\frac{x^2}{2}-\frac{x^4}{12}-\frac{x^6}{45}
+  -\frac{17x^8}{2520}+\littleo(x^8).
+\]
+
+最后，由
+\[
+  \frac{\dd}{\dd x}\ln\frac{\sin x}{x}
+  =\cot x-\frac1x
+\]
+和 $x\cot x$ 的展开式，得到
+\[
+  \ln\frac{\sin x}{x}
+  =-\sum_{k=1}^N
+  \frac{\overline B_k2^{2k}}{2k(2k)!}x^{2k}
+  +\littleo(x^{2N}),
+\]
+前几项为
+\[
+  \ln\frac{\sin x}{x}
+  =-\frac{x^2}{6}-\frac{x^4}{180}-\frac{x^6}{2835}
+  -\frac{x^8}{37800}+\littleo(x^8).
+\]
+这里各式均在 $x\to0$ 的意义下成立。
+\end{xsolution}
+
+\paragraph{练习题 2}
+% SOLVED-ITEM
+\begin{xsolution}
+若目的是用这两个计算来\emph{首次证明}基本极限，则不能这样做，因为会产生循环论证。
+
+建立 $\sin x$、$\cos x$ 的 Taylor 公式，需要先知道它们在 $0$ 附近的各阶导数；而初等微分学中证明
+\[
+  (\sin x)'=\cos x,
+  \qquad
+  (\cos x)'=-\sin x
+\]
+本身就使用了
+\[
+  \lim_{x\to0}\frac{\sin x}{x}=1,
+  \qquad
+  \lim_{x\to0}\frac{1-\cos x}{x}=0
+\]
+等基本极限。因此若用已经依赖这些极限的 Taylor 展开反过来证明它们，逻辑上是循环的。
+
+当然，如果在另一套独立理论中已经不依赖上述极限建立了 $\sin$、$\cos$ 的可微性及 Taylor 公式，那么这些展开式可以用来重新计算这些极限；问题只在于不能把它当作本课程逻辑链条中的第一次证明。
+\end{xsolution}
+
+\paragraph{练习题 3}
+% SOLVED-ITEM
+\begin{xsolution}
+令 $f(x)=(x+a)^n$。对 $0\leqslant k\leqslant n$，
+\[
+  f^{(k)}(x)=\frac{n!}{(n-k)!}(x+a)^{n-k},
+\]
+故
+\[
+  \frac{f^{(k)}(0)}{k!}
+  =\binom nk a^{n-k}.
+\]
+由于 $f$ 本身就是 $n$ 次多项式，它在 $x_0=0$ 的 $n$ 阶 Taylor 多项式与 $f$ 完全相同，因此
+\[
+  (x+a)^n
+  =\sum_{k=0}^n\binom nk a^{n-k}x^k.
+\]
+这正是二项式展开定理。
+\end{xsolution}
+
+\paragraph{练习题 4}
+% SOLVED-ITEM
+\begin{xsolution}
+不能直接把给定式中的 $\littleo$ 余项逐项求导；正确做法是利用 Taylor 系数的唯一性。
+
+由题设展开式和命题 7.2.1，
+\[
+  a_k=\frac{f^{(k)}(x_0)}{k!},
+  \qquad k=0,1,\ldots,n.
+\]
+函数 $f'$ 在 $x_0$ 存在到 $n-1$ 阶导数，且
+\[
+  (f')^{(k)}(x_0)=f^{(k+1)}(x_0).
+\]
+对 $f'$ 使用带 Peano 余项的 Taylor 公式，得到
+\[
+  \begin{aligned}
+  f'(x)
+  &=\sum_{k=0}^{n-1}\frac{f^{(k+1)}(x_0)}{k!}(x-x_0)^k
+    +\littleo((x-x_0)^{n-1})\\
+  &=\sum_{k=0}^{n-1}(k+1)a_{k+1}(x-x_0)^k
+    +\littleo((x-x_0)^{n-1}).
+  \end{aligned}
+\]
+\end{xsolution}
+
+\paragraph{练习题 5}
+% SOLVED-ITEM
+\begin{xsolution}
+在 $x$ 充分接近 $0$ 时按实数立方根理解。写成
+\[
+  f(x)=x\left(\frac{\sin x^3}{x^3}\right)^{1/3}.
+\]
+令 $z=x^3$。由
+\[
+  \frac{\sin z}{z}=1-\frac{z^2}{6}+\frac{z^4}{120}+\littleo(z^4)
+\]
+和
+\[
+  (1+u)^{1/3}=1+\frac13u-\frac19u^2+\littleo(u^2),
+\]
+得到
+\[
+  \left(\frac{\sin z}{z}\right)^{1/3}
+  =1-\frac{z^2}{18}-\frac{z^4}{3240}+\littleo(z^4).
+\]
+所以
+\[
+  f(x)=x-\frac{x^7}{18}-\frac{x^{13}}{3240}+\littleo(x^{13}).
+\]
+由 Taylor 系数唯一性，直到 $13$ 阶的导数值为
+\[
+  f'(0)=1,
+  \qquad
+  f^{(7)}(0)=-\frac{7!}{18}=-280,
+  \qquad
+  f^{(13)}(0)=-\frac{13!}{3240}=-1921920,
+\]
+而
+\[
+  f^{(k)}(0)=0
+\]
+对 $k=2,3,4,5,6,8,9,10,11,12$ 均成立；此外 $f(0)=0$。
+\end{xsolution}
+
+\paragraph{练习题 6}
+% SOLVED-ITEM
+\begin{xsolution}
+由
+\[
+  (\arcsin x)'=(1-x^2)^{-1/2}
+  =\sum_{k=0}^N\frac{(2k)!}{4^k(k!)^2}x^{2k}
+   +\littleo(x^{2N})
+\]
+和 $\arcsin0=0$，逐项确定 Taylor 系数，得到对任意 $N\geqslant0$，
+\[
+  \boxed{
+  \arcsin x
+  =\sum_{k=0}^N
+    \frac{(2k)!}{4^k(k!)^2(2k+1)}x^{2k+1}
+   +\littleo(x^{2N+1})
+  }
+  \qquad(x\to0).
+\]
+即
+\[
+  \arcsin x
+  =x+\frac{x^3}{6}+\frac{3x^5}{40}
+   +\frac{5x^7}{112}+\frac{35x^9}{1152}+\cdots.
+\]
+\end{xsolution}
+
+\paragraph{练习题 7}
+% SOLVED-ITEM
+\begin{xsolution}
+直接使用两个已知的 Peano 展开式，而不对余项求导。由练习题 6，
+\[
+  \arcsin x
+  =\sum_{k=0}^{N-1}
+    \frac{\binom{2k}{k}}{4^k(2k+1)}x^{2k+1}
+   +\littleo(x^{2N-1}),
+\]
+又由二项式展开式
+\[
+  \frac1{\sqrt{1-x^2}}
+  =\sum_{j=0}^{N-1}\frac{\binom{2j}{j}}{4^j}x^{2j}
+   +\littleo(x^{2N-2}).
+\]
+将两式作有限阶 Cauchy 乘积，$x^{2n-1}$ 的系数为
+\[
+  \sum_{k=0}^{n-1}
+  \frac{\binom{2k}{k}\binom{2n-2-2k}{n-1-k}}
+       {4^{n-1}(2k+1)}
+  =\frac{2^{2n-1}}{n\binom{2n}{n}}.
+\]
+最后一个有限组合恒等式可用 Vandermonde 卷积验证；例如把
+\[
+  \frac{\binom{2k}{k}}{2k+1}
+  =\frac{2^{2k}}{2k+1}\frac{(1/2)_k}{k!}
+\]
+代入后比较二项式级数
+$(1-z)^{-1/2}$ 与其一个原函数的系数即可。于是
+\[
+  \boxed{
+  \frac{\arcsin x}{\sqrt{1-x^2}}
+  =\sum_{n=1}^N
+    \frac{2^{2n-1}}{n\binom{2n}{n}}x^{2n-1}
+  +\littleo(x^{2N-1})
+  }
+  \qquad(x\to0).
+\]
+前几项为
+\[
+  \frac{\arcsin x}{\sqrt{1-x^2}}
+  =x+\frac23x^3+\frac{8}{15}x^5
+   +\frac{16}{35}x^7+\frac{128}{315}x^9+\cdots.
+\]
+\end{xsolution}
+
+\paragraph{练习题 8(1)}
+% SOLVED-ITEM
+\begin{xsolution}
+对 $\ee^x$ 在 $0$ 作 $n$ 阶 Taylor 展开，Lagrange 余项为
+\[
+  R_n(x)=\frac{\ee^\xi}{(n+1)!}x^{n+1},
+  \qquad0<\xi<x\leqslant1.
+\]
+故
+\[
+  \abs{R_n(x)}
+  \leqslant\frac{\ee}{(n+1)!}x^{n+1}
+  \leqslant\frac{\ee}{(n+1)!}.
+\]
+所以在 $[0,1]$ 上的统一绝对误差不超过 $\ee/(n+1)!$。
+\end{xsolution}
+
+\paragraph{练习题 8(2)}
+% SOLVED-ITEM
+\begin{xsolution}
+由于 $\sin x$ 的四次 Taylor 多项式仍为 $x-x^3/6$，使用四阶展开可把余项写成
+\[
+  R(x)=\frac{\cos\xi}{5!}x^5,
+  \qquad \xi\text{ 在 }0\text{ 与 }x\text{ 之间}.
+\]
+因此当 $\abs{x}\leqslant1/2$ 时
+\[
+  \abs{R(x)}\leqslant\frac{\abs{x}^5}{120}
+  \leqslant\frac1{3840}.
+\]
+\end{xsolution}
+
+\paragraph{练习题 8(3)}
+% SOLVED-ITEM
+\begin{xsolution}
+$\tan x$ 的四次 Taylor 多项式仍为 $x+x^3/3$。计算
+\[
+  (\tan x)^{(5)}
+  =16+136\tan^2x+240\tan^4x+120\tan^6x.
+\]
+在 $\abs{x}\leqslant1/10$ 上，$\abs{\tan x}\leqslant\tan(1/10)$，故由 Lagrange 余项
+\[
+  \abs{R(x)}
+  \leqslant
+  \frac{16+136T^2+240T^4+120T^6}{5!}\abs{x}^5,
+  \qquad T=\tan\frac1{10}.
+\]
+特别地，统一误差满足
+\[
+  \abs{R(x)}
+  \leqslant
+  \frac{16+136T^2+240T^4+120T^6}{120\cdot10^5}
+  <1.5\times10^{-6}.
+\]
+\end{xsolution}
+
+\paragraph{练习题 8(4)}
+% SOLVED-ITEM
+\begin{xsolution}
+令 $f(x)=\sqrt{1+x}$。有
+\[
+  f'''(x)=\frac{3}{8}(1+x)^{-5/2}.
+\]
+在 $0\leqslant x\leqslant1$ 上，$0<f'''(x)\leqslant3/8$。二阶 Taylor 公式给出
+\[
+  \sqrt{1+x}=1+\frac x2-\frac{x^2}{8}
+  +\frac{f'''(\xi)}{3!}x^3,
+\]
+故
+\[
+  \abs{R(x)}\leqslant\frac{1}{16}x^3\leqslant\frac1{16}.
+\]
+\end{xsolution}
+
+\paragraph{练习题 9}
+% SOLVED-ITEM
+\begin{xsolution}
+不能。典型反例是
+\[
+  f(x)=
+  \begin{cases}
+    \ee^{-1/x^2},&x\neq0,\\
+    0,&x=0.
+  \end{cases}
+\]
+可归纳证明，对每个 $n\geqslant0$，当 $x\neq0$ 时 $f^{(n)}(x)$ 都是 $\ee^{-1/x^2}$ 乘以 $1/x$ 的某个多项式，而指数衰减快于任何幂次，因此
+\[
+  f^{(n)}(0)=0\qquad\forall n.
+\]
+所以 $f$ 在 $0$ 的任意阶 Taylor 多项式都恒等于零；但 $x\neq0$ 时 $f(x)>0$。故不能由所有 Taylor 多项式为零推出函数恒为零。
+\end{xsolution}
+
+\paragraph{练习题 10}
+% SOLVED-ITEM
+% CHECK-SOLUTION: 按原题条件结论为假。题中只给 f^{(n)}(0)=0 (n\in\NN_+)，未给 f(0)=0；常值函数 f\equiv1 即为反例。
+\begin{xsolution}
+按原题文字，结论不能推出。常值函数
+\[
+  f(x)\equiv1
+\]
+在 $[-1,1]$ 上有任意阶导数，满足
+\[
+  f^{(n)}(0)=0\quad(n\in\NN_+),
+  \qquad
+  \abs{f^{(n)}(x)}=0\leqslant n!C^n,
+\]
+但显然 $f\not\equiv0$。
+
+因此按原文只能给出上述反例；若原题另有遗漏条件（例如还要求 $f(0)=0$），则需要在补全题意后另行证明，不能把缺失条件自行加入原题。
+\end{xsolution}
+
+\paragraph{练习题 11}
+% SOLVED-ITEM
+\begin{xsolution}
+记中点 $c=(a+b)/2$，并令 $D=f(b)-f(a)$。由三角不等式，
+\[
+  \abs{D}
+  \leqslant\abs{f(c)-f(a)}+\abs{f(b)-f(c)},
+\]
+故两项中至少有一项不小于 $\abs D/2$。
+
+若
+\[
+  \abs{f(c)-f(a)}\geqslant\frac{\abs D}{2},
+\]
+则在 $a$ 处用一阶 Taylor 公式，因 $f'(a)=0$，存在 $\xi\in(a,c)$ 使
+\[
+  f(c)-f(a)=\frac12f''(\xi)(c-a)^2
+  =\frac{(b-a)^2}{8}f''(\xi).
+\]
+于是
+\[
+  \abs{f''(\xi)}
+  \geqslant\frac{4\abs D}{(b-a)^2}.
+\]
+若较大的是 $\abs{f(b)-f(c)}$，则在 $b$ 处向左作同样的 Taylor 展开，并用 $f'(b)=0$，得到相同结论。
+\end{xsolution}
+
+\paragraph{练习题 12(1)}
+% SOLVED-ITEM
+\begin{xsolution}
+不一定。取 $f(x)=x^3$，区间取 $(-1,1)$，并令 $\xi=0$。此时 $f'(0)=0$。但对任意两个不同点 $x_1,x_2$，
+\[
+  \frac{f(x_2)-f(x_1)}{x_2-x_1}
+  =x_1^2+x_1x_2+x_2^2.
+\]
+而
+\[
+  x_1^2+x_1x_2+x_2^2
+  =\left(x_1+\frac{x_2}{2}\right)^2+\frac34x_2^2>0
+\]
+除非 $x_1=x_2=0$。因此不存在两个不同点使该割线斜率等于 $f'(0)=0$。
+\end{xsolution}
+
+\paragraph{练习题 12(2)}
+% SOLVED-ITEM
+\begin{xsolution}
+令
+\[
+  g(x)=f(x)-f'(\xi)x.
+\]
+则 $g'(\xi)=0$，且 $g''(\xi)=f''(\xi)>0$。由二阶导数定义，存在足够小的 $\delta>0$，使
+\[
+  g'(x)<0\quad(\xi-\delta<x<\xi),
+  \qquad
+  g'(x)>0\quad(\xi<x<\xi+\delta).
+\]
+所以 $g$ 在 $\xi$ 左侧严格下降、右侧严格上升，$\xi$ 是该小邻域中的严格最小值点。
+
+取一个数
+\[
+  y\in\bigl(g(\xi),\min\{g(\xi-\delta),g(\xi+\delta)\}\bigr).
+\]
+由连续性，分别存在
+\[
+  x_1\in(\xi-\delta,\xi),
+  \qquad
+  x_2\in(\xi,\xi+\delta)
+\]
+使 $g(x_1)=g(x_2)=y$。于是
+\[
+  f(x_2)-f(x_1)=f'(\xi)(x_2-x_1),
+\]
+即
+\[
+  \frac{f(x_2)-f(x_1)}{x_2-x_1}=f'(\xi).
+\]
+\end{xsolution}
+
+\paragraph{练习题 13}
+% SOLVED-ITEM
+\begin{xsolution}
+因 $f''\leqslant0$，由 Lagrange 中值定理可知 $f'$ 单调不增。若存在 $x_0\geqslant a$ 使 $f'(x_0)<0$，则对所有 $x>x_0$ 都有
+\[
+  f'(x)\leqslant f'(x_0)<0.
+\]
+对 $[x_0,x]$ 使用 Lagrange 中值定理，存在 $\xi\in(x_0,x)$ 使
+\[
+  f(x)-f(x_0)=f'(\xi)(x-x_0)
+  \leqslant f'(x_0)(x-x_0).
+\]
+右端随 $x\to+\infty$ 趋于 $-\infty$，从而 $f(x)$ 最终为负，与 $f(x)\geqslant0$ 矛盾。因此对所有 $x\geqslant a$ 都有 $f'(x)\geqslant0$。
+\end{xsolution}
+
+\paragraph{练习题 14}
+% SOLVED-ITEM
+\begin{xsolution}
+令 $A=f^{(n)}(0)$，$B=f^{(n+1)}(0)\neq0$。在 $x=0$ 处作 Taylor 展开，题中等式左边减去前 $n-1$ 项后为
+\[
+  \frac{A}{n!}x^n+\frac{B}{(n+1)!}x^{n+1}
+  +\littleo(x^{n+1}).
+\]
+另一方面，
+\[
+  f^{(n)}(\theta x)=A+B\theta x+\littleo(x),
+\]
+因为 $0<\theta<1$ 保证 $\theta x\to0$。故题中余项为
+\[
+  \frac{A}{n!}x^n+\frac{B\theta}{n!}x^{n+1}
+  +\littleo(x^{n+1}).
+\]
+比较 $x^{n+1}$ 阶项，得到
+\[
+  \frac{B}{(n+1)!}+\littleo(1)
+  =\frac{B\theta}{n!}+\littleo(1).
+\]
+由于 $B\neq0$，令 $x\to0$ 即得
+\[
+  \lim_{x\to0}\theta=\frac1{n+1}.
+\]
+\end{xsolution}
+
+\paragraph{练习题 15}
+% SOLVED-ITEM
+\begin{xsolution}
+令 $F(t)=\arcsin t$。对 $x\neq0$，在 $0$ 与 $x$ 之间应用 Lagrange 中值定理，存在 $\theta\in(0,1)$ 使
+\[
+  \arcsin x-\arcsin0
+  =F'(\theta x)x
+  =\frac{x}{\sqrt{1-(\theta x)^2}}.
+\]
+$x=0$ 时等式显然成立。
+
+为求 $\theta$ 的极限，比较两边的三阶展开：
+\[
+  \arcsin x=x+\frac{x^3}{6}+\littleo(x^3),
+\]
+而
+\[
+  \frac{x}{\sqrt{1-(\theta x)^2}}
+  =x+\frac12\theta^2x^3+\littleo(x^3).
+\]
+故
+\[
+  \frac12\theta^2\to\frac16.
+\]
+因 $\theta>0$，
+\[
+  \lim_{x\to0}\theta=\frac1{\sqrt3}.
+\]
+\end{xsolution}
+
+\paragraph{练习题 16}
+% SOLVED-ITEM
+\begin{xsolution}
+题中极限公式有意义时应有 $n\geqslant2$。对 $0<\abs h<\delta$，在 $x_0$ 与 $x_0+h$ 之间应用 Lagrange 中值定理，存在 $0<\theta<1$ 使
+\[
+  f(x_0+h)-f(x_0)=hf'(x_0+\theta h).
+\]
+
+由
+\[
+  f''(x_0)=\cdots=f^{(n-1)}(x_0)=0,
+  \qquad f^{(n)}(x_0)\neq0,
+\]
+在 $x_0$ 处作 Taylor 展开：
+\[
+  f(x_0+h)-f(x_0)-hf'(x_0)
+  =\frac{f^{(n)}(x_0)}{n!}h^n+\littleo(h^n).
+\]
+同时对 $f'$ 展开，
+\[
+  f'(x_0+\theta h)-f'(x_0)
+  =\frac{f^{(n)}(x_0)}{(n-1)!}(\theta h)^{n-1}
+   +\littleo(h^{n-1}).
+\]
+将中值公式减去 $hf'(x_0)$ 后比较，约去 $h^n$ 与非零的 $f^{(n)}(x_0)$，得到
+\[
+  \frac1{n!}+\littleo(1)
+  =\frac{\theta^{n-1}}{(n-1)!}+\littleo(1).
+\]
+因此
+\[
+  \theta^{n-1}\to\frac1n,
+\]
+且 $\theta>0$，所以
+\[
+  \boxed{\displaystyle
+  \lim_{h\to0}\theta=\frac1{n^{1/(n-1)}}}.
+\]
+\end{xsolution}
+
+\subsection*{§7.3.2 第一组参考题}
+
+\paragraph{第一组参考题 1}
+% SOLVED-ITEM
+\begin{xsolution}
+构造
+\[
+  F(x)=\sum_{k=1}^n\frac{a_k}{2k-1}\sin(2k-1)x.
+\]
+则 $F(0)=0$，而
+\[
+  F\left(\frac\pi2\right)
+  =a_1-\frac13a_2+\cdots+(-1)^{n-1}\frac{a_n}{2n-1}=0.
+\]
+由 Rolle 定理，存在 $\xi\in(0,\pi/2)$ 使 $F'(\xi)=0$。又
+\[
+  F'(x)=a_1\cos x+a_2\cos3x+\cdots+a_n\cos(2n-1)x,
+\]
+故所给方程在 $(0,\pi/2)$ 至少有一个根。
+\end{xsolution}
+
+\paragraph{第一组参考题 2}
+% SOLVED-ITEM
+\begin{xsolution}
+设方程的五个复根按重数计为 $r_1,\ldots,r_5$。因为常数项 $c\neq0$，所有 $r_i\neq0$。若五个根全为实数，令 $y_i=1/r_i$。
+
+由 Vieta 公式，原多项式中 $x^2$、$x$ 的系数都为零，所以根的基本对称式满足
+\[
+  e_3(r_1,\ldots,r_5)=0,
+  \qquad
+  e_4(r_1,\ldots,r_5)=0.
+\]
+又 $e_5=r_1\cdots r_5\neq0$，于是
+\[
+  \sum_{i=1}^5y_i=\frac{e_4}{e_5}=0,
+  \qquad
+  \sum_{1\leqslant i<j\leqslant5}y_iy_j=\frac{e_3}{e_5}=0.
+\]
+因此
+\[
+  0=\left(\sum_{i=1}^5y_i\right)^2
+  =\sum_{i=1}^5y_i^2+2\sum_{i<j}y_iy_j
+  =\sum_{i=1}^5y_i^2.
+\]
+若 $y_i$ 都为实数，这迫使 $y_i=0$，矛盾。故不可能五根全为实数。因系数均为实数，非实根成共轭对出现，所以至少有两个根不是实根。
+\end{xsolution}
+
+\paragraph{第一组参考题 3}
+% SOLVED-ITEM
+\begin{xsolution}
+令 $t=x/a$。因 $a\neq0$，原方程等价于
+\[
+  t^{2n}+1=(t+1)^{2n}.
+\]
+设
+\[
+  \phi(t)=(t+1)^{2n}-t^{2n}.
+\]
+则
+\[
+  \phi'(t)=2n\bigl[(t+1)^{2n-1}-t^{2n-1}\bigr]>0
+\]
+对所有实数 $t$ 成立，因为奇次幂函数严格递增。因此 $\phi$ 严格递增，而 $\phi(0)=1$。方程 $\phi(t)=1$ 只有唯一解 $t=0$，即 $x=0$。
+\end{xsolution}
+
+\paragraph{第一组参考题 4}
+% SOLVED-ITEM
+\begin{xsolution}
+记 $m=(a+b)/2$。由
+\[
+  f(a)f(m)<0
+\]
+和连续性，在 $(a,m)$ 中存在零点 $u$。又由 $f(a)f(b)>0$ 可知 $f(b)$ 与 $f(a)$ 同号，因而 $f(m)f(b)<0$，所以在 $(m,b)$ 中存在零点 $v$。于是
+\[
+  a<u<m<v<b,
+  \qquad f(u)=f(v)=0.
+\]
+
+任取 $k\in\RR$，令
+\[
+  F(x)=\ee^{-kx}f(x).
+\]
+则 $F(u)=F(v)=0$。Rolle 定理给出 $\xi\in(u,v)\subset(a,b)$，使
+\[
+  0=F'(\xi)=\ee^{-k\xi}[f'(\xi)-kf(\xi)].
+\]
+因指数因子非零，故 $f'(\xi)-kf(\xi)=0$。
+\end{xsolution}
+
+\paragraph{第一组参考题 5}
+% SOLVED-ITEM
+\begin{xsolution}
+只需保留非零系数项。对项数 $m$ 作归纳。$m=1$ 时函数为非零指数函数，无零点，结论成立。
+
+设结论对 $m-1$ 项成立。对
+\[
+  f(x)=\sum_{j=1}^m c_j\ee^{\lambda_jx}
+\]
+按 $\lambda_1<\cdots<\lambda_m$ 排序，并设 $c_j\neq0$。若 $f$ 有至少 $m$ 个不同零点，则
+\[
+  F(x)=\ee^{-\lambda_1x}f(x)
+  =c_1+\sum_{j=2}^m c_j\ee^{(\lambda_j-\lambda_1)x}
+\]
+也有至少 $m$ 个不同零点。连续应用 Rolle 定理一次，$F'$ 至少有 $m-1$ 个不同零点。但是
+\[
+  F'(x)=\sum_{j=2}^m c_j(\lambda_j-\lambda_1)
+  \ee^{(\lambda_j-\lambda_1)x}
+\]
+是一个含 $m-1$ 个非零项、指数互异的指数多项式。按归纳假设，它的零点数应小于 $m-1$，矛盾。因此 $f$ 的不同零点数小于 $m\leqslant n$。
+\end{xsolution}
+
+\paragraph{第一组参考题 6(1)}
+% SOLVED-ITEM
+\begin{xsolution}
+在 $(0,1)$ 上 $f$ 不为零。定义
+\[
+  H(x)=f(x)^2f(1-x),\qquad0\leqslant x\leqslant1.
+\]
+由 $f(0)=0$，有 $H(0)=H(1)=0$。Rolle 定理给出 $\xi\in(0,1)$ 使 $H'(\xi)=0$。而
+\[
+  H'(x)=f(x)^2f(1-x)
+  \left[2\frac{f'(x)}{f(x)}-
+  \frac{f'(1-x)}{f(1-x)}\right].
+\]
+在 $x\in(0,1)$ 时前面的乘积不为零，所以
+\[
+  2\frac{f'(\xi)}{f(\xi)}
+  =\frac{f'(1-\xi)}{f(1-\xi)}.
+\]
+\end{xsolution}
+
+\paragraph{第一组参考题 6(2)}
+% SOLVED-ITEM
+\begin{xsolution}
+由连续性和 $f(x)\neq0$，$f$ 在 $(0,1)$ 内保持固定符号，所以 $\abs{f}$ 在该区间可微。固定 $\alpha\neq0$，设 $p=\abs\alpha>0$，定义
+\[
+  H(x)=\abs{f(x)}^p\abs{f(1-x)},\qquad0<x<1.
+\]
+有 $H(x)>0$，且由 $f(0)=0$ 可知
+\[
+  H(x)\to0\quad(x\to0+),
+  \qquad
+  H(x)\to0\quad(x\to1-).
+\]
+因此 $H$ 在 $(0,1)$ 某内点 $\xi$ 取得正最大值，于是 $H'(\xi)=0$。对数求导得到
+\[
+  p\frac{f'(\xi)}{f(\xi)}
+  -\frac{f'(1-\xi)}{f(1-\xi)}=0.
+\]
+即
+\[
+  \abs\alpha\frac{f'(\xi)}{f(\xi)}
+  =\frac{f'(1-\xi)}{f(1-\xi)}.
+\]
+\end{xsolution}
+
+\paragraph{第一组参考题 7}
+% SOLVED-ITEM
+\begin{xsolution}
+记割线斜率
+\[
+  m=\frac{f(b)-f(a)}{b-a},
+\]
+并令
+\[
+  g(x)=f(x)-f(a)-m(x-a).
+\]
+则 $g(a)=g(b)=0$。因 $f$ 不是线性函数，$g$ 不恒为零，故存在 $c\in(a,b)$ 使 $g(c)\neq0$。
+
+若 $g(c)>0$，在 $[a,c]$ 与 $[c,b]$ 上分别应用 Lagrange 中值定理，得到 $\xi\in(a,c)$、$\eta\in(c,b)$，使
+\[
+  g'(\xi)=\frac{g(c)}{c-a}>0,
+  \qquad
+  g'(\eta)=\frac{-g(c)}{b-c}<0.
+\]
+于是
+\[
+  f'(\xi)>m>f'(\eta).
+\]
+若 $g(c)<0$，交换 $\xi,\eta$ 的角色即可得到同样形式的结论。
+\end{xsolution}
+
+\paragraph{第一组参考题 8}
+% SOLVED-ITEM
+\begin{xsolution}
+由 $f(a)=0<f(c)$，在 $[a,c]$ 上用 Lagrange 中值定理，存在 $u\in(a,c)$ 使
+\[
+  f'(u)=\frac{f(c)}{c-a}>0.
+\]
+同理，由 $f(c)>0=f(b)$，存在 $v\in(c,b)$ 使
+\[
+  f'(v)=\frac{-f(c)}{b-c}<0.
+\]
+在 $[u,v]$ 上对 $f'$ 用 Lagrange 中值定理，存在 $\xi\in(u,v)$ 使
+\[
+  f''(\xi)=\frac{f'(v)-f'(u)}{v-u}<0.
+\]
+\end{xsolution}
+
+\paragraph{第一组参考题 9(1)}
+% SOLVED-ITEM
+\begin{xsolution}
+对 $x=a$ 或 $x=b$，等式左端为零，结论立即成立。以下固定 $x\in(a,b)$。令
+\[
+  Q(t)=(t-a)^2(t-b),
+  \qquad
+  \lambda=\frac{3!f(x)}{Q(x)},
+\]
+并构造
+\[
+  F(t)=f(t)-\frac{\lambda}{3!}Q(t).
+\]
+由题设及 $Q(a)=Q'(a)=Q(b)=0$，有
+\[
+  F(a)=F'(a)=F(x)=F(b)=0.
+\]
+也就是说，计重数共有四个零条件。连续应用 Rolle 定理三次，存在 $\xi\in(a,b)$ 使 $F'''(\xi)=0$。因为 $Q'''(t)=3!$，
+\[
+  0=F'''(\xi)=f'''(\xi)-\lambda.
+\]
+故
+\[
+  f(x)=\frac{f'''(\xi)}{3!}(x-a)^2(x-b).
+\]
+\end{xsolution}
+
+\paragraph{第一组参考题 9(2)}
+% SOLVED-ITEM
+\begin{xsolution}
+若 $x$ 等于 $1/3,2/3,1$ 中任一点，则两边都为零。其余情形令
+\[
+  Q(t)=\left(t-\frac13\right)
+       \left(t-\frac23\right)(t-1)^3,
+  \qquad
+  \lambda=\frac{5!f(x)}{Q(x)},
+\]
+以及
+\[
+  F(t)=f(t)-\frac{\lambda}{5!}Q(t).
+\]
+由题设，$F$ 在 $1/3,2/3$ 各有一个零，在 $1$ 有至少三重零，又有 $F(x)=0$。计重数共有六个零条件。连续应用 Rolle 定理五次，得到 $\xi\in(0,1)$ 使
+\[
+  F^{(5)}(\xi)=0.
+\]
+因为 $Q$ 是首项系数为 $1$ 的五次多项式，$Q^{(5)}=5!$，故
+\[
+  f^{(5)}(\xi)=\lambda.
+\]
+整理即得
+\[
+  f(x)=\frac{f^{(5)}(\xi)}{5!}
+  \left(x-\frac13\right)
+  \left(x-\frac23\right)(x-1)^3.
+\]
+\end{xsolution}
+
+\paragraph{第一组参考题 9(3)}
+% SOLVED-ITEM
+\begin{xsolution}
+记 $L=b-a$，先取二次多项式
+\[
+  p(t)=f(a)+f'(a)(t-a)
+  +\frac{f'(b)-f'(a)}{2L}(t-a)^2.
+\]
+它满足
+\[
+  p(a)=f(a),\quad p'(a)=f'(a),\quad p'(b)=f'(b),
+\]
+且
+\[
+  p(b)=f(a)+\frac L2[f'(a)+f'(b)].
+\]
+记
+\[
+  E=f(b)-p(b).
+\]
+再令
+\[
+  q(t)=(t-a)^2\left(t-b-\frac L2\right).
+\]
+则
+\[
+  q(a)=q'(a)=q'(b)=0,
+  \qquad q(b)=-\frac{L^3}{2},
+  \qquad q'''=6.
+\]
+构造
+\[
+  F(t)=f(t)-p(t)-E\frac{q(t)}{q(b)}.
+\]
+于是
+\[
+  F(a)=F'(a)=F(b)=F'(b)=0.
+\]
+由 Rolle 定理反复使用三次，存在 $\xi\in(a,b)$ 使 $F'''(\xi)=0$。因 $p'''=0$，
+\[
+  0=f'''(\xi)-E\frac{6}{-L^3/2}
+  =f'''(\xi)+\frac{12E}{L^3}.
+\]
+故 $E=-L^3f'''(\xi)/12$。代回 $E=f(b)-p(b)$，得到
+\[
+  f(b)=f(a)+\frac12(b-a)[f'(a)+f'(b)]
+  -\frac1{12}(b-a)^3f'''(\xi).
+\]
+\end{xsolution}
+
+\paragraph{第一组参考题 9(4)}
+% SOLVED-ITEM
+\begin{xsolution}
+取经过三点 $(a,f(a)),(b,f(b)),(c,f(c))$ 的二次插值多项式
+\[
+  p(x)=f(a)\frac{(x-b)(x-c)}{(a-b)(a-c)}
+  +f(b)\frac{(x-c)(x-a)}{(b-c)(b-a)}
+  +f(c)\frac{(x-a)(x-b)}{(c-a)(c-b)}.
+\]
+其二次项系数为
+\[
+  A=\frac{f(a)}{(a-b)(a-c)}
+   +\frac{f(b)}{(b-c)(b-a)}
+   +\frac{f(c)}{(c-a)(c-b)}.
+\]
+函数 $h=f-p$ 在 $a,c,b$ 有三个不同零点。连续使用 Rolle 定理两次，存在 $\xi\in(a,b)$ 使 $h''(\xi)=0$。于是
+\[
+  f''(\xi)=p''(\xi)=2A,
+\]
+即得到题中等式。
+\end{xsolution}
+
+\paragraph{第一组参考题 10}
+% SOLVED-ITEM
+\begin{xsolution}
+因 $0<a<b$，在 $[a,b]$ 上对
+\[
+  F(x)=\frac{f(x)}x,
+  \qquad
+  G(x)=\frac1x
+\]
+应用 Cauchy 中值定理。存在 $\xi\in(a,b)$ 使
+\[
+  \frac{F(b)-F(a)}{G(b)-G(a)}
+  =\frac{F'(\xi)}{G'(\xi)}.
+\]
+左边为
+\[
+  \frac{f(b)/b-f(a)/a}{1/b-1/a}
+  =\frac{af(b)-bf(a)}{a-b}
+  =\frac1{a-b}
+  \begin{vmatrix}a&b\\ f(a)&f(b)\end{vmatrix},
+\]
+右边为
+\[
+  \frac{[xf'(x)-f(x)]/x^2}{-1/x^2}\Big|_{x=\xi}
+  =f(\xi)-\xi f'(\xi).
+\]
+故结论成立。
+\end{xsolution}
+
+\paragraph{第一组参考题 11}
+% SOLVED-ITEM
+\begin{xsolution}
+令 $p$ 为通过节点 $x_0,\ldots,x_n$ 的唯一一个次数不超过 $n$ 的插值多项式，并设其最高次项系数为 $A$。用 $p(x_j)=f(x_j)$ 替换行列式最后一行后，利用行列式对最后一行的线性性，低于 $n$ 次的各项都与前面某一行线性相关而不贡献，只有 $Ax^n$ 一项留下。因此
+\[
+  \Delta=A\prod_{i>j}(x_i-x_j).
+\]
+
+另一方面，$h=f-p$ 在 $x_0,\ldots,x_n$ 有 $n+1$ 个不同零点。反复使用 Rolle 定理 $n$ 次，存在 $\xi\in(a,b)$ 使
+\[
+  h^{(n)}(\xi)=0.
+\]
+因为 $p^{(n)}=n!A$，故
+\[
+  A=\frac{f^{(n)}(\xi)}{n!}.
+\]
+代入上一式即得
+\[
+  \Delta=\frac{f^{(n)}(\xi)}{n!}
+  \prod_{i>j}(x_i-x_j).
+\]
+\end{xsolution}
+
+\paragraph{第一组参考题 12}
+% SOLVED-ITEM
+\begin{xsolution}
+反证 $f$ 一致连续。由 $f'(x)\to+\infty$，对每个正整数 $n$ 可取 $X_n$ 足够大，使
+\[
+  f'(x)>n\qquad(x\geqslant X_n).
+\]
+令
+\[
+  x_n=X_n,
+  \qquad
+  y_n=X_n+\frac1n.
+\]
+则 $\abs{x_n-y_n}=1/n\to0$。由 Lagrange 中值定理，存在 $\xi_n\in(x_n,y_n)$ 使
+\[
+  f(y_n)-f(x_n)=f'(\xi_n)\frac1n>1.
+\]
+这与一致连续性要求的 $\abs{x_n-y_n}\to0\Rightarrow\abs{f(x_n)-f(y_n)}\to0$ 矛盾。故 $f$ 非一致连续。
+\end{xsolution}
+
+\paragraph{第一组参考题 13}
+% SOLVED-ITEM
+\begin{xsolution}
+设
+\[
+  \lim_{x\to0+}\sqrt{x}\,f'(x)=L.
+\]
+因此存在 $\delta>0$ 和 $M>0$，使对 $0<x\leqslant\delta$ 有
+\[
+  \abs{f'(x)}\leqslant\frac{M}{\sqrt{x}}.
+\]
+任取 $0<x<y\leqslant\delta$。把区间按变量 $t=s^2$ 改写，或直接对 $g(s)=f(s^2)$ 应用中值定理，有
+\[
+  \abs{f(y)-f(x)}
+  \leqslant2M\abs{\sqrt y-\sqrt x}
+  \leqslant2M\sqrt{\abs{y-x}}.
+\]
+所以 $f$ 在 $(0,\delta]$ 一致连续，并且当 $x\to0+$ 时形成 Cauchy 值，因而存在有限极限 $f(0+)$。补定义该极限后，$f$ 在 $[0,\delta]$ 连续，故一致连续。
+
+在 $[\delta/2,a]$ 上连续函数也一致连续。两段在重叠区间相接，因此 $f$ 在整个 $(0,a]$ 上一致连续。
+\end{xsolution}
+
+\paragraph{第一组参考题 14}
+% SOLVED-ITEM
+\begin{xsolution}
+任给 $\varepsilon>0$，由 $f'(x)\to0$，可取 $A$ 使
+\[
+  \abs{f'(t)}<\varepsilon\qquad(t\geqslant A).
+\]
+当 $x>A$ 时，由 Lagrange 中值定理，存在 $\xi\in(A,x)$ 使
+\[
+  f(x)-f(A)=f'(\xi)(x-A).
+\]
+因此
+\[
+  \left|\frac{f(x)}x\right|
+  \leqslant\frac{\abs{f(A)}}x
+   +\varepsilon\frac{x-A}{x}
+  \leqslant\frac{\abs{f(A)}}x+\varepsilon.
+\]
+令 $x\to+\infty$ 得上极限不超过 $\varepsilon$。由 $\varepsilon$ 任意，
+\[
+  \lim_{x\to+\infty}\frac{f(x)}x=0.
+\]
+\end{xsolution}
+
+\paragraph{第一组参考题 15(1)}
+% SOLVED-ITEM
+\begin{xsolution}
+条件等价于
+\[
+  [xf(x)]'=xf'(x)+f(x)=0.
+\]
+故 $xf(x)$ 为常数。由 $f(1)=1$，该常数为 $1$，所以
+\[
+  f(x)=\frac1x,
+  \qquad f(2)=\frac12.
+\]
+\end{xsolution}
+
+\paragraph{第一组参考题 15(2)}
+% SOLVED-ITEM
+\begin{xsolution}
+有
+\[
+  \left(\frac{f(x)}x\right)'
+  =\frac{xf'(x)-f(x)}{x^2}=0.
+\]
+所以 $f(x)/x$ 为常数。由 $f(1)=1$，得到 $f(x)=x$，故
+\[
+  f(2)=2.
+\]
+\end{xsolution}
+
+\paragraph{第一组参考题 16}
+% SOLVED-ITEM
+\begin{xsolution}
+固定 $x\in[0,2]$。在 $x$ 向右展开到 $2$，存在 $\xi_1$ 位于 $x,2$ 之间，使
+\[
+  f(2)=f(x)+f'(x)(2-x)+\frac12f''(\xi_1)(2-x)^2.
+\]
+向左展开到 $0$，存在 $\xi_2$ 位于 $0,x$ 之间，使
+\[
+  f(0)=f(x)-xf'(x)+\frac12f''(\xi_2)x^2.
+\]
+两式相减，
+\[
+  2f'(x)=f(2)-f(0)
+  -\frac12f''(\xi_1)(2-x)^2
+  +\frac12f''(\xi_2)x^2.
+\]
+于是
+\[
+  2\abs{f'(x)}
+  \leqslant2+\frac12[(2-x)^2+x^2].
+\]
+在 $0\leqslant x\leqslant2$ 时
+\[
+  (2-x)^2+x^2\leqslant4,
+\]
+所以 $2\abs{f'(x)}\leqslant4$，即 $\abs{f'(x)}\leqslant2$。
+\end{xsolution}
+
+\paragraph{第一组参考题 17}
+% SOLVED-ITEM
+\begin{xsolution}
+设
+\[
+  M_0=\sup_{x\in\RR}\abs{f(x)},
+  \qquad
+  M_2=\sup_{x\in\RR}\abs{f''(x)}.
+\]
+若 $M_2=0$，则 $f$ 为线性函数；又因 $f$ 有界，只能是常值函数，结论显然。
+
+设 $M_2>0$。对任意 $x\in\RR$、$t>0$，分别把 $f(x+t)$ 和 $f(x-t)$ 在 $x$ 展开到二阶：
+\[
+  f(x+t)=f(x)+tf'(x)+\frac12t^2f''(\xi_1),
+\]
+\[
+  f(x-t)=f(x)-tf'(x)+\frac12t^2f''(\xi_2).
+\]
+相减得
+\[
+  2t f'(x)=f(x+t)-f(x-t)
+  -\frac12t^2[f''(\xi_1)-f''(\xi_2)].
+\]
+于是
+\[
+  \abs{f'(x)}\leqslant\frac{M_0}{t}+\frac{M_2t}{2}.
+\]
+对 $x$ 取上确界，
+\[
+  M_1\leqslant\frac{M_0}{t}+\frac{M_2t}{2}.
+\]
+取
+\[
+  t=\sqrt{\frac{2M_0}{M_2}}
+\]
+（若 $M_0=0$ 则 $f\equiv0$），得到
+\[
+  M_1\leqslant\sqrt{2M_0M_2}.
+\]
+\end{xsolution}
+
+\paragraph{第一组参考题 18}
+% SOLVED-ITEM
+\begin{xsolution}
+设 $f$ 在 $c\in(0,a)$ 取得最大值。由 Fermat 定理，$f'(c)=0$。在 $[0,c]$ 上对 $f'$ 用 Lagrange 中值定理，存在 $\xi_1\in(0,c)$ 使
+\[
+  f'(c)-f'(0)=f''(\xi_1)c.
+\]
+故
+\[
+  \abs{f'(0)}\leqslant Mc.
+\]
+同理，在 $[c,a]$ 上存在 $\xi_2$ 使
+\[
+  f'(a)-f'(c)=f''(\xi_2)(a-c),
+\]
+从而
+\[
+  \abs{f'(a)}\leqslant M(a-c).
+\]
+相加即得
+\[
+  \abs{f'(0)}+\abs{f'(a)}\leqslant Ma.
+\]
+\end{xsolution}
+
+\subsection*{§7.3.2 第二组参考题}
+
+\paragraph{第二组参考题 1}
+% SOLVED-ITEM
+\begin{xsolution}
+记
+\[
+  \lambda=\frac{f'(b)-f'(a)}{b-a},
+  \qquad
+  F(x)=f(x)-\frac{\lambda}{2}x^2.
+\]
+则
+\[
+  F'(a)=F'(b).
+\]
+我们证明存在 $\xi\in(a,b)$ 使 $F''(\xi)=0$。
+
+若 $F'$ 在 $[a,b]$ 为常值函数，则 $F''\equiv0$，结论成立。否则存在 $c\in(a,b)$ 使 $F'(c)\neq F'(a)=F'(b)$。不妨设 $F'(c)>F'(a)$，并取
+\[
+  F'(a)<d<F'(c).
+\]
+导函数具有 Darboux 介值性质，所以在 $(a,c)$ 中存在 $u$、在 $(c,b)$ 中存在 $v$，使
+\[
+  F'(u)=F'(v)=d.
+\]
+由于 $F'$ 在 $[u,v]$ 连续且在 $(u,v)$ 可微，对 $F'$ 应用 Rolle 定理，存在 $\xi\in(u,v)$ 使 $F''(\xi)=0$。若 $F'(c)<F'(a)$ 同理。
+
+因此
+\[
+  0=F''(\xi)=f''(\xi)-\lambda,
+\]
+即
+\[
+  f'(b)-f'(a)=f''(\xi)(b-a).
+\]
+这里没有使用 $f'$ 在端点附近连续。
+\end{xsolution}
+
+\paragraph{第二组参考题 2}
+% SOLVED-ITEM
+\begin{xsolution}
+令
+\[
+  g(x)=\frac{1}{1+x^2}.
+\]
+题设可写成
+\[
+  f\left(\frac1n\right)=g\left(\frac1n\right),
+  \qquad n\in\NN_+.
+\]
+设 $h=f-g$，则 $h(1/n)=0$，且这些零点趋于 $0$。由连续性，$h(0)=0$。又因原零点列 $x_n=1/n\to0$，且 $h'(0)$ 存在，
+\[
+  h'(0)=\lim_{x\to0}\frac{h(x)-h(0)}x=0,
+\]
+因为沿 $x=x_n$ 的子列差商恒为 $0$。
+
+在相邻零点 $1/(n+1),1/n$ 之间应用 Rolle 定理，可得到 $h'$ 的一列非零零点 $y_n\to0$。继续归纳：假设 $h^{(j)}(0)=0$，并且 $h^{(j)}$ 有一列非零零点 $y_n\to0$，则由导数定义
+\[
+  h^{(j+1)}(0)
+  =\lim_{x\to0}\frac{h^{(j)}(x)-h^{(j)}(0)}x=0
+\]
+（沿 $x=y_n$ 的子列极限已经是 $0$，而总极限存在）。再在相邻的 $y_n$ 之间用 Rolle 定理，得到 $h^{(j+1)}$ 的非零零点列趋于 $0$。故归纳得到
+\[
+  h^{(k)}(0)=0\qquad\forall k\geqslant0.
+\]
+所以
+\[
+  f^{(k)}(0)=g^{(k)}(0).
+\]
+而
+\[
+  \frac1{1+x^2}=1-x^2+x^4-x^6+\cdots
+\]
+在 $0$ 的任意有限阶 Taylor 展开中成立。因此
+\[
+  \boxed{
+  f^{(2m)}(0)=(-1)^m(2m)!,\qquad
+  f^{(2m+1)}(0)=0
+  }
+  \quad(m=0,1,2,\ldots).
+\]
+特别地，对题目要求的 $k\in\NN_+$，按奇偶取上述值即可。
+\end{xsolution}
+
+\paragraph{第二组参考题 3}
+% SOLVED-ITEM
+\begin{xsolution}
+记
+\[
+  P(x)=x^{2n}-2x^{2n-1}+3x^{2n-2}-\cdots-2nx+2n+1
+  =\sum_{k=0}^{2n}(2n+1-k)(-x)^k.
+\]
+若 $x<0$，则 $-x>0$，所以每一项均为正，因而 $P(x)>0$。
+
+若 $x\geqslant0$，利用有限等比和的求导公式可得
+\[
+  \sum_{k=0}^{m}(m+1-k)r^k
+  =\frac{(m+1)-(m+2)r+r^{m+2}}{(1-r)^2}.
+\]
+取 $m=2n$、$r=-x$，得到
+\[
+  P(x)=\frac{x^{2n+2}+(2n+2)x+(2n+1)}{(1+x)^2}>0.
+\]
+故对所有实数 $x$ 都有 $P(x)>0$，所给方程无实根。
+\end{xsolution}
+
+\paragraph{第二组参考题 4}
+% SOLVED-ITEM
+\begin{xsolution}
+反证。若 $f''$ 在 $\RR$ 上没有零点，由 Darboux 性质，$f''$ 必始终同号。
+
+设 $f''>0$，则 $f'$ 严格递增。固定 $x_0$。若 $f'(x_0)>0$，则对 $x>x_0$ 有 $f'(x)\geqslant f'(x_0)>0$，由中值定理
+\[
+  f(x)-f(x_0)\geqslant f'(x_0)(x-x_0)\to+\infty,
+\]
+与 $f$ 有界矛盾。若 $f'(x_0)<0$，则向 $x\to-\infty$ 作同样估计也推出 $f$ 无界。若 $f'(x_0)=0$，取 $x_1>x_0$，严格递增给出 $f'(x_1)>0$，又归入第一种情形。故 $f''>0$ 不可能。
+
+$f''<0$ 时对 $-f$ 使用上述论证也不可能。因此 $f''$ 必在某点 $\xi$ 取零值。
+\end{xsolution}
+
+\paragraph{第二组参考题 5}
+% SOLVED-ITEM
+\begin{xsolution}
+这是 Flett 中值定理的一种形式。定义
+\[
+  g(x)=
+  \begin{cases}
+    \dfrac{f(x)-f(a)}{x-a},&a<x\leqslant b,\\[1ex]
+    f'(a),&x=a.
+  \end{cases}
+\]
+由导数定义，$g$ 在 $a$ 连续；在 $(a,b)$ 可微。题目所求正是某个 $\xi\in(a,b)$ 满足 $g'(\xi)=0$，因为
+\[
+  g'(x)=\frac{(x-a)f'(x)-[f(x)-f(a)]}{(x-a)^2}.
+\]
+
+记 $c=f'(a)=f'(b)=g(a)$。若 $g(b)=g(a)$，直接对 $g$ 用 Rolle 定理即可。
+
+若 $g(b)>g(a)$，注意
+\[
+  g'_-(b)
+  =\frac{(b-a)f'(b)-[f(b)-f(a)]}{(b-a)^2}
+  =\frac{g(a)-g(b)}{b-a}<0.
+\]
+因此在 $b$ 左侧充分近处有 $g(x)>g(b)$，所以 $g$ 在 $[a,b]$ 的最大值既不在 $a$（因 $g(a)<g(b)$），也不在 $b$。最大值必在某个内点 $\xi$ 取得，故 $g'(\xi)=0$。
+
+若 $g(b)<g(a)$，则同一计算给出 $g'_-(b)>0$，所以 $b$ 左侧有 $g(x)<g(b)$；而 $g(b)<g(a)$，故最小值既不在 $a$ 也不在 $b$，必在内点取得，同样有 $g'(\xi)=0$。
+
+于是总有
+\[
+  f'(\xi)=\frac{f(\xi)-f(a)}{\xi-a}.
+\]
+\end{xsolution}
+
+\paragraph{第二组参考题 6}
+% SOLVED-ITEM
+\begin{xsolution}
+记 $L=b-a>0$，并定义
+\[
+  H(x)=\ee^{-x/L}[f(x)-f(a)],\qquad a\leqslant x\leqslant c.
+\]
+则 $H(a)=0$，且
+\[
+  H'(x)=\ee^{-x/L}
+  \left[f'(x)-\frac{f(x)-f(a)}L\right].
+\]
+我们要证明 $H'$ 在 $(a,c)$ 有零点。
+
+若 $f(c)=f(a)$，则 $H(a)=H(c)=0$，Rolle 定理立即给出结论。
+
+若 $f(c)>f(a)$，则 $H(c)>0$，而由 $f'(c)=0$，
+\[
+  H'(c)=-\frac{\ee^{-c/L}}L[f(c)-f(a)]<0.
+\]
+故 $c$ 不可能是 $H$ 在 $[a,c]$ 的最大值点；同时 $a$ 也不可能是最大值点，因为 $H(c)>H(a)$。所以最大值在某内点 $\xi\in(a,c)$ 取得，$H'(\xi)=0$。
+
+若 $f(c)<f(a)$，则 $H(c)<0$ 且 $H'(c)>0$，同理 $H$ 的最小值在内点取得，也有 $H'(\xi)=0$。
+
+因此存在 $\xi\in(a,c)\subset(a,b)$，满足
+\[
+  f'(\xi)=\frac{f(\xi)-f(a)}{b-a}.
+\]
+\end{xsolution}
+
+\paragraph{第二组参考题 7}
+% SOLVED-ITEM
+% CHECK-SOLUTION: 原题同时写 f(a)=0 与 f(x)>0, \forall x\in[a,b]，两条件在 x=a 处直接矛盾；按原文不存在满足全部条件的函数，无法给出非空情形证明。
+\begin{xsolution}
+按原题文字，不存在满足全部假设的函数：由 $f(x)>0$ 对所有 $x\in[a,b]$，代入 $x=a$ 得 $f(a)>0$，与 $f(a)=0$ 矛盾。因此该命题按形式逻辑是空真命题，但没有可供构造 $x_1,x_2$ 的非空情形。需整合时回查原书是否本意为 $f(x)>0$ 对 $x\in(a,b]$ 或 $x\in(a,b)$。
+\end{xsolution}
+
+\paragraph{第二组参考题 8}
+% SOLVED-ITEM
+\begin{xsolution}
+令
+\[
+  q(x)=f(x)+f''(x).
+\]
+若不存在所求点，则连续函数 $q$ 在 $\RR$ 上不为零，故保持固定符号。不妨先设 $q>0$。定义
+\[
+  G(x)=f(x)\sin x+f'(x)\cos x.
+\]
+则
+\[
+  G'(x)=[f(x)+f''(x)]\cos x=q(x)\cos x.
+\]
+在 $[-\pi/2,\pi/2]$ 上 $\cos x\geqslant0$，所以 $G$ 单调不减。于是
+\[
+  G\left(-\frac\pi2\right)
+  \leqslant G(0)
+  \leqslant G\left(\frac\pi2\right),
+\]
+即
+\[
+  -f\left(-\frac\pi2\right)
+  \leqslant f'(0)
+  \leqslant f\left(\frac\pi2\right).
+\]
+由 $\abs{f}\leqslant1$ 得 $\abs{f'(0)}\leqslant1$。若 $q<0$，$G$ 单调不增，仍得到 $\abs{f'(0)}\leqslant1$。
+
+可是题设
+\[
+  [f(0)]^2+[f'(0)]^2=4,
+  \qquad \abs{f(0)}\leqslant1
+\]
+推出 $\abs{f'(0)}\geqslant\sqrt3>1$，矛盾。因此必存在 $\xi$ 使 $q(\xi)=0$，即 $f(\xi)+f''(\xi)=0$。
+\end{xsolution}
+
+\paragraph{第二组参考题 9}
+% SOLVED-ITEM
+\begin{xsolution}
+把题设中的 $x,h$ 改写成中点形式。令 $m=x+h/2$、$t=h/2$，则
+\[
+  f(m+t)-f(m-t)=2t f'(m),
+  \qquad\forall m,t\in\RR.
+\]
+对 $t$ 求导，得到
+\[
+  f'(m+t)+f'(m-t)=2f'(m).
+\]
+令 $g=f'$。对于任意 $u,v\in\RR$，取 $m=(u+v)/2$、$t=(u-v)/2$，即有
+\[
+  g\left(\frac{u+v}{2}\right)=\frac{g(u)+g(v)}2.
+\]
+$g$ 连续。令 $h(x)=g(x)-g(0)$，则 $h(0)=0$，且同样满足中点方程。取 $v=0$ 得
+\[
+  h\left(\frac x2\right)=\frac{h(x)}2.
+\]
+于是对任意 $x,y$，
+\[
+  h(x+y)=2h\left(\frac{x+y}{2}\right)=h(x)+h(y).
+\]
+故 $h$ 是连续的可加函数，只能有 $h(x)=Ax$。因此
+\[
+  g(x)=Ax+B,
+  \qquad B=g(0).
+\]
+于是
+\[
+  \left[f(x)-\frac A2x^2-Bx\right]'=0,
+\]
+故存在常数 $C$ 使
+\[
+  f(x)=\frac A2x^2+Bx+C.
+\]
+重命名系数即为 $f(x)=ax^2+bx+c$。
+\end{xsolution}
+
+\paragraph{第二组参考题 10（Schwarz 定理）}
+% SOLVED-ITEM
+\begin{xsolution}
+令 $\ell$ 为连接 $(a,f(a))$、$(b,f(b))$ 的直线，并设
+\[
+  g(x)=f(x)-\ell(x).
+\]
+则 $g(a)=g(b)=0$，而线性函数的广义二阶导数为零，所以
+\[
+  g^{[2]}(x)=0\qquad(a<x<b).
+\]
+只需证明 $g\equiv0$。
+
+设存在 $c\in(a,b)$ 使 $g(c)>0$。令
+\[
+  q(x)=(x-a)(b-x)>0\qquad(a<x<b).
+\]
+取充分小的 $\varepsilon>0$，使
+\[
+  G(c)=g(c)-\varepsilon q(c)>0,
+\]
+其中 $G=g-\varepsilon q$。有 $G(a)=G(b)=0$，故 $G$ 在某个内点 $x_0$ 取得正最大值。于是对充分小的 $h>0$，
+\[
+  G(x_0+2h)-2G(x_0)+G(x_0-2h)\leqslant0,
+\]
+所以 $G^{[2]}(x_0)\leqslant0$。然而直接计算 $q^{[2]}=-2$，从而
+\[
+  G^{[2]}(x_0)=g^{[2]}(x_0)-\varepsilon q^{[2]}(x_0)=2\varepsilon>0,
+\]
+矛盾。故 $g\leqslant0$。
+
+若存在 $c$ 使 $g(c)<0$，改取 $G=g+\varepsilon q$，则 $G$ 在内点取得负最小值，故 $G^{[2]}\geqslant0$；但此时 $G^{[2]}=-2\varepsilon<0$，仍矛盾。因此 $g\geqslant0$。
+
+综上 $g\equiv0$，即 $f=\ell$ 为线性函数。
+\end{xsolution}
+
+\paragraph{第二组参考题 11（Bellman--Gronwall 不等式的微分形式）}
+% SOLVED-ITEM
+% CHECK-SOLUTION: 原题把函数定义在 [0,+\infty)，但不等式写作 \forall x\in[a,+\infty)，其中 a 未定义。若只要求从某个 a>0 起成立，结论一般为假，因此无法按原文可靠证明。
+\begin{xsolution}
+原题中的 $a$ 未定义，不能唯一确定题意。若把条件解释为“存在某个 $a>0$，且不等式只对 $x\geqslant a$ 成立”，结论甚至是假的。例如固定该 $a>0$，定义
+\[
+  f(x)=
+  \begin{cases}
+    x(a-x)^2,&0\leqslant x\leqslant a,\\
+    0,&x\geqslant a.
+  \end{cases}
+\]
+则 $f(0)=0$，且在 $x=a$ 左右一阶导数都为 $0$，所以 $f$ 在 $[0,+\infty)$ 可微；对所有 $x\geqslant a$，
+\[
+  \abs{f'(x)}=0\leqslant c\abs{f(x)}=0,
+\]
+但 $f$ 在 $(0,a)$ 并不恒为零。
+
+若原题本意是不等式对所有 $x\in[0,+\infty)$ 成立，则可用标准 Bellman--Gronwall 论证证明 $f\equiv0$；但鉴于原文缺少这个关键信息，此处保留待核。
+\end{xsolution}
+
+\paragraph{第二组参考题 12}
+% SOLVED-ITEM
+\begin{xsolution}
+题设对 $n\geqslant0$ 成立，所以在 $x=0$ 有
+\[
+  \abs{f^{(n)}(0)}\leqslant n!\abs0=0,
+\]
+即
+\[
+  f^{(n)}(0)=0\qquad\forall n\geqslant0.
+\]
+固定任意 $x\in(-1,1)$。对 $f$ 在 $0$ 作 $n$ 阶 Taylor 展开，存在 $\xi_n$ 位于 $0$ 与 $x$ 之间，使
+\[
+  f(x)=\frac{f^{(n+1)}(\xi_n)}{(n+1)!}x^{n+1}.
+\]
+由题设
+\[
+  \abs{f^{(n+1)}(\xi_n)}\leqslant(n+1)!\abs{\xi_n}
+  \leqslant(n+1)!\abs{x},
+\]
+故
+\[
+  \abs{f(x)}\leqslant\abs{x}^{n+2}.
+\]
+因 $\abs{x}<1$，令 $n\to\infty$ 得 $f(x)=0$。所以 $f\equiv0$。
+\end{xsolution}
+
+\paragraph{第二组参考题 13}
+% SOLVED-ITEM
+\begin{xsolution}
+由 $f(1/n)=0$ 且 $1/n\to0$，连续性给出 $f(0)=0$。在相邻零点间反复使用 Rolle 定理，可归纳得到对每个 $k\geqslant1$ 都有一列 $f^{(k)}$ 的非零零点趋于 $0$。同时利用各阶导数在 $0$ 存在：若已知 $f^{(k)}(0)=0$ 且有 $y_j\to0$、$f^{(k)}(y_j)=0$，则
+\[
+  f^{(k+1)}(0)
+  =\lim_{x\to0}\frac{f^{(k)}(x)-f^{(k)}(0)}x=0,
+\]
+因为该总极限存在而沿 $y_j$ 的子列为 $0$。由此归纳得到
+\[
+  f^{(k)}(0)=0\qquad\forall k\geqslant0.
+\]
+
+固定任意 $x\in\RR$。在 $0$ 与 $x$ 之间作 $n$ 阶 Taylor 展开，存在 $\xi_n$ 使
+\[
+  f(x)=\frac{f^{(n+1)}(\xi_n)}{(n+1)!}x^{n+1}.
+\]
+题设给出 $\abs{f^{(n+1)}(\xi_n)}\leqslant C$，故
+\[
+  \abs{f(x)}\leqslant\frac{C\abs{x}^{n+1}}{(n+1)!}\to0.
+\]
+所以对每个实数 $x$ 都有 $f(x)=0$，即 $f\equiv0$。
+\end{xsolution}
+
+\paragraph{第二组参考题 14}
+% SOLVED-ITEM
+\begin{xsolution}
+在 $x_0$ 处使用带 Peano 余项的 Taylor 公式：
+\[
+  f(x_0+kh)
+  =\sum_{j=0}^n\frac{f^{(j)}(x_0)}{j!}(kh)^j
+   +\littleo(h^n),
+\]
+其中 $k=0,1,\ldots,n$ 为有限个固定整数，所以各余项可统一记为 $\littleo(h^n)$。令
+\[
+  S_h=\sum_{k=0}^n(-1)^{n-k}\binom nk f(x_0+kh).
+\]
+代入展开式，得到
+\[
+  S_h=\sum_{j=0}^n\frac{f^{(j)}(x_0)}{j!}h^j
+  \sum_{k=0}^n(-1)^{n-k}\binom nk k^j
+  +\littleo(h^n).
+\]
+利用 $n$ 阶有限差分恒等式
+\[
+  \sum_{k=0}^n(-1)^{n-k}\binom nk k^j
+  =
+  \begin{cases}
+    0,&0\leqslant j<n,\\
+    n!,&j=n,
+  \end{cases}
+\]
+可得
+\[
+  S_h=f^{(n)}(x_0)h^n+\littleo(h^n).
+\]
+除以 $h^n$ 并令 $h\to0$，即得
+\[
+  f^{(n)}(x_0)
+  =\lim_{h\to0}\frac1{h^n}
+   \sum_{k=0}^n(-1)^{n-k}\binom nk f(x_0+kh).
+\]
+\end{xsolution}
+
+\paragraph{第二组参考题 15}
+% SOLVED-ITEM
+\begin{xsolution}
+$n=1$ 时无中间阶导数需要证明。设 $n\geqslant2$。固定 $x\in\RR$，对 $j=1,2,\ldots,n-1$，在 $x$ 处把 $f(x+j)$ 展开到 $n-1$ 阶：
+\[
+  f(x+j)-f(x)
+  =\sum_{k=1}^{n-1}\frac{j^k}{k!}f^{(k)}(x)
+   +\frac{j^n}{n!}f^{(n)}(\xi_{j,x}),
+\]
+其中 $\xi_{j,x}$ 位于 $x$ 与 $x+j$ 之间。
+
+记未知向量
+\[
+  X(x)=(f'(x),f''(x),\ldots,f^{(n-1)}(x))^{\mathsf T}.
+\]
+上述 $n-1$ 个方程写成
+\[
+  AX(x)=B(x),
+\]
+其中
+\[
+  A_{jk}=\frac{j^k}{k!},\qquad1\leqslant j,k\leqslant n-1.
+\]
+把每一列的 $1/k!$ 提出后，$A$ 是 Vandermonde 型矩阵，行节点 $1,2,\ldots,n-1$ 互异且非零，所以 $A$ 可逆。
+
+由 $M_0,M_n<\infty$，每个 $B_j(x)$ 都有与 $x$ 无关的界：
+\[
+  \abs{B_j(x)}
+  \leqslant2M_0+\frac{j^n}{n!}M_n.
+\]
+因此
+\[
+  X(x)=A^{-1}B(x)
+\]
+的每个分量都有与 $x$ 无关的有限界。故 $M_1,\ldots,M_{n-1}$ 都有限。
+\end{xsolution}
+
+\paragraph{第二组参考题 16}
+% SOLVED-ITEM
+\begin{xsolution}
+先证明
+\[
+  \lim_{x\to+\infty}f^{(n)}(x)=0.
+\]
+固定 $h>0$。$n$ 阶有限差分的中值定理给出某个
+\[
+  \xi_x\in(x,x+nh)
+\]
+使
+\[
+  \Delta_h^n f(x)
+  =\sum_{j=0}^n(-1)^{n-j}\binom nj f(x+jh)
+  =h^n f^{(n)}(\xi_x).
+\]
+当 $x\to+\infty$ 时，左边每一项 $f(x+jh)$ 都趋于同一个有限极限，所以左边趋于 $0$；而 $\xi_x\to+\infty$，故右边趋于
+\[
+  h^n\lim_{t\to+\infty}f^{(n)}(t).
+\]
+因此该极限只能为 $0$。
+
+以下证明其余各阶。固定 $h=1$。对 $j=1,\ldots,n-1$，Taylor 公式给出
+\[
+  f(x+j)-f(x)
+  =\sum_{k=1}^{n-1}\frac{j^k}{k!}f^{(k)}(x)
+   +\frac{j^n}{n!}f^{(n)}(\eta_{j,x}),
+\]
+其中 $\eta_{j,x}\to+\infty$。当 $x\to+\infty$ 时，左边趋于 $0$，最后的余项也因 $f^{(n)}(t)\to0$ 而趋于 $0$。因此
+\[
+  A
+  \begin{pmatrix}
+  f'(x)\\ \vdots\\ f^{(n-1)}(x)
+  \end{pmatrix}
+  \longrightarrow0,
+\]
+其中 $A_{jk}=j^k/k!$ 是上一题中的可逆矩阵。乘以固定矩阵 $A^{-1}$，便有
+\[
+  f^{(k)}(x)\to0,
+  \qquad k=1,\ldots,n-1.
+\]
+连同已经证明的 $k=n$，结论成立。
+\end{xsolution}
+
+\paragraph{第二组参考题 17(1)}
+% SOLVED-ITEM
+\begin{xsolution}
+设 $\abs{f''(x)}\leqslant M$。若 $M=0$，则 $f'$ 为常数，而 $f$ 有有限极限迫使该常数为 $0$。
+
+设 $M>0$。对任意固定 $t>0$，Taylor 公式给出
+\[
+  f(x+t)=f(x)+tf'(x)+\frac12t^2f''(\xi),
+\]
+故
+\[
+  \abs{f'(x)}
+  \leqslant\frac{\abs{f(x+t)-f(x)}}t+\frac{Mt}{2}.
+\]
+给定 $\varepsilon>0$，先取 $t>0$ 使 $Mt/2<\varepsilon/2$。由于 $f(x)$ 有有限极限，当 $x$ 足够大时
+\[
+  \frac{\abs{f(x+t)-f(x)}}t<\frac\varepsilon2.
+\]
+于是 $\abs{f'(x)}<\varepsilon$。故
+\[
+  \lim_{x\to+\infty}f'(x)=0.
+\]
+\end{xsolution}
+
+\paragraph{第二组参考题 17(2)(i)}
+% SOLVED-ITEM
+\begin{xsolution}
+不一定成立。例如在 $[1,+\infty)$ 上取
+\[
+  f(x)=\frac{\sin x^2}{x}.
+\]
+则 $f(x)\to0$，但
+\[
+  f'(x)=2\cos x^2-\frac{\sin x^2}{x^2}
+\]
+没有极限，更不趋于 $0$。
+\end{xsolution}
+
+\paragraph{第二组参考题 17(2)(ii)}
+% SOLVED-ITEM
+\begin{xsolution}
+反证。若 $f'(x)$ 不趋于 $0$，则存在 $\varepsilon>0$ 和 $x_n\to+\infty$，使
+\[
+  \abs{f'(x_n)}\geqslant\varepsilon.
+\]
+由 $f'$ 在 $[a,+\infty)$ 一致连续，存在 $\delta>0$，使
+\[
+  \abs{x-y}<\delta
+  \quad\Longrightarrow\quad
+  \abs{f'(x)-f'(y)}<\frac\varepsilon2.
+\]
+于是对 $y\in[x_n,x_n+\delta/2]$，$f'(y)$ 与 $f'(x_n)$ 同号，且
+\[
+  \abs{f'(y)}\geqslant\frac\varepsilon2.
+\]
+由 Lagrange 中值定理，
+\[
+  \abs{f(x_n+\delta/2)-f(x_n)}
+  \geqslant\frac{\varepsilon\delta}{4}.
+\]
+但 $f(x)$ 有有限极限，所以上式左边随 $n\to\infty$ 应趋于 $0$，矛盾。故 $f'(x)\to0$。
+\end{xsolution}
+
+\paragraph{第二组参考题 18}
+% SOLVED-ITEM
+\begin{xsolution}
+固定 $x\in(a,b)$ 和 $r>0$，且 $x+r\in(a,b)$。对 $f(x+r)$ 在点 $x$ 作 $n-1$ 阶 Taylor 展开，存在 $\xi\in(x,x+r)$ 使
+\[
+  f(x+r)
+  =f(x)+\sum_{k=1}^{n-1}\frac{f^{(k)}(x)}{k!}r^k
+   +\frac{f^{(n)}(\xi)}{n!}r^n.
+\]
+题设给出所有正阶导数非负，且 $f^{(n+1)}\geqslant0$，所以 $f^{(n)}$ 单调不减，从而
+\[
+  f^{(n)}(\xi)\geqslant f^{(n)}(x).
+\]
+其余 Taylor 项也都非负。因此
+\[
+  f(x+r)-f(x)\geqslant\frac{f^{(n)}(x)}{n!}r^n.
+\]
+又 $\abs{f}\leqslant M$，故
+\[
+  f(x+r)-f(x)\leqslant\abs{f(x+r)}+\abs{f(x)}\leqslant2M.
+\]
+于是
+\[
+  f^{(n)}(x)\leqslant\frac{2Mn!}{r^n}.
+\]
+\end{xsolution}
+
+\paragraph{第二组参考题 19（Bernstein 定理）}
+% SOLVED-ITEM
+\begin{xsolution}
+固定 $x_0\in(a,b)$。取 $R>0$，使
+\[
+  [x_0-R,x_0+R]\subset(a,b).
+\]
+由连续性，存在 $M>0$ 使
+\[
+  \abs{f(x)}\leqslant M
+  \qquad(x\in[x_0-R,x_0+R]).
+\]
+取 $\abs{x-x_0}\leqslant R/4$。对 $f(x)$ 在 $x_0$ 作 $n$ 阶 Taylor 展开，存在 $\xi_n$ 位于 $x_0$ 与 $x$ 之间，使余项为
+\[
+  R_n(x)=\frac{f^{(n+1)}(\xi_n)}{(n+1)!}(x-x_0)^{n+1}.
+\]
+此时 $\abs{\xi_n-x_0}\leqslant R/4$，所以
+\[
+  \xi_n+\frac R2\in[x_0-R,x_0+R].
+\]
+在该局部闭区间内应用上一题的估计，取 $r=R/2$，得到
+\[
+  f^{(n+1)}(\xi_n)
+  \leqslant\frac{2M(n+1)!}{(R/2)^{n+1}}.
+\]
+因此
+\[
+  \abs{R_n(x)}
+  \leqslant2M
+  \left(\frac{2\abs{x-x_0}}R\right)^{n+1}.
+\]
+当 $\abs{x-x_0}\leqslant R/4$ 时，括号不超过 $1/2$，故 $R_n(x)\to0$。所以在
+\[
+  [x_0-R/4,x_0+R/4]\subset(a,b)
+\]
+上成立
+\[
+  f(x)=\lim_{n\to\infty}
+  \sum_{k=0}^n\frac{f^{(k)}(x_0)}{k!}(x-x_0)^k.
+\]
+取 $r=R/4$ 即得题目要求。
+\end{xsolution}
