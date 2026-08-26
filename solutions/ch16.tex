@@ -1,0 +1,1374 @@
+% 第16章《无穷级数的应用》习题解答
+% 按原章顺序：16.1 练习题、16.2 练习题、16.3 练习题、16.5 参考题。
+
+\subsection*{16.1.3 练习题}
+
+\paragraph{题 1（广义积分的控制收敛定理）}
+\begin{xsolution}
+由内闭一致收敛，逐点有 $S_n(x)\to S(x)$。又由 $|S_n(x)|\leqslant F(x)$ 取极限得
+\[
+  |S(x)|\leqslant F(x).
+\]
+因为 $F$ 在 $(-\infty,+\infty)$ 上广义可积，所以 $S$ 也广义可积。
+
+任取 $\varepsilon>0$。由 $F$ 的广义积分收敛，可取 $A>0$，使得
+\[
+  \int_{(-\infty,-A]\cup[A,+\infty)}F(x)\,\dd x<\varepsilon.
+\]
+于是在两端尾部有
+\[
+\begin{aligned}
+  \left|\int_{(-\infty,-A]\cup[A,+\infty)}S_n(x)\,\dd x\right|&<\varepsilon,\\
+  \left|\int_{(-\infty,-A]\cup[A,+\infty)}S(x)\,\dd x\right|&<\varepsilon.
+\end{aligned}
+\]
+在闭区间 $[-A,A]$ 上，$S_n\to S$ 一致，因此存在 $N$，使 $n\geqslant N$ 时
+\[
+  \sup_{|x|\leqslant A}|S_n(x)-S(x)|<\frac{\varepsilon}{2A+1}.
+\]
+从而
+\[
+  \left|\int_{-A}^A[S_n(x)-S(x)]\,\dd x\right|<\varepsilon.
+\]
+合并中间区间和两端尾部，得
+\[
+  \left|\int_{-\infty}^{+\infty}S_n(x)\,\dd x-
+  \int_{-\infty}^{+\infty}S(x)\,\dd x\right|<3\varepsilon.
+\]
+故
+\[
+  \lim_{n\to\infty}\int_{-\infty}^{+\infty}S_n(x)\,\dd x
+  =\int_{-\infty}^{+\infty}S(x)\,\dd x.
+\]
+\end{xsolution}
+
+\paragraph{题 2}
+\begin{xsolution}
+记
+\[
+  S_N(x)=\sum_{n=0}^N a_nx^n.
+\]
+由于 $a_n\geqslant0$，对 $x\geqslant0$ 有 $S_N(x)\uparrow S(x)$。对每个 $N$，逐项积分得到
+\[
+\begin{aligned}
+  \int_0^{+\infty}\ee^{-x}S_N(x)\,\dd x
+  &=\sum_{n=0}^Na_n\int_0^{+\infty}x^n\ee^{-x}\,\dd x\\
+  &=\sum_{n=0}^Na_nn!.
+\end{aligned}
+\]
+设 $L=\sum_{n=0}^{\infty}a_nn!<+\infty$。对任意 $A>0$，幂级数在 $[0,A]$ 上一致收敛，故
+\[
+  \int_0^A\ee^{-x}S(x)\,\dd x
+  =\lim_{N\to\infty}\int_0^A\ee^{-x}S_N(x)\,\dd x
+  \leqslant L.
+\]
+左边关于 $A$ 单调增加且有上界 $L$，所以广义积分收敛。另一方面，对每个 $N$，
+\[
+  \int_0^{+\infty}\ee^{-x}S(x)\,\dd x
+  \geqslant\int_0^{+\infty}\ee^{-x}S_N(x)\,\dd x
+  =\sum_{n=0}^Na_nn!.
+\]
+令 $N\to\infty$ 得积分不小于 $L$；而前面的估计令 $A\to+\infty$ 又给出积分不大于 $L$。因此
+\[
+  \int_0^{+\infty}\ee^{-x}S(x)\,\dd x
+  =\sum_{n=0}^{\infty}a_nn!.
+\]
+\end{xsolution}
+
+\paragraph{题 3(1)}
+\begin{xsolution}
+对 $0\leqslant x<1$，
+\[
+  -\ln(1-x)=\sum_{n=1}^{\infty}\frac{x^n}{n}.
+\]
+各项非负，故可先在 $[0,r]$（$0<r<1$）逐项积分，再令 $r\to1^-$：
+\[
+\begin{aligned}
+  -\int_0^1\frac{\ln(1-x)}x\,\dd x
+  &=\sum_{n=1}^{\infty}\frac1n\int_0^1x^{n-1}\,\dd x\\
+  &=\sum_{n=1}^{\infty}\frac1{n^2}.
+\end{aligned}
+\]
+于是
+\[
+  \int_0^1\frac{\ln(1-x)}x\,\dd x
+  =-\sum_{n=1}^{\infty}\frac1{n^2}.
+\]
+\end{xsolution}
+
+\paragraph{题 3(2)}
+\begin{xsolution}
+对 $0\leqslant x<1$，
+\[
+  \frac1{1-x^2}=\sum_{n=0}^{\infty}x^{2n}.
+\]
+又
+\[
+  \int_0^1x^{\alpha}\ln x\,\dd x=-\frac1{(\alpha+1)^2}\qquad(\alpha>-1).
+\]
+因此逐项积分得
+\[
+  \int_0^1\frac{\ln x}{1-x^2}\,\dd x
+  =-\sum_{n=0}^{\infty}\frac1{(2n+1)^2}.
+\]
+由
+\[
+  \sum_{n=0}^{\infty}\frac1{(2n+1)^2}
+  =\left(1-\frac14\right)\sum_{n=1}^{\infty}\frac1{n^2}
+  =\frac{\pi^2}{8},
+\]
+故
+\[
+  \int_0^1\frac{\ln x}{1-x^2}\,\dd x=-\frac{\pi^2}{8}.
+\]
+\end{xsolution}
+
+\paragraph{题 3(3)}
+\begin{xsolution}
+由
+\[
+  -\ln(1-x)=\sum_{n=1}^{\infty}\frac{x^n}{n}
+\]
+和各项非负性，
+\[
+\begin{aligned}
+  \int_0^1\ln x\ln(1-x)\,\dd x
+  &=\sum_{n=1}^{\infty}\frac1n\int_0^1(-\ln x)x^n\,\dd x\\
+  &=\sum_{n=1}^{\infty}\frac1{n(n+1)^2}.
+\end{aligned}
+\]
+分解
+\[
+  \frac1{n(n+1)^2}=\frac1n-\frac1{n+1}-\frac1{(n+1)^2},
+\]
+故
+\[
+\begin{aligned}
+  \sum_{n=1}^{\infty}\frac1{n(n+1)^2}
+  &=1-\sum_{n=1}^{\infty}\frac1{(n+1)^2}\\
+  &=1-\left(\frac{\pi^2}{6}-1\right)
+  =2-\frac{\pi^2}{6}.
+\end{aligned}
+\]
+\end{xsolution}
+
+\paragraph{题 3(4)}
+\begin{xsolution}
+当 $x>0$ 时
+\[
+  \frac{x}{\ee^x-\ee^{-x}}
+  =\frac{x\ee^{-x}}{1-\ee^{-2x}}
+  =\sum_{n=0}^{\infty}x\ee^{-(2n+1)x},
+\]
+右边各项非负。于是
+\[
+\begin{aligned}
+  \int_0^{+\infty}\frac{x}{\ee^x-\ee^{-x}}\,\dd x
+  &=\sum_{n=0}^{\infty}\int_0^{+\infty}x\ee^{-(2n+1)x}\,\dd x\\
+  &=\sum_{n=0}^{\infty}\frac1{(2n+1)^2}
+  =\frac{\pi^2}{8}.
+\end{aligned}
+\]
+\end{xsolution}
+
+\paragraph{题 4}
+\begin{xsolution}
+对 $0<x\leqslant1$，
+\[
+  x^{-x}=\ee^{-x\ln x}
+  =\sum_{n=0}^{\infty}\frac{x^n(-\ln x)^n}{n!},
+\]
+各项非负，因此可以逐项积分。利用
+\[
+  \int_0^1x^n(-\ln x)^n\,\dd x
+  =\frac{n!}{(n+1)^{n+1}},
+\]
+得到
+\[
+\begin{aligned}
+  \int_0^1x^{-x}\,\dd x
+  &=\sum_{n=0}^{\infty}\frac1{n!}
+    \int_0^1x^n(-\ln x)^n\,\dd x\\
+  &=\sum_{n=0}^{\infty}\frac1{(n+1)^{n+1}}
+  =\sum_{m=1}^{\infty}m^{-m}.
+\end{aligned}
+\]
+\end{xsolution}
+
+\paragraph{题 5}
+\begin{xsolution}
+注意 $(2n)!!=2^nn!$。作变量替换 $y=x^2/2$，则 $x\,\dd x=\dd y$，且
+\[
+  \frac{x^{2n}}{[(2n)!!]^2}
+  =\frac{y^n}{2^n(n!)^2}.
+\]
+被积级数各项非负，故可逐项积分：
+\[
+\begin{aligned}
+&\int_0^{+\infty}x\ee^{-x^2/2}
+  \left(1+\frac{x^2}{2^2}+\frac{x^4}{2^24^2}+\cdots\right)\dd x\\
+&\qquad=\sum_{n=0}^{\infty}\frac1{2^n(n!)^2}
+  \int_0^{+\infty}y^n\ee^{-y}\,\dd y\\
+&\qquad=\sum_{n=0}^{\infty}\frac1{2^nn!}
+  =\ee^{1/2}.
+\end{aligned}
+\]
+\end{xsolution}
+
+\subsection*{16.2.3 练习题}
+
+\paragraph{题 1}
+\begin{xsolution}
+令
+\[
+  O_N=\sum_{n=1}^Na_{2n-1},\qquad E_N=\sum_{n=1}^Na_{2n}.
+\]
+由已知 $O_N\to B$。原交错级数的偶数项部分和为
+\[
+  O_N-E_N\to A,
+\]
+故 $E_N\to B-A$。于是奇、偶两个子级数都收敛，原级数也收敛，且
+\[
+  \sum_{n=1}^{\infty}a_n=B+(B-A)=2B-A.
+\]
+\end{xsolution}
+
+\paragraph{题 2}
+\begin{xsolution}
+以 $\Delta$ 表示向前差分。Newton 公式给出
+\[
+  P(n)=\sum_{k=0}^m\binom nk\Delta^kP(0)
+  =\sum_{k=0}^m\frac{\Delta^kP(0)}{k!}
+    n(n-1)\cdots(n-k+1).
+\]
+因此
+\[
+\begin{aligned}
+  \sum_{n=0}^{\infty}\frac{P(n)}{n!}
+  &=\sum_{k=0}^m\frac{\Delta^kP(0)}{k!}
+    \sum_{n=k}^{\infty}\frac1{(n-k)!}\\
+  &=\ee\sum_{k=0}^m\frac{\Delta^kP(0)}{k!}.
+\end{aligned}
+\]
+这就是所求和。等价地，若用普通幂 $P(x)=\sum_{j=0}^ma_jx^j$ 表示，也可写成 $\ee$ 乘以相应的 Bell 数线性组合。
+\end{xsolution}
+
+\paragraph{题 3}
+\begin{xsolution}
+令 $m=n-1$，所求级数为
+\[
+  \sum_{m=0}^{\infty}\frac{(-1)^m(m+1)^3}{m!}.
+\]
+利用
+\[
+\begin{aligned}
+  \sum_{m=0}^{\infty}\frac{(-1)^m}{m!}&=\ee^{-1},\\
+  \sum_{m=0}^{\infty}\frac{(-1)^mm}{m!}&=-\ee^{-1},\\
+  \sum_{m=0}^{\infty}\frac{(-1)^mm^2}{m!}&=0,\\
+  \sum_{m=0}^{\infty}\frac{(-1)^mm^3}{m!}&=\ee^{-1},
+\end{aligned}
+\]
+得到
+\[
+  \sum_{m=0}^{\infty}\frac{(-1)^m(m+1)^3}{m!}
+  =\ee^{-1}-3\ee^{-1}+\ee^{-1}=-\ee^{-1}.
+\]
+故级数和为 $-1/\ee$。
+\end{xsolution}
+
+\paragraph{题 4(1)}
+\begin{xsolution}
+由正切差角公式，
+\[
+  \arctan\frac1{2n^2}
+  =\arctan\frac1{2n-1}-\arctan\frac1{2n+1},
+\]
+因为右边差角的正切为
+\[
+  \frac{\frac1{2n-1}-\frac1{2n+1}}
+  {1+\frac1{(2n-1)(2n+1)}}=\frac1{2n^2}.
+\]
+故前 $N$ 项直接望远镜相消为
+\[
+  \sum_{n=1}^N\arctan\frac1{2n^2}
+  =\arctan1-\arctan\frac1{2N+1}.
+\]
+令 $N\to\infty$，得到
+\[
+  \sum_{n=1}^{\infty}\arctan\frac1{2n^2}=\frac\pi4.
+\]
+\end{xsolution}
+
+\paragraph{题 4(2)}
+\begin{xsolution}
+约定 $\arctan(+\infty)=\pi/2$。对 $n\geqslant1$，
+\[
+  \arctan\frac2{n^2}
+  =\arctan\frac1{n-1}-\arctan\frac1{n+1}.
+\]
+因此
+\[
+\begin{aligned}
+  \sum_{n=1}^N\arctan\frac2{n^2}
+  &=\frac\pi2+\frac\pi4
+    -\arctan\frac1N-\arctan\frac1{N+1}.
+\end{aligned}
+\]
+令 $N\to\infty$ 得
+\[
+  \sum_{n=1}^{\infty}\arctan\frac2{n^2}=\frac{3\pi}{4}.
+\]
+\end{xsolution}
+
+\paragraph{题 5}
+\begin{xsolution}
+令
+\[
+  b_n=\frac{2^n}{a^{2^n}-1}\qquad(n\geqslant0).
+\]
+由
+\[
+  \frac1{y+1}=\frac1{y-1}-\frac2{y^2-1}
+\]
+得
+\[
+  \frac{2^n}{a^{2^n}+1}=b_n-b_{n+1}.
+\]
+于是前 $N+1$ 项和为 $b_0-b_{N+1}$。因 $a>1$，$b_{N+1}\to0$，故
+\[
+  \sum_{n=0}^{\infty}\frac{2^n}{a^{2^n}+1}=\frac1{a-1}.
+\]
+\end{xsolution}
+
+\paragraph{题 6}
+\begin{xsolution}
+所求级数可写成
+\[
+  \sum_{k=0}^{\infty}(-1)^k
+  \left(\frac1{4k+1}+\frac1{4k+3}\right).
+\]
+用 $1/(m+1)=\int_0^1x^m\,\dd x$，并先在 $[0,r]$ 上求和再令 $r\to1^-$，得
+\[
+  S=\int_0^1\frac{1+x^2}{1+x^4}\,\dd x.
+\]
+而
+\[
+  \frac{\dd}{\dd x}\arctan\frac{\sqrt2x}{1-x^2}
+  =\sqrt2\frac{1+x^2}{1+x^4}.
+\]
+因此
+\[
+  S=\frac1{\sqrt2}\left[\arctan\frac{\sqrt2x}{1-x^2}\right]_{0}^{1^-}
+  =\frac{\pi}{2\sqrt2}.
+\]
+\end{xsolution}
+
+\paragraph{题 7}
+\begin{xsolution}
+所求和为
+\[
+  S=\sum_{k=0}^{\infty}\left(\frac1{8k+1}-\frac1{8k+7}\right).
+\]
+由余切的部分分式展开
+\[
+  \pi\cot\pi z
+  =\frac1z+\sum_{n=1}^{\infty}
+  \left(\frac1{n+z}-\frac1{n-z}\right),
+  \qquad z\notin\ZZ,
+\]
+取 $z=1/8$，并将右边按同余类重写，得到
+\[
+  S=\frac\pi8\cot\frac\pi8
+  =\frac\pi8(1+\sqrt2).
+\]
+\end{xsolution}
+
+\paragraph{题 8}
+\begin{xsolution}
+由几何级数，
+\[
+  S=\sum_{n=0}^{\infty}\frac{(-1)^n}{3n+1}
+  =\int_0^1\frac{\dd x}{1+x^3}.
+\]
+分解
+\[
+  \frac1{1+x^3}=\frac1{3(x+1)}+\frac{-x+2}{3(x^2-x+1)},
+\]
+积分可得
+\[
+  \int_0^1\frac{\dd x}{1+x^3}
+  =\frac{\ln2}{3}+\frac{\pi}{3\sqrt3}.
+\]
+故所求和为
+\[
+  \frac{\ln2}{3}+\frac{\pi}{3\sqrt3}.
+\]
+\end{xsolution}
+
+\paragraph{题 9}
+\begin{xsolution}
+记 $a_n=H_n=\sum_{k=1}^n1/k$。因各项非负，可以交换求和次序：
+\[
+\begin{aligned}
+  \sum_{n=1}^{\infty}\frac{H_n}{n(n+1)}
+  &=\sum_{k=1}^{\infty}\frac1k
+    \sum_{n=k}^{\infty}\frac1{n(n+1)}\\
+  &=\sum_{k=1}^{\infty}\frac1k\cdot\frac1k
+  =\frac{\pi^2}{6}.
+\end{aligned}
+\]
+\end{xsolution}
+
+\paragraph{题 10}
+\begin{xsolution}
+设前 $N$ 项和为 $S_N$。前两个分式恰遍历不超过 $4N$ 的所有奇数倒数，因此
+\[
+\begin{aligned}
+  S_N
+  &=\sum_{n=0}^{N-1}\left(\frac1{4n+1}+\frac1{4n+3}-\frac1{2n+2}\right)\\
+  &=\left(H_{4N}-\frac12H_{2N}\right)-\frac12H_N.
+\end{aligned}
+\]
+利用 $H_N=\ln N+\gamma+\littleo(1)$，有
+\[
+\begin{aligned}
+  S
+  &=\lim_{N\to\infty}\left(H_{4N}-\frac12H_{2N}-\frac12H_N\right)\\
+  &=\ln4-\frac12\ln2=\frac32\ln2.
+\end{aligned}
+\]
+故所求和为 $\frac32\ln2$。
+\end{xsolution}
+
+\paragraph{题 11}
+\begin{xsolution}
+级数为
+\[
+  S=\sum_{k=0}^{\infty}\left(\frac1{5k+1}-\frac1{5k+4}\right).
+\]
+同题 7 使用余切部分分式展开，取 $z=1/5$，得
+\[
+  S=\frac\pi5\cot\frac\pi5.
+\]
+这也可由积分
+\[
+  S=\int_0^1\frac{1-x^3}{1-x^5}\,\dd x
+\]
+直接计算得到。
+\end{xsolution}
+
+\paragraph{题 12}
+\begin{xsolution}
+令 $\omega=\ee^{\ii\pi/3}$。六次单位根筛选给出
+\[
+\begin{aligned}
+  S(x)
+  &=\sum_{k=0}^{\infty}\frac{x^{6k+3}}{(6k+3)!}
+   =\frac16\sum_{j=0}^5(-1)^j\ee^{\omega^jx}\\
+  &=\frac13\left[
+    \sinh x-2\sinh\frac x2\cos\frac{\sqrt3x}{2}
+  \right].
+\end{aligned}
+\]
+该等式对所有实数 $x$（事实上对所有复数 $x$）成立。
+\end{xsolution}
+
+\paragraph{题 13}
+% SOURCE-CHECK: 原书扫描页 lower/page-0131.jpg 的分子为 [(n-1)!]^2；chapters/ch16.tex 误转为双阶乘。
+\begin{xsolution}
+按原书扫描题面，所求级数是
+\[
+  S(x)=\sum_{n=1}^{\infty}
+  \frac{[(n-1)!]^2}{(2n)!}(2x)^{2n}.
+\]
+利用
+\[
+  \frac{[(n-1)!]^2}{(2n)!}
+  =\frac1{n^2\binom{2n}{n}},
+\]
+可写成
+\[
+  S(x)=\sum_{n=1}^{\infty}
+  \frac{(2x)^{2n}}{n^2\binom{2n}{n}}.
+\]
+另一方面，由反正弦函数的幂级数逐项积分（或对下式求导核对）有经典展开
+\[
+  (\arcsin x)^2
+  =\frac12\sum_{n=1}^{\infty}
+  \frac{(2x)^{2n}}{n^2\binom{2n}{n}},
+  \qquad |x|\leqslant1.
+\]
+因此
+\[
+  S(x)=2(\arcsin x)^2,\qquad |x|\leqslant1.
+\]
+级数的收敛半径为 $1$，在 $x=\pm1$ 处也因通项为 $\bigO(n^{-3/2})$ 而收敛。
+\end{xsolution}
+
+\paragraph{题 14}
+\begin{xsolution}
+对每个使分母有意义的 $x$，有恒等式
+\[
+  \frac{x^{n+1}}{(1-x^n)(1-x^{n+1})}
+  =\frac{x}{1-x}
+  \left(\frac1{1-x^n}-\frac1{1-x^{n+1}}\right).
+\]
+故前 $N$ 项和为
+\[
+  S_N(x)=\frac{x}{1-x}
+  \left(\frac1{1-x}-\frac1{1-x^{N+1}}\right).
+\]
+于是对实变量：
+\[
+  S(x)=
+  \begin{cases}
+    \dfrac{x^2}{(1-x)^2},&|x|<1,\\[6pt]
+    \dfrac{x}{(1-x)^2},&|x|>1.
+  \end{cases}
+\]
+在 $x=1$ 及 $x=-1$ 处原级数有分母为零，故无定义。
+\end{xsolution}
+
+\paragraph{题 15}
+\begin{xsolution}
+令
+\[
+  R_n=\prod_{k=2}^{n+1}\frac{a_k}{a_k+x},\qquad R_0=1.
+\]
+则第 $n$ 项 $t_n$ 满足
+\[
+\begin{aligned}
+  t_n
+  &=\frac{a_1a_2\cdots a_n}
+  {(a_2+x)\cdots(a_{n+1}+x)}\\
+  &=\frac{a_1}{x}(R_{n-1}-R_n).
+\end{aligned}
+\]
+只需证明 $R_n\to0$。由于
+\[
+  \log R_n
+  =\sum_{k=2}^{n+1}\log\left(1-\frac{x}{a_k+x}\right)
+  \leqslant-\sum_{k=2}^{n+1}\frac{x}{a_k+x},
+\]
+而 $\sum1/a_k$ 发散，所以右边趋于 $-\infty$：若有无穷多个 $a_k\leqslant x$，则每个相应项 $x/(a_k+x)\geqslant1/2$；否则最终 $a_k>x$，且
+\[
+  \frac{x}{a_k+x}\geqslant\frac{x}{2a_k},
+\]
+仍为发散级数。因此 $R_n\to0$。望远镜求和得
+\[
+  \sum_{n=1}^{\infty}t_n
+  =\frac{a_1}{x}(R_0-0)=\frac{a_1}{x},\qquad x>0.
+\]
+\end{xsolution}
+
+\paragraph{题 16}
+\begin{xsolution}
+令
+\[
+  b_n=\frac{x-1}{x^{2^n}-1},\qquad n=0,1,2,\ldots.
+\]
+利用 $y^2-1=(y-1)(y+1)$，有
+\[
+  b_n-b_{n+1}
+  =\frac{x^{2^n}}{(x+1)(x^2+1)\cdots(x^{2^n}+1)}.
+\]
+这正是题中第 $n+1$ 项。又 $b_0=1$，且 $x>1$ 时 $b_n\to0$，故
+\[
+  \frac{x}{x+1}+\frac{x^2}{(x+1)(x^2+1)}+\cdots=1.
+\]
+\end{xsolution}
+
+
+\subsection*{16.3.6 练习题}
+
+\paragraph{题 1}
+\begin{xsolution}
+任取 $x_0\in[a,b]$ 和 $\varepsilon>0$。由题设可取多项式 $P$，使
+\[
+  |f(x)-P(x)|<\frac\varepsilon3,
+  \qquad x\in[a,b].
+\]
+多项式 $P$ 在 $x_0$ 连续，所以存在 $\delta>0$，当 $|x-x_0|<\delta$ 且 $x\in[a,b]$ 时，
+\[
+  |P(x)-P(x_0)|<\frac\varepsilon3.
+\]
+于是
+\[
+\begin{aligned}
+  |f(x)-f(x_0)|
+  &\leqslant|f(x)-P(x)|+|P(x)-P(x_0)|+|P(x_0)-f(x_0)|\\
+  &<\varepsilon.
+\end{aligned}
+\]
+故 $f$ 在每个 $x_0\in[a,b]$ 连续，即 $f\in C[a,b]$。
+\end{xsolution}
+
+\paragraph{题 2(1)}
+\begin{xsolution}
+由 Weierstrass 逼近定理，可取多项式 $R_n$，使
+\[
+  \|f-R_n\|_\infty\leqslant4^{-n},\qquad n=1,2,\ldots.
+\]
+对 $n\geqslant2$ 令
+\[
+  D_n=R_n-R_{n-1},\qquad
+  c_n=\max\left\{0,-\min_{x\in[a,b]}D_n(x)\right\}.
+\]
+则 $D_n+c_n\geqslant0$ 于 $[a,b]$ 上恒成立，且
+\[
+  0\leqslant c_n\leqslant\|D_n\|_\infty
+  \leqslant4^{-n}+4^{-(n-1)}.
+\]
+因此 $C=\sum_{n=2}^{\infty}c_n<\infty$。定义
+\[
+  P_1=R_1-C,
+  \qquad P_n=D_n+c_n\quad(n\geqslant2).
+\]
+则 $P_n$（$n\geqslant2$）都是在 $[a,b]$ 上非负的多项式，并且
+\[
+  \sum_{n=1}^NP_n
+  =R_N-\sum_{n=N+1}^{\infty}c_n.
+\]
+右边一致收敛于 $f$，故
+\[
+  f=\sum_{n=1}^{\infty}P_n
+\]
+在 $[a,b]$ 上一致收敛，且除第一项外各项均非负。
+\end{xsolution}
+
+\paragraph{题 2(2)}
+\begin{xsolution}
+仍取多项式 $R_n$ 使 $\|f-R_n\|_\infty\leqslant4^{-n}$。令
+\[
+  P_1=R_1,
+  \qquad P_n=R_n-R_{n-1}\quad(n\geqslant2).
+\]
+则 $\sum_{k=1}^NP_k=R_N\to f$ 一致。并且
+\[
+\begin{aligned}
+  \sum_{n=1}^{\infty}\|P_n\|_\infty
+  &\leqslant\|R_1\|_\infty
+  +\sum_{n=2}^{\infty}
+  \bigl(\|R_n-f\|_\infty+\|R_{n-1}-f\|_\infty\bigr)\\
+  &<+\infty.
+\end{aligned}
+\]
+故该多项式级数绝对一致收敛于 $f$。
+\end{xsolution}
+
+\paragraph{题 2(3)}
+% CHECK-SOLUTION: 原书扫描题面确写“给定的收敛正项级数”，且要求每个 n 都有 sup|P_n|<=a_n。按此原文命题一般不成立；缺少至少 ||f||_infty<=sum a_n 一类必要条件，或“收敛”可能为原书排印误字。不能擅自改题。
+\begin{xsolution}
+按原书现有题面，此命题不能成立。事实上若
+\[
+  f(x)\equiv M,\qquad
+  M>\sum_{n=1}^{\infty}a_n,
+\]
+而又存在题设级数，则由一致收敛及三角不等式必有
+\[
+  M=|f(x)|
+  =\left|\sum_{n=1}^{\infty}P_n(x)\right|
+  \leqslant\sum_{n=1}^{\infty}\sup_{t\in[a,b]}|P_n(t)|
+  \leqslant\sum_{n=1}^{\infty}a_n,
+\]
+矛盾。因此原题至少缺少一个必要条件，不能在不改动题意的情况下给出所要求的证明。
+\end{xsolution}
+
+\paragraph{题 3}
+\begin{xsolution}
+设 $f\in R[a,b]$。任取 $\varepsilon>0$。由 Riemann 可积性，可取分割
+\[
+  a=x_0<x_1<\cdots<x_m=b,
+\]
+使上、下 Darboux 和之差小于 $\varepsilon/3$。在每个小区间记
+\[
+  M_i=\sup_{[x_{i-1},x_i]}f,
+  \qquad m_i=\inf_{[x_{i-1},x_i]}f.
+\]
+于是阶梯函数 $u,l$ 满足 $l\leqslant f\leqslant u$ 且
+\[
+  \int_a^b(u-l)\,\dd x<\frac\varepsilon3.
+\]
+
+设 $M=\sup_{[a,b]}f$，$m=\inf_{[a,b]}f$。在各分点的充分小邻域内，把 $u$ 向上用常值 $M$ 连接，把 $l$ 向下用常值 $m$ 连接，并在邻域边缘作线性连接；邻域总长度可任意小。因此可构造连续函数 $U,L$，满足
+\[
+  L\leqslant l\leqslant f\leqslant u\leqslant U,
+  \qquad
+  \int_a^b(U-L)\,\dd x<\frac{2\varepsilon}{3}.
+\]
+（这里多出的积分只发生在有限个分点的这些小邻域中，所以可通过缩小邻域使之任意小。）
+
+由 Weierstrass 逼近定理，取多项式 $P_0,p_0$，使
+\[
+  \|P_0-U\|_\infty<\delta,
+  \qquad \|p_0-L\|_\infty<\delta,
+\]
+其中选 $2\delta(b-a)<\varepsilon/3$。令
+\[
+  P=P_0+\delta,\qquad p=p_0-\delta.
+\]
+则
+\[
+  p\leqslant L\leqslant f\leqslant U\leqslant P
+\]
+在 $[a,b]$ 上处处成立，且
+\[
+\begin{aligned}
+  \int_a^b[P(x)-p(x)]\,\dd x
+  &\leqslant\int_a^b[U(x)-L(x)]\,\dd x+2\delta(b-a)\\
+  &<\varepsilon.
+\end{aligned}
+\]
+两项要求均得证。
+\end{xsolution}
+
+\paragraph{题 4}
+\begin{xsolution}
+先设对所有 $n\geqslant0$ 都有
+\[
+  \int_a^bx^nf(x)\,\dd x=0.
+\]
+于是对任意多项式 $P$ 都有 $\int_a^bP(x)f(x)\,\dd x=0$。由 Weierstrass 定理取多项式 $P_k\to f$ 一致，则
+\[
+  \int_a^bf(x)^2\,\dd x
+  =\lim_{k\to\infty}\int_a^bf(x)P_k(x)\,\dd x=0.
+\]
+$f^2$ 连续且非负，故 $f\equiv0$。
+
+若只知道对所有 $n>n_0$ 成立，令
+\[
+  g(x)=x^{n_0+1}f(x).
+\]
+则对每个 $k\geqslant0$，
+\[
+  \int_a^bx^kg(x)\,\dd x
+  =\int_a^bx^{k+n_0+1}f(x)\,\dd x=0.
+\]
+由上一步 $g\equiv0$。因此当 $x\ne0$ 时 $f(x)=0$；若 $0\in[a,b]$，再由连续性得 $f(0)=0$。故仍有 $f\equiv0$。
+\end{xsolution}
+
+\paragraph{题 5(1)}
+\begin{xsolution}
+写成偶、奇部分
+\[
+  f=f_e+f_o,
+  \qquad
+  f_e(x)=\frac{f(x)+f(-x)}2.
+\]
+因为 $x^{2n}f_o(x)$ 为奇函数，题设等价于
+\[
+  \int_{-1}^1x^{2n}f_e(x)\,\dd x=0,
+  \qquad n=0,1,\ldots.
+\]
+$f_e$ 为偶连续函数。令 $h(t)=f_e(\sqrt t)$（$0\leqslant t\leqslant1$），则 $h$ 连续。由 Weierstrass 定理可取多项式 $Q_k(t)$ 一致逼近 $h(t)$，于是 $Q_k(x^2)$ 一致逼近 $f_e(x)$，且每个 $Q_k(x^2)$ 都是偶次幂的线性组合。因此
+\[
+  \int_{-1}^1f_e(x)Q_k(x^2)\,\dd x=0.
+\]
+令 $k\to\infty$ 得
+\[
+  \int_{-1}^1f_e(x)^2\,\dd x=0,
+\]
+所以 $f_e\equiv0$。于是 $f=f_o$ 为奇函数。
+\end{xsolution}
+
+\paragraph{题 5(2)}
+\begin{xsolution}
+仍写 $f=f_e+f_o$。因 $x^{2n+1}f_e(x)$ 为奇函数，题设给出
+\[
+  \int_{-1}^1x^{2n+1}f_o(x)\,\dd x=0,
+  \qquad n=0,1,\ldots.
+\]
+令 $g(x)=xf_o(x)$。则 $g$ 是偶连续函数，且
+\[
+  \int_{-1}^1x^{2n}g(x)\,\dd x=0,
+  \qquad n=0,1,\ldots.
+\]
+按题 5(1) 的偶函数论证可得 $g\equiv0$，故 $f_o(x)=0$ 对 $x\ne0$ 成立，而 $f_o(0)=0$。因此 $f_o\equiv0$，即 $f$ 为偶函数。
+\end{xsolution}
+
+\paragraph{题 6}
+\begin{xsolution}
+必要性立即成立：每个只含奇次项的多项式在 $x=0$ 处都等于 0，一致极限也必须满足 $f(0)=0$。
+
+反之，设 $f(0)=0$。在 $[-1,1]$ 上作奇延拓
+\[
+  F(x)=
+  \begin{cases}
+    f(x),&0\leqslant x\leqslant1,\\
+    -f(-x),&-1\leqslant x<0.
+  \end{cases}
+\]
+由 $f(0)=0$，$F\in C[-1,1]$ 且 $F$ 为奇函数。由 Weierstrass 定理，对任意 $n$ 可取多项式 $P_n$ 使 $P_n\to F$ 一致。令
+\[
+  Q_n(x)=\frac{P_n(x)-P_n(-x)}2.
+\]
+则 $Q_n$ 是只含奇次项的多项式，并且
+\[
+  |Q_n(x)-F(x)|
+  \leqslant\frac{|P_n(x)-F(x)|+|P_n(-x)-F(-x)|}{2}
+  \to0
+\]
+一致成立。限制到 $[0,1]$ 即得所需序列。
+\end{xsolution}
+
+\paragraph{题 7}
+\begin{xsolution}
+由题设，对每个多项式 $P$ 都有
+\[
+  \int_a^bf(x)P(x)\,\dd x=0.
+\]
+任取 $g\in C[a,b]$。由 Weierstrass 定理取多项式 $P_k\to g$ 一致。因 $f$ Riemann 可积故有界，于是
+\[
+  \int_a^bf(x)g(x)\,\dd x
+  =\lim_{k\to\infty}\int_a^bf(x)P_k(x)\,\dd x=0.
+\]
+
+若 $x_0$ 是 $f$ 的连续点而 $f(x_0)>0$，则存在小闭区间 $I\ni x_0$ 和常数 $c>0$，使 $f(x)\geqslant c$ 于 $I$ 上。取非负连续函数 $g$，其支集包含于 $I$ 且不恒为 0，则
+\[
+  \int_a^bf(x)g(x)\,\dd x\geqslant c\int_Ig(x)\,\dd x>0,
+\]
+与上式矛盾。$f(x_0)<0$ 同理。故每个连续点 $x_0$ 都有 $f(x_0)=0$。
+\end{xsolution}
+
+\paragraph{题 8}
+\begin{xsolution}
+设
+\[
+  f(x)=\sum_{n=1}^{\infty}P_n(x)
+\]
+在整个 $\RR$ 上一致收敛，部分和记为 $S_N$。由一致 Cauchy 准则，存在 $N_0$，使得对任意 $m,n\geqslant N_0$，
+\[
+  \sup_{x\in\RR}|S_m(x)-S_n(x)|<1.
+\]
+但 $S_m-S_n$ 是多项式；一个非恒定多项式在 $\RR$ 上必无界，因此 $S_m-S_n$ 只能是常数。固定 $n=N_0$，可写
+\[
+  S_m(x)=S_{N_0}(x)+c_m,
+  \qquad m\geqslant N_0.
+\]
+由一致收敛（在任一点取值即可）知 $c_m\to c$，于是
+\[
+  f(x)=S_{N_0}(x)+c,
+\]
+本身是多项式。
+\end{xsolution}
+
+\subsection*{16.5.2 参考题}
+
+\paragraph{参考题 1(1)}
+\begin{xsolution}
+用 Beta 积分
+\[
+  \frac1{m(m+1)(m+2)}
+  =\frac12\int_0^1x^{m-1}(1-x)^2\,\dd x.
+\]
+取 $m=2k+1$ 并求和：
+\[
+\begin{aligned}
+S&=\frac12\int_0^1(1-x)^2\sum_{k=0}^{\infty}x^{2k}\,\dd x\\
+ &=\frac12\int_0^1\frac{1-x}{1+x}\,\dd x
+ =\ln2-\frac12.
+\end{aligned}
+\]
+\end{xsolution}
+
+\paragraph{参考题 1(2)}
+\begin{xsolution}
+同样取 $m=2k+2$：
+\[
+\begin{aligned}
+S&=\frac12\int_0^1(1-x)^2\sum_{k=0}^{\infty}x^{2k+1}\,\dd x\\
+ &=\frac12\int_0^1\frac{x(1-x)}{1+x}\,\dd x\\
+ &=\frac34-\ln2.
+\end{aligned}
+\]
+\end{xsolution}
+
+\paragraph{参考题 1(3)}
+\begin{xsolution}
+有
+\[
+  \frac1{m(m+1)(m+2)(m+3)}
+  =\frac16\int_0^1x^{m-1}(1-x)^3\,\dd x.
+\]
+令 $m=3k+1$，则
+\[
+\begin{aligned}
+S&=\frac16\int_0^1\frac{(1-x)^3}{1-x^3}\,\dd x
+ =\frac16\int_0^1\frac{(1-x)^2}{1+x+x^2}\,\dd x\\
+ &=\frac16\left(1-\frac32\ln3+\frac{\pi}{2\sqrt3}\right).
+\end{aligned}
+\]
+即
+\[
+  S=\frac16-\frac14\ln3+\frac{\pi}{12\sqrt3}.
+\]
+\end{xsolution}
+
+\paragraph{参考题 2}
+\begin{xsolution}
+令
+\[
+  \eta(s)=\sum_{n=1}^{\infty}\frac{(-1)^{n-1}}{n^s}
+  =(1-2^{1-s})\zeta(s),\qquad s>0,
+\]
+其中在 $s=1$ 附近按 Abel--Dirichlet 方法理解。所求级数收敛（$\ln n/n$ 从充分大的 $n$ 起单调趋于 0），并且
+\[
+  \sum_{n=1}^{\infty}(-1)^{n-1}\frac{\ln n}{n}=-\eta'(1).
+\]
+设 $h=s-1$。利用
+\[
+  1-2^{-h}=h\ln2-\frac{h^2(\ln2)^2}{2}+\bigO(h^3),
+\]
+以及
+\[
+  \zeta(1+h)=\frac1h+\gamma+\bigO(h),
+\]
+其中 $\gamma$ 为 Euler 常数，得到
+\[
+  \eta(1+h)=\ln2+h\left(\gamma\ln2-\frac{(\ln2)^2}{2}\right)+\bigO(h^2).
+\]
+故
+\[
+  \boxed{\displaystyle
+  \sum_{n=1}^{\infty}(-1)^{n-1}\frac{\ln n}{n}
+  =\frac{(\ln2)^2}{2}-\gamma\ln2 }.
+\]
+\end{xsolution}
+
+\paragraph{参考题 3}
+\begin{xsolution}
+固定 $m\geqslant1$，先算内层级数。对 $N>m$，
+\[
+\begin{aligned}
+\sum_{\substack{n=1\\n\ne m}}^N\frac1{m^2-n^2}
+&=\frac1{2m}\sum_{\substack{n=1\\n\ne m}}^N
+ \left(\frac1{m-n}+\frac1{m+n}\right)\\
+&=\frac1{2m}\left(
+H_{m-1}-H_{N-m}+H_{N+m}-H_m-\frac1{2m}
+\right).
+\end{aligned}
+\]
+令 $N\to\infty$，因 $H_{N+m}-H_{N-m}\to0$，得
+\[
+  \sum_{\substack{n=1\\n\ne m}}^{\infty}\frac1{m^2-n^2}
+  =-\frac3{4m^2}.
+\]
+因此
+\[
+\begin{aligned}
+  \sum_{m=1}^{\infty}\sum_{\substack{n=1\\n\ne m}}^{\infty}
+  \frac1{m^2-n^2}
+  &=-\frac34\sum_{m=1}^{\infty}\frac1{m^2}
+  =-\frac{\pi^2}{8}.
+\end{aligned}
+\]
+\end{xsolution}
+
+\paragraph{参考题 4（Goldbach 哥德巴赫）}
+\begin{xsolution}
+设 $\mathcal P$ 为所有不同的完全幂 $q=a^r$（$a>1,r>1$）的集合。由于各项非负，可自由交换求和：
+\[
+  \sum_{q\in\mathcal P}\frac1{q-1}
+  =\sum_{q\in\mathcal P}\sum_{j=1}^{\infty}\frac1{q^j}.
+\]
+另一方面，
+\[
+  \sum_{a=2}^{\infty}\frac1{a(a-1)}
+  =\sum_{a=2}^{\infty}\sum_{r=2}^{\infty}\frac1{a^r}=1.
+\]
+下面说明这两个双重正项级数逐整数计数完全相同。
+
+任一整数 $N>1$ 可唯一写成
+\[
+  N=c^d,
+\]
+其中 $c$ 不是完全幂，$d$ 是 $N$ 的素因子指数的最大公约数。若 $d=1$，$N$ 在两边都不出现。若 $d\geqslant2$，则右边 $\sum_{a,r}$ 中 $1/N$ 出现的次数等于 $d$ 的大于 1 的正因子个数（每个 $r\mid d,r>1$ 给出 $a=c^{d/r}$）。左边 $\sum_{q,j}$ 中 $1/N$ 出现的次数也等于这个数：$q=c^e$ 必有 $e\mid d,e>1$，而 $j=d/e$。因此两边每个 $1/N$ 的重数相同。
+
+故
+\[
+  \sum_{q\in\mathcal P}\frac1{q-1}
+  =\sum_{a=2}^{\infty}\frac1{a(a-1)}=1.
+\]
+\end{xsolution}
+
+\paragraph{参考题 5}
+\begin{xsolution}
+把递推式向前延拓令 $a_0=0$，则
+\[
+  a_{n+1}+a_{n-1}=4a_n.
+\]
+还可由递推式归纳得到
+\[
+  a_n^2-a_{n-1}a_{n+1}=4.
+\]
+令
+\[
+  \theta_n=\arctan\frac{a_n}{a_{n+1}},\qquad \theta_0=0.
+\]
+则
+\[
+\begin{aligned}
+  \tan(\theta_n-\theta_{n-1})
+  &=\frac{a_n^2-a_{n-1}a_{n+1}}
+  {a_n(a_{n+1}+a_{n-1})}\\
+  &=\frac4{4a_n^2}=\frac1{a_n^2}.
+\end{aligned}
+\]
+而 $0<\theta_n-\theta_{n-1}<\pi/2$，故
+\[
+  \operatorname{arccot}a_n^2
+  =\arctan\frac1{a_n^2}=\theta_n-\theta_{n-1}.
+\]
+递推方程特征根为 $2\pm\sqrt3$，所以
+\[
+  \frac{a_n}{a_{n+1}}\to2-\sqrt3=\tan\frac\pi{12}.
+\]
+望远镜求和即得
+\[
+  \sum_{n=1}^{\infty}\operatorname{arccot}a_n^2
+  =\lim_{N\to\infty}\theta_N=\frac\pi{12}.
+\]
+\end{xsolution}
+
+\paragraph{参考题 6}
+% SOURCE-CHECK: 原书扫描页 lower/page-0147.jpg 明确为 2^{n+1}；chapters/ch16.tex 误转为 2^{2n+1}。以下按原书题面证明。
+\begin{xsolution}
+按原书扫描题面，应证明
+\[
+  \pi=\sum_{n=0}^{\infty}
+  \frac{(n!)^2 2^{n+1}}{(2n+1)!}.
+\]
+由 Beta 积分
+\[
+  \frac{(n!)^2}{(2n+1)!}
+  =\int_0^1x^n(1-x)^n\,\dd x.
+\]
+各项非负，所以
+\[
+\begin{aligned}
+  \sum_{n=0}^{\infty}\frac{(n!)^22^{n+1}}{(2n+1)!}
+  &=2\int_0^1\sum_{n=0}^{\infty}[2x(1-x)]^n\,\dd x\\
+  &=2\int_0^1\frac{\dd x}{1-2x(1-x)}.
+\end{aligned}
+\]
+令 $u=2x-1$，则
+\[
+  1-2x(1-x)=\frac{1+u^2}{2},\qquad \dd x=\frac12\dd u,
+\]
+于是
+\[
+  2\int_0^1\frac{\dd x}{1-2x(1-x)}
+  =2\int_{-1}^1\frac{\dd u}{1+u^2}=\pi.
+\]
+\end{xsolution}
+
+\paragraph{参考题 7}
+\begin{xsolution}
+由 $k=0$ 的假设，数列
+\[
+  \int_0^1g_n(x)\,\dd x
+\]
+有极限，因此存在常数 $M>0$，使
+\[
+  \int_0^1g_n(x)\,\dd x\leqslant M
+\]
+对所有 $n$ 成立。
+
+任取 $f\in C[0,1]$ 和 $\varepsilon>0$。由 Weierstrass 定理取多项式
+\[
+  P(x)=\sum_{k=0}^ma_kx^k
+\]
+使 $\|f-P\|_\infty<\varepsilon/(3M)$。则
+\[
+  \left|\int_0^1(f-P)g_n\,\dd x\right|
+  \leqslant\|f-P\|_\infty\int_0^1g_n\,\dd x<\frac\varepsilon3.
+\]
+而
+\[
+  \int_0^1P(x)g_n(x)\,\dd x
+  =\sum_{k=0}^ma_k\int_0^1x^kg_n(x)\,\dd x
+\]
+按假设有极限，故为 Cauchy 数列。于是充分大的 $m,n$ 有
+\[
+  \left|\int_0^1P(g_m-g_n)\,\dd x\right|<\frac\varepsilon3.
+\]
+三角不等式遂给出
+\[
+  \left|\int_0^1fg_m\,\dd x-\int_0^1fg_n\,\dd x\right|<\varepsilon.
+\]
+故所求极限存在。
+\end{xsolution}
+
+\paragraph{参考题 8}
+\begin{xsolution}
+设 $F'=f$。由例题 16.3.1，任意连续函数都有原函数。
+
+先说明：对任意多项式 $P$，函数 $fP$ 有原函数。因为 $FP'$ 连续，存在原函数 $K$ 使 $K'=FP'$，于是
+\[
+  (FP-K)'=fP+FP'-FP'=fP.
+\]
+
+由 Weierstrass 定理取多项式 $P_n\to g$ 一致。因 $f$ 有界，
+\[
+  fP_n\to fg
+\]
+一致。对每个 $n$ 取 $H_n'=fP_n$，并令 $H_n(a)=0$。由微分中值定理，
+\[
+  |H_n(x)-H_m(x)|\leqslant(b-a)\|fP_n-fP_m\|_\infty,
+\]
+故 $H_n$ 一致收敛于某个函数 $H$。
+
+还需验证 $H'=fg$。给定 $\varepsilon>0$，取固定 $N$ 使
+\[
+  \|fP_n-fP_N\|_\infty<\varepsilon
+\]
+对所有 $n\geqslant N$ 成立。对 $H_n-H_N$ 用中值定理并令 $n\to\infty$，得到
+\[
+  |[H-H_N](x+h)-[H-H_N](x)|\leqslant\varepsilon|h|.
+\]
+再利用 $H_N$ 在 $x$ 可导以及 $|fP_N(x)-fg(x)|<\varepsilon$，可得当 $h$ 充分小时
+\[
+  \left|\frac{H(x+h)-H(x)}h-f(x)g(x)\right|<3\varepsilon.
+\]
+故 $H'=fg$，即 $fg$ 有原函数。
+\end{xsolution}
+
+\paragraph{参考题 9}
+\begin{xsolution}
+既然复合函数 $f\circ g$ 有定义，理解为 $g([0,1])\subset[a,b]$。设 $F'=f$。链式法则给出
+\[
+  [F(g(x))]'=f(g(x))g'(x).
+\]
+因此
+\[
+  h(x)=f(g(x))g'(x)
+\]
+有原函数 $F\circ g$。又因 $f$ 有界、$g'$ 连续，$h$ 有界；而 $g'(x)>0$ 且 $g'\in C[0,1]$，所以 $1/g'\in C[0,1]$。应用参考题 8 于 $h$ 与连续函数 $1/g'$，得到
+\[
+  h(x)\frac1{g'(x)}=f(g(x))
+\]
+有原函数。
+\end{xsolution}
+
+\paragraph{参考题 10}
+\begin{xsolution}
+先验证题 8 的其余条件。
+
+函数
+\[
+  g(x)=\sqrt x\sin\frac1x\quad(x>0),\qquad g(0)=0
+\]
+在 $[0,1]$ 连续。函数 $f$ 在 $(0,1]$ 连续而在 $0$ 附近无界。定义
+\[
+  F(x)=\int_0^x\frac1{\sqrt t}\sin\frac1t\,\dd t
+  =\int_{1/x}^{+\infty}\frac{\sin u}{u^{3/2}}\,\dd u
+  \quad(x>0),
+\]
+并令 $F(0)=0$。分部积分给出尾积分为 $\bigO(x^{3/2})$，故
+\[
+  \frac{F(x)-F(0)}x=\bigO(\sqrt x)\to0=f(0).
+\]
+所以 $F'=f$ 于 $[0,1]$ 成立，$f$ 确有原函数。
+
+但
+\[
+  f(x)g(x)=
+  \begin{cases}
+    \sin^2(1/x),&x>0,\\
+    0,&x=0.
+  \end{cases}
+\]
+若它有原函数 $H$，因为该函数有界且只在 $0$ 不连续，Riemann 可积，所以 Newton--Leibniz 公式给出
+\[
+  \frac{H(x)-H(0)}x
+  =\frac1x\int_0^x\sin^2\frac1t\,\dd t.
+\]
+又
+\[
+\begin{aligned}
+  \int_0^x\sin^2\frac1t\,\dd t
+  &=\int_{1/x}^{+\infty}\frac{\sin^2u}{u^2}\,\dd u\\
+  &=\frac x2-\frac12\int_{1/x}^{+\infty}\frac{\cos2u}{u^2}\,\dd u
+  =\frac x2+\bigO(x^2),
+\end{aligned}
+\]
+最后一步由分部积分得到。因此
+\[
+  \lim_{x\to0^+}\frac{H(x)-H(0)}x=\frac12,
+\]
+但若 $H'=fg$，该极限应等于 $(fg)(0)=0$，矛盾。故 $fg$ 在 $[0,1]$ 上无原函数。
+\end{xsolution}
+
+\paragraph{参考题 11}
+\begin{xsolution}
+设 $S_N$ 为多项式级数的部分和。每个多项式在闭区间 $[a,b]$ 上一致连续，因而限制在 $(a,b)$ 上也一致连续。又 $S_N\to f$ 在 $(a,b)$ 上一致。任取 $\varepsilon>0$，先取 $N$ 使
+\[
+  \sup_{x\in(a,b)}|f(x)-S_N(x)|<\frac\varepsilon3.
+\]
+再由 $S_N$ 的一致连续性取 $\delta>0$，使 $|x-y|<\delta$ 时
+\[
+  |S_N(x)-S_N(y)|<\frac\varepsilon3.
+\]
+于是
+\[
+  |f(x)-f(y)|<\varepsilon.
+\]
+故 $f$ 在 $(a,b)$ 上一致连续。
+\end{xsolution}
+
+\paragraph{参考题 12}
+\begin{xsolution}
+令
+\[
+  F(t)=
+  \begin{cases}
+    f(1/t),&0<t\leqslant1,\\
+    A,&t=0.
+  \end{cases}
+\]
+由于 $f(x)\to A$（$x\to+\infty$），$F\in C[0,1]$。由 Weierstrass 定理，对给定 $\varepsilon>0$ 存在多项式 $P$ 使
+\[
+  |F(t)-P(t)|<\varepsilon,
+  \qquad0\leqslant t\leqslant1.
+\]
+令 $t=1/x$，便得到
+\[
+  \left|f(x)-P\left(\frac1x\right)\right|<\varepsilon,
+  \qquad x\in[1,+\infty).
+\]
+\end{xsolution}
+
+\paragraph{参考题 13}
+\begin{xsolution}
+令
+\[
+  F(t)=
+  \begin{cases}
+    f(-\ln t),&0<t\leqslant1,\\
+    A,&t=0.
+  \end{cases}
+\]
+由 $f(x)\to A$ 得 $F\in C[0,1]$。用 Weierstrass 定理取多项式 $P$ 使 $|F(t)-P(t)|<\varepsilon$ 于 $[0,1]$。令 $t=\ee^{-x}$，则
+\[
+  |f(x)-P(\ee^{-x})|<\varepsilon,
+  \qquad x\in(0,+\infty).
+\]
+\end{xsolution}
+
+\paragraph{参考题 14（处处连续处处不可导的函数）}
+\begin{xsolution}
+对一个有限十进制字 $d_1\ldots d_m$，称所有以这 $m$ 位开头的数构成一个 $m$ 级十进制小区间，其长度为 $10^{-m}$。在这样一个小区间内，前 $m$ 个数字 $x_1,\ldots,x_m$ 固定，因此前 $m$ 个二进制数字 $u_1,\ldots,u_m$ 也固定。
+
+关键在于：给定当前十进制数字后，下一位若取成与当前位相同，则 $u$ 保持不变；若取成任一不同数字，则 $u$ 翻转。因此，在固定前 $m$ 位十进制数字之后，后面的 $u_{m+1},u_{m+2},\ldots$ 可以按任意预先指定的二进制序列实现。于是同一个 $m$ 级十进制小区间内 $f$ 的振幅为 $2^{-m}$（端点采用题中约定的有限十进制表示时，取相应的一侧极限即可）。
+
+还需检查十进制小区间的公共端点没有跳跃。设某端点右侧采用有限表示，左侧逼近采用末尾 $999\ldots$ 的表示。若进位前一位与再前一位的“相等/不等”状态不变，则两侧产生完全相同的 $u$ 尾部；若该状态发生改变，则两侧的二进制尾部恰分别成为
+\[
+  0.0111\ldots\quad\text{与}\quad0.1000\ldots
+\]
+型的两种表示，它们代表同一个二进制数。因此 $f$ 在这些十进制端点处也没有跳跃。
+
+由此可证连续性。给定 $x$ 和 $\varepsilon>0$，取 $m$ 使 $2^{1-m}<\varepsilon$。若 $x$ 在某个 $m$ 级小区间内部，取邻域限制在该小区间内，则 $|f(y)-f(x)|\leqslant2^{-m}<\varepsilon$；若 $x$ 是公共端点，则取邻域只穿过相邻的两个小区间，由上面的端点相容性，其像的总振幅不超过 $2^{1-m}<\varepsilon$。故 $f$ 在 $(0,1)$ 处处连续。
+
+下面证明处处不可微。反设 $f$ 在某点 $x_0$ 有有限导数。则存在 $M>0$ 和 $\delta>0$，使当 $|y-x_0|<\delta$ 时
+\[
+  |f(y)-f(x_0)|\leqslant M|y-x_0|.
+\]
+取充分大的 $m$，使 $10^{-m}<\delta$。取包含 $x_0$ 的一个 $m$ 级十进制小区间 $I_m$（若 $x_0$ 是端点，取任一相邻者）。其中任意点到 $x_0$ 的距离不超过 $10^{-m}$。但前面已经说明，在 $I_m$ 中可通过选择后续十进制数字实现任意二进制尾部，所以可取 $y_m,z_m\in I_m$ 使
+\[
+  |f(y_m)-f(z_m)|\geqslant2^{-m-1}.
+\]
+另一方面，导数给出的局部估计有
+\[
+  |f(y_m)-f(z_m)|
+  \leqslant|f(y_m)-f(x_0)|+|f(z_m)-f(x_0)|
+  \leqslant2M10^{-m}.
+\]
+于是
+\[
+  2^{-m-1}\leqslant2M10^{-m},
+  \qquad\text{即}\qquad 5^m\leqslant4M,
+\]
+这对充分大的 $m$ 不可能。故 $f$ 在 $(0,1)$ 内处处不可微。
+\end{xsolution}
+
+\paragraph{参考题 15}
+\begin{xsolution}
+因 $u_n$ 非负单调增加，
+\[
+  0\leqslant u_n(x)\leqslant u_n(1),
+  \qquad x\in[0,1].
+\]
+由 $\sum u_n(1)$ 收敛和 Weierstrass 判别法，$\sum u_n(x)$ 在 $[0,1]$ 上一致收敛。
+
+若某点 $x_0$ 是所有 $u_n$ 的连续点，则一致收敛级数的和函数 $S$ 在 $x_0$ 连续。
+
+反之，若某个 $u_m$ 在 $x_0$ 不连续，由单调性知它在该点有正跳跃：设左右极限按相应一侧定义，则
+\[
+  J_m=u_m(x_0+)-u_m(x_0-)>0.
+\]
+其余各 $u_n$ 都是非减函数，跳跃量均非负。因此 $S$ 的总跳跃满足
+\[
+  S(x_0+)-S(x_0-)
+  =\sum_{n=1}^{\infty}[u_n(x_0+)-u_n(x_0-)]
+  \geqslant J_m>0,
+\]
+其中交换求和与单调极限可由非负性完成。因此 $S$ 在 $x_0$ 不连续。故 $S$ 的不连续点集恰为各 $u_n$ 不连续点集之并。
+\end{xsolution}
+
+\paragraph{参考题 16（有稠密间断点的单调函数）}
+\begin{xsolution}
+每个 $u_n$ 都是非负单调增加函数，且
+\[
+  \sup_{x\in[0,1]}u_n(x)=a_n.
+\]
+因 $\sum a_n$ 收敛，$\sum u_n$ 在 $[0,1]$ 一致收敛。每个 $u_n$ 在 $(0,1)$ 内惟一的不连续点是 $x_n$，且跳跃量为 $a_n>0$。由参考题 15，和函数
+\[
+  S(x)=\sum_{n=1}^{\infty}u_n(x)
+\]
+在 $(0,1)$ 内的不连续点恰为 $\{x_n\}$，即所有有理点；在每个无理点连续。
+
+又 $S$ 是非减函数，且 $0\leqslant S(x)\leqslant\sum a_n$。补充定义
+\[
+  f(0)=-1,
+  \qquad f(1)=1+\sum_{n=1}^{\infty}a_n
+\]
+后仍保持单调增加，并使端点 $0,1$ 也成为间断点。于是 $f$ 在 $[0,1]$ 上的间断点恰为所有有理点。
+\end{xsolution}
+
+\paragraph{参考题 17（有稠密间断点的导函数）}
+\begin{xsolution}
+记题中基本函数为 $\phi$：
+\[
+  \phi(t)=
+  \begin{cases}
+    t^2\sin(1/t),&t\ne0,\\
+    0,&t=0.
+  \end{cases}
+\]
+则
+\[
+  \phi'(t)=
+  \begin{cases}
+    2t\sin(1/t)-\cos(1/t),&t\ne0,\\
+    0,&t=0.
+  \end{cases}
+\]
+在 $|t|<1$ 上有 $|\phi'(t)|\leqslant3$。因此在 $x\in(0,1)$ 上，
+\[
+  \sum_{n=1}^{\infty}\frac{\phi'(x-r_n)}{2^n}
+\]
+由 Weierstrass 判别法一致收敛。原函数项级数在任一点显然收敛，故可用逐项微分定理，得到
+\[
+  F'(x)=\sum_{n=1}^{\infty}\frac{\phi'(x-r_n)}{2^n},
+  \qquad0<x<1.
+\]
+
+固定一个有理点 $r_j$。把
+\[
+  F'(x)=\frac{\phi'(x-r_j)}{2^j}
+  +\sum_{n\ne j}\frac{\phi'(x-r_n)}{2^n}
+\]
+分开。对每个 $n\ne j$，因 $r_j-r_n\ne0$，函数 $\phi'(x-r_n)$ 在 $x=r_j$ 连续；余下级数仍一致收敛，所以第二项在 $r_j$ 连续。第一项在 $r_j$ 的两侧均因 $\cos(1/(x-r_j))$ 振荡而没有极限，故 $r_j$ 是 $F'$ 的第二类间断点。
+
+若 $x_0$ 为无理点，则 $x_0-r_n\ne0$ 对所有 $n$ 成立，每个函数 $\phi'(x-r_n)$ 都在 $x_0$ 连续，而级数一致收敛，所以 $F'$ 在 $x_0$ 连续。由此，$F'$ 恰在每个 $r_n$ 处有第二类间断，在其余点连续。
+\end{xsolution}
