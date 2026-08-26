@@ -8,40 +8,43 @@
 \paragraph{思考题（Rolle 定理的 Samuleson 证明）}
 % SOLVED-ITEM
 \begin{xsolution}
-可以构造一个例子，使闭区间套收敛到的点虽然满足 $f'(\xi)=0$，却不是极值点。
-
-在 $[-1,1]$ 上定义
+可以构造一个很简单的例子。于 $[-1,1]$ 上定义
 \[
-  f(0)=0,
+  f(x)=
+  \begin{cases}
+    x^2\sin\dfrac{\pi}{x},&x\neq0,\\
+    0,&x=0.
+  \end{cases}
+\]
+函数 $f$ 连续，并且
+\[
+  f'(0)=\lim_{x\to0}x\sin\frac{\pi}{x}=0.
+\]
+对 $m=0,1,2,\ldots$ 取
+\[
+  [a_m,b_m]=[-2^{-m},2^{-m}].
+\]
+由于
+\[
+  f(\pm2^{-m})=0,
   \qquad
-  f(x)=x^3\sin\bigl(\pi\log_2\abs{x}\bigr)\quad(x\neq0).
-\]
-由于 $\abs{f(x)}\leqslant\abs{x}^3$，有
-\[
-  f'(0)=\lim_{x\to0}\frac{f(x)-f(0)}x
-  =\lim_{x\to0}x^2\sin\bigl(\pi\log_2\abs{x}\bigr)=0.
-\]
-而对每个正整数 $m$，
-\[
-  f(2^{-m})=f(-2^{-m})=0.
-\]
-因此在 Samuleson 构造中可以依次选取
-\[
-  [a_m,b_m]=[-2^{-m},2^{-m}],\qquad m=0,1,2,\ldots.
-\]
-这些区间满足 $f(a_m)=f(b_m)$，且
-\[
   b_{m+1}-a_{m+1}=\frac12(b_m-a_m),
 \]
-所以闭区间套收敛到 $\xi=0$。
+这些区间可以作为 Samuleson 构造中的闭区间套，其唯一公共点为 $\xi=0$。
 
-另一方面，$f$ 在 $0$ 的任意邻域内都取正值和负值。例如选取
+但是 $0$ 不是极值点。例如对 $m=1,2,\ldots$ 令
 \[
-  \abs{x}=2^{-m-1/2}
-  \quad\text{与}\quad
-  \abs{x}=2^{-m-3/2},
+  x_m=\frac{1}{2m+\frac12},
+  \qquad
+  y_m=\frac{1}{2m+\frac32},
 \]
-正弦因子符号相反。因此 $0$ 不是 $f$ 的极大值点或极小值点。这个例子说明 Samuleson 证明得到的 $\xi$ 不必是极值点。
+则 $x_m,y_m\to0+$，且
+\[
+  f(x_m)=x_m^2>0,
+  \qquad
+  f(y_m)=-y_m^2<0.
+\]
+故 $f$ 在 $0$ 的任意邻域内都同时取正值和负值。于是 Samuleson 证明得到的 $\xi$ 确实不必是极值点。
 \end{xsolution}
 
 \paragraph{思考题（用面积法证明 Cauchy 中值定理）}
@@ -104,19 +107,34 @@
 \paragraph{导函数的两个定理——思考题 2}
 % SOLVED-ITEM
 \begin{xsolution}
-这种情形对导函数实际上不可能发生。若所谓“无穷大量但无确定符号”是指
+否。取 $a=0$，并在 $[0,1]$ 上定义
 \[
-  \abs{f'(x)}\to+\infty\qquad(x\to a+)
-\]
-而 $f'(x)$ 在任意右邻域内都改变符号，则可取趋于 $a$ 的两列点 $x_n,y_n$，使
-\[
-  f'(x_n)>0,
+  f(0)=0,
   \qquad
-  f'(y_n)<0.
+  f(x)=x^2\sin\frac1{x^2}\quad(x>0).
 \]
-导函数具有 Darboux 介值性质，因此在 $x_n,y_n$ 之间必有 $z_n$ 使 $f'(z_n)=0$。又 $z_n\to a+$，这与 $\abs{f'(x)}\to+\infty$ 矛盾。
-
-所以若导函数的绝对值趋于无穷大，则在充分靠近 $a$ 时符号必定固定，只可能有 $f'(x)\to+\infty$ 或 $f'(x)\to-\infty$ 两种情形；不存在题中所说的第三种情形。
+则 $f$ 在 $0$ 右连续，而且
+\[
+  f'_+(0)=\lim_{x\to0+}\frac{f(x)-f(0)}x
+  =\lim_{x\to0+}x\sin\frac1{x^2}=0.
+\]
+另一方面，当 $x>0$ 时
+\[
+  f'(x)=2x\sin\frac1{x^2}-\frac2x\cos\frac1{x^2}.
+\]
+取
+\[
+  x_n=\frac1{\sqrt{2n\pi}},
+  \qquad
+  y_n=\frac1{\sqrt{(2n+1)\pi}},
+\]
+则 $x_n,y_n\to0+$，并且
+\[
+  f'(x_n)=-\frac2{x_n}\to-\infty,
+  \qquad
+  f'(y_n)=\frac2{y_n}\to+\infty.
+\]
+因此 $f'(x)$ 在 $0$ 的右侧是无界且无确定符号的，但 $f'_+(0)$ 却存在并等于 $0$。所以把命题中的 $A$ 放宽为这种“无确定符号的无穷大量”后，原结论不再成立。
 \end{xsolution}
 
 \paragraph{导函数的两个定理——思考题 3}
@@ -426,12 +444,12 @@ $k=0$ 时显然成立。设 $G^{(k)}$ 在 $(-1,1)$ 内有不同零点
   =\frac{1-2x+2\sqrt{x(x+1)}}4
   =\frac14+\frac12\bigl(\sqrt{x(x+1)}-x\bigr).
 \]
-因此所要求的等式成立。对 $x\geqslant0$，
+因此所要求的等式成立。当 $x=0$ 时，$\sqrt{x(x+1)}-x=0$；当 $x>0$ 时，
 \[
-  0\leqslant\sqrt{x(x+1)}-x
+  0<\sqrt{x(x+1)}-x
   =\frac{x}{\sqrt{x(x+1)}+x}\leqslant\frac12,
 \]
-其中最后一个不等式等价于 $\sqrt{x^2+x}\leqslant x+1/2$。故
+其中最后一个不等式也可由 $\sqrt{x^2+x}\leqslant x+1/2$ 看出。故
 \[
   \frac14\leqslant\theta(x)\leqslant\frac12.
 \]
@@ -453,11 +471,17 @@ $k=0$ 时显然成立。设 $G^{(k)}$ 在 $(-1,1)$ 内有不同零点
 \begin{xsolution}
 设 $f'$ 在区间 $I$ 上单调。单调函数若在某点不连续，只可能发生跳跃型间断，即左右极限之间存在一个非空开区间，其中的值在该点附近不能取得。但 $f'$ 是导函数，具有 Darboux 介值性质：任意两点处的导数值之间的每个中间值都必须在两点之间被取得。两者矛盾。
 
-更具体地，若 $f'$ 单调递增而在 $c$ 不连续，则
+更具体地，若 $c$ 是区间的内点，且 $f'$ 单调递增而在 $c$ 不连续，则
 \[
   f'(c-)<f'(c+).
 \]
-取 $y$ 严格位于二者之间，并且取 $y\neq f'(c)$。对充分靠近 $c$ 的 $u<c<v$，有 $f'(u)<y<f'(v)$，Darboux 定理要求存在 $w\in(u,v)$ 使 $f'(w)=y$；但由单调性，若 $w<c$ 则 $f'(w)\leqslant f'(c-)<y$，若 $w>c$ 则 $f'(w)\geqslant f'(c+)>y$，而 $w=c$ 又因 $y\neq f'(c)$ 不可能，矛盾。单调递减同理。因此 $f'$ 必连续。
+取 $y$ 严格位于二者之间，并且取 $y\neq f'(c)$。对充分靠近 $c$ 的 $u<c<v$，有 $f'(u)<y<f'(v)$，Darboux 定理要求存在 $w\in(u,v)$ 使 $f'(w)=y$；但由单调性，若 $w<c$ 则 $f'(w)\leqslant f'(c-)<y$，若 $w>c$ 则 $f'(w)\geqslant f'(c+)>y$，而 $w=c$ 又因 $y\neq f'(c)$ 不可能，矛盾。单调递减同理。
+
+若区间含有有限端点，例如左端点 $a$，则单调性保证扩充意义下的右极限 $f'(a+)$ 存在。函数 $f$ 在 $a$ 可微，因而在 $a$ 右连续；由单侧导数极限定理，
+\[
+  f'(a+)=f'_+(a)=f'(a).
+\]
+所以在端点也连续。右端点同理。综上，$f'$ 在整个区间上连续。
 \end{xsolution}
 
 \paragraph{练习题 11}
@@ -724,23 +748,27 @@ $k=0$ 时显然成立。设 $G^{(k)}$ 在 $(-1,1)$ 内有不同零点
 \paragraph{练习题 2}
 % SOLVED-ITEM
 \begin{xsolution}
-若目的是用这两个计算来\emph{首次证明}基本极限，则不能这样做，因为会产生循环论证。
+能。Taylor 公式本来就是当 $x\to x_0$ 时的局部展开；这里取 $x_0=0$，恰好满足其使用条件。
 
-建立 $\sin x$、$\cos x$ 的 Taylor 公式，需要先知道它们在 $0$ 附近的各阶导数；而初等微分学中证明
+由带 Peano 余项的 Taylor 公式，
 \[
-  (\sin x)'=\cos x,
-  \qquad
-  (\cos x)'=-\sin x
+  \sin x=x+\littleo(x^2)\qquad(x\to0),
 \]
-本身就使用了
+故对 $x\neq0$，
 \[
-  \lim_{x\to0}\frac{\sin x}{x}=1,
-  \qquad
-  \lim_{x\to0}\frac{1-\cos x}{x}=0
+  \frac{\sin x}{x}=1+\frac{\littleo(x^2)}x=1+\littleo(x)\to1.
 \]
-等基本极限。因此若用已经依赖这些极限的 Taylor 展开反过来证明它们，逻辑上是循环的。
-
-当然，如果在另一套独立理论中已经不依赖上述极限建立了 $\sin$、$\cos$ 的可微性及 Taylor 公式，那么这些展开式可以用来重新计算这些极限；问题只在于不能把它当作本课程逻辑链条中的第一次证明。
+同理，
+\[
+  \cos x=1-\frac{x^2}{2}+\littleo(x^3)\qquad(x\to0),
+\]
+于是
+\[
+  \frac{1-\cos x}{x^2}
+  =\frac12-\frac{\littleo(x^3)}{x^2}
+  =\frac12+\littleo(x)\to\frac12.
+\]
+因此题中两种计算都是可以的。
 \end{xsolution}
 
 \paragraph{练习题 3}
@@ -1010,7 +1038,29 @@ $\tan x$ 的四次 Taylor 多项式仍为 $x+x^3/3$。计算
 \]
 但显然 $f\not\equiv0$。
 
-因此按原文只能给出上述反例；若原题另有遗漏条件（例如还要求 $f(0)=0$），则需要在补全题意后另行证明，不能把缺失条件自行加入原题。
+若补充条件 $f(0)=0$，则原结论成立。事实上，取
+\[
+  r=\min\left\{1,\frac1{2C}\right\}.
+\]
+对任意 $\abs{x}<r$ 和正整数 $n$，在 $0$ 处作 $n-1$ 阶 Taylor 展开。由于
+\[
+  f(0)=f'(0)=\cdots=f^{(n-1)}(0)=0,
+\]
+存在位于 $0$ 与 $x$ 之间的 $\xi$ 使
+\[
+  f(x)=\frac{f^{(n)}(\xi)}{n!}x^n,
+\]
+从而
+\[
+  \abs{f(x)}\leqslant(C\abs{x})^n\leqslant2^{-n}.
+\]
+令 $n\to\infty$ 得 $f(x)=0$，所以 $f$ 在 $0$ 的一个邻域恒为零。设 $J\subset[-1,1]$ 是包含 $0$ 且使 $f$ 恒为零的最大区间。
+
+若 $J$ 的右端点为 $b<1$，则 $f$ 在 $b$ 左侧恒为零且有任意阶导数，连续性依次给出
+\[
+  f^{(k)}(b)=0,\qquad k=0,1,2,\ldots.
+\]
+以 $b$ 为展开点重复上述估计，又可把零区间向右延长一个固定的正长度，与 $b$ 为右端点矛盾。因此零区间一直延伸到 $1$；向左同理。故在补充 $f(0)=0$ 后确有 $f\equiv0$。
 \end{xsolution}
 
 \paragraph{练习题 11}
@@ -1611,7 +1661,7 @@ $x=0$ 时等式显然成立。
 \[
   \lim_{x\to0+}\sqrt{x}\,f'(x)=L.
 \]
-因此存在 $\delta>0$ 和 $M>0$，使对 $0<x\leqslant\delta$ 有
+因此可以取 $\delta\in(0,a]$ 和 $M>0$，使对 $0<x\leqslant\delta$ 有
 \[
   \abs{f'(x)}\leqslant\frac{M}{\sqrt{x}}.
 \]
@@ -1959,9 +2009,49 @@ $f''<0$ 时对 $-f$ 使用上述论证也不可能。因此 $f''$ 必在某点 $
 
 \paragraph{第二组参考题 7}
 % SOLVED-ITEM
-% CHECK-SOLUTION: 原题同时写 f(a)=0 与 f(x)>0, \forall x\in[a,b]，两条件在 x=a 处直接矛盾；按原文不存在满足全部条件的函数，无法给出非空情形证明。
 \begin{xsolution}
-按原题文字，不存在满足全部假设的函数：由 $f(x)>0$ 对所有 $x\in[a,b]$，代入 $x=a$ 得 $f(a)>0$，与 $f(a)=0$ 矛盾。因此该命题按形式逻辑是空真命题，但没有可供构造 $x_1,x_2$ 的非空情形。需整合时回查原书是否本意为 $f(x)>0$ 对 $x\in(a,b]$ 或 $x\in(a,b)$。
+题面把 $f(a)=0$ 与 $f(x)>0\ (x\in[a,b])$ 同时列出，在端点 $a$ 处相互冲突。按与端点条件相容的读法，将正性条件理解为
+\[
+  f(x)>0,\qquad a<x<b.
+\]
+于是可令
+\[
+  g(x)=\ln f(x),\qquad a<x<b.
+\]
+由 $f(a)=0$、$f$ 的连续性及内点正性，
+\[
+  \lim_{x\to a+}g(x)=-\infty.
+\]
+只需证明对每个 $\alpha>0$，存在 $x_1,x_2\in(a,b)$ 使
+\[
+  g'(x_1)=\alpha g'(x_2).
+\]
+
+先设 $\alpha>1$。必存在某个 $x_2\in(a,b)$ 使 $g'(x_2)>0$。否则 $g'\leqslant0$，于是 $g$ 单调不增；固定任意 $x_0\in(a,b)$，对 $a<c<x_0$ 都有 $g(x_0)\leqslant g(c)$，令 $c\to a+$ 就与 $g(c)\to-\infty$ 矛盾。取 $c\in(a,x_2)$ 充分靠近 $a$，使
+\[
+  \frac{g(x_2)-g(c)}{x_2-a}>\alpha g'(x_2).
+\]
+由 Lagrange 中值定理，存在 $d\in(c,x_2)$ 使
+\[
+  g'(d)=\frac{g(x_2)-g(c)}{x_2-c}
+  >\frac{g(x_2)-g(c)}{x_2-a}
+  >\alpha g'(x_2).
+\]
+导函数 $g'$ 具有 Darboux 介值性质，而
+\[
+  g'(d)>\alpha g'(x_2)>g'(x_2),
+\]
+故存在 $x_1\in(d,x_2)$ 使 $g'(x_1)=\alpha g'(x_2)$。
+
+当 $0<\alpha<1$ 时，对 $1/\alpha>1$ 应用上面的结果，再交换所得两点的角色即可；$\alpha=1$ 时任取 $x_1=x_2\in(a,b)$。最后利用
+\[
+  g'(x)=\frac{f'(x)}{f(x)}
+\]
+即得
+\[
+  \frac{f'(x_1)}{f(x_1)}
+  =\alpha\frac{f'(x_2)}{f(x_2)}.
+\]
 \end{xsolution}
 
 \paragraph{第二组参考题 8}
@@ -1999,6 +2089,41 @@ $f''<0$ 时对 $-f$ 使用上述论证也不可能。因此 $f''$ 必在某点 $
   \qquad \abs{f(0)}\leqslant1
 \]
 推出 $\abs{f'(0)}\geqslant\sqrt3>1$，矛盾。因此必存在 $\xi$ 使 $q(\xi)=0$，即 $f(\xi)+f''(\xi)=0$。
+
+\medskip
+\noindent\textbf{另解}\quad
+在区间 $[-2,0]$ 和 $[0,2]$ 上分别应用 Lagrange 中值定理，可取
+\[
+  \xi_1\in(-2,0),\qquad \xi_2\in(0,2),
+\]
+使
+\[
+  f'(\xi_1)=\frac{f(0)-f(-2)}2,
+  \qquad
+  f'(\xi_2)=\frac{f(2)-f(0)}2.
+\]
+由 $\abs{f}\leqslant1$，有 $\abs{f'(\xi_1)},\abs{f'(\xi_2)}\leqslant1$。令
+\[
+  H(x)=f(x)^2+f'(x)^2.
+\]
+则
+\[
+  H(\xi_1),H(\xi_2)\leqslant2,
+  \qquad
+  H(0)=4.
+\]
+所以 $H$ 在 $[\xi_1,\xi_2]$ 上的最大值必在某个内点 $\xi$ 取得，并且 $H(\xi)\geqslant4$。由 Fermat 定理，
+\[
+  0=H'(\xi)=2f'(\xi)[f(\xi)+f''(\xi)].
+\]
+又因 $\abs{f(\xi)}\leqslant1$ 且 $H(\xi)\geqslant4$，
+\[
+  \abs{f'(\xi)}\geqslant\sqrt3>0.
+\]
+因此只能有
+\[
+  f(\xi)+f''(\xi)=0.
+\]
 \end{xsolution}
 
 \paragraph{第二组参考题 9}
@@ -2079,23 +2204,34 @@ $g$ 连续。令 $h(x)=g(x)-g(0)$，则 $h(0)=0$，且同样满足中点方程�
 
 \paragraph{第二组参考题 11（Bellman--Gronwall 不等式的微分形式）}
 % SOLVED-ITEM
-% CHECK-SOLUTION: 原题把函数定义在 [0,+\infty)，但不等式写作 \forall x\in[a,+\infty)，其中 a 未定义。若只要求从某个 a>0 起成立，结论一般为假，因此无法按原文可靠证明。
 \begin{xsolution}
-原题中的 $a$ 未定义，不能唯一确定题意。若把条件解释为“存在某个 $a>0$，且不等式只对 $x\geqslant a$ 成立”，结论甚至是假的。例如固定该 $a>0$，定义
+题面中的 $a$ 未定义。按与函数定义域相符的读法，将不等式理解为
 \[
-  f(x)=
-  \begin{cases}
-    x(a-x)^2,&0\leqslant x\leqslant a,\\
-    0,&x\geqslant a.
-  \end{cases}
+  \abs{f'(x)}\leqslant c\abs{f(x)},
+  \qquad x\in[0,+\infty).
 \]
-则 $f(0)=0$，且在 $x=a$ 左右一阶导数都为 $0$，所以 $f$ 在 $[0,+\infty)$ 可微；对所有 $x\geqslant a$，
+定义
 \[
-  \abs{f'(x)}=0\leqslant c\abs{f(x)}=0,
+  H(x)=\ee^{-2cx}f(x)^2.
 \]
-但 $f$ 在 $(0,a)$ 并不恒为零。
-
-若原题本意是不等式对所有 $x\in[0,+\infty)$ 成立，则可用标准 Bellman--Gronwall 论证证明 $f\equiv0$；但鉴于原文缺少这个关键信息，此处保留待核。
+则 $H(x)\geqslant0$、$H(0)=0$，并且对 $x>0$ 有
+\[
+  \begin{aligned}
+  H'(x)
+  &=2\ee^{-2cx}\bigl[f(x)f'(x)-c f(x)^2\bigr]\\
+  &\leqslant2\ee^{-2cx}
+    \bigl[\abs{f(x)}\abs{f'(x)}-c f(x)^2\bigr]
+  \leqslant0.
+  \end{aligned}
+\]
+所以 $H$ 在 $[0,+\infty)$ 上单调不增。于是对任意 $x\geqslant0$，
+\[
+  0\leqslant H(x)\leqslant H(0)=0,
+\]
+故 $H(x)=0$，从而 $f(x)=0$。因此
+\[
+  f(x)\equiv0.
+\]
 \end{xsolution}
 
 \paragraph{第二组参考题 12}
@@ -2233,23 +2369,35 @@ $n=1$ 时无中间阶导数需要证明。设 $n\geqslant2$。固定 $x\in\RR$�
 \[
   \lim_{x\to+\infty}f^{(n)}(x)=0.
 \]
-固定 $h>0$。$n$ 阶有限差分的中值定理给出某个
-\[
-  \xi_x\in(x,x+nh)
-\]
-使
+固定 $h>0$，记 $\Delta_hF(x)=F(x+h)-F(x)$。由 Lagrange 中值定理，
 \[
   \Delta_h^n f(x)
-  =\sum_{j=0}^n(-1)^{n-j}\binom nj f(x+jh)
+  =h\,\Delta_h^{n-1}f'(\eta_1)
+  =h^2\Delta_h^{n-2}f''(\eta_2)
+  =\cdots
+  =h^n f^{(n)}(\xi_x),
+\]
+其中各中值依次落在前一步区间内部，因而最终有
+\[
+  \xi_x\in(x,x+nh).
+\]
+另一方面，有限差分展开为
+\[
+  \Delta_h^n f(x)
+  =\sum_{j=0}^n(-1)^{n-j}\binom nj f(x+jh).
+\]
+于是
+\[
+  \sum_{j=0}^n(-1)^{n-j}\binom nj f(x+jh)
   =h^n f^{(n)}(\xi_x).
 \]
 当 $x\to+\infty$ 时，左边每一项 $f(x+jh)$ 都趋于同一个有限极限，所以左边趋于 $0$；而 $\xi_x\to+\infty$，故右边趋于
 \[
   h^n\lim_{t\to+\infty}f^{(n)}(t).
 \]
-因此该极限只能为 $0$。
+因此该极限只能为 $0$。当 $n=1$ 时结论已经证明；以下设 $n\geqslant2$，再证明其余各阶。
 
-以下证明其余各阶。固定 $h=1$。对 $j=1,\ldots,n-1$，Taylor 公式给出
+固定 $h=1$。对 $j=1,\ldots,n-1$，Taylor 公式给出
 \[
   f(x+j)-f(x)
   =\sum_{k=1}^{n-1}\frac{j^k}{k!}f^{(k)}(x)
