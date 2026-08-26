@@ -478,15 +478,22 @@ Achilles 先跑到乌龟的初始位置需要
 
 \paragraph{练习题 10.}
 \begin{xsolution}
-记
+令
 \[
- u_n=\frac{x^n}{(1+x)(1+x^2)\cdots(1+x^n)},\qquad x>0.
+ b_n=\frac1{(1+x)(1+x^2)\cdots(1+x^n)},
+ \qquad b_0=1.
 \]
-则
+则有精确的裂项关系
 \[
- \frac{u_{n+1}}{u_n}=\frac{x}{1+x^{n+1}}.
+ b_{n-1}-b_n
+ =\frac{x^n}{(1+x)(1+x^2)\cdots(1+x^n)}.
 \]
-若 $0<x<1$，该比值趋于 $x<1$；若 $x=1$，比值恒为 $1/2$；若 $x>1$，比值趋于 $0$。三种情况下 d'Alembert 比值判别法都给出收敛。因此对每个 $x>0$，题中级数均收敛。
+因此
+\[
+ \sum_{n=1}^{N}\frac{x^n}{(1+x)(1+x^2)\cdots(1+x^n)}
+ =b_0-b_N<1.
+\]
+题中各项均为正数，故其部分和单调且有上界，所以对每个 $x>0$，级数均收敛。
 \end{xsolution}
 
 \paragraph{练习题 11.}
@@ -807,6 +814,63 @@ Achilles 先跑到乌龟的初始位置需要
  |\sin n|\geq\sin^2n=\frac{1-\cos2n}{2},
 \]
 而 $\sum\cos2n/n$ 收敛，故 $\sum|\sin n|/n$ 发散。因此原级数条件收敛。
+
+(9) 若 $p\leq0$，通项绝对值不趋于 $0$，故级数发散。以下设 $p>0$。令
+\[
+ u_n=\frac{(-1)^{n-1}}{[n+(-1)^{n-1}]^p},
+ \qquad
+ v_n=\frac{(-1)^{n-1}}{n^p}.
+\]
+由中值定理，对充分大的 $n$ 有
+\[
+ |u_n-v_n|\leq\frac{C}{n^{p+1}},
+\]
+故 $\sum(u_n-v_n)$ 绝对收敛。另一方面，$\sum v_n$ 对每个 $p>0$ 都由 Leibniz 判别法收敛，所以原级数也收敛。又
+\[
+ |u_n|\sim\frac1{n^p},
+\]
+故绝对收敛当且仅当 $p>1$。因此
+\[
+ \boxed{p>1\text{ 时绝对收敛； }0<p\leq1\text{ 时条件收敛； }p\leq0\text{ 时发散}.}
+\]
+
+(10) 在实数范围内，要使从某项起对数有定义，必须有 $p>0$。这时令
+\[
+ u_n=\ln\left(1+\frac{(-1)^n}{n^p}\right).
+\]
+Taylor 展开给出
+\[
+ u_n=\frac{(-1)^n}{n^p}-\frac1{2n^{2p}}+\bigO(n^{-3p}).
+\]
+当 $p>1/2$ 时，第一项所成级数由 Leibniz 判别法收敛，而后两项绝对可和，所以原级数收敛；当 $0<p\leq1/2$ 时，将偶、奇两项配对可得
+\[
+ u_{2n-1}+u_{2n}=-\frac1{2(2n-1)^{2p}}-\frac1{2(2n)^{2p}}+\bigO(n^{-p-1})+\bigO(n^{-3p}),
+\]
+其主项所成正项级数发散，故原级数发散。又 $|u_n|\sim n^{-p}$，所以绝对收敛当且仅当 $p>1$。综上
+\[
+ \boxed{p>1\text{ 时绝对收敛； }\frac12<p\leq1\text{ 时条件收敛； }0<p\leq\frac12\text{ 时发散}.}
+\]
+
+(11) 利用
+\[
+ \sin\left(n\pi+\frac1{\ln n}\right)
+ =(-1)^n\sin\frac1{\ln n}.
+\]
+数列 $\sin(1/\ln n)$ 从某项起单调减少趋于 $0$，故原级数由 Leibniz 判别法收敛。又
+\[
+ \sin\frac1{\ln n}\sim\frac1{\ln n},
+\]
+而 $\sum1/\ln n$ 发散，所以绝对值级数发散。故原级数条件收敛。
+
+(12) 记
+\[
+ b_n=n^{1/n}-1=\exp\left(\frac{\ln n}{n}\right)-1.
+\]
+因 $\ln n/n$ 从某项起单调减少趋于 $0$，故 $b_n$ 也从某项起单调减少趋于 $0$，所以原级数由 Leibniz 判别法收敛。另一方面
+\[
+ b_n\sim\frac{\ln n}{n},
+\]
+而 $\sum(\ln n)/n$ 发散，因此绝对值级数发散。故原级数条件收敛。
 \end{xsolution}
 
 \paragraph{练习题 2.}
@@ -1223,7 +1287,7 @@ Achilles 先跑到乌龟的初始位置需要
  \sum_{n=1}^{\infty}|\alpha_n|
  =\sum_{n=1}^{\infty}|x|^{2n+1}<\infty,
 \]
-所以无穷乘积绝对收敛。若 $|x|\geq1$，则因子 $1+x^{2n+1}$ 不趋于 $1$（$x=-1$ 时甚至恒有零因子），故无穷乘积不收敛。因此收敛当且仅当 $|x|<1$。
+所以无穷乘积绝对收敛。若 $x=-1$，则每个因子都为 $0$，不符合本节关于无穷乘积各因子非零的基本约定；若 $|x|\geq1$ 且 $x\neq-1$，则因子 $1+x^{2n+1}$ 不趋于 $1$，故无穷乘积不收敛。因此在本节定义下，收敛当且仅当 $|x|<1$。
 
 (3) 取对数：
 \[
@@ -1401,9 +1465,9 @@ Achilles 先跑到乌龟的初始位置需要
 
 \paragraph{练习题 7（Stirling）.}
 \begin{xsolution}
-原书印刷题面按字面还需排除一个退化情形：若已知收敛的那个 $x=x_0$ 恰为非零整数，则从 $n\geq|x_0|$ 起每一项都因含有因子 $x_0^2-|x_0|^2$ 而等于 $0$，不能推出 $a_n$ 的任何信息。例如取 $x_0=1$、$a_n=1$，题中级数在 $x=1$ 时有限终止，但在 $x=1/2$ 时通项绝对值不趋于 $0$，故发散。因此原命题按字面不成立。
+按题设字面，结论存在一个退化反例：若已知收敛的那个 $x=x_0$ 恰为非零整数，则从 $n\geq|x_0|$ 起每一项都因含有因子 $x_0^2-|x_0|^2$ 而等于 $0$，不能推出 $a_n$ 的任何信息。例如取 $x_0=1$、$a_n=1$，题中级数在 $x=1$ 时有限终止，但在 $x=1/2$ 时通项绝对值不趋于 $0$，故发散。
 
-下面证明非退化的正确形式：若级数在某个 $x_0\notin\ZZ$ 处收敛，则它对任意 $x$ 都收敛。
+因此非平凡结论应表述为：若级数在某个 $x_0\notin\ZZ$ 处收敛，则它对任意 $x$ 都收敛。下面证明这一结论。
 
 写
 \[
@@ -1904,36 +1968,27 @@ Achilles 先跑到乌龟的初始位置需要
 \[
  d_n=a_n-a_{n+1}.
 \]
-题设说 $\{d_n\}$ 严格单调减少。因 $a_n>0$ 且 $a_n\to0$，必有 $d_n>0$：若某个 $d_N\leq0$，则以后 $d_n<d_N\leq0$，从而 $a_n$ 不可能保持正且趋于 $0$。
+题设说 $\{d_n\}$ 严格单调减少。因 $a_n>0$ 且 $a_n\to0$，必有 $d_n>0$：若某个 $d_N\leq0$，则以后 $d_n<d_N\leq0$，从而 $a_n$ 不可能保持正且趋于 $0$。故 $a_n\downarrow0$，且对 $k\geq n$ 有 $0<d_k\leq d_n$。
 
-于是 $a_n\downarrow0$，并由第一组参考题 4 的恒等式
-\[
- \sum_{n=1}^{\infty}n d_n=\sum_{n=1}^{\infty}a_n<\infty.
-\]
-因此加权尾和
-\[
- T_n=\sum_{j=n}^{\infty}j d_j\longrightarrow0.
-\]
-又由 $d_j\leq d_n$（$j\geq n$），有
+利用 $a_k^2-a_{k+1}^2=(a_k+a_{k+1})d_k$，有
 \[
  \begin{aligned}
- a_n^2
- &=\left(\sum_{j=n}^{\infty}d_j\right)^2\\
- &\leq2d_n\sum_{j=n}^{\infty}(j-n+1)d_j
- \leq2d_nT_n.
+ 0\leq\frac{a_na_{n+1}}{d_n}
+ &\leq\frac{a_n^2}{d_n}
+ =\frac1{d_n}\sum_{k=n}^{\infty}(a_k^2-a_{k+1}^2)\\
+ &=\sum_{k=n}^{\infty}(a_k+a_{k+1})\frac{d_k}{d_n}
+ \leq\sum_{k=n}^{\infty}(a_k+a_{k+1}).
  \end{aligned}
 \]
-这里第一步可由展开平方后按两指标中的较大者分组得到。故
+右端是收敛正项级数的尾和，故趋于 $0$。因此
 \[
- 0\leq\frac{a_n^2}{d_n}\leq2T_n\longrightarrow0,
+ \frac{a_na_{n+1}}{a_n-a_{n+1}}\longrightarrow0.
 \]
-即 $d_n/a_n^2\to+\infty$。最后
+取倒数即得
 \[
- \frac1{a_{n+1}}-\frac1{a_n}
- =\frac{d_n}{a_na_{n+1}}
- \geq\frac{d_n}{a_n^2}\longrightarrow+\infty.
+ \boxed{\frac1{a_{n+1}}-\frac1{a_n}
+ =\frac{a_n-a_{n+1}}{a_na_{n+1}}\longrightarrow+\infty}.
 \]
-得证。
 \end{xsolution}
 
 \paragraph{第一组参考题 13.}
@@ -1990,33 +2045,24 @@ Fibonacci 型递推给出
 
 \paragraph{第一组参考题 15.}
 \begin{xsolution}
-由递推式
+递推式等价于
 \[
- a_{n+1}=\frac{a_n}{1+a_n^p}
+ a_n-a_{n+1}=a_{n+1}a_n^p.
 \]
-知 $0<a_{n+1}<a_n$，故 $a_n\to L\geq0$。令极限进入递推式得
+因此 $0<a_{n+1}<a_n$。又因 $0<p<1$，函数 $x^{-p}$ 在 $(0,+\infty)$ 上单调减少，所以
 \[
- L=\frac{L}{1+L^p},
+ a_{n+1}
+ =\frac{a_n-a_{n+1}}{a_n^p}
+ <\int_{a_{n+1}}^{a_n}\frac{\dd x}{x^p}.
 \]
-所以 $L=0$。
-
-令 $y_n=a_n^{-p}\to+\infty$。则
+对 $n=1,2,\ldots,N$ 相加，得到
 \[
- \begin{aligned}
- y_{n+1}-y_n
- &=a_n^{-p}\bigl[(1+a_n^p)^p-1\bigr]\\
- &=\frac{(1+1/y_n)^p-1}{1/y_n}\longrightarrow p.
-\end{aligned}
+ \sum_{n=1}^{N}a_{n+1}
+ <\int_{a_{N+1}}^{a_1}\frac{\dd x}{x^p}
+ <\int_0^{a_1}\frac{\dd x}{x^p}
+ =\frac{a_1^{1-p}}{1-p}<\infty.
 \]
-由 Stolz 定理
-\[
- \frac{y_n}{n}\longrightarrow p,
-\]
-即
-\[
- a_n\sim(pn)^{-1/p}.
-\]
-因 $0<p<1$，有 $1/p>1$，故与 $p$ 级数比较可知
+故正项级数 $\sum_{n=2}^{\infty}a_n$ 的部分和有统一上界，从而
 \[
  \boxed{\sum_{n=1}^{\infty}a_n\text{ 收敛}.}
 \]
@@ -2281,7 +2327,7 @@ Fibonacci 型递推给出
 \]
 即
 \[
- \boxed{na_n\to0}. 
+ \boxed{na_n\to0}.
 \]
 \end{xsolution}
 
@@ -2413,15 +2459,15 @@ Fibonacci 型递推给出
 
 \paragraph{第二组参考题 7（Lobachevski 判别法）.}
 \begin{xsolution}
-对每个 $k$，令 $m_k$ 为满足
+由于 $a_k\downarrow0$，删去前有限项后可设 $0<a_k<1/2$。这样的删项与重新编号只会使 $b_m$ 改变一个有界的固定偏移，而 $\sum2^{-m}$ 收敛，所以不影响题中两个级数的敛散性。于是对每个 $k$，可令 $m_k\geq1$ 为满足
 \[
  2^{-m_k}\leq a_k<2^{1-m_k}
 \]
-的唯一整数。因 $a_k\downarrow0$，$m_k\to\infty$。由
+的唯一整数，且 $m_k\to\infty$。由
 \[
  b_m=\max\{k\mid a_k\geq2^{-m}\}
 \]
-可知
+及 $\{a_k\}$ 单调减少可知，$b_m$ 正好等于满足 $a_k\geq2^{-m}$ 的指标个数，因此
 \[
  b_m\geq k\quad\Longleftrightarrow\quad m\geq m_k.
 \]
@@ -2432,7 +2478,7 @@ Fibonacci 型递推给出
  &=\sum_{m=1}^{\infty}2^{-m}\sum_{k=1}^{b_m}1\\
  &=\sum_{k=1}^{\infty}\sum_{m=m_k}^{\infty}2^{-m}\\
  &=\sum_{k=1}^{\infty}2^{1-m_k}.
-\end{aligned}
+ \end{aligned}
 \]
 而由 $m_k$ 的定义
 \[
@@ -2672,7 +2718,7 @@ Fibonacci 型递推给出
 
 故必须有
 \[
- \boxed{\sum_{n=1}^{\infty}|a_n-a_{n+1}|<\infty}. 
+ \boxed{\sum_{n=1}^{\infty}|a_n-a_{n+1}|<\infty}.
 \]
 \end{xsolution}
 
@@ -2774,7 +2820,7 @@ Fibonacci 型递推给出
 \]
 综上
 \[
- \boxed{\frac12<S<1}. 
+ \boxed{\frac12<S<1}.
 \]
 \end{xsolution}
 
@@ -2816,7 +2862,7 @@ Fibonacci 型递推给出
 \]
 即
 \[
- \boxed{(a_1+a_2+\cdots+a_n)b_n\to0}. 
+ \boxed{(a_1+a_2+\cdots+a_n)b_n\to0}.
 \]
 \end{xsolution}
 
@@ -2834,7 +2880,7 @@ Fibonacci 型递推给出
 \]
 由于 $x_kc_k=a_k$，故
 \[
- \boxed{\lim_{n\to\infty}\frac{a_1+a_2+\cdots+a_n}{n^p}=0}. 
+ \boxed{\lim_{n\to\infty}\frac{a_1+a_2+\cdots+a_n}{n^p}=0}.
 \]
 \end{xsolution}
 
@@ -2893,7 +2939,7 @@ Fibonacci 型递推给出
 \]
 所以可 Cesàro 求和的必要条件是
 \[
- \boxed{a_n/n\to0}. 
+ \boxed{a_n/n\to0}.
 \]
 这确实比通常收敛时的必要条件 $a_n\to0$ 弱得多。
 \end{xsolution}
@@ -2943,15 +2989,25 @@ Fibonacci 型递推给出
 若 $x\in2\pi\ZZ$，每项均为 $0$，Cesàro 和为 $0$。若 $x\notin2\pi\ZZ$，则
 \[
  S_n=\sum_{k=1}^{n}\sin kx
- =\frac{\sin(nx/2)\sin((n+1)x/2)}{\sin(x/2)},
+ =\frac{\cos(x/2)-\cos((n+1/2)x)}{2\sin(x/2)}.
 \]
-故 $\{S_n\}$ 有界。于是
+于是
 \[
- \sigma_n=\frac1n\sum_{k=1}^{n}S_k\longrightarrow0.
+ \begin{aligned}
+ \sigma_n
+ &=\frac1n\sum_{k=1}^{n}S_k\\
+ &=\frac12\cot\frac x2
+ -\frac1{2n\sin(x/2)}\sum_{k=1}^{n}\cos\left(k+\frac12\right)x.
+ \end{aligned}
 \]
-所以对每个实数 $x$，该级数都可 Cesàro 求和，且
+后一余项中的余弦部分和有界，故它趋于 $0$。所以该级数对每个实数 $x$ 都可以 Cesàro 求和，并且
 \[
- \boxed{\text{Cesàro 和}=0}. 
+ \boxed{
+ \sigma=
+ \begin{cases}
+ 0,&x\in2\pi\ZZ,\\[2pt]
+ \dfrac12\cot\dfrac x2,&x\notin2\pi\ZZ.
+ \end{cases}}
 \]
 \end{xsolution}
 
@@ -3011,6 +3067,6 @@ Fibonacci 型递推给出
 \]
 故在“已经可以 Cesàro 求和”的前提下，通常收敛的充分必要条件正是
 \[
- \boxed{\lim_{n\to\infty}\frac{a_1+2a_2+\cdots+na_n}{n}=0}. 
+ \boxed{\lim_{n\to\infty}\frac{a_1+2a_2+\cdots+na_n}{n}=0}.
 \]
 \end{xsolution}
