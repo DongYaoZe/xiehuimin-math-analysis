@@ -1779,10 +1779,14 @@ $A^{\mathsf T}$ 为 $A$ 的转置。曲面 $\Sigma$ 是曲面 $S$ 在正交变�
 \]
 与直角坐标系中三重积分化为球坐标积分的 Jacobi 行列式一样，但这里的 $r$ 是常数。于是
 \begin{equation}
+\begin{aligned}
   \oiint_{\partial B_r(M_0)}f(x,y,z)\,\dd S_r
-  =\int_0^{2\pi}\int_0^\pi
-  f(x_0+r\sin\varphi\cos\theta,y_0+r\sin\varphi\sin\theta,z_0+r\cos\varphi)
+  &=\int_0^{2\pi}\int_0^\pi
+  f(x_0+r\sin\varphi\cos\theta,\\
+  &\qquad y_0+r\sin\varphi\sin\theta,
+  z_0+r\cos\varphi)
   r^2\sin\varphi\,\dd\theta\,\dd\varphi.
+\end{aligned}
   \tag{25.23}
 \end{equation}
 其中 $\dd S_r$ 是半径为 $r$ 的球面的面积元。从上面的计算可以看出
