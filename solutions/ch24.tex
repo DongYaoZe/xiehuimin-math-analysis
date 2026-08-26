@@ -1,0 +1,1310 @@
+% 第24章 曲线积分：习题与参考题解答
+% 基于 chapters/ch24.tex，按原章顺序编排。
+
+\section*{第24章 曲线积分——习题解答}
+
+\subsection*{24.1.3 练习题}
+
+\paragraph{1. 计算第一型曲线积分。}
+\begin{xsolution}
+\begin{enumerate}[label=(\arabic*)]
+\item 取星形线参数
+\[
+  x=a\cos^3 t,\qquad y=a\sin^3 t,\qquad 0\le t\le2\pi.
+\]
+则
+\[
+  \dd s=3a\abs{\sin t\cos t}\,\dd t,
+\]
+且
+\[
+  x^{4/3}+y^{4/3}=a^{4/3}(\cos^4t+\sin^4t).
+\]
+由四象限对称性，
+\begin{align*}
+  I
+  &=12a^{7/3}\int_0^{\pi/2}(\cos^4t+\sin^4t)\sin t\cos t\,\dd t\\
+  &=12a^{7/3}\left(\frac16+\frac16\right)
+   =4a^{7/3}.
+\end{align*}
+
+\item $C$ 是扇形 $0\le r\le a,\ 0\le\varphi\le\pi/4$ 的边界。两条径向边上 $\dd s=\dd r$，圆弧上 $r=a$ 且 $\dd s=a\,\dd\varphi$，故
+\begin{align*}
+  I
+  &=2\int_0^a\ee^r\,\dd r
+    +\int_0^{\pi/4}\ee^a a\,\dd\varphi\\
+  &=2(\ee^a-1)+\frac{\pi a}{4}\ee^a.
+\end{align*}
+
+\item 双纽线用极坐标表示为
+\[
+  r^2=a^2\cos2\theta.
+\]
+先算右叶，$-\pi/4\le\theta\le\pi/4$。有
+\[
+  r=a\sqrt{\cos2\theta},\qquad
+  \dd s=\sqrt{r^2+(r')^2}\,\dd\theta
+  =\frac{a}{\sqrt{\cos2\theta}}\,\dd\theta.
+\]
+因 $\abs y=r\abs{\sin\theta}$，故右叶上的积分为
+\[
+  a^2\int_{-\pi/4}^{\pi/4}\abs{\sin\theta}\,\dd\theta
+  =a^2(2-\sqrt2).
+\]
+左右两叶相等，因此
+\[
+  I=2a^2(2-\sqrt2)=(4-2\sqrt2)a^2.
+\]
+
+\item 对整条悬链线 $y=a\operatorname{ch}(x/a)$，$-\infty<x<+\infty$，
+\[
+  \dd s=\operatorname{ch}(x/a)\,\dd x.
+\]
+于是
+\[
+  I=\frac1{a^2}\int_{-\infty}^{+\infty}\frac{\dd x}{\operatorname{ch}(x/a)}
+  =\frac1a\int_{-\infty}^{+\infty}\frac{\dd u}{\operatorname{ch}u}
+  =\frac\pi a.
+\]
+
+\item 由 $y^2=ax$，在所给弧上可令
+\[
+  y=at,\qquad x=at^2,\qquad
+  z=at\sqrt{1+t^2},\qquad 0\le t\le1.
+\]
+于是
+\[
+  \dd s
+  =a\sqrt{\frac{8t^4+9t^2+2}{1+t^2}}\,\dd t,
+\]
+从而
+\[
+  z\,\dd s=a^2t\sqrt{8t^4+9t^2+2}\,\dd t.
+\]
+令 $u=t^2$，得
+\[
+  I=\frac{a^2}{2}\int_0^1\sqrt{8u^2+9u+2}\,\dd u.
+\]
+又
+\[
+  8u^2+9u+2=\frac1{32}\bigl[(16u+9)^2-17\bigr],
+\]
+故直接积分得到
+\[
+  I=\frac{\sqrt2a^2}{512}
+  \left[
+    100\sqrt{38}-72
+    -17\ln\frac{25+4\sqrt{38}}{17}
+  \right].
+\]
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{2. 求空间曲线的弧长。}
+\begin{xsolution}
+\begin{enumerate}[label=(\arabic*)]
+\item 以 $x$ 为参数。由
+\[
+  y=a\arcsin\frac xa,
+  \qquad
+  z=\frac a4\ln\frac{a-x}{a+x}
+\]
+得
+\[
+  \frac{\dd y}{\dd x}=\frac{a}{\sqrt{a^2-x^2}},
+  \qquad
+  \frac{\dd z}{\dd x}=-\frac{a^2}{2(a^2-x^2)}.
+\]
+于是
+\begin{align*}
+  \frac{\dd s}{\dd x}
+  &=\sqrt{1+\frac{a^2}{a^2-x^2}
+      +\frac{a^4}{4(a^2-x^2)^2}}\\
+  &=1+\frac{a^2}{2(a^2-x^2)}.
+\end{align*}
+故
+\begin{align*}
+  L
+  &=\int_0^{x_0}\left(1+\frac{a^2}{2(a^2-x^2)}\right)\,\dd x\\
+  &=x_0+\frac a4\ln\frac{a+x_0}{a-x_0}
+   =x_0-z_0.
+\end{align*}
+
+\item 令
+\[
+  \theta=\arctan\frac yx,
+  \qquad \rho=\sqrt{x^2+y^2}.
+\]
+第二个方程给出
+\[
+  \rho=a\operatorname{sech}\theta.
+\]
+再由球面方程可在一条连通分支上写成
+\[
+  z=\pm a\tanh\theta.
+\]
+在柱坐标中
+\[
+  \dd s^2=\dd\rho^2+\rho^2\,\dd\theta^2+\dd z^2
+  =2a^2\operatorname{sech}^2\theta\,\dd\theta^2.
+\]
+因此从 $(a,0,0)$ 到给定点的弧长为
+\[
+  L=\sqrt2a\abs{\int_0^{\theta_0}\operatorname{sech}\theta\,\dd\theta}
+  =\sqrt2a\arcsin\frac{\abs z}{a}.
+\]
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{3. 悬链线弧的质心。}
+\begin{xsolution}
+令
+\[
+  \beta=\frac ba,
+  \qquad h=a\operatorname{ch}\beta.
+\]
+曲线为 $y=a\operatorname{ch}(x/a)$，$0\le x\le b$，且
+\[
+  \dd s=\operatorname{ch}(x/a)\,\dd x.
+\]
+总长（亦即单位线密度下的质量）为
+\[
+  m=\int_0^b\dd s=a\operatorname{sh}\beta
+   =\sqrt{h^2-a^2}.
+\]
+于是
+\begin{align*}
+  \bar x
+  &=\frac1m\int_0^b x\operatorname{ch}(x/a)\,\dd x\\
+  &=b-a\frac{\operatorname{ch}\beta-1}{\operatorname{sh}\beta}
+   =b-\frac{a(h-a)}{\sqrt{h^2-a^2}},
+\end{align*}
+而
+\begin{align*}
+  \bar y
+  &=\frac1m\int_0^b a\operatorname{ch}^2(x/a)\,\dd x\\
+  &=\frac h2+\frac{ab}{2\sqrt{h^2-a^2}}.
+\end{align*}
+故质心为
+\[
+  \left(
+  b-\frac{a(h-a)}{\sqrt{h^2-a^2}},
+  \frac h2+\frac{ab}{2\sqrt{h^2-a^2}}
+  \right).
+\]
+\end{xsolution}
+
+\paragraph{4. 弧长参数下的第一型曲线积分公式。}
+\begin{xsolution}
+由弧长参数的定义，任取
+\[
+  0=s_0<s_1<\cdots<s_m=L,
+\]
+其在曲线上对应的点为
+\[
+  \vect{x}(s_0),\vect{x}(s_1),\ldots,\vect{x}(s_m).
+\]
+第 $i$ 段曲线的弧长恰为
+\[
+  \Delta s_i=s_i-s_{i-1}.
+\]
+反过来，$\Gamma$ 上任一保持次序的分割也唯一对应于 $[0,L]$ 的一个分割。若在第 $i$ 段选取
+$\xi_i=\vect{x}(\sigma_i)$，$s_{i-1}\le\sigma_i\le s_i$，则第一型曲线积分定义中的和为
+\[
+  \sum_{i=1}^m f(\xi_i)\Delta s_i
+  =\sum_{i=1}^m f(\vect{x}(\sigma_i))(s_i-s_{i-1}),
+\]
+这正是函数 $f(\vect{x}(s))$ 在 $[0,L]$ 上的 Riemann 和。两边取分割直径趋于零的极限，即得
+\[
+  \int_\Gamma f(\vect{x})\,\dd s
+  =\int_0^L f(\vect{x}(s))\,\dd s.
+\]
+\end{xsolution}
+
+\subsection*{24.2.4 练习题}
+
+\paragraph{1. 三条路径上的积分。}
+\begin{xsolution}
+记
+\[
+  \omega=xy\,\dd x+(y-x)\,\dd y.
+\]
+\begin{enumerate}[label=(\arabic*)]
+\item 直线段 $AB$ 取
+\[
+  x=1+t,\qquad y=1+2t,\qquad0\le t\le1.
+\]
+则
+\[
+  \omega=(1+5t+2t^2)\,\dd t,
+\]
+故
+\[
+  \int_{AB}\omega=\int_0^1(1+5t+2t^2)\,\dd t=\frac{25}{6}.
+\]
+
+\item 令 $u=x-1$，则 $0\le u\le1$，$x=u+1$，$y=2u^2+1$，$\dd y=4u\,\dd u$。于是
+\[
+  \omega=(10u^3-2u^2+u+1)\,\dd u,
+\]
+从而
+\[
+  \int_{\wideparen{AB}}\omega=\frac{10}{4}-\frac23+\frac12+1=\frac{10}{3}.
+\]
+
+\item 在 $A\to D$ 上 $y=1$，故
+\[
+  \int_{AD}\omega=\int_1^2x\,\dd x=\frac32.
+\]
+在 $D\to B$ 上 $x=2$，故
+\[
+  \int_{DB}\omega=\int_1^3(y-2)\,\dd y=0.
+\]
+因此
+\[
+  \int_{ADB}\omega=\frac32.
+\]
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{2. 旋轮线上的积分。}
+\begin{xsolution}
+由
+\[
+  x=a(t-\sin t),\quad y=a(1-\cos t),
+\]
+有
+\[
+  \dd x=a(1-\cos t)\,\dd t=y\,\dd t,
+  \qquad
+  \dd y=a\sin t\,\dd t,
+\]
+且 $y-a=-a\cos t$。故
+\begin{align*}
+  I
+  &=\int_{\pi/6}^{\pi/3}
+  \left[a(t-\sin t)-\tan t\right]\,\dd t\\
+  &=a\left[\frac{t^2}{2}+\cos t\right]_{\pi/6}^{\pi/3}
+    +\left[\ln\abs{\cos t}\right]_{\pi/6}^{\pi/3}\\
+  &=a\left(\frac{\pi^2}{24}+\frac{1-\sqrt3}{2}\right)
+    -\frac12\ln3.
+\end{align*}
+\end{xsolution}
+
+\paragraph{3. 三角形边界上的积分。}
+\begin{xsolution}
+令
+\[
+  P=(x+y)^2,\qquad Q=x^2-y^2.
+\]
+则
+\[
+  \frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}
+  =-2y.
+\]
+给定方向为顺时针，故由 Green 公式要取负号：
+\[
+  I=-\iint_D(-2y)\,\dd x\,\dd y
+   =2\iint_Dy\,\dd x\,\dd y.
+\]
+三角形 $ABD$ 的面积为 $1$，其形心的 $y$ 坐标为
+\[
+  \frac{1+2+1}{3}=\frac43.
+\]
+因此
+\[
+  I=2\cdot1\cdot\frac43=\frac83.
+\]
+\end{xsolution}
+
+\paragraph{4. 抛物线弧上的积分。}
+\begin{xsolution}
+取 $x$ 为参数，$0\le x\le2$，$y=x^2/2$，$\dd y=x\,\dd x$。于是
+\[
+  4xy^2\,\dd x-3x^4\,\dd y
+  =x^5\,\dd x-3x^5\,\dd x=-2x^5\,\dd x.
+\]
+故
+\[
+  I=-2\int_0^2x^5\,\dd x=-\frac{64}{3}.
+\]
+\end{xsolution}
+
+\paragraph{5. 两曲面交线上的闭路积分。}
+\begin{xsolution}
+记
+\[
+  S=x^2+y^2+z^2.
+\]
+原微分形式可写成
+\[
+  (S-x^2)\,\dd x+(S-y^2)\,\dd y+(S-z^2)\,\dd z
+  =S\,\dd(x+y+z)-\frac13\dd(x^3+y^3+z^3).
+\]
+闭路上后一项积分为零；又在球面上 $S=2Rx$，故
+\[
+  I=2R\oint_Cx(\dd x+\dd y+\dd z)
+   =2R\left(\oint_Cx\,\dd y+\oint_Cx\,\dd z\right).
+\]
+由两曲面方程相减得
+\[
+  z^2=2(R-a)x,
+\]
+所以 $x\,\dd z=\dfrac{z^2}{2(R-a)}\,\dd z$ 是全微分，闭路积分为零。曲线在 $xOy$ 平面上的投影为
+\[
+  x^2+y^2=2ax,
+\]
+即圆心 $(a,0)$、半径 $a$ 的圆。题设从 $z$ 轴正向看为逆时针，故投影取正向，
+\[
+  \oint_Cx\,\dd y=\pi a^2.
+\]
+因此
+\[
+  I=2\pi Ra^2.
+\]
+\end{xsolution}
+
+\paragraph{6. 球面经纬线上的积分。}
+\begin{xsolution}
+\begin{enumerate}[label=(\arabic*)]
+\item $R,\varphi$ 固定，令 $\theta$ 从 $0$ 增至 $2\pi$。记
+\[
+  A=R\sin\varphi,\qquad B=R\cos\varphi,
+\]
+则 $x=A\cos\theta,y=A\sin\theta,z=B$。于是
+\[
+  I=\int_0^{2\pi}\left[-A^2\sin^2\theta+AB\cos\theta\right]\,\dd\theta
+  =-\pi R^2\sin^2\varphi.
+\]
+
+\item $R,\theta$ 固定，令 $\varphi$ 从 $0$ 增至 $\pi$。代入
+\[
+  x=R\sin\varphi\cos\theta,
+  \quad y=R\sin\varphi\sin\theta,
+  \quad z=R\cos\varphi
+\]
+后，含 $\sin\varphi\cos\varphi$ 的项积分为零，故
+\[
+  I=\frac{\pi R^2}{2}(\sin\theta-\cos\theta).
+\]
+若曲线取相反方向，上述结果相应变号。
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{7. 两条连接同一端点的曲线。}
+\begin{xsolution}
+令
+\[
+  \omega=(x^2+5y+3yz)\,\dd x+(5x+3xy-2)\,\dd y+(3xy-4z)\,\dd z.
+\]
+可分解为
+\[
+  \omega=\dd\left(\frac{x^3}{3}+5xy-2y-2z^2+3xyz\right)
+  +3x(y-z)\,\dd y.
+\]
+\begin{enumerate}[label=(\arabic*)]
+\item 对螺旋线
+\[
+  x=a\cos t,\quad y=a\sin t,\quad z=\frac{bt}{2\pi},\quad0\le t\le2\pi,
+\]
+全微分部分从 $A$ 到 $B$ 的增量为 $-2b^2$。余项为
+\begin{align*}
+  3\int_Cx(y-z)\,\dd y
+  &=3\int_0^{2\pi}a\cos t
+    \left(a\sin t-\frac{bt}{2\pi}\right)a\cos t\,\dd t\\
+  &=-\frac{3a^2b}{2\pi}\int_0^{2\pi}t\cos^2t\,\dd t
+   =-\frac{3\pi a^2b}{2}.
+\end{align*}
+故
+\[
+  I=-\frac{3\pi a^2b}{2}-2b^2.
+\]
+
+\item 在线段 $AB$ 上 $x=a,y=0$，只有 $z$ 从 $0$ 到 $b$ 变化，故
+\[
+  I=\int_0^b(-4z)\,\dd z=-2b^2.
+\]
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{8. 力场沿螺旋线所做的功。}
+\begin{xsolution}
+沿给定曲线
+\[
+  x=a\cos t,\quad y=a\sin t,\quad z=\frac{bt}{2\pi},\quad0\le t\le2\pi.
+\]
+功为
+\[
+  W=\int_Cy\,\dd x-x\,\dd y+(x+y+z)\,\dd z.
+\]
+前两项给出
+\[
+  \int_0^{2\pi}-a^2\,\dd t=-2\pi a^2.
+\]
+又 $\dd z=\dfrac{b}{2\pi}\,\dd t$，而 $x,y$ 的一周期积分均为零，故
+\[
+  \int_C(x+y+z)\,\dd z
+  =\frac{b^2}{4\pi^2}\int_0^{2\pi}t\,\dd t
+  =\frac{b^2}{2}.
+\]
+因此
+\[
+  W=-2\pi a^2+\frac{b^2}{2}.
+\]
+\end{xsolution}
+
+\paragraph{9. 平面力场做功。}
+\begin{xsolution}
+记
+\[
+  P=\frac{\ee^x}{1+y^2},
+  \qquad
+  Q=\frac{2y(1-\ee^x)}{(1+y^2)^2}.
+\]
+有
+\[
+  \frac{\partial P}{\partial y}
+  =\frac{\partial Q}{\partial x}
+  =-\frac{2y\ee^x}{(1+y^2)^2},
+\]
+故在整个平面上为恰当微分。由 $\varphi_x=P$，可取
+\[
+  \varphi(x,y)=\frac{\ee^x-1}{1+y^2}.
+\]
+于是积分只与端点有关，
+\[
+  W=\varphi(1,1)-\varphi(0,0)
+   =\frac{\ee-1}{2}.
+\]
+\end{xsolution}
+
+\subsection*{24.3.3 练习题}
+
+\paragraph{1. 应用 Green 公式计算。}
+\begin{xsolution}
+\begin{enumerate}[label=(\arabic*)]
+\item 令 $P=x^2+xy,Q=x^2+y^2$。则
+\[
+  Q_x-P_y=2x-x=x.
+\]
+区域是关于 $y$ 轴对称的正方形 $[-1,1]^2$，所以
+\[
+  \oint_C P\,\dd x+Q\,\dd y
+  =\iint_{[-1,1]^2}x\,\dd x\,\dd y=0.
+\]
+
+\item 令
+\[
+  P=\ln\frac{2+y}{1+x^2},
+  \qquad
+  Q=\frac{x(y+1)}{2+y}.
+\]
+则
+\[
+  Q_x-P_y=\frac{y+1}{y+2}-\frac1{y+2}=\frac y{y+2}.
+\]
+故
+\begin{align*}
+  I
+  &=\int_{-1}^1\int_{-1}^1\frac y{y+2}\,\dd x\,\dd y\\
+  &=2\int_{-1}^1\left(1-\frac2{y+2}\right)\,\dd y
+   =4-4\ln3.
+\end{align*}
+
+\item 令 $P=x^2-y^2,Q=-2xy$。有
+\[
+  Q_x-P_y=-2y-(-2y)=0.
+\]
+被积函数在整个平面上连续可微，所以无论该曲边三角形的具体形状如何，按闭曲线 Green 公式均有
+\[
+  I=0.
+\]
+
+\item 注意
+\[
+  \frac{x\,\dd y-y\,\dd x}{x^2+y^2}=\dd\arg(x+\ii y)
+\]
+在不经过原点的曲线上成立。
+\begin{enumerate}[label=(\alph*)]
+\item 旋轮线一拱经平移后从 $(-a\pi,0)$ 到 $(a\pi,0)$，且除端点外位于上半平面。沿给定参数方向，连续辐角从 $\pi$ 变到 $0$，故
+\[
+  I=-\pi.
+\]
+\item 圆弧从 $(2,1)$ 经上半圆到 $(0,1)$，全程位于第一、第二象限而不经过原点。故
+\[
+  I=\frac\pi2-\arctan\frac12=\arctan2.
+\]
+\end{enumerate}
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{2. 两个闭路积分恒为零。}
+\begin{xsolution}
+\begin{enumerate}[label=(\arabic*)]
+\item 取 $F$ 为 $f$ 的一个原函数，即 $F'=f$。由于
+\[
+  y\,\dd x+x\,\dd y=\dd(xy),
+\]
+所以
+\[
+  f(xy)(y\,\dd x+x\,\dd y)=\dd F(xy).
+\]
+闭曲线上的全微分积分为零，故所求积分为 $0$。
+
+\item 取 $H$ 满足 $H'(u)=\frac12f(u)$。由于
+\[
+  x\,\dd x+y\,\dd y=\frac12\dd(x^2+y^2),
+\]
+有
+\[
+  f(x^2+y^2)(x\,\dd x+y\,\dd y)
+  =\dd H(x^2+y^2).
+\]
+故闭路积分仍为 $0$。
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{3. 计算 $\displaystyle\oint_C\frac{\partial u}{\partial n}\,\dd s$。}
+\begin{xsolution}
+$u=x^2+y^2$，故
+\[
+  \nabla u=(2x,2y),\qquad \Delta u=4.
+\]
+由 Green 公式的通量形式，
+\[
+  \oint_C\frac{\partial u}{\partial n}\,\dd s
+  =\iint_D\Delta u\,\dd x\,\dd y.
+\]
+圆 $x^2+y^2=6x$ 的圆心为 $(3,0)$、半径为 $3$，面积为 $9\pi$，因此
+\[
+  \oint_C\frac{\partial u}{\partial n}\,\dd s
+  =4\cdot9\pi=36\pi.
+\]
+\end{xsolution}
+
+\paragraph{4. 证明 $\displaystyle\oint_C\cos(l,n)\,\dd s=0$。}
+\begin{xsolution}
+设给定方向 $l$ 的单位向量为
+\[
+  \vect{e}=(\cos\alpha,\sin\alpha).
+\]
+则 $\cos(l,n)=\vect{e}\cdot\vect{n}$。常向量场 $\vect{e}$ 的散度为零，故由 Green 公式的通量形式
+\[
+  \oint_C\cos(l,n)\,\dd s
+  =\oint_C\vect{e}\cdot\vect{n}\,\dd s
+  =\iint_D\operatorname{div}\vect{e}\,\dd x\,\dd y=0.
+\]
+\end{xsolution}
+
+\paragraph{5. 线性变换后的绕数积分。}
+\begin{xsolution}
+记
+\[
+  A=\begin{pmatrix}a_{11}&a_{12}\\a_{21}&a_{22}\end{pmatrix},
+  \qquad
+  \binom XY=A\binom xy,
+  \qquad \Delta=\det A\ne0.
+\]
+因 $A$ 可逆，$C$ 的像 $C'=A(C)$ 仍是包围原点的简单闭曲线。若 $C$ 按正向（逆时针）取向，则当 $\Delta>0$ 时 $C'$ 仍为正向，当 $\Delta<0$ 时方向反转。
+
+在 $C'$ 上写 $X=\rho\cos\theta,Y=\rho\sin\theta$。因为 $C'$ 不经过原点，沿整条曲线可连续选取辐角，于是
+\[
+  \frac{X\,\dd Y-Y\,\dd X}{X^2+Y^2}=\dd\theta.
+\]
+正向简单闭曲线包围原点一次时总辐角增量为 $2\pi$，反向时为 $-2\pi$。因此
+\[
+  \oint_C\frac{X\,\dd Y-Y\,\dd X}{X^2+Y^2}
+  =2\pi\operatorname{sgn}(\Delta)
+  =2\pi\operatorname{sgn}(a_{11}a_{22}-a_{12}a_{21}).
+\]
+\end{xsolution}
+
+\paragraph{6. 单位圆周上的积分。}
+\begin{xsolution}
+取 $x=\cos t,y=\sin t$，$0\le t\le2\pi$。则
+\[
+  I=\int_0^{2\pi}
+  \frac{1+3\sin t\cos t}{\cos^2t+4\sin^2t}\,\dd t.
+\]
+含 $\sin t\cos t$ 的部分在 $t\mapsto\pi-t$ 下变号而分母不变，所以其积分为零。其余部分按四个象限相同，令 $u=\tan t$ 得
+\[
+  4\int_0^{\pi/2}\frac{\dd t}{\cos^2t+4\sin^2t}
+  =4\int_0^{+\infty}\frac{\dd u}{1+4u^2}
+  =\pi.
+\]
+故
+\[
+  I=\pi.
+\]
+\end{xsolution}
+
+\paragraph{7. 利用曲线积分求面积。}
+\begin{xsolution}
+均采用
+\[
+  S=\frac12\oint_C(x\,\dd y-y\,\dd x).
+\]
+\begin{enumerate}[label=(\arabic*)]
+\item
+\[
+  x=a\cos^3t,\qquad y=b\sin^3t,\qquad0\le t\le2\pi.
+\]
+计算得
+\[
+  x y'-y x'=3ab\sin^2t\cos^2t.
+\]
+于是
+\[
+  S=\frac{3ab}{2}\int_0^{2\pi}\sin^2t\cos^2t\,\dd t
+   =\frac{3\pi ab}{8}.
+\]
+
+\item 对 Descartes 叶形线的闭叶，令 $t=y/x$。由
+\[
+  x^3+y^3=3axy
+\]
+解得
+\[
+  x=\frac{3at}{1+t^3},
+  \qquad
+  y=\frac{3at^2}{1+t^3},
+  \qquad0<t<+\infty.
+\]
+这一路径恰沿闭叶正向从原点回到原点，并且
+\[
+  \frac12(xy'-yx')=\frac{9a^2t^2}{2(1+t^3)^2}.
+\]
+故令 $u=t^3$，
+\[
+  S=\frac{9a^2}{2}\int_0^{+\infty}\frac{t^2}{(1+t^3)^2}\,\dd t
+   =\frac{3a^2}{2}\int_0^{+\infty}\frac{\dd u}{(1+u)^2}
+   =\frac{3a^2}{2}.
+\]
+
+\item 令
+\[
+  X=\frac xa,\qquad Y=\frac yb,
+  \qquad t=\frac YX>0.
+\]
+由方程解得闭叶参数式
+\[
+  X=\frac{Ct^n}{1+t^{2n+1}},
+  \qquad
+  Y=\frac{Ct^{n+1}}{1+t^{2n+1}},
+  \qquad0<t<+\infty.
+\]
+因此
+\[
+  xy'-yx'
+  =abC^2\frac{t^{2n}}{(1+t^{2n+1})^2}.
+\]
+令 $u=t^{2n+1}$，得到
+\begin{align*}
+  S
+  &=\frac{abC^2}{2}\int_0^{+\infty}
+    \frac{t^{2n}}{(1+t^{2n+1})^2}\,\dd t\\
+  &=\frac{abC^2}{2(2n+1)}
+    \int_0^{+\infty}\frac{\dd u}{(1+u)^2}
+   =\frac{abC^2}{2(2n+1)}.
+\end{align*}
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{8. 先证路径无关，再计算。}
+\begin{xsolution}
+\begin{enumerate}[label=(\arabic*)]
+\item 分别取原函数
+\[
+  \Phi'(x)=\varphi(x),\qquad \Psi'(y)=\psi(y).
+\]
+则
+\[
+  \varphi(x)\,\dd x+\psi(y)\,\dd y
+  =\dd[\Phi(x)+\Psi(y)],
+\]
+故积分与路径无关，并且
+\[
+  I=\int_1^3\varphi(x)\,\dd x+
+    \int_2^4\psi(y)\,\dd y.
+\]
+
+\item 在不经过原点的区域中
+\[
+  \frac{x\,\dd x+y\,\dd y}{x^2+y^2}
+  =\frac12\dd\ln(x^2+y^2),
+\]
+所以积分与路径无关。于是
+\[
+  I=\frac12\ln\frac{6^2+8^2}{1^2+0^2}
+   =\frac12\ln100=\ln10.
+\]
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{9. 求积分因子与原函数。}
+\begin{xsolution}
+\begin{enumerate}[label=(\arabic*)]
+\item 记 $r^2=x^2+y^2$。利用
+\[
+  -y\,\dd x+x\,\dd y=r^2\,\dd\theta,
+  \qquad
+  x\,\dd x+y\,\dd y=r\,\dd r,
+\]
+原微分形式化为
+\[
+  w=r^2\sqrt{r^2+1}\,\dd\theta-r^3\,\dd r.
+\]
+在 $r>0$ 的适当单连通区域内取
+\[
+  M(x,y)=\frac1{(x^2+y^2)\sqrt{x^2+y^2+1}},
+\]
+则
+\[
+  Mw=\dd\theta-\frac r{\sqrt{r^2+1}}\,\dd r
+  =\dd\left(\theta-\sqrt{r^2+1}\right).
+\]
+因此可取原函数
+\[
+  \Phi(x,y)=\arg(x+\ii y)-\sqrt{x^2+y^2+1},
+\]
+其中 $\arg$ 在所取单连通区域内选定一个连续分支。
+
+\item 记
+\[
+  S=ay+bx.
+\]
+取
+\[
+  M(x,y)=\frac1{S^3},
+\]
+其适用区域为 $S\ne0$ 的任一连通分支。直接计算
+\[
+  \Phi(x,y)
+  =\frac12(x^2+y^2)+\frac{x^2y^2}{2(ay+bx)^2}
+\]
+的微分。对 $x$ 求偏导有
+\[
+  \Phi_x
+  =x+\frac{xy^2[(ay+bx)-bx]}{(ay+bx)^3}
+  =x+\frac{axy^3}{(ay+bx)^3}
+  =M\,x[(ay+bx)^3+ay^3],
+\]
+对 $y$ 求偏导同理得
+\[
+  \Phi_y
+  =y+\frac{bx^3y}{(ay+bx)^3}
+  =M\,y[(ay+bx)^3+bx^3].
+\]
+故 $Mw=\dd\Phi$，上述 $M$ 与 $\Phi$ 即为所求。
+\end{enumerate}
+\end{xsolution}
+
+\subsection*{24.5.2 参考题}
+
+\subsubsection*{第一组参考题}
+
+\paragraph{1. 曲线积分估计及 $I_R$ 的极限。}
+\begin{xsolution}
+将第二型曲线积分写成第一型曲线积分。设 $\vect{\tau}=(\cos\alpha,\cos\beta)$ 为 $C$ 的单位切向量，则
+\[
+  P\,\dd x+Q\,\dd y
+  =(P\cos\alpha+Q\cos\beta)\,\dd s.
+\]
+由 Cauchy 不等式，
+\[
+  \abs{P\cos\alpha+Q\cos\beta}
+  \le\sqrt{P^2+Q^2}\le M.
+\]
+所以
+\[
+  \abs{\int_CP\,\dd x+Q\,\dd y}
+  \le\int_C M\,\dd s=ML.
+\]
+
+对
+\[
+  I_R=\oint_{x^2+y^2=R^2}
+  \frac{y\,\dd x-x\,\dd y}{(x^2+xy+y^2)^2}
+\]
+应用此估计。由
+\[
+  x^2+xy+y^2
+  =\frac12(x^2+y^2)+\frac12(x+y)^2
+  \ge\frac12R^2,
+\]
+可知对应向量场的模满足
+\[
+  \sqrt{P^2+Q^2}
+  =\frac{\sqrt{x^2+y^2}}{(x^2+xy+y^2)^2}
+  \le\frac{4}{R^3}.
+\]
+圆周长为 $2\pi R$，故
+\[
+  \abs{I_R}\le\frac4{R^3}\,2\pi R
+  =\frac{8\pi}{R^2}\longrightarrow0.
+\]
+因此
+\[
+  \lim_{R\to+\infty}I_R=0.
+\]
+\end{xsolution}
+
+\paragraph{2. 圆周上的对数型第一型曲线积分。}
+\begin{xsolution}
+先证明一个统一结论。设 $\rho\ge0$，$\rho\ne R$。在圆周 $x^2+y^2=R^2$ 上取
+\[
+  x=R\cos\theta,\qquad y=R\sin\theta,
+  \qquad \dd s=R\,\dd\theta.
+\]
+若 $0\le\rho<R$，则
+\[
+  \ln\abs{R\ee^{\ii\theta}-\rho}
+  =\ln R+\ln\abs{1-q\ee^{-\ii\theta}},
+  \qquad q=\frac\rho R<1.
+\]
+由幂级数
+\[
+  \ln\abs{1-q\ee^{-\ii\theta}}
+  =-\sum_{n=1}^{\infty}\frac{q^n}{n}\cos n\theta
+\]
+并逐项积分，所有余弦项在 $[0,2\pi]$ 上积分为零，故平均值为 $\ln R$。若 $\rho>R$，提出 $\rho$ 后同理得到平均值 $\ln\rho$。因此
+\[
+  \int_0^{2\pi}\ln\abs{R\ee^{\ii\theta}-\rho}\,\dd\theta
+  =2\pi\ln\max\{R,\rho\}.
+\]
+
+\begin{enumerate}[label=(\arabic*)]
+\item 这里 $\rho=\abs a$，故
+\[
+  \int_{x^2+y^2=R^2}
+  \ln\sqrt{(x-a)^2+y^2}\,\dd s
+  =2\pi R\ln\max\{R,\abs a\}.
+\]
+
+\item 令 $\rho=\sqrt{a^2+b^2}$。绕原点旋转坐标轴不改变圆周、弧长和距离，故问题化为上一小题，得到
+\[
+  \int_{x^2+y^2=R^2}
+  \ln\sqrt{(x-a)^2+(y-b)^2}\,\dd s
+  =2\pi R\ln\max\{R,\sqrt{a^2+b^2}\}.
+\]
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{3. 对数势在无穷远趋于零的条件。}
+\begin{xsolution}
+记
+\[
+  A=\oint_L f(\xi,\eta)\,\dd s,
+  \qquad \rho=\sqrt{x^2+y^2}.
+\]
+由于闭曲线 $L$ 是紧集，存在常数 $K$ 使
+\[
+  \sqrt{\xi^2+\eta^2}\le K\qquad((\xi,\eta)\in L).
+\]
+当 $\rho>2K$ 时，令 $\vect{e}=(x,y)/\rho$，则一致地有
+\begin{align*}
+  \ln\sqrt{(x-\xi)^2+(y-\eta)^2}
+  &=\ln\rho+
+    \ln\abs{\vect{e}-(\xi,\eta)/\rho}\\
+  &=\ln\rho+\bigO(\rho^{-1}),
+\end{align*}
+其中余项对 $(\xi,\eta)\in L$ 一致。因此
+\[
+  u(x,y)=A\ln\rho+igO(\rho^{-1}).
+\]
+若 $A=0$，立即得到 $u(x,y)\to0$。
+
+反之，若 $u(x,y)\to0$，则
+\[
+  \frac{u(x,y)}{\ln\rho}
+  =A+\frac{\bigO(\rho^{-1})}{\ln\rho}\longrightarrow A.
+\]
+左边趋于 $0$，故 $A=0$。因此充分必要条件正是
+\[
+  \oint_L f(\xi,\eta)\,\dd s=0.
+\]
+\end{xsolution}
+
+\paragraph{4. 圆盘平均值与圆周平均值的等价性。}
+\begin{xsolution}
+固定点 $(x,y)$，记
+\[
+  A(r)=\iint_{(x-\xi)^2+(y-\eta)^2\le r^2}
+  u(\xi,\eta)\,\dd\xi\,\dd\eta,
+\]
+以及
+\[
+  B(r)=\oint_{(x-\xi)^2+(y-\eta)^2=r^2}
+  u(\xi,\eta)\,\dd s.
+\]
+由以 $(x,y)$ 为中心的极坐标变换及 $u$ 的连续性，
+\[
+  A(r)=\int_0^r B(\rho)\,\dd\rho.
+\]
+
+若圆盘平均值恒成立，则
+\[
+  A(r)=\pi r^2u(x,y).
+\]
+对 $r>0$ 求导得
+\[
+  B(r)=2\pi r\,u(x,y),
+\]
+即圆周平均值公式成立。
+
+反过来，若
+\[
+  B(r)=2\pi r\,u(x,y)
+\]
+对任意 $r>0$ 成立，则积分得到
+\[
+  A(r)=\int_0^r2\pi\rho\,u(x,y)\,\dd\rho
+  =\pi r^2u(x,y),
+\]
+即圆盘平均值公式成立。两条件等价。
+\end{xsolution}
+
+\paragraph{5. 圆盘上函数积分的估计。}
+\begin{xsolution}
+令
+\[
+  M=\max_G\sqrt{f_x^2+f_y^2}.
+\]
+在极坐标中写 $(x,y)=(\rho\cos\theta,\rho\sin\theta)$。因为边界 $\rho=a$ 上 $f=0$，沿固定的径向线段由微积分基本定理和 Cauchy 不等式，
+\begin{align*}
+  \abs{f(\rho\cos\theta,\rho\sin\theta)}
+  &=\abs{\int_\rho^a
+  \frac{\dd}{\dd t}f(t\cos\theta,t\sin\theta)\,\dd t}\\
+  &\le\int_\rho^a\abs{\nabla f(t\cos\theta,t\sin\theta)}\,\dd t\\
+  &\le M(a-\rho).
+\end{align*}
+因此
+\begin{align*}
+  \abs{\iint_Gf\,\dd x\,\dd y}
+  &\le\int_0^{2\pi}\int_0^a M(a-\rho)\rho\,\dd\rho\,\dd\theta\\
+  &=2\pi M\left(\frac{a^3}{2}-\frac{a^3}{3}\right)
+   =\frac\pi3a^3M.
+\end{align*}
+这就是所需不等式。
+\end{xsolution}
+
+\paragraph{6. 由所有上半圆积分为零推出 $P=Q_x=0$。}
+\begin{xsolution}
+固定任意 $(x_0,y_0)$。对半径为 $r$ 的上半圆取参数
+\[
+  x=x_0+r\cos\theta,
+  \qquad y=y_0+r\sin\theta,
+  \qquad0\le\theta\le\pi.
+\]
+题设给出
+\[
+  0=r\int_0^\pi
+  \left[-P(x,y)\sin\theta+Q(x,y)\cos\theta\right]\,\dd\theta.
+\]
+除以 $r$ 后令 $r\to0+$，由连续性得到
+\[
+  0=-P(x_0,y_0)\int_0^\pi\sin\theta\,\dd\theta
+    +Q(x_0,y_0)\int_0^\pi\cos\theta\,\dd\theta
+  =-2P(x_0,y_0).
+\]
+故 $P\equiv0$。
+
+于是题设化为
+\[
+  0=r\int_0^\pi Q(x_0+r\cos\theta,y_0+r\sin\theta)
+  \cos\theta\,\dd\theta.
+\]
+利用 $Q$ 的一阶连续可微性，在 $(x_0,y_0)$ 展开
+\[
+  Q(x_0+r\cos\theta,y_0+r\sin\theta)
+  =Q_0+r(Q_x\cos\theta+Q_y\sin\theta)+\littleo(r),
+\]
+余项关于 $\theta$ 一致。除以 $r^2$ 后令 $r\to0+$，其中常数项因 $\int_0^\pi\cos\theta\,\dd\theta=0$ 消失，得到
+\[
+  0=Q_x(x_0,y_0)\int_0^\pi\cos^2\theta\,\dd\theta
+    +Q_y(x_0,y_0)\int_0^\pi\sin\theta\cos\theta\,\dd\theta
+  =\frac\pi2Q_x(x_0,y_0).
+\]
+故 $Q_x\equiv0$。由于 $(x_0,y_0)$ 任意，结论为
+\[
+  P(x,y)=\frac{\partial Q}{\partial x}(x,y)=0
+  \qquad(\forall(x,y)\in\RR^2).
+\]
+\end{xsolution}
+
+\subsubsection*{第二组参考题}
+
+\paragraph{1. 不用曲线积分证明旋转度性质 2。}
+\begin{xsolution}
+设 $D$ 上的连续向量场 $\vect{F}$ 处处非零，并令
+\[
+  \vect{T}(x)=\frac{\vect{F}(x)}{\abs{\vect{F}(x)}}\colon D\to S^1.
+\]
+由于 $D$ 紧而 $\vect{T}$ 连续，$\vect{T}$ 一致连续。把 $D$ 作足够细的有限三角剖分，使每个小三角形 $\Delta$ 上 $\vect{T}(\Delta)$ 的直径小于 $1$。于是 $\vect{T}(\Delta)$ 完全落在单位圆的某个开半圆内，在该开半圆上可以选取一个连续的辐角函数 $\theta$。
+
+因此沿每个小三角形的边界走一周时，$\theta$ 回到原值，该小三角形边界上的总转角为 $0$。把所有小三角形的边界总转角相加：每条内部公共边被两个相邻三角形以相反方向走过，转角贡献互相抵消；最后只剩下区域 $D$ 的全部定向边界 $\partial D$。故 $\vect{T}$ 沿 $\partial D$ 的总转角为 $0$，即
+\[
+  \gamma(\vect{F},\partial D)=0.
+\]
+这一证明只用了连续性、三角剖分和绕数的定义，没有使用曲线积分。
+\end{xsolution}
+
+\paragraph{2. 高维中值定理。}
+\begin{xsolution}
+记
+\[
+  M=\max_{\vect{x}\in D}f(\vect{x}),
+  \qquad
+  m=\min_{\vect{x}\in D}f(\vect{x}),
+  \qquad
+  c=\frac{M-m}{2r}.
+\]
+若 $M=m$，则 $f$ 为常数，任取内点 $p_0$ 都有 $\nabla f(p_0)=0$，结论成立。以下设 $M>m$。
+
+先证明存在内点 $p_1$ 使 $\abs{\nabla f(p_1)}\ge c$。取 $p_M,p_m\in D$ 分别使 $f(p_M)=M,f(p_m)=m$。球 $D$ 是凸集，线段 $[p_m,p_M]$ 包含于 $D$，且其长度 $d\le2r$。把 $f$ 限制在线段上并按弧长参数化，由一元中值定理，存在该线段内部一点 $p_1$，使
+\[
+  \abs{\nabla f(p_1)\cdot\vect{e}}
+  =\frac{M-m}{d}\ge\frac{M-m}{2r}=c,
+\]
+其中 $\vect{e}$ 是线段的单位方向向量。因此 $\abs{\nabla f(p_1)}\ge c$。
+
+再证明存在内点 $p_2$ 使 $\abs{\nabla f(p_2)}\le c$。若已有临界点，则可取该点。否则假设在 $\operatorname{int}D$ 上处处
+\[
+  \abs{\nabla f}>c.
+\]
+从球心 $O$ 出发，分别沿单位梯度场
+\[
+  \frac{\nabla f}{\abs{\nabla f}}
+  \quad\text{与}\quad
+  -\frac{\nabla f}{\abs{\nabla f}}
+\]
+的积分曲线前进，直到第一次到达球面，终点分别记为 $q_+,q_-$。两条曲线从球心到球面的弧长 $l_+,l_-$ 都至少为 $r$。沿正梯度曲线有 $\dd f/\dd s=\abs{\nabla f}$，沿负梯度曲线有 $\dd f/\dd s=-\abs{\nabla f}$，故
+\begin{align*}
+  f(q_+)-f(q_-)
+  &=\int_0^{l_+}\abs{\nabla f}\,\dd s
+    +\int_0^{l_-}\abs{\nabla f}\,\dd s\\
+  &>c(l_++l_-)\ge2rc=M-m,
+\end{align*}
+这与 $f(q_+)\le M,f(q_-)\ge m$ 矛盾。故存在 $p_2$ 使 $\abs{\nabla f(p_2)}\le c$。
+
+函数 $\abs{\nabla f}$ 在连通的球内连续，从 $p_2$ 到 $p_1$ 的一条曲线上必取到中间值 $c$。于是存在 $p_0\in\operatorname{int}D$ 使
+\[
+  \abs{\nabla f(p_0)}=c,
+\]
+即
+\[
+  M-m=2r\abs{\nabla f(p_0)}.
+\]
+\end{xsolution}
+
+\paragraph{3. 多边形顶点的指数加权平衡。}
+\begin{xsolution}
+令
+\[
+  \vect{v}_i=(a_i,b_i),
+  \qquad
+  F(u,v)=\sum_{i=1}^n\exp(a_i u+b_i v).
+\]
+因为原点在多边形的内部，所以存在 $\rho>0$，使以原点为心、半径 $\rho$ 的小圆盘包含在 $\operatorname{conv}\{\vect{v}_1,\ldots,\vect{v}_n\}$ 中。因此对任一单位向量 $\vect{e}$，都有
+\[
+  \max_i(\vect{v}_i\cdot\vect{e})\ge\rho.
+\]
+若 $(u,v)=t\vect{e}$，$t\to+\infty$，则至少有一个 $i$ 满足
+\[
+  \exp(a_i u+b_i v)
+  =\exp(t\vect{v}_i\cdot\vect{e})\ge\ee^{\rho t}.
+\]
+故 $F(u,v)\to+\infty$ 当 $u^2+v^2\to+\infty$。于是 $F$ 在平面上取得一个全局最小值 $(u_0,v_0)$，且
+\[
+  \nabla F(u_0,v_0)=0.
+\]
+即
+\[
+  \sum_{i=1}^n(a_i,b_i)\ee^{a_i u_0+b_i v_0}=(0,0).
+\]
+令
+\[
+  x=\ee^{u_0}>0,
+  \qquad y=\ee^{v_0}>0,
+\]
+便得到
+\[
+  \sum_{i=1}^n(a_i,b_i)x^{a_i}y^{b_i}=(0,0),
+\]
+证毕。
+\end{xsolution}
+
+\paragraph{4. 圆外弧长平均的极限。}
+\begin{xsolution}
+设固定圆盘 $D$ 的半径为 $r$，面积积分记为
+\[
+  J_\delta=\iint_D l(x,y)\,\dd x\,\dd y.
+\]
+对单位向量 $\vect{e}_\theta=(\cos\theta,\sin\theta)$，圆心为 $p\in D$、半径为 $\delta$ 的圆上点为 $p+\delta\vect{e}_\theta$。因此
+\[
+  l(p)=\delta\int_0^{2\pi}
+  \mathbf1_{\{p+\delta\vect{e}_\theta\notin D\}}\,\dd\theta.
+\]
+用 Fubini 定理交换积分次序：
+\[
+  J_\delta
+  =\delta\int_0^{2\pi}
+  \abs{D\setminus(D-\delta\vect{e}_\theta)}\,\dd\theta.
+\]
+因 $D$ 是圆盘，括号中的面积与 $\theta$ 无关。记它为 $A_\delta$。两个半径均为 $r$、圆心距为 $\delta$ 的圆盘交叠面积为
+\[
+  2r^2\arccos\frac{\delta}{2r}
+  -\frac\delta2\sqrt{4r^2-\delta^2},
+  \qquad0<\delta<2r.
+\]
+故
+\begin{align*}
+  A_\delta
+  &=\pi r^2-\left(
+  2r^2\arccos\frac{\delta}{2r}
+  -\frac\delta2\sqrt{4r^2-\delta^2}
+  \right)\\
+  &=2r\delta+\bigO(\delta^3).
+\end{align*}
+于是
+\[
+  J_\delta=2\pi\delta A_\delta
+  =4\pi r\delta^2+\bigO(\delta^4).
+\]
+因此
+\[
+  \boxed{
+  \lim_{\delta\to0}\frac1{\delta^2}\iint_Dl(x,y)\,\dd x\,\dd y
+  =4\pi r}.
+\]
+\end{xsolution}
+
+\paragraph{5. 单位圆盘到去原点平面的映射。}
+\begin{xsolution}
+以下令单位圆周 $C$ 取正向。
+\begin{enumerate}[label=(\arabic*)]
+\item 记
+\[
+  J_g=\frac{\partial(g_1,g_2)}{\partial(x_1,x_2)}
+  =g_{1,x_1}g_{2,x_2}-g_{1,x_2}g_{2,x_1}.
+\]
+取
+\[
+  P=g_1g_{2,x_1},
+  \qquad Q=g_1g_{2,x_2}.
+\]
+因 $g$ 二阶连续可微，混合偏导相等，所以
+\begin{align*}
+  Q_{x_1}-P_{x_2}
+  &=g_{1,x_1}g_{2,x_2}+g_1g_{2,x_2x_1}
+    -g_{1,x_2}g_{2,x_1}-g_1g_{2,x_1x_2}\\
+  &=J_g.
+\end{align*}
+由 Green 公式，
+\[
+  \iint_BJ_g\,\dd x_1\,\dd x_2
+  =\oint_Cg_1g_{2,x_1}\,\dd x_1
+   +g_1g_{2,x_2}\,\dd x_2
+  =\oint_Cg_1\,\dd g_2.
+\]
+
+\item 若 $g|_C=\operatorname{id}$，则在 $C$ 上 $g_1=x_1,g_2=x_2$，故
+\[
+  \oint_Cx_1\,\dd x_2
+  =\oint_Cg_1\,\dd g_2
+  =\oint_C\left(
+    g_1\frac{\partial g_2}{\partial x_1}\,\dd x_1
+    +g_1\frac{\partial g_2}{\partial x_2}\,\dd x_2
+  \right).
+\]
+并且取 $x_1=\cos t,x_2=\sin t$ 可得
+\[
+  \oint_Cx_1\,\dd x_2=\int_0^{2\pi}\cos^2t\,\dd t=\pi.
+\]
+
+\item 反设存在这样的 $g$，且 $g(B)\subset C$。于是
+\[
+  g_1^2+g_2^2\equiv1\qquad\text{于 }B.
+\]
+对 $x_j$ 求导，$j=1,2$，有
+\[
+  g_1g_{1,x_j}+g_2g_{2,x_j}=0.
+\]
+因此 $Dg$ 的两个列向量都垂直于非零向量 $(g_1,g_2)$，它们均落在同一个一维切空间中，故
+\[
+  J_g=\det Dg=0
+\]
+处处成立。于是由 (1)
+\[
+  \oint_Cg_1\,\dd g_2=\iint_BJ_g\,\dd x_1\,\dd x_2=0,
+\]
+但由 (2) 左边等于 $\pi$，矛盾。因此这样的 $g$ 不存在。
+
+\item 几何上，这说明不存在一个把整个闭圆盘连续地“压到”边界圆周上、同时保持边界每一点不动的光滑收缩，即单位圆盘不能以固定边界的方式退缩到单位圆周。这正是“圆盘没有到边界的收缩映射（retraction）”这一拓扑事实的二维表现。
+\end{enumerate}
+\end{xsolution}
+
+\paragraph{6. 由上一题导出 Brouwer 不动点定理。}
+\begin{xsolution}
+\begin{enumerate}[label=(\arabic*)]
+\item 对固定的 $x\in B$，记
+\[
+  d(x)=x-f(x)\ne0.
+\]
+交点
+\[
+  g(x)=f(x)+t(x)d(x)
+\]
+在单位圆周 $C$ 上，所以 $\abs{g(x)}^2=1$。展开即得
+\[
+  t^2(x)\abs{x-f(x)}^2
+  +2t(x)f(x)\cdot(x-f(x))
+  +\abs{f(x)}^2-1=0.
+\]
+
+\item 取上述二次方程的较大根，即沿从 $f(x)$ 指向 $x$ 的射线在穿过 $x$ 后遇到的边界点。设
+\[
+  A=\abs{x-f(x)}^2>0,
+  \qquad B_0=f(x)\cdot(x-f(x)).
+\]
+则
+\[
+  t(x)=\frac{-B_0+\sqrt{B_0^2+A(1-\abs{f(x)}^2)}}{A}.
+\]
+由构造 $\abs{g(x)}=1$，故 $g(B)\subset C$。
+
+若 $x\in C$，则 $t=1$ 是二次方程的根。另一根之积为
+\[
+  \frac{\abs{f(x)}^2-1}{A}\le0,
+\]
+所以另一根不大于 $0$，而所取较大根必为 $1$。故
+\[
+  g(x)=x\qquad(x\in C).
+\]
+
+\item 若假设 $f(x)\ne x$ 对所有 $x\in B$ 成立，则上式中的 $A>0$。根号内
+\[
+  B_0^2+A(1-\abs{f(x)}^2)
+\]
+处处为正：当 $\abs{f(x)}<1$ 时显然为正；当 $\abs{f(x)}=1$ 时，由 $x\in B$ 且 $x\ne f(x)$，
+\[
+  \abs{x}^2
+  =1+2B_0+A\le1
+\]
+推出 $B_0\le-A/2<0$。所以 $t(x)$ 是二阶连续可微函数，进而 $g$ 是二阶连续可微映射。
+
+由 (2)，$g(B)\subset C$ 且 $g|_C=\operatorname{id}$，这与上题 (3) 证明的“不存在这样的 $g$”矛盾。因此原假设错误，必有
+\[
+  \exists\xi\in B,\qquad f(\xi)=\xi.
+\]
+这给出了二维单位圆盘上 Brouwer 不动点定理的另一个证明。
+
+Brouwer 不动点定理的典型应用包括：
+\begin{itemize}
+  \item 对有限状态 Markov 链，概率单纯形上的映射 $p\mapsto pP$ 是连续自映射，固定点就是平稳分布；
+  \item 在连续的价格调整模型中，把归一化价格向量映到下一轮价格向量的连续自映射若保持价格单纯形不变，则固定点给出一个稳定价格状态；
+  \item 对具有紧致凸不变截面的动力系统，Poincar\'e 返回映射的固定点对应一条周期轨道；
+  \item 许多非线性方程可改写为闭球上的连续自映射 $T$，一旦能证明 $T(B)\subset B$，Brouwer 定理就保证存在 $x=T(x)$，从而得到方程解的存在性。
+\end{itemize}
+\end{enumerate}
+\end{xsolution}
