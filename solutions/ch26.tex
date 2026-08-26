@@ -1,0 +1,1207 @@
+% 第26章 场论初步——习题解答
+% 按 chapters/ch26.tex 中题目出现顺序编排。
+
+\section*{26.1 散度和旋度——练习题}
+
+\subsection*{练习题 1}
+\begin{xsolution}
+以下均假定所出现的一阶偏导数连续；关系式 (26.13)、(26.14) 还要求相应的二阶偏导数连续。
+
+先证 (26.7)。设
+\[
+  f=f(x,y,z),\qquad g=g(x,y,z),
+\]
+则由偏导数的线性性，
+\begin{align*}
+  \nabla(\alpha f+\beta g)
+  &\!=\vect{i}\frac{\partial(\alpha f+\beta g)}{\partial x}
+   +\vect{j}\frac{\partial(\alpha f+\beta g)}{\partial y}
+   +\vect{k}\frac{\partial(\alpha f+\beta g)}{\partial z}\\
+  &=\alpha\nabla f+\beta\nabla g.
+\end{align*}
+
+设
+\[
+  \vect{a}=(a_1,a_2,a_3),\qquad \vect{b}=(b_1,b_2,b_3).
+\]
+则
+\begin{align*}
+  \nabla\cdot(\alpha\vect{a}+\beta\vect{b})
+  &=\sum_{i=1}^3\frac{\partial(\alpha a_i+\beta b_i)}{\partial x_i}\\
+  &=\alpha\nabla\cdot\vect{a}+\beta\nabla\cdot\vect{b},
+\end{align*}
+这就是 (26.8)。同理，由旋度三个分量都是一阶偏导数的线性组合，立即得到
+\[
+  \nabla\times(\alpha\vect{a}+\beta\vect{b})
+  =\alpha\nabla\times\vect{a}+\beta\nabla\times\vect{b},
+\]
+即 (26.9)。
+
+由乘积求导公式，
+\begin{align*}
+  \nabla(fg)
+  &=\vect{i}(f_xg+fg_x)+\vect{j}(f_yg+fg_y)+\vect{k}(f_zg+fg_z)\\
+  &=(\nabla f)g+f(\nabla g),
+\end{align*}
+故 (26.10) 成立。
+
+再由
+\begin{align*}
+  \nabla\cdot(f\vect{a})
+  &=\frac{\partial(fa_1)}{\partial x}
+   +\frac{\partial(fa_2)}{\partial y}
+   +\frac{\partial(fa_3)}{\partial z}\\
+  &=f\left(\frac{\partial a_1}{\partial x}
+   +\frac{\partial a_2}{\partial y}
+   +\frac{\partial a_3}{\partial z}\right)
+   +\left(f_xa_1+f_ya_2+f_za_3\right)\\
+  &=f(\nabla\cdot\vect{a})+(\nabla f)\cdot\vect{a},
+\end{align*}
+得到 (26.11)。
+
+对于 (26.12)，直接按分量计算。以第一分量为例，
+\begin{align*}
+  [\nabla\times(f\vect{a})]_1
+  &=\frac{\partial(fa_3)}{\partial y}-\frac{\partial(fa_2)}{\partial z}\\
+  &=f\left(\frac{\partial a_3}{\partial y}-\frac{\partial a_2}{\partial z}\right)
+   +f_ya_3-f_za_2\\
+  &=[f(\nabla\times\vect{a})+(\nabla f)\times\vect{a}]_1.
+\end{align*}
+其余两个分量完全同样，因此
+\[
+  \nabla\times(f\vect{a})
+  =f(\nabla\times\vect{a})+(\nabla f)\times\vect{a}.
+\]
+
+最后，设 $\vect{a}=(a_1,a_2,a_3)$。由混合偏导数相等，
+\begin{align*}
+  \nabla\cdot(\nabla\times\vect{a})
+  ={}&\frac{\partial}{\partial x}(a_{3,y}-a_{2,z})
+  +\frac{\partial}{\partial y}(a_{1,z}-a_{3,x})
+  +\frac{\partial}{\partial z}(a_{2,x}-a_{1,y})\\
+  ={}&(a_{3,xy}-a_{3,yx})+(a_{2,zx}-a_{2,xz})+(a_{1,yz}-a_{1,zy})=0,
+\end{align*}
+故 (26.13) 成立；同理
+\[
+  \nabla\times(\nabla f)
+  =(f_{zy}-f_{yz},\ f_{xz}-f_{zx},\ f_{yx}-f_{xy})=\vect{0},
+\]
+即 (26.14)。
+\end{xsolution}
+
+\subsection*{练习题 2}
+\begin{xsolution}
+以下按本节命题的通常语境，设向量场在 $\RR^3$ 上光滑；更一般地，只需定义域满足所用曲线、曲面均可在域内填充的相应拓扑条件。
+
+先证命题 26.1.1(1)。若 $\vect{A}=\nabla u$，则对任意从 $P$ 到 $Q$ 的分段光滑曲线 $C$，由曲线积分基本定理，
+\[
+  \int_C\vect{A}\cdot\dd\vect{s}=u(Q)-u(P),
+\]
+所以积分与路径无关，$\vect{A}$ 是保守场；特别地，对任意闭曲线 $C$，
+\[
+  \oint_C\vect{A}\cdot\dd\vect{s}=0.
+\]
+
+反过来，若任意简单闭曲线上的环量为零，则任意两条从固定点 $P_0$ 到 $P$ 的分段光滑路径拼接后得到的闭曲线可分解为有限条简单闭曲线，从而两条路径上的积分相同。于是可定义
+\[
+  u(P)=\int_{P_0}^{P}\vect{A}\cdot\dd\vect{s},
+\]
+且定义与路径无关。取坐标方向的小线段可得
+\[
+  \frac{\partial u}{\partial x}=A_1,
+  \qquad
+  \frac{\partial u}{\partial y}=A_2,
+  \qquad
+  \frac{\partial u}{\partial z}=A_3,
+\]
+故 $\nabla u=\vect{A}$，即 $\vect{A}$ 为梯度场和保守场。
+
+若 $\vect{A}=\nabla u$，由 (26.14) 有
+\[
+  \nabla\times\vect{A}=\nabla\times(\nabla u)=\vect{0},
+\]
+所以梯度场必为无旋场。反之若 $\nabla\times\vect{A}=\vect{0}$，则任意简单闭曲线 $C$ 在 $\RR^3$ 中可取一片分片光滑定向曲面 $S$ 以 $C$ 为边界。由 Stokes 公式，
+\[
+  \oint_C\vect{A}\cdot\dd\vect{s}
+  =\iint_S(\nabla\times\vect{A})\cdot\vect{n}\,\dd S=0.
+\]
+结合上一段即得
+\[
+  \vect{A}\text{ 为梯度场}
+  \Longleftrightarrow
+  \vect{A}\text{ 为保守场}
+  \Longleftrightarrow
+  \vect{A}\text{ 为无旋场}
+  \Longleftrightarrow
+  \oint_C\vect{A}\cdot\dd\vect{s}=0.
+\]
+
+再证命题 26.1.1(2)。若 $\vect{A}=\nabla\times\vect{B}$，则由 (26.13)
+\[
+  \nabla\cdot\vect{A}
+  =\nabla\cdot(\nabla\times\vect{B})=0,
+\]
+故旋度场必为无源场。
+
+若 $\vect{A}$ 为 $\RR^3$ 上的无源场，则 $\RR^3$ 关于原点是星形区域，例题 26.1.2 保证存在光滑向量场 $\vect{B}$ 使
+\[
+  \vect{A}=\nabla\times\vect{B},
+\]
+故无源场也是旋度场。
+
+另一方面，由 Gauss 公式，对任意分片光滑闭曲面 $\Sigma=\partial\Omega$，
+\[
+  \oiint_\Sigma\vect{A}\cdot\vect{n}\,\dd S
+  =\iiint_\Omega\nabla\cdot\vect{A}\,\dd V.
+\]
+因此 $\nabla\cdot\vect{A}=0$ 时任意闭曲面的通量均为零。反之，若任意闭曲面的通量都为零，则对任意点 $p$ 及充分小的球 $B_\rho(p)$，
+\[
+  0=\oiint_{\partial B_\rho(p)}\vect{A}\cdot\vect{n}\,\dd S
+  =\iiint_{B_\rho(p)}\nabla\cdot\vect{A}\,\dd V.
+\]
+若 $\nabla\cdot\vect{A}(p)>0$，由连续性可取足够小的 $\rho$ 使球内散度恒正，上式右端应为正，矛盾；散度为负的情形同理。因此
+\[
+  \nabla\cdot\vect{A}(p)=0.
+\]
+由于 $p$ 任意，$\vect{A}$ 为无源场。综上命题 26.1.1(2) 得证。
+\end{xsolution}
+
+\subsection*{练习题 3}
+\begin{xsolution}
+设 $V$ 沿一族含 $p_0$ 的分片光滑区域收缩到 $p_0$，即 $\operatorname{diam}V\to0$。
+
+\begin{enumerate}[label=(\arabic*)]
+  \item 由 Gauss 公式，
+  \[
+    \oiint_{\Sigma}\vect{A}\cdot\vect{n}\,\dd S
+    =\iiint_V\operatorname{div}\vect{A}\,\dd V.
+  \]
+  因而
+  \[
+    \frac{1}{\abs{V}}\oiint_{\Sigma}\vect{A}\cdot\vect{n}\,\dd S
+    =\frac{1}{\abs{V}}\iiint_V\operatorname{div}\vect{A}\,\dd V.
+  \]
+  由 $\operatorname{div}\vect{A}$ 在 $p_0$ 连续，右端是它在收缩区域上的积分平均值，故趋于 $\operatorname{div}\vect{A}(p_0)$。
+
+  \item 写 $\vect{A}=(A_1,A_2,A_3)$。由 Gauss 公式逐分量应用，
+  \begin{align*}
+    \oiint_\Sigma(\vect{n}\times\vect{A})_1\,\dd S
+    &=\oiint_\Sigma(n_2A_3-n_3A_2)\,\dd S\\
+    &=\iiint_V\left(\frac{\partial A_3}{\partial y}-\frac{\partial A_2}{\partial z}\right)\,\dd V.
+  \end{align*}
+  另外两个分量同理，因此
+  \[
+    \oiint_\Sigma\vect{n}\times\vect{A}\,\dd S
+    =\iiint_V\operatorname{curl}\vect{A}\,\dd V.
+  \]
+  除以 $\abs{V}$ 后再令 $\operatorname{diam}V\to0$，由旋度的连续性得到
+  \[
+    \lim_{\operatorname{diam}V\to0}
+    \frac{1}{\abs{V}}\oiint_\Sigma\vect{n}\times\vect{A}\,\dd S
+    =\operatorname{curl}\vect{A}(p_0).
+  \]
+
+  \item 同样逐分量使用 Gauss 公式：
+  \[
+    \oiint_\Sigma\varphi\vect{n}\,\dd S
+    =\left(
+      \iiint_V\varphi_x\,\dd V,
+      \iiint_V\varphi_y\,\dd V,
+      \iiint_V\varphi_z\,\dd V
+    \right)
+    =\iiint_V\operatorname{grad}\varphi\,\dd V.
+  \]
+  除以 $\abs{V}$ 并令区域收缩到 $p_0$，由 $\operatorname{grad}\varphi$ 的连续性即得
+  \[
+    \operatorname{grad}\varphi(p_0)
+    =\lim_{\operatorname{diam}V\to0}\frac{1}{\abs{V}}
+    \oiint_\Sigma\varphi\vect{n}\,\dd S.
+  \]
+\end{enumerate}
+\end{xsolution}
+
+\subsection*{练习题 4}
+\begin{xsolution}
+在 $r>0$ 时，
+\[
+  r=\sqrt{x^2+y^2+z^2},
+  \qquad
+  \nabla r=\frac{\vect{r}}{r}.
+\]
+因此由复合函数求导，
+\[
+  \operatorname{grad}f(r)=f'(r)\nabla r
+  =\frac{f'(r)}{r}\vect{r}.
+\]
+又因为 $\nabla\cdot\vect{r}=3$，故由 (26.11)
+\begin{align*}
+  \operatorname{div}(f(r)\vect{r})
+  &=f(r)\operatorname{div}\vect{r}+\nabla f(r)\cdot\vect{r}\\
+  &=3f(r)+\frac{f'(r)}{r}\vect{r}\cdot\vect{r}\\
+  &=3f(r)+rf'(r).
+\end{align*}
+最后，由 (26.12) 及 $\operatorname{curl}\vect{r}=0$，
+\[
+  \operatorname{curl}(f(r)\vect{r})
+  =f(r)\operatorname{curl}\vect{r}+\nabla f(r)\times\vect{r}
+  =\vect{0}.
+\]
+所以
+\[
+  \boxed{
+  \operatorname{grad}f(r)=\frac{f'(r)}{r}\vect{r},\quad
+  \operatorname{div}(f(r)\vect{r})=rf'(r)+3f(r),\quad
+  \operatorname{curl}(f(r)\vect{r})=\vect{0}
+  }.
+\]
+\end{xsolution}
+
+\subsection*{练习题 5}
+\begin{xsolution}
+\begin{enumerate}[label=(\arabic*)]
+  \item 由于
+  \[
+    \vect{r}=\nabla\left(\frac{x^2+y^2+z^2}{2}\right),
+  \]
+  由 (26.14) 有
+  \[
+    \operatorname{curl}\vect{r}=\vect{0}.
+  \]
+
+  \item 设 $\vect{c}=(c_1,c_2,c_3)$，则
+  \[
+    \vect{c}\times\vect{r}
+    =(c_2z-c_3y,\ c_3x-c_1z,\ c_1y-c_2x).
+  \]
+  因而
+  \begin{align*}
+    \operatorname{curl}(\vect{c}\times\vect{r})
+    &=(c_1-(-c_1),\ c_2-(-c_2),\ c_3-(-c_3))\\
+    &=2\vect{c}.
+  \end{align*}
+\end{enumerate}
+\end{xsolution}
+
+\subsection*{练习题 6}
+\begin{xsolution}
+由练习题 4，条件
+\[
+  \operatorname{div}(f(r)\vect{r})=0
+\]
+等价于
+\[
+  rf'(r)+3f(r)=0,
+  \qquad r>0.
+\]
+若 $f\not\equiv0$，分离变量得
+\[
+  \frac{f'(r)}{f(r)}=-\frac{3}{r}.
+\]
+积分后
+\[
+  \ln\abs{f(r)}=-3\ln r+C_0,
+\]
+故
+\[
+  \boxed{f(r)=\frac{C}{r^3}},\qquad r>0,
+\]
+其中 $C$ 为任意常数；$C=0$ 已包含零解。
+\end{xsolution}
+
+\subsection*{练习题 7}
+\begin{xsolution}
+由例题 26.1.3 的恒等式
+\[
+  \nabla\cdot(\vect{A}\times\vect{B})
+  =\vect{B}\cdot(\nabla\times\vect{A})
+  -\vect{A}\cdot(\nabla\times\vect{B}),
+\]
+而 $\vect{A},\vect{B}$ 均为无旋场，所以
+\[
+  \nabla\times\vect{A}=\nabla\times\vect{B}=\vect{0}.
+\]
+于是
+\[
+  \operatorname{div}(\vect{A}\times\vect{B})=0,
+\]
+即 $\vect{A}\times\vect{B}$ 是无源场。
+\end{xsolution}
+
+\section*{26.2 Laplace 算子与调和函数——练习题}
+
+\subsection*{练习题 1}
+\begin{xsolution}
+\begin{enumerate}[label=(\arabic*)]
+  \item 设 $f$ 二阶连续可微，则
+  \[
+    \nabla\times(\nabla f)
+    =\left(
+      f_{zy}-f_{yz},
+      f_{xz}-f_{zx},
+      f_{yx}-f_{xy}
+    \right)=\vect{0}.
+  \]
+
+  \item 设 $\vect{a}=(a_1,a_2,a_3)$。考察第一分量：
+  \begin{align*}
+    [\nabla(\nabla\cdot\vect{a})]_1
+    &=a_{1,xx}+a_{2,yx}+a_{3,zx},\\
+    [\nabla\times(\nabla\times\vect{a})]_1
+    &=\frac{\partial}{\partial y}(a_{2,x}-a_{1,y})
+      -\frac{\partial}{\partial z}(a_{1,z}-a_{3,x})\\
+    &=a_{2,xy}-a_{1,yy}-a_{1,zz}+a_{3,xz}.
+  \end{align*}
+  由混合偏导数相等，二者相减得到
+  \[
+    a_{1,xx}+a_{1,yy}+a_{1,zz}=\Delta a_1.
+  \]
+  对第二、第三分量作同样计算，便有
+  \[
+    \nabla(\nabla\cdot\vect{a})-\nabla\times(\nabla\times\vect{a})
+    =(\Delta a_1,\Delta a_2,\Delta a_3)
+    =\Delta\vect{a}.
+  \]
+\end{enumerate}
+\end{xsolution}
+
+\subsection*{练习题 2（第二 Green 恒等式）}
+\begin{xsolution}
+对 $u,v$ 使用第一 Green 恒等式，
+\[
+  \iiint_\Omega v\Delta u\,\dd V
+  +\iiint_\Omega\nabla u\cdot\nabla v\,\dd V
+  =\oiint_\Sigma v\frac{\partial u}{\partial n}\,\dd S.
+\]
+交换 $u,v$，得到
+\[
+  \iiint_\Omega u\Delta v\,\dd V
+  +\iiint_\Omega\nabla v\cdot\nabla u\,\dd V
+  =\oiint_\Sigma u\frac{\partial v}{\partial n}\,\dd S.
+\]
+第一式减去第二式，中间的梯度内积项抵消，故
+\[
+  \boxed{
+  \iiint_\Omega(v\Delta u-u\Delta v)\,\dd V
+  =\oiint_\Sigma\left(
+  v\frac{\partial u}{\partial n}
+  -u\frac{\partial v}{\partial n}
+  \right)\,\dd S
+  }.
+\]
+这就是第二 Green 恒等式。
+\end{xsolution}
+
+\subsection*{练习题 3}
+\begin{xsolution}
+在第一 Green 恒等式中令 $v=u$，得到
+\[
+  \iiint_\Omega u\Delta u\,\dd V
+  +\iiint_\Omega\abs{\nabla u}^2\,\dd V
+  =\oiint_\Sigma u\frac{\partial u}{\partial n}\,\dd S.
+\]
+因 $u$ 在 $\Omega$ 上调和，$\Delta u=0$，于是
+\[
+  \boxed{
+  \iiint_\Omega\abs{\nabla u}^2\,\dd V
+  =\oiint_\Sigma u\frac{\partial u}{\partial n}\,\dd S
+  }.
+\]
+
+下面证明惟一性。设 $u_1,u_2$ 都在 $\Omega$ 内调和并在边界 $\Sigma$ 上取相同的值，令
+\[
+  w=u_1-u_2.
+\]
+则
+\[
+  \Delta w=0\quad\text{于 }\Omega,
+  \qquad
+  w=0\quad\text{于 }\Sigma.
+\]
+把上面的等式用于 $w$，有
+\[
+  \iiint_\Omega\abs{\nabla w}^2\,\dd V
+  =\oiint_\Sigma w\frac{\partial w}{\partial n}\,\dd S=0.
+\]
+被积函数非负且连续，所以 $\nabla w=\vect{0}$ 于 $\Omega$。若 $\Omega$ 连通，则 $w$ 为常数；又 $w$ 在边界为零，故 $w\equiv0$。因此
+\[
+  u_1\equiv u_2,
+\]
+即调和函数在内部的值由边界值惟一确定。
+\end{xsolution}
+
+\subsection*{练习题 4}
+\begin{xsolution}
+由调和函数的球面平均值公式，对每个 $0<\rho\le R$，
+\[
+  \oiint_{\partial B_\rho(M_0)}u\,\dd S
+  =4\pi\rho^2u(M_0).
+\]
+按以 $M_0$ 为中心的球坐标逐层积分，
+\begin{align*}
+  \iiint_{B_R(M_0)}u(x,y,z)\,\dd V
+  &=\int_0^R\left(
+    \oiint_{\partial B_\rho(M_0)}u\,\dd S
+    \right)\dd\rho\\
+  &=4\pi u(M_0)\int_0^R\rho^2\,\dd\rho\\
+  &=\frac{4}{3}\pi R^3u(M_0).
+\end{align*}
+所以
+\[
+  \boxed{
+  u(M_0)=\frac{1}{\frac43\pi R^3}
+  \iiint_{B_R(M_0)}u(x,y,z)\,\dd x\,\dd y\,\dd z
+  }.
+\]
+\end{xsolution}
+
+\subsection*{练习题 5}
+\begin{xsolution}
+设 $u$ 在半径为 $R$ 的圆盘内调和。定义单位圆盘上的函数
+\[
+  v(\rho\cos\theta,\rho\sin\theta)
+  =u(R\rho\cos\theta,R\rho\sin\theta),
+  \qquad 0\le\rho<1.
+\]
+因为
+\[
+  \Delta v=R^2(\Delta u)\circ(R\,\cdot)=0,
+\]
+故 $v$ 在单位圆盘上调和。由命题 26.2.1，若 $s=r/R$，则
+\begin{align*}
+  u(r\cos\theta,r\sin\theta)
+  &=v(s\cos\theta,s\sin\theta)\\
+  &=\frac{1}{2\pi}\int_0^{2\pi}
+    v(\cos\varphi,\sin\varphi)
+    \frac{1-s^2}{1-2s\cos(\theta-\varphi)+s^2}\,\dd\varphi\\
+  &=\frac{1}{2\pi}\int_0^{2\pi}
+    u(R\cos\varphi,R\sin\varphi)
+    \frac{R^2-r^2}{R^2-2Rr\cos(\theta-\varphi)+r^2}\,\dd\varphi.
+\end{align*}
+这正是 Poisson 积分公式 (26.20)。
+\end{xsolution}
+
+\subsection*{练习题 6}
+\begin{xsolution}
+记
+\[
+  q=\frac{r}{R},\qquad 0\le q<1.
+\]
+Poisson 核可展开为
+\begin{align*}
+  \frac{R^2-r^2}{R^2-2Rr\cos(\theta-\varphi)+r^2}
+  &=\frac{1-q^2}{1-2q\cos(\theta-\varphi)+q^2}\\
+  &=1+2\sum_{n=1}^\infty q^n\cos n(\theta-\varphi).
+\end{align*}
+对任意固定的 $0<\rho<R$，当 $r\le\rho$ 时，不但上式级数一致收敛，而且把它对 $x,y$ 求至二阶偏导所得级数也一致收敛，因为相应项可由常数倍的
+\[
+  n^2\left(\frac{\rho}{R}\right)^{n-2}
+\]
+控制，而该数项级数收敛。因此可以在积分号与级数号下逐项求二阶偏导。
+
+对固定的 $\varphi$，每一项
+\[
+  r^n\cos n(\theta-\varphi)
+\]
+都是 $x,y$ 的调和多项式的线性组合，故其 Laplace 算子为零，常数项也显然调和。于是 Poisson 公式定义的函数满足
+\[
+  \Delta u(x,y)
+  =\frac{1}{2\pi}\int_0^{2\pi}
+  f(\varphi)\,\Delta_{x,y}
+  \left[
+  \frac{R^2-r^2}{R^2-2Rr\cos(\theta-\varphi)+r^2}
+  \right]\dd\varphi=0
+\]
+于任意闭圆盘 $r\le\rho<R$。由于 $\rho$ 任意，$u$ 在整个开圆盘 $r<R$ 上调和。
+\end{xsolution}
+
+\subsection*{练习题 7}
+\begin{xsolution}
+给出一个同时适用于二维和三维的证明。设 $u$ 在区域 $\Omega$ 上调和，取任意 $x_0\in\Omega$，再取 $\varepsilon>0$ 使
+\[
+  \overline{B_{2\varepsilon}(x_0)}\subset\Omega.
+\]
+取一个非负、径向对称的 $C^\infty$ 函数 $\eta_\varepsilon$，其支集包含于 $B_\varepsilon(0)$ 且
+\[
+  \int\eta_\varepsilon(y)\,\dd y=1.
+\]
+对 $x\in B_\varepsilon(x_0)$，由调和函数的球面平均值公式，把积分按半径分层可得
+\begin{align*}
+  (u*\eta_\varepsilon)(x)
+  &=\int_{B_\varepsilon(0)}u(x-y)\eta_\varepsilon(y)\,\dd y\\
+  &=u(x)\int_{B_\varepsilon(0)}\eta_\varepsilon(y)\,\dd y
+  =u(x).
+\end{align*}
+这里第二个等号的理由是：在每个固定半径的球面上，$u(x-y)$ 的平均值都等于 $u(x)$，而 $\eta_\varepsilon$ 在该球面上为常数。
+
+卷积 $u*\eta_\varepsilon$ 是 $C^\infty$ 函数，因此 $u$ 在 $B_\varepsilon(x_0)$ 上无限次可微。由于 $x_0$ 任意，$u\in C^\infty(\Omega)$。
+\end{xsolution}
+
+\subsection*{练习题 8}
+\begin{xsolution}
+设定义域为连通开集 $G$。由 $f$ 与 $g\circ f$ 都调和，
+\[
+  \Delta f=0,
+  \qquad
+  \Delta(g(f))=0.
+\]
+利用复合函数求导公式，
+\begin{align*}
+  \Delta(g(f))
+  &=g''(f)\abs{\nabla f}^2+g'(f)\Delta f\\
+  &=g''(f)\abs{\nabla f}^2.
+\end{align*}
+故
+\begin{equation}
+  g''(f(x))\abs{\nabla f(x)}^2=0,
+  \qquad x\in G.
+  \tag{*}
+\end{equation}
+
+下面证明 $g''$ 在 $f(G)$ 上恒为零。反设存在 $x_0\in G$ 使
+\[
+  g''(f(x_0))\ne0.
+\]
+由 $g''$ 连续，可取含 $f(x_0)$ 的开区间 $I$，使 $g''$ 在 $I$ 上处处不为零。令 $U$ 为开集
+\[
+  \{x\in G\mid f(x)\in I\}
+\]
+中含 $x_0$ 的连通分支。由 (*)，在 $U$ 上必有 $\nabla f=0$，所以 $f$ 在 $U$ 上为常数，且等于 $f(x_0)$。
+
+若 $U$ 在 $G$ 中有边界点 $p$，由连续性 $f(p)=f(x_0)\in I$。于是 $p$ 的某个小邻域仍包含于 $f^{-1}(I)$，且与 $U$ 相交，这与 $U$ 是 $f^{-1}(I)$ 的连通分支矛盾。因此 $U$ 在 $G$ 中既开又闭。由于 $G$ 连通，只能有 $U=G$，从而 $f$ 为常值函数，与题设矛盾。
+
+因此 $g''(t)=0$ 对每个 $t\in f(G)$ 都成立。又因为连通集 $G$ 的连续像 $f(G)$ 是区间，所以在该区间上
+\[
+  g(t)=at+b.
+\]
+即 $g$ 在 $f(G)$ 上是线性函数（仿射函数）。
+\end{xsolution}
+
+\subsection*{练习题 9}
+\begin{xsolution}
+若问题有解 $u$，则由 Gauss 公式，
+\begin{align*}
+  \iiint_D f\,\dd x\,\dd y\,\dd z
+  &=\iiint_D\Delta u\,\dd x\,\dd y\,\dd z\\
+  &=\oiint_{\partial D}\nabla u\cdot\vect{n}\,\dd S\\
+  &=\oiint_{\partial D}\frac{\partial u}{\partial n}\,\dd S\\
+  &=\oiint_{\partial D}g\,\dd S.
+\end{align*}
+所以
+\[
+  \boxed{
+  \iiint_D f\,\dd x\,\dd y\,\dd z
+  =\oiint_{\partial D}g\,\dd S
+  }
+\]
+是该 Neumann 问题有解的必要条件。
+\end{xsolution}
+
+\section*{26.3 参考题——第一组参考题}
+
+\subsection*{第一组参考题 1}
+\begin{xsolution}
+记 $\varepsilon_{ijk}$ 为 Levi--Civita 符号，$\delta_{ij}$ 为 Kronecker 符号，并采用重复指标求和约定。用恒等式
+\[
+  \varepsilon_{ijk}\varepsilon_{klm}
+  =\delta_{il}\delta_{jm}-\delta_{im}\delta_{jl}.
+\]
+
+\begin{enumerate}[label=(\arabic*)]
+  \item 第 $i$ 个分量有
+  \begin{align*}
+    [\vect{A}\times(\nabla\times\vect{B})]_i
+    &=\varepsilon_{ijk}A_j\varepsilon_{klm}\partial_lB_m\\
+    &=A_m\partial_iB_m-A_l\partial_lB_i,
+  \end{align*}
+  同理
+  \[
+    [\vect{B}\times(\nabla\times\vect{A})]_i
+    =B_m\partial_iA_m-B_l\partial_lA_i.
+  \]
+  再加上
+  \[
+    [(\vect{B}\cdot\nabla)\vect{A}]_i=B_l\partial_lA_i,
+    \qquad
+    [(\vect{A}\cdot\nabla)\vect{B}]_i=A_l\partial_lB_i,
+  \]
+  后两组项恰好抵消，留下
+  \[
+    A_m\partial_iB_m+B_m\partial_iA_m
+    =\partial_i(\vect{A}\cdot\vect{B}).
+  \]
+  三个分量都成立，故
+  \[
+    \nabla(\vect{A}\cdot\vect{B})
+    =\vect{A}\times(\nabla\times\vect{B})
+    +\vect{B}\times(\nabla\times\vect{A})
+    +(\vect{B}\cdot\nabla)\vect{A}
+    +(\vect{A}\cdot\nabla)\vect{B}.
+  \]
+
+  \item 第 $i$ 个分量为
+  \begin{align*}
+    [\nabla\times(\vect{A}\times\vect{B})]_i
+    &=\varepsilon_{ijk}\partial_j(\varepsilon_{klm}A_lB_m)\\
+    &=\partial_m(A_iB_m)-\partial_l(A_lB_i)\\
+    &=B_m\partial_mA_i-A_l\partial_lB_i
+      +(\partial_mB_m)A_i-(\partial_lA_l)B_i.
+  \end{align*}
+  因此
+  \[
+    \nabla\times(\vect{A}\times\vect{B})
+    =(\vect{B}\cdot\nabla)\vect{A}
+    -(\vect{A}\cdot\nabla)\vect{B}
+    +(\nabla\cdot\vect{B})\vect{A}
+    -(\nabla\cdot\vect{A})\vect{B}.
+  \]
+\end{enumerate}
+\end{xsolution}
+
+\subsection*{第一组参考题 2}
+% SOURCE-CHECK: lower/page-0396.jpg 原书题面为“F 为 G 上的光滑无源场”；chapters/ch26.tex 当前误录为“光滑无旋场”。以下按原书题意解答。
+\begin{xsolution}
+按原书题意，$\vect{F}$ 是无源场，即
+\[
+  \nabla\cdot\vect{F}=0.
+\]
+令 $\vect{r}=(x,y,z)$。对固定的 $t\in[0,1]$，在上一题 (2) 中取
+\[
+  \vect{X}(\vect{r})=t\vect{F}(t\vect{r}),
+  \qquad
+  \vect{Y}(\vect{r})=\vect{r}.
+\]
+因为
+\[
+  (\vect{X}\cdot\nabla)\vect{r}=\vect{X},
+  \qquad
+  \nabla\cdot\vect{r}=3,
+\]
+且
+\[
+  \nabla\cdot\vect{X}
+  =t^2(\nabla\cdot\vect{F})(t\vect{r})=0,
+\]
+故上一题 (2) 给出
+\begin{align*}
+  \nabla\times[t\vect{F}(t\vect{r})\times\vect{r}]
+  &=(\vect{r}\cdot\nabla)[t\vect{F}(t\vect{r})]
+    -t\vect{F}(t\vect{r})+3t\vect{F}(t\vect{r})\\
+  &=t^2(\vect{r}\cdot\nabla)\vect{F}(t\vect{r})
+    +2t\vect{F}(t\vect{r})\\
+  &=\frac{\dd}{\dd t}\left[t^2\vect{F}(t\vect{r})\right].
+\end{align*}
+于是可以在积分号下取旋度：
+\begin{align*}
+  \nabla\times\vect{A}(\vect{r})
+  &=\int_0^1
+    \nabla\times[t\vect{F}(t\vect{r})\times\vect{r}]\,\dd t\\
+  &=\int_0^1\frac{\dd}{\dd t}
+    [t^2\vect{F}(t\vect{r})]\,\dd t\\
+  &=\vect{F}(\vect{r})-\lim_{t\to0^+}t^2\vect{F}(t\vect{r})\\
+  &=\vect{F}(\vect{r}),
+\end{align*}
+因为 $\vect{F}$ 在原点附近光滑有界。因此
+\[
+  \boxed{\nabla\times\vect{A}=\vect{F}}.
+\]
+\end{xsolution}
+
+\subsection*{第一组参考题 3}
+\begin{xsolution}
+设 $L$ 位于半径为 $R>0$ 的球面上，取该球面上由 $L$ 围成的一片定向区域 $S$。记
+\[
+  \vect{X}=\nabla\times\vect{B}.
+\]
+题设给出
+\[
+  \vect{X}=\frac1r(\nabla r\times\vect{A}).
+\]
+由于 $\nabla r$ 是径向单位向量，故在每个以原点为心的球面上
+\[
+  \vect{X}\cdot\nabla r=0,
+\]
+即 $\vect{X}$ 总与球面相切；另外
+\[
+  \nabla\cdot\vect{X}
+  =\nabla\cdot(\nabla\times\vect{B})=0.
+\]
+
+设 $\gamma(s)$ 是 $L$ 的弧长参数，$0\le s\le l$，并令
+\[
+  \vect{n}(s)=\frac{\gamma(s)}{R},
+  \qquad
+  \vect{\tau}(s)=\gamma'(s).
+\]
+对任意 $0<a<b$，把 $S$ 沿径向缩放到半径 $a$ 与 $b$ 之间，得到薄壳区域
+\[
+  \Omega_{a,b}=\left\{\frac{\rho}{R}p\ \middle|\ p\in S,\ a<\rho<b\right\}.
+\]
+在它的两个球面部分上，$\vect{X}$ 与法向量正交，所以通量为零。由 Gauss 公式及 $\nabla\cdot\vect{X}=0$，其侧面通量也必须为零。
+
+侧面可参数化为
+\[
+  \Phi(s,\rho)=\frac{\rho}{R}\gamma(s).
+\]
+有
+\[
+  \Phi_\rho=\vect{n},
+  \qquad
+  \Phi_s=\frac{\rho}{R}\vect{\tau},
+\]
+故侧面的法向面积元为
+\[
+  \pm\frac{\rho}{R}(\vect{n}\times\vect{\tau})\,\dd s\,\dd\rho.
+\]
+又
+\[
+  \vect{X}(\Phi)
+  =\frac1\rho\bigl(\vect{n}\times\vect{A}(\Phi)\bigr),
+\]
+且
+\[
+  (\vect{n}\times\vect{A})\cdot(\vect{n}\times\vect{\tau})
+  =\vect{A}\cdot\vect{\tau},
+\]
+因为 $\vect{n}\cdot\vect{\tau}=0$。于是侧面通量为
+\[
+  \pm\frac1R\int_a^b\left[
+  \oint_L\vect{A}\left(\frac{\rho}{R}\gamma(s)\right)
+  \cdot\vect{\tau}(s)\,\dd s
+  \right]\dd\rho=0.
+\]
+这对任意 $a<b$ 都成立，括号内的连续函数因而恒为零。取 $\rho=R$，得到
+\[
+  \boxed{\oint_L\vect{A}\cdot\vect{\tau}\,\dd s=0}.
+\]
+\end{xsolution}
+
+\subsection*{第一组参考题 4}
+\begin{xsolution}
+令
+\[
+  \vect{N}=\frac{\nabla F}{\abs{\nabla F}}.
+\]
+由二维散度定理（Green 公式），
+\[
+  \iint_D\nabla\cdot\vect{N}\,\dd x\,\dd y
+  =\oint_C\vect{N}\cdot\vect{n}\,\dd s,
+\]
+其中 $\vect{n}$ 是 $D$ 的单位外法向量。
+
+因为 $D=\{F>0\}$，在边界 $C$ 上，$\nabla F$ 指向 $F$ 增大的方向，即指向 $D$ 的内部。因此
+\[
+  \vect{n}=-\frac{\nabla F}{\abs{\nabla F}}=-\vect{N}.
+\]
+故
+\[
+  \vect{N}\cdot\vect{n}=-1.
+\]
+于是
+\[
+  \boxed{
+  \iint_D\nabla\cdot\left(\frac{\nabla F}{\abs{\nabla F}}\right)\,\dd x\,\dd y
+  =-\oint_C\dd s=-l
+  }.
+\]
+\end{xsolution}
+
+\subsection*{第一组参考题 5}
+\begin{xsolution}
+记 $M=(x_0,y_0,z_0)$，令 $\vect{\omega}$ 为单位球面上的单位向量。由球面面积的缩放关系，
+\[
+  F(R)=\frac{1}{4\pi}\oiint_{\partial B_1(0)}u(M+R\vect{\omega})\,\dd S_1.
+\]
+由 $u$ 在 $M$ 连续，$u(M+R\vect{\omega})\to u(M)$ 对 $\vect{\omega}$ 一致成立，因此
+\[
+  \lim_{R\to0^+}F(R)=u(M).
+\]
+
+下面求主要部分。由于 $u$ 在 $M$ 有连续二阶偏导数，Taylor 展开为
+\[
+  u(M+R\vect{\omega})
+  =u(M)+R\nabla u(M)\cdot\vect{\omega}
+  +\frac{R^2}{2}\vect{\omega}^{\mathsf T}H_u(M)\vect{\omega}
+  +\littleo(R^2),
+\]
+其中余项对单位球面上的 $\vect{\omega}$ 一致。球面对称性给出
+\[
+  \frac1{4\pi}\oiint_{\partial B_1}\omega_i\,\dd S=0,
+  \qquad
+  \frac1{4\pi}\oiint_{\partial B_1}\omega_i\omega_j\,\dd S
+  =\begin{cases}
+  \frac13,&i=j,\\
+  0,&i\ne j.
+  \end{cases}
+\]
+因此
+\begin{align*}
+  F(R)-u(M)
+  &=\frac{R^2}{2}\cdot\frac13
+  \left(u_{xx}(M)+u_{yy}(M)+u_{zz}(M)\right)
+  +\littleo(R^2)\\
+  &=\frac{\Delta u(M)}{6}R^2+\littleo(R^2).
+\end{align*}
+若 $\Delta u(M)\ne0$，则无穷小量 $F(R)-u(M)$ 的主要部分为
+\[
+  \boxed{\frac{\Delta u(M)}6R^2}.
+\]
+\end{xsolution}
+
+\subsection*{第一组参考题 6}
+\begin{xsolution}
+令
+\[
+  w=v-u.
+\]
+由于 $u=v$ 于 $\partial\Omega$，有 $w=0$ 于 $\partial\Omega$。展开
+\begin{align*}
+  \iiint_\Omega\abs{\nabla v}^2\,\dd V
+  &=\iiint_\Omega\abs{\nabla u+\nabla w}^2\,\dd V\\
+  &=\iiint_\Omega\abs{\nabla u}^2\,\dd V
+    +2\iiint_\Omega\nabla u\cdot\nabla w\,\dd V
+    +\iiint_\Omega\abs{\nabla w}^2\,\dd V.
+\end{align*}
+由第一 Green 恒等式，
+\[
+  \iiint_\Omega\nabla u\cdot\nabla w\,\dd V
+  =\oiint_{\partial\Omega}w\frac{\partial u}{\partial n}\,\dd S
+  -\iiint_\Omega w\Delta u\,\dd V=0,
+\]
+因为 $w=0$ 于边界且 $u$ 调和。故
+\[
+  \iiint_\Omega\abs{\nabla v}^2\,\dd V
+  =\iiint_\Omega\abs{\nabla u}^2\,\dd V
+  +\iiint_\Omega\abs{\nabla w}^2\,\dd V
+  \ge\iiint_\Omega\abs{\nabla u}^2\,\dd V.
+\]
+即得所证不等式。
+\end{xsolution}
+
+\subsection*{第一组参考题 7}
+\begin{xsolution}
+记
+\[
+  D=\{(x,y)\mid x^2+y^2<1\},
+  \qquad
+  r^2=x^2+y^2.
+\]
+先由散度公式
+\[
+  \nabla\cdot(u(x,y)(x,y))=xu_x+yu_y+2u
+\]
+得到
+\begin{equation}
+  I:=\iint_D(xu_x+yu_y)\,\dd x\,\dd y
+  =\oint_{\partial D}u\,\dd s-2\iint_Du\,\dd x\,\dd y,
+  \tag{1}
+\end{equation}
+因为在单位圆周上 $(x,y)\cdot\vect{n}=1$。
+
+取
+\[
+  \psi(x,y)=\frac{1-r^2}{2}.
+\]
+则
+\[
+  \psi=0\quad\text{于 }\partial D,
+  \qquad
+  \frac{\partial\psi}{\partial n}=-1\quad\text{于 }\partial D,
+  \qquad
+  \Delta\psi=-2.
+\]
+对 $u,\psi$ 使用第二 Green 恒等式，
+\begin{align*}
+  \iint_D(\psi\Delta u-u\Delta\psi)\,\dd x\,\dd y
+  &=\oint_{\partial D}\left(
+    \psi\frac{\partial u}{\partial n}
+    -u\frac{\partial\psi}{\partial n}
+    \right)\dd s\\
+  &=\oint_{\partial D}u\,\dd s.
+\end{align*}
+因此
+\[
+  \oint_{\partial D}u\,\dd s
+  =\iint_D\psi\Delta u\,\dd x\,\dd y+2\iint_Du\,\dd x\,\dd y.
+\]
+代入 (1)，并利用 $\Delta u=\ee^{-r^2}$，得
+\begin{align*}
+  I
+  &=\iint_D\frac{1-r^2}{2}\ee^{-r^2}\,\dd x\,\dd y\\
+  &=\pi\int_0^1(1-r^2)\ee^{-r^2}r\,\dd r\\
+  &=\frac{\pi}{2}\int_0^1(1-t)\ee^{-t}\,\dd t
+  \qquad(t=r^2)\\
+  &=\frac{\pi}{2\ee}.
+\end{align*}
+故
+\[
+  \boxed{I=\frac{\pi}{2\ee}}.
+\]
+\end{xsolution}
+
+\section*{26.3 参考题——第二组参考题}
+
+\subsection*{第二组参考题 1}
+\begin{xsolution}
+设连续函数 $u$ 在区域 $\Omega\subset\RR^n$ 中处处满足球面平均值公式。先证明 $u$ 无限次可微。
+
+取任意 $x_0\in\Omega$ 以及充分小的 $\varepsilon>0$，使 $\overline{B_{2\varepsilon}(x_0)}\subset\Omega$。取径向对称的非负函数
+\[
+  \eta_\varepsilon\in C_c^\infty(B_\varepsilon(0)),
+  \qquad
+  \int\eta_\varepsilon(y)\,\dd y=1.
+\]
+对 $x\in B_\varepsilon(x_0)$，把卷积按球面分层，并在每一层应用平均值公式，得到
+\[
+  (u*\eta_\varepsilon)(x)
+  =u(x)\int\eta_\varepsilon(y)\,\dd y=u(x).
+\]
+所以 $u$ 局部等于一个光滑卷积，因而 $u\in C^\infty(\Omega)$。
+
+现在固定 $x\in\Omega$。对小的 $r>0$，在单位球面上作 Taylor 展开：
+\[
+  u(x+r\vect{\omega})
+  =u(x)+r\nabla u(x)\cdot\vect{\omega}
+  +\frac{r^2}{2}\vect{\omega}^{\mathsf T}H_u(x)\vect{\omega}
+  +\littleo(r^2).
+\]
+对单位球面取平均，由对称性
+\[
+  \operatorname{avg}\omega_i=0,
+  \qquad
+  \operatorname{avg}(\omega_i\omega_j)=\frac{\delta_{ij}}{n},
+\]
+故球面平均值为
+\[
+  u(x)+\frac{r^2}{2n}\Delta u(x)+\littleo(r^2).
+\]
+题设说该平均值对所有充分小的 $r$ 都严格等于 $u(x)$，于是
+\[
+  \frac{r^2}{2n}\Delta u(x)+\littleo(r^2)=0.
+\]
+除以 $r^2$ 并令 $r\to0$，得到
+\[
+  \Delta u(x)=0.
+\]
+由于 $x$ 任意，$u$ 是调和函数。
+\end{xsolution}
+
+\subsection*{第二组参考题 2}
+\begin{xsolution}
+由边界上的一致收敛，$u_n$ 在 $\partial B_R$ 上一致 Cauchy。对任意 $m,n$，函数
+\[
+  w_{m,n}=u_m-u_n
+\]
+在 $B_R$ 上调和并在闭圆盘上连续。由调和函数的极值原理分别用于 $w_{m,n}$ 与 $-w_{m,n}$，
+\[
+  \sup_{\overline{B_R}}\abs{u_m-u_n}
+  \le\sup_{\partial B_R}\abs{u_m-u_n}.
+\]
+右端随 $m,n\to\infty$ 趋于零，所以 $u_n$ 在 $\overline{B_R}$ 上一致 Cauchy，从而一致收敛到某个连续函数 $u$。
+
+还需证明 $u$ 调和。任取闭圆盘
+\[
+  \overline{B_\rho(P)}\subset B_R.
+\]
+每个 $u_n$ 都满足平均值公式
+\[
+  u_n(P)=\frac{1}{2\pi}\int_0^{2\pi}u_n(P+\rho\vect{e}_\theta)\,\dd\theta.
+\]
+由一致收敛可以令 $n\to\infty$ 穿过积分号，得到
+\[
+  u(P)=\frac{1}{2\pi}\int_0^{2\pi}u(P+\rho\vect{e}_\theta)\,\dd\theta.
+\]
+因此 $u$ 处处满足平均值公式。由第二组参考题 1，$u$ 是调和函数。
+\end{xsolution}
+
+\subsection*{第二组参考题 3}
+\begin{xsolution}
+固定任意 $M_0\in D$，并定义球面平均值
+\[
+  F(R)=\frac{1}{4\pi R^2}\oiint_{\partial B_R(M_0)}u\,\dd S,
+\]
+其中 $B_R(M_0)\subset D$。与例题 26.2.2 的 (26.18) 同样计算可得
+\begin{equation}
+  F'(R)=\frac{1}{4\pi R^2}\iiint_{B_R(M_0)}\Delta u\,\dd V.
+  \tag{1}
+\end{equation}
+并且由连续性
+\[
+  \lim_{R\to0^+}F(R)=u(M_0).
+\]
+
+若 $\Delta u\ge0$ 于 $D$，则由 (1) 有 $F'(R)\ge0$，所以
+\[
+  F(R)\ge F(0)=u(M_0),
+\]
+即
+\[
+  u(M_0)\le\frac{1}{4\pi R^2}
+  \oiint_{\partial B_R(M_0)}u\,\dd S.
+\]
+
+反过来，假设上述不等式对所有闭球都成立。若存在一点 $M_0$ 使
+\[
+  \Delta u(M_0)<0,
+\]
+由连续性可取 $R_0>0$，使 $B_{R_0}(M_0)\subset D$ 且球内 $\Delta u<0$。于是对 $0<R<R_0$，由 (1)
+\[
+  F'(R)<0.
+\]
+故 $F(R)<F(0)=u(M_0)$，与题设平均值不等式矛盾。因此不存在这样的点，必有
+\[
+  \Delta u\ge0\quad\text{于 }D.
+\]
+充分性与必要性均得证。
+\end{xsolution}
+
+\subsection*{第二组参考题 4}
+\begin{xsolution}
+固定 $M=(x,y,z)\in\Omega$，积分变量记为
+\[
+  M'=(\xi,\eta,\zeta),
+  \qquad
+  \vect{r}=M'-M,
+  \qquad
+  r=\abs{\vect{r}}.
+\]
+函数 $1/r$ 在 $M'\ne M$ 时调和。取足够小的 $\varepsilon>0$，使闭球 $\overline{B_\varepsilon(M)}\subset\Omega$，并在穿孔区域
+\[
+  \Omega_\varepsilon=\Omega\setminus\overline{B_\varepsilon(M)}
+\]
+上对 $u$ 与 $1/r$ 使用第二 Green 恒等式。由于两者在 $\Omega_\varepsilon$ 上都调和，
+\[
+  0=\oiint_{\partial\Omega_\varepsilon}\left[
+  \frac1r\frac{\partial u}{\partial n}
+  -u\frac{\partial}{\partial n}\left(\frac1r\right)
+  \right]\dd S.
+\]
+边界由外边界 $S$ 和内球面 $S_\varepsilon=\partial B_\varepsilon(M)$ 组成。
+
+在外边界 $S$ 上，
+\[
+  \frac{\partial}{\partial n}\left(\frac1r\right)
+  =\nabla_{M'}\left(\frac1r\right)\cdot\vect{n}
+  =-\frac{\vect{r}\cdot\vect{n}}{r^3}
+  =-\frac{\cos(\vect{r},\vect{n})}{r^2}.
+\]
+因此外边界贡献为
+\[
+  \oiint_S\left[
+  \frac1r\frac{\partial u}{\partial n}
+  +u\frac{\cos(\vect{r},\vect{n})}{r^2}
+  \right]\dd S.
+\]
+
+注意在内球面上，作为穿孔区域 $\Omega_\varepsilon$ 的外法向量是径向向内的 $-\vect{e}_r$，故
+\[
+  \frac{\partial}{\partial n}\left(\frac1r\right)=\frac1{\varepsilon^2}.
+\]
+于是内球面贡献为
+\[
+  \oiint_{S_\varepsilon}\left[
+  \frac1\varepsilon\frac{\partial u}{\partial n}
+  -\frac{u}{\varepsilon^2}
+  \right]\dd S.
+\]
+第一项的绝对值为 $\bigO(\varepsilon)$；第二项由 $u$ 的连续性满足
+\[
+  -\frac1{\varepsilon^2}\oiint_{S_\varepsilon}u\,\dd S
+  \longrightarrow-4\pi u(M).
+\]
+令 $\varepsilon\to0^+$，得到
+\[
+  \oiint_S\left[
+  \frac1r\frac{\partial u}{\partial n}
+  +u\frac{\cos(\vect{r},\vect{n})}{r^2}
+  \right]\dd S
+  =4\pi u(M).
+\]
+故
+\[
+  \boxed{
+  u(x,y,z)=\frac1{4\pi}\oiint_S\left[
+  u(\xi,\eta,\zeta)\frac{\cos(\vect{r},\vect{n})}{r^2}
+  +\frac1r\frac{\partial u(\xi,\eta,\zeta)}{\partial n}
+  \right]\dd S
+  }.
+\]
+\end{xsolution}
+
+\subsection*{第二组参考题 5}
+\begin{xsolution}
+先把圆心平移到原点。设 $u$ 在 $B_R(0)$ 上非负调和，点 $(x,y)$ 的极坐标为 $(r,\theta)$。若 $u$ 未必连续到半径 $R$ 的边界，则先固定任意
+\[
+  r<\rho<R.
+\]
+在闭圆盘 $\overline{B_\rho(0)}$ 上应用 Poisson 公式：
+\[
+  u(r,\theta)=\frac1{2\pi}\int_0^{2\pi}
+  u(\rho,\varphi)
+  \frac{\rho^2-r^2}{\rho^2-2\rho r\cos(\theta-\varphi)+r^2}\,\dd\varphi.
+\]
+由于
+\[
+  (\rho-r)^2
+  \le \rho^2-2\rho r\cos(\theta-\varphi)+r^2
+  \le(\rho+r)^2,
+\]
+Poisson 核满足
+\[
+  \frac{\rho-r}{\rho+r}
+  \le
+  \frac{\rho^2-r^2}{\rho^2-2\rho r\cos(\theta-\varphi)+r^2}
+  \le
+  \frac{\rho+r}{\rho-r}.
+\]
+又 $u(\rho,\varphi)\ge0$，所以积分后
+\[
+  \frac{\rho-r}{\rho+r}\cdot
+  \frac1{2\pi}\int_0^{2\pi}u(\rho,\varphi)\,\dd\varphi
+  \le u(r,\theta)
+  \le
+  \frac{\rho+r}{\rho-r}\cdot
+  \frac1{2\pi}\int_0^{2\pi}u(\rho,\varphi)\,\dd\varphi.
+\]
+由中心的平均值公式，
+\[
+  \frac1{2\pi}\int_0^{2\pi}u(\rho,\varphi)\,\dd\varphi=u(0,0).
+\]
+因此
+\[
+  \frac{\rho-r}{\rho+r}u(0,0)
+  \le u(x,y)\le
+  \frac{\rho+r}{\rho-r}u(0,0).
+\]
+令 $\rho\to R^-$，得
+\[
+  \frac{R-r}{R+r}u(0,0)
+  \le u(x,y)\le
+  \frac{R+r}{R-r}u(0,0).
+\]
+平移回圆心 $(x_0,y_0)$ 即为题设不等式。
+\end{xsolution}
+
+\subsection*{第二组参考题 6}
+\begin{xsolution}
+设 $u$ 是全平面上的有界调和函数。取 $M>0$ 使
+\[
+  \abs{u(x,y)}\le M
+\]
+对所有 $(x,y)$ 成立，并令
+\[
+  v=M+u\ge0.
+\]
+则 $v$ 仍是全平面上的调和函数。
+
+固定任意点 $P$，记它到原点的距离为 $r$。对任意 $R>r$，在圆盘 $B_R(0)$ 上应用第二组参考题 5 的不等式，得到
+\[
+  \frac{R-r}{R+r}v(0)
+  \le v(P)\le
+  \frac{R+r}{R-r}v(0).
+\]
+令 $R\to\infty$，两侧系数都趋于 $1$，故
+\[
+  v(P)=v(0).
+\]
+由于 $P$ 任意，$v$ 为常数，从而 $u=v-M$ 也是常数。
+\end{xsolution}
