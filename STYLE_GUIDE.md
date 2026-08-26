@@ -31,6 +31,7 @@
 3. Euler 常数底和虚数单位使用正体宏 `\ee`、`\ii`，例如 `\ee^x`、`\ee^{\ii t}`。
 4. 标准函数/算子必须用 LaTeX 算子命令：`\sin`、`\cos`、`\tan`、`\cot`、`\ln`、`\log`、`\exp`、`\lim`、`\sup`、`\inf`、`\max`、`\min`、`\det`。其他多字母算子用 `\operatorname{...}` 或项目已有 `\DeclareMathOperator`，不得写成普通斜体字母串。
 5. `\pi`、变量、参数、一般常数 $a,b,C,n$ 保持数学斜体，除非它们是文字性缩写或算子。
+6. 渐近记号统一使用正体项目宏 `\bigO`、`\littleo`，例如 `f(x)=\bigO(x^2)`、`f(x)=\littleo(x)`；常值记号可用 `\const`。
 
 ## 4. 集合、向量和范数
 

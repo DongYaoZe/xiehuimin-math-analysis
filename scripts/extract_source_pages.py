@@ -1,7 +1,7 @@
 from __future__ import annotations
 import argparse, csv, hashlib
 from pathlib import Path
-import fitz  # PyMuPDF
+import pymupdf as fitz
 
 SOURCES = {
     'upper': '谢惠民(2018) - 数学分析习题课讲义(上册)[第2版](1).pdf',
