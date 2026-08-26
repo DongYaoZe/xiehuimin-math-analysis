@@ -1,0 +1,1567 @@
+% Task C12 solutions
+% Based on chapters/ch12.tex from main b4628dd.
+% Do not modify the source chapter here.
+
+\section*{第12章 广义积分习题解答}
+
+\subsection*{12.1.3 练习题}
+
+\paragraph{1.}
+设存在 $x_0\geq0$ 使 $f(x_0)>0$。由连续性，存在 $\delta>0$ 与 $c>0$，使得在
+$[0,+\infty)\cap(x_0-\delta,x_0+\delta)$ 上有 $f(x)\geq c$。于是该小区间上的积分严格为正，而 $f\geq0$，故
+\[
+  \int_0^{+\infty}f(x)\,\dd x>0,
+\]
+与已知矛盾。因此任意 $x\geq0$ 都有 $f(x)=0$，即 $f\equiv0$。
+
+\paragraph{2.}
+先讨论无穷限积分。平方可积与绝对可积一般互不推出。比如在 $[1,+\infty)$ 上
+\[
+  f(x)=x^{-3/4}
+\]
+满足 $\int_1^{+\infty}f^2<+\infty$，但 $\int_1^{+\infty}|f|=+\infty$，所以平方可积不推出绝对可积。
+
+反过来，取在每个区间 $[n,n+1]$ 内的连续三角形尖峰 $f_n$，其高为 $n^2$、底宽为 $2n^{-5}$，且不同尖峰支集互不相交；令 $f$ 为这些尖峰之和。则
+\[
+  \int_1^{+\infty}|f(x)|\,\dd x
+  =\sum_{n=1}^{\infty}\frac12(2n^{-5})n^2
+  =\sum_{n=1}^{\infty}\frac1{n^3}<+\infty,
+\]
+而一个高为 $H$、底宽为 $2w$ 的三角形平方积分为 $2H^2w/3$，故
+\[
+  \int_1^{+\infty}f^2(x)\,\dd x
+  =\frac23\sum_{n=1}^{\infty}n^4n^{-5}
+  =\frac23\sum_{n=1}^{\infty}\frac1n=+\infty.
+\]
+所以绝对可积也不推出平方可积。
+
+对有限区间上的无界积分，情况不同。若 $f$ 在 $[a,b]$ 上平方可积，则对避开瑕点的任意有限子区间应用 Cauchy--Schwarz 不等式，并令端点趋于瑕点，得到
+\[
+  \int_a^b|f(x)|\,\dd x
+  \leq \sqrt{b-a}\left(\int_a^b f^2(x)\,\dd x\right)^{1/2}<+\infty.
+\]
+故平方可积必绝对可积。逆命题不成立，例如在 $(0,1]$ 上 $f(x)=x^{-2/3}$ 绝对可积，而 $f^2(x)=x^{-4/3}$ 不可积。
+
+\paragraph{3.}
+由 $f(0+)=+\infty$，可取 $c\in(0,1)$，使 $f(x)>0$ 对 $0<x\leq c$ 成立。又因为 $f_n(x)=\min\{f(x),n\}$ 随 $n$ 单调增加。
+
+若 $\int_0^1f$ 收敛，则对任意固定 $\varepsilon\in(0,c)$，当 $n$ 足够大时，$f_n=f$ 在 $[\varepsilon,1]$ 上成立，于是
+\[
+  \int_\varepsilon^1f(x)\,\dd x
+  \leq \liminf_{n\to\infty}\int_0^1 f_n(x)\,\dd x.
+\]
+另一方面，在 $(0,c]$ 上有 $0\leq f_n\leq f$，而 $[c,1]$ 上当 $n$ 足够大时 $f_n=f$，故
+\[
+  \int_0^1 f_n(x)\,\dd x\leq \int_0^1 f(x)\,\dd x
+\]
+对充分大的 $n$ 成立。令 $\varepsilon\to0+$ 可知
+\[
+  \lim_{n\to\infty}\int_0^1f_n(x)\,\dd x=\int_0^1f(x)\,\dd x.
+\]
+
+反之，设左边极限为有限数 $L$。当 $n$ 足够大时，$f_n=f$ 在 $[c,1]$ 上成立，于是
+\[
+  \int_0^c f_n(x)\,\dd x
+  =\int_0^1f_n(x)\,\dd x-\int_c^1f(x)\,\dd x
+\]
+有统一上界。对任意 $\varepsilon\in(0,c)$，再取 $n$ 足够大使 $f_n=f$ 于 $[\varepsilon,c]$，则
+\[
+  0\leq\int_\varepsilon^c f(x)\,\dd x
+  \leq\int_0^c f_n(x)\,\dd x.
+\]
+因此 $\int_\varepsilon^c f$ 在 $\varepsilon\to0+$ 时单调有界，极限存在且有限，故 $\int_0^1f$ 收敛。
+
+\paragraph{4.}
+由
+\[
+  2|uv|\leq u^2+v^2
+\]
+有
+\[
+  |f(x)f(x+a)|\leq\frac12\bigl(f^2(x)+f^2(x+a)\bigr).
+\]
+积分并作平移换元，得到
+\[
+  \int_{-\infty}^{+\infty}|f(x)f(x+a)|\,\dd x
+  \leq\frac12\int_{-\infty}^{+\infty}f^2(x)\,\dd x
+  +\frac12\int_{-\infty}^{+\infty}f^2(x+a)\,\dd x
+  =\int_{-\infty}^{+\infty}f^2(x)\,\dd x<+\infty.
+\]
+所以所给广义积分绝对收敛。
+
+\paragraph{5.}
+先取 $M,N>0$。换元后
+\begin{align*}
+  \int_{-M}^{N}[f(x+a)-f(x)]\,\dd x
+  &=\int_{N}^{N+a}f(t)\,\dd t-\int_{-M}^{-M+a}f(t)\,\dd t.
+\end{align*}
+当 $N\to+\infty$ 时，由 $f(t)\to A$，第一项趋于 $aA$；当 $M\to+\infty$ 时，由 $f(t)\to B$，第二项趋于 $aB$。因此两侧无穷限积分分别存在，且
+\[
+  \int_{-\infty}^{+\infty}[f(x+a)-f(x)]\,\dd x=a(A-B).
+\]
+
+\paragraph{6.}
+错误在于 $x=0$ 是瑕点，广义积分必须拆成
+\[
+  \int_{-1/2}^{0}\frac{\dd x}{x\sqrt{1-x^2}}
+  +\int_{0}^{1/2}\frac{\dd x}{x\sqrt{1-x^2}},
+\]
+而不能利用对称性把两个发散量相消。作 $x=\sin t$，有
+\[
+  \int\frac{\dd x}{x\sqrt{1-x^2}}=\int\csc t\,\dd t
+  =\ln\left|\tan\frac t2\right|+C.
+\]
+故左侧积分趋于 $-\infty$，右侧积分趋于 $+\infty$，原广义积分发散。但其 Cauchy 主值为
+\[
+  \operatorname{P.V.}\int_{-1/2}^{1/2}\frac{\dd x}{x\sqrt{1-x^2}}
+  =\lim_{\varepsilon\to0+}
+  \left(\int_{-1/2}^{-\varepsilon}+\int_{\varepsilon}^{1/2}\right)
+  \frac{\dd x}{x\sqrt{1-x^2}}=0,
+\]
+因为被积函数为奇函数且截去区间关于原点对称。
+
+\subsection*{12.2.3 练习题}
+
+\paragraph{1.}
+\textbf{(1)} 被积函数非负。取区间
+\[
+  I_k=\left[k\pi+\frac\pi4,k\pi+\frac{3\pi}4\right],\qquad k\in\NN,
+\]
+则 $\sin^4x\geq1/4$，从而
+\[
+  \int_{I_k}x\sin^4x\,\dd x\geq\frac14\cdot\frac\pi2\left(k\pi+\frac\pi4\right).
+\]
+右边之和发散，故原积分发散。
+
+\textbf{(2)} 令
+\[
+  a(x)=\frac{\ln\ln x}{\ln x}.
+\]
+当 $x>\ee^{\ee}$ 时 $a(x)>0$、单调减少且趋于 $0$，而 $\int_3^A\sin x\,\dd x$ 有界，故由 Dirichlet 判别法原积分收敛。另一方面，在每个 $[k\pi,(k+1)\pi]$ 上，$a$ 变化缓慢且 $\int|\sin x|\,\dd x=2$；特别地对充分大的 $k$ 有
+\[
+  \int_{k\pi}^{(k+1)\pi}a(x)|\sin x|\,\dd x
+  \geq 2a((k+1)\pi).
+\]
+而 $a((k+1)\pi)>1/(k+1)$ 对充分大的 $k$ 成立，因此绝对值积分发散。故为条件收敛。
+
+\textbf{(3)} 记
+\[
+  h(x)=\ee^{\cos x}\sin(\sin x).
+\]
+$h$ 是连续的 $2\pi$ 周期函数，且 $h(2\pi-x)=-h(x)$，所以一周期积分为 $0$，其原函数 $\int_0^x h(t)\,\dd t$ 有界。又 $1/x$ 单调趋于 $0$，故无穷远处由 Dirichlet 判别法收敛；在 $0$ 点，$h(x)/x\to\ee$，故无瑕点。因此原积分收敛。由于 $h\not\equiv0$，$|h|$ 的周期平均值严格为正，所以
+\[
+  \int_1^{+\infty}\frac{|h(x)|}{x}\,\dd x=+\infty.
+\]
+故原积分条件收敛。
+
+\textbf{(4)} 当 $x\to1+$ 时
+\[
+  \ln\frac{x^2}{x^2-1}=-\ln(x-1)+\bigO(1),
+\]
+可积；当 $x\to+\infty$ 时
+\[
+  \ln\frac{x^2}{x^2-1}=-\ln\left(1-\frac1{x^2}\right)
+  \sim\frac1{x^2}.
+\]
+被积函数为正，故积分绝对收敛。
+
+\textbf{(5)} 当 $x\to+\infty$ 时，令 $u=1/x$，则
+\[
+  \ln(\cos u+\sin u)=u+\bigO(u^2),
+\]
+所以被积函数与 $1/x$ 等价，原积分发散到 $+\infty$。
+
+\textbf{(6)} 当 $x\to0+$ 时
+\[
+  \frac1x\ln\frac{1+x}{1-x}=2+\bigO(x^2),
+\]
+当 $x\to1-$ 时
+\[
+  \frac1x\ln\frac{1+x}{1-x}=-\ln(1-x)+\bigO(1).
+\]
+两端都可积，且被积函数非负，故绝对收敛。
+
+\textbf{(7)} 因 $\ln(1+u)<u$（$u>0$），被积函数为正。当 $x\to0+$ 时，两项分别为 $x^{-1/2}$ 与 $\bigO(\sqrt{|\ln x|})$，均可积；当 $x\to+\infty$ 时
+\[
+  \sqrt{\ln\left(1+\frac1x\right)}
+  =\frac1{\sqrt x}\left(1-\frac1{4x}+\bigO(x^{-2})\right),
+\]
+故差为
+\[
+  \frac1{4x^{3/2}}+\bigO(x^{-5/2}).
+\]
+因此原积分绝对收敛。
+
+\textbf{(8)} 令
+\[
+  a(x)=\frac1{\sqrt{x+\cos x}}.
+\]
+因为 $x+\cos x$ 单调不减且大于 $0$，故 $a(x)$ 单调不增并趋于 $0$。由 Dirichlet 判别法原积分收敛。又 $a(x)\sim x^{-1/2}$，故
+\[
+  \int_1^{+\infty}|\sin x|a(x)\,\dd x
+\]
+与 $\int_1^{+\infty}|\sin x|x^{-1/2}\,\dd x$ 同敛散，后者发散，因此原积分条件收敛。
+
+\paragraph{2.}
+\textbf{(1)} 在 $0$ 附近被积函数与 $x^{-p}$ 等价，在 $\pi/2$ 附近与 $(\pi/2-x)^{-q}$ 等价。因此
+\[
+  \boxed{p<1,\ q<1}
+\]
+时绝对收敛；否则发散。因被积函数非负，无条件收敛情形。
+
+\textbf{(2)} 对 $p>0$，无穷远处由 Dirichlet 判别法总收敛；绝对收敛当且仅当 $p>1$。所以
+\[
+  \boxed{p>1\text{ 时绝对收敛； }0<p\leq1\text{ 时条件收敛}.}
+\]
+
+\textbf{(3)} 在 $x=0$ 及 $x=1$ 邻近，局部可积的共同条件为 $p>-1$。无穷远处
+\[
+  \frac{|\ln x|^p}{x}\to0
+\]
+且最终单调减少，因此带 $\sin x$ 的积分由 Dirichlet 判别法收敛。绝对值积分在无穷远处要与
+$\int (\ln x)^p\,\dd x/x$ 比较，它收敛需 $p<-1$，与局部条件不相容。故
+\[
+  \boxed{p>-1\text{ 时条件收敛； }p\leq-1\text{ 时发散}.}
+\]
+
+\textbf{(4)} 当 $x\to0+$ 时被积函数与 $x^{1-p}$ 等价，需 $p<2$；当 $x\to+\infty$ 时与 $(\ln x)x^{-p}$ 同阶，需 $p>1$。故
+\[
+  \boxed{1<p<2\text{ 时绝对收敛；其余 }p\text{ 发散}.}
+\]
+
+\textbf{(5)} 在 $0$ 点无问题。令 $t=x^2$，绝对值积分在无穷远处等价于
+\[
+  \frac12\int^{+\infty}\frac{|\sin t|}{t^{(p+1)/2}}\,\dd t,
+\]
+故绝对收敛当且仅当 $p>1$。而不取绝对值时，$p=0$ 已是 Fresnel 型积分，$p>0$ 更由分部积分或 Dirichlet 判别得到收敛。因此
+\[
+  \boxed{p>1\text{ 时绝对收敛； }0\leq p\leq1\text{ 时条件收敛}.}
+\]
+
+\textbf{(6)} 设
+\[
+  I=\int_0^{+\infty}\frac{x^p\sin x}{1+x^q}\,\dd x.
+\]
+若 $q>0$，则 $x\to0+$ 时被积函数与 $x^{p+1}$ 同阶，要求 $p>-2$；无穷远处振幅与 $x^{p-q}$ 同阶，所以收敛要求 $p<q$，绝对收敛要求 $p<q-1$。因而
+\[
+  \boxed{q>0:\quad
+  \begin{cases}
+  \text{绝对收敛},&-2<p<q-1,\\
+  \text{条件收敛},&p>-2,\ q-1\leq p<q,\\
+  \text{发散},&\text{其余情形}.
+  \end{cases}}
+\]
+若 $q=0$，则两端条件分别为 $p>-2$ 与 $p<0$，绝对收敛还需 $p<-1$，故
+\[
+  \boxed{q=0:\ -2<p<-1\text{ 绝对收敛； }-1\leq p<0\text{ 条件收敛；其余发散}.}
+\]
+若 $q<0$，则 $x\to0+$ 时被积函数与 $x^{p-q+1}$ 同阶，要求 $p>q-2$；无穷远处与 $x^p\sin x$ 同型。因此
+\[
+  \boxed{q<0:\quad
+  \begin{cases}
+  \text{绝对收敛},&q-2<p<-1,\\
+  \text{条件收敛},&-1\leq p<0,\\
+  \text{发散},&p\leq q-2\text{ 或 }p\geq0.
+  \end{cases}}
+\]
+
+\textbf{(7)} 记 $h(x)=\ee^{\sin x}\sin2x$。它为 $2\pi$ 周期函数，且
+\[
+  h(x)=\frac{\dd}{\dd x}\bigl(2(\sin x-1)\ee^{\sin x}\bigr),
+\]
+故一周期积分为 $0$，原函数有界。无穷远处因此在 $p>0$ 时由 Dirichlet 判别法收敛；绝对收敛当且仅当 $p>1$。在 $0$ 点有 $h(x)\sim2x$，故局部条件为 $p<2$。综上
+\[
+  \boxed{1<p<2\text{ 时绝对收敛； }0<p\leq1\text{ 时条件收敛； }p\leq0\text{ 或 }p\geq2\text{ 时发散}.}
+\]
+
+\textbf{(8)} 当 $x\to\ee+$ 时
+\[
+  \ln\ln x\sim\frac{x-\ee}{\ee},
+\]
+故局部可积当且仅当 $p+q<1$。当 $x\to+\infty$ 时，被积函数与
+\[
+  \frac1{x^p(\ln\ln x)^q}
+\]
+同阶；该正函数的积分收敛当且仅当 $p>1$（$p=1$ 时令 $t=\ln x$，得到 $\int\dd t/(\ln t)^q$，对任意 $q$ 都发散）。因此
+\[
+  \boxed{p>1,\quad p+q<1}
+\]
+时绝对收敛，其余情形发散；无条件收敛情形。
+
+\paragraph{3.}
+在每个有限奇点 $a_i$ 邻近，被积函数与 $C_i|x-a_i|^{-p_i}$ 等价，所以必须且只需
+\[
+  p_i<1\qquad(i=1,\ldots,n).
+\]
+当 $|x|\to\infty$ 时，被积函数与 $|x|^{-P}$ 等价，其中 $P=p_1+\cdots+p_n$，故无穷远处可积当且仅当 $P>1$。因此
+\[
+  \boxed{p_i<1\ (1\leq i\leq n),\qquad \sum_{i=1}^n p_i>1}
+\]
+是收敛的充分必要条件。
+
+\paragraph{4.}
+被积函数为正。$x\to0+$ 时
+\[
+  \ln\left(1+\frac1x\right)-\frac1{1+x}
+  =\ln\frac1x+\bigO(1),
+\]
+可积；$x\to+\infty$ 时
+\[
+  \ln\left(1+\frac1x\right)-\frac1{1+x}
+  =\frac1{2x^2}+\bigO(x^{-3}).
+\]
+所以原积分绝对收敛。
+
+\paragraph{5.}
+令
+\[
+  F(A)=\int_0^A\frac{x\,\dd x}{1+x^4\sin^2x}.
+\]
+被积函数为正。对充分大的整数 $k$，在
+\[
+  J_k=\left[k\pi-\frac1{(k\pi)^2},\ k\pi+\frac1{(k\pi)^2}\right]
+\]
+上有 $x\geq k\pi/2$，且 $|\sin x|\leq|x-k\pi|$。于是
+\[
+  x^4\sin^2x\leq (2k\pi)^4\frac1{(k\pi)^4}=16,
+\]
+从而
+\[
+  \int_{J_k}\frac{x\,\dd x}{1+x^4\sin^2x}
+  \geq \frac{k\pi/2}{17}\cdot\frac{2}{(k\pi)^2}
+  =\frac1{17k\pi}.
+\]
+这些区间最终互不相交，右边为调和级数型，故原积分发散。
+
+\paragraph{6.}
+当 $t\to0+$ 时
+\[
+  \left|t^2-\frac1{t^2}\right|^x\sim t^{-2x},
+\]
+故需 $x<1/2$；当 $t\to+\infty$ 时与 $t^{2x}$ 等价，故需 $x<-1/2$；当 $t\to1$ 时
+\[
+  \left|t^2-\frac1{t^2}\right|^x\sim4^x|t-1|^x,
+\]
+故需 $x>-1$。三者合并得定义域
+\[
+  \boxed{(-1,-1/2)}.
+\]
+
+\paragraph{7.}
+由 $f'\in C[0,1]$ 且 $f'(0)>0$，Taylor 公式给出
+\[
+  f(x)-f(0)=f'(0)x+\littleo(x)\qquad(x\to0+).
+\]
+所以被积函数与 $f'(0)x^{1-p}$ 等价。于是 $1-p>-1$，即 $p<2$ 时收敛；$p\geq2$ 时发散。由于 $f'(x)>0$，被积函数在 $(0,1]$ 上为正，故发散时确为趋于 $+\infty$。
+
+\paragraph{8.}
+令
+\[
+  P(x)=\frac{|f(x)|+f(x)}2,\qquad N(x)=\frac{|f(x)|-f(x)}2.
+\]
+则 $P,N\geq0$，$f=P-N$，$|f|=P+N$。由于 $\int_a^{+\infty}f$ 收敛而 $\int_a^{+\infty}|f|$ 发散，必有
+\[
+  \int_a^xP\to+\infty,\qquad \int_a^xN\to+\infty,
+\]
+且
+\[
+  \int_a^xP-\int_a^xN=\int_a^x f
+\]
+有有限极限。
+
+\textbf{(1)} 因 $|f|+f=2P$，$|f|-f=2N$，两积分均发散。
+
+\textbf{(2)} 记 $P_x=\int_a^xP$，$N_x=\int_a^xN$。则 $P_x-N_x=\bigO(1)$，而 $N_x\to+\infty$，故
+\[
+  \frac{\int_a^x(|f|+f)}{\int_a^x(|f|-f)}
+  =\frac{P_x}{N_x}=1+\frac{P_x-N_x}{N_x}\to1.
+\]
+
+\paragraph{9.}
+$f$ 单调且 $f(+\infty)=0$。若 $f$ 单调减少，则 $f'\leq0$ 且
+\[
+  \int_a^{+\infty}|f'(x)|\,\dd x
+  =f(a)-f(+\infty)=f(a)<+\infty;
+\]
+单调增加时同理。因此
+\[
+  \int_a^{+\infty}|f'(x)\sin^2x|\,\dd x
+  \leq\int_a^{+\infty}|f'(x)|\,\dd x<+\infty,
+\]
+故所给积分绝对收敛。
+
+\paragraph{10.}
+由 $f'\geq0$ 且 $f(+\infty)=0$，知 $f(x)\leq0$，且
+\[
+  \int_a^{+\infty}f'(x)\,\dd x=-f(a)<+\infty.
+\]
+设 $|g(x)|\leq M$。在 $[a,A]$ 上分部积分：
+\[
+  \int_a^A f(x)g'(x)\,\dd x
+  =f(A)g(A)-f(a)g(a)-\int_a^A f'(x)g(x)\,\dd x.
+\]
+第一项因 $f(A)\to0$ 且 $g$ 有界而趋于 $0$，最后一项绝对收敛，因为
+\[
+  \int_a^{+\infty}|f'(x)g(x)|\,\dd x\leq M\int_a^{+\infty}f'(x)\,\dd x<+\infty.
+\]
+故原广义积分收敛。
+
+\subsection*{12.3.3 练习题}
+
+\paragraph{1.}
+\textbf{(1)} 广义积分情形的对称性命题可表述为：设 $f$ 在 $(a,b)$ 上内闭可积，端点或内部允许有瑕点，并假定 $\int_a^b f(x)\,\dd x$ 收敛。若
+\[
+  f(a+b-x)=-f(x)\qquad(a<x<b),
+\]
+则
+\[
+  \int_a^b f(x)\,\dd x=0.
+\]
+证明如下。对避开所有瑕点的截断积分作代换 $x=a+b-t$，得到
+\[
+  \int f(x)\,\dd x=-\int f(t)\,\dd t
+\]
+（上下限同时按对称方式截断）。由于原广义积分收敛，可以让各截断端点趋于相应奇点并分别取极限，于是积分值等于其相反数，只能为 $0$。若奇点位于区间中点，则应先按广义积分定义在该点左右分别判定收敛，再作上述代换，不能仅用主值代替。
+
+\textbf{(2)} 对 $[0,+\infty)$，例题 12.3.1 所用倒代换给出一个方便的推广：若 $f$ 在 $(0,+\infty)$ 上内闭可积，$\int_0^1f$ 与 $\int_1^{+\infty}f$ 都收敛，并且
+\[
+  f(1/x)=-x^2f(x)\qquad(x>0),
+\]
+则
+\begin{align*}
+  \int_1^{+\infty}f(x)\,\dd x
+  &=\int_0^1\frac{f(1/t)}{t^2}\,\dd t
+  =-\int_0^1f(t)\,\dd t,
+\end{align*}
+从而 $\int_0^{+\infty}f=0$。等价地，作 $x=\tan t$ 后，只要
+\[
+  f(\tan(\tfrac\pi2-t))\sec^2(\tfrac\pi2-t)
+  =-f(\tan t)\sec^2t,
+\]
+且相应广义积分收敛，也可由关于 $\pi/4$ 的反对称性得到积分为 $0$。
+
+\paragraph{2.}
+\textbf{(1)} 利用 $|\sin x|$ 的周期为 $\pi$，有
+\[
+  I=\sum_{k=0}^{\infty}\int_{k\pi}^{(k+1)\pi}\ee^{-x}|\sin x|\,\dd x
+  =\sum_{k=0}^{\infty}\ee^{-k\pi}\int_0^\pi\ee^{-t}\sin t\,\dd t.
+\]
+而
+\[
+  \int_0^\pi\ee^{-t}\sin t\,\dd t=\frac{1+\ee^{-\pi}}2.
+\]
+故
+\[
+  \boxed{I=\frac{1+\ee^{-\pi}}{2(1-\ee^{-\pi})}
+  =\frac12\operatorname{coth}\frac\pi2.}
+\]
+
+\textbf{(2)} 令 $u=x-1$，则
+\[
+  \ee^{x+1}+\ee^{3-x}=\ee^2(\ee^u+\ee^{-u}),
+\]
+所以
+\[
+  I=\ee^{-2}\int_0^{+\infty}\frac{\dd u}{\ee^u+\ee^{-u}}
+  =\frac{\ee^{-2}}2\int_0^{+\infty}\operatorname{sech}u\,\dd u
+  =\boxed{\frac\pi{4\ee^2}}.
+\]
+
+\textbf{(3)} 作
+\[
+  x=\frac{a+b}2+\frac{b-a}2\cos t,
+\]
+则 $\sqrt{(x-a)(b-x)}=(b-a)\sin t/2$，故
+\[
+  \boxed{\int_a^b\frac{\dd x}{\sqrt{(x-a)(b-x)}}=\pi.}
+\]
+
+\textbf{(4)} 令 $x=\tan t$，得
+\[
+  I_n=\int_0^{\pi/2}\cos^{2n-2}t\,\dd t
+  =\boxed{\frac\pi2\frac{(2n-3)!!}{(2n-2)!!}}
+  \qquad(n\in\NN_+).
+\]
+
+\textbf{(5)} 令 $t=-(n+1)\ln x$，则
+\[
+  I=\frac1{(n+1)^{m+1}}\int_0^{+\infty}t^m\ee^{-t}\,\dd t
+  =\boxed{\frac{m!}{(n+1)^{m+1}}}.
+\]
+
+\textbf{(6)} 将积分在 $1$ 处分开。对 $(0,1)$ 作 $x=1/t$，得到
+\[
+  \int_0^1\frac{\sin(x-1/x)}x\,\dd x
+  =-\int_1^{+\infty}\frac{\sin(t-1/t)}t\,\dd t.
+\]
+两部分都按 Dirichlet 型方法收敛，故
+\[
+  \boxed{I=0}.
+\]
+
+\textbf{(7)} 分式分解为
+\[
+  \frac1{(x^2+1)(x^2+4)}
+  =\frac13\left(\frac1{x^2+1}-\frac1{x^2+4}\right).
+\]
+又令
+\[
+  J(a)=\int_0^{+\infty}\frac{\ln x}{x^2+a^2}\,\dd x.
+\]
+作 $x=at$，并用例题 12.3.1 的 $\int_0^{+\infty}\ln t/(1+t^2)\,\dd t=0$，得
+\[
+  J(a)=\frac\pi{2a}\ln a.
+\]
+所以
+\[
+  \boxed{I=\frac13[J(1)-J(2)]=-\frac\pi{12}\ln2.}
+\]
+
+\textbf{(8)} 记
+\[
+  F(x)=\frac1{1+2^{1/x}}.
+\]
+则 $F(0-)=1$，$F(0+)=0$，$F(-1)=2/3$，$F(1)=1/3$。按广义积分定义在 $0$ 两侧分别积分，得
+\[
+  \int_{-1}^1F'(x)\,\dd x
+  =[F(0-)-F(-1)]+[F(1)-F(0+)]
+  =\boxed{\frac23}.
+\]
+不能跨过 $0$ 直接套 Newton--Leibniz 公式，因为 $F$ 在 $0$ 有跳跃。
+
+\paragraph{3.}
+记 Euler 积分
+\[
+  E=\int_0^{\pi/2}\ln\sin x\,\dd x=-\frac\pi2\ln2.
+\]
+
+\textbf{(1)} 因 $\int_0^{\pi/2}\ln\cos x\,\dd x=E$，故
+\[
+  \boxed{\int_0^{\pi/2}\ln\tan x\,\dd x=0}.
+\]
+
+\textbf{(2)} 作 $x=\sin t$，得
+\[
+  \boxed{\int_0^1\frac{\ln x}{\sqrt{1-x^2}}\,\dd x
+  =\int_0^{\pi/2}\ln\sin t\,\dd t=-\frac\pi2\ln2.}
+\]
+
+\textbf{(3)} 作 $x=\sin t$，并分部积分：
+\[
+  \int_0^1\frac{\arcsin x}{x}\,\dd x
+  =\int_0^{\pi/2}t\cot t\,\dd t
+  =-\int_0^{\pi/2}\ln\sin t\,\dd t
+  =\boxed{\frac\pi2\ln2}.
+\]
+边界项 $t\ln\sin t$ 在 $0+$ 与 $\pi/2$ 均趋于 $0$。
+
+\textbf{(4)} 同上直接有
+\[
+  \boxed{\int_0^{\pi/2}x\cot x\,\dd x=\frac\pi2\ln2}.
+\]
+
+\textbf{(5)} 令 $I=\int_0^\pi x\ln\sin x\,\dd x$，作 $x\mapsto\pi-x$，有
+\[
+  I=\int_0^\pi(\pi-x)\ln\sin x\,\dd x.
+\]
+相加并用 $\int_0^\pi\ln\sin x\,\dd x=-\pi\ln2$，得到
+\[
+  \boxed{I=-\frac{\pi^2}{2}\ln2}.
+\]
+
+\textbf{(6)} 因
+\[
+  \frac{\sin x}{1-\cos x}=\cot\frac x2,
+\]
+令 $x=2t$，则
+\[
+  I=4\int_0^{\pi/2}t\cot t\,\dd t
+  =\boxed{2\pi\ln2}.
+\]
+
+\textbf{(7)} 令 $t=\ee^{-x}$，则
+\[
+  I=-\int_0^1\frac{\ln t}{\sqrt{1-t^2}}\,\dd t
+  =\boxed{\frac\pi2\ln2}.
+\]
+
+\textbf{(8)} 令 $|a|=\sin\alpha$，$0\leq\alpha\leq\pi/2$。利用
+\[
+  \sin^2x-\sin^2\alpha=\sin(x+\alpha)\sin(x-\alpha),
+\]
+得
+\begin{align*}
+  I&=\int_\alpha^{\pi/2+\alpha}\ln|\sin u|\,\dd u
+    +\int_{-\alpha}^{\pi/2-\alpha}\ln|\sin u|\,\dd u.
+\end{align*}
+$\ln|\sin u|$ 为偶函数且以 $\pi$ 为周期，上述两个积分合起来恰为任意长度为 $\pi$ 的一个周期积分，因此
+\[
+  \boxed{I=\int_0^\pi\ln\sin u\,\dd u=-\pi\ln2}.
+\]
+该结论包括 $a=0$ 与 $a^2=1$ 的端点情形。
+
+\paragraph{4.}
+以下均取 $a,b>0$。
+
+\textbf{(1)} 对 Froullani 公式取 $f(x)=\arctan x$，有 $f(0)=0$，$f(+\infty)=\pi/2$，故
+\[
+  \boxed{\int_0^{+\infty}\frac{\arctan ax-\arctan bx}{x}\,\dd x
+  =\frac\pi2\ln\frac ab}.
+\]
+
+\textbf{(2)} 取 $f(x)=\ee^{-x}$，得
+\[
+  \boxed{\int_0^{+\infty}\frac{\ee^{-ax}-\ee^{-bx}}x\,\dd x=\ln\frac ba}.
+\]
+
+\textbf{(3)} 虽然 $\cos x$ 在无穷远没有极限，但 $\int_A^{+\infty}\cos x\,\dd x/x$ 收敛，可用 Froullani 公式的变形，得
+\[
+  \boxed{\int_0^{+\infty}\frac{\cos ax-\cos bx}{x}\,\dd x=\ln\frac ba}.
+\]
+
+\textbf{(4)} 若 $a\ne b$，利用
+\[
+  \sin ax\sin bx=\frac12[\cos(a-b)x-\cos(a+b)x]
+\]
+及 (3)，得到
+\[
+  \boxed{\int_0^{+\infty}\frac{\sin ax\sin bx}{x}\,\dd x
+  =\frac12\ln\frac{a+b}{|a-b|}}.
+\]
+若 $a=b$，则被积函数为 $\sin^2(ax)/x$，其绝对值本身具有正平均值并与 $1/x$ 同阶，故积分发散到 $+\infty$。
+
+\textbf{(5)} 作 $x=\ee^{-t}$，或直接对参数积分，得
+\[
+  \boxed{\int_0^1\frac{x^{a-1}-x^{b-1}}{\ln x}\,\dd x=\ln\frac ab}.
+\]
+例如可令
+\[
+  H(a,b)=\int_0^1\frac{x^{a-1}-x^{b-1}}{\ln x}\,\dd x,
+\]
+对 $a$ 求导得 $\partial H/\partial a=1/a$，再用 $H(b,b)=0$ 即得结果。
+
+\textbf{(6)} 设 $u=b\sin ax-a\sin bx$，分部积分得
+\[
+  \int_0^{+\infty}\frac{u}{x^2}\,\dd x
+  =ab\int_0^{+\infty}\frac{\cos ax-\cos bx}{x}\,\dd x,
+\]
+因为 $u/x\to0$ 在 $0+$ 与 $+\infty$ 都成立。因此
+\[
+  \boxed{\int_0^{+\infty}\frac{b\sin ax-a\sin bx}{x^2}\,\dd x
+  =ab\ln\frac ba}.
+\]
+
+\paragraph{5.}
+以下用 Dirichlet 积分
+\[
+  \int_0^{+\infty}\frac{\sin(cx)}x\,\dd x=\frac\pi2\qquad(c>0).
+\]
+
+\textbf{(1)} 分部积分：
+\[
+  \int_0^{+\infty}\frac{\sin^2x}{x^2}\,\dd x
+  =\int_0^{+\infty}\frac{\sin2x}{x}\,\dd x
+  =\boxed{\frac\pi2}.
+\]
+
+\textbf{(2)} 同样分部积分，利用
+\[
+  4\sin^3x\cos x=\sin2x-\frac12\sin4x,
+\]
+得到
+\[
+  \boxed{\int_0^{+\infty}\frac{\sin^4x}{x^2}\,\dd x
+  =\frac\pi2-\frac12\cdot\frac\pi2=\frac\pi4}.
+\]
+
+\textbf{(3)} 记 $I=\int_0^{+\infty}(\sin x/x)^4\,\dd x$。用
+\[
+  8\sin^4x=4(1-\cos2x)-(1-\cos4x)
+\]
+并连续分部积分三次。各次组合在 $0$ 点分别具有足够高阶的零点，且在 $+\infty$ 端边界项也为 $0$，于是
+\begin{align*}
+  I
+  &=\frac13\int_0^{+\infty}\frac{\cos2x-\cos4x}{x^2}\,\dd x\\
+  &=\frac13\int_0^{+\infty}\frac{-2\sin2x+4\sin4x}{x}\,\dd x.
+\end{align*}
+由 Dirichlet 积分，
+\[
+  I=\frac13\left(-2\cdot\frac\pi2+4\cdot\frac\pi2\right)
+  =\boxed{\frac\pi3}.
+\]
+
+\textbf{(4)} 分部积分得
+\[
+  \int_0^{+\infty}\frac{x-\sin x}{x^3}\,\dd x
+  =\frac12\int_0^{+\infty}\frac{1-\cos x}{x^2}\,\dd x.
+\]
+而再次分部积分
+\[
+  \int_0^{+\infty}\frac{1-\cos x}{x^2}\,\dd x
+  =\int_0^{+\infty}\frac{\sin x}{x}\,\dd x=\frac\pi2.
+\]
+故
+\[
+  \boxed{I=\frac\pi4}.
+\]
+
+\textbf{(5)} 两个表面奇点 $0,\pi$ 都是可去的。利用
+\[
+  \frac1{x(x-\pi)}=\frac1\pi\left(\frac1{x-\pi}-\frac1x\right)
+\]
+并在第一项作 $y=x-\pi$，有
+\[
+  \int_{-\infty}^{+\infty}\frac{\sin x}{x-\pi}\,\dd x
+  =-\int_{-\infty}^{+\infty}\frac{\sin y}{y}\,\dd y=-\pi,
+\]
+而 $\int_{-\infty}^{+\infty}\sin x/x\,\dd x=\pi$。故
+\[
+  \boxed{I=-2}.
+\]
+
+\textbf{(6)} 令 $t=x^2$，则 $\dd x/x=\dd t/(2t)$，从而
+\[
+  \boxed{\int_0^{+\infty}\frac{\sin x^2}{x}\,\dd x
+  =\frac12\int_0^{+\infty}\frac{\sin t}{t}\,\dd t=\frac\pi4}.
+\]
+
+\paragraph{6.}
+\textbf{(1)} 令 $c=1/2$。直接计算
+\[
+  \frac{\dd}{\dd x}\left(\frac{x\ee^{-x^2}}{x^2+c}\right)
+  =-2\ee^{-x^2}+\frac{\ee^{-x^2}}{(x^2+c)^2}.
+\]
+两端边界项均为 $0$，故
+\[
+  \boxed{\int_0^{+\infty}\frac{\ee^{-x^2}}{(x^2+1/2)^2}\,\dd x
+  =2\int_0^{+\infty}\ee^{-x^2}\,\dd x=\sqrt\pi}.
+\]
+
+\textbf{(2)} 先讨论参数范围。若 $a=0$，则当 $x\to+\infty$ 时被积函数趋于 $1$，所以积分发散。若 $a\neq0$，令 $A=|a|$、$B=|b|$；被积函数只依赖于 $A,B$，且积分收敛。记
+\[
+  I=\int_0^{+\infty}\ee^{-A^2x^2-B^2/x^2}\,\dd x.
+\]
+当 $B>0$ 时作倒代换 $x=B/(Ay)$，得到同一积分的另一表示。将原式与倒代换后的式子相加，令
+\[
+  t=Ax-\frac Bx,
+  \qquad \dd t=\left(A+\frac B{x^2}\right)\dd x,
+\]
+并用
+\[
+  A^2x^2+\frac{B^2}{x^2}=t^2+2AB,
+\]
+可得
+\[
+  2I=\frac{\ee^{-2AB}}A\int_{-\infty}^{+\infty}\ee^{-t^2}\,\dd t.
+\]
+故
+\[
+  I=\frac{\sqrt\pi}{2A}\ee^{-2AB}.
+\]
+当 $B=0$ 时这也直接由概率积分成立。因此
+\[
+  \boxed{\text{积分当且仅当 }a\neq0\text{ 时收敛，且 }
+  I=\frac{\sqrt\pi}{2|a|}\ee^{-2|ab|}.}
+\]
+
+\paragraph{7.}
+令 $x_0=\sqrt{b/a}$，并把左边积分在 $x_0$ 处分开。对 $(0,x_0)$ 作倒代换 $x=b/(ay)$，可将两部分合并为
+\[
+  I=\int_{x_0}^{+\infty}f\left(ax+\frac bx\right)
+  \left(1+\frac b{ax^2}\right)\,\dd x.
+\]
+再令
+\[
+  t=ax-\frac bx\qquad(x\geq x_0),
+\]
+则 $t$ 从 $0$ 增至 $+\infty$，且
+\[
+  ax+\frac bx=\sqrt{t^2+4ab},
+  \qquad
+  \dd t=a\left(1+\frac b{ax^2}\right)\dd x.
+\]
+因此
+\[
+  \boxed{
+  \int_0^{+\infty}f\left(ax+\frac bx\right)\,\dd x
+  =\frac1a\int_0^{+\infty}f(\sqrt{t^2+4ab})\,\dd t.}
+\]
+所有换元都可先在有限截断区间上进行，再利用题设收敛性取极限。
+
+\subsection*{12.4.2 练习题}
+
+\paragraph{1.}
+由 $\int_a^{+\infty}f'(x)\,\dd x$ 收敛，
+\[
+  f(x)=f(a)+\int_a^x f'(t)\,\dd t
+\]
+在 $x\to+\infty$ 时存在有限极限。又 $\int_a^{+\infty}f(x)\,\dd x$ 收敛，故由例题 12.4.1，该极限只能为 $0$。
+
+\paragraph{2.}
+设 $|f'(x)|\leq M$。由中值定理
+\[
+  |f(x)-f(y)|\leq M|x-y|,
+\]
+所以 $f$ 在 $[a,+\infty)$ 上一致连续。再由命题 12.4.1 立即得到
+\[
+  \boxed{\lim_{x\to+\infty}f(x)=0}.
+\]
+
+\paragraph{3.}
+取 $a=\ee$，
+\[
+  f(x)=\frac1{x\ln x}\qquad(x\geq\ee).
+\]
+则 $f$ 正且单调减少，
+\[
+  xf(x)=\frac1{\ln x}\to0,
+\]
+但
+\[
+  \int_\ee^{+\infty}\frac{\dd x}{x\ln x}=+\infty.
+\]
+故逆命题不成立。
+
+\paragraph{4.}
+取 $A>\max\{a,1\}$；去掉有限区间 $[a,A]$ 不影响无穷限积分的收敛性。对尾积分令 $x=\ee^t$，并置
+\[
+  h(t)=\ee^t f(\ee^t).
+\]
+则
+\[
+  \int_A^{+\infty}f(x)\,\dd x
+  =\int_{\ln A}^{+\infty}h(t)\,\dd t.
+\]
+题设 $xf(x)$ 单调，故 $h(t)$ 单调。由例题 12.4.2 应用于变量 $t$，有
+\[
+  t h(t)\to0.
+\]
+还原变量即
+\[
+  \boxed{xf(x)\ln x\to0}.
+\]
+
+\paragraph{5.}
+反设不存在所需数列，则存在 $\varepsilon>0$ 与 $A>a$，使
+\[
+  |f'(x)|\geq\varepsilon\qquad(x>A).
+\]
+导数具有 Darboux 性质，因此 $f'$ 在 $(A,+\infty)$ 上不能改变符号。若 $f'\geq\varepsilon$，则
+$f(x)\geq f(A)+\varepsilon(x-A)$；若 $f'\leq-\varepsilon$，则相反方向线性发散。两种情形都使 $\int_A^{+\infty}f(x)\,\dd x$ 不可能收敛，矛盾。因此对每个 $n$ 可取 $x_n>n$ 使 $|f'(x_n)|<1/n$，于是 $x_n\to+\infty$ 且 $f'(x_n)\to0$。
+
+\paragraph{6.}
+\textbf{(1)} 若结论不成立，则存在 $\varepsilon>0$ 与 $A$，使 $x|f(x)|\geq\varepsilon$ 对所有 $x>A$ 成立。于是
+\[
+  \int_A^{+\infty}|f(x)|\,\dd x
+  \geq\varepsilon\int_A^{+\infty}\frac{\dd x}{x}=+\infty,
+\]
+与绝对收敛矛盾。所以可逐次取 $x_n>n$ 满足 $x_n|f(x_n)|<1/n$。
+
+\textbf{(2)} 若条件收敛时不存在这样的数列，则仍有 $x|f(x)|\geq\varepsilon$ 最终成立。由连续性，$f$ 在充分大处不能改变符号，否则必在某点取 $0$。于是 $f$ 最终同号且 $|f(x)|\geq\varepsilon/x$，这使 $\int f$ 发散，矛盾。故条件收敛时也存在所需数列。
+
+\textbf{(3)} 绝对收敛时不需要连续性，(1) 的比较论证仍然成立。条件收敛时连续性不能删去。例如在 $[1,+\infty)$ 上定义
+\[
+  f(x)=\frac{(-1)^n}{x},\qquad n\leq x<n+1.
+\]
+它在每个有限闭区间上 Riemann 可积，而且
+\[
+  \int_1^{+\infty}f(x)\,\dd x
+  =\sum_{n=1}^{\infty}(-1)^n\ln\frac{n+1}{n}
+\]
+由交错判别法收敛而不绝对收敛；但对所有 $x\geq1$ 都有 $|xf(x)|=1$，故不可能存在 $x_nf(x_n)\to0$ 的无穷大数列。
+
+\subsection*{12.5.2 第一组参考题}
+
+\paragraph{1.}
+将积分在 $1$ 处分开。对 $(0,1)$ 作 $x=1/t$，有
+\[
+  \int_0^1\frac{\dd x}{(1+x^2)(1+x^\alpha)}
+  =\int_1^{+\infty}\frac{t^\alpha}{(1+t^2)(1+t^\alpha)}\,\dd t.
+\]
+与 $[1,+\infty)$ 上原积分相加，得到
+\[
+  \int_0^{+\infty}\frac{\dd x}{(1+x^2)(1+x^\alpha)}
+  =\int_1^{+\infty}\frac{\dd x}{1+x^2}=\frac\pi4.
+\]
+这里 $x^\alpha>0$ 对 $x>0$，故上述恒等式对任意实数 $\alpha$ 都成立。
+
+\textbf{(1)} 取 $\alpha=6$，立即得到
+\[
+  \boxed{\int_0^{+\infty}\frac{\dd x}{(1+x^2)(1+x^6)}=\frac\pi4}.
+\]
+
+\textbf{(2)} 记
+\[
+  I=\int_0^{\pi/2}\frac{\dd x}{1+\tan^{100}x}.
+\]
+作 $x\mapsto\pi/2-x$，则被积函数变为
+\[
+  \frac1{1+\cot^{100}x}=\frac{\tan^{100}x}{1+\tan^{100}x}.
+\]
+两式相加得 $2I=\pi/2$，所以
+\[
+  \boxed{I=\frac\pi4}.
+\]
+
+\paragraph{2.}
+\textbf{(1)} 对 $x>1$，
+\[
+  \frac1{x^{30}}<\frac{x^{30}+1}{x^{60}+1}
+  <\frac1{x^{30}}+\frac1{x^{60}}.
+\]
+积分即得
+\[
+  \boxed{\frac1{29}<I<\frac1{29}+\frac1{59}}.
+\]
+
+\textbf{(2)} 在 $0<x<2<\pi$ 上有 $0<\sqrt{\sin x}<1$，故
+\[
+  \frac1{5\sqrt{4-x^2}}
+  <\frac1{(4+\sqrt{\sin x})\sqrt{4-x^2}}
+  <\frac1{4\sqrt{4-x^2}}.
+\]
+利用
+\[
+  \int_0^2\frac{\dd x}{\sqrt{4-x^2}}=\frac\pi2
+\]
+得到
+\[
+  \boxed{\frac\pi{10}<I<\frac\pi8}.
+\]
+
+\textbf{(3)} 对 $x\geq2$，
+\[
+  x^3-x^2+3>\frac{x^3}{2},
+  \qquad
+  x^5+x^2+1<\frac32x^5,
+\]
+故
+\[
+  \frac{\sqrt{x^3-x^2+3}}{x^5+x^2+1}
+  >\frac{\sqrt2}{3}x^{-7/2}.
+\]
+另一方面 $x^3-x^2+3<x^3$ 且分母 $>x^5$，故被积函数 $<x^{-7/2}$。积分后
+\[
+  \int_2^{+\infty}\frac{\sqrt2}{3}x^{-7/2}\,\dd x=\frac1{30},
+  \qquad
+  \int_2^{+\infty}x^{-7/2}\,\dd x=\frac{\sqrt2}{20},
+\]
+所以
+\[
+  \boxed{\frac1{30}<I<\frac{\sqrt2}{20}}.
+\]
+
+\textbf{(4)} 对 $y\geq0$ 有 $(1+y)^{-1}>1-y$，故
+\[
+  \frac1{x+100}=\frac1{100}\frac1{1+x/100}
+  >\frac1{100}\left(1-\frac{x}{100}\right).
+\]
+于是
+\[
+  I>\frac1{100}\int_0^{+\infty}\ee^{-x}\left(1-\frac{x}{100}\right)\,\dd x
+  =0.0099.
+\]
+又 $1/(x+100)<1/100$，所以 $I<0.01$。即
+\[
+  \boxed{0.0099<I<0.01}.
+\]
+
+\paragraph{3.}
+记 $\|u\|_p^p=\int_{-\infty}^{+\infty}|u|^p$。先证明一个只对本题所需的平移连续性事实。
+
+给定 $\varepsilon>0$，由 $|f|^p$ 可积可取 $R$，使 $|x|>R$ 上的 $p$ 次积分小于任意预定小量。在有限区间 $[-R-1,R+1]$ 上，Riemann 可积函数可由有限阶梯函数 $s$ 在 $L^p$ 意义下逼近，即可使
+\[
+  \int_{-R-1}^{R+1}|f-s|^p<\varepsilon.
+\]
+对阶梯函数 $s$，$s(x+h)-s(x)$ 只在各分点长度为 $O(|h|)$ 的邻域内非零，因此
+\[
+  \|s(\cdot+h)-s\|_p\to0.
+\]
+利用
+\[
+  |u+v+w|^p\leq3^{p-1}(|u|^p+|v|^p+|w|^p)
+\]
+以及平移不改变全直线上的积分，先令 $h\to0$，再令阶梯逼近误差与尾部误差趋于 $0$，得到
+\[
+  \|f(\cdot+h)-f\|_p\to0.
+\]
+亦即
+\[
+  \boxed{\lim_{h\to0}\int_{-\infty}^{+\infty}|f(x+h)-f(x)|^p\,\dd x=0}.
+\]
+
+\paragraph{4.}
+令 $q=p/(p-1)$。由 H\"older 不等式，
+\begin{align*}
+  |I(t+h)-I(t)|
+  &\leq\int_{-\infty}^{+\infty}|f(x+t+h)-f(x+t)|\,|g(x)|\,\dd x\\
+  &\leq \|f(\cdot+h)-f\|_p\,\|g\|_q.
+\end{align*}
+上一题已经证明第一因子在 $h\to0$ 时趋于 $0$，故 $I(t)$ 在每个 $t$ 处连续。
+
+\paragraph{5.}
+因为 $f$ 单调减少且 $f(+\infty)=0$，故 $f\geq0$、$f'\leq0$。在 $[a,A]$ 上分部积分：
+\[
+  \int_a^A xf'(x)\,\dd x
+  =Af(A)-af(a)-\int_a^A f(x)\,\dd x.
+\]
+若 $\int_a^{+\infty}f$ 收敛，则由例题 12.4.2 有 $Af(A)\to0$，故右式有极限，$\int_a^{+\infty}xf'$ 收敛。
+
+反之，若 $\int_a^{+\infty}xf'(x)\,\dd x$ 收敛，则因 $xf'\leq0$，有
+\[
+  \int_a^{+\infty}x(-f'(x))\,\dd x<+\infty.
+\]
+又
+\[
+  f(A)=\int_A^{+\infty}(-f'(t))\,\dd t,
+\]
+故
+\[
+  0\leq Af(A)\leq\int_A^{+\infty}t(-f'(t))\,\dd t\to0.
+\]
+再由分部积分恒等式可知 $\int_a^A f$ 有有限极限。因此两者收敛等价。
+
+\paragraph{6.}
+设
+\[
+  \lim_{x\to+\infty}\frac{\ln f(x)}{\ln x}=p.
+\]
+若 $p<-1$，取 $r$ 满足 $p<r<-1$。充分大时
+\[
+  \frac{\ln f(x)}{\ln x}<r,
+\]
+即 $f(x)<x^r$，由比较判别法积分收敛。$p=-\infty$ 时同样可任取 $r<-1$。
+
+若 $p>-1$，取 $r$ 满足 $-1<r<p$。充分大时 $f(x)>x^r$，而 $\int x^r\,\dd x$ 发散，所以原积分发散。$p=+\infty$ 同理。故题中所述两结论成立；临界情形 $p=-1$ 不能仅由该极限判定。
+
+\paragraph{7.}
+对整数 $n\geq2$，
+\begin{align*}
+  \int_1^n\left(\frac1{[x]}-\frac1x\right)\,\dd x
+  &=\sum_{k=1}^{n-1}\int_k^{k+1}\left(\frac1k-\frac1x\right)\,\dd x\\
+  &=\sum_{k=1}^{n-1}\left(\frac1k-\ln\frac{k+1}{k}\right)\\
+  &=H_{n-1}-\ln n.
+\end{align*}
+由 Euler 常数定义 $H_m-\ln m\to\gamma$，且 $\ln n-\ln(n-1)\to0$，故
+\[
+  \boxed{\int_1^{+\infty}\left(\frac1{[x]}-\frac1x\right)\,\dd x=\gamma}.
+\]
+
+\paragraph{8.}
+当 $x\to0+$ 时
+\[
+  1-\frac{\sin x}{x}=\frac{x^2}{6}+\bigO(x^4),
+\]
+故被积函数与 $6^{1/3}x^{-2/3}$ 同阶，$0$ 端可积。
+
+当 $x\to+\infty$ 时，令 $u=\sin x/x$，则
+\[
+  (1-u)^{-1/3}-1=\frac13u+\bigO(u^2),
+\]
+所以
+\[
+  \left(1-\frac{\sin x}{x}\right)^{-1/3}-1
+  =\frac{\sin x}{3x}+\bigO(x^{-2}).
+\]
+第一项的积分条件收敛，余项绝对收敛，因此原积分收敛。若取绝对值，则主项 $|\sin x|/(3x)$ 的积分发散，而误差绝对可积，故原积分不绝对收敛。结论为
+\[
+  \boxed{\text{条件收敛}}.
+\]
+
+\paragraph{9.}
+\textbf{(1)} 因 $p,q,r>0$，$0$ 点有
+\[
+  \frac{x^p}{1+x^q}|\sin x|^r\sim x^{p+r},
+\]
+总可积。无穷远处与 $x^{p-q}|\sin x|^r$ 同型。函数 $|\sin x|^r$ 的周期平均值严格为正，因此积分收敛当且仅当
+\[
+  p-q<-1,
+\]
+即
+\[
+  \boxed{q>p+1\text{ 时绝对收敛； }q\leq p+1\text{ 时发散}.}
+\]
+被积函数非负，无条件收敛。
+
+\textbf{(2)} 因
+\[
+  \cos\frac1x=1+\bigO(x^{-2}),
+\]
+故
+\[
+  \frac{\sin x\cos(1/x)}{x^p}
+  =\frac{\sin x}{x^p}+\bigO(x^{-p-2}).
+\]
+当 $p>0$ 时第二项绝对可积或至少比主项更好，而主项由 Dirichlet 判别法收敛；绝对收敛恰在 $p>1$。当 $p=0$ 时与 $\sin x$ 相差绝对可积函数，故发散；$p<0$ 时振幅不趋于 $0$，分段积分的必要条件也不成立。因此
+\[
+  \boxed{p>1\text{ 绝对收敛； }0<p\leq1\text{ 条件收敛； }p\leq0\text{ 发散}.}
+\]
+
+\paragraph{10.}
+设 $|f|\leq M$。对任意有限 $B>a$，在 $[a,B]$ 上应用积分第二中值定理，存在 $\xi\in[a,B]$，使
+\[
+  \int_a^B f(x)\sin(px)\,\dd x
+  =f(a)\int_a^\xi\sin(px)\,\dd x
+   +f(B)\int_\xi^B\sin(px)\,\dd x.
+\]
+因此
+\[
+  \left|\int_a^B f(x)\sin(px)\,\dd x\right|
+  \leq\frac{4M}{p}.
+\]
+题设保证对每个 $p>0$ 可令 $B\to+\infty$，故
+\[
+  \left|\int_a^{+\infty}f(x)\sin(px)\,\dd x\right|\leq\frac{4M}{p}\to0.
+\]
+
+\paragraph{11.}
+记
+\[
+  L_n=\int_0^{\sqrt n}f\left(\frac xn\right)\varphi(x)\,\dd x.
+\]
+由 $f$ 在 $0$ 连续，
+\[
+  \omega_n:=\sup_{0\leq y\leq1/\sqrt n}|f(y)-f(0)|\to0.
+\]
+于是
+\begin{align*}
+  \left|L_n-f(0)\int_0^{+\infty}\varphi(x)\,\dd x\right|
+  &\leq \omega_n\int_0^{\sqrt n}|\varphi(x)|\,\dd x
+  +|f(0)|\int_{\sqrt n}^{+\infty}|\varphi(x)|\,\dd x\to0.
+\end{align*}
+故结论成立。
+
+\paragraph{12.}
+\textbf{(1)} 先在有限区间上对阶梯函数直接计算，可得频率趋于无穷时每段的正弦积分均趋于 $0$；再用 Riemann 可积函数的阶梯逼近得到有限区间的 Riemann--Lebesgue 结论。最后由 $f$ 绝对可积，先选 $A$ 使 $|x|>A$ 的 $L^1$ 尾部任意小，便得到
+\[
+  \boxed{\lim_{n\to\infty}\int_{-\infty}^{+\infty}f(x)\sin nx\,\dd x=0}.
+\]
+
+\textbf{(2)} 令
+\[
+  h(t)=|\sin t|-\frac2\pi.
+\]
+$h$ 为 $\pi$ 周期连续函数且周期平均值为 $0$，故其原函数有界。对有限阶梯函数 $s$，逐段积分并利用有界原函数可知
+\[
+  \int s(x)h(nx)\,\dd x\to0.
+\]
+用 $L^1$ 阶梯逼近及 $|h|\leq2$ 推广到绝对可积的 $f$，得到
+\[
+  \int_{-\infty}^{+\infty}f(x)h(nx)\,\dd x\to0.
+\]
+所以
+\[
+  \boxed{\lim_{n\to\infty}\int_{-\infty}^{+\infty}f(x)|\sin nx|\,\dd x
+  =\frac2\pi\int_{-\infty}^{+\infty}f(x)\,\dd x}.
+\]
+
+\paragraph{13.}
+先说明 $\int_a^b f(x)g(x)\,\dd x$ 的收敛性。设 $|f|\leq M$。在靠近任一奇点的有限截断区间 $[u,v]$ 上应用常义积分第二中值定理，可把
+$\int_u^v fg$ 表示为两个系数绝对值不超过 $M$ 的 $g$ 的子区间积分之和。因此
+\[
+  \left|\int_u^v f(x)g(x)\,\dd x\right|
+  \leq2M\sup_{u\leq r<s\leq v}\left|\int_r^s g(x)\,\dd x\right|.
+\]
+由 $\int_a^b g$ 的 Cauchy 收敛准则，右边在 $u,v$ 同趋于相应奇点时趋于 $0$。所以 $\int_a^b fg$ 收敛。
+
+再取避开奇点的闭区间 $[a_\varepsilon,b_\delta]\subset(a,b)$。常义积分第二中值定理给出某个 $\xi_{\varepsilon,\delta}\in[a_\varepsilon,b_\delta]$，使
+\[
+  \int_{a_\varepsilon}^{b_\delta}f(x)g(x)\,\dd x
+  =f(a_\varepsilon)\int_{a_\varepsilon}^{\xi_{\varepsilon,\delta}}g(x)\,\dd x
+  +f(b_\delta)\int_{\xi_{\varepsilon,\delta}}^{b_\delta}g(x)\,\dd x.
+\]
+由于 $f$ 单调有界，$f(a+),f(b-)$ 存在；由于 $\int_a^b g$ 收敛，函数
+\[
+  G(x)=\int_a^xg(t)\,\dd t
+\]
+可连续延拓到 $[a,b]$。令 $a_\varepsilon\to a+$、$b_\delta\to b-$。在有限端点情形从 $\xi_{\varepsilon,\delta}$ 中取收敛子列；若有无穷端点，则在扩充实数区间中取收敛子列。把极限记为 $\xi\in[a,b]$。对上式取极限即得
+\[
+  \boxed{\int_a^b f(x)g(x)\,\dd x
+  =f(a+)\int_a^\xi g(x)\,\dd x
+  +f(b-)\int_\xi^b g(x)\,\dd x}.
+\]
+
+\paragraph{14.}
+令
+\[
+  F(x)=\int_1^x f(t)\,\dd t.
+\]
+由于 $\int_1^{+\infty}f$ 收敛，$F$ 在 $[1,+\infty]$ 上连续且有有限极限。分部积分得
+\[
+  \int_1^{+\infty}\frac{f(x)}x\,\dd x
+  =\int_1^{+\infty}\frac{F(x)}{x^2}\,\dd x.
+\]
+右边是 $F$ 关于正权 $x^{-2}\dd x$ 的加权平均，而
+\[
+  \int_1^{+\infty}\frac{\dd x}{x^2}=1.
+\]
+所以该值介于 $F$ 的下确界与上确界之间。由 $F$ 连续，存在有限 $\xi>1$ 使该值等于 $F(\xi)$；若加权平均恰等于极值，则连续性迫使 $F$ 恒为该极值，此时任取 $\xi>1$ 亦可。故
+\[
+  \boxed{\int_1^{+\infty}x^{-1}f(x)\,\dd x=\int_1^\xi f(x)\,\dd x}.
+\]
+
+\paragraph{15.}
+由 Cauchy--Schwarz 不等式，
+\[
+  \int_a^{+\infty}\left|\frac{f(x)}x\right|\,\dd x
+  \leq\left(\int_a^{+\infty}f^2(x)\,\dd x\right)^{1/2}
+      \left(\int_a^{+\infty}\frac{\dd x}{x^2}\right)^{1/2}<+\infty.
+\]
+故所给积分绝对收敛。
+
+\paragraph{16.}
+\textbf{(1)} 对 $x>0$，在 $(0,1]$ 上 $t^{x-1}$ 可积且 $\ee^{-t}\leq1$；在 $[1,+\infty)$ 上，$t^{x-1}\ee^{-t}\leq C_x\ee^{-t/2}$ 对充分大的 $t$ 成立。因此
+\[
+  \boxed{\Gamma(x)<+\infty\quad(x>0)}.
+\]
+
+\textbf{(2)} 分部积分，边界项在 $0+$ 与 $+\infty$ 均为 $0$：
+\[
+  \Gamma(x+1)=\int_0^{+\infty}t^x\ee^{-t}\,\dd t
+  =x\int_0^{+\infty}t^{x-1}\ee^{-t}\,\dd t
+  =\boxed{x\Gamma(x)}.
+\]
+
+\textbf{(3)}
+\[
+  \Gamma(1)=\int_0^{+\infty}\ee^{-t}\,\dd t=1.
+\]
+反复使用递推式得到
+\[
+  \boxed{\Gamma(n+1)=n!\qquad(n\in\NN_+)}.
+\]
+
+\textbf{(4)} 令 $t=u^2$，则
+\[
+  \Gamma\left(\frac12\right)
+  =2\int_0^{+\infty}\ee^{-u^2}\,\dd u
+  =\boxed{\sqrt\pi},
+\]
+其中使用例题 12.3.7 的概率积分。
+
+\subsection*{12.5.2 第二组参考题}
+
+\paragraph{1.}
+对 $u\geq0$，指数函数的基本不等式给出
+\[
+  \ee^{-u}\geq1-u,
+  \qquad
+  \ee^u\geq1+u\Longrightarrow \ee^{-u}\leq\frac1{1+u}.
+\]
+令 $u=x^2$ 即得
+\[
+  1-x^2\leq\ee^{-x^2}\leq\frac1{1+x^2}\qquad(x\geq0),
+\]
+即 (12.8)。于是对 $n\in\NN_+$，
+\[
+  \int_0^1(1-x^2)^n\,\dd x
+  \leq\int_0^{+\infty}\ee^{-nx^2}\,\dd x
+  \leq\int_0^{+\infty}\frac{\dd x}{(1+x^2)^n}.
+\]
+记概率积分为 $G=\int_0^{+\infty}\ee^{-t^2}\,\dd t$。中间积分等于 $G/\sqrt n$。两端分别为
+\[
+  A_n=\int_0^{\pi/2}\cos^{2n+1}t\,\dd t
+  =\frac{(2n)!!}{(2n+1)!!},
+\]
+以及
+\[
+  B_n=\int_0^{\pi/2}\cos^{2n-2}t\,\dd t
+  =\frac\pi2\frac{(2n-3)!!}{(2n-2)!!}.
+\]
+故
+\[
+  \sqrt n A_n\leq G\leq\sqrt n B_n.
+\]
+由 Wallis 公式，左右两端都趋于 $\sqrt\pi/2$，夹逼得到
+\[
+  \boxed{G=\frac{\sqrt\pi}{2}}.
+\]
+
+\paragraph{2. Gordon 不等式}
+令
+\[
+  F(x)=\ee^{x^2/2}\int_x^{+\infty}\ee^{-t^2/2}\,\dd t,
+  \qquad x>0.
+\]
+先估计上界。因 $t/x>1$ 对 $t>x$，
+\[
+  \int_x^{+\infty}\ee^{-t^2/2}\,\dd t
+  <\frac1x\int_x^{+\infty}t\ee^{-t^2/2}\,\dd t
+  =\frac1x\ee^{-x^2/2},
+\]
+所以 $F(x)<1/x$。直接求导得
+\[
+  F'(x)=xF(x)-1<0,
+\]
+故 $F$ 严格单调减少。
+
+再对尾积分分部积分：
+\[
+  \int_x^{+\infty}\ee^{-t^2/2}\,\dd t
+  =\frac{\ee^{-x^2/2}}x-\int_x^{+\infty}\frac{\ee^{-t^2/2}}{t^2}\,\dd t.
+\]
+因 $t>x$，
+\[
+  \int_x^{+\infty}\frac{\ee^{-t^2/2}}{t^2}\,\dd t
+  <\frac1{x^2}\int_x^{+\infty}\ee^{-t^2/2}\,\dd t.
+\]
+移项得到
+\[
+  \left(1+\frac1{x^2}\right)\int_x^{+\infty}\ee^{-t^2/2}\,\dd t
+  >\frac{\ee^{-x^2/2}}x,
+\]
+即
+\[
+  \boxed{\frac{x}{x^2+1}<F(x)<\frac1x}.
+\]
+
+\paragraph{3.}
+设 $g(x)=\int_0^x f(t)\,\dd t$。对 $0<\varepsilon<R$ 分部积分：
+\begin{align*}
+  \int_\varepsilon^R\frac{g^2(x)}{x^2}\,\dd x
+  &=-\frac{g^2(R)}R+\frac{g^2(\varepsilon)}\varepsilon
+    +2\int_\varepsilon^R\frac{g(x)f(x)}x\,\dd x.
+\end{align*}
+由 Cauchy--Schwarz，
+\[
+  g^2(\varepsilon)
+  \leq\varepsilon\int_0^\varepsilon f^2(t)\,\dd t,
+\]
+故 $g^2(\varepsilon)/\varepsilon\to0$。令 $\varepsilon\to0+$，并舍去非正项 $-g^2(R)/R$，得到
+\[
+  I_R:=\int_0^R\frac{g^2(x)}{x^2}\,\dd x
+  \leq2I_R^{1/2}\left(\int_0^R f^2(x)\,\dd x\right)^{1/2}.
+\]
+所以
+\[
+  I_R\leq4\int_0^R f^2(x)\,\dd x
+  \leq4\int_0^{+\infty}f^2(x)\,\dd x.
+\]
+令 $R\to+\infty$，得
+\[
+  \boxed{\int_0^{+\infty}\frac{g^2(x)}{x^2}\,\dd x
+  \leq4\int_0^{+\infty}f^2(x)\,\dd x}.
+\]
+这也证明了 $g(x)/x$ 平方可积。
+
+\paragraph{4.}
+固定 $h>0$。Taylor 公式的积分余项给出
+\[
+  f(x+h)-f(x)
+  =hf'(x)+\int_x^{x+h}(x+h-t)f''(t)\,\dd t,
+\]
+故
+\[
+  |f'(x)|^2
+  \leq\frac{2}{h^2}|f(x+h)-f(x)|^2
+  +\frac{2}{h^2}\left|\int_x^{x+h}(x+h-t)f''(t)\,\dd t\right|^2.
+\]
+由 Cauchy--Schwarz，第二项不超过
+\[
+  \frac{2h}{3}\int_x^{x+h}|f''(t)|^2\,\dd t.
+\]
+积分 $x\in[0,+\infty)$，第一部分不超过
+\[
+  \frac8{h^2}\int_0^{+\infty}f^2(x)\,\dd x,
+\]
+而交换第二部分的积分次序后，它不超过
+\[
+  \frac{2h^2}{3}\int_0^{+\infty}(f''(t))^2\,\dd t.
+\]
+两项都有限。因此
+\[
+  \boxed{\int_0^{+\infty}(f'(x))^2\,\dd x<+\infty}.
+\]
+
+\paragraph{5.}
+\textbf{(1)} 在 $[0,1]$ 上 $f$ 连续，故平方可积；在 $[1,+\infty)$ 上
+\[
+  f^2(x)\leq x^2f^2(x),
+\]
+故也平方可积。因此 $f\in L^2(0,+\infty)$。
+
+\textbf{(2)} 因 $x^2f^2$ 可积，可取 $R_n\to+\infty$ 使
+\[
+  R_nf^2(R_n)\to0;
+\]
+否则最终有 $Rf^2(R)\geq c>0$，将导致 $\int R^2f^2(R)\,\dd R$ 发散。在 $[0,R_n]$ 上积分
+\[
+  (xf^2(x))'=f^2(x)+2xf(x)f'(x),
+\]
+并令 $n\to\infty$，得到
+\[
+  \int_0^{+\infty}f^2(x)\,\dd x
+  =-2\int_0^{+\infty}xf(x)f'(x)\,\dd x.
+\]
+于是由 Cauchy--Schwarz
+\[
+  \boxed{
+  \int_0^{+\infty}f^2(x)\,\dd x
+  \leq2\left(
+  \int_0^{+\infty}x^2f^2(x)\,\dd x
+  \int_0^{+\infty}(f'(x))^2\,\dd x
+  \right)^{1/2}.}
+\]
+
+\textbf{(3)} 非零函数取等号当且仅当 Cauchy--Schwarz 取等号且上式中的乘积积分取负号，即存在常数 $c>0$ 使
+\[
+  f'(x)=-cxf(x).
+\]
+解此微分方程得
+\[
+  f(x)=a\ee^{-cx^2/2}=a\ee^{-bx^2},\qquad b=c/2>0.
+\]
+反之这类函数直接代入可验证取等号。零函数包含在 $a=0$ 中。因此题中等号条件恰为
+\[
+  \boxed{f(x)=a\ee^{-bx^2},\quad b>0}.
+\]
+
+\paragraph{6.}
+按原题在实函数范围内理解时，不存在任何满足要求的正实数 $a,b$。原因是当 $b>0$ 时，对所有 $0\leq x<b$，内层根式 $\sqrt{x-b}$ 没有实数意义，因此
+\[
+  \sqrt{\sqrt{x}-\sqrt{x-b}}
+\]
+在积分区间的一整个非空子区间 $[0,b)$ 上都没有实值定义。这个问题不能像有限个点未定义那样通过补充定义消除。因此原式作为实广义积分根本不存在，更谈不上收敛。若将题目的积分下限或根式另作修改，则属于另一道题。
+
+\paragraph{7.}
+设 $f(z)=P(z)/Q(z)$。因为它在整条实轴上可积，所以实轴上无极点，且在无穷远至少为 $\bigO(|z|^{-2})$。取上半平面半圆轮廓 $C_R$，其中 $R$ 避开所有极点。圆弧上的积分满足
+\[
+  \left|\int_{C_R\setminus[-R,R]}f(z)\,\dd z\right|
+  \leq \pi R\max_{|z|=R}|f(z)|\to0.
+\]
+由留数定理
+\[
+  \int_{-R}^{R}\frac{P(x)}{Q(x)}\,\dd x
+  +\int_{C_R\setminus[-R,R]}f(z)\,\dd z
+  =2\pi\ii\sum_{\operatorname{Im}x_k>0}\operatorname{Res}(f,x_k).
+\]
+令 $R\to+\infty$。部分分式分解中 $(z-x_k)^{-1}$ 项的系数正是留数 $A_k$，因此
+\[
+  \boxed{\int_{-\infty}^{+\infty}\frac{P(x)}{Q(x)}\,\dd x
+  =2\pi\ii\sum_kA_k}.
+\]
+若 $x_k$ 为单根，则
+\[
+  A_k=\lim_{z\to x_k}(z-x_k)\frac{P(z)}{Q(z)}
+  =\boxed{\frac{P(x_k)}{Q'(x_k)}}.
+\]
+
+\paragraph{8.}
+\textbf{(1)} 对
+\[
+  f(z)=\frac1{1+z^{2n}}
+\]
+取上半平面的根
+\[
+  z_k=\exp\frac{(2k+1)\pi\ii}{2n},\qquad k=0,\ldots,n-1.
+\]
+各根均为单根，
+\[
+  A_k=\frac1{2n z_k^{2n-1}}=-\frac{z_k}{2n}.
+\]
+等比求和给出
+\[
+  \sum_{k=0}^{n-1}z_k=\ii\operatorname{csc}\frac\pi{2n}.
+\]
+代入上题公式即得
+\[
+  \boxed{\int_{-\infty}^{+\infty}\frac{\dd x}{1+x^{2n}}
+  =\frac\pi n\operatorname{csc}\frac\pi{2n}}.
+\]
+
+\textbf{(2)} 对 $f(z)=z^{2m}/(1+z^{2n})$，仍在上述根处有
+\[
+  A_k=-\frac1{2n}z_k^{2m+1}.
+\]
+而
+\[
+  \sum_{k=0}^{n-1}z_k^{2m+1}
+  =\ii\operatorname{csc}\frac{(2m+1)\pi}{2n}.
+\]
+条件 $2m+1<2n$ 保证无穷远处可积。故
+\[
+  \boxed{\int_{-\infty}^{+\infty}\frac{x^{2m}}{1+x^{2n}}\,\dd x
+  =\frac\pi n\operatorname{csc}\frac{(2m+1)\pi}{2n}}.
+\]
+
+\textbf{(3a)} 被积函数为偶函数。在 (2) 中取 $n=50,m=25$，得到
+\[
+  \boxed{\int_0^{+\infty}\frac{x^{50}}{x^{100}+1}\,\dd x
+  =\frac\pi{100}\operatorname{csc}\frac{51\pi}{100}
+  =\frac\pi{100}\sec\frac\pi{100}}.
+\]
+
+\textbf{(3b)} 分成 $x^{30}$ 与 $1$ 两项，分别在 (2) 与 (1) 中取 $n=30,m=15$，得到
+\[
+  \boxed{\int_0^{+\infty}\frac{x^{30}+1}{x^{60}+1}\,\dd x
+  =\frac\pi{60}\left(
+  \operatorname{csc}\frac\pi{60}+\sec\frac\pi{60}
+  \right)}.
+\]
+
+\paragraph{9.}
+把 $f$ 看作总质量为 $1$、均值为 $0$、二阶矩为 $1$ 的密度。
+
+\textbf{(1)} 固定 $x>0$。对任意 $a>0$，在 $t\geq x$ 上有 $(t+a)^2\geq(x+a)^2$，故
+\[
+  \int_x^{+\infty}f(t)\,\dd t
+  \leq\frac1{(x+a)^2}\int_{-\infty}^{+\infty}(t+a)^2f(t)\,\dd t
+  =\frac{1+a^2}{(x+a)^2}.
+\]
+右边对 $a>0$ 在 $a=1/x$ 处取最小值 $1/(1+x^2)$。于是
+\[
+  \int_{-\infty}^x f(t)\,\dd t
+  =1-\int_x^{+\infty}f(t)\,\dd t
+  \geq\boxed{\frac{x^2}{1+x^2}}.
+\]
+
+\textbf{(2)} 对随机变量 $-t$ 应用 (1)。若 $x<0$，令 $y=-x>0$，便有
+\[
+  \int_{-\infty}^{x}f(t)\,\dd t
+  \leq\boxed{\frac1{1+x^2}}.
+\]
+
+\paragraph{10.}
+原题把 $g$ 在负半轴定义为奇延拓；相应地，公式左端也按关于 $x$ 的奇延拓理解。下面先证明 $x\geq0$ 的情形，$x<0$ 随后由奇性得到。
+
+令 $N=[x/p]$。先化简有限和。置 $u=pt$，则
+\begin{align*}
+  \sum_{n=-N}^{N}\frac{\sin\bigl((n+\frac12)u\bigr)}{\sin(u/2)}
+  &=\frac{\sin\bigl((N+\frac12)u\bigr)}{\sin(u/2)}
+  =1+2\sum_{k=1}^{N}\cos ku.
+\end{align*}
+记此 Dirichlet 核为 $D_N(u)$。由于 $D_N(pt)$ 与 $\sin(xt)/t$ 都为偶函数，左边所给积分等于
+\[
+  \frac p\pi\int_0^{+\infty}D_N(pt)\frac{\sin xt}{t}\,\dd t.
+\]
+利用
+\[
+  \sin xt\cos(kpt)
+  =\frac12\{\sin[(x+kp)t]+\sin[(x-kp)t]\}
+\]
+和 Dirichlet 积分
+\[
+  \int_0^{+\infty}\frac{\sin(ct)}t\,\dd t
+  =\frac\pi2\operatorname{sgn}c
+  \quad(c\ne0),
+\]
+逐项计算。
+
+若 $x>0$ 且 $Np<x<(N+1)p$，则 $x-kp>0$ 对 $1\leq k\leq N$，所以
+\[
+  \frac p\pi\left(\frac\pi2+2N\cdot\frac\pi2\right)
+  =p\left(N+\frac12\right)=g(x).
+\]
+若 $x=Np>0$，最后一项 $k=N$ 中的 $\sin[(x-Np)t]$ 为 $0$，故该项只贡献通常值的一半，结果为
+\[
+  pN=\frac12\left[p\left(N+\frac12\right)+p\left(N-\frac12\right)\right]
+  =\frac12[g(x+)+g(x-)].
+\]
+$x=0$ 时两边均为 $0$；$x<0$ 时由奇性得到同样结论。因此对所有实数 $x$，
+\[
+  \boxed{
+  \frac{p}{2\pi}\int_{-\infty}^{+\infty}
+  \sum_{n=-[x/p]}^{[x/p]}
+  \frac{\sin\bigl((n+\frac12)pt\bigr)}{\sin(pt/2)}\frac{\sin(xt)}{t}\,\dd t
+  =\frac12[g(x+)+g(x-)].}
+\]
