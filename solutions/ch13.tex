@@ -1,0 +1,3016 @@
+﻿% 第十三章 数项级数：习题解答
+% 对应 chapters/ch13.tex；仅含思考题、练习题与参考题解答。
+
+\chapter*{第十三章\quad 数项级数题目解答}
+
+\section*{13.1.2\quad 思考题}
+
+\paragraph{思考题 1.}
+\begin{xsolution}
+Achilles 先跑到乌龟的初始位置需要
+\[
+ t_1=\frac{1000}{10}=100\ \text{s}.
+\]
+在这 $100$ 秒内，乌龟又前进 $10$ 米，所以 Achilles 再跑到这个新位置需要
+\[
+ t_2=\frac{10}{10}=1\ \text{s}.
+\]
+此后每一次所需时间都是前一次的 $0.1/10=1/100$，故
+\[
+ t_n=100\left(\frac1{100}\right)^{n-1}.
+\]
+因此追上所需总时间为收敛几何级数
+\[
+ \sum_{n=1}^{\infty}t_n
+ =100\sum_{n=0}^{\infty}\left(\frac1{100}\right)^n
+ =\frac{100}{1-1/100}
+ =\frac{10000}{99}\ \text{s}.
+\]
+这也等于用相对速度直接计算所得的 $1000/(10-0.1)=10000/99$ 秒。
+\end{xsolution}
+
+\paragraph{思考题 2.}
+\begin{xsolution}
+先讨论一般项级数。
+
+若 $\sum a_n$ 与 $\sum b_n$ 都收敛，则线性性给出
+\[
+ \sum(a_n+b_n),\qquad \sum(a_n-b_n)
+\]
+都收敛；但 $\sum a_nb_n$ 与 $\sum a_n/b_n$ 都不能由此判定。例如
+\[
+ a_n=b_n=\frac{(-1)^n}{\sqrt n}
+\]
+时两级数都收敛，而 $\sum a_nb_n=\sum 1/n$ 发散；若改取
+\[
+ a_n=\frac{(-1)^n}{n},\qquad b_n=\frac{(-1)^n}{n^2},
+\]
+则乘积级数绝对收敛。对于商，取 $a_n=b_n=(-1)^n/n$ 时 $a_n/b_n=1$，商级数发散；取
+\[
+ a_n=\frac{(-1)^n}{n^2},\qquad b_n=\frac{(-1)^n}{n}
+\]
+时商级数为 $\sum1/n$，仍发散，而若取 $a_n=(-1)^n/n^3$、$b_n=(-1)^n/n$，商级数为 $\sum1/n^2$，收敛。
+
+若 $\sum a_n$ 与 $\sum b_n$ 都发散，则上述四种运算均无统一结论。例如 $a_n=b_n=1/n$ 时差级数为零而和级数发散；取 $a_n=1/n$、$b_n=-1/n$ 时和级数为零而差级数发散。乘积方面，$a_n=b_n=1/n$ 时乘积级数收敛，而 $a_n=b_n=1/\sqrt n$ 时乘积级数发散。商方面，$a_n=1/n,b_n=n$ 时商级数 $\sum1/n^2$ 收敛，而 $a_n=b_n=1/n$ 时商级数发散。
+
+若两级数都是正项级数，则结论更强。两者都收敛时，$\sum(a_n\pm b_n)$ 都收敛；又因 $b_n$ 有界，存在 $M>0$ 使 $a_nb_n\leq Ma_n$，故 $\sum a_nb_n$ 收敛；商级数仍无统一结论，例如 $a_n=b_n=1/n^2$ 时发散，而 $a_n=1/n^4,b_n=1/n^2$ 时收敛。
+
+若两正项级数都发散，则 $\sum(a_n+b_n)$ 必发散；差级数、乘积级数和商级数均无统一结论。差级数可由 $a_n=b_n=1/n$ 得到收敛例，也可由 $a_n=2/n,b_n=1/n$ 得到发散例；乘积与商的正项反例同上即可构造。
+\end{xsolution}
+
+\paragraph{思考题 3.}
+\begin{xsolution}
+有恒等式
+\[
+ \max\{a_n,b_n\}+\min\{a_n,b_n\}=a_n+b_n.
+\]
+对于一般项级数，即使 $\sum a_n$、$\sum b_n$ 都收敛，也不能推出最大值级数或最小值级数收敛。例如令
+\[
+ a_n=\frac{(-1)^n}{\sqrt n},\qquad b_n=-a_n.
+\]
+则两级数都收敛，但
+\[
+ \max\{a_n,b_n\}=\frac1{\sqrt n},\qquad
+ \min\{a_n,b_n\}=-\frac1{\sqrt n},
+\]
+故两个新级数都发散。若原两级数都发散，则更无统一结论。
+
+对于正项级数，若 $\sum a_n$、$\sum b_n$ 都收敛，则
+\[
+ 0\leq\min\{a_n,b_n\}\leq\max\{a_n,b_n\}\leq a_n+b_n,
+\]
+所以最大值级数和最小值级数都收敛。
+
+若两正项级数都发散，则最大值级数一定发散，因为 $\max\{a_n,b_n\}\geq a_n$。最小值级数则不一定：令
+\[
+ a_n=\begin{cases}1/n,&n\text{ 奇},\\1/n^2,&n\text{ 偶},\end{cases}
+ \qquad
+ b_n=\begin{cases}1/n^2,&n\text{ 奇},\\1/n,&n\text{ 偶},\end{cases}
+\]
+则 $\sum a_n$、$\sum b_n$ 都发散，而
+\[
+ \min\{a_n,b_n\}=\frac1{n^2}
+\]
+所成级数收敛。
+\end{xsolution}
+
+\paragraph{思考题 4.}
+\begin{xsolution}
+一般不能推出。取 $a_n=(-1)^n$，则对每个 $n$ 有
+\[
+ a_n+a_{n+1}=0,
+\]
+所以 $\sum(a_n+a_{n+1})$ 收敛，而 $\sum a_n$ 发散。
+
+若 $\sum a_n$ 为正项级数，则可以推出收敛。因为
+\[
+ 0\leq a_n\leq a_n+a_{n+1},
+\]
+由比较判别法，$\sum(a_n+a_{n+1})$ 收敛必推出 $\sum a_n$ 收敛。
+\end{xsolution}
+
+\paragraph{思考题 5.}
+\begin{xsolution}
+错误在于把一个并不收敛的级数当作普通实数来使用了结合律、移项和线性运算。级数
+\[
+ 1-1+1-1+\cdots
+\]
+的部分和依次为 $1,0,1,0,\ldots$，没有极限，所以它在通常意义下没有和 $S$。因此
+\[
+ S=1-(1-1+1-1+\cdots)
+\]
+这个等式本身就没有通常级数理论中的依据。
+
+若采用后面定义的 Cesàro 求和，则该级数确实可求和为 $1/2$；但这与通常意义下的收敛是不同概念。
+\end{xsolution}
+
+\paragraph{思考题 6.}
+\begin{xsolution}
+记部分和为 $S_N$。则
+\[
+ S_{2n}=0,
+ \qquad
+ S_{2n-1}=a_n.
+\]
+因此该级数收敛的充分必要条件是 $a_n\to0$。当 $a_n\to0$ 时，奇数项部分和与偶数项部分和都趋于 $0$，故级数之和为 $0$；若 $a_n\not\to0$，则奇数项部分和不趋于 $0$，级数发散。
+\end{xsolution}
+
+\paragraph{思考题 7.}
+\begin{xsolution}
+不能。取 $a_n=1/n$。对任意固定的正整数 $p$，有
+\[
+ 0<a_{n+1}+\cdots+a_{n+p}
+ \leq \frac{p}{n+1}\longrightarrow0.
+\]
+所以题设条件对每个固定 $p$ 都成立，但调和级数 $\sum1/n$ 发散。
+
+这里与 Cauchy 收敛准则的差别在于：Cauchy 准则要求在 $n>N$ 后对\emph{所有}正整数 $p$ 同时成立统一的小量估计，而本题只对每个固定 $p$ 分别取极限。
+\end{xsolution}
+
+\paragraph{思考题 8.}
+\begin{xsolution}
+若 $\sum a_n$ 和 $\sum b_n$ 都收敛，则可以推出 $\sum c_n$ 收敛。因为
+\[
+ 0<c_n-a_n<b_n-a_n.
+\]
+而
+\[
+ \sum(b_n-a_n)=\sum b_n-\sum a_n
+\]
+收敛，且其各项为正，所以由比较判别法 $\sum(c_n-a_n)$ 收敛，从而
+\[
+ \sum c_n=\sum a_n+\sum(c_n-a_n)
+\]
+收敛。
+
+若 $\sum a_n$ 和 $\sum b_n$ 都发散，则一般不能推出 $\sum c_n$ 的敛散性。例如取
+\[
+ a_n=-\frac1n,\qquad b_n=\frac1n.
+\]
+若 $c_n=0$，则 $\sum c_n$ 收敛；若 $c_n=1/(2n)$，则 $\sum c_n$ 发散，而且都满足 $a_n<c_n<b_n$。
+
+若三者都是正项，则当上下两个级数都收敛时，直接由 $0<c_n<b_n$ 得到 $\sum c_n$ 收敛；当上下两个级数都发散时，由 $c_n>a_n>0$ 得到 $\sum c_n$ 发散。
+
+与数列夹逼定理相比，这里的“上下级数都收敛”已经足以推出中间级数收敛，并不要求两个级数的和相同；原因是逐项差 $b_n-a_n>0$ 本身组成收敛正项级数。
+\end{xsolution}
+
+\paragraph{思考题 9.}
+\begin{xsolution}
+设原级数部分和为 $S_n$，交换每一对相邻项后所得级数部分和为 $T_n$。则
+\[
+ T_{2n}=S_{2n}.
+\]
+又有
+\[
+ T_{2n-1}=S_{2n-2}+a_{2n}
+ =S_{2n}-a_{2n-1}.
+\]
+因为原级数收敛于 $S$，故 $S_n\to S$ 且 $a_n\to0$。于是
+\[
+ T_{2n}\to S,
+ \qquad
+ T_{2n-1}\to S.
+\]
+所以重排后的级数仍收敛，且和仍为 $S$。
+\end{xsolution}
+
+\paragraph{思考题 10.}
+\begin{xsolution}
+若 $a_n>0$，题设不等式
+\[
+ a_n\leq a_nR_n
+\]
+可约去 $a_n$，得到 $R_n\geq1$。但收敛级数的余项必满足 $R_n\to0$，故当 $n$ 充分大时不可能再有 $a_n>0$。
+
+因此从某一项起必有 $a_n=0$；也就是说，这个所谓“收敛正项级数”实际上只有有限个非零项，是有限和。
+\end{xsolution}
+
+\section*{13.2.5\quad 练习题}
+
+\paragraph{练习题 1.}
+\begin{xsolution}
+由 $a_n\sim b_n$，有 $a_n/b_n\to1$。
+
+(1) 两级数都收敛时，$R_n\to0$，$R'_n\to0$，且
+\[
+ R_n-R_{n+1}=a_{n+1},\qquad R'_n-R'_{n+1}=b_{n+1}.
+\]
+因为 $R'_n$ 严格减少趋于 $0$，由 $0/0$ 型 Stolz 定理，
+\[
+ \lim_{n\to\infty}\frac{R_n}{R'_n}
+ =\lim_{n\to\infty}\frac{R_n-R_{n+1}}{R'_n-R'_{n+1}}
+ =\lim_{n\to\infty}\frac{a_{n+1}}{b_{n+1}}=1.
+\]
+故 $R_n\sim R'_n$。
+
+(2) 两级数都发散时，正项级数的部分和满足 $S_n,S'_n\to+\infty$。由 $\infty/\infty$ 型 Stolz 定理，
+\[
+ \lim_{n\to\infty}\frac{S_n}{S'_n}
+ =\lim_{n\to\infty}\frac{S_n-S_{n-1}}{S'_n-S'_{n-1}}
+ =\lim_{n\to\infty}\frac{a_n}{b_n}=1.
+\]
+所以 $S_n\sim S'_n$。
+\end{xsolution}
+
+\paragraph{练习题 2.}
+\begin{xsolution}
+设原正项级数的部分和为 $S_n$。
+
+若 $\sum a_n$ 收敛于 $S$，则任取 $\varepsilon>0$，可取 $N$ 使
+\[
+ \sum_{n>N}a_n<\varepsilon.
+\]
+任意重排后，只要新部分和已经包含原来的前 $N$ 项，它与 $S$ 的差就只由原级数第 $N$ 项以后的若干正项组成，故小于 $\varepsilon$。因此任意重排仍收敛于 $S$。加括号只是取重排后部分和数列的一个子列，也仍趋于 $S$。
+
+若原级数发散，则 $S_n\to+\infty$。任意重排后的部分和仍是若干原级数正项之和。给定 $M>0$，先取原级数有限个项使其和大于 $M$；重排后这些有限项终会全部出现，于是从某个部分和起，新部分和大于 $M$。故重排后仍发散于 $+\infty$。加括号后的部分和是原部分和中的递增子列，也发散于 $+\infty$。
+
+所以任意重排、任意加括号都保持敛散性；在收敛情形和不变。
+\end{xsolution}
+
+\paragraph{练习题 3.}
+\begin{xsolution}
+逐项讨论。
+
+(1) 令 $k^2\leq n<(k+1)^2$。这一组至多有 $2k+1$ 项，且
+\[
+ \frac1{3^{\sqrt n}}\leq\frac1{3^k}.
+\]
+故该组之和不超过 $(2k+1)3^{-k}$，而 $\sum(2k+1)3^{-k}$ 收敛，所以原级数收敛。
+
+(2)
+\[
+ \frac1{n^{1+1/n}}=\frac1n\,n^{-1/n}\sim\frac1n,
+\]
+因为 $n^{-1/n}\to1$。故级数发散。
+
+(3) 利用
+\[
+ \ln(1+x)=x-\frac{x^2}{2}+\bigO(x^3),\qquad x\to0,
+\]
+得到
+\[
+ \frac1n-\ln\left(1+\frac1n\right)
+ =\frac1{2n^2}+\bigO\left(\frac1{n^3}\right).
+\]
+故级数收敛。
+
+(4) 记通项为 $u_n$。则
+\[
+ \sqrt[n]{u_n}
+ =\left(\frac{n^2}{2n^2+n+1}\right)^{\frac{n-1}{2n}}
+ \longrightarrow\frac1{\sqrt2}<1.
+\]
+由 Cauchy 根值判别法，级数收敛。
+
+(5) 记通项为 $u_n$，则
+\[
+ \sqrt[n]{u_n}
+ =\frac{n^{(\ln n)/n}}{\ln n}
+ =\frac{\exp((\ln n)^2/n)}{\ln n}\longrightarrow0.
+\]
+故级数收敛。
+
+(6) 记 $H_n=1+1/2+\cdots+1/n$。由
+\[
+ H_n=\ln n+\gamma+\littleo(1)
+\]
+可得
+\[
+ \frac{\ee^{-H_n}}{n^p}
+ \sim \ee^{-\gamma}n^{-(p+1)}.
+\]
+因此级数当且仅当 $p>0$ 时收敛；当 $p\leq0$ 时发散。
+
+(7) 令 $A=\ln a,B=\ln b,C=\ln c$。展开
+\[
+ a^{1/n}=1+\frac A n+\frac{A^2}{2n^2}+\bigO(n^{-3}),
+\]
+对 $b,c$ 同理，于是通项
+\[
+ u_n=\frac{A-(B+C)/2}{n}
+ +\frac{A^2/2-(B^2+C^2)/4}{n^2}
+ +\bigO(n^{-3}).
+\]
+若 $2A\neq B+C$，则 $u_n\sim[A-(B+C)/2]/n$，级数发散。若 $2A=B+C$，即 $a^2=bc$，则一阶项消失，$u_n=\bigO(n^{-2})$，级数绝对收敛。因此收敛的充分必要条件是
+\[
+ a^2=bc.
+\]
+
+(8) 对充分大的 $n$ 有 $0<\ln n/n<1$，且
+\[
+ n\ln\left(1-\frac{\ln n}{n}\right)
+ =-\ln n+\littleo(1).
+\]
+所以
+\[
+ \left(1-\frac{\ln n}{n}\right)^n\sim\frac1n,
+\]
+故级数发散。
+\end{xsolution}
+
+\paragraph{练习题 4.}
+\begin{xsolution}
+记 $S_n=a_1+\cdots+a_n$，并设 $\sum a_n=S$。正项且非零时 $S>0$，于是
+\[
+ \frac{S_n}{n}\sim\frac S n.
+\]
+故
+\[
+ \sum_{n=1}^{\infty}\frac{a_1+\cdots+a_n}{n}
+\]
+与调和级数同敛散，因而发散。
+
+唯一的特殊情形是 $S=0$。对非负项级数这只可能发生在 $a_n=0$ 对所有 $n$ 成立，此时所给级数当然收敛（且各项全为零）。
+\end{xsolution}
+
+\paragraph{练习题 5.}
+\begin{xsolution}
+(1) 令
+\[
+ u_n=\frac{(2n)!}{4^n(n!)^2}.
+\]
+则
+\[
+ \frac{u_{n+1}}{u_n}=\frac{2n+1}{2n+2}
+ =1-\frac1{2n+2}.
+\]
+数列 $\{u_n\}$ 正且单调减少，而
+\[
+ \sum_{n=1}^{\infty}\left(1-\frac{u_{n+1}}{u_n}\right)
+ =\sum_{n=1}^{\infty}\frac1{2n+2}
+\]
+发散。由 Sapagof 判别法，$u_n\to0$。
+
+(2) 令
+\[
+ u_n=\frac{n^n}{\ee^n n!}.
+\]
+则
+\[
+ \frac{u_{n+1}}{u_n}
+ =\frac1\ee\left(1+\frac1n\right)^n
+ =1-\frac1{2n}+\bigO\left(\frac1{n^2}\right).
+\]
+故 $u_n$ 最终单调减少，且
+\[
+ 1-\frac{u_{n+1}}{u_n}
+ =\frac1{2n}+\bigO(n^{-2}).
+\]
+右端所成正项级数发散，由 Sapagof 判别法 $u_n\to0$。
+
+(3) 令
+\[
+ u_n=\frac{n!}{(x+1)(x+2)\cdots(x+n)},\qquad x>0.
+\]
+则
+\[
+ \frac{u_{n+1}}{u_n}=\frac{n+1}{n+1+x}
+ =1-\frac{x}{n+1+x}.
+\]
+故 $u_n$ 正且单调减少，而
+\[
+ \sum_{n=1}^{\infty}\frac{x}{n+1+x}
+\]
+发散。再由 Sapagof 判别法得到 $u_n\to0$。
+\end{xsolution}
+
+\paragraph{练习题 6.}
+\begin{xsolution}
+例如定义
+\[
+ a_n=\begin{cases}
+ 2^{-k},&n=2^k,\quad k=1,2,\ldots,\\
+ n^{-2},&n\neq2^k.
+ \end{cases}
+\]
+则
+\[
+ \sum_{n=1}^{\infty}a_n
+ \leq\sum_{k=1}^{\infty}2^{-k}+\sum_{n=1}^{\infty}\frac1{n^2}<\infty.
+\]
+另一方面，在 $n=2^k$ 时有 $na_n=1$，而在非 $2$ 的幂处 $na_n=1/n\to0$，所以
+\[
+ \limsup_{n\to\infty}na_n=1.
+\]
+\end{xsolution}
+
+\paragraph{练习题 7.}
+\begin{xsolution}
+因为 $\sum a_n$ 是收敛正项级数，所以 $a_n\to0$。对充分大的 $n$ 有 $0<a_n\leq1$，于是当 $p>1$ 时
+\[
+ 0<a_n^p\leq a_n.
+\]
+由比较判别法，$\sum a_n^p$ 收敛。
+
+若去掉正项条件，结论不成立。例如
+\[
+ a_n=\frac{(-1)^n}{\sqrt n}
+\]
+所成级数收敛，但取 $p=2$ 时
+\[
+ \sum a_n^2=\sum\frac1n
+\]
+发散。
+\end{xsolution}
+
+\paragraph{练习题 8.}
+\begin{xsolution}
+令
+\[
+ d_n=a_n-a_{n+1}\geq0.
+\]
+则 $b_n=d_n-d_{n+1}>0$，所以 $\{d_n\}$ 单调减少。又
+\[
+ \sum_{n=1}^{\infty}d_n=a_1<\infty,
+\]
+故由单调正项收敛级数的 Abel--Pringsheim 结论，$nd_n\to0$。
+
+对部分和作求和分部：
+\[
+ \begin{aligned}
+ \sum_{n=1}^{N}nb_n
+ &=\sum_{n=1}^{N}n(d_n-d_{n+1})\\
+ &=\sum_{n=1}^{N}d_n-Nd_{N+1}\\
+ &=a_1-a_{N+1}-N(a_{N+1}-a_{N+2}).
+ \end{aligned}
+\]
+令 $N\to\infty$，由 $a_{N+1}\to0$ 和 $Nd_{N+1}\to0$ 得
+\[
+ \sum_{n=1}^{\infty}nb_n=a_1.
+\]
+因此该级数收敛，且和为 $a_1$。
+\end{xsolution}
+
+\paragraph{练习题 9.}
+\begin{xsolution}
+反设 $\sum a_n$ 收敛，记其和为 $S$。将题设不等式对 $n=1,\ldots,N$ 相加，得
+\[
+ \sum_{n=1}^{N}a_n
+ <\sum_{n=1}^{N}(a_{2n}+a_{2n+1})
+ \leq\sum_{k=2}^{2N+1}a_k.
+\]
+令 $N\to\infty$，左边趋于 $S$，右边趋于 $S-a_1$，于是得到
+\[
+ S\leq S-a_1,
+\]
+与 $a_1>0$ 矛盾。故 $\sum a_n$ 必发散。
+\end{xsolution}
+
+\paragraph{练习题 10.}
+\begin{xsolution}
+记
+\[
+ u_n=\frac{x^n}{(1+x)(1+x^2)\cdots(1+x^n)},\qquad x>0.
+\]
+则
+\[
+ \frac{u_{n+1}}{u_n}=\frac{x}{1+x^{n+1}}.
+\]
+若 $0<x<1$，该比值趋于 $x<1$；若 $x=1$，比值恒为 $1/2$；若 $x>1$，比值趋于 $0$。三种情况下 d'Alembert 比值判别法都给出收敛。因此对每个 $x>0$，题中级数均收敛。
+\end{xsolution}
+
+\paragraph{练习题 11.}
+\begin{xsolution}
+记
+\[
+ u_n=\prod_{k=1}^{n}(2-x^{1/k}).
+\]
+若 $x=2^m$（$m$ 为正整数），则当 $n\geq m$ 时乘积中出现因子 $2-x^{1/m}=0$，故级数实际上只有有限个非零项，必收敛。下面设 $x$ 不是 $2$ 的正整数次幂。
+
+当 $k\to\infty$ 时
+\[
+ x^{1/k}=\exp\left(\frac{\ln x}{k}\right)
+ =1+\frac{\ln x}{k}+\bigO\left(\frac1{k^2}\right),
+\]
+所以
+\[
+ 2-x^{1/k}
+ =1-\frac{\ln x}{k}+\bigO\left(\frac1{k^2}\right).
+\]
+从某项起这些因子为正，取对数得
+\[
+ \ln|u_n|
+ =-\ln x\sum_{k=1}^{n}\frac1k+\bigO(1)
+ =-(\ln x)\ln n+\bigO(1).
+\]
+因而存在常数 $C>0$ 使
+\[
+ |u_n|\sim Cn^{-\ln x}.
+\]
+而 $u_n$ 的符号从某项起固定，所以题中级数与正项 $p$ 级数具有相同敛散性。故在非零因子情形，它当且仅当
+\[
+ \ln x>1,
+\]
+即 $x>\ee$ 时收敛。
+
+综合零因子情形，原级数的收敛范围为
+\[
+ \boxed{x=2\quad\text{或}\quad x>\ee}.
+\]
+（其余 $2^m$ 中 $m\geq2$ 已包含在 $x>\ee$ 内。）
+\end{xsolution}
+
+\paragraph{练习题 12.}
+\begin{xsolution}
+(1) 设
+\[
+ r=\lim_{n\to\infty}n\left(\frac{a_n}{a_{n+1}}-1\right).
+\]
+令
+\[
+ A_n=\ln\frac1{a_n},\qquad B_n=\ln n.
+\]
+由题设 $a_n/a_{n+1}\to1$，并且
+\[
+ n\ln\frac{a_n}{a_{n+1}}
+ \sim n\left(\frac{a_n}{a_{n+1}}-1\right)\to r.
+\]
+另一方面
+\[
+ B_{n+1}-B_n=\ln\left(1+\frac1n\right)\sim\frac1n.
+\]
+故由 Stolz 定理
+\[
+ \lim_{n\to\infty}\frac{A_n}{B_n}
+ =\lim_{n\to\infty}
+ \frac{\ln(a_n/a_{n+1})}{\ln((n+1)/n)}=r.
+\]
+这正是 (13.15) 中的极限。
+
+(2) 设 Bertrand 极限为 $b$，即
+\[
+ \ln n\left[n\left(\frac{a_n}{a_{n+1}}-1\right)-1\right]\to b.
+\]
+于是
+\[
+ \frac{a_n}{a_{n+1}}
+ =1+\frac1n+\frac{b+\littleo(1)}{n\ln n}.
+\]
+令
+\[
+ A_n=\ln\frac1{na_n},\qquad B_n=\ln\ln n.
+\]
+则
+\[
+ \begin{aligned}
+ A_{n+1}-A_n
+ &=\ln\frac{na_n}{(n+1)a_{n+1}}\\
+ &=\ln\left(\frac{a_n/a_{n+1}}{1+1/n}\right)
+ =\frac{b+\littleo(1)}{n\ln n},
+ \end{aligned}
+\]
+而
+\[
+ B_{n+1}-B_n
+ =\ln\frac{\ln(n+1)}{\ln n}
+ \sim\frac1{n\ln n}.
+\]
+再用 Stolz 定理得到
+\[
+ \lim_{n\to\infty}\frac{\ln[1/(na_n)]}{\ln\ln n}=b,
+\]
+即 (13.16) 的极限存在且与 Bertrand 极限相同。
+\end{xsolution}
+
+\paragraph{练习题 13.}
+\begin{xsolution}
+若 $l<1$，取 $q$ 满足 $l<q<1$。当 $n$ 充分大时
+\[
+ a_{n+k}\leq q a_n.
+\]
+把级数按模 $k$ 的余数分成 $k$ 个子列。对每个 $r=1,\ldots,k$，从充分大的指标起有
+\[
+ a_{r+(j+1)k}\leq q a_{r+jk},
+\]
+故每个子列都被收敛几何级数控制。因此 $k$ 个子列之和均收敛，原级数收敛。
+
+若 $l>1$，取 $q$ 满足 $1<q<l$。当 $n$ 充分大时
+\[
+ a_{n+k}\geq q a_n.
+\]
+于是沿任一固定模 $k$ 的子列，通项最终按至少公比 $q>1$ 增长，特别不可能趋于 $0$。故原级数发散。
+\end{xsolution}
+
+\paragraph{练习题 14（Dini）.}
+\begin{xsolution}
+记
+\[
+ x_n=\frac{a_n}{R_{n-1}}=1-\frac{R_n}{R_{n-1}},
+ \qquad 0<x_n<1.
+\]
+因为 $R_n\downarrow0$，有
+\[
+ \prod_{k=1}^{n}(1-x_k)=\frac{R_n}{R_0}\longrightarrow0.
+\]
+若 $\sum x_n$ 收敛，则 $x_n\to0$，且 $-\ln(1-x_n)\sim x_n$，从而 $\sum[-\ln(1-x_n)]$ 收敛，乘积应收敛于非零值，矛盾。因此
+\[
+ \sum_{n=1}^{\infty}\frac{a_n}{R_{n-1}}
+\]
+发散。
+
+再证第二个结论。题中通项为
+\[
+ \frac{a_n}{R_{n-1}^{1-p}}=a_nR_{n-1}^{p-1}.
+\]
+若 $p\geq1$，因 $R_{n-1}$ 有界，存在常数 $C$ 使
+\[
+ a_nR_{n-1}^{p-1}\leq Ca_n,
+\]
+故级数收敛。
+
+若 $0<p<1$，对函数 $t^p$ 在 $[R_n,R_{n-1}]$ 上用中值定理，存在 $\xi_n\in(R_n,R_{n-1})$ 使
+\[
+ R_{n-1}^p-R_n^p=p\xi_n^{p-1}a_n.
+\]
+由于 $p-1<0$ 且 $\xi_n<R_{n-1}$，
+\[
+ \xi_n^{p-1}\geq R_{n-1}^{p-1},
+\]
+故
+\[
+ a_nR_{n-1}^{p-1}
+ \leq\frac1p(R_{n-1}^p-R_n^p).
+\]
+右端可望远镜求和，所以对一切 $p>0$，
+\[
+ \sum_{n=1}^{\infty}\frac{a_n}{R_{n-1}^{1-p}}
+\]
+都收敛。
+\end{xsolution}
+
+\paragraph{练习题 15.}
+\begin{xsolution}
+由 $0<a_1<\pi/2$ 及 $\sin x<x$（$x>0$），数列 $a_n$ 正且严格减少，因此有极限 $L\geq0$。极限满足 $L=\sin L$，故 $L=0$。
+
+当 $x\to0$ 时
+\[
+ \sin x=x-\frac{x^3}{6}+\bigO(x^5),
+\]
+从而
+\[
+ \frac1{\sin^2x}-\frac1{x^2}=\frac13+\bigO(x^2).
+\]
+代入 $x=a_n$ 得
+\[
+ \frac1{a_{n+1}^2}-\frac1{a_n^2}\longrightarrow\frac13.
+\]
+由 Stolz 定理
+\[
+ \lim_{n\to\infty}\frac{1/a_n^2}{n}=\frac13,
+\]
+即
+\[
+ a_n\sim\sqrt{\frac3n}.
+\]
+因此
+\[
+ a_n^p\sim3^{p/2}n^{-p/2}.
+\]
+与 $p$ 级数比较可知
+\[
+ \boxed{\sum_{n=1}^{\infty}a_n^p\text{ 当且仅当 }p>2\text{ 时收敛}.}
+\]
+当 $p\leq2$ 时发散（其中 $p\leq0$ 时通项甚至不趋于 $0$）。
+\end{xsolution}
+
+\section*{13.3.4\quad 练习题}
+
+\paragraph{练习题 1.}
+\begin{xsolution}
+逐项讨论。
+
+(1) 数列 $\sin(n\pi/12)$ 是周期数列，且一个周期内的和为 $0$，故其部分和有界。又 $1/\ln n$ 从某项起单调减少趋于 $0$，由 Dirichlet 判别法，
+\[
+ \sum_{n=2}^{\infty}\frac{\sin(n\pi/12)}{\ln n}
+\]
+收敛。另一方面，取 $n=6+24k$ 时 $|\sin(n\pi/12)|=1$，故绝对值级数包含子级数
+\[
+ \sum_{k=0}^{\infty}\frac1{\ln(6+24k)},
+\]
+其通项大于 $1/(6+24k)$ 对充分大的 $k$ 成立，故发散。因此原级数条件收敛。
+
+(2) 令 $b_n=2^{1/n}/\sqrt n$。显然 $b_n\to0$，并且从某项起单调减少，所以 Leibniz 判别法给出收敛。又
+\[
+ \frac{2^{1/n}}{\sqrt n}\sim\frac1{\sqrt n},
+\]
+绝对值级数发散。因此条件收敛。
+
+(3) 利用
+\[
+ \cos^2n=\frac{1+\cos2n}{2},
+\]
+有
+\[
+ \sum_{n=1}^{\infty}\frac{(-1)^n\cos^2n}{n}
+ =\frac12\sum_{n=1}^{\infty}\frac{(-1)^n}{n}
+ +\frac12\sum_{n=1}^{\infty}\frac{(-1)^n\cos2n}{n}.
+\]
+第一项为交错调和级数。第二项中
+\[
+ (-1)^n\cos2n=\cos(n\pi)\cos2n
+ =\frac12\bigl[\cos n(\pi+2)+\cos n(\pi-2)\bigr],
+\]
+两列余弦的部分和都有界，故第二项由 Dirichlet 判别法收敛。
+
+绝对值级数为
+\[
+ \sum_{n=1}^{\infty}\frac{\cos^2n}{n}
+ =\frac12\sum\frac1n+\frac12\sum\frac{\cos2n}{n}.
+\]
+后一项收敛而调和级数发散，所以绝对值级数发散。故原级数条件收敛。
+
+(4) 令
+\[
+ b_n=\frac1n\left(1+\frac1n\right)^n.
+\]
+有 $b_n\sim\ee/n$，且从某项起单调减少到 $0$。当 $x\notin2\pi\ZZ$ 时，$\sum_{k=1}^{n}\sin kx$ 有界，故由 Dirichlet 判别法原级数收敛；当 $x\in2\pi\ZZ$ 时各项全为 $0$，也收敛。
+
+若 $x\in\pi\ZZ$，则 $\sin nx=0$，级数绝对收敛。若 $x\notin\pi\ZZ$，则由 $b_n\asymp1/n$ 以及
+\[
+ |\sin nx|\geq\sin^2nx=\frac{1-\cos2nx}{2},
+\]
+有
+\[
+ \sum b_n\sin^2nx
+ =\frac12\sum b_n-\frac12\sum b_n\cos2nx.
+\]
+第一项发散，第二项由 Dirichlet 判别法收敛，故绝对值级数发散。因此
+\[
+ \boxed{x\in\pi\ZZ\text{ 时绝对收敛；}x\notin\pi\ZZ\text{ 时条件收敛}.}
+\]
+
+(5) 记 $H_n=1+1/2+\cdots+1/n$，$b_n=H_n/n$。因 $H_n\sim\ln n$，故 $b_n\to0$；且
+\[
+ b_n-b_{n+1}
+ =\frac{H_n}{n(n+1)}-\frac1{(n+1)^2}>0
+\]
+对充分大的 $n$ 成立，所以 $b_n$ 最终单调减少。于是与 (4) 相同，原级数对所有 $x$ 都收敛。
+
+若 $x\in\pi\ZZ$，各项为 $0$，绝对收敛。若 $x\notin\pi\ZZ$，则
+\[
+ \sum b_n\sin^2nx
+ =\frac12\sum b_n-\frac12\sum b_n\cos2nx.
+\]
+这里 $\sum b_n$ 因 $b_n\sim(\ln n)/n$ 而发散，而余弦项由 Dirichlet 判别法收敛。因此绝对值级数发散。故仍为
+\[
+ \boxed{x\in\pi\ZZ\text{ 时绝对收敛；}x\notin\pi\ZZ\text{ 时条件收敛}.}
+\]
+
+(6) 当 $n\to\infty$ 时
+\[
+ \sqrt{n^2+a^2}=n+\frac{a^2}{2n}+\bigO(n^{-3}),
+\]
+故
+\[
+ \sin\!\left(\pi\sqrt{n^2+a^2}\right)
+ =(-1)^n\sin\left(\frac{\pi a^2}{2n}+\bigO(n^{-3})\right)
+ =(-1)^n\left(\frac{\pi a^2}{2n}+\bigO(n^{-3})\right).
+\]
+若 $a=0$，级数各项为 $0$，绝对收敛。若 $a\neq0$，把通项分成一个交错调和型级数与一个绝对收敛余项，可知级数收敛；而绝对值与 $(\pi a^2/2)/n$ 等价，故绝对值级数发散。因此 $a\neq0$ 时条件收敛。
+
+(7) 令
+\[
+ b_n=\left[\frac{(2n-1)!!}{(2n)!!}\right]^p.
+\]
+由 Wallis 渐近式
+\[
+ \frac{(2n-1)!!}{(2n)!!}\sim\frac1{\sqrt{\pi n}}.
+\]
+若 $p>0$，则 $b_n$ 单调减少趋于 $0$，故交错级数由 Leibniz 判别法收敛；其绝对值级数与 $\sum n^{-p/2}$ 同敛散，因此 $p>2$ 时绝对收敛，$0<p\leq2$ 时条件收敛。若 $p\leq0$，则通项绝对值不趋于 $0$，级数发散。
+
+(8) 因
+\[
+ (-1)^n\sin n=\sin n(\pi+1),
+\]
+数列 $(-1)^n\sin n$ 的部分和有界，所以 $\sum(-1)^n\sin n/n$ 由 Dirichlet 判别法收敛。又
+\[
+ |\sin n|\geq\sin^2n=\frac{1-\cos2n}{2},
+\]
+而 $\sum\cos2n/n$ 收敛，故 $\sum|\sin n|/n$ 发散。因此原级数条件收敛。
+\end{xsolution}
+
+\paragraph{练习题 2.}
+\begin{xsolution}
+记符号序列为 $\varepsilon_n\in\{1,-1\}$，它以 $p+q$ 为周期，每周期有 $p$ 个 $+1$ 和 $q$ 个 $-1$。令
+\[
+ \mu=\frac{p-q}{p+q},\qquad \delta_n=\varepsilon_n-\mu.
+\]
+则 $\{\delta_n\}$ 仍周期，且每周期的和为 $0$，故其部分和有界。于是
+\[
+ \sum_{n=1}^{\infty}\frac{\varepsilon_n}{n}
+ =\mu\sum_{n=1}^{\infty}\frac1n
+ +\sum_{n=1}^{\infty}\frac{\delta_n}{n}.
+\]
+第二个级数由 Dirichlet 判别法收敛。因此原级数收敛当且仅当 $\mu=0$，即
+\[
+ \boxed{p=q}.
+\]
+当 $p=q$ 时绝对值级数仍为调和级数，故是条件收敛。
+\end{xsolution}
+
+\paragraph{练习题 3.}
+\begin{xsolution}
+原级数的正项依次为 $(2j-1)^{-a}$，负项绝对值依次为 $(2j)^{-a}$。考虑重排后的完整块部分和：每个块取 $p$ 个正项，再取 $q$ 个负项。
+
+若 $p\neq q$，作到第 $N$ 个完整块后，已取 $pN$ 个正项和 $qN$ 个负项。利用
+\[
+ \sum_{j=1}^{m}(2j-1)^{-a}\sim\frac{2^{-a}}{1-a}m^{1-a},
+ \qquad
+ \sum_{j=1}^{m}(2j)^{-a}=2^{-a}\sum_{j=1}^{m}j^{-a}\sim\frac{2^{-a}}{1-a}m^{1-a},
+\]
+可得完整块部分和
+\[
+ T_N\sim\frac{2^{-a}}{1-a}\bigl(p^{1-a}-q^{1-a}\bigr)N^{1-a},
+\]
+因而当 $p\neq q$ 时发散。
+
+若 $p=q=r$，第 $N$ 个块的和为
+\[
+ \sum_{j=r(N-1)+1}^{rN}\bigl[(2j-1)^{-a}-(2j)^{-a}\bigr]>0.
+\]
+由中值定理
+\[
+ (2j-1)^{-a}-(2j)^{-a}\leq Cj^{-a-1},
+\]
+故所有完整块之和绝对可求和。又原通项趋于 $0$，一个块内部与块端部分和之差至多由固定的 $2r$ 个趋于零的项组成，因此也趋于 $0$。所以重排级数收敛。
+
+故重排后的级数当且仅当
+\[
+ \boxed{p=q}
+\]
+时收敛。
+\end{xsolution}
+
+\paragraph{练习题 4.}
+\begin{xsolution}
+(1) 级数为
+\[
+ \sum_{n=1}^{\infty}\left(\frac1{(2n-1)^p}-\frac1{(2n)^q}\right).
+\]
+绝对收敛的充分必要条件是两个正项子级数都收敛，即
+\[
+ \boxed{p>1,\ q>1}.
+\]
+若 $p=q>0$，则每对之差为
+\[
+ \frac1{(2n-1)^p}-\frac1{(2n)^p}=\bigO(n^{-p-1}),
+\]
+所以原级数收敛；当 $0<p=q\leq1$ 时绝对值级数发散，故条件收敛。
+
+若 $p\neq q$ 且至少一个不大于 $1$，不妨 $p<q$。则
+\[
+ \frac1{(2n-1)^p}-\frac1{(2n)^q}\sim\frac1{(2n)^p}>0,
+\]
+故级数发散；$q<p$ 同理。综上：绝对收敛当且仅当 $p,q>1$；条件收敛当且仅当 $p=q\leq1$；其余情形发散。
+
+(2) 记绝对值通项为
+\[
+ b_n=\frac{(1+p)(2+p)\cdots(n+p)}{n!\,n^q}.
+\]
+利用 Euler--Gauss 公式或 Stirling 公式，
+\[
+ \frac{(1+p)(2+p)\cdots(n+p)}{n!}\sim Cn^p
+\]
+其中 $C>0$，故
+\[
+ b_n\sim Cn^{p-q}.
+\]
+若 $q\leq p$，则 $b_n\not\to0$，原级数发散。若 $q>p$，则 $b_n\to0$ 且最终单调减少，所以交错级数收敛。绝对值级数与 $\sum n^{p-q}$ 同敛散，故绝对收敛当且仅当 $q>p+1$。因此
+\[
+ \boxed{q>p+1\text{ 时绝对收敛； }p<q\leq p+1\text{ 时条件收敛； }q\leq p\text{ 时发散}.}
+\]
+\end{xsolution}
+
+\paragraph{练习题 5.}
+\begin{xsolution}
+讨论实数 $x$。
+
+若 $|x|<1$，则 $nx^n\to0$，所以通项
+\[
+ \frac1{1+nx^n}\to1,
+\]
+级数发散。若 $x=1$，级数为 $\sum1/(n+1)$，发散。
+
+若 $|x|>1$，对充分大的 $n$ 有 $|nx^n|\geq2$，于是
+\[
+ \left|\frac1{1+nx^n}\right|\leq\frac2{n|x|^n},
+\]
+右端所成级数收敛，故原级数绝对收敛。
+
+剩下 $x=-1$。此时去掉可能为零的分母项后（实际上 $n=1$ 时分母为 $0$，该项按题意删去），从 $n=2$ 起两项配对：
+\[
+ \frac1{1+2k}+\frac1{1-(2k+1)}
+ =\frac1{2k+1}-\frac1{2k}
+ =\bigO(k^{-2}).
+\]
+故配对后的级数收敛，且单项趋于 $0$，所以原级数收敛。其绝对值与调和级数同阶，故不绝对收敛。
+
+因此
+\[
+ \boxed{|x|>1\text{ 时绝对收敛； }x=-1\text{ 时条件收敛； }-1<x\leq1\text{ 时发散}.}
+\]
+\end{xsolution}
+
+\paragraph{练习题 6.}
+\begin{xsolution}
+令
+\[
+ A_n=a_1+a_2+\cdots+a_n,
+ \qquad
+ b_n=\frac{A_n}{n}.
+\]
+因 $a_n\downarrow0$，由 Cesàro 平均性质有 $b_n\to0$。又
+\[
+ b_{n+1}<b_n
+ \Longleftrightarrow
+ \frac{A_n+a_{n+1}}{n+1}<\frac{A_n}{n}
+ \Longleftrightarrow
+ a_{n+1}<\frac{A_n}{n}.
+\]
+而 $a_{n+1}<a_k$ 对 $1\leq k\leq n$，故 $a_{n+1}<A_n/n$。所以 $\{b_n\}$ 严格单调减少趋于 $0$。
+
+于是题中级数正是
+\[
+ \sum_{n=1}^{\infty}(-1)^n b_n,
+\]
+由 Leibniz 判别法收敛。
+\end{xsolution}
+
+\paragraph{练习题 7.}
+\begin{xsolution}
+令 $H_n=1+1/2+\cdots+1/n$，则所给级数为
+\[
+ \sum_{n=1}^{\infty}(-1)^{n-1}\frac{H_n}{2n-1}.
+\]
+记 $b_n=H_n/(2n-1)$。显然 $b_n\to0$，因为 $H_n\sim\ln n$。再证其单调性：
+\[
+ \frac{H_{n+1}}{2n+1}<\frac{H_n}{2n-1}
+\]
+等价于
+\[
+ \frac{2n-1}{n+1}<2H_n,
+\]
+而左端小于 $2$，右端至少为 $2$，且实际严格大于，故不等式成立。于是 $b_n$ 严格减少趋于 $0$，由 Leibniz 判别法原级数收敛。
+\end{xsolution}
+
+\paragraph{练习题 8（Du Bois-Reymond 判别法）.}
+\begin{xsolution}
+由
+\[
+ \sum_{n=2}^{\infty}|a_n-a_{n-1}|<\infty
+\]
+知 $\{a_n\}$ 是 Cauchy 数列，故存在有限极限 $A=\lim a_n$。令 $c_n=a_n-A$，则 $c_n\to0$，且
+\[
+ \sum_{n=2}^{\infty}|c_n-c_{n-1}|<\infty.
+\]
+因为 $\sum b_n$ 收敛，所以 $A\sum b_n$ 收敛；只需证明 $\sum c_nb_n$ 收敛。
+
+记 $B_n=\sum_{k=1}^{n}b_k$，则 $B_n$ 有界。对 $m\leq n$ 用 Abel 变换，
+\[
+ \sum_{k=m}^{n}c_kb_k
+ =c_n(B_n-B_{m-1})
+ +\sum_{k=m}^{n-1}(c_k-c_{k+1})(B_k-B_{m-1}).
+\]
+设 $|B_j|\leq M$，则
+\[
+ \left|\sum_{k=m}^{n}c_kb_k\right|
+ \leq2M|c_n|+2M\sum_{k=m}^{n-1}|c_k-c_{k+1}|.
+\]
+当 $m,n\to\infty$ 时右端趋于 $0$，故由 Cauchy 准则 $\sum c_nb_n$ 收敛，从而 $\sum a_nb_n$ 收敛。
+\end{xsolution}
+
+\paragraph{练习题 9（Dedekind 判别法）.}
+\begin{xsolution}
+记 $B_n=\sum_{k=1}^{n}b_k$，题设知存在 $M>0$ 使 $|B_n|\leq M$。由 $a_n\to0$ 以及
+\[
+ \sum_{n=2}^{\infty}|a_n-a_{n-1}|<\infty,
+\]
+对任意 $m\leq n$ 用 Abel 变换：
+\[
+ \sum_{k=m}^{n}a_kb_k
+ =a_n(B_n-B_{m-1})
+ +\sum_{k=m}^{n-1}(a_k-a_{k+1})(B_k-B_{m-1}).
+\]
+因此
+\[
+ \left|\sum_{k=m}^{n}a_kb_k\right|
+ \leq2M|a_n|+2M\sum_{k=m}^{n-1}|a_k-a_{k+1}|.
+\]
+当 $m,n\to\infty$ 时右端趋于 $0$。由 Cauchy 收敛准则，$\sum a_nb_n$ 收敛。
+\end{xsolution}
+
+\paragraph{练习题 10.}
+\begin{xsolution}
+用反证法。假设
+\[
+ \sum_{n=1}^{\infty}\left(1+\frac1n\right)a_n
+\]
+收敛，令
+\[
+ c_n=\left(1+\frac1n\right)a_n.
+\]
+则
+\[
+ a_n=c_n\frac{n}{n+1}.
+\]
+数列 $n/(n+1)$ 单调增加且有界。由于 $\sum c_n$ 收敛，由 Abel 判别法，
+\[
+ \sum c_n\frac{n}{n+1}=\sum a_n
+\]
+也收敛，与题设 $\sum a_n$ 发散矛盾。因此
+\[
+ \sum_{n=1}^{\infty}\left(1+\frac1n\right)a_n
+\]
+必发散。
+\end{xsolution}
+
+\paragraph{练习题 11.}
+\begin{xsolution}
+当 $|q|<1$ 时两个几何级数都绝对收敛，因此可以作 Cauchy 乘积。其第 $n$ 个系数为
+\[
+ c_n=\sum_{k=0}^{n}q^kq^{n-k}=(n+1)q^n.
+\]
+故
+\[
+ \left(\sum_{n=0}^{\infty}q^n\right)
+ \left(\sum_{n=0}^{\infty}q^n\right)
+ =\sum_{n=0}^{\infty}(n+1)q^n.
+\]
+右端也绝对收敛，因为 $\sum(n+1)|q|^n$ 收敛。
+\end{xsolution}
+
+\paragraph{练习题 12.}
+\begin{xsolution}
+把级数写为
+\[
+ \sum_{n=0}^{\infty}\frac{(-1)^n}{n+1}.
+\]
+它与自身的 Cauchy 乘积第 $n$ 项为
+\[
+ c_n=(-1)^n\sum_{k=0}^{n}\frac1{(k+1)(n-k+1)}.
+\]
+利用
+\[
+ \frac1{(k+1)(n-k+1)}
+ =\frac1{n+2}\left(\frac1{k+1}+\frac1{n-k+1}\right),
+\]
+得
+\[
+ c_n=(-1)^n\frac{2H_{n+1}}{n+2},
+\]
+其中 $H_m=1+1/2+\cdots+1/m$。令
+\[
+ b_n=\frac{2H_{n+1}}{n+2}.
+\]
+则 $b_n\to0$，并且从某项起单调减少，因为 $H_{n+1}\sim\ln n$。故 $\sum c_n$ 由 Leibniz 判别法收敛。
+\end{xsolution}
+
+\paragraph{练习题 13.}
+\begin{xsolution}
+两个级数对任意实数 $x$ 都绝对收敛，因此其 Cauchy 乘积可以逐项计算。$S(x)C(x)$ 中 $x^{2m+1}$ 的系数为
+\[
+ (-1)^m\sum_{k=0}^{m}\frac1{(2k+1)!(2m-2k)!}.
+\]
+于是 $2S(x)C(x)$ 中该项系数为
+\[
+ \frac{2(-1)^m}{(2m+1)!}
+ \sum_{k=0}^{m}\binom{2m+1}{2k+1}.
+\]
+奇数项二项式系数之和为 $2^{2m}$，故该系数等于
+\[
+ \frac{(-1)^m2^{2m+1}}{(2m+1)!}.
+\]
+这正是
+\[
+ S(2x)=\sum_{m=0}^{\infty}\frac{(-1)^m(2x)^{2m+1}}{(2m+1)!}
+\]
+中 $x^{2m+1}$ 的系数。因此
+\[
+ \boxed{2S(x)C(x)=S(2x)}.
+\]
+\end{xsolution}
+
+\paragraph{练习题 14.}
+\begin{xsolution}
+令
+\[
+ x_n=\frac{a_n}{b_n}.
+\]
+题设为 $\sum x_n$ 与 $\sum x_n^2$ 都收敛，并且 $x_n\neq-1$。因为 $x_n\to0$，从某项起 $|1+x_n|\geq1/2$。又有恒等式
+\[
+ \frac{a_n}{a_n+b_n}
+ =\frac{x_n}{1+x_n}
+ =x_n-\frac{x_n^2}{1+x_n}.
+\]
+第一个级数 $\sum x_n$ 收敛，而第二个修正项满足
+\[
+ \left|\frac{x_n^2}{1+x_n}\right|\leq2x_n^2
+\]
+对充分大的 $n$ 成立，所以它绝对收敛。因此
+\[
+ \sum_{n=1}^{\infty}\frac{a_n}{a_n+b_n}
+\]
+收敛。
+\end{xsolution}
+
+\paragraph{练习题 15.}
+\begin{xsolution}
+令两个级数从 $n=0$ 起的系数分别为 $a_n,b_n$。引入形式变量 $z$。第一列系数的生成式为
+\[
+ A(z)=1-\sum_{n=1}^{\infty}\left(\frac32\right)^nz^n
+ =\frac{1-3z}{1-\frac32z}.
+\]
+第二列系数的生成式为
+\[
+ \begin{aligned}
+ B(z)
+ &=1+\sum_{n=1}^{\infty}\left(\frac32\right)^{n-1}
+ \left(2^n+\frac1{2^{n+1}}\right)z^n\\
+ &=1+2z\sum_{n=1}^{\infty}(3z)^{n-1}
+ +\frac z4\sum_{n=1}^{\infty}\left(\frac{3z}{4}\right)^{n-1}\\
+ &=\frac{1-\frac32z}{(1-3z)(1-\frac34z)}.
+ \end{aligned}
+\]
+这些等式在 $|z|$ 足够小时成立，因此形式幂级数系数也相等。于是 Cauchy 乘积的生成式为
+\[
+ A(z)B(z)=\frac1{1-\frac34z}
+ =\sum_{n=0}^{\infty}\left(\frac34\right)^nz^n.
+\]
+故 Cauchy 乘积就是几何级数
+\[
+ \sum_{n=0}^{\infty}\left(\frac34\right)^n,
+\]
+从而绝对收敛。原来的两个级数由于通项不趋于 $0$ 都发散。
+\end{xsolution}
+
+\paragraph{练习题 16.}
+\begin{xsolution}
+(1) 两种情形都可以发生。
+
+收敛乘发散而乘积仍收敛的例子：取
+\[
+ \sum a_n=1-1+0+0+\cdots,
+ \qquad
+ \sum b_n=1+1+1+\cdots.
+\]
+第一列的和为 $0$，第二列发散。它们的 Cauchy 乘积系数为 $c_0=1$，而对 $n\geq1$，
+\[
+ c_n=b_n-b_{n-1}=0,
+\]
+故乘积级数收敛。
+
+乘积发散的例子可取
+\[
+ \sum a_n=1+0+0+\cdots,
+ \qquad
+ \sum b_n=1+1+1+\cdots.
+\]
+此时 Cauchy 乘积就是第二个发散级数本身。
+
+(2) 设正项收敛级数为 $\sum a_n$，其和 $A>0$；正项发散级数为 $\sum b_n$。Cauchy 乘积通项
+\[
+ c_n=\sum_{i+j=n}a_ib_j
+\]
+均非负。取某个 $m$ 使有限部分和
+\[
+ A_m=\sum_{i=0}^{m}a_i>0.
+\]
+乘积的第 $N$ 个部分和可写为
+\[
+ C_N=\sum_{i+j\leq N}a_ib_j.
+\]
+当 $N>m$ 时
+\[
+ C_N\geq\sum_{i=0}^{m}a_i\sum_{j=0}^{N-m}b_j
+ =A_mB_{N-m}.
+\]
+由于 $B_{N-m}\to+\infty$，故 $C_N\to+\infty$。因此正项收敛级数与正项发散级数的 Cauchy 乘积一定发散。
+\end{xsolution}
+
+\section*{13.4.3\quad 练习题}
+
+\paragraph{练习题 1.}
+\begin{xsolution}
+(1) 第 $N$ 个部分乘积为
+\[
+ P_N=\prod_{n=1}^{N}\sqrt{\frac{n+1}{n+2}}
+ =\sqrt{\frac2{N+2}}\longrightarrow0.
+\]
+按本章约定，无穷乘积发散于 $0$。
+
+(2) 记 $\alpha_n=x^{2n+1}$。若 $|x|<1$，则
+\[
+ \sum_{n=1}^{\infty}|\alpha_n|
+ =\sum_{n=1}^{\infty}|x|^{2n+1}<\infty,
+\]
+所以无穷乘积绝对收敛。若 $|x|\geq1$，则因子 $1+x^{2n+1}$ 不趋于 $1$（$x=-1$ 时甚至恒有零因子），故无穷乘积不收敛。因此收敛当且仅当 $|x|<1$。
+
+(3) 取对数：
+\[
+ \sum_{n=1}^{\infty}\ln\sqrt[n]{1+\frac1n}
+ =\sum_{n=1}^{\infty}\frac1n\ln\left(1+\frac1n\right).
+\]
+其通项
+\[
+ \frac1n\ln\left(1+\frac1n\right)
+ \sim\frac1{n^2},
+\]
+故对数级数收敛，无穷乘积收敛。
+
+(4) 对任意固定实数 $p$，
+\[
+ p\ln\frac{n^2-1}{n^2+1}
+ =p\ln\left(1-\frac2{n^2+1}\right)
+ =-\frac{2p}{n^2}+\bigO(n^{-4}).
+\]
+对数级数绝对收敛，故无穷乘积对每个实数 $p$ 都收敛且极限非零（$p=0$ 时乘积恒为 $1$）。
+
+(5) 将相邻的偶、奇因子配对：
+\[
+ \left(1+\frac1{2k}\right)
+ \left(1-\frac1{2k+1}\right)
+ =\frac{2k+1}{2k}\cdot\frac{2k}{2k+1}=1.
+\]
+因此偶数个因子的部分乘积恒为 $1$，而奇数个因子的部分乘积为 $1+1/(2k)\to1$。故无穷乘积收敛于 $1$。但
+\[
+ \prod_{n=2}^{\infty}\left(1+\frac1n\right)
+\]
+发散，所以它不是绝对收敛的无穷乘积，而是条件收敛。
+
+(6) 令
+\[
+ p_n=\frac1\ee\left(1+\frac1n\right)^n.
+\]
+由展开式
+\[
+ n\ln\left(1+\frac1n\right)-1
+ =-\frac1{2n}+\bigO(n^{-2})
+\]
+可知
+\[
+ \sum_{n=1}^{N}\ln p_n\longrightarrow-\infty.
+\]
+故部分乘积趋于 $0$，无穷乘积发散于 $0$。
+\end{xsolution}
+
+\paragraph{练习题 2.}
+\begin{xsolution}
+记
+\[
+ P_n=\frac{(a+1)(a+2)\cdots(a+n)}{(b+1)(b+2)\cdots(b+n)}.
+\]
+则
+\[
+ \begin{aligned}
+ \ln P_n
+ &=\sum_{k=1}^{n}\ln\frac{k+a}{k+b}\\
+ &=\sum_{k=1}^{n}\ln\left(1+\frac{a-b}{k+b}\right)\\
+ &=(a-b)\sum_{k=1}^{n}\frac1k+C+\littleo(1)\\
+ &=(a-b)\ln n+C'+\littleo(1),
+ \end{aligned}
+\]
+其中常数项来自一个绝对收敛的 $\sum\bigO(k^{-2})$ 余项。因此存在 $C_0>0$ 使
+\[
+ P_n\sim C_0n^{a-b}.
+\]
+所以
+\[
+ \boxed{
+ \lim_{n\to\infty}P_n=
+ \begin{cases}
+ 0,&a<b,\\
+ 1,&a=b,\\
+ +\infty,&a>b.
+ \end{cases}}
+\]
+当 $a=b$ 时每个有限乘积本来就等于 $1$。
+\end{xsolution}
+
+\paragraph{练习题 3.}
+\begin{xsolution}
+因 $0<a_n<\pi/2$，有 $0<\cos a_n<1$。若无穷乘积 $\prod\cos a_n$ 收敛，则必有 $a_n\to0$。而当 $x\to0$ 时
+\[
+ -\ln(\cos x)\sim\frac{x^2}{2}.
+\]
+因此一旦 $a_n\to0$，正项级数
+\[
+ \sum_{n=1}^{\infty}[-\ln(\cos a_n)]
+\]
+与 $\sum a_n^2$ 同敛散。
+
+无穷乘积 $\prod\cos a_n$ 收敛的充分必要条件正是上述对数级数收敛，故
+\[
+ \boxed{\sum a_n^2\text{ 收敛}\Longleftrightarrow\prod_{n=1}^{\infty}\cos a_n\text{ 收敛}.}
+\]
+\end{xsolution}
+
+\paragraph{练习题 4.}
+\begin{xsolution}
+题设给出
+\[
+ n\left(\frac{a_n}{a_{n+1}}-1\right)\to r>0.
+\]
+于是
+\[
+ \frac{a_{n+1}}{a_n}=1-\frac r n+\littleo\left(\frac1n\right),
+\]
+故从某项起 $a_{n+1}<a_n$。又
+\[
+ 1-\frac{a_{n+1}}{a_n}
+ =\frac r n+\littleo\left(\frac1n\right),
+\]
+其正项级数发散。由 Sapagof 判别法（例题 13.4.2），$a_n\to0$。
+
+因此 $\{a_n\}$ 从某项起单调减少趋于 $0$，由 Leibniz 判别法
+\[
+ \sum_{n=1}^{\infty}(-1)^{n-1}a_n
+\]
+收敛。
+\end{xsolution}
+
+\paragraph{练习题 5.}
+\begin{xsolution}
+令
+\[
+ p_n=\frac{(n+\alpha)(n+\beta)}{(n+1)(n+\gamma)}.
+\]
+题设保证从 $n_0$ 起 $p_n>0$。展开得
+\[
+ p_n
+ =1+\frac{\alpha+\beta-1-\gamma}{n}+\bigO(n^{-2}).
+\]
+记
+\[
+ c=\alpha+\beta-1-\gamma.
+\]
+则
+\[
+ \ln p_n=\frac c n+\bigO(n^{-2}).
+\]
+若 $c=0$，对数级数绝对收敛，故无穷乘积收敛于非零有限数。若 $c>0$，对数部分和趋于 $+\infty$，乘积发散于 $+\infty$；若 $c<0$，对数部分和趋于 $-\infty$，乘积发散于 $0$。
+
+所以
+\[
+ \boxed{\prod_{n=n_0}^{\infty}\frac{(n+\alpha)(n+\beta)}{(n+1)(n+\gamma)}
+ \text{ 收敛}\Longleftrightarrow \alpha+\beta=\gamma+1.}
+\]
+\end{xsolution}
+
+\paragraph{练习题 6（Euler）.}
+\begin{xsolution}
+当 $0<x<1$ 时，下面出现的无穷乘积均绝对收敛，可以合法地取有限部分乘积后令极限。利用
+\[
+ 1+x^n=\frac{1-x^{2n}}{1-x^n},
+\]
+有
+\[
+ \prod_{n=1}^{N}(1+x^n)
+ =\frac{\prod_{n=1}^{N}(1-x^{2n})}{\prod_{n=1}^{N}(1-x^n)}.
+\]
+令 $N\to\infty$，分母中的所有正整数指数可分为偶数与奇数指数，而分子正好消去偶数指数的全部因子，所以
+\[
+ \prod_{n=1}^{\infty}(1+x^n)
+ =\frac1{\prod_{n=1}^{\infty}(1-x^{2n-1})}.
+\]
+即
+\[
+ \boxed{(1+x)(1+x^2)(1+x^3)\cdots
+ =\frac1{(1-x)(1-x^3)(1-x^5)\cdots}.}
+\]
+\end{xsolution}
+
+\paragraph{练习题 7（Stirling）.}
+\begin{xsolution}
+原书印刷题面按字面还需排除一个退化情形：若已知收敛的那个 $x=x_0$ 恰为非零整数，则从 $n\geq|x_0|$ 起每一项都因含有因子 $x_0^2-|x_0|^2$ 而等于 $0$，不能推出 $a_n$ 的任何信息。例如取 $x_0=1$、$a_n=1$，题中级数在 $x=1$ 时有限终止，但在 $x=1/2$ 时通项绝对值不趋于 $0$，故发散。因此原命题按字面不成立。
+
+下面证明非退化的正确形式：若级数在某个 $x_0\notin\ZZ$ 处收敛，则它对任意 $x$ 都收敛。
+
+写
+\[
+ u_n=a_n\prod_{k=1}^{n}(x_0^2-k^2),
+ \qquad
+ r_n(x)=\prod_{k=1}^{n}\frac{x^2-k^2}{x_0^2-k^2}.
+\]
+则已知 $\sum u_n$ 收敛，而待证级数为 $\sum u_nr_n(x)$。有
+\[
+ \frac{r_{n+1}(x)}{r_n(x)}
+ =\frac{1-x^2/(n+1)^2}{1-x_0^2/(n+1)^2}
+ =1+\bigO(n^{-2}).
+\]
+因此无穷乘积
+\[
+ \prod_{n}\frac{r_{n+1}(x)}{r_n(x)}
+\]
+绝对收敛，故 $r_n(x)$ 有有限非零极限，并且
+\[
+ r_{n+1}(x)-r_n(x)=r_n(x)\bigO(n^{-2}),
+\]
+从而
+\[
+ \sum_{n=1}^{\infty}|r_{n+1}(x)-r_n(x)|<\infty.
+\]
+若 $U_n=\sum_{k=1}^{n}u_k$，则 $U_n$ 收敛因而有界。由 Abel 变换，$\sum u_nr_n(x)$ 收敛。
+
+若目标 $x$ 为整数，则从某项起原级数各项为 $0$，当然也收敛。故在非整数的非退化前提下，确有“在一个 $x$ 值收敛则对任意 $x$ 收敛”的结论。
+\end{xsolution}
+
+\paragraph{练习题 8（Landau）.}
+\begin{xsolution}
+固定 $x\neq0,-1,-2,\ldots$。设
+\[
+ u_n=\frac{a_n}{n^x},
+ \qquad
+ v_n=\frac{n!a_n}{x(x+1)\cdots(x+n)}.
+\]
+则
+\[
+ v_n=r_nu_n,
+ \qquad
+ r_n=\frac{n!n^x}{x(x+1)\cdots(x+n)}.
+\]
+由本章 Euler--Gauss 公式 (13.38)，
+\[
+ r_n\longrightarrow\Gamma(x)\neq0.
+\]
+又
+\[
+ \frac{r_{n+1}}{r_n}
+ =\frac{n+1}{n+x+1}\left(1+\frac1n\right)^x
+ =1+\bigO(n^{-2}).
+\]
+因此 $\{r_n\}$ 有界且
+\[
+ \sum|r_{n+1}-r_n|<\infty.
+\]
+由 Abel 变换的乘子结论，若 $\sum u_n$ 收敛，则 $\sum r_nu_n=\sum v_n$ 收敛。
+
+反过来，因为 $r_n\to\Gamma(x)\neq0$，数列 $1/r_n$ 也有界，且
+\[
+ \sum\left|\frac1{r_{n+1}}-\frac1{r_n}\right|<\infty.
+\]
+再用同一结论可从 $\sum v_n$ 收敛推出 $\sum u_n$ 收敛。因此两个级数对完全相同的 $x$ 值收敛。
+\end{xsolution}
+
+\paragraph{练习题 9.}
+\begin{xsolution}
+由题设可写成
+\[
+ \frac{a_n}{a_{n+1}}
+ =1+\frac1n+\varepsilon_n,
+ \qquad |\varepsilon_n|\leq C|b_n|
+\]
+对充分大的 $n$ 成立，且 $\sum|b_n|<\infty$。
+
+令 $c_n=na_n$。则
+\[
+ \frac{c_{n+1}}{c_n}
+ =\left(1+\frac1n\right)\frac{a_{n+1}}{a_n}
+ =\frac{1+1/n}{1+1/n+\varepsilon_n}
+ =1+\bigO(b_n).
+\]
+因为 $\sum|b_n|$ 收敛，从某项起上述比值为正且与 $1$ 的差绝对可和。因此无穷乘积
+\[
+ \prod\frac{c_{n+1}}{c_n}
+\]
+收敛于非零有限值，也就是
+\[
+ c_n=na_n\longrightarrow C_0>0.
+\]
+故
+\[
+ a_n\sim\frac{C_0}{n},
+\]
+由与调和级数的极限比较，$\sum a_n$ 发散。
+\end{xsolution}
+
+\paragraph{练习题 10（Stirling 公式的又一证明）.}
+\begin{xsolution}
+令
+\[
+ s_n=\frac{n!\ee^n}{n^{n+1/2}}.
+\]
+则
+\[
+ \frac{s_{n+1}}{s_n}
+ =\ee\left(1+\frac1n\right)^{-n-1/2}.
+\]
+取对数并展开：
+\[
+ \begin{aligned}
+ \ln\frac{s_{n+1}}{s_n}
+ &=1-\left(n+\frac12\right)\ln\left(1+\frac1n\right)\\
+ &=-\frac1{12n^2}+\bigO(n^{-3}).
+ \end{aligned}
+\]
+故
+\[
+ \sum_{n=1}^{\infty}\left|\ln\frac{s_{n+1}}{s_n}\right|<\infty,
+\]
+所以 $s_n$ 有非零有限极限，记为 $L$。
+
+为求 $L$，利用 Wallis 公式给出的中心二项式系数渐近式
+\[
+ \binom{2n}{n}\sim\frac{4^n}{\sqrt{\pi n}}.
+\]
+直接计算
+\[
+ \frac{s_{2n}}{s_n^2}
+ =\binom{2n}{n}\frac{\sqrt n}{2^{2n+1/2}}
+ \longrightarrow\frac1{\sqrt{2\pi}}.
+\]
+另一方面左边趋于 $L/L^2=1/L$，故
+\[
+ \frac1L=\frac1{\sqrt{2\pi}},
+ \qquad
+ \boxed{L=\sqrt{2\pi}}.
+\]
+也就是说
+\[
+ n!\sim\sqrt{2\pi n}\left(\frac n\ee\right)^n,
+\]
+这就是 Stirling 公式。
+\end{xsolution}
+
+\section*{13.5.2\quad 第一组参考题}
+
+\paragraph{第一组参考题 1.}
+\begin{xsolution}
+记
+\[
+ P_n=(1+a_1)(1+a_2)\cdots(1+a_n).
+\]
+给出两种证明。
+
+\textbf{方法一。} 数列 $P_n$ 正且单调增加。若 $P_n\to+\infty$，则
+\[
+ 0<\frac{a_n}{P_n}
+ =\frac{a_n}{1+a_n}\frac1{P_{n-1}}
+ <\frac1{P_{n-1}}\longrightarrow0.
+\]
+若 $P_n$ 收敛于有限正数 $P$，则
+\[
+ 1+a_n=\frac{P_n}{P_{n-1}}\longrightarrow1,
+\]
+故 $a_n\to0$，而 $P_n\geq1$，所以 $a_n/P_n\to0$。
+
+\textbf{方法二。} 直接利用恒等式
+\[
+ \frac{a_n}{P_n}
+ =\frac1{P_{n-1}}-\frac1{P_n}.
+\]
+因此
+\[
+ \sum_{n=1}^{N}\frac{a_n}{P_n}
+ =1-\frac1{P_N}<1.
+\]
+这是收敛正项级数的部分和估计，所以其通项必趋于 $0$，即
+\[
+ \boxed{\lim_{n\to\infty}\frac{a_n}{(1+a_1)\cdots(1+a_n)}=0.}
+\]
+\end{xsolution}
+
+\paragraph{第一组参考题 2（Abel--Pringsheim 定理）.}
+\begin{xsolution}
+设 $a_n$ 单调减少且 $\sum a_n$ 收敛。对 $n\geq2$，令 $m=\lfloor n/2\rfloor$。则
+\[
+ (n-m)a_n\leq\sum_{k=m+1}^{n}a_k.
+\]
+右端是收敛级数的尾和，随 $n\to\infty$ 趋于 $0$；而 $n-m\geq n/2$，所以
+\[
+ 0\leq na_n\leq2\sum_{k=m+1}^{n}a_k\longrightarrow0.
+\]
+故 $na_n\to0$。
+
+若去掉单调条件，结论可以失败。例如定义
+\[
+ a_n=\begin{cases}
+ 2^{-k/2},&n=2^k,\ k=1,2,\ldots,\\
+ n^{-2},&n\neq2^k.
+ \end{cases}
+\]
+则 $\sum a_n$ 收敛，因为尖峰项所成级数 $\sum2^{-k/2}$ 收敛，其余项被 $\sum n^{-2}$ 控制；但
+\[
+ (2^k)a_{2^k}=2^{k/2}\to+\infty.
+\]
+所以非单调时 $na_n\to0$ 不成立。
+\end{xsolution}
+
+\paragraph{第一组参考题 3.}
+\begin{xsolution}
+令
+\[
+ c_n=\frac{a_n}{\sqrt n}.
+\]
+因 $a_n$ 单调减少且 $1/\sqrt n$ 单调减少，$c_n$ 也单调减少。题设 $\sum c_n$ 收敛，由上一题的 Abel--Pringsheim 定理，
+\[
+ nc_n=\sqrt n\,a_n\longrightarrow0.
+\]
+故对充分大的 $n$ 有 $a_n\leq1/\sqrt n$，于是
+\[
+ 0<a_n^2\leq\frac{a_n}{\sqrt n}=c_n.
+\]
+由比较判别法，$\sum a_n^2$ 收敛。
+\end{xsolution}
+
+\paragraph{第一组参考题 4.}
+\begin{xsolution}
+(1) 令
+\[
+ d_n=a_n-a_{n+1}\geq0.
+\]
+因为 $a_n\downarrow0$，有
+\[
+ a_n=\sum_{k=n}^{\infty}d_k.
+\]
+对非负二重级数交换求和顺序：
+\[
+ \sum_{n=1}^{\infty}a_n
+ =\sum_{n=1}^{\infty}\sum_{k=n}^{\infty}d_k
+ =\sum_{k=1}^{\infty}\sum_{n=1}^{k}d_k
+ =\sum_{k=1}^{\infty}k(a_k-a_{k+1}).
+\]
+这同时证明了两个正项级数同敛散；收敛时上述等式还给出相同的和。
+
+(2) 非单调时结论可失败。取上一题反例型的正数数列
+\[
+ a_n=\begin{cases}
+ 2^{-k/2},&n=2^k,\\
+ n^{-2},&n\neq2^k.
+ \end{cases}
+\]
+则 $\sum a_n$ 收敛，但 $na_n$ 不趋于 $0$。有限求和恒等式为
+\[
+ \sum_{k=1}^{N}k(a_k-a_{k+1})
+ =\sum_{k=1}^{N}a_k-Na_{N+1}.
+\]
+右边第一项有极限，而第二项 $Na_{N+1}$ 不趋于 $0$，故左边部分和无极限。因此 $\sum k(a_k-a_{k+1})$ 发散。
+\end{xsolution}
+
+\paragraph{第一组参考题 5.}
+\begin{xsolution}
+用差分级数判断。
+
+(1) 令 $A_n=H_n-\ln n$。则
+\[
+ A_{n+1}-A_n
+ =\frac1{n+1}-\ln\left(1+\frac1n\right)
+ =-\frac1{2n^2}+\bigO(n^{-3}).
+\]
+故 $\sum(A_{n+1}-A_n)$ 绝对收敛，所以数列 $A_n$ 收敛。
+
+(2) 令
+\[
+ A_n=\sum_{k=1}^{n}\frac1{\sqrt k}-2\sqrt n.
+\]
+则
+\[
+ \begin{aligned}
+ A_{n+1}-A_n
+ &=\frac1{\sqrt{n+1}}-2(\sqrt{n+1}-\sqrt n)\\
+ &=-\frac1{\sqrt{n+1}(\sqrt n+\sqrt{n+1})^2}
+ =\bigO(n^{-3/2}).
+ \end{aligned}
+\]
+故差分级数绝对收敛，$A_n$ 收敛。
+
+(3) 令
+\[
+ A_n=\sum_{k=2}^{n}\frac1{k\ln k}-\ln\ln n.
+\]
+令 $h(x)=1/(x\ln x)$。则
+\[
+ A_{n+1}-A_n=h(n+1)-\int_n^{n+1}h(x)\,\dd x.
+\]
+由中值定理及
+\[
+ h'(x)=\bigO\left(\frac1{x^2\ln x}\right)
+\]
+可得
+\[
+ A_{n+1}-A_n=\bigO\left(\frac1{n^2\ln n}\right).
+\]
+故差分级数绝对收敛，$A_n$ 收敛。
+\end{xsolution}
+
+\paragraph{第一组参考题 6.}
+\begin{xsolution}
+(1) 记
+\[
+ A_n=\sum_{k=1}^{n}f(k)-\int_1^n f(x)\,\dd x.
+\]
+因 $f$ 非负单调减少，
+\[
+ A_{n+1}-A_n
+ =f(n+1)-\int_n^{n+1}f(x)\,\dd x\leq0,
+\]
+所以 $A_n$ 单调减少。另一方面
+\[
+ \int_1^n f(x)\,\dd x
+ \leq\sum_{k=1}^{n-1}f(k),
+\]
+故
+\[
+ A_n\geq f(n)\geq0.
+\]
+于是 $A_n$ 有极限 $A\geq0$。又 $A_1=f(1)$ 且 $A_n\leq A_1$，所以
+\[
+ 0\leq A\leq f(1).
+\]
+
+(2) 写成 Riemann 和形式
+\[
+ S(x)=\sum_{n=1}^{\infty}\frac{x}{x^2+n^2}
+ =\frac1x\sum_{n=1}^{\infty}\frac1{1+(n/x)^2}.
+\]
+固定 $M>0$。当 $x\to+\infty$ 时，前 $\lfloor Mx\rfloor$ 项是函数 $g(t)=1/(1+t^2)$ 在 $[0,M]$ 上的 Riemann 和，故
+\[
+ \frac1x\sum_{n=1}^{\lfloor Mx\rfloor}g(n/x)
+ \longrightarrow\int_0^M\frac{\dd t}{1+t^2}.
+\]
+尾项由 $g$ 单调减少估计：
+\[
+ 0\leq\frac1x\sum_{n> Mx}g(n/x)
+ \leq\int_M^{+\infty}\frac{\dd t}{1+t^2}+\frac1x g(M).
+\]
+先令 $x\to+\infty$，再令 $M\to+\infty$，得到
+\[
+ \lim_{x\to+\infty}S(x)
+ =\int_0^{+\infty}\frac{\dd t}{1+t^2}
+ =\boxed{\frac\pi2}.
+\]
+\end{xsolution}
+
+\paragraph{第一组参考题 7.}
+\begin{xsolution}
+若 $\sum f(1/n)$ 绝对收敛，则 $f(1/n)\to0$。由 $f''(0)$ 存在可知 $f$ 在 $0$ 处连续，故 $f(0)=0$。若 $f'(0)\neq0$，则
+\[
+ f(x)=f'(0)x+\littleo(x),\qquad x\to0,
+\]
+于是
+\[
+ |f(1/n)|\sim\frac{|f'(0)|}{n},
+\]
+绝对值级数发散，矛盾。因此必要条件是
+\[
+ f(0)=f'(0)=0.
+\]
+
+反之，若这两个等式成立，由二阶 Peano 展开
+\[
+ f(x)=\frac{f''(0)}2x^2+\littleo(x^2),
+\]
+故存在 $C>0$ 使对充分大的 $n$ 有
+\[
+ |f(1/n)|\leq\frac C{n^2}.
+\]
+所以 $\sum|f(1/n)|$ 收敛。充分性得证。
+\end{xsolution}
+
+\paragraph{第一组参考题 8.}
+\begin{xsolution}
+(1) 直接望远镜：
+\[
+ \sum_{n=1}^{N}[f(n+1)-f(n)]=f(N+1)-f(1)\longrightarrow A-f(1).
+\]
+故级数收敛，和为
+\[
+ \boxed{A-f(1)}.
+\]
+
+(2) 因 $f$ 单调增加且可微，$f'(x)\geq0$；又 $f''(x)<0$，所以 $f'$ 单调减少。且
+\[
+ \int_1^{+\infty}f'(x)\,\dd x
+ =A-f(1)<\infty.
+\]
+由 Cauchy 积分判别法，正项级数
+\[
+ \sum_{n=1}^{\infty}f'(n)
+\]
+收敛。
+\end{xsolution}
+
+\paragraph{第一组参考题 9（二重正项级数的求和顺序交换定理）.}
+\begin{xsolution}
+记
+\[
+ T=\sum_{n=1}^{\infty}a_n<\infty,
+ \qquad
+ a_n=\sum_{k=1}^{\infty}a_{n,k}.
+\]
+对任意 $N,K$，有限矩形和
+\[
+ T_{N,K}=\sum_{n=1}^{N}\sum_{k=1}^{K}a_{n,k}
+\]
+满足 $0\leq T_{N,K}\leq T$。
+
+固定 $K$，令 $N\to\infty$，可知每个列和 $\sum_n a_{n,k}$ 收敛，并有
+\[
+ \sum_{k=1}^{K}\sum_{n=1}^{\infty}a_{n,k}\leq T.
+\]
+再令 $K\to\infty$，得到
+\[
+ \sum_{k=1}^{\infty}\sum_{n=1}^{\infty}a_{n,k}\leq T.
+\]
+
+另一方面，对任意固定 $N$，令 $K\to\infty$，
+\[
+ \sum_{n=1}^{N}\sum_{k=1}^{\infty}a_{n,k}
+ =\sum_{n=1}^{N}a_n.
+\]
+而左边不超过 $\sum_k\sum_n a_{n,k}$。令 $N\to\infty$ 得
+\[
+ T\leq\sum_{k=1}^{\infty}\sum_{n=1}^{\infty}a_{n,k}.
+\]
+两边合并即
+\[
+ \boxed{
+ \sum_{n=1}^{\infty}a_n
+ =\sum_{n=1}^{\infty}\sum_{k=1}^{\infty}a_{n,k}
+ =\sum_{k=1}^{\infty}\sum_{n=1}^{\infty}a_{n,k}.}
+\]
+\end{xsolution}
+
+\paragraph{第一组参考题 10.}
+\begin{xsolution}
+因所有项均非负，可以交换求和顺序：
+\[
+ \begin{aligned}
+ \sum_{m=2}^{\infty}s_m
+ &=\sum_{m=2}^{\infty}\sum_{n=2}^{\infty}\frac1{n^m}\\
+ &=\sum_{n=2}^{\infty}\sum_{m=2}^{\infty}\frac1{n^m}\\
+ &=\sum_{n=2}^{\infty}\frac{1/n^2}{1-1/n}
+ =\sum_{n=2}^{\infty}\frac1{n(n-1)}\\
+ &=\sum_{n=2}^{\infty}\left(\frac1{n-1}-\frac1n\right)=1.
+ \end{aligned}
+\]
+故
+\[
+ \boxed{\sum_{m=2}^{\infty}s_m=1.}
+\]
+\end{xsolution}
+
+\paragraph{第一组参考题 11.}
+\begin{xsolution}
+记
+\[
+ S_n=\sum_{k=1}^{n}a_k.
+\]
+题设有界的数列恰为
+\[
+ S_n-na_n
+ =\sum_{k=1}^{n}(a_k-a_n).
+\]
+又因 $a_n$ 单调减少，令 $d_n=a_n-a_{n+1}\geq0$，则有限求和给出
+\[
+ S_n-na_n=\sum_{k=1}^{n-1}k(a_k-a_{k+1})
+ =\sum_{k=1}^{n-1}kd_k.
+\]
+右端是正项级数的部分和。题设有界说明
+\[
+ \sum_{k=1}^{\infty}kd_k<\infty.
+\]
+由于 $a_n\downarrow0$，有 $a_n=\sum_{j=n}^{\infty}d_j$。交换非负二重求和次序：
+\[
+ \sum_{n=1}^{\infty}a_n
+ =\sum_{n=1}^{\infty}\sum_{j=n}^{\infty}d_j
+ =\sum_{j=1}^{\infty}j d_j<\infty.
+\]
+故 $\sum a_n$ 收敛。
+\end{xsolution}
+
+\paragraph{第一组参考题 12.}
+\begin{xsolution}
+令
+\[
+ d_n=a_n-a_{n+1}.
+\]
+题设说 $\{d_n\}$ 严格单调减少。因 $a_n>0$ 且 $a_n\to0$，必有 $d_n>0$：若某个 $d_N\leq0$，则以后 $d_n<d_N\leq0$，从而 $a_n$ 不可能保持正且趋于 $0$。
+
+于是 $a_n\downarrow0$，并由第一组参考题 4 的恒等式
+\[
+ \sum_{n=1}^{\infty}n d_n=\sum_{n=1}^{\infty}a_n<\infty.
+\]
+因此加权尾和
+\[
+ T_n=\sum_{j=n}^{\infty}j d_j\longrightarrow0.
+\]
+又由 $d_j\leq d_n$（$j\geq n$），有
+\[
+ \begin{aligned}
+ a_n^2
+ &=\left(\sum_{j=n}^{\infty}d_j\right)^2\\
+ &\leq2d_n\sum_{j=n}^{\infty}(j-n+1)d_j
+ \leq2d_nT_n.
+ \end{aligned}
+\]
+这里第一步可由展开平方后按两指标中的较大者分组得到。故
+\[
+ 0\leq\frac{a_n^2}{d_n}\leq2T_n\longrightarrow0,
+\]
+即 $d_n/a_n^2\to+\infty$。最后
+\[
+ \frac1{a_{n+1}}-\frac1{a_n}
+ =\frac{d_n}{a_na_{n+1}}
+ \geq\frac{d_n}{a_n^2}\longrightarrow+\infty.
+\]
+得证。
+\end{xsolution}
+
+\paragraph{第一组参考题 13.}
+\begin{xsolution}
+令 $b_n=na_n>0$。题设 $\{b_n\}$ 单调。它不可能单调增加，否则 $b_n\geq b_1>0$，从而
+\[
+ \sum a_n=\sum\frac{b_n}{n}\geq b_1\sum\frac1n
+\]
+发散。因此 $b_n$ 必单调减少。
+
+令 $m=\lceil\sqrt n\rceil$。由 $b_k\geq b_n$（$m\leq k\leq n$），有
+\[
+ \sum_{k=m}^{n}a_k
+ =\sum_{k=m}^{n}\frac{b_k}{k}
+ \geq b_n\sum_{k=m}^{n}\frac1k.
+\]
+左边是收敛级数的尾和，趋于 $0$；而
+\[
+ \sum_{k=m}^{n}\frac1k\sim\ln\frac n{\sqrt n}=\frac12\ln n.
+\]
+故
+\[
+ 0\leq b_n\ln n
+ \leq(2+\littleo(1))\sum_{k=m}^{n}a_k\longrightarrow0.
+\]
+即
+\[
+ \boxed{na_n\ln n\to0.}
+\]
+\end{xsolution}
+
+\paragraph{第一组参考题 14.}
+\begin{xsolution}
+Fibonacci 型递推给出
+\[
+ a_n=a_{n-1}+a_{n-2}\geq2a_{n-2}
+\]
+，因为数列严格增加，$a_{n-1}\geq a_{n-2}$。因此
+\[
+ a_{2k}\geq2^{k-1}a_2=2^k,
+ \qquad
+ a_{2k+1}\geq2^{k-1}a_3.
+\]
+所以存在常数 $C>0$ 使
+\[
+ \frac1{a_n}\leq C\,2^{-n/2}
+\]
+对所有充分大的 $n$ 成立。右端是收敛几何级数的通项，故由比较判别法
+\[
+ \sum_{n=1}^{\infty}\frac1{a_n}
+\]
+收敛。
+\end{xsolution}
+
+\paragraph{第一组参考题 15.}
+\begin{xsolution}
+由递推式
+\[
+ a_{n+1}=\frac{a_n}{1+a_n^p}
+\]
+知 $0<a_{n+1}<a_n$，故 $a_n\to L\geq0$。令极限进入递推式得
+\[
+ L=\frac{L}{1+L^p},
+\]
+所以 $L=0$。
+
+令 $y_n=a_n^{-p}\to+\infty$。则
+\[
+ \begin{aligned}
+ y_{n+1}-y_n
+ &=a_n^{-p}\bigl[(1+a_n^p)^p-1\bigr]\\
+ &=\frac{(1+1/y_n)^p-1}{1/y_n}\longrightarrow p.
+\end{aligned}
+\]
+由 Stolz 定理
+\[
+ \frac{y_n}{n}\longrightarrow p,
+\]
+即
+\[
+ a_n\sim(pn)^{-1/p}.
+\]
+因 $0<p<1$，有 $1/p>1$，故与 $p$ 级数比较可知
+\[
+ \boxed{\sum_{n=1}^{\infty}a_n\text{ 收敛}.}
+\]
+\end{xsolution}
+
+\paragraph{第一组参考题 16.}
+\begin{xsolution}
+当 $p>1/2$ 时，由 Cauchy--Schwarz 不等式，
+\[
+ \sum_{n=1}^{N}\frac{\sqrt{a_n}}{n^p}
+ \leq
+ \left(\sum_{n=1}^{N}a_n\right)^{1/2}
+ \left(\sum_{n=1}^{N}\frac1{n^{2p}}\right)^{1/2}.
+\]
+右端在 $N\to\infty$ 时有统一上界，所以正项级数
+\[
+ \sum_{n=1}^{\infty}\frac{\sqrt{a_n}}{n^p}
+\]
+收敛。
+
+当 $p=1/2$ 时结论可能失败。取 $n\geq2$ 时
+\[
+ a_n=\frac1{n(\ln n)^2}.
+\]
+则 $\sum a_n$ 收敛，而
+\[
+ \frac{\sqrt{a_n}}{n^{1/2}}=\frac1{n\ln n},
+\]
+所成级数发散。
+\end{xsolution}
+
+\paragraph{第一组参考题 17.}
+\begin{xsolution}
+(1) 若 $\sum\sin n$ 收敛，则必要条件给出 $\sin n\to0$。于是
+\[
+ \sin(n+1)=\sin n\cos1+\cos n\sin1\to0.
+\]
+因为 $\sin1\neq0$，可推出 $\cos n\to0$，这与
+\[
+ \sin^2n+\cos^2n=1
+\]
+矛盾。故 $\sum\sin n$ 发散。
+
+(2) 若 $\sum\sin n^2$ 收敛，则 $\sin n^2\to0$。于是
+\[
+ \begin{aligned}
+ \sin(2n+1)
+ &=\sin((n+1)^2-n^2)\\
+ &=\sin((n+1)^2)\cos(n^2)-\cos((n+1)^2)\sin(n^2)\to0.
+\end{aligned}
+\]
+同理 $\sin(2n+3)\to0$。再利用
+\[
+ \sin2
+ =\sin[(2n+3)-(2n+1)]
+\]
+展开右端，因两列正弦均趋于 $0$、余弦有界，可得 $\sin2=0$，矛盾。故 $\sum\sin n^2$ 发散。
+\end{xsolution}
+
+\paragraph{第一组参考题 18.}
+\begin{xsolution}
+四个问题逐一讨论。
+
+(1) 无统一结论。若 $a_n=1/n$，则
+\[
+ \frac{a_n}{1+n^2a_n^2}=\frac1{2n},
+\]
+级数发散；若 $a_n=1/\sqrt n$，则原级数发散而
+\[
+ \frac{a_n}{1+n^2a_n^2}
+ =\frac{n^{-1/2}}{1+n}\leq n^{-3/2},
+\]
+所以新级数收敛。
+
+(2) 也无统一结论。取 $a_n=1/n$ 时新级数为 $\sum1/(2n)$，发散。另一方面令
+\[
+ a_n=\begin{cases}
+ 1,&n=2^k,\\
+ n^{-2},&\text{其他 }n,
+ \end{cases}
+\]
+则 $\sum a_n$ 因无穷多个 $1$ 而发散，但在 $n=2^k$ 处
+\[
+ \frac{a_n}{1+na_n}=\frac1{1+2^k},
+\]
+可求和；其他项不超过 $1/n^2$。故新级数收敛。
+
+(3) 必发散。若有无穷多个 $a_n\geq1$，则对应新通项至少为 $1/2$，连通项都不趋于 $0$。否则从某项起 $0<a_n<1$，于是
+\[
+ \frac{a_n}{1+a_n}\geq\frac{a_n}{2}.
+\]
+原级数发散，由比较判别法新级数也发散。
+
+(4) 无统一结论。取 $a_n=1/n$ 时新级数与 $1/n$ 等价，发散。若令
+\[
+ a_n=\begin{cases}
+ 2^k,&n=2^k,\\
+ n^{-2},&\text{其他 }n,
+ \end{cases}
+\]
+则原级数发散，而尖峰处
+\[
+ \frac{a_{2^k}}{1+a_{2^k}^2}
+ =\frac{2^k}{1+4^k}\leq2^{-k},
+\]
+其他项不超过 $1/n^2$，故新级数收敛。
+\end{xsolution}
+
+\paragraph{第一组参考题 19.}
+\begin{xsolution}
+记原级数部分和为 $S_n\to S$，并令
+\[
+ T_n=a_1+2a_2+\cdots+na_n.
+\]
+由求和分部恒等式
+\[
+ T_n=nS_n-\sum_{k=1}^{n-1}S_k.
+\]
+于是
+\[
+ \frac{T_n}{n}
+ =S_n-\frac1n\sum_{k=1}^{n-1}S_k\longrightarrow S-S=0,
+\]
+其中用了收敛数列的 Cesàro 平均仍收敛于同一极限。这证明了 (1)。
+
+对 (2)，有限换序得
+\[
+ \begin{aligned}
+ \sum_{n=1}^{N}\frac{T_n}{n(n+1)}
+ &=\sum_{n=1}^{N}\frac1{n(n+1)}\sum_{k=1}^{n}ka_k\\
+ &=\sum_{k=1}^{N}ka_k\sum_{n=k}^{N}\frac1{n(n+1)}\\
+ &=\sum_{k=1}^{N}ka_k\left(\frac1k-\frac1{N+1}\right)\\
+ &=S_N-\frac{T_N}{N+1}.
+\end{aligned}
+\]
+由 (1) 知 $T_N/(N+1)\to0$，所以该级数收敛且其和为
+\[
+ \boxed{S}.
+\]
+\end{xsolution}
+
+\paragraph{第一组参考题 20.}
+\begin{xsolution}
+证明其逆否命题。假设存在某个固定 $N$，对所有 $n$ 都有
+\[
+ |n-f(n)|\leq N.
+\]
+令原级数和重排级数的第 $m$ 个部分和分别为
+\[
+ S_m=\sum_{j=1}^{m}a_j,
+ \qquad
+ T_m=\sum_{n=1}^{m}a_{f(n)}.
+\]
+由于 $f$ 是排列，若 $j\leq m-N$，设 $j=f(n)$，则
+\[
+ n\leq j+N\leq m,
+\]
+所以原来的前 $m-N$ 项全都已经出现在 $T_m$ 中；另一方面，$n\leq m$ 时
+\[
+ f(n)\leq n+N\leq m+N.
+\]
+因此 $T_m-S_m$ 只可能涉及原级数中指标位于
+\[
+ m-N+1,\ldots,m+N
+\]
+的有限至多 $2N$ 个项，且每项系数为 $0,1$ 或 $-1$。因为收敛级数满足 $a_j\to0$，故
+\[
+ |T_m-S_m|\leq\sum_{j=m-N+1}^{m+N}|a_j|\longrightarrow0.
+\]
+于是 $T_m\to S$，即重排和必有 $t=s$。
+
+所以若 $t\neq s$，就不可能存在统一的位移界；也就是说，对任意 $N$ 都存在某个 $n$ 使
+\[
+ \boxed{|n-f(n)|>N}.
+\]
+\end{xsolution}
+
+\section*{13.5.2\quad 第二组参考题}
+
+\paragraph{第二组参考题 1.}
+\begin{xsolution}
+记
+\[
+ S_n=a_1+a_2+\cdots+a_n.
+\]
+由例题 13.2.6，在 $\sum1/a_n$ 收敛的条件下，已有
+\[
+ \sum_{n=1}^{\infty}\frac{n}{S_n}<\infty.
+\]
+令 $c_n=1/S_n$。对 $n\geq2$，
+\[
+ c_{n-1}-c_n
+ =\frac{a_n}{S_{n-1}S_n}
+ \geq\frac{a_n}{S_n^2}.
+\]
+故
+\[
+ \sum_{n=2}^{N}\frac{n^2a_n}{S_n^2}
+ \leq\sum_{n=2}^{N}n^2(c_{n-1}-c_n).
+\]
+右边可作求和分部：
+\[
+ \begin{aligned}
+ \sum_{n=2}^{N}n^2(c_{n-1}-c_n)
+ &=4c_1+\sum_{n=2}^{N-1}\bigl[(n+1)^2-n^2\bigr]c_n-N^2c_N\\
+ &\leq4c_1+\sum_{n=2}^{\infty}\frac{2n+1}{S_n}.
+\end{aligned}
+\]
+而 $\sum n/S_n$ 收敛，故 $\sum(2n+1)/S_n$ 也收敛。于是题中正项级数的部分和有统一上界，故
+\[
+ \boxed{\sum_{n=1}^{\infty}\frac{n^2a_n}{(a_1+\cdots+a_n)^2}\text{ 收敛}.}
+\]
+\end{xsolution}
+
+\paragraph{第二组参考题 2.}
+\begin{xsolution}
+令
+\[
+ S_n=a+a_1+\cdots+a_n,
+ \qquad S_0=a.
+\]
+对函数 $x^{-1/2}$ 在 $[S_{n-1},S_n]$ 上用中值定理，存在 $\xi_n\in(S_{n-1},S_n)$ 使
+\[
+ \frac1{\sqrt{S_{n-1}}}-\frac1{\sqrt{S_n}}
+ =\frac{a_n}{2\xi_n^{3/2}}
+ \geq\frac{a_n}{2S_n^{3/2}}.
+\]
+因此
+\[
+ \frac{a_n}{S_n^{3/2}}
+ \leq2\left(\frac1{\sqrt{S_{n-1}}}-\frac1{\sqrt{S_n}}\right).
+\]
+求和得到
+\[
+ \sum_{n=1}^{N}\frac{a_n}{S_n^{3/2}}
+ \leq2\left(\frac1{\sqrt a}-\frac1{\sqrt{S_N}}\right)
+ <\frac2{\sqrt a}.
+\]
+令 $N\to\infty$，可知级数收敛，且
+\[
+ \boxed{S\leq\frac2{\sqrt a}}.
+\]
+\end{xsolution}
+
+\paragraph{第二组参考题 3.}
+\begin{xsolution}
+令 $m=\lceil n/2\rceil$。对 $m\leq k\leq n$，有 $k\leq n\leq2k$，所以把题设条件中的基准指标取为 $k$、另一指标取为 $n$，得到
+\[
+ a_n\leq Ma_k,
+ \qquad\text{即}\qquad
+ a_k\geq\frac{a_n}{M}.
+\]
+因此
+\[
+ \sum_{k=m}^{n}a_k
+ \geq(n-m+1)\frac{a_n}{M}
+ \geq\frac{n a_n}{2M}.
+\]
+左边是收敛正项级数的尾部，随 $n\to\infty$ 趋于 $0$，故
+\[
+ 0\leq na_n\leq2M\sum_{k=m}^{n}a_k\longrightarrow0.
+\]
+即
+\[
+ \boxed{na_n\to0}. 
+\]
+\end{xsolution}
+
+\paragraph{第二组参考题 4.}
+\begin{xsolution}
+构造分块常值数列。令
+\[
+ c_0=1,
+ \qquad
+ c_k=2^{-k(k+1)/2}\quad(k\geq1),
+ \qquad
+ L_k=\frac1{c_{k-1}}=2^{(k-1)k/2}.
+\]
+把正整数依次分成长度为 $L_1,L_2,\ldots$ 的区块。在第 $k$ 个区块上定义
+\[
+ (a_n,b_n)=
+ \begin{cases}
+ (c_{k-1},c_k),&k\text{ 为奇数},\\
+ (c_k,c_{k-1}),&k\text{ 为偶数}.
+ \end{cases}
+\]
+由于相邻区块只把其中一个数列从 $c_{k-1}$ 降到更小的 $c_{k+1}$，另一个保持原值，所以 $\{a_n\}$ 和 $\{b_n\}$ 都单调减少且为正。
+
+在每个奇数区块上，$a_n=c_{k-1}$，故该区块对 $\sum a_n$ 的贡献为
+\[
+ L_kc_{k-1}=1.
+\]
+有无穷多个奇数区块，所以 $\sum a_n$ 发散。同理，每个偶数区块对 $\sum b_n$ 的贡献为 $1$，故 $\sum b_n$ 也发散。
+
+另一方面，在第 $k$ 个区块上
+\[
+ \min\{a_n,b_n\}=c_k,
+\]
+所以该区块对最小值级数的贡献为
+\[
+ L_kc_k=\frac{c_k}{c_{k-1}}=2^{-k}.
+\]
+因此
+\[
+ \sum_{n=1}^{\infty}\min\{a_n,b_n\}
+ =\sum_{k=1}^{\infty}2^{-k}<\infty.
+\]
+所需构造完成。
+\end{xsolution}
+
+\paragraph{第二组参考题 5（Frink 判别法）.}
+\begin{xsolution}
+记
+\[
+ r_n=\frac{a_{n+1}}{a_n}>0.
+\]
+先设 $0<\lambda<+\infty$。由 $r_n^n\to\lambda$ 得
+\[
+ n\ln r_n\to\ln\lambda,
+\]
+从而 $r_n\to1$，并且
+\[
+ n\left(\frac{a_n}{a_{n+1}}-1\right)
+ =n\left(\frac1{r_n}-1\right)
+ \longrightarrow-\ln\lambda.
+\]
+这是 Raabe 判别法中的极限。因此当
+\[
+ -\ln\lambda>1\iff\lambda<\ee^{-1}
+\]
+时级数收敛；当
+\[
+ -\ln\lambda<1\iff\lambda>\ee^{-1}
+\]
+时级数发散。
+
+若 $\lambda=0$，任取 $M>1$，对充分大的 $n$ 有 $r_n^n<\ee^{-M}$，故
+\[
+ \frac{a_n}{a_{n+1}}=\frac1{r_n}>\ee^{M/n},
+\]
+从而 Raabe 表达式最终大于一个大于 $1$ 的常数，级数收敛。若允许广义极限 $\lambda=+\infty$，同理可得 Raabe 表达式最终小于 $1$，故级数发散。
+\end{xsolution}
+
+\paragraph{第二组参考题 6（Ermakov 判别法）.}
+\begin{xsolution}
+由 Cauchy 积分判别法，只需讨论
+\[
+ \int_a^{+\infty}f(x)\,\dd x
+\]
+的敛散性。取充分大的 $A$，以下均设 $x\geq A$。
+
+若 $p<1$，取 $q$ 使 $p<q<1$。由极限条件，对充分大的 $x$ 有
+\[
+ \ee^xf(\ee^x)\leq qf(x).
+\]
+从 $A$ 到 $Y$ 积分并令 $t=\ee^x$，得到
+\[
+ \int_{\ee^A}^{\ee^Y}f(t)\,\dd t
+ \leq q\int_A^Y f(x)\,\dd x.
+\]
+令
+\[
+ C=\int_A^{\ee^A}f(x)\,\dd x,
+ \qquad
+ J_Y=\int_{\ee^A}^{Y}f(x)\,\dd x.
+\]
+当 $Y$ 足够大时，左边至少为 $J_Y$，右边等于 $q(C+J_Y)$，故
+\[
+ J_Y\leq q(C+J_Y),
+ \qquad
+ J_Y\leq\frac{qC}{1-q}.
+\]
+所以广义积分收敛，从而级数收敛。
+
+若 $p>1$，取 $q$ 使 $1<q<p$。对充分大的 $x$ 有
+\[
+ \ee^xf(\ee^x)\geq qf(x),
+\]
+故
+\[
+ \int_{\ee^A}^{\ee^Y}f(t)\,\dd t
+ \geq q\int_A^Y f(x)\,\dd x.
+\]
+若反设广义积分收敛，令 $Y\to\infty$，记
+\[
+ L=\int_{\ee^A}^{+\infty}f(x)\,\dd x,
+\]
+则得到
+\[
+ L\geq q(C+L)>C+L,
+\]
+矛盾。故广义积分发散，级数也发散。
+\end{xsolution}
+
+\paragraph{第二组参考题 7（Lobachevski 判别法）.}
+\begin{xsolution}
+对每个 $k$，令 $m_k$ 为满足
+\[
+ 2^{-m_k}\leq a_k<2^{1-m_k}
+\]
+的唯一整数。因 $a_k\downarrow0$，$m_k\to\infty$。由
+\[
+ b_m=\max\{k\mid a_k\geq2^{-m}\}
+\]
+可知
+\[
+ b_m\geq k\quad\Longleftrightarrow\quad m\geq m_k.
+\]
+所有项非负，所以可以交换求和次序：
+\[
+ \begin{aligned}
+ \sum_{m=1}^{\infty}b_m2^{-m}
+ &=\sum_{m=1}^{\infty}2^{-m}\sum_{k=1}^{b_m}1\\
+ &=\sum_{k=1}^{\infty}\sum_{m=m_k}^{\infty}2^{-m}\\
+ &=\sum_{k=1}^{\infty}2^{1-m_k}.
+\end{aligned}
+\]
+而由 $m_k$ 的定义
+\[
+ a_k<2^{1-m_k}\leq2a_k.
+\]
+因此正项级数 $\sum2^{1-m_k}$ 与 $\sum a_k$ 同敛散，进而
+\[
+ \boxed{\sum a_n\text{ 与 }\sum b_n2^{-n}\text{ 同敛散}.}
+\]
+\end{xsolution}
+
+\paragraph{第二组参考题 8.}
+\begin{xsolution}
+(1) 递推式可写为
+\[
+ a_n=n(a_{n-1}+1),\qquad n\geq2.
+\]
+令 $b_n=a_n/n!$，则
+\[
+ b_n=b_{n-1}+\frac1{(n-1)!},
+ \qquad b_1=1.
+\]
+所以
+\[
+ b_{N+1}=\sum_{j=0}^{N}\frac1{j!}\longrightarrow\ee.
+\]
+另一方面
+\[
+ 1+\frac1{a_n}=\frac{a_n+1}{a_n}=\frac{a_{n+1}}{(n+1)a_n},
+\]
+故部分乘积望远镜：
+\[
+ \prod_{n=1}^{N}\left(1+\frac1{a_n}\right)
+ =\frac{a_{N+1}}{(N+1)!}=b_{N+1}\longrightarrow\ee.
+\]
+
+(2) 记 $N=2^m$，并把题中一直乘到指数 $1/N$ 的有限乘积记为 $P_N$。令
+\[
+ B_2=2,
+\]
+而当 $N=4L\geq4$ 时，第 $N$ 层括号内的乘积为
+\[
+ B_N=\prod_{r=L}^{2L-1}\frac{4r(r+1)}{(2r+1)^2}.
+\]
+直接整理偶数、奇数阶乘得到
+\[
+ B_N
+ =2^{N+1}\frac{\Gamma(N/2)^6}{\Gamma(N/4)^4\Gamma(N)^2}.
+\]
+令
+\[
+ F_N=P_N^N.
+\]
+由于加入第 $N$ 层时 $P_N=P_{N/2}B_N^{1/N}$，有递推
+\[
+ F_N=F_{N/2}^2B_N,
+ \qquad F_2=8.
+\]
+由数学归纳法得到
+\[
+ F_N
+ =2^{N(\log_2N+1)-1}
+ \left(\frac{\Gamma(N/2)}{\Gamma(N)}\right)^2.
+\]
+因此
+\[
+ P_N
+ =2^{\log_2N+1-1/N}
+ \left(\frac{\Gamma(N/2)}{\Gamma(N)}\right)^{2/N}.
+\]
+利用 Stirling 公式的对数形式
+\[
+ \ln\Gamma(t)=\left(t-\frac12\right)\ln t-t+\bigO(1),
+\]
+可得
+\[
+ \begin{aligned}
+ \ln P_N
+ &=\ln(2N)-\frac{\ln2}{N}
+ +\frac2N\bigl[\ln\Gamma(N/2)-\ln\Gamma(N)\bigr]\\
+ &=1+\littleo(1).
+\end{aligned}
+\]
+故
+\[
+ \boxed{P_N\longrightarrow\ee}.
+\]
+所以题中第二个无穷乘积也收敛于自然对数的底 $\ee$。
+\end{xsolution}
+
+\paragraph{第二组参考题 9.}
+\begin{xsolution}
+设 $p\leq1$。取互不相交的整数区间
+\[
+ I_k=\left\{n:\ \ee^{2\pi k-\pi/3}\leq n\leq\ee^{2\pi k+\pi/3}\right\}.
+\]
+当 $n\in I_k$ 时，$\ln n$ 与 $2\pi k$ 的距离不超过 $\pi/3$，故
+\[
+ \cos(\ln n)\geq\frac12.
+\]
+于是对应的连续一段级数之和满足
+\[
+ \sum_{n\in I_k}\frac{\cos(\ln n)}{n^p}
+ \geq\frac12\sum_{n\in I_k}\frac1{n^p}.
+\]
+若 $p=1$，右端随 $k\to\infty$ 有正的统一下界，因为
+\[
+ \sum_{n\in I_k}\frac1n
+ \longrightarrow \ln\frac{\ee^{2\pi k+\pi/3}}{\ee^{2\pi k-\pi/3}}
+ =\frac{2\pi}{3}.
+\]
+若 $p<1$，则右端甚至按常数倍 $\ee^{(1-p)2\pi k}$ 增长而不趋于 $0$。因此存在任意靠后的连续区间，其项和不趋于 $0$，违反 Cauchy 收敛准则。
+
+故对所有
+\[
+ \boxed{p\leq1}
+\]
+级数都发散。
+\end{xsolution}
+
+\paragraph{第二组参考题 10.}
+\begin{xsolution}
+令 $c_n=na_n$。题设为 $\sum c_n$ 收敛。
+
+先说明 $\sum a_n$ 收敛。因为
+\[
+ a_n=\frac{c_n}{n},
+\]
+而 $1/n$ 单调趋于 $0$，由 Abel--Dirichlet 乘子判别，$\sum a_n$ 收敛。
+
+(1) 固定正整数 $k$，令 $m=n+k$，则
+\[
+ \sum_{n=1}^{\infty}na_{n+k}
+ =\sum_{m=k+1}^{\infty}(m-k)a_m
+ =\sum_{m=k+1}^{\infty}ma_m-k\sum_{m=k+1}^{\infty}a_m.
+\]
+右边两个级数都收敛，故题中移位级数收敛。
+
+(2) 记
+\[
+ T_k=\sum_{n=1}^{\infty}na_{n+k}
+ =\sum_{m=k+1}^{\infty}(m-k)a_m.
+\]
+第一部分
+\[
+ \sum_{m=k+1}^{\infty}ma_m
+\]
+是收敛级数 $\sum c_m$ 的尾和，趋于 $0$。还需证明
+\[
+ k\sum_{m=k+1}^{\infty}a_m\to0.
+\]
+令
+\[
+ C_{k,j}=\sum_{m=k+1}^{j}c_m.
+\]
+由于 $\sum c_m$ 收敛，
+\[
+ \eta_k:=\sup_{j>k}|C_{k,j}|\longrightarrow0.
+\]
+对任意 $N>k$ 作 Abel 变换，
+\[
+ \left|\sum_{m=k+1}^{N}\frac{c_m}{m}\right|
+ \leq\frac{\eta_k}{N}+\eta_k\sum_{m=k+1}^{N-1}\left(\frac1m-\frac1{m+1}\right)
+ \leq\frac{2\eta_k}{k+1}.
+\]
+令 $N\to\infty$，得到
+\[
+ k\left|\sum_{m=k+1}^{\infty}a_m\right|
+ \leq2\eta_k\longrightarrow0.
+\]
+所以
+\[
+ \boxed{\lim_{k\to\infty}\sum_{n=1}^{\infty}na_{n+k}=0.}
+\]
+\end{xsolution}
+
+\paragraph{第二组参考题 11.}
+\begin{xsolution}
+用逆否命题。假设 $\sum|a_n|$ 发散。可以递归选取整数
+\[
+ 1=N_1<N_2<N_3<\cdots
+\]
+使每一块满足
+\[
+ \sum_{n=N_k}^{N_{k+1}-1}|a_n|\geq k.
+\]
+在第 $k$ 块上定义
+\[
+ b_n=\frac{\operatorname{sgn}(a_n)}{k}
+\]
+（当 $a_n=0$ 时取符号为 $0$）。由于块号 $k\to\infty$，有 $b_n\to0$。但每块对 $\sum a_nb_n$ 的贡献为
+\[
+ \sum_{n=N_k}^{N_{k+1}-1}a_nb_n
+ =\frac1k\sum_{n=N_k}^{N_{k+1}-1}|a_n|\geq1.
+\]
+所以 $\sum a_nb_n$ 发散，这与题设“对每个 $b_n\to0$ 都收敛”矛盾。
+
+因此必有
+\[
+ \boxed{\sum_{n=1}^{\infty}|a_n|<\infty},
+\]
+即 $\sum a_n$ 绝对收敛。
+\end{xsolution}
+
+\paragraph{第二组参考题 12.}
+\begin{xsolution}
+仍证逆否命题。令
+\[
+ d_n=a_n-a_{n+1}.
+\]
+若 $\sum|d_n|$ 发散，可依次选择互不相交且越来越靠后的有限区间 $[N_k,M_k]$，使
+\[
+ \sum_{n=N_k}^{M_k}|d_n|\geq k.
+\]
+定义数列 $C_n$：在第 $k$ 个区间内令
+\[
+ C_n=\frac{\operatorname{sgn}(d_n)}{k},
+\]
+区间外令 $C_n=0$。因区间趋向无穷且振幅 $1/k\to0$，有 $C_n\to0$。
+
+令 $C_0=0$，并定义
+\[
+ b_n=C_n-C_{n-1}.
+\]
+则 $\sum_{j=1}^{n}b_j=C_n\to0$，所以级数 $\sum b_n$ 收敛。
+
+另一方面，对任意 $N$，求和分部给出
+\[
+ \sum_{n=1}^{N}a_nb_n
+ =a_NC_N+\sum_{n=1}^{N-1}(a_n-a_{n+1})C_n.
+\]
+取 $N=M_k+1$（可令各区间之间至少空一项，所以 $C_N=0$），则前 $k$ 个区间对右端第二项的贡献至少为
+\[
+ \sum_{j=1}^{k}\frac1j\sum_{n=N_j}^{M_j}|d_n|\geq k.
+\]
+因此 $\sum a_nb_n$ 不收敛，与题设矛盾。
+
+故必须有
+\[
+ \boxed{\sum_{n=1}^{\infty}|a_n-a_{n+1}|<\infty}. 
+\]
+\end{xsolution}
+
+\paragraph{第二组参考题 13.}
+\begin{xsolution}
+构造
+\[
+ a_{3n-2}=a_{3n-1}=n^{-1/3},
+ \qquad
+ a_{3n}=-2n^{-1/3},
+ \qquad n=1,2,\ldots.
+\]
+每一组三项之和为 $0$，且 $a_n\to0$，所以原级数按三项分组后的部分和恒为 $0$，组内偏差也随 $n\to\infty$ 趋于 $0$。因此
+\[
+ \sum a_n
+\]
+收敛（和为 $0$）。
+
+但每组三项的立方和为
+\[
+ \frac1n+\frac1n-\frac8n=-\frac6n.
+\]
+所以 $\sum a_n^3$ 的每三项分组部分和等于 $-6\sum1/n$，趋于 $-\infty$。故
+\[
+ \boxed{\sum a_n\text{ 收敛而 }\sum a_n^3\text{ 发散}.}
+\]
+\end{xsolution}
+
+\paragraph{第二组参考题 14.}
+\begin{xsolution}
+令
+\[
+ e_n=f(n)-\int_n^{n+1}f(x)\,\dd x.
+\]
+则
+\[
+ e_n=\int_n^{n+1}[f(n)-f(x)]\,\dd x.
+\]
+由微积分基本定理，
+\[
+ |f(n)-f(x)|
+ \leq\int_n^x|f'(t)|\,\dd t,
+\]
+所以
+\[
+ |e_n|
+ \leq\int_n^{n+1}\int_n^x|f'(t)|\,\dd t\,\dd x
+ \leq\int_n^{n+1}|f'(t)|\,\dd t.
+\]
+因此
+\[
+ \sum_{n=1}^{\infty}|e_n|
+ \leq\int_1^{+\infty}|f'(t)|\,\dd t<\infty.
+\]
+又有恒等式
+\[
+ \sum_{n=1}^{N}f(n)-\int_1^{N+1}f(x)\,\dd x
+ =\sum_{n=1}^{N}e_n,
+\]
+右边有有限极限。于是左边两项的部分量相差一个收敛到有限数的量，因此
+\[
+ \boxed{\int_1^{+\infty}f(x)\,\dd x\text{ 与 }\sum_{n=1}^{\infty}f(n)\text{ 同敛散}.}
+\]
+\end{xsolution}
+
+\paragraph{第二组参考题 15.}
+\begin{xsolution}
+设
+\[
+ S=1-\frac1{2^p}+\frac1{3^p}-\frac1{4^p}+\cdots,
+ \qquad p>0.
+\]
+由 Leibniz 判别法，$S$ 收敛，且由交错级数估计
+\[
+ S<1.
+\]
+
+另一方面
+\[
+ \frac1{(2n-1)^p}-\frac1{(2n)^p}
+ =\int_{2n-1}^{2n}p x^{-p-1}\,\dd x.
+\]
+故
+\[
+ S=\sum_{n=1}^{\infty}\int_{2n-1}^{2n}p x^{-p-1}\,\dd x.
+\]
+函数 $p x^{-p-1}$ 严格减少，所以对每个 $n$，
+\[
+ \int_{2n-1}^{2n}p x^{-p-1}\,\dd x
+ >\int_{2n}^{2n+1}p x^{-p-1}\,\dd x.
+\]
+而所有这些奇、偶单位区间合起来正好覆盖 $[1,+\infty)$，其总积分为
+\[
+ \int_1^{+\infty}p x^{-p-1}\,\dd x=1.
+\]
+因此奇区间积分总和严格大于总积分的一半，即
+\[
+ S>\frac12.
+\]
+综上
+\[
+ \boxed{\frac12<S<1}. 
+\]
+\end{xsolution}
+
+\paragraph{第二组参考题 16.}
+\begin{xsolution}
+设
+\[
+ c_n=a_nb_n,
+ \qquad
+ x_n=\frac1{b_n}.
+\]
+若 $b_n$ 从某项起为 $0$，结论立即成立；以下设 $b_n>0$。因 $b_n\downarrow0$，有 $x_n\uparrow+\infty$。题设 $\sum c_n$ 收敛。
+
+我们证明所需的 Kronecker 型结论。记
+\[
+ C_n=\sum_{k=1}^{n}c_k\longrightarrow C.
+\]
+由 Abel 变换，
+\[
+ \sum_{k=1}^{n}x_kc_k
+ =x_nC_n-\sum_{k=1}^{n-1}C_k(x_{k+1}-x_k).
+\]
+写 $C_k=C+\delta_k$，其中 $\delta_k\to0$，则
+\[
+ \frac1{x_n}\sum_{k=1}^{n}x_kc_k
+ =\delta_n+\frac{Cx_1}{x_n}
+ -\frac1{x_n}\sum_{k=1}^{n-1}\delta_k(x_{k+1}-x_k).
+\]
+任给 $\varepsilon>0$，取 $N$ 使 $|\delta_k|<\varepsilon$（$k\geq N$）。最后一项的前 $N$ 个固定项除以 $x_n$ 后趋于 $0$，而尾部绝对值不超过
+\[
+ \frac{\varepsilon}{x_n}\sum_{k=N}^{n-1}(x_{k+1}-x_k)\leq\varepsilon.
+\]
+故整个右边趋于 $0$。
+
+代回 $x_k=1/b_k$、$c_k=a_kb_k$，得到
+\[
+ \frac1{x_n}\sum_{k=1}^{n}x_kc_k
+ =b_n\sum_{k=1}^{n}a_k\longrightarrow0.
+\]
+即
+\[
+ \boxed{(a_1+a_2+\cdots+a_n)b_n\to0}. 
+\]
+\end{xsolution}
+
+\paragraph{第二组参考题 17.}
+\begin{xsolution}
+令
+\[
+ c_n=\frac{a_n}{n^p},
+ \qquad
+ x_n=n^p.
+\]
+题设正是 $\sum c_n$ 收敛，而 $x_n$ 单调增加趋于 $+\infty$。应用上一题证明的 Kronecker 型结论，
+\[
+ \frac1{x_n}\sum_{k=1}^{n}x_kc_k\longrightarrow0.
+\]
+由于 $x_kc_k=a_k$，故
+\[
+ \boxed{\lim_{n\to\infty}\frac{a_1+a_2+\cdots+a_n}{n^p}=0}. 
+\]
+\end{xsolution}
+
+\paragraph{第二组参考题 18.}
+\begin{xsolution}
+设级数 $\sum a_n$ 的部分和为
+\[
+ S_n=a_1+\cdots+a_n,
+\]
+并令
+\[
+ \sigma_n=\frac{S_1+S_2+\cdots+S_n}{n}.
+\]
+按题意，若 $\sigma_n\to\sigma$，就称级数可 Cesàro 求和，Cesàro 和为 $\sigma$。
+
+若级数通常收敛于 $S$，则 $S_n\to S$。收敛数列的算术平均仍趋于同一极限，所以
+\[
+ \sigma_n\to S.
+\]
+因此通常收敛的级数一定可以 Cesàro 求和，而且 Cesàro 和等于通常的和。
+
+反之不成立。例如
+\[
+ 1-1+1-1+\cdots
+\]
+的部分和为
+\[
+ 1,0,1,0,\ldots,
+\]
+故它通常不收敛；但这些部分和的算术平均满足
+\[
+ \sigma_n\longrightarrow\frac12.
+\]
+所以该级数可 Cesàro 求和，Cesàro 和为 $1/2$。
+\end{xsolution}
+
+\paragraph{第二组参考题 19.}
+\begin{xsolution}
+仍记部分和为 $S_n$，Cesàro 平均为 $\sigma_n$。由定义
+\[
+ n\sigma_n=S_1+\cdots+S_n,
+\]
+所以
+\[
+ S_n=n\sigma_n-(n-1)\sigma_{n-1}.
+\]
+若级数可 Cesàro 求和，$\sigma_n\to\sigma$，于是
+\[
+ \frac{S_n}{n}
+ =\sigma_n-\left(1-\frac1n\right)\sigma_{n-1}\longrightarrow0.
+\]
+又 $a_n=S_n-S_{n-1}$，故
+\[
+ \frac{a_n}{n}
+ =\frac{S_n}{n}-\frac{n-1}{n}\frac{S_{n-1}}{n-1}\longrightarrow0.
+\]
+所以可 Cesàro 求和的必要条件是
+\[
+ \boxed{a_n/n\to0}. 
+\]
+这确实比通常收敛时的必要条件 $a_n\to0$ 弱得多。
+\end{xsolution}
+
+\paragraph{第二组参考题 20.}
+\begin{xsolution}
+(1) 对
+\[
+ 1-1+1-1+\cdots
+\]
+，部分和为 $1,0,1,0,\ldots$，故其算术平均趋于 $1/2$。因此可 Cesàro 求和，Cesàro 和为
+\[
+ \boxed{\frac12}.
+\]
+
+(2) 对
+\[
+ 1-2^2+3^2-4^2+\cdots,
+\]
+有 $a_n=(-1)^{n-1}n^2$，于是
+\[
+ \frac{a_n}{n}=(-1)^{n-1}n
+\]
+不趋于 $0$。由上一题的必要条件，该级数不能 Cesàro 求和。
+
+(3) 对
+\[
+ 1+0-1+1+0-1+\cdots,
+\]
+部分和以周期
+\[
+ 1,1,0
+\]
+重复，所以其前 $n$ 项平均趋于一个周期平均值
+\[
+ \frac{1+1+0}{3}=\frac23.
+\]
+因此可 Cesàro 求和，和为
+\[
+ \boxed{\frac23}.
+\]
+
+(4) 对
+\[
+ \sin x+\sin2x+\sin3x+\cdots,
+\]
+若 $x\in2\pi\ZZ$，每项均为 $0$，Cesàro 和为 $0$。若 $x\notin2\pi\ZZ$，则
+\[
+ S_n=\sum_{k=1}^{n}\sin kx
+ =\frac{\sin(nx/2)\sin((n+1)x/2)}{\sin(x/2)},
+\]
+故 $\{S_n\}$ 有界。于是
+\[
+ \sigma_n=\frac1n\sum_{k=1}^{n}S_k\longrightarrow0.
+\]
+所以对每个实数 $x$，该级数都可 Cesàro 求和，且
+\[
+ \boxed{\text{Cesàro 和}=0}. 
+\]
+\end{xsolution}
+
+\paragraph{第二组参考题 21.}
+\begin{xsolution}
+记 $S_n=a_1+\cdots+a_n$，并记 Cesàro 平均为 $\sigma_n$。有限换序得到
+\[
+ \begin{aligned}
+ n\sigma_n
+ &=\sum_{k=1}^{n}S_k
+ =\sum_{j=1}^{n}(n-j+1)a_j\\
+ &=(n+1)S_n-\sum_{j=1}^{n}ja_j.
+\end{aligned}
+\]
+因此
+\[
+ S_n-\sigma_n
+ =\frac1n\sum_{j=1}^{n}(j-1)a_j.
+\]
+题设 $na_n\to0$，故 $(j-1)a_j\to0$。由 Cesàro 平均性质
+\[
+ \frac1n\sum_{j=1}^{n}(j-1)a_j\longrightarrow0,
+\]
+即
+\[
+ S_n-\sigma_n\to0.
+\]
+于是 $S_n$ 有极限当且仅当 $\sigma_n$ 有极限，而且两者极限相等。因此在条件 $na_n\to0$ 下，级数通常收敛当且仅当它可以 Cesàro 求和。
+\end{xsolution}
+
+\paragraph{第二组参考题 22.}
+\begin{xsolution}
+记
+\[
+ T_n=a_1+2a_2+\cdots+na_n.
+\]
+由上一题的恒等式
+\[
+ S_n-\sigma_n=\frac{T_n-S_n}{n}
+ =\frac{T_n}{n}-\frac{S_n}{n}.
+\]
+
+先证充分性。题设级数可以 Cesàro 求和，即 $\sigma_n\to\sigma$。由第二组参考题 19 的证明，必有
+\[
+ \frac{S_n}{n}\to0.
+\]
+若再有 $T_n/n\to0$，则上式给出 $S_n-\sigma_n\to0$，所以
+\[
+ S_n\to\sigma.
+\]
+即级数在通常意义下收敛。
+
+再证必要性。若级数通常收敛，则第一组参考题 19 已证明
+\[
+ \frac{T_n}{n}
+ =\frac{a_1+2a_2+\cdots+na_n}{n}\longrightarrow0.
+\]
+故在“已经可以 Cesàro 求和”的前提下，通常收敛的充分必要条件正是
+\[
+ \boxed{\lim_{n\to\infty}\frac{a_1+2a_2+\cdots+na_n}{n}=0}. 
+\]
+\end{xsolution}
