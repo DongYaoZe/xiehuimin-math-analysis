@@ -293,19 +293,23 @@
   rf'(r)+3f(r)=0,
   \qquad r>0.
 \]
-若 $f\not\equiv0$，分离变量得
+两边乘以 $r^2$，得到
 \[
-  \frac{f'(r)}{f(r)}=-\frac{3}{r}.
+  r^3f'(r)+3r^2f(r)=0,
 \]
-积分后
+即
 \[
-  \ln\abs{f(r)}=-3\ln r+C_0,
+  \frac{\dd}{\dd r}\bigl(r^3f(r)\bigr)=0.
 \]
-故
+因此
+\[
+  r^3f(r)=C,
+\]
+从而
 \[
   \boxed{f(r)=\frac{C}{r^3}},\qquad r>0,
 \]
-其中 $C$ 为任意常数；$C=0$ 已包含零解。
+其中 $C$ 为任意常数，$C=0$ 时即为零解。
 \end{xsolution}
 
 \subsection*{练习题 7}
@@ -708,68 +712,52 @@ Poisson 核可展开为
 
 \subsection*{第一组参考题 3}
 \begin{xsolution}
-设 $L$ 位于半径为 $R>0$ 的球面上，取该球面上由 $L$ 围成的一片定向区域 $S$。记
-\[
-  \vect{X}=\nabla\times\vect{B}.
-\]
 题设给出
 \[
-  \vect{X}=\frac1r(\nabla r\times\vect{A}).
+  \nabla\times\vect{B}=\frac1r(\nabla r\times\vect{A}),
+  \qquad r=\sqrt{x^2+y^2+z^2}.
 \]
-由于 $\nabla r$ 是径向单位向量，故在每个以原点为心的球面上
+对两边取散度。由旋度的散度为零，
 \[
-  \vect{X}\cdot\nabla r=0,
+  0=\nabla\cdot\left[\frac1r(\nabla r\times\vect{A})\right].
 \]
-即 $\vect{X}$ 总与球面相切；另外
+利用乘积公式，
+\begin{align*}
+  0
+  &=\nabla\left(\frac1r\right)\cdot(\nabla r\times\vect{A})
+    +\frac1r\nabla\cdot(\nabla r\times\vect{A}).
+\end{align*}
+其中 $\nabla(1/r)$ 与 $\nabla r$ 平行，故第一项为零；又由
 \[
-  \nabla\cdot\vect{X}
-  =\nabla\cdot(\nabla\times\vect{B})=0.
+  \nabla\cdot(\vect{P}\times\vect{Q})
+  =\vect{Q}\cdot(\nabla\times\vect{P})
+  -\vect{P}\cdot(\nabla\times\vect{Q}),
+\]
+取 $\vect{P}=\nabla r$、$\vect{Q}=\vect{A}$，并用
+\[
+  \nabla\times(\nabla r)=\vect{0},
+\]
+得到
+\[
+  \nabla\cdot(\nabla r\times\vect{A})
+  =-\nabla r\cdot(\nabla\times\vect{A}).
+\]
+因此
+\[
+  \nabla r\cdot(\nabla\times\vect{A})=0.
 \]
 
-设 $\gamma(s)$ 是 $L$ 的弧长参数，$0\le s\le l$，并令
+设 $L$ 位于半径为 $R$ 的球面上，取该球面上由 $L$ 围成的一片定向曲面 $S$。在 $S$ 上单位法向量可取
 \[
-  \vect{n}(s)=\frac{\gamma(s)}{R},
-  \qquad
-  \vect{\tau}(s)=\gamma'(s).
+  \vect{n}=\nabla r.
 \]
-对任意 $0<a<b$，把 $S$ 沿径向缩放到半径 $a$ 与 $b$ 之间，得到薄壳区域
+于是由 Stokes 公式，
 \[
-  \Omega_{a,b}=\left\{\frac{\rho}{R}p\ \middle|\ p\in S,\ a<\rho<b\right\}.
+  \oint_L\vect{A}\cdot\vect{\tau}\,\dd s
+  =\iint_S(\nabla\times\vect{A})\cdot\vect{n}\,\dd S
+  =0.
 \]
-在它的两个球面部分上，$\vect{X}$ 与法向量正交，所以通量为零。由 Gauss 公式及 $\nabla\cdot\vect{X}=0$，其侧面通量也必须为零。
-
-侧面可参数化为
-\[
-  \Phi(s,\rho)=\frac{\rho}{R}\gamma(s).
-\]
-有
-\[
-  \Phi_\rho=\vect{n},
-  \qquad
-  \Phi_s=\frac{\rho}{R}\vect{\tau},
-\]
-故侧面的法向面积元为
-\[
-  \pm\frac{\rho}{R}(\vect{n}\times\vect{\tau})\,\dd s\,\dd\rho.
-\]
-又
-\[
-  \vect{X}(\Phi)
-  =\frac1\rho\bigl(\vect{n}\times\vect{A}(\Phi)\bigr),
-\]
-且
-\[
-  (\vect{n}\times\vect{A})\cdot(\vect{n}\times\vect{\tau})
-  =\vect{A}\cdot\vect{\tau},
-\]
-因为 $\vect{n}\cdot\vect{\tau}=0$。于是侧面通量为
-\[
-  \pm\frac1R\int_a^b\left[
-  \oint_L\vect{A}\left(\frac{\rho}{R}\gamma(s)\right)
-  \cdot\vect{\tau}(s)\,\dd s
-  \right]\dd\rho=0.
-\]
-这对任意 $a<b$ 都成立，括号内的连续函数因而恒为零。取 $\rho=R$，得到
+故
 \[
   \boxed{\oint_L\vect{A}\cdot\vect{\tau}\,\dd s=0}.
 \]
@@ -879,57 +867,57 @@ Poisson 核可展开为
 
 \subsection*{第一组参考题 7}
 \begin{xsolution}
-记
+令
 \[
-  D=\{(x,y)\mid x^2+y^2<1\},
+  x=r\cos\theta,
   \qquad
-  r^2=x^2+y^2.
-\]
-先由散度公式
-\[
-  \nabla\cdot(u(x,y)(x,y))=xu_x+yu_y+2u
-\]
-得到
-\begin{equation}
-  I:=\iint_D(xu_x+yu_y)\,\dd x\,\dd y
-  =\oint_{\partial D}u\,\dd s-2\iint_Du\,\dd x\,\dd y,
-  \tag{1}
-\end{equation}
-因为在单位圆周上 $(x,y)\cdot\vect{n}=1$。
-
-取
-\[
-  \psi(x,y)=\frac{1-r^2}{2}.
+  y=r\sin\theta,
+  \qquad
+  0\le r<1.
 \]
 则
 \[
-  \psi=0\quad\text{于 }\partial D,
-  \qquad
-  \frac{\partial\psi}{\partial n}=-1\quad\text{于 }\partial D,
-  \qquad
-  \Delta\psi=-2.
+  x\frac{\partial u}{\partial x}
+  +y\frac{\partial u}{\partial y}
+  =r\frac{\partial u}{\partial r}.
 \]
-对 $u,\psi$ 使用第二 Green 恒等式，
+因此所求积分为
+\begin{equation}
+  I=\int_0^1\int_0^{2\pi}r^2u_r(r,\theta)\,\dd\theta\,\dd r.
+  \tag{1}
+\end{equation}
+
+固定 $0<r<1$，在圆盘 $B_r=\{x^2+y^2<r^2\}$ 上应用 Green 公式：
 \begin{align*}
-  \iint_D(\psi\Delta u-u\Delta\psi)\,\dd x\,\dd y
-  &=\oint_{\partial D}\left(
-    \psi\frac{\partial u}{\partial n}
-    -u\frac{\partial\psi}{\partial n}
-    \right)\dd s\\
-  &=\oint_{\partial D}u\,\dd s.
+  \oint_{\partial B_r}
+  \left(u_x\,\dd y-u_y\,\dd x\right)
+  &=\iint_{B_r}\Delta u\,\dd x\,\dd y\\
+  &=\iint_{B_r}\ee^{-(x^2+y^2)}\,\dd x\,\dd y\\
+  &=2\pi\int_0^r\rho\ee^{-\rho^2}\,\dd\rho\\
+  &=\pi(1-\ee^{-r^2}).
 \end{align*}
-因此
+在圆周 $\partial B_r$ 上有
 \[
-  \oint_{\partial D}u\,\dd s
-  =\iint_D\psi\Delta u\,\dd x\,\dd y+2\iint_Du\,\dd x\,\dd y.
+  \dd x=-r\sin\theta\,\dd\theta,
+  \qquad
+  \dd y=r\cos\theta\,\dd\theta,
 \]
-代入 (1)，并利用 $\Delta u=\ee^{-r^2}$，得
+故左端等于
+\[
+  \int_0^{2\pi}r
+  \left(u_x\cos\theta+u_y\sin\theta\right)\,\dd\theta
+  =\int_0^{2\pi}r u_r(r,\theta)\,\dd\theta.
+\]
+于是
+\[
+  \int_0^{2\pi}r u_r(r,\theta)\,\dd\theta
+  =\pi(1-\ee^{-r^2}).
+\]
+代入 (1)，得到
 \begin{align*}
   I
-  &=\iint_D\frac{1-r^2}{2}\ee^{-r^2}\,\dd x\,\dd y\\
-  &=\pi\int_0^1(1-r^2)\ee^{-r^2}r\,\dd r\\
-  &=\frac{\pi}{2}\int_0^1(1-t)\ee^{-t}\,\dd t
-  \qquad(t=r^2)\\
+  &=\pi\int_0^1 r(1-\ee^{-r^2})\,\dd r\\
+  &=\frac{\pi}{2}-\frac{\pi}{2}(1-\ee^{-1})\\
   &=\frac{\pi}{2\ee}.
 \end{align*}
 故
@@ -942,47 +930,39 @@ Poisson 核可展开为
 
 \subsection*{第二组参考题 1}
 \begin{xsolution}
-设连续函数 $u$ 在区域 $\Omega\subset\RR^n$ 中处处满足球面平均值公式。先证明 $u$ 无限次可微。
+取任意闭球
+\[
+  \overline{G}\subset\Omega.
+\]
+以 $u$ 在 $\partial G$ 上的值为边值，用球上的 Poisson 积分公式定义函数 $v$。则 $v$ 在 $G$ 内调和，在 $\overline G$ 上连续，并且
+\[
+  v=u\qquad\text{于 }\partial G.
+\]
+调和函数满足平均值公式，所以 $v$ 满足平均值公式；题设又说明 $u$ 满足平均值公式。因此
+\[
+  w=u-v
+\]
+也满足平均值公式，且
+\[
+  w=0\qquad\text{于 }\partial G.
+\]
 
-取任意 $x_0\in\Omega$ 以及充分小的 $\varepsilon>0$，使 $\overline{B_{2\varepsilon}(x_0)}\subset\Omega$。取径向对称的非负函数
+先说明满足平均值公式的连续函数同样满足极值原理。若 $w$ 在 $G$ 内某点 $P$ 取得正的最大值 $M$，则对任意充分小的 $r>0$，
 \[
-  \eta_\varepsilon\in C_c^\infty(B_\varepsilon(0)),
-  \qquad
-  \int\eta_\varepsilon(y)\,\dd y=1.
+  M=w(P)=\frac{1}{\abs{\partial B_r(P)}}
+  \int_{\partial B_r(P)}w\,\dd S.
 \]
-对 $x\in B_\varepsilon(x_0)$，把卷积按球面分层，并在每一层应用平均值公式，得到
+由于球面上处处有 $w\le M$，上式只能在整个球面上 $w=M$ 时成立。让 $r$ 在允许范围内变化，可知 $P$ 的一个邻域上均有 $w=M$。因此最大值点集既开又闭；由 $G$ 连通且边界上 $w=0$，不可能有 $M>0$。同理，$w$ 也不可能在内部取得负的最小值。于是
 \[
-  (u*\eta_\varepsilon)(x)
-  =u(x)\int\eta_\varepsilon(y)\,\dd y=u(x).
+  w\equiv0\qquad\text{于 }G.
 \]
-所以 $u$ 局部等于一个光滑卷积，因而 $u\in C^\infty(\Omega)$。
+故 $u=v$ 于 $G$，从而 $u$ 在 $G$ 内调和。
 
-现在固定 $x\in\Omega$。对小的 $r>0$，在单位球面上作 Taylor 展开：
+由于 $G$ 可任取，得到
 \[
-  u(x+r\vect{\omega})
-  =u(x)+r\nabla u(x)\cdot\vect{\omega}
-  +\frac{r^2}{2}\vect{\omega}^{\mathsf T}H_u(x)\vect{\omega}
-  +\littleo(r^2).
+  \Delta u=0\qquad\text{于 }\Omega,
 \]
-对单位球面取平均，由对称性
-\[
-  \operatorname{avg}\omega_i=0,
-  \qquad
-  \operatorname{avg}(\omega_i\omega_j)=\frac{\delta_{ij}}{n},
-\]
-故球面平均值为
-\[
-  u(x)+\frac{r^2}{2n}\Delta u(x)+\littleo(r^2).
-\]
-题设说该平均值对所有充分小的 $r$ 都严格等于 $u(x)$，于是
-\[
-  \frac{r^2}{2n}\Delta u(x)+\littleo(r^2)=0.
-\]
-除以 $r^2$ 并令 $r\to0$，得到
-\[
-  \Delta u(x)=0.
-\]
-由于 $x$ 任意，$u$ 是调和函数。
+即 $u$ 是调和函数。
 \end{xsolution}
 
 \subsection*{第二组参考题 2}
