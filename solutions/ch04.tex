@@ -361,15 +361,15 @@ $\abs{D(r)-D(s)}=1>1/2$，不满足 Cauchy 条件。
 
 \paragraph{题 14}
 \begin{xsolution}
-设有理分式函数 $R(x)=P(x)/Q(x)$ 是周期函数，周期为 $T>0$。
-
-若 $Q$ 有实零点 $x_0$，则周期性将使 $x_0+nT$（$n\in\ZZ$）都成为极点；但非零多项式 $Q$ 只有有限个零点，矛盾。因此若 $R$ 在其定义域上周期，只可能没有实极点。
-
-再考察 $x\to+\infty$。若 $\deg P>\deg Q$，则 $\abs{R(x)}\to\infty$。但固定一个 $x_0$，有 $R(x_0+nT)=R(x_0)$，与此矛盾。故 $\deg P\leq\deg Q$，从而 $R(x)$ 在 $+\infty$ 有有限极限 $L$。对任意 $x$，
+设有理分式函数 $R(x)=P(x)/Q(x)$ 是周期函数，周期为 $T>0$。任取定义域内一点 $x_0$，记 $c=R(x_0)$。由周期性，凡 $x_0+nT$ 在定义域内时都有
 \[
-  R(x)=R(x+nT)\to L,
+  R(x_0+nT)=c.
 \]
-所以 $R(x)=L$。因此周期有理分式函数只能是常值函数，任何非常值有理分式函数都不可能是周期函数。
+有理分式函数只有有限个实极点，因此在 $n\in\NN$ 中至多有有限多个 $x_0+nT$ 不是定义点。于是对无穷多个 $n$ 有
+\[
+  P(x_0+nT)-cQ(x_0+nT)=0.
+\]
+多项式 $P-cQ$ 有无穷多个不同零点，只能恒等于零。因此 $P\equiv cQ$，即 $R(x)\equiv c$。故任何非常值的有理分式函数都不可能是周期函数。
 \end{xsolution}
 
 \subsection*{4.2.2　命题 4.2.1（原书将证明留给读者）}
@@ -433,7 +433,11 @@ $g=(fg)/f$ 将有极限，矛盾。若 $A=0$，乘积极限可能存在，也可
 \[
   f(x)=x,\quad g(x)=\sin\frac1x
 \]
-满足 $g$ 无极限而 $fg\to0$；而取 $f(x)\equiv1$、$g(x)=\sin(1/x)$ 时，乘积仍无极限。
+满足 $g$ 无极限而 $fg\to0$；另一方面，取
+\[
+  f(x)=x,\qquad g(x)=\frac1x\sin\frac1x,
+\]
+则仍有 $f(x)\to0$、$g(x)$ 无极限，但 $f(x)g(x)=\sin(1/x)$ 无极限。
 \end{xsolution}
 
 \paragraph{思考题 3}
@@ -506,21 +510,22 @@ $f(x_n)\to A_1$、$f(y_n)\to A_2$ 且 $A_1\ne A_2$，可递归选取子列
 
 \paragraph{题 1}
 \begin{xsolution}
-(1) 令 $c=\ln a>0$。取整数 $m>k$。由指数函数的幂级数中各项非负，$x>0$ 时
+(1) 对 $x>1$ 令 $n=[x]$，则 $n\leq x<n+1$。因为 $a>1$、$k>0$，有
 \[
-  \ee^{cx}\geq\frac{(cx)^m}{m!}.
+  0\leq\frac{x^k}{a^x}
+  \leq\frac{(n+1)^k}{a^n}.
 \]
-于是
+前面关于数列极限已经证明多项式增长慢于指数增长，即
+$\frac{(n+1)^k}{a^n}\to0$。又 $x\to+\infty$ 时 $n=[x]\to+\infty$，由夹逼定理得
 \[
-  0\leq\frac{x^k}{a^x}=\frac{x^k}{\ee^{cx}}
-  \leq\frac{m!}{c^m x^{m-k}}\to0.
+  \lim_{x\to+\infty}\frac{x^k}{a^x}=0.
 \]
 
 (2) 令 $t=\ln x$，则 $t\to+\infty$，且
 \[
-  \frac{\ln x}{x^k}=\frac{t}{\ee^{kt}}\to0
+  \frac{\ln x}{x^k}=\frac{t}{\ee^{kt}}.
 \]
-由 (1) 的同一估计（取幂次 1）即得。
+把 (1) 用于底数 $\ee^k>1$ 和幂次 1，便得该极限为 0。
 
 (3) 对 $a>0$，
 \[
@@ -639,15 +644,17 @@ $\varepsilon=(R-L)/3$。由两个单侧极限，存在 $\delta_1,\delta_2>0$，�
 
 \paragraph{题 11}
 \begin{xsolution}
-以 $f$ 在 $(a,b)$ 上单调增加为例。取一个严格增加且趋于 $b$ 的数列 $x_n\in(a,b)$。则 $f(x_n)$ 单调增加，故它要么收敛于有限数 $A$，要么趋于 $+\infty$。
+以 $f$ 在 $(a,b)$ 上单调增加为例。先把 Heine 归结原理推广到左侧极限：只需考察严格单调增加且满足 $x_n\to b^-$ 的数列。事实上，若左极限不存在或不等于某个给定的 $A$，就可像命题 4.2.3 的反证法那样，在越来越小的左邻域中递归选取坏点，并令它们严格增加趋于 $b$。
 
-若 $f(x_n)\to A<+\infty$，先说明 $f(x)\leq A$ 对每个 $x<b$ 成立：固定 $x$，充分大的 $n$ 有 $x_n>x$，故 $f(x)\leq f(x_n)\to A$。给定 $\varepsilon>0$，取 $N$ 使 $f(x_N)>A-\varepsilon$。当 $x_N<x<b$ 时
+现在任取严格增加且 $x_n\to b^-$ 的数列。由于 $f$ 单调增加，数列 $f(x_n)$ 也单调增加，故它必有有限或 $+\infty$ 的广义极限。还需证明对不同的 $\{x_n\}$ 所得极限相同。设另有严格增加数列 $y_n\to b^-$。对每个固定的 $n$，充分大的 $m$ 有 $y_m>x_n$，因而
 \[
-  A-\varepsilon<f(x_N)\leq f(x)\leq A,
+  f(x_n)\leq f(y_m).
 \]
-所以 $f(x)\to A$（$x\to b^-$）。
-
-若 $f(x_n)\to+\infty$，给定 $G>0$，取 $N$ 使 $f(x_N)>G$，则 $x_N<x<b$ 时 $f(x)>G$，故 $f(x)\to+\infty$。单调减少情形同理。这个证明也说明了单侧 Heine 原理中只考察适当的单调数列已足够。
+先令 $m\to\infty$，再令 $n\to\infty$，得到
+\[
+  \lim_{n\to\infty}f(x_n)\leq\lim_{n\to\infty}f(y_n).
+\]
+交换两列的角色又得反向不等式，所以两极限相同。于是每个严格增加且趋于 $b^-$ 的数列，其像数列都趋于同一个有限数或 $+\infty$。由上述单侧 Heine 归结原理，$f(b^-)$ 存在。单调减少的情形同理。
 \end{xsolution}
 
 \subsection*{4.3　原书要求会证明的四个基本极限}
@@ -939,9 +946,9 @@ $x$、$\sin x$ 是否为无穷小量要看极限过程。例如 $x\to0$ 时两�
 
   \item
   \[
-    a^{x^2}-1=\ee^{x^2\ln a}-1\sim(\ln a)x^2.
+    a^{x^2}-1=(\ln a)x^2+\littleo(x^2).
   \]
-  若 $a\ne1$，它是二阶无穷小量；若 $a=1$，函数恒为 0，不具有题目定义下的有限正阶，可视为高于任意有限阶。
+  若 $a\ne1$，则 $\ln a\ne0$，所以它是二阶无穷小量；若 $a=1$，函数恒为 0，不具有题目定义下的有限正阶，可视为高于任意有限阶。
 
   \item
   \[
