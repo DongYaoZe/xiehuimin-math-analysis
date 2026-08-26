@@ -686,13 +686,11 @@ $x=0$ 处按连续延拓理解即可。
 
 \paragraph{第10题}
 \begin{xsolution}
-先对 $z$ 积分：
+由 $xy=1,xy=2,y=3x,y=4x$ 围出的集合有第一、第三象限两个全等的连通分支。题目所说的“区域”按通常约定取其中一个连通分支；取第一象限分支。先对 $z$ 积分：
 \[
- I=\frac12\iint_Dx^2y^2(x^2+y^2)^2\,\dd x\,\dd y,
+ I=\frac12\iint_Dx^2y^2(x^2+y^2)^2\,\dd x\,\dd y.
 \]
-其中 $D$ 在 $xOy$ 平面上由 $xy=1,xy=2,y=3x,y=4x$ 围成。$D$ 有第一、第三象限两个全等分支，且被积函数在变换 $(x,y)\mapsto(-x,-y)$ 下不变，故只算第一象限再乘 $2$。
-
-在第一象限令
+令
 \[
  u=xy,
  \qquad v=\frac yx.
@@ -703,16 +701,15 @@ $x=0$ 处按连续延拓理解即可。
  \qquad
  \dd x\,\dd y=\frac1{2v}\,\dd u\,\dd v.
 \]
-所以第一象限部分
+因此
 \begin{align*}
- I_+&=\frac14\int_1^2u^4\,\dd u
+ I&=\frac14\int_1^2u^4\,\dd u
  \int_3^4\left(v+\frac2v+\frac1{v^3}\right)\dd v\\
- &=\frac{6293}{1152}+\frac{31}{10}\ln\frac43.
+ &=\frac14\cdot\frac{31}{5}
+ \left(\frac72+2\ln\frac43+\frac7{288}\right)\\
+ &=\boxed{\frac{6293}{1152}+\frac{31}{10}\ln\frac43}.
 \end{align*}
-于是
-\[
- \boxed{I=\frac{6293}{576}+\frac{31}{5}\ln\frac43}.
-\]
+若把两个对称连通分支的并集都计入，则积分值为上述结果的 $2$ 倍。
 \end{xsolution}
 
 \paragraph{第11题}
@@ -1186,18 +1183,43 @@ $-\dfrac{6a}{5(3\pi-2)}\vect e$。
 
 \paragraph{第7题}
 \begin{xsolution}
-由 $p_i>0$ 且 $\sum_{i=1}^m1/p_i=1$ 可知实际有 $p_i>1$。对 $m$ 作归纳。$m=2$ 时就是 Hölder 不等式。
+对因子个数 $m$ 作归纳。$m=1$ 时由 $1/p_1=1$ 得 $p_1=1$，结论即为等式；$m=2$ 时就是 Hölder 不等式。
 
-设结论对 $m-1$ 个因子成立，并令
+设结论对 $m-1$ 个因子成立，现考虑 $m\ge3$。令
 \[
- \frac1r=\sum_{i=1}^{m-1}\frac1{p_i}=1-\frac1{p_m}.
+ \frac1r=\frac1{p_{m-1}}+\frac1{p_m}.
 \]
-先对 $U=u_1\cdots u_{m-1}$ 与 $u_m$ 用 Hölder 不等式，再对 $U$ 用归纳假设：
+由于
+\[
+ \sum_{i=1}^{m-2}\frac1{p_i}+\frac1r=1,
+\]
+有 $r>1$。又
+\[
+ \frac{r}{p_{m-1}}+\frac{r}{p_m}=1,
+\]
+故对 $u_{m-1},u_m$ 应用 Hölder 不等式可得
 \begin{align*}
- \abs*{\iint_\Omega u_1\cdots u_m\,\dd x\,\dd y}
- &\le\norm{U}_r\norm{u_m}_{p_m}\\
- &\le\norm{u_1}_{p_1}\cdots\norm{u_{m-1}}_{p_{m-1}}
- \norm{u_m}_{p_m}.
+ \norm{u_{m-1}u_m}_r^r
+ &=\iint_\Omega\abs{u_{m-1}}^r\abs{u_m}^r\,\dd x\,\dd y\\
+ &\le
+ \left(\iint_\Omega\abs{u_{m-1}}^{p_{m-1}}\,\dd x\,\dd y\right)^{r/p_{m-1}}
+ \left(\iint_\Omega\abs{u_m}^{p_m}\,\dd x\,\dd y\right)^{r/p_m}.
+\end{align*}
+因此
+\[
+ \norm{u_{m-1}u_m}_r
+ \le\norm{u_{m-1}}_{p_{m-1}}\norm{u_m}_{p_m}.
+\]
+再对 $m-1$ 个因子
+\[
+ u_1,\ldots,u_{m-2},u_{m-1}u_m
+\]
+以及指数 $p_1,\ldots,p_{m-2},r$ 使用归纳假设，得到
+\begin{align*}
+ \abs*{\iint_\Omega u_1u_2\cdots u_m\,\dd x\,\dd y}
+ &\le\norm{u_1}_{p_1}\cdots\norm{u_{m-2}}_{p_{m-2}}
+ \norm{u_{m-1}u_m}_r\\
+ &\le\norm{u_1}_{p_1}\norm{u_2}_{p_2}\cdots\norm{u_m}_{p_m}.
 \end{align*}
 因此题中不带绝对值的积分当然也满足所给上界。
 \end{xsolution}
