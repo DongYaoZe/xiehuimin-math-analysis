@@ -6,20 +6,34 @@
 \paragraph{思考题 1.}
 \begin{xsolution}
 \textbf{(1) 任意多个闭集的交集是闭集。}
-设 $\{F_\alpha\}_{\alpha\in I}$ 是一族闭集。则每个 $F_\alpha^c$ 都是开集。由 De Morgan 法则，
+设 $\{F_\alpha\}_{\alpha\in I}$ 是一族闭集，令
 \[
-  \left(\bigcap_{\alpha\in I}F_\alpha\right)^c
-  =\bigcup_{\alpha\in I}F_\alpha^c.
+  G_\alpha=F_\alpha^c,
+  \qquad
+  G=\left(\bigcap_{\alpha\in I}F_\alpha\right)^c
+   =\bigcup_{\alpha\in I}G_\alpha.
 \]
-任意多个开集的并集仍为开集，因此右端是开集，从而 $\bigcap_{\alpha\in I}F_\alpha$ 是闭集。
+每个 $G_\alpha$ 都是开集。任取 $x\in G$，则存在 $\alpha_0\in I$ 使 $x\in G_{\alpha_0}$。由开集定义，存在 $\delta>0$ 使
+\[
+  O_\delta(x)\subset G_{\alpha_0}\subset G.
+\]
+故 $G$ 中每一点都是内点，所以 $G$ 是开集。于是 $G^c=\bigcap_{\alpha\in I}F_\alpha$ 是闭集。
 
 \textbf{(2) 有限多个闭集的并集是闭集。}
-设 $F_1,\ldots,F_m$ 为闭集，则 $F_1^c,\ldots,F_m^c$ 都是开集，且
+设 $F_1,\ldots,F_m$ 为闭集，令 $G_i=F_i^c$，并令
 \[
-  \left(\bigcup_{i=1}^mF_i\right)^c
-  =\bigcap_{i=1}^mF_i^c.
+  G=\left(\bigcup_{i=1}^mF_i\right)^c
+   =\bigcap_{i=1}^mG_i.
 \]
-有限多个开集的交集仍为开集，所以 $\bigcup_{i=1}^mF_i$ 为闭集。
+任取 $x\in G$。由于 $x\in G_i$ 且每个 $G_i$ 都是开集，对每个 $i$ 可取 $\delta_i>0$ 使
+\[
+  O_{\delta_i}(x)\subset G_i.
+\]
+令 $\delta=\min_{1\leq i\leq m}\delta_i>0$，则
+\[
+  O_\delta(x)\subset\bigcap_{i=1}^mG_i=G.
+\]
+所以 $G$ 是开集，从而 $G^c=\bigcup_{i=1}^mF_i$ 是闭集。
 \end{xsolution}
 
 \paragraph{思考题 2.}
@@ -332,7 +346,17 @@ $A$ 是闭集；对 $B$，若 $(x_k,1/x_k)\in B$ 且 $(x_k,1/x_k)\to(x,y)$，则
 \]
 故 $x_n\to x$。因此 Cauchy 点列必收敛。
 
-反过来，任一收敛点列都是 Cauchy 点列，这是三角形不等式的直接推论。故 Cauchy 收敛准则成立。
+反过来，若 $x_n\to x$，任给 $\varepsilon>0$，可取 $N$ 使得当 $n\geq N$ 时
+\[
+  \abs{x_n-x}<\frac\varepsilon2.
+\]
+于是当 $m,n\geq N$ 时，
+\[
+  \abs{x_m-x_n}
+  \leq\abs{x_m-x}+\abs{x_n-x}
+  <\varepsilon.
+\]
+故收敛点列必为 Cauchy 点列。综上，Cauchy 收敛准则成立。
 \end{xsolution}
 
 \paragraph{练习题 5.}
@@ -366,7 +390,21 @@ $A$ 是闭集；对 $B$，若 $(x_k,1/x_k)\in B$ 且 $(x_k,1/x_k)\to(x,y)$，则
 \[
   G_m=\{x\in\RR^n\mid d(x,F)<1/m\}.
 \]
-由于 $x\mapsto d(x,F)$ 是连续函数，每个 $G_m$ 都是开集，而且 $F\subset G_m$，故
+先证每个 $G_m$ 都是开集。任取 $x_0\in G_m$。由 $d(x_0,F)<1/m$，可取 $y_0\in F$ 使
+\[
+  \abs{x_0-y_0}<\frac1m.
+\]
+令
+\[
+  \varepsilon=\frac1m-\abs{x_0-y_0}>0.
+\]
+若 $x\in O_\varepsilon(x_0)$，则
+\[
+  d(x,F)\leq\abs{x-y_0}
+  \leq\abs{x-x_0}+\abs{x_0-y_0}
+  <\frac1m,
+\]
+故 $x\in G_m$。因此 $G_m$ 是开集。又 $F\subset G_m$，所以
 \[
   F\subset\bigcap_{m=1}^\infty G_m.
 \]
@@ -533,6 +571,8 @@ $O_1,O_2$ 都是开球的并，因此都是开集。又对任意 $x\in S_1$，�
 \[
   \bigcup_{i=1}^kO_\delta(p_i)\supset S.
 \]
+
+若 $F=\varnothing$，则第 (2)、(3) 问均为平凡情形：任取 $\delta>0$ 即满足第 (2) 问，而空子族就是第 (3) 问所需的有限子覆盖。以下设 $F\neq\varnothing$。
 
 \textbf{(2)} 设 $\{G_\alpha\}$ 是有界闭集 $F$ 的开覆盖。反设不存在所要求的 $\delta>0$。则对每个 $m\in\NN_+$，存在 $p_m\in F$，使得 $O_{1/m}(p_m)$ 不包含于这族开覆盖中的任何一个开集。
 
@@ -745,15 +785,21 @@ $O_1,O_2$ 都是开球的并，因此都是开集。又对任意 $x\in S_1$，�
 \[
   E=\left\{(x,y)\middle|y=\sin\frac1x,\ 0<x\leq\frac2\pi\right\}.
 \]
-先确定其闭包。由于 $-1\leq\sin(1/x)\leq1$，任何趋于 $x=0$ 的聚点第二坐标都在 $[-1,1]$ 中。反之，对任意 $y_0\in[-1,1]$，取 $\theta$ 使 $\sin\theta=y_0$，再令
+先确定其闭包。设 $(x_k,\sin(1/x_k))\in E$ 收敛到 $(a,b)$。由于 $0<x_k\leq2/\pi$，必有 $0\leq a\leq2/\pi$。若 $a>0$，则由 $x_k\to a$ 以及函数 $x\mapsto\sin(1/x)$ 在 $a$ 处连续，
+\[
+  b=\lim_{k\to\infty}\sin\frac1{x_k}=\sin\frac1a,
+\]
+所以 $(a,b)\in E$。若 $a=0$，由 $-1\leq\sin(1/x_k)\leq1$ 得 $b\in[-1,1]$。因此闭包中除 $E$ 外只可能增加 $\{0\}\times[-1,1]$ 上的点。
+
+反之，对任意 $y_0\in[-1,1]$，取 $\theta$ 使 $\sin\theta=y_0$，再令
 \[
   x_k=\frac1{\theta+2k\pi}
 \]
-（忽略有限个使分母非正的项），则 $x_k\to0$ 且
+并略去有限个不满足 $0<x_k\leq2/\pi$ 的项，则 $x_k\to0$ 且
 \[
   \sin\frac1{x_k}=y_0.
 \]
-因此
+故 $(0,y_0)\in\overline E$。综上，
 \[
   \overline E
   =E\cup\bigl(\{0\}\times[-1,1]\bigr).
@@ -880,7 +926,19 @@ $O_1,O_2$ 都是开球的并，因此都是开集。又对任意 $x\in S_1$，�
   \overline{K+C}=\overline G=\RR.
 \]
 
-另一方面，$K+C$ 是 $\ZZ^2$ 在映射 $(m,n)\mapsto m+\alpha n$ 下的像，因此是可列集；而 $\RR$ 不可列，所以
+另一方面，$\alpha/2\notin K+C$。否则存在 $m,n\in\ZZ$ 使
+\[
+  \frac\alpha2=m+\alpha n,
+\]
+即
+\[
+  \alpha\left(\frac12-n\right)=m.
+\]
+由于 $n\in\ZZ$，有 $\frac12-n\neq0$。若 $m=0$，上式将推出 $\alpha=0$，与 $\alpha$ 为无理数矛盾；若 $m\neq0$，则
+\[
+  \alpha=\frac{m}{\frac12-n}\in\QQ,
+\]
+仍与 $\alpha$ 无理矛盾。因此 $\alpha/2\notin K+C$，从而
 \[
   K+C\neq\RR.
 \]
